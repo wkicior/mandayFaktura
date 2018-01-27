@@ -13,6 +13,10 @@
 		D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */; };
 		D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */; };
 		D34D0EDD201A7CBC000D1EC6 /* mandayFakturaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */; };
+		D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F09201CE8B2000D1EC6 /* Invoice.swift */; };
+		D34D0F0B201CE8B2000D1EC6 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F09201CE8B2000D1EC6 /* Invoice.swift */; };
+		D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */; };
+		D34D0F0F201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,8 @@
 		D34D0ED8201A7CBC000D1EC6 /* mandayFakturaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mandayFakturaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mandayFakturaUITests.swift; sourceTree = "<group>"; };
 		D34D0EDE201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34D0F09201CE8B2000D1EC6 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D34D0F08201CE888000D1EC6 /* Invoices */,
 				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
 				D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */,
 				D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */,
@@ -122,6 +129,15 @@
 				D34D0EDE201A7CBC000D1EC6 /* Info.plist */,
 			);
 			path = mandayFakturaUITests;
+			sourceTree = "<group>";
+		};
+		D34D0F08201CE888000D1EC6 /* Invoices */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
+				D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */,
+			);
+			path = Invoices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
+				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
+				D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
+				D34D0F0F201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
+				D34D0F0B201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
