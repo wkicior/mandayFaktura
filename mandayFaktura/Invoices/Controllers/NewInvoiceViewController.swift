@@ -21,8 +21,6 @@ class NewInvoiceViewController: NSViewController {
         issueDatePicker.dateValue = Date()
         let appDel = NSApplication.shared.delegate as! AppDelegate
         invoiceRepository = appDel.invoiceRepository
-
-        // Do view setup here.
     }
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
