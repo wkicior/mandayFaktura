@@ -21,6 +21,8 @@
 		D34D0F12201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
 		D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */; };
 		D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */; };
+		D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */; };
+		D34D0F1D201E6EE6000D1EC6 /* Invoice.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D34D0F1C201E6EE6000D1EC6 /* Invoice.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryDataSourceController.swift; sourceTree = "<group>"; };
 		D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRepository.swift; sourceTree = "<group>"; };
 		D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
+		D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
+		D34D0F1C201E6EE6000D1EC6 /* Invoice.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Invoice.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D34D0F1C201E6EE6000D1EC6 /* Invoice.pdf */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
 				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
 				D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */,
@@ -170,6 +175,7 @@
 			children = (
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
+				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34D0F1D201E6EE6000D1EC6 /* Invoice.pdf in Resources */,
 				D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */,
 				D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */,
 			);
@@ -310,6 +317,7 @@
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
+				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
