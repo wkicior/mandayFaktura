@@ -17,6 +17,8 @@
 		D34D0F0B201CE8B2000D1EC6 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F09201CE8B2000D1EC6 /* Invoice.swift */; };
 		D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */; };
 		D34D0F0F201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */; };
+		D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
+		D34D0F12201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		D34D0EDE201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D34D0F09201CE8B2000D1EC6 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesRepository.swift; sourceTree = "<group>"; };
+		D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryDataSourceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 			children = (
 				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
 				D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */,
+				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */,
 			);
 			path = Invoices;
 			sourceTree = "<group>";
@@ -274,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
+				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
@@ -285,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
+				D34D0F12201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
 				D34D0F0F201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
 				D34D0F0B201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 			);

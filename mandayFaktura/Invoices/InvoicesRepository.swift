@@ -8,6 +8,14 @@
 
 import Foundation
 
-class InvoicesRepository {
+protocol InvoicesRepository {
+    func getInvoices() -> [Invoice]
+}
+
+class InMemoryInvoicesRepository: InvoicesRepository {
     let invoices = [Invoice(issueDate: Date(), number: "01/A/2018"), Invoice(issueDate: Date(), number: "01/A/2018")]
+    
+    func getInvoices() -> [Invoice] {
+        return invoices
+    }
 }

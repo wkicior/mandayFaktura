@@ -10,10 +10,12 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var invoiceHistoryTableView: NSTableView!
+    let invoiceHistoryDataSourceController = InvoiceHistoryDataSourceController()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        invoiceHistoryTableView.delegate = invoiceHistoryDataSourceController
+        invoiceHistoryTableView.dataSource = invoiceHistoryDataSourceController
     }
 
     override var representedObject: Any? {
