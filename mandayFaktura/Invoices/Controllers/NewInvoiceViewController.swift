@@ -8,6 +8,11 @@
 
 import Cocoa
 
+struct NewInvoiceViewControllerConstants {
+    static let INVOICE_ADDED_NOTIFICATION = Notification.Name(rawValue: "InvoiceAdded")
+
+}
+
 class NewInvoiceViewController: NSViewController {
     var invoiceRepository:InvoiceRepository?
 
@@ -26,7 +31,7 @@ class NewInvoiceViewController: NSViewController {
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         let invoice = Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue)
         invoiceRepository?.addInvoice(invoice)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "InvoiceAdded"), object: invoice)
+        NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
         view.window?.close()
     }
 }

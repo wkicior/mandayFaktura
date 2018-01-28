@@ -22,9 +22,8 @@ class ViewController: NSViewController {
         invoiceHistoryTableViewController = InvoiceHistoryTableViewController(invoiceRepository: invoiceRepository!)
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewController
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewController
-        
-        let notificationName = Notification.Name(rawValue: "InvoiceAdded")
-        NotificationCenter.default.addObserver(forName: notificationName,
+    
+        NotificationCenter.default.addObserver(forName: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in
                                                 self.invoiceHistoryTableView.reloadData()
