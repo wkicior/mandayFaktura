@@ -11,11 +11,12 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
-    let invoiceHistoryDataSourceController = InvoiceHistoryDataSourceController()
+    let invoiceHistoryTableViewController = InvoiceHistoryTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        invoiceHistoryTableView.delegate = invoiceHistoryDataSourceController
-        invoiceHistoryTableView.dataSource = invoiceHistoryDataSourceController
+        invoiceHistoryTableView.delegate = invoiceHistoryTableViewController
+        invoiceHistoryTableView.dataSource = invoiceHistoryTableViewController
     }
 
     override var representedObject: Any? {

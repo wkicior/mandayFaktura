@@ -19,6 +19,7 @@
 		D34D0F0F201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */; };
 		D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
 		D34D0F12201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
+		D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D34D0F09201CE8B2000D1EC6 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesRepository.swift; sourceTree = "<group>"; };
 		D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryDataSourceController.swift; sourceTree = "<group>"; };
+		D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,11 +139,36 @@
 		D34D0F08201CE888000D1EC6 /* Invoices */ = {
 			isa = PBXGroup;
 			children = (
-				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
-				D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */,
-				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */,
+				D34D0F13201DD9E6000D1EC6 /* Model */,
+				D34D0F14201DD9F9000D1EC6 /* Persistance */,
+				D34D0F15201DDA0D000D1EC6 /* Controllers */,
 			);
 			path = Invoices;
+			sourceTree = "<group>";
+		};
+		D34D0F13201DD9E6000D1EC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
+				D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D34D0F14201DD9F9000D1EC6 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		D34D0F15201DDA0D000D1EC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
+				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,

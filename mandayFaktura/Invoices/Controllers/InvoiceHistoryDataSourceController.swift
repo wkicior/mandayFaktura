@@ -10,13 +10,20 @@ import Foundation
 import AppKit
 
 fileprivate enum CellIdentifiers {
-    static let NameCell = "numberCellId"
-    static let DateCell = "issueDateCellId"
+    static let NumberCell = "numberCellId"
+    static let IssueDateCell = "issueDateCellId"
 }
 
-class InvoiceHistoryDataSourceController : NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class InvoiceHistoryTableViewController : NSObject, NSTableViewDataSource, NSTableViewDelegate {
    
-    let invoicesRepository:InvoicesRepository = InMemoryInvoicesRepository()
+    let invoicesRepository:InvoiceRepository = InMemoryInvoicesRepository()
+    let dateFormatter = DateFormatter()
+    
+    override init() {
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .long
+        super.init()
+    }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return invoicesRepository.getInvoices().count
@@ -26,18 +33,14 @@ class InvoiceHistoryDataSourceController : NSObject, NSTableViewDataSource, NSTa
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .long
-
         let item = invoicesRepository.getInvoices()[row]
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number
-            cellIdentifier = CellIdentifiers.NameCell
+            cellIdentifier = CellIdentifiers.NumberCell
         } else if tableColumn == tableView.tableColumns[1] {
             text = dateFormatter.string(from: item.issueDate)
-            cellIdentifier = CellIdentifiers.DateCell
+            cellIdentifier = CellIdentifiers.IssueDateCell
         }
 
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
