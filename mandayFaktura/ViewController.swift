@@ -11,13 +11,29 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
-    let invoiceHistoryTableViewController = InvoiceHistoryTableViewController()
+    var invoiceRepository:InvoiceRepository?
+    var invoiceHistoryTableViewController:InvoiceHistoryTableViewController?
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDel = NSApplication.shared.delegate as! AppDelegate
+        invoiceRepository = appDel.invoiceRepository
+        invoiceHistoryTableViewController = InvoiceHistoryTableViewController(invoiceRepository: invoiceRepository!)
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewController
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewController
+        
+        let notificationName = Notification.Name(rawValue: "InvoiceAdded")
+        NotificationCenter.default.addObserver(forName: notificationName,
+                                               object: nil, queue: nil) {
+                                                (notification) in
+                                                self.invoiceHistoryTableView.reloadData()
+        }
+        
+
     }
+    
+   
 
     override var representedObject: Any? {
         didSet {

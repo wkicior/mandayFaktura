@@ -17,4 +17,9 @@ protocol InvoiceRepository {
      Returns all the invoices
      */
     func getInvoices() -> [Invoice]
+    
+    /**
+    Adds new invoice to the repository
+    */
+    func addInvoice(_ invoice:Invoice)
 }

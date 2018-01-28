@@ -21,24 +21,25 @@ fileprivate enum CellIdentifiers {
  */
 class InvoiceHistoryTableViewController : NSObject, NSTableViewDataSource, NSTableViewDelegate {
    
-    let invoicesRepository:InvoiceRepository = InMemoryInvoicesRepository()
+    let invoiceRepository:InvoiceRepository
     let dateFormatter = DateFormatter()
     
-    override init() {
+    init(invoiceRepository: InvoiceRepository) {
+        self.invoiceRepository = invoiceRepository
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .long
         super.init()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return invoicesRepository.getInvoices().count
+        return invoiceRepository.getInvoices().count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let item = invoicesRepository.getInvoices()[row]
+        let item = invoiceRepository.getInvoices()[row]
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number

@@ -20,6 +20,7 @@
 		D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
 		D34D0F12201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */; };
 		D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */; };
+		D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D34D0F0D201CEB02000D1EC6 /* InvoicesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesRepository.swift; sourceTree = "<group>"; };
 		D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryDataSourceController.swift; sourceTree = "<group>"; };
 		D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRepository.swift; sourceTree = "<group>"; };
+		D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */,
+				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
+				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
 			);
