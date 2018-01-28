@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ * The protocol for the invoices repository.
+ * Extracting the protocol follows the IoC principle allowing to plug-in any persistance implementation without polluting the model
+ */
 protocol InvoiceRepository {
+    /**
+     Returns all the invoices
+     */
     func getInvoices() -> [Invoice]
 }

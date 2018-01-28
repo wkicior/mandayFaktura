@@ -14,6 +14,11 @@ fileprivate enum CellIdentifiers {
     static let IssueDateCell = "issueDateCellId"
 }
 
+/**
+ The controller of invoices history table view.
+ Serves as delegate and the datasource for the table.
+ Fetches the data from the model invoicesRepository protocol
+ */
 class InvoiceHistoryTableViewController : NSObject, NSTableViewDataSource, NSTableViewDelegate {
    
     let invoicesRepository:InvoiceRepository = InMemoryInvoicesRepository()
