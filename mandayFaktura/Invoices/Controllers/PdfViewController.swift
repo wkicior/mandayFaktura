@@ -12,12 +12,12 @@ import Quartz
 class PdfViewController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let fileUrl:URL? = Bundle.main.url(forResource: "Invoice", withExtension: "pdf")
-        let doc = PDFDocument(url: fileUrl!)
-        pdfView.document = doc
-        // Do view setup here.
+        
+        let pdfInvoice = PdfInvoice()
+        pdfView.document = pdfInvoice.getDocument()
     }
     
 }
