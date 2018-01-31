@@ -9,9 +9,9 @@
 import Foundation
 
 struct Invoice {
-    let issueDate:Date
-    let number:String
-    //let seller = Counterparty()
-    //let buyer = Counterparty()
-    
+    let issueDate: Date
+    let number: String
+    let sellingDate: Date
+    let seller: Counterparty
+    let buyer: Counterparty
 }

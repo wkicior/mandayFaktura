@@ -24,6 +24,7 @@
 		D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */; };
 		D34D0F1D201E6EE6000D1EC6 /* Invoice.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D34D0F1C201E6EE6000D1EC6 /* Invoice.pdf */; };
 		D34D0F202020E939000D1EC6 /* PdfInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1F2020E939000D1EC6 /* PdfInvoice.swift */; };
+		D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2720225AAB000D1EC6 /* Counterparty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		D34D0F1C201E6EE6000D1EC6 /* Invoice.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Invoice.pdf; sourceTree = "<group>"; };
 		D34D0F1F2020E939000D1EC6 /* PdfInvoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfInvoice.swift; sourceTree = "<group>"; };
+		D34D0F2720225AAB000D1EC6 /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D34D0F2520225A81000D1EC6 /* Counterparties */,
 				D34D0F1C201E6EE6000D1EC6 /* Invoice.pdf */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
 				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
@@ -189,6 +192,22 @@
 				D34D0F1F2020E939000D1EC6 /* PdfInvoice.swift */,
 			);
 			path = Pdf;
+			sourceTree = "<group>";
+		};
+		D34D0F2520225A81000D1EC6 /* Counterparties */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F2620225A9A000D1EC6 /* Model */,
+			);
+			path = Counterparties;
+			sourceTree = "<group>";
+		};
+		D34D0F2620225A9A000D1EC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F2720225AAB000D1EC6 /* Counterparty.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +351,7 @@
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
+				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
 			);
