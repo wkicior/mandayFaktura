@@ -41,6 +41,16 @@ private extension InvoiceItem {
     }
 }
 
+private extension Invoice {
+    static let summaryColumnNames = ["Wartość Netto", "Kwota VAT", "Wartość Brutto"]
+    
+    var propertiesForDisplay: [String] {
+        get {
+            return [self.totalNetValue.description, self.totalVatValue.description, self.totalGrossValue.description]
+        }
+    }
+}
+
 class InvoicePdfPage: BasePDFPage {
     let invoice: Invoice
     let dateFormatter = DateFormatter()
@@ -146,6 +156,32 @@ class InvoicePdfPage: BasePDFPage {
         }
     }
     
+    func drawItemsSummary() {
+        drawItemsSummaryHeader()
+        var propertyCounter = 0
+        (["Razem:"] + self.invoice.propertiesForDisplay).forEach { prop in
+            let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(propertyCounter) * defaultColumnWidth),
+                                  self.pdfHeight - CGFloat(500) - (3 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+                                  defaultColumnWidth,
+                                  defaultRowHeight)
+            propertyCounter = propertyCounter + 1
+            prop.draw(in: rect, withAttributes: fontAttributesBold)
+        }
+    }
+    
+    func drawItemsSummaryHeader() {
+        var counter = 0
+        ([""] + Invoice.summaryColumnNames).forEach { name in
+            let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(counter) * defaultColumnWidth),
+                                  self.pdfHeight - CGFloat(500) - (2 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+                                  defaultColumnWidth,
+                                  defaultRowHeight)
+            counter = counter + 1
+            name.draw(in: rect, withAttributes: fontAttributesBold)
+            
+        }
+    }
+    
     func getDateString(_ date: Date) -> String {
         return self.dateFormatter.string(from: date)
     }
@@ -175,5 +211,6 @@ class InvoicePdfPage: BasePDFPage {
         self.drawSeller()
         self.drawBuyer()
         self.drawItems()
+        self.drawItemsSummary()
     }
 }
