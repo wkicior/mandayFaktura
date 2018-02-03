@@ -18,10 +18,10 @@ private extension InvoiceItem {
     /**
      Return properties list in respectively for itemColumnNames order
      */
-    var properties: [String] {
+    var propertiesForDisplay: [String] {
         get {
             return [self.name, self.amount.description, unitOfMeasureLabel, self.unitNetPrice.description,
-                    self.netValue.description, self.vatValueInPercent.description, "TODO", self.grossValue.description]
+                    self.netValue.description, "\(self.vatValueInPercent.description)%", self.vatValue.description, self.grossValue.description]
         }
     }
     
@@ -117,7 +117,7 @@ class InvoicePdfPage: BasePDFPage {
 
         self.invoice.items.forEach { item in
            var propertyCounter = 0
-            let properties = [(itemCounter + 1).description] + item.properties
+            let properties = [(itemCounter + 1).description] + item.propertiesForDisplay
             properties.forEach { property in
                 let rect = NSMakeRect(
                     leftMargin + (CGFloat(propertyCounter) * defaultColumnWidth),

@@ -26,9 +26,15 @@ struct InvoiceItem {
     
     var grossValue: Decimal {
         get {
-            var grossValue =  netValue * (vatValueInPercent/100 + 1)
+            return netValue + vatValue
+        }
+    }
+    
+    var vatValue: Decimal {
+        get {
+            var vatValue = vatValueInPercent/100 * netValue
             var result = Decimal()
-            NSDecimalRound(&result, &grossValue, 2, .plain)
+            NSDecimalRound(&result, &vatValue, 2, .plain)
             return result
         }
     }
