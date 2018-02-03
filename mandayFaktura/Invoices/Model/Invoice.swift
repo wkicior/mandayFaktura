@@ -14,4 +14,5 @@ struct Invoice {
     let sellingDate: Date
     let seller: Counterparty
     let buyer: Counterparty
+    let items: [InvoiceItem]
 }

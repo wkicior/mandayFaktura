@@ -31,7 +31,7 @@ class NewInvoiceViewController: NSViewController {
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         let seller = Counterparty(name: "Firma Krzak", streetAndNumber: "Bolesława 4/12", city: "Warszawka", postalCode: "00-000", taxCode: "123456789", accountNumber:"PL0000111122223333")
         let buyer = Counterparty(name: "Firma XYZ", streetAndNumber: "Miłosza 4/12", city: "Szczebocin", postalCode: "00-000", taxCode: "123456789", accountNumber:"")
-        let invoice = Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: Date(), seller: seller, buyer: buyer)
+        let invoice = Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: Date(), seller: seller, buyer: buyer, items: [])
         invoiceRepository?.addInvoice(invoice)
         NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
         view.window?.close()

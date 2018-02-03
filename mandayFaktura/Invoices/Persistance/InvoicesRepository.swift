@@ -14,9 +14,9 @@ class InMemoryInvoicesRepository: InvoiceRepository {
     init() {
         let seller = Counterparty(name: "Firma Krzak", streetAndNumber: "Bolesława 4/12", city: "Warszawka", postalCode: "00-000", taxCode: "123456789", accountNumber:"PL0000111122223333")
         let buyer = Counterparty(name: "Firma XYZ", streetAndNumber: "Miłosza 4/12", city: "Szczebocin", postalCode: "00-000", taxCode: "123456789", accountNumber:"")
-        self.invoices = [Invoice(issueDate: Date(), number: "01/A/2018", sellingDate: Date(), seller: seller, buyer: buyer),
-                        Invoice(issueDate: Date(), number: "02/A/2018", sellingDate: Date(), seller: seller, buyer: buyer),
-                        Invoice(issueDate: Date(), number: "03/A/2018", sellingDate: Date(), seller: seller, buyer: buyer)]
+        self.invoices = [Invoice(issueDate: Date(), number: "01/A/2018", sellingDate: Date(), seller: seller, buyer: buyer, items: []),
+                         Invoice(issueDate: Date(), number: "02/A/2018", sellingDate: Date(), seller: seller, buyer: buyer, items: []),
+                         Invoice(issueDate: Date(), number: "03/A/2018", sellingDate: Date(), seller: seller, buyer: buyer, items: [])]
     }
    
     
