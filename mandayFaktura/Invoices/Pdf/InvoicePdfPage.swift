@@ -68,12 +68,19 @@ private extension Decimal {
         }
     }
     
+    var fractionalPart: Decimal {
+        get {
+            return 100 * (self - Decimal(int))
+        }
+    }
+    
+    
     var spelledOut: String {
         get {
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = NumberFormatter.Style.spellOut
-            
-            return numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
+            var spelledOutInt = numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
+            return  "\(spelledOutInt) \(self.fractionalPart.description)/100"
         }
     }
 }
@@ -216,7 +223,7 @@ class InvoicePdfPage: BasePDFPage {
         let msg =
         """
         Do zapłaty \(self.invoice.totalGrossValue) PLN
-        słownie: \(self.invoice.totalGrossValue.spelledOut) / TODO gr
+        słownie: \(self.invoice.totalGrossValue.spelledOut) PLN
         forma płatności: \(self.invoice.paymentFormLabel)
         termin płatności: \(self.getDateString(self.invoice.paymentDueDate))
         """
