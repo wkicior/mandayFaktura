@@ -16,8 +16,8 @@ class PdfViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pdfInvoice = PdfInvoice()
-        pdfView.document = pdfInvoice.getDocument()
+        let invoicePdf = InvoicePdf()
+        pdfView.document = invoicePdf.getDocument()
     }
     
 }
