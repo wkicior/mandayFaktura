@@ -20,7 +20,7 @@ class InvoicePdf {
         let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
         let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
 
-        let invoicePage = InvoicePdfPage(invoice: Invoice(issueDate: Date(), number: "NA/12/13", sellingDate: Date(), seller: seller, buyer: buyer, items: [item1, item2]), pageNumber: 1)
+        let invoicePage = InvoicePdfPage(invoice: Invoice(issueDate: Date(), number: "NA/12/13", sellingDate: Date(), seller: seller, buyer: buyer, items: [item1, item2], paymentForm: .cash, paymentDueDate: Date()), pageNumber: 1)
         doc.insert(invoicePage, at: 0)
         
         return doc

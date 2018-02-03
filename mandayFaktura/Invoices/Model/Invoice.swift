@@ -15,6 +15,8 @@ struct Invoice {
     let seller: Counterparty
     let buyer: Counterparty
     let items: [InvoiceItem]
+    let paymentForm: PaymentForm
+    let paymentDueDate: Date
     
     var totalNetValue: Decimal {
         get {

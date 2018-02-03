@@ -27,6 +27,7 @@
 		D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */; };
 		D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */; };
 		D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F4202614C100FFB262 /* InvoiceTests.swift */; };
+		D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F620261A8500FFB262 /* PaymentForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOfMeasure.swift; sourceTree = "<group>"; };
 		D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTests.swift; sourceTree = "<group>"; };
 		D370A7F4202614C100FFB262 /* InvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTests.swift; sourceTree = "<group>"; };
+		D370A7F620261A8500FFB262 /* PaymentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */,
 				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
 				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
+				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
 				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
