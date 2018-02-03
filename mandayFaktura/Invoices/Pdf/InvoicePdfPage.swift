@@ -49,6 +49,33 @@ private extension Invoice {
             return [self.totalNetValue.description, self.totalVatValue.description, self.totalGrossValue.description]
         }
     }
+    
+    var paymentFormLabel: String {
+        switch self.paymentForm {
+        case .cash:
+            return "gotówka"
+        case .transfer:
+            return "przelew"
+        }
+    }
+}
+
+private extension Decimal {
+    var int: Int {
+        get {
+            let result = NSDecimalNumber(decimal: self)
+            return Int(truncating: result)
+        }
+    }
+    
+    var spelledOut: String {
+        get {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = NumberFormatter.Style.spellOut
+            
+            return numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
+        }
+    }
 }
 
 class InvoicePdfPage: BasePDFPage {
@@ -182,6 +209,20 @@ class InvoicePdfPage: BasePDFPage {
         }
     }
     
+    func drawPaymentSummary() {
+        let rect = NSMakeRect(CGFloat(100.0), self.pdfHeight - CGFloat(500.0) - (7 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+                                1/2 * self.pdfWidth, 1/5 * self.pdfHeight)
+        
+        let msg =
+        """
+        Do zapłaty \(self.invoice.totalGrossValue) PLN
+        słownie: \(self.invoice.totalGrossValue.spelledOut) / TODO gr
+        forma płatności: \(self.invoice.paymentFormLabel)
+        termin płatności: \(self.getDateString(self.invoice.paymentDueDate))
+        """
+        msg.draw(in: rect, withAttributes: fontAttributesBold)
+    }
+    
     func getDateString(_ date: Date) -> String {
         return self.dateFormatter.string(from: date)
     }
@@ -212,5 +253,6 @@ class InvoicePdfPage: BasePDFPage {
         self.drawBuyer()
         self.drawItems()
         self.drawItemsSummary()
+        self.drawPaymentSummary()
     }
 }
