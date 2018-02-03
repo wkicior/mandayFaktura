@@ -22,10 +22,11 @@
 		D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1F2020E939000D1EC6 /* InvoicePdf.swift */; };
 		D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */; };
 		D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */; };
-        	D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2720225AAB000D1EC6 /* Counterparty.swift */; };
-        D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */; };
+		D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2720225AAB000D1EC6 /* Counterparty.swift */; };
+		D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */; };
 		D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */; };
 		D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */; };
+		D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F4202614C100FFB262 /* InvoiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +69,11 @@
 		D34D0F1F2020E939000D1EC6 /* InvoicePdf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdf.swift; sourceTree = "<group>"; };
 		D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePdfPage.swift; sourceTree = "<group>"; };
 		D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdfPage.swift; sourceTree = "<group>"; };
-        D34D0F2720225AAB000D1EC6 /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };		
-        D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
+		D34D0F2720225AAB000D1EC6 /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };
+		D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOfMeasure.swift; sourceTree = "<group>"; };
 		D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTests.swift; sourceTree = "<group>"; };
+		D370A7F4202614C100FFB262 /* InvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */,
+				D370A7F4202614C100FFB262 /* InvoiceTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,7 +381,7 @@
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
-                D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
+				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
 				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
 				D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */,
 				D34D0F0E201CEB02000D1EC6 /* InvoicesRepository.swift in Sources */,
@@ -391,6 +394,7 @@
 			files = (
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
+				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

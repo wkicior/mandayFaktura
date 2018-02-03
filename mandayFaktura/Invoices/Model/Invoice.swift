@@ -15,4 +15,22 @@ struct Invoice {
     let seller: Counterparty
     let buyer: Counterparty
     let items: [InvoiceItem]
+    
+    var totalNetValue: Decimal {
+        get {
+            return items.map{i in i.netValue}.reduce(0, +)
+        }
+    }
+    
+    var totalVatValue: Decimal {
+        get {
+            return items.map{i in i.vatValue}.reduce(0, +)
+        }
+    }
+    
+    var totalGrossValue: Decimal {
+        get {
+            return items.map{i in i.grossValue}.reduce(0, +)
+        }
+    }
 }
