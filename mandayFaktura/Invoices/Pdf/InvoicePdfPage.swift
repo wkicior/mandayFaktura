@@ -41,6 +41,14 @@ private extension InvoiceItem {
     }
 }
 
+private extension BreakdownEntry {
+    var propertiesForDisplay: [String] {
+        get {
+            return [self.netValue.description, "\(self.vatValueInPercent.description)%", self.vatValue.description, self.grossValue.description]
+        }
+    }
+}
+
 private extension Invoice {
     static let summaryColumnNames = ["Wartość Netto", "Kwota VAT", "Wartość Brutto"]
     
@@ -204,14 +212,6 @@ class InvoicePdfPage: BasePDFPage {
         drawVatBreakdown()
     }
     
-    func drawVatBreakdown() {
-        /*let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(propertyCounter) * defaultColumnWidth),
-                              self.pdfHeight - CGFloat(500) - (4 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
-                              defaultColumnWidth,
-                              defaultRowHeight)
-        "TODO".draw(in: rect, withAttributes: fontAttributesBold)*/
-    }
-    
     func drawItemsSummaryHeader() {
         var counter = 0
         ([""] + Invoice.summaryColumnNames).forEach { name in
@@ -225,9 +225,22 @@ class InvoicePdfPage: BasePDFPage {
         }
     }
     
+    func drawVatBreakdown() {
+        let yStart = self.pdfHeight - CGFloat(500) - (4 + CGFloat(self.invoice.items.count)) * defaultRowHeight
+        for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
+            let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
+            for propIndex in 0 ..< breakdown.propertiesForDisplay.count {
+                let x = self.pdfWidth / 2 + leftMargin + (CGFloat(propIndex) * defaultColumnWidth)
+                let y = yStart - (CGFloat(breakdownIndex) * defaultRowHeight)
+                let rect = NSMakeRect(x, y, defaultColumnWidth, defaultRowHeight)
+                breakdown.propertiesForDisplay[propIndex].draw(in: rect, withAttributes: fontAttributesBold)
+            }
+        }
+    }
+    
     func drawPaymentSummary() {
         let rect = NSMakeRect(CGFloat(100.0), self.pdfHeight - CGFloat(500.0) - (7 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
-                                1/2 * self.pdfWidth, 1/5 * self.pdfHeight)
+                                1/3 * self.pdfWidth, 1/5 * self.pdfHeight)
         
         let msg =
         """
