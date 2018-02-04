@@ -35,6 +35,8 @@
 		D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */; };
 		D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */; };
 		D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */; };
+		D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80B2027A60600FFB262 /* DateFormatting.swift */; };
+		D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownPrintingExtension.swift; sourceTree = "<group>"; };
 		D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePrintingExtension.swift; sourceTree = "<group>"; };
 		D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalPrintingExtension.swift; sourceTree = "<group>"; };
+		D370A80B2027A60600FFB262 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
+		D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyPrintingExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */,
 				D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */,
 				D370A7FC202757AF00FFB262 /* FontFormatting.swift */,
+				D370A80B2027A60600FFB262 /* DateFormatting.swift */,
 			);
 			path = Pdf;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				D370A8002027893B00FFB262 /* InvoiceItemPrintingExtension.swift */,
 				D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */,
 				D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */,
+				D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */,
 			);
 			path = PrintingExtensions;
 			sourceTree = "<group>";
@@ -405,6 +411,7 @@
 			files = (
 				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
+				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
 				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
@@ -418,6 +425,7 @@
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,

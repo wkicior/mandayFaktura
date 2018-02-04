@@ -25,4 +25,29 @@ internal extension Invoice {
             return "przelew"
         }
     }
+    
+    var printedHeader: String {
+        let header =
+        """
+        Faktura VAT
+        Nr: \(number)
+        Data wystawienia: \(DateFormatting.getDateString(issueDate))
+        Data sprzedaży: \(DateFormatting.getDateString(sellingDate))
+        
+        
+        ORYGINAŁ
+        """
+        return header
+    }
+    
+    var printedPaymentSummary: String {
+        let summary =
+        """
+        Do zapłaty \(totalGrossValue) PLN
+        słownie: \(totalGrossValue.spelledOut) PLN
+        forma płatności: \(paymentFormLabel)
+        termin płatności: \(DateFormatting.getDateString(paymentDueDate))
+        """
+        return summary
+    }
 }

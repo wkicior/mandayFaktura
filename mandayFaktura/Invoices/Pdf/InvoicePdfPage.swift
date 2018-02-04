@@ -12,9 +12,8 @@ import Quartz
 
 class InvoicePdfPage: BasePDFPage {
     let invoice: Invoice
-    let dateFormatter = DateFormatter()
     let fontFormatting = FontFormatting()
-   
+    
     let defaultRowHeight  = CGFloat(25.0)
     let defaultColumnWidth = CGFloat(80.0)
     
@@ -22,56 +21,26 @@ class InvoicePdfPage: BasePDFPage {
 
     init(invoice:Invoice, pageNumber:Int) {
         self.invoice = invoice
-        self.dateFormatter.timeStyle = .none
-        self.dateFormatter.dateStyle = .short
         self.itemsStartYPosition = CGFloat(574)
-
         super.init(pageNumber: pageNumber)
     }
     
     func drawInvoiceHeader() {
         let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0), self.pdfHeight - CGFloat(300.0),
                                        1/2 * self.pdfWidth, 1/5 * self.pdfHeight)
-        let msg =
-        """
-        Faktura VAT
-        Nr: \(self.invoice.number)
-        Data wystawienia: \(self.getDateString(self.invoice.issueDate))
-        Data sprzedaży: \(self.getDateString(self.invoice.sellingDate))
-        
-        
-        ORYGINAŁ
-        """
-        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+        invoice.printedHeader.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawSeller() {
         let rect = NSMakeRect(CGFloat(100.0), self.pdfHeight - CGFloat(450.0),
                               1/2 * self.pdfWidth, 1/5 * self.pdfHeight)
-        let msg =
-        """
-        Sprzedawca:
-        \(self.invoice.seller.name)
-        \(self.invoice.seller.streetAndNumber)
-        \(self.invoice.seller.postalCode) \(self.invoice.seller.city)
-        NIP: \(self.invoice.seller.taxCode)
-        Nr konta: \(self.invoice.seller.accountNumber)
-        """
-        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+        invoice.seller.printedSeller.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawBuyer() {
         let rect = NSMakeRect(1/2 * self.pdfWidth, self.pdfHeight - CGFloat(450.0),
                               1/2 * self.pdfWidth, 1/5 * self.pdfHeight)
-        let msg =
-        """
-        Nabywca:
-        \(self.invoice.buyer.name)
-        \(self.invoice.buyer.streetAndNumber)
-        \(self.invoice.buyer.postalCode) \(self.invoice.buyer.city)
-        NIP: \(self.invoice.buyer.taxCode)
-        """
-        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+        invoice.buyer.printedBuyer.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawItems() {
@@ -152,20 +121,10 @@ class InvoicePdfPage: BasePDFPage {
     func drawPaymentSummary() {
         let rect = NSMakeRect(CGFloat(100.0), itemsStartYPosition - (13 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
                                 1/3 * self.pdfWidth, 1/5 * self.pdfHeight)
-        
-        let msg =
-        """
-        Do zapłaty \(self.invoice.totalGrossValue) PLN
-        słownie: \(self.invoice.totalGrossValue.spelledOut) PLN
-        forma płatności: \(self.invoice.paymentFormLabel)
-        termin płatności: \(self.getDateString(self.invoice.paymentDueDate))
-        """
-        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+        invoice.printedPaymentSummary.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
-    func getDateString(_ date: Date) -> String {
-        return self.dateFormatter.string(from: date)
-    }
+   
     
     func drawVerticalGrids(){
         for i in 0 ..< InvoiceItem.itemColumnNames.count + 1 {
