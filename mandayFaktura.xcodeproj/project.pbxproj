@@ -30,6 +30,7 @@
 		D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F620261A8500FFB262 /* PaymentForm.swift */; };
 		D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F82027110E00FFB262 /* VatBreakdown.swift */; };
 		D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */; };
+		D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7FC202757AF00FFB262 /* FontFormatting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		D370A7F620261A8500FFB262 /* PaymentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentForm.swift; sourceTree = "<group>"; };
 		D370A7F82027110E00FFB262 /* VatBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdown.swift; sourceTree = "<group>"; };
 		D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownTests.swift; sourceTree = "<group>"; };
+		D370A7FC202757AF00FFB262 /* FontFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFormatting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				D34D0F1F2020E939000D1EC6 /* InvoicePdf.swift */,
 				D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */,
 				D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */,
+				D370A7FC202757AF00FFB262 /* FontFormatting.swift */,
 			);
 			path = Pdf;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
+				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,

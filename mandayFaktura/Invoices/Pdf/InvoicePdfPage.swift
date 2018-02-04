@@ -96,24 +96,18 @@ private extension Decimal {
 class InvoicePdfPage: BasePDFPage {
     let invoice: Invoice
     let dateFormatter = DateFormatter()
-    
-    let paragraphStyle = NSMutableParagraphStyle()
-    let fontAttributesBold: [NSAttributedStringKey: Any]
-    let fontBold = NSFont(name: "Helvetica Bold", size: 11.0)
-    
-    let defaultRowHeight  = CGFloat(50.0)
+    let fontFormatting = FontFormatting()
+   
+    let defaultRowHeight  = CGFloat(25.0)
     let defaultColumnWidth = CGFloat(80.0)
+    
+    let itemsStartYPosition: CGFloat
 
     init(invoice:Invoice, pageNumber:Int) {
         self.invoice = invoice
         self.dateFormatter.timeStyle = .none
         self.dateFormatter.dateStyle = .short
-        paragraphStyle.alignment = .left
-        
-        fontAttributesBold = [
-            NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyle
-        ]
+        self.itemsStartYPosition = CGFloat(574)
 
         super.init(pageNumber: pageNumber)
     }
@@ -131,7 +125,7 @@ class InvoicePdfPage: BasePDFPage {
         
         ORYGINAŁ
         """
-        msg.draw(in: rect, withAttributes: fontAttributesBold)
+        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawSeller() {
@@ -146,7 +140,7 @@ class InvoicePdfPage: BasePDFPage {
         NIP: \(self.invoice.seller.taxCode)
         Nr konta: \(self.invoice.seller.accountNumber)
         """
-        msg.draw(in: rect, withAttributes: fontAttributesBold)
+        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawBuyer() {
@@ -160,7 +154,7 @@ class InvoicePdfPage: BasePDFPage {
         \(self.invoice.buyer.postalCode) \(self.invoice.buyer.city)
         NIP: \(self.invoice.buyer.taxCode)
         """
-        msg.draw(in: rect, withAttributes: fontAttributesBold)
+        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawItems() {
@@ -173,11 +167,11 @@ class InvoicePdfPage: BasePDFPage {
             properties.forEach { property in
                 let rect = NSMakeRect(
                     leftMargin + (CGFloat(propertyCounter) * defaultColumnWidth),
-                    self.pdfHeight - CGFloat(550) - (defaultRowHeight * CGFloat(itemCounter)),
+                    itemsStartYPosition - (defaultRowHeight * (CGFloat(itemCounter) + 1)),
                     defaultColumnWidth,
                     defaultRowHeight)
                 propertyCounter = propertyCounter + 1
-                property.draw(in: rect, withAttributes: fontAttributesBold)
+                property.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
             }
             itemCounter = itemCounter + 1
         }
@@ -190,11 +184,11 @@ class InvoicePdfPage: BasePDFPage {
         InvoiceItem.itemColumnNames.forEach { name in
             let rect = NSMakeRect(
                 leftMargin + (CGFloat(counter) * defaultColumnWidth),
-                self.pdfHeight - CGFloat(500),
+                itemsStartYPosition,
                 defaultColumnWidth,
                 defaultRowHeight)
             counter = counter + 1
-            name.draw(in: rect, withAttributes: fontAttributesBold)
+            name.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
         }
     }
     
@@ -203,11 +197,11 @@ class InvoicePdfPage: BasePDFPage {
         var propertyCounter = 0
         (["Razem:"] + self.invoice.propertiesForDisplay).forEach { prop in
             let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(propertyCounter) * defaultColumnWidth),
-                                  self.pdfHeight - CGFloat(500) - (3 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+                                  itemsStartYPosition - (3 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
                                   defaultColumnWidth,
                                   defaultRowHeight)
             propertyCounter = propertyCounter + 1
-            prop.draw(in: rect, withAttributes: fontAttributesBold)
+            prop.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
         }
         drawVatBreakdown()
     }
@@ -216,30 +210,30 @@ class InvoicePdfPage: BasePDFPage {
         var counter = 0
         ([""] + Invoice.summaryColumnNames).forEach { name in
             let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(counter) * defaultColumnWidth),
-                                  self.pdfHeight - CGFloat(500) - (2 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+                                  itemsStartYPosition - (2 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
                                   defaultColumnWidth,
                                   defaultRowHeight)
             counter = counter + 1
-            name.draw(in: rect, withAttributes: fontAttributesBold)
+            name.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
             
         }
     }
     
     func drawVatBreakdown() {
-        let yStart = self.pdfHeight - CGFloat(500) - (4 + CGFloat(self.invoice.items.count)) * defaultRowHeight
+        let yStart = itemsStartYPosition - (4 + CGFloat(self.invoice.items.count)) * defaultRowHeight
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             for propIndex in 0 ..< breakdown.propertiesForDisplay.count {
                 let x = self.pdfWidth / 2 + leftMargin + (CGFloat(propIndex) * defaultColumnWidth)
                 let y = yStart - (CGFloat(breakdownIndex) * defaultRowHeight)
                 let rect = NSMakeRect(x, y, defaultColumnWidth, defaultRowHeight)
-                breakdown.propertiesForDisplay[propIndex].draw(in: rect, withAttributes: fontAttributesBold)
+                breakdown.propertiesForDisplay[propIndex].draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
             }
         }
     }
     
     func drawPaymentSummary() {
-        let rect = NSMakeRect(CGFloat(100.0), self.pdfHeight - CGFloat(500.0) - (7 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+        let rect = NSMakeRect(CGFloat(100.0), itemsStartYPosition - (13 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
                                 1/3 * self.pdfWidth, 1/5 * self.pdfHeight)
         
         let msg =
@@ -249,7 +243,7 @@ class InvoicePdfPage: BasePDFPage {
         forma płatności: \(self.invoice.paymentFormLabel)
         termin płatności: \(self.getDateString(self.invoice.paymentDueDate))
         """
-        msg.draw(in: rect, withAttributes: fontAttributesBold)
+        msg.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func getDateString(_ date: Date) -> String {
@@ -259,8 +253,8 @@ class InvoicePdfPage: BasePDFPage {
     func drawVerticalGrids(){
         for i in 0 ..< InvoiceItem.itemColumnNames.count + 1 {
             let x = leftMargin + (CGFloat(i) * defaultColumnWidth)
-            let fromPoint = NSMakePoint(x, self.pdfHeight - CGFloat(500) + defaultRowHeight)
-            let toPoint = NSMakePoint(x, self.pdfHeight - CGFloat(500) - (CGFloat(self.invoice.items.count) * defaultRowHeight))
+            let fromPoint = NSMakePoint(x, itemsStartYPosition + defaultRowHeight)
+            let toPoint = NSMakePoint(x, itemsStartYPosition - (CGFloat(self.invoice.items.count) * defaultRowHeight))
             drawLine(fromPoint: fromPoint, toPoint: toPoint)
         }
     }
@@ -268,7 +262,7 @@ class InvoicePdfPage: BasePDFPage {
     func drawHorizontalGrids(){
         let rowCount = self.invoice.items.count + 2
         for i in 0 ..< rowCount {
-            let y = self.pdfHeight - CGFloat(500) - (CGFloat(i - 1) * defaultRowHeight)
+            let y = itemsStartYPosition - (CGFloat(i - 1) * defaultRowHeight)
             let fromPoint = NSMakePoint(leftMargin , y)
             let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
             drawLine(fromPoint: fromPoint, toPoint: toPoint)
