@@ -28,6 +28,8 @@
 		D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */; };
 		D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F4202614C100FFB262 /* InvoiceTests.swift */; };
 		D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F620261A8500FFB262 /* PaymentForm.swift */; };
+		D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F82027110E00FFB262 /* VatBreakdown.swift */; };
+		D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTests.swift; sourceTree = "<group>"; };
 		D370A7F4202614C100FFB262 /* InvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTests.swift; sourceTree = "<group>"; };
 		D370A7F620261A8500FFB262 /* PaymentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentForm.swift; sourceTree = "<group>"; };
+		D370A7F82027110E00FFB262 /* VatBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdown.swift; sourceTree = "<group>"; };
+		D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
 				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
 				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
+				D370A7F82027110E00FFB262 /* VatBreakdown.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			children = (
 				D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */,
 				D370A7F4202614C100FFB262 /* InvoiceTests.swift */,
+				D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
+				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
@@ -397,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
+				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
 				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
 			);

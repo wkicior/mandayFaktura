@@ -35,4 +35,10 @@ struct Invoice {
             return items.map{i in i.grossValue}.reduce(0, +)
         }
     }
+    
+    var vatBreakdown: VatBreakdown {
+        get {
+            return VatBreakdown(invoiceItems: self.items)
+        }
+    }
 }

@@ -79,7 +79,7 @@ private extension Decimal {
         get {
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = NumberFormatter.Style.spellOut
-            var spelledOutInt = numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
+            let spelledOutInt = numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
             return  "\(spelledOutInt) \(self.fractionalPart.description)/100"
         }
     }
@@ -201,6 +201,15 @@ class InvoicePdfPage: BasePDFPage {
             propertyCounter = propertyCounter + 1
             prop.draw(in: rect, withAttributes: fontAttributesBold)
         }
+        drawVatBreakdown()
+    }
+    
+    func drawVatBreakdown() {
+        /*let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(propertyCounter) * defaultColumnWidth),
+                              self.pdfHeight - CGFloat(500) - (4 + CGFloat(self.invoice.items.count)) * defaultRowHeight,
+                              defaultColumnWidth,
+                              defaultRowHeight)
+        "TODO".draw(in: rect, withAttributes: fontAttributesBold)*/
     }
     
     func drawItemsSummaryHeader() {
