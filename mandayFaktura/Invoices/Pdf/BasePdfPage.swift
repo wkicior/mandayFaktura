@@ -10,17 +10,9 @@ import Foundation
 import Quartz
 
 class BasePDFPage :PDFPage{
-    let topMargin = CGFloat(40.0)
-    let leftMargin = CGFloat(20.0)
-    let rightMargin = CGFloat(20.0)
-    let bottomMargin = CGFloat (40.0)
-    let textInset = CGFloat(5.0)
-    let verticalPadding = CGFloat (10.0)
-    
     var pageNumber = 1
-    
-    var pdfHeight = CGFloat(1024.0)
-    var pdfWidth = CGFloat(768.0)
+    let pageLayout = PageLayout()
+   
     
     func drawLine( fromPoint:NSPoint,  toPoint:NSPoint){
         let path = NSBezierPath()
@@ -42,14 +34,14 @@ class BasePDFPage :PDFPage{
             NSAttributedStringKey.foregroundColor: NSColor.darkGray
         ]
         
-        let pageNumRect = NSMakeRect(self.pdfWidth/2, CGFloat(15.0), CGFloat(40.0), CGFloat(20.0))
+        let pageNumRect = NSMakeRect(self.pageLayout.pdfWidth/2, CGFloat(15.0), CGFloat(40.0), CGFloat(20.0))
         let pageNumberStr = "\(self.pageNumber)"
         pageNumberStr.draw(in: pageNumRect, withAttributes: pageNumFontAttributes)
         
     }
     
     override func bounds(for box: PDFDisplayBox) -> NSRect {
-        return NSMakeRect(0, 0, pdfWidth, pdfHeight)
+        return NSMakeRect(0, 0, self.pageLayout.pdfWidth, self.pageLayout.pdfHeight)
     }
     
     override func draw(with box: PDFDisplayBox) {
