@@ -94,13 +94,18 @@ class InvoicePdfPage: BasePDFPage {
         }
     }
     
+    func drawPageNumber() {
+        let (rect, fontAttributes) = pageLayout.pageNumberLayout
+        "\(self.pageNumber)".draw(in: rect, withAttributes: fontAttributes)
+    }
+    
     override func draw(with box: PDFDisplayBox) {
-        super.draw(with: box)
         self.drawInvoiceHeader()
         self.drawSeller()
         self.drawBuyer()
         self.drawItems()
         self.drawItemsSummary()
         self.drawPaymentSummary()
+        self.drawPageNumber()
     }
 }
