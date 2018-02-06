@@ -72,17 +72,16 @@ class PageLayout {
     }
     
     func itemsSummaryCell(column: Int) -> (NSRect, [NSAttributedStringKey: Any]) {
-        let rect = NSMakeRect(self.pdfWidth / 2 + leftMargin + (CGFloat(column) * defaultColumnWidth),
-                              itemsStartYPosition - (3 + CGFloat(self.itemRows)) * defaultRowHeight,
+        let rect = NSMakeRect(leftMargin + (CGFloat(InvoiceItem.itemColumnNames.count - 5 + column) * defaultColumnWidth),
+                              itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRows + 1))),
                               defaultColumnWidth,
                               defaultRowHeight)
         return (rect, self.fontFormatting.fontAttributesCenter)
     }
     
     func vatBreakdownCell(row: Int, column: Int) -> (NSRect, [NSAttributedStringKey: Any]) {
-        let yStart = itemsStartYPosition - (4 + CGFloat(self.itemRows)) * defaultRowHeight
-        let x = self.pdfWidth / 2 + leftMargin + (CGFloat(column) * defaultColumnWidth)
-        let y = yStart - (CGFloat(row) * defaultRowHeight)
+        let x = leftMargin + (CGFloat(InvoiceItem.itemColumnNames.count - 4 + column) * defaultColumnWidth)
+        let y =  itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRows + 2 + row)))
         let rect = NSMakeRect(x, y, defaultColumnWidth, defaultRowHeight)
         return (rect, self.fontFormatting.fontAttributesCenter)
     }

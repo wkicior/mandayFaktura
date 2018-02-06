@@ -13,7 +13,7 @@ internal extension Invoice {
     
     var propertiesForDisplay: [String] {
         get {
-            return [self.totalNetValue.description, self.totalVatValue.description, self.totalGrossValue.description]
+            return [self.totalNetValue.description, "*", self.totalVatValue.description, self.totalGrossValue.description]
         }
     }
     
