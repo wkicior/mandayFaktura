@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class PageLayout {
     let topMargin = CGFloat(40.0)
     let leftMargin = CGFloat(20.0)
@@ -27,6 +28,13 @@ class PageLayout {
     
     private let fontFormatting = FontFormatting()
     private var itemRows = 0
+    
+    let columnWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.1), CGFloat(0.05), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
+    let itemsTableWidth: CGFloat
+    
+    init() {
+        itemsTableWidth = defaultColumnWidth * CGFloat(columnWidths.count)
+    }
     
     var invoiceHeaderLayout: (NSRect, [NSAttributedStringKey: Any]) {
         let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
@@ -55,34 +63,37 @@ class PageLayout {
     func itemCellLayout(row: Int, column: Int) -> (NSRect, [NSAttributedStringKey: Any]) {
         itemRows = max(itemRows, row + 1)
         let rect = NSMakeRect(
-            leftMargin + (CGFloat(column) * defaultColumnWidth),
+            leftMargin + self.getColumnXOffset(column: column),
             itemsStartYPosition - (defaultRowHeight * (CGFloat(row) + 1)),
-            defaultColumnWidth,
+            self.getColumnWidth(column: column),
             defaultRowHeight)
         return (rect, self.fontFormatting.fontAttributesCenter)
     }
     
     func itemsHeaderCell(column: Int) -> (NSRect, [NSAttributedStringKey: Any]) {
         let rect = NSMakeRect(
-            leftMargin + (CGFloat(column) * defaultColumnWidth),
+            leftMargin + self.getColumnXOffset(column: column),
             itemsStartYPosition,
-            defaultColumnWidth,
+            getColumnWidth(column: column),
             defaultRowHeight)
         return (rect, self.fontFormatting.fontAttributesBoldCenter)
     }
     
     func itemsSummaryCell(column: Int) -> (NSRect, [NSAttributedStringKey: Any]) {
-        let rect = NSMakeRect(leftMargin + (CGFloat(InvoiceItem.itemColumnNames.count - 5 + column) * defaultColumnWidth),
+        let shift = 4
+        let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
                               itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRows + 1))),
-                              defaultColumnWidth,
+                              getColumnWidth(column: column + shift),
                               defaultRowHeight)
         return (rect, self.fontFormatting.fontAttributesCenter)
     }
     
     func vatBreakdownCell(row: Int, column: Int) -> (NSRect, [NSAttributedStringKey: Any]) {
-        let x = leftMargin + (CGFloat(InvoiceItem.itemColumnNames.count - 4 + column) * defaultColumnWidth)
-        let y =  itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRows + 2 + row)))
-        let rect = NSMakeRect(x, y, defaultColumnWidth, defaultRowHeight)
+        let shift = 5
+        let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
+                              itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRows + 2 + row))),
+                              getColumnWidth(column: column + shift),
+                              defaultRowHeight)
         return (rect, self.fontFormatting.fontAttributesCenter)
     }
     
@@ -97,7 +108,7 @@ class PageLayout {
     }
     
     func itemVerticalGrid(cell: Int) -> (NSPoint, NSPoint) {
-        let x = leftMargin + (CGFloat(cell) * defaultColumnWidth)
+        let x = leftMargin + getColumnXOffset(column: cell)
         let fromPoint = NSMakePoint(x, itemsStartYPosition + defaultRowHeight)
         let toPoint = NSMakePoint(x, itemsStartYPosition - (CGFloat(self.itemRows) * defaultRowHeight))
         return (fromPoint, toPoint)
@@ -108,6 +119,16 @@ class PageLayout {
         let fromPoint = NSMakePoint(leftMargin , y)
         let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
         return (fromPoint, toPoint)
+    }
+    
+    private func getColumnWidth(column: Int) -> CGFloat {
+        //assert(columnWidths.count == propertiesForDisplay.count, "column widths must match defined properties count")
+        //assert(columnWidths.reduce(CGFloat(0), +) == self.itemsTableWidth, "column widths must sum to items table width")
+        return columnWidths[column] * itemsTableWidth
+    }
+    
+    func getColumnXOffset(column: Int) -> CGFloat {
+        return self.columnWidths.prefix(upTo: column).reduce(0, +) * itemsTableWidth
     }
     
 }

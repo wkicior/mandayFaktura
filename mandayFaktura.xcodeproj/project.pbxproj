@@ -38,6 +38,7 @@
 		D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80B2027A60600FFB262 /* DateFormatting.swift */; };
 		D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */; };
 		D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A8112028ED7500FFB262 /* PageLayout.swift */; };
+		D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A814202A311200FFB262 /* PageLayoutTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		D370A80B2027A60600FFB262 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyPrintingExtension.swift; sourceTree = "<group>"; };
 		D370A8112028ED7500FFB262 /* PageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
+		D370A814202A311200FFB262 /* PageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayoutTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 		D370A7F02023AB0400FFB262 /* Invoices */ = {
 			isa = PBXGroup;
 			children = (
+				D370A813202A30AC00FFB262 /* Pdf */,
 				D370A7F12023AB1000FFB262 /* Model */,
 			);
 			path = Invoices;
@@ -277,6 +280,14 @@
 				D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */,
 			);
 			path = PrintingExtensions;
+			sourceTree = "<group>";
+		};
+		D370A813202A30AC00FFB262 /* Pdf */ = {
+			isa = PBXGroup;
+			children = (
+				D370A814202A311200FFB262 /* PageLayoutTests.swift */,
+			);
+			path = Pdf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
