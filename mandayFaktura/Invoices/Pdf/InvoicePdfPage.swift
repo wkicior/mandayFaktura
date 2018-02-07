@@ -19,84 +19,46 @@ class InvoicePdfPage: BasePDFPage {
     }
     
     func drawInvoiceHeader()  {
-        let (rect, fontAttributes) = pageLayout.invoiceHeaderLayout
-        invoice.printedHeader.draw(in: rect, withAttributes: fontAttributes)
+        pageLayout.drawInvoiceHeader(header: invoice.printedHeader)
     }
     
     func drawSeller() {
-        let (rect, fontAttributes) = pageLayout.sellerLayout
-        invoice.seller.printedSeller.draw(in: rect, withAttributes: fontAttributes)
+        pageLayout.drawSeller(seller: invoice.seller.printedSeller)
     }
     
     func drawBuyer() {
-        let (rect, fontAttributes) = pageLayout.buyerLayout
-        invoice.buyer.printedBuyer.draw(in: rect, withAttributes: fontAttributes)
+        pageLayout.drawBuyer(buyer: invoice.buyer.printedBuyer)
     }
     
     func drawItems() {
-        drawItemsHeader()
+        var itemTableData: [[String]] = []
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
-            for propertyCounter in 0 ..< properties.count {
-                let (rect, fontAttributes) = pageLayout.itemCellLayout(row: itemCounter,column: propertyCounter)
-                properties[propertyCounter].draw(in: rect, withAttributes: fontAttributes)
-            }
+            itemTableData.append(properties)
         }
-        self.drawVerticalGrids()
-        self.drawHorizontalGrids()
-    }
-    
-    func drawItemsHeader() {
-        for column in 0 ..< InvoiceItem.itemColumnNames.count {
-            let (rect, fontAttributes) = pageLayout.itemsHeaderCell(column: column)
-            InvoiceItem.itemColumnNames[column].draw(in: rect, withAttributes: fontAttributes)
-        }
+        pageLayout.drawItems(headerData: InvoiceItem.itemColumnNames, tableData: itemTableData)
     }
     
     func drawItemsSummary() {
-        var propertyCounter = 0
-        (["Razem:"] + self.invoice.propertiesForDisplay).forEach { prop in
-            let (rect, fontAttributes) = pageLayout.itemsSummaryCell(column: propertyCounter)
-            propertyCounter = propertyCounter + 1
-            prop.draw(in: rect, withAttributes: fontAttributes)
-        }
-        drawVatBreakdown()
+        pageLayout.drawItemsSummary(summaryData: ["Razem:"] + self.invoice.propertiesForDisplay)
     }
     
     func drawVatBreakdown() {
+        var breakdownTableData: [[String]] = []
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
-            let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
-            for propIndex in 0 ..< breakdown.propertiesForDisplay.count {
-                let (rect, fontAttributes) = pageLayout.vatBreakdownCell(row: breakdownIndex, column: propIndex)
-                breakdown.propertiesForDisplay[propIndex].draw(in: rect, withAttributes: fontAttributes)
-            }
+           let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
+            breakdownTableData.append(breakdown.propertiesForDisplay)
         }
+        pageLayout.drawVatBreakdown(breakdownTableData: breakdownTableData)
     }
     
     func drawPaymentSummary() {
-        let (rect, fontAttributes) = pageLayout.paymentSummaryLayout
-        invoice.printedPaymentSummary.draw(in: rect, withAttributes: fontAttributes)
+        pageLayout.drawPaymentSummary(content: invoice.printedPaymentSummary)
     }
     
-   
-    func drawVerticalGrids(){
-        for i in 0 ..< InvoiceItem.itemColumnNames.count + 1 {
-            let (fromPoint, toPoint) = pageLayout.itemVerticalGrid(cell: i)
-            drawLine(fromPoint: fromPoint, toPoint: toPoint)
-        }
-    }
-    
-    func drawHorizontalGrids(){
-        let rowCount = self.invoice.items.count + 2
-        for i in 0 ..< rowCount {
-            let (fromPoint, toPoint) = pageLayout.itemHorizontalGrid(row: i)
-            drawLine(fromPoint: fromPoint, toPoint: toPoint)
-        }
-    }
     
     func drawPageNumber() {
-        let (rect, fontAttributes) = pageLayout.pageNumberLayout
-        "\(self.pageNumber)".draw(in: rect, withAttributes: fontAttributes)
+        pageLayout.drawPageNumber(content: "\(self.pageNumber)")
     }
     
     override func draw(with box: PDFDisplayBox) {
@@ -105,6 +67,7 @@ class InvoicePdfPage: BasePDFPage {
         self.drawBuyer()
         self.drawItems()
         self.drawItemsSummary()
+        self.drawVatBreakdown()
         self.drawPaymentSummary()
         self.drawPageNumber()
     }
