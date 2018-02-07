@@ -11,12 +11,8 @@ import Quartz
 
 
 class PageLayout {
-    let topMargin = CGFloat(40.0)
     let leftMargin = CGFloat(20.0)
     let rightMargin = CGFloat(20.0)
-    let bottomMargin = CGFloat (40.0)
-    let textInset = CGFloat(5.0)
-    let verticalPadding = CGFloat (10.0)
     
     let pdfHeight = CGFloat(1024.0)
     let pdfWidth = CGFloat(768.0)
@@ -28,6 +24,7 @@ class PageLayout {
     
     private let fontFormatting = FontFormatting()
     private var itemRowsCounter = 0
+    private var breakdownItemsCount = 0
     
     let itemColumnsWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.1), CGFloat(0.05), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
     let itemsTableWidth =  CGFloat(728)
@@ -57,6 +54,7 @@ class PageLayout {
     }
     
     func drawItems(headerData: [String], tableData: [[String]]) {
+        itemRowsCounter = tableData.count
         for i in 0 ..< headerData.count {
             drawItemsHeaderCell(content: headerData[i], column: i)
         }
@@ -65,11 +63,10 @@ class PageLayout {
                 drawItemTableCell(content: tableData[i][j], row: i, column: j)
             }
         }
-        itemTableGrid(rows: tableData.count, columns: headerData.count)
-
+        drawItemTableGrid(rows: tableData.count, columns: headerData.count)
     }
+    
     private func drawItemTableCell(content: String, row: Int, column: Int) {
-        itemRowsCounter = max(itemRowsCounter, row + 1)
         let rect = NSMakeRect(
             leftMargin + self.getColumnXOffset(column: column),
             itemsStartYPosition - (defaultRowHeight * (CGFloat(row) + 1)),
@@ -96,7 +93,7 @@ class PageLayout {
     private func drawItemsSummaryCell(content: String, column: Int) {
         let shift = 4
         let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
-                              itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRowsCounter + 1))),
+                              itemsSummaryYPosition,
                               getColumnWidth(column: column + shift),
                               defaultRowHeight)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
@@ -108,11 +105,14 @@ class PageLayout {
                 drawVatBreakdownCell(content: breakdownTableData[i][j], row: i,column: j)
             }
         }
+        breakdownItemsCount = breakdownTableData.count
+        drawVatBreakdownGrid(rows: breakdownTableData.count, columns: breakdownTableData[0].count)
     }
+    
     private func drawVatBreakdownCell(content: String, row: Int, column: Int) {
         let shift = 5
         let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
-                              itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRowsCounter + 2 + row))),
+                              itemsSummaryYPosition - CGFloat(row + 1) * defaultRowHeight,
                               getColumnWidth(column: column + shift),
                               defaultRowHeight)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
@@ -120,9 +120,9 @@ class PageLayout {
     
     func drawPaymentSummary(content: String) {
         let rect = NSMakeRect(CGFloat(100.0),
-                              itemsStartYPosition - (13 + CGFloat(self.itemRowsCounter)) * defaultRowHeight,
+                              paymentSummaryYPosition,
                               1/3 * self.pdfWidth,
-                              1/5 * self.pdfHeight)
+                              CGFloat(80.0))
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
@@ -134,39 +134,51 @@ class PageLayout {
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesPageNumber)
     }
     
-    private func itemTableGrid(rows: Int, columns: Int) {
-        for r in 0 ..< rows + 2 {
-            let path = NSBezierPath()
-            NSColor.lightGray.set()
-            let (fromPoint, toPoint) = itemHorizontalGrid(row: r)
-            path.move(to: fromPoint)
-            path.line(to: toPoint)
-            path.lineWidth = 0.5
-            path.stroke()
-        }
-        for c in 0 ..< columns + 1 {
-            let path = NSBezierPath()
-            NSColor.lightGray.set()
-            let (fromPoint, toPoint) = itemVerticalGrid(cell: c)
-            path.move(to: fromPoint)
-            path.line(to: toPoint)
-            path.lineWidth = 0.5
-            path.stroke()
-        }
+    private func drawItemTableGrid(rows: Int, columns: Int) {
+        (0 ... rows + 1).forEach({r in drawItemHorizontalGrid(row: r)})
+        (0 ... columns).forEach({c in drawItemVerticalGrid(cell: c)})
     }
     
-    func itemVerticalGrid(cell: Int) -> (NSPoint, NSPoint) {
+    private func drawVatBreakdownGrid(rows: Int, columns: Int) {
+        (0 ... rows).forEach({r in drawVatBreakdownHorizontalGrid(row: r)})
+        (0 ... columns).forEach({c in drawVatBreakdownVerticalGrid(cell: c)})
+    }
+    
+    private func drawItemVerticalGrid(cell: Int) {
         let x = leftMargin + getColumnXOffset(column: cell)
         let fromPoint = NSMakePoint(x, itemsStartYPosition + defaultRowHeight)
         let toPoint = NSMakePoint(x, itemsStartYPosition - (CGFloat(self.itemRowsCounter) * defaultRowHeight))
-        return (fromPoint, toPoint)
+        drawPath(from: fromPoint, to: toPoint)
     }
     
-    func itemHorizontalGrid(row: Int) -> (NSPoint, NSPoint) {
+    private func drawItemHorizontalGrid(row: Int) {
         let y = itemsStartYPosition - (CGFloat(row - 1) * defaultRowHeight)
         let fromPoint = NSMakePoint(leftMargin , y)
         let toPoint = NSMakePoint(self.itemsTableWidth + leftMargin, y)
-        return (fromPoint, toPoint)
+        drawPath(from: fromPoint, to: toPoint)
+    }
+    
+    private func drawVatBreakdownVerticalGrid(cell: Int)  {
+        let x = leftMargin + getColumnXOffset(column: cell + 5)
+        let fromPoint = NSMakePoint(x, itemsSummaryYPosition + defaultRowHeight)
+        let toPoint = NSMakePoint(x, itemsSummaryYPosition  - (CGFloat(breakdownItemsCount) * defaultRowHeight))
+        drawPath(from: fromPoint, to: toPoint)
+    }
+    
+    private func drawVatBreakdownHorizontalGrid(row: Int)  {
+        let y = itemsStartYPosition - (CGFloat(row + self.itemRowsCounter + 1) * defaultRowHeight)
+        let fromPoint = NSMakePoint(leftMargin + self.getColumnXOffset(column: 5) , y)
+        let toPoint = NSMakePoint(self.itemsTableWidth + leftMargin, y)
+        drawPath(from: fromPoint, to: toPoint)
+    }
+    
+    private func drawPath(from: NSPoint, to: NSPoint) {
+        let path = NSBezierPath()
+        NSColor.lightGray.set()
+        path.move(to: from)
+        path.line(to: to)
+        path.lineWidth = 0.5
+        path.stroke()
     }
     
     private func getColumnWidth(column: Int) -> CGFloat {
@@ -176,6 +188,18 @@ class PageLayout {
     func getColumnXOffset(column: Int) -> CGFloat {
         let safeColumnNo = min(column, itemColumnsWidths.count)
         return self.itemColumnsWidths.prefix(upTo: safeColumnNo).reduce(0, +) * itemsTableWidth
+    }
+    
+    private var itemsSummaryYPosition: CGFloat {
+        get {
+            return itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRowsCounter + 1)))
+        }
+    }
+    
+    private var paymentSummaryYPosition: CGFloat {
+        get {
+            return itemsSummaryYPosition - (CGFloat(self.breakdownItemsCount + 6) * defaultRowHeight)
+        }
     }
     
 }
