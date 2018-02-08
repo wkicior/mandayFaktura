@@ -13,10 +13,12 @@ class PdfViewController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
     
+    var invoice: Invoice?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let invoicePdf = InvoicePdf()
+        let invoicePdf = InvoicePdf(invoice: self.invoice!)
         pdfView.document = invoicePdf.getDocument()
     }
     

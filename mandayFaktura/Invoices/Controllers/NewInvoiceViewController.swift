@@ -10,7 +10,6 @@ import Cocoa
 
 struct NewInvoiceViewControllerConstants {
     static let INVOICE_ADDED_NOTIFICATION = Notification.Name(rawValue: "InvoiceAdded")
-
 }
 
 class NewInvoiceViewController: NSViewController {
@@ -47,7 +46,16 @@ class NewInvoiceViewController: NSViewController {
         get {
             let seller = self.counterpartyRepository!.getSeller()
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items: [], paymentForm: .cash, paymentDueDate: Date())
+            let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
+            let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
+            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items: [item1, item2], paymentForm: .cash, paymentDueDate: Date())
+        }
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is PdfViewController {
+            let vc = segue.destinationController as? PdfViewController
+            vc?.invoice = invoice
         }
     }
 }
