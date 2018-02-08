@@ -11,7 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let invoiceRepository:InvoiceRepository = InMemoryInvoicesRepository()
+    let invoiceRepository: InvoiceRepository = InMemoryInvoicesRepository()
+    let counterpartyRepository: CounterpartyRepository = InMemoryCounterpartyRepository()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
