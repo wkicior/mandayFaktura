@@ -100,6 +100,10 @@ class NewInvoiceViewController: NSViewController {
         self.itemsTableView.reloadData()
     }
     
+    @IBAction func changeAmount(_ sender: NSTextField) {
+        self.itemsTableViewController!.changeAmount(sender)
+    }
+    
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
         self.itemsTableViewController!.changeItemNetValue(sender)
     }

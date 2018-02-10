@@ -66,6 +66,11 @@ class InvoiceItemBuilder {
         return self
     }
     
+    func withAmount(_ amount: Decimal) -> InvoiceItemBuilder {
+        self.amount = amount
+        return self
+    }
+    
     func withUnitNetPrice(_ unitNetPrice: Decimal) -> InvoiceItemBuilder {
         self.unitNetPrice = unitNetPrice
         return self

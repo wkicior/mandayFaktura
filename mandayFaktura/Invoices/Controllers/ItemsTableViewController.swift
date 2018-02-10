@@ -10,8 +10,10 @@ import Foundation
 import AppKit
 
 fileprivate enum CellIdentifiers {
-    static let NameCell = "nameCellId"
-    static let NetValueCell = "netValueCellId"
+    static let nameCell = "nameCellId"
+    static let amountCell = "amountCellId"
+    static let unitOfMeasureCell = "unitOfMeasureCellId"
+    static let netValueCell = "netValueCellId"
 }
 
 
@@ -40,10 +42,16 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         
         if tableColumn == tableView.tableColumns[0] {
             text = item.name
-            cellIdentifier = CellIdentifiers.NameCell
+            cellIdentifier = CellIdentifiers.nameCell
         } else if tableColumn == tableView.tableColumns[1] {
+            text = item.amount.description
+            cellIdentifier = CellIdentifiers.amountCell
+        } else if tableColumn == tableView.tableColumns[2] {
+            text = item.unitOfMeasureLabel
+            cellIdentifier = CellIdentifiers.unitOfMeasureCell
+        } else if tableColumn == tableView.tableColumns[3] {
             text = item.netValue.description
-            cellIdentifier = CellIdentifiers.NetValueCell
+            cellIdentifier = CellIdentifiers.netValueCell
         }
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
@@ -66,6 +74,14 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
             items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(Decimal(string: sender.stringValue)!).build()
+        }
+    }
+    
+    func changeAmount(_ sender: NSTextField) {
+        let selectedRowNumber = itemsTableView.selectedRow
+        if selectedRowNumber != -1 {
+            let oldItem = items[selectedRowNumber]
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(Decimal(string: sender.stringValue)!).build()
         }
     }
     
