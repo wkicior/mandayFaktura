@@ -15,6 +15,7 @@ struct NewInvoiceViewControllerConstants {
 class NewInvoiceViewController: NSViewController {
     var invoiceRepository: InvoiceRepository?
     var counterpartyRepository: CounterpartyRepository?
+    let itemsTableViewController = ItemsTableViewController()
     
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
 
@@ -29,6 +30,7 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var paymentFormPopUp: NSPopUpButtonCell!
     @IBOutlet weak var dueDatePicker: NSDatePicker!
+    @IBOutlet weak var itemsTableView: NSTableView!
     
     
     override func viewDidLoad() {
@@ -39,6 +41,8 @@ class NewInvoiceViewController: NSViewController {
         let appDel = NSApplication.shared.delegate as! AppDelegate
         invoiceRepository = appDel.invoiceRepository
         counterpartyRepository = appDel.counterpartyRepository
+        itemsTableView.delegate = itemsTableViewController
+        itemsTableView.dataSource = itemsTableViewController
     }
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
@@ -66,9 +70,7 @@ class NewInvoiceViewController: NSViewController {
         get {
             let seller = self.counterpartyRepository!.getSeller()
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
-            let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
-            let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items: [item1, item2], paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
+            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewController.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }
     }
     
