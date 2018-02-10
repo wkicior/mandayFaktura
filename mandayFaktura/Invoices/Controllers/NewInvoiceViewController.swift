@@ -15,7 +15,7 @@ struct NewInvoiceViewControllerConstants {
 class NewInvoiceViewController: NSViewController {
     var invoiceRepository: InvoiceRepository?
     var counterpartyRepository: CounterpartyRepository?
-    let itemsTableViewController = ItemsTableViewController()
+    var itemsTableViewController: ItemsTableViewController?
     
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
 
@@ -32,7 +32,6 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var dueDatePicker: NSDatePicker!
     @IBOutlet weak var itemsTableView: NSTableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         issueDatePicker.dateValue = Date()
@@ -41,6 +40,7 @@ class NewInvoiceViewController: NSViewController {
         let appDel = NSApplication.shared.delegate as! AppDelegate
         invoiceRepository = appDel.invoiceRepository
         counterpartyRepository = appDel.counterpartyRepository
+        itemsTableViewController = ItemsTableViewController(itemsTableView: itemsTableView)
         itemsTableView.delegate = itemsTableViewController
         itemsTableView.dataSource = itemsTableViewController
     }
@@ -70,7 +70,7 @@ class NewInvoiceViewController: NSViewController {
         get {
             let seller = self.counterpartyRepository!.getSeller()
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewController.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
+            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewController!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }
     }
     
@@ -79,5 +79,12 @@ class NewInvoiceViewController: NSViewController {
             let vc = segue.destinationController as? PdfViewController
             vc?.invoice = invoice
         }
+    }
+    
+    @IBAction func changeItemNetValue(_ sender: NSTextField) {
+        self.itemsTableViewController!.changeItemNetValue(sender)
+    }
+    @IBAction func changeItemName(_ sender: NSTextField) {
+        self.itemsTableViewController!.changeItemName(sender)
     }
 }

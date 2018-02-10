@@ -16,9 +16,11 @@ fileprivate enum CellIdentifiers {
 
 
 class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    let itemsTableView: NSTableView
     var items = [InvoiceItem]()
     
-    override init() {
+    init(itemsTableView: NSTableView) {
+        self.itemsTableView = itemsTableView
         let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
         let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
         items.append(item1)
@@ -49,5 +51,21 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             return cell
         }
         return nil
+    }
+    
+    func changeItemName(_ sender: NSTextField) {
+        let selectedRowNumber = itemsTableView.selectedRow
+        if selectedRowNumber != -1 {
+        let oldItem = items[selectedRowNumber]
+        items[selectedRowNumber] = InvoiceItem(name: sender.stringValue, amount: oldItem.amount, unitOfMeasure: oldItem.unitOfMeasure, unitNetPrice: oldItem.unitNetPrice, vatValueInPercent: oldItem.vatValueInPercent)
+        }
+    }
+    
+    func changeItemNetValue(_ sender: NSTextField) {
+        let selectedRowNumber = itemsTableView.selectedRow
+        if selectedRowNumber != -1 {
+            let oldItem = items[selectedRowNumber]
+            items[selectedRowNumber] = InvoiceItem(name: oldItem.name, amount: oldItem.amount, unitOfMeasure: oldItem.unitOfMeasure, unitNetPrice: Decimal(string: sender.stringValue)!, vatValueInPercent: oldItem.vatValueInPercent)
+        }
     }
 }
