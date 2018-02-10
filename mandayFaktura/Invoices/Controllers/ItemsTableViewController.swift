@@ -56,8 +56,8 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     func changeItemName(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
-        let oldItem = items[selectedRowNumber]
-        items[selectedRowNumber] = InvoiceItem(name: sender.stringValue, amount: oldItem.amount, unitOfMeasure: oldItem.unitOfMeasure, unitNetPrice: oldItem.unitNetPrice, vatValueInPercent: oldItem.vatValueInPercent)
+            let oldItem = items[selectedRowNumber]
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withName(sender.stringValue).build()
         }
     }
     
@@ -65,7 +65,11 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = InvoiceItem(name: oldItem.name, amount: oldItem.amount, unitOfMeasure: oldItem.unitOfMeasure, unitNetPrice: Decimal(string: sender.stringValue)!, vatValueInPercent: oldItem.vatValueInPercent)
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(Decimal(string: sender.stringValue)!).build()
         }
+    }
+    
+    func addItem() {
+        items.append(anInvoiceItem().withUnitOfMeasure(.hour).build())
     }
 }

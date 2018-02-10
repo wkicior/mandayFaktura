@@ -32,6 +32,7 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var dueDatePicker: NSDatePicker!
     @IBOutlet weak var itemsTableView: NSTableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         issueDatePicker.dateValue = Date()
@@ -79,6 +80,11 @@ class NewInvoiceViewController: NSViewController {
             let vc = segue.destinationController as? PdfViewController
             vc?.invoice = invoice
         }
+    }
+    
+    @IBAction func onAddItemClicked(_ sender: NSButton) {
+        self.itemsTableViewController!.addItem()
+        self.itemsTableView.reloadData()
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {

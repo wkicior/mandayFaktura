@@ -39,3 +39,44 @@ struct InvoiceItem {
         }
     }
 }
+
+func anInvoiceItem()-> InvoiceItemBuilder {
+    return InvoiceItemBuilder()
+}
+
+class InvoiceItemBuilder {
+    private var name = ""
+    private var amount = Decimal()
+    private var unitOfMeasure: UnitOfMeasure?
+    private var unitNetPrice = Decimal()
+    private var vatValueInPercent = Decimal()
+    
+    
+    func from(source: InvoiceItem) -> InvoiceItemBuilder {
+        self.name = source.name
+        self.amount = source.amount
+        self.unitOfMeasure = source.unitOfMeasure
+        self.unitNetPrice = source.unitNetPrice
+        self.vatValueInPercent = source.vatValueInPercent
+        return self
+    }
+    
+    func withName(_ name: String) -> InvoiceItemBuilder {
+        self.name = name;
+        return self
+    }
+    
+    func withUnitNetPrice(_ unitNetPrice: Decimal) -> InvoiceItemBuilder {
+        self.unitNetPrice = unitNetPrice
+        return self
+    }
+    
+    func withUnitOfMeasure(_ unitOfMeasure: UnitOfMeasure) -> InvoiceItemBuilder {
+        self.unitOfMeasure = unitOfMeasure
+        return self
+    }
+    
+    func build()->InvoiceItem {
+        return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure!, unitNetPrice: unitNetPrice, vatValueInPercent: vatValueInPercent)
+    }
+}
