@@ -31,6 +31,8 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var paymentFormPopUp: NSPopUpButtonCell!
     @IBOutlet weak var dueDatePicker: NSDatePicker!
     @IBOutlet weak var itemsTableView: NSTableView!
+    @IBOutlet weak var removeItemButton: NSButton!
+    
     
     
     override func viewDidLoad() {
@@ -44,6 +46,7 @@ class NewInvoiceViewController: NSViewController {
         itemsTableViewController = ItemsTableViewController(itemsTableView: itemsTableView)
         itemsTableView.delegate = itemsTableViewController
         itemsTableView.dataSource = itemsTableViewController
+        self.removeItemButton.isEnabled = false
     }
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
@@ -82,8 +85,18 @@ class NewInvoiceViewController: NSViewController {
         }
     }
     
+    @IBAction func onItemsTableViewClicked(_ sender: Any) {
+       self.removeItemButton.isEnabled =  self.itemsTableView.selectedRow != -1
+    }
+    
     @IBAction func onAddItemClicked(_ sender: NSButton) {
         self.itemsTableViewController!.addItem()
+        self.itemsTableView.reloadData()
+    }
+    
+    @IBAction func onMinusButtonClicked(_ sender: Any) {
+        self.removeItemButton.isEnabled = false
+        self.itemsTableViewController!.removeSelectedItem()
         self.itemsTableView.reloadData()
     }
     

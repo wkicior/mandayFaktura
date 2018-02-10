@@ -958,6 +958,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <action selector="onItemsTableViewClicked:" target="haF-wG-vwp" id="CBb-pj-X4v"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -983,6 +986,17 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="onAddItemClicked:" target="haF-wG-vwp" id="9iX-AM-KDl"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-4W-CCE">
+                                <rect key="frame" x="50" y="175" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gem-TH-xDI">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onMinusButtonClicked:" target="haF-wG-vwp" id="Igu-IB-EO0"/>
                                 </connections>
                             </button>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-lW-Lvv" userLabel="PaymentType">
@@ -1046,6 +1060,7 @@
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
                         <outlet property="postalCodeTextField" destination="gcd-iG-LE0" id="8WE-XU-yH2"/>
+                        <outlet property="removeItemButton" destination="KpK-4W-CCE" id="IZ0-hl-I3Q"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
                         <outlet property="sellingDatePicker" destination="ckj-xA-UAK" id="u2m-bb-OCJ"/>
                         <outlet property="streetAndNumberTextField" destination="2dq-vq-HAv" id="Q6L-Gc-pcb"/>
@@ -1196,5 +1211,6 @@
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

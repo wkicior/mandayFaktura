@@ -72,4 +72,11 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     func addItem() {
         items.append(anInvoiceItem().withUnitOfMeasure(.hour).build())
     }
+    
+    func removeSelectedItem() {
+        let selectedRowNumber = itemsTableView.selectedRow
+        if selectedRowNumber != -1 {
+            items.remove(at: selectedRowNumber)
+        }
+    }
 }
