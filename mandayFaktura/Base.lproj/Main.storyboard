@@ -871,6 +871,32 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hO6-wj-bfz">
+                                <rect key="frame" x="24" y="161" width="121" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="nlI-3T-fac">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-lW-Lvv" userLabel="PaymentType">
+                                <rect key="frame" x="142" y="156" width="134" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="tjr-mT-jrL" id="DnQ-bG-q2g">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Yd4-oo-QgJ">
+                                        <items>
+                                            <menuItem title="Przelew" state="on" id="tjr-mT-jrL"/>
+                                            <menuItem title="Gotówka" tag="1" id="M0X-OD-QIp"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="paymentFormPopUpValueChanged:" target="haF-wG-vwp" id="u6l-8B-N8c"/>
+                                </connections>
+                            </popUpButton>
                         </subviews>
                     </view>
                     <connections>
@@ -878,6 +904,7 @@
                         <outlet property="cityTextField" destination="FUc-7D-udx" id="3yZ-vk-e8F"/>
                         <outlet property="issueDatePicker" destination="84I-PQ-C04" id="yDD-rb-nxq"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
+                        <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
                         <outlet property="postalCodeTextField" destination="gcd-iG-LE0" id="8WE-XU-yH2"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
                         <outlet property="sellingDatePicker" destination="ckj-xA-UAK" id="u2m-bb-OCJ"/>

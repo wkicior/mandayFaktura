@@ -15,6 +15,8 @@ struct NewInvoiceViewControllerConstants {
 class NewInvoiceViewController: NSViewController {
     var invoiceRepository: InvoiceRepository?
     var counterpartyRepository: CounterpartyRepository?
+    
+    var selectedPaymentForm: PaymentForm?
 
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
@@ -25,6 +27,7 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var cityTextField: NSTextField!
     @IBOutlet weak var taxCodeTextField: NSTextField!
     @IBOutlet weak var saveButton: NSButton!
+    @IBOutlet weak var paymentFormPopUp: NSPopUpButtonCell!
     
     
     override func viewDidLoad() {
@@ -42,13 +45,28 @@ class NewInvoiceViewController: NSViewController {
         view.window?.close()
     }
     
+    @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {
+        selectedPaymentForm = getPaymentFormByTag(sender.selectedTag())
+    }
+    
+    func getPaymentFormByTag(_ tag: Int)-> PaymentForm? {
+        switch tag {
+        case 0:
+            return PaymentForm.transfer
+        case 1:
+            return PaymentForm.cash
+        default:
+            return Optional.none
+        }
+    }
+    
     var invoice: Invoice {
         get {
             let seller = self.counterpartyRepository!.getSeller()
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
             let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
             let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items: [item1, item2], paymentForm: .cash, paymentDueDate: Date())
+            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items: [item1, item2], paymentForm: selectedPaymentForm!, paymentDueDate: Date())
         }
     }
     
