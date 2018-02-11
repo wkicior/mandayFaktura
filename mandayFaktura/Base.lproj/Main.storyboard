@@ -923,15 +923,12 @@
                                                         <menu key="menu" id="NGM-ge-pf9">
                                                             <items>
                                                                 <menuItem title="godz." state="on" id="jsp-mI-WGG" userLabel="godz."/>
-                                                                <menuItem title="kg" tag="1" id="w7x-bE-I28"/>
-                                                                <menuItem title="km" tag="2" id="50O-Uu-beU"/>
-                                                                <menuItem title="usł." tag="3" id="Il8-bg-q6W"/>
-                                                                <menuItem title="szt." tag="4" id="wZg-6v-Grz" userLabel="szt."/>
+                                                                <menuItem title="kg" id="w7x-bE-I28"/>
+                                                                <menuItem title="km" id="50O-Uu-beU"/>
+                                                                <menuItem title="usł." id="Il8-bg-q6W"/>
+                                                                <menuItem title="szt." id="wZg-6v-Grz" userLabel="szt."/>
                                                             </items>
                                                         </menu>
-                                                        <connections>
-                                                            <action selector="selectUnitOfMeasure:" target="haF-wG-vwp" id="BxP-WB-sFy"/>
-                                                        </connections>
                                                     </popUpButtonCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>

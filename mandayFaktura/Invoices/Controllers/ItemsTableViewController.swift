@@ -9,42 +9,6 @@
 import Foundation
 import AppKit
 
-private extension UnitOfMeasure {
-    var tag: Int {
-        get {
-            switch self {
-            case .hour:
-                return 0
-            case .kg:
-                return 1
-            case .km:
-                return 2
-            case .service:
-                return 3
-            case .pieces:
-                return 4
-            }
-        }
-    }
-    
-    static func byTag(_ tag: Int) -> UnitOfMeasure? {
-        switch tag {
-        case 0:
-            return .hour
-        case 1:
-            return .kg
-        case 2:
-            return .km
-        case 3:
-            return .service
-        case 4:
-            return .pieces
-        default:
-            return Optional.none
-        }
-    }
-}
-
 class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
@@ -74,7 +38,7 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         } else if tableColumn == tableView.tableColumns[1] {
             return item.amount.description
         } else if tableColumn == tableView.tableColumns[2] {
-            return item.unitOfMeasure.tag
+            return getUnitOfMeasureIndex(item.unitOfMeasure)
         } else if tableColumn == tableView.tableColumns[3] {
             return item.unitNetPrice.description
         } else if tableColumn == tableView.tableColumns[4] {
@@ -89,38 +53,42 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         
     }
     
-    
-    
-    func changeItemName(_ name: String) {
-        let selectedRowNumber = itemsTableView.selectedRow
-        if selectedRowNumber != -1 {
-            let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withName(name).build()
+    func getUnitOfMeasureIndex(_ unit: UnitOfMeasure) -> Int {
+        switch unit {
+        case .hour:
+            return 0
+        case .kg:
+            return 1
+        case .km:
+            return 2
+        case .pieces:
+            return 3
+        case .service:
+            return 4
         }
     }
     
-    func changeItemNetValue(_ netPrice: Decimal) {
+    func changeItemName(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(netPrice).build()
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withName(sender.stringValue).build()
         }
     }
     
-    func changeUnitOfMeasure(index: Int) {
-        let unitOfMeasure = UnitOfMeasure.byTag(index)
+    func changeItemNetValue(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitOfMeasure(unitOfMeasure!).build()
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(Decimal(string: sender.stringValue)!).build()
         }
     }
     
-    func changeAmount(_ amount: Decimal) {
+    func changeAmount(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(amount).build()
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(Decimal(string: sender.stringValue)!).build()
         }
     }
     

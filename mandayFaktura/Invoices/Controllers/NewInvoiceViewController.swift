@@ -33,6 +33,8 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var removeItemButton: NSButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         issueDatePicker.dateValue = Date()
@@ -99,24 +101,17 @@ class NewInvoiceViewController: NSViewController {
     }
     
     @IBAction func changeAmount(_ sender: NSTextField) {
-        self.itemsTableViewController!.changeAmount(Decimal(string: sender.stringValue)!)
+        self.itemsTableViewController!.changeAmount(sender)
         self.itemsTableView.reloadData()
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
-        self.itemsTableViewController!.changeItemNetValue(Decimal(string: sender.stringValue)!)
+        self.itemsTableViewController!.changeItemNetValue(sender)
         self.itemsTableView.reloadData()
     }
     
     @IBAction func changeItemName(_ sender: NSTextField) {
-        self.itemsTableViewController!.changeItemName(sender.stringValue)
+        self.itemsTableViewController!.changeItemName(sender)
         self.itemsTableView.reloadData()
-    }
-    
-    @IBAction func selectUnitOfMeasure(_ sender: NSTableView) {
-        print(sender.selectedCell)
-        if let popUp = sender.selectedCell() as? NSPopUpButtonCell {
-            self.itemsTableViewController!.changeUnitOfMeasure(index: (popUp.selectedItem?.tag)!)
-        }
     }
 }
