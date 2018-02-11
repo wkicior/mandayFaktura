@@ -13,7 +13,10 @@ fileprivate enum CellIdentifiers {
     static let nameCell = "nameCellId"
     static let amountCell = "amountCellId"
     static let unitOfMeasureCell = "unitOfMeasureCellId"
+    static let unitNetPriceCell = "unitNetPriceCellId"
+    static let vatValueCell = "vatValueCellId"
     static let netValueCell = "netValueCellId"
+    static let grossValueCell = "grossValueCellId"
 }
 
 
@@ -50,8 +53,17 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             text = item.unitOfMeasureLabel
             cellIdentifier = CellIdentifiers.unitOfMeasureCell
         } else if tableColumn == tableView.tableColumns[3] {
+            text = item.unitNetPrice.description
+            cellIdentifier = CellIdentifiers.unitNetPriceCell
+        } else if tableColumn == tableView.tableColumns[4] {
+            text = "\(item.vatValueInPercent.description)%"
+            cellIdentifier = CellIdentifiers.vatValueCell
+        } else if tableColumn == tableView.tableColumns[5] {
             text = item.netValue.description
             cellIdentifier = CellIdentifiers.netValueCell
+        } else if tableColumn == tableView.tableColumns[6] {
+            text = item.grossValue.description
+            cellIdentifier = CellIdentifiers.grossValueCell
         }
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {

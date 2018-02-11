@@ -81,6 +81,11 @@ class InvoiceItemBuilder {
         return self
     }
     
+    func withVatValueInPercent(_ vatValueInPercent: Decimal) -> InvoiceItemBuilder {
+        self.vatValueInPercent = vatValueInPercent
+        return self
+    }
+    
     func build()->InvoiceItem {
         return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure!, unitNetPrice: unitNetPrice, vatValueInPercent: vatValueInPercent)
     }
