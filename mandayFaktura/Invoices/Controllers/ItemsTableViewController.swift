@@ -9,13 +9,24 @@
 import Foundation
 import AppKit
 
+fileprivate enum CellIdentifiers {
+    static let nameCell = "nameCellId"
+    static let amountCell = "amountCellId"
+    static let unitOfMeasureCell = "unitOfMeasureCellId"
+    static let unitNetPriceCell = "unitNetPriceCellId"
+    static let vatValueCell = "vatValueCellId"
+    static let netValueCell = "netValueCellId"
+    static let grossValueCell = "grossValueCellId"
+}
+
+
 class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
     
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
-        let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .hour, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
+        let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
         let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
         items.append(item1)
         items.append(item2)
@@ -26,46 +37,40 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         return items.count
     }
     
-    
-    
-    //func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var text: String = ""
+        var cellIdentifier: String = ""
+        
         let item = items[row]
         
         if tableColumn == tableView.tableColumns[0] {
-            return item.name
-           
+            text = item.name
+            cellIdentifier = CellIdentifiers.nameCell
         } else if tableColumn == tableView.tableColumns[1] {
-            return item.amount.description
+            text = item.amount.description
+            cellIdentifier = CellIdentifiers.amountCell
         } else if tableColumn == tableView.tableColumns[2] {
-            return getUnitOfMeasureIndex(item.unitOfMeasure)
+            text = item.unitOfMeasureLabel
+            cellIdentifier = CellIdentifiers.unitOfMeasureCell
         } else if tableColumn == tableView.tableColumns[3] {
-            return item.unitNetPrice.description
+            text = item.unitNetPrice.description
+            cellIdentifier = CellIdentifiers.unitNetPriceCell
         } else if tableColumn == tableView.tableColumns[4] {
-            return "\(item.vatValueInPercent.description)%"
+            text = "\(item.vatValueInPercent.description)%"
+            cellIdentifier = CellIdentifiers.vatValueCell
         } else if tableColumn == tableView.tableColumns[5] {
-            return item.netValue.description
+            text = item.netValue.description
+            cellIdentifier = CellIdentifiers.netValueCell
         } else if tableColumn == tableView.tableColumns[6] {
-            return item.grossValue.description
+            text = item.grossValue.description
+            cellIdentifier = CellIdentifiers.grossValueCell
         }
         
-        return ""
-        
-    }
-    
-    func getUnitOfMeasureIndex(_ unit: UnitOfMeasure) -> Int {
-        switch unit {
-        case .hour:
-            return 0
-        case .kg:
-            return 1
-        case .km:
-            return 2
-        case .pieces:
-            return 3
-        case .service:
-            return 4
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = text
+            return cell
         }
+        return nil
     }
     
     func changeItemName(_ sender: NSTextField) {
