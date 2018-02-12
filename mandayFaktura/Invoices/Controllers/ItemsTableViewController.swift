@@ -20,38 +20,15 @@ fileprivate enum CellIdentifiers {
 }
 
 private extension UnitOfMeasure {
+    static let ordering: [UnitOfMeasure] = [.hour, .kg, .km, .service, .pieces]
     var tag: Int {
         get {
-            switch self {
-            case .hour:
-                return 0
-            case .kg:
-                return 1
-            case .km:
-                return 2
-            case .service:
-                return 3
-            case .pieces:
-                return 4
-            }
+            return UnitOfMeasure.ordering.index(of: self)!
         }
     }
     
     static func byTag(_ tag: Int) -> UnitOfMeasure? {
-        switch tag {
-        case 0:
-            return .hour
-        case 1:
-            return .kg
-        case 2:
-            return .km
-        case 3:
-            return .service
-        case 4:
-            return .pieces
-        default:
-            return Optional.none
-        }
+        return UnitOfMeasure.ordering[tag]
     }
 }
 
