@@ -60,6 +60,7 @@ private extension UnitOfMeasure {
 class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
+    let vatRateRepository = InMemoryVatRateRepository()
     
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
@@ -97,8 +98,11 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             text = item.unitNetPrice.description
             cellIdentifier = CellIdentifiers.unitNetPriceCell
         } else if tableColumn == tableView.tableColumns[4] {
-            text = "\(item.vatValueInPercent.description)%"
             cellIdentifier = CellIdentifiers.vatValueCell
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
+            cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatValueInPercent)!)
+            cell.tag = row
+            return cell
         } else if tableColumn == tableView.tableColumns[5] {
             text = item.netValue.description
             cellIdentifier = CellIdentifiers.netValueCell
@@ -144,7 +148,8 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     }
     
     func addItem() {
-        items.append(anInvoiceItem().withUnitOfMeasure(.hour).build())
+        let defaultVatRate = self.vatRateRepository.getDefaultVatRate()
+        items.append(anInvoiceItem().withVatValueInPercent(defaultVatRate).withUnitOfMeasure(.pieces).build())
     }
     
     func removeSelectedItem() {
@@ -152,5 +157,10 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         if selectedRowNumber != -1 {
             items.remove(at: selectedRowNumber)
         }
+    }
+    
+    func changeVatRate(row: Int, vatRate: Decimal) {
+        let oldItem = items[row]
+        items[row] = anInvoiceItem().from(source: oldItem).withVatValueInPercent(vatRate).build()
     }
 }

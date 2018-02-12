@@ -116,7 +116,12 @@ class NewInvoiceViewController: NSViewController {
         self.itemsTableView.reloadData()
     }
     
-    @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
-        self.itemsTableViewController!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
+    @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
+        let vatRate = Decimal(sender.selectedItem!.tag)
+        self.itemsTableViewController!.changeVatRate(row: sender.tag, vatRate: vatRate)
+        self.itemsTableView.reloadData()
     }
+    
+    @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
+        self.itemsTableViewController!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)    }
 }

@@ -40,6 +40,9 @@
 		D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */; };
 		D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A8112028ED7500FFB262 /* PageLayout.swift */; };
 		D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A814202A311200FFB262 /* PageLayoutTests.swift */; };
+		D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A120321C6500F507AD /* VatRateRepository.swift */; };
+		D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */; };
+		D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D395D836202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D835202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift */; };
 /* End PBXBuildFile section */
@@ -102,6 +105,9 @@
 		D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyPrintingExtension.swift; sourceTree = "<group>"; };
 		D370A8112028ED7500FFB262 /* PageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
 		D370A814202A311200FFB262 /* PageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayoutTests.swift; sourceTree = "<group>"; };
+		D37560A120321C6500F507AD /* VatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateRepository.swift; sourceTree = "<group>"; };
+		D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryVatRateRepository.swift; sourceTree = "<group>"; };
+		D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatePopUpButton.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D395D835202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCounterpartyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +160,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D375609F20321BD600F507AD /* VAT */,
 				D34D0F2520225A81000D1EC6 /* Counterparties */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
 				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
@@ -204,7 +211,6 @@
 				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
 				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
 				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
-				D370A7F82027110E00FFB262 /* VatBreakdown.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +303,41 @@
 				D370A814202A311200FFB262 /* PageLayoutTests.swift */,
 			);
 			path = Pdf;
+			sourceTree = "<group>";
+		};
+		D375609F20321BD600F507AD /* VAT */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A620321D4300F507AD /* UI */,
+				D37560A320321CD900F507AD /* Persistence */,
+				D37560A020321C3200F507AD /* Model */,
+			);
+			path = VAT;
+			sourceTree = "<group>";
+		};
+		D37560A020321C3200F507AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7F82027110E00FFB262 /* VatBreakdown.swift */,
+				D37560A120321C6500F507AD /* VatRateRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D37560A320321CD900F507AD /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D37560A620321D4300F507AD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {
@@ -445,13 +486,16 @@
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
 				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
+				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D395D836202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift in Sources */,
 				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
+				D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
 				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
+				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
 				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
