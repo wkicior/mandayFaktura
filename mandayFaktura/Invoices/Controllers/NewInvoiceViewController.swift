@@ -34,6 +34,7 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var removeItemButton: NSButton!
     
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,5 +114,9 @@ class NewInvoiceViewController: NSViewController {
     @IBAction func changeItemName(_ sender: NSTextField) {
         self.itemsTableViewController!.changeItemName(sender)
         self.itemsTableView.reloadData()
+    }
+    
+    @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
+        self.itemsTableViewController!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
     }
 }

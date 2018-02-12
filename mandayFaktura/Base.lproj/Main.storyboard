@@ -970,27 +970,26 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="ioV-e0-nuQ">
-                                                            <rect key="frame" x="428" y="1" width="54" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <subviews>
-                                                                <textField identifier="amountCellId" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUO-2d-hdW">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" id="sKS-5X-bOk">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                    <connections>
-                                                                        <action selector="changeItemName:" target="haF-wG-vwp" id="pum-Wq-ulK"/>
-                                                                    </connections>
-                                                                </textField>
-                                                            </subviews>
+                                                        <popUpButton id="hJb-Ph-sdH">
+                                                            <rect key="frame" x="428" y="1" width="53" height="25"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <popUpButtonCell key="cell" type="check" title=".godz" bezelStyle="regularSquare" imagePosition="left" lineBreakMode="truncatingTail" state="on" borderStyle="bezel" inset="2" selectedItem="jOE-9i-iGH" id="Jpd-cm-XQA">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="menu"/>
+                                                                <menu key="menu" id="pBx-Fu-7uQ">
+                                                                    <items>
+                                                                        <menuItem title=".godz" state="on" id="jOE-9i-iGH"/>
+                                                                        <menuItem title="kg" tag="1" id="S7A-bx-FNm"/>
+                                                                        <menuItem title="km" tag="2" id="mW0-Mg-cG3"/>
+                                                                        <menuItem title="usł." tag="3" id="qLw-Oy-5w3"/>
+                                                                        <menuItem title="szt." tag="4" id="WBa-m0-GCT"/>
+                                                                    </items>
+                                                                </menu>
+                                                            </popUpButtonCell>
                                                             <connections>
-                                                                <outlet property="textField" destination="pUO-2d-hdW" id="ni7-ba-la3"/>
+                                                                <action selector="onUnitOfMeasureSelect:" target="haF-wG-vwp" id="mAQ-P6-y58"/>
                                                             </connections>
-                                                        </tableCellView>
+                                                        </popUpButton>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                                 <tableColumn identifier="unitNetPriceCellId" width="102" minWidth="40" maxWidth="1000" id="qmU-l1-UGe">
@@ -1145,7 +1144,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="BT8-d1-qRj">
-                                    <rect key="frame" x="1" y="140" width="918" height="16"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="7cL-xm-nzP">

@@ -19,6 +19,43 @@ fileprivate enum CellIdentifiers {
     static let grossValueCell = "grossValueCellId"
 }
 
+private extension UnitOfMeasure {
+    var tag: Int {
+        get {
+            switch self {
+            case .hour:
+                return 0
+            case .kg:
+                return 1
+            case .km:
+                return 2
+            case .service:
+                return 3
+            case .pieces:
+                return 4
+            }
+        }
+    }
+    
+    static func byTag(_ tag: Int) -> UnitOfMeasure? {
+        switch tag {
+        case 0:
+            return .hour
+        case 1:
+            return .kg
+        case 2:
+            return .km
+        case 3:
+            return .service
+        case 4:
+            return .pieces
+        default:
+            return Optional.none
+        }
+    }
+}
+
+
 
 class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
@@ -27,7 +64,7 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
         let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
-        let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
+        let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .km, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
         items.append(item1)
         items.append(item2)
         super.init()
@@ -50,8 +87,12 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             text = item.amount.description
             cellIdentifier = CellIdentifiers.amountCell
         } else if tableColumn == tableView.tableColumns[2] {
-            text = item.unitOfMeasureLabel
             cellIdentifier = CellIdentifiers.unitOfMeasureCell
+
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! NSPopUpButton
+            cell.selectItem(at: item.unitOfMeasure.tag)
+            cell.tag = row
+            return cell
         } else if tableColumn == tableView.tableColumns[3] {
             text = item.unitNetPrice.description
             cellIdentifier = CellIdentifiers.unitNetPriceCell
@@ -95,6 +136,11 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             let oldItem = items[selectedRowNumber]
             items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(Decimal(string: sender.stringValue)!).build()
         }
+    }
+    
+    func changeUnitOfMeasure(row: Int, index: Int) {
+        let oldItem = items[row]
+        items[row] = anInvoiceItem().from(source: oldItem).withUnitOfMeasure(UnitOfMeasure.byTag(index)!).build()
     }
     
     func addItem() {
