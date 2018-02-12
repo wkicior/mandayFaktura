@@ -20,7 +20,7 @@ internal extension InvoiceItem {
     var propertiesForDisplay: [String] {
         get {
             return [self.name, self.amount.description, unitOfMeasureLabel, self.unitNetPrice.description,
-                    self.netValue.description, "\(self.vatValueInPercent.description)%", self.vatValue.description, self.grossValue.description]
+                    self.netValue.description, "\(self.vatRateInPercent.description)%", self.vatValue.description, self.grossValue.description]
         }
     }
     

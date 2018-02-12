@@ -9,7 +9,7 @@
 import Foundation
 
 struct BreakdownEntry: Equatable {
-    let vatValueInPercent: Decimal
+    let vatRateInPercent: Decimal
     let netValue: Decimal
     
     var grossValue: Decimal {
@@ -20,7 +20,7 @@ struct BreakdownEntry: Equatable {
     
     var vatValue: Decimal {
         get {
-            var vatValue = vatValueInPercent/100 * netValue
+            var vatValue = vatRateInPercent/100 * netValue
             var result = Decimal()
             NSDecimalRound(&result, &vatValue, 2, .plain)
             return result
@@ -29,7 +29,7 @@ struct BreakdownEntry: Equatable {
     
     static func == (lhs: BreakdownEntry, rhs: BreakdownEntry) -> Bool {
         return
-            lhs.vatValueInPercent == rhs.vatValueInPercent &&
+            lhs.vatRateInPercent == rhs.vatRateInPercent &&
                 lhs.netValue == rhs.netValue
     }
 }
@@ -49,10 +49,10 @@ struct VatBreakdown {
     */
     var entries: [BreakdownEntry] {
         get {
-            let vatValues = Array(Set(invoiceItems.map({i in i.vatValueInPercent}))).sorted()
+            let vatValues = Array(Set(invoiceItems.map({i in i.vatRateInPercent}))).sorted()
             return vatValues.map({ vat in
-                let netValueSum = invoiceItems.filter({i in vat == i.vatValueInPercent}).map({i in i.netValue}).reduce(0, +)
-                return BreakdownEntry(vatValueInPercent: vat, netValue: netValueSum)
+                let netValueSum = invoiceItems.filter({i in vat == i.vatRateInPercent}).map({i in i.netValue}).reduce(0, +)
+                return BreakdownEntry(vatRateInPercent: vat, netValue: netValueSum)
             })
         }
     }

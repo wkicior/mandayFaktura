@@ -11,7 +11,7 @@ import Foundation
 internal extension BreakdownEntry {
     var propertiesForDisplay: [String] {
         get {
-            return [self.netValue.description, "\(self.vatValueInPercent.description)%", self.vatValue.description, self.grossValue.description]
+            return [self.netValue.description, "\(self.vatRateInPercent.description)%", self.vatValue.description, self.grossValue.description]
         }
     }
 }

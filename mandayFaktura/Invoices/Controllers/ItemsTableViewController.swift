@@ -41,8 +41,8 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
-        let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatValueInPercent: Decimal(23))
-        let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .km, unitNetPrice: Decimal(120), vatValueInPercent: Decimal(8))
+        let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatRateInPercent: Decimal(23))
+        let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .km, unitNetPrice: Decimal(120), vatRateInPercent: Decimal(8))
         items.append(item1)
         items.append(item2)
         super.init()
@@ -77,7 +77,7 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatValueInPercent)!)
+            cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatRateInPercent)!)
             cell.tag = row
             return cell
         } else if tableColumn == tableView.tableColumns[5] {
@@ -126,7 +126,7 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     
     func addItem() {
         let defaultVatRate = self.vatRateRepository.getDefaultVatRate()
-        items.append(anInvoiceItem().withVatValueInPercent(defaultVatRate).withUnitOfMeasure(.pieces).build())
+        items.append(anInvoiceItem().withVatRateInPercent(defaultVatRate).withUnitOfMeasure(.pieces).build())
     }
     
     func removeSelectedItem() {
@@ -138,6 +138,6 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     
     func changeVatRate(row: Int, vatRate: Decimal) {
         let oldItem = items[row]
-        items[row] = anInvoiceItem().from(source: oldItem).withVatValueInPercent(vatRate).build()
+        items[row] = anInvoiceItem().from(source: oldItem).withVatRateInPercent(vatRate).build()
     }
 }

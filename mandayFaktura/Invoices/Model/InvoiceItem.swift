@@ -13,7 +13,7 @@ struct InvoiceItem {
     let amount: Decimal
     let unitOfMeasure: UnitOfMeasure
     let unitNetPrice: Decimal
-    let vatValueInPercent: Decimal
+    let vatRateInPercent: Decimal
     
     var netValue: Decimal {
         get {
@@ -32,7 +32,7 @@ struct InvoiceItem {
     
     var vatValue: Decimal {
         get {
-            var vatValue = vatValueInPercent/100 * netValue
+            var vatValue = vatRateInPercent/100 * netValue
             var result = Decimal()
             NSDecimalRound(&result, &vatValue, 2, .plain)
             return result
@@ -47,9 +47,9 @@ func anInvoiceItem()-> InvoiceItemBuilder {
 class InvoiceItemBuilder {
     private var name = ""
     private var amount = Decimal()
-    private var unitOfMeasure: UnitOfMeasure?
+    private var unitOfMeasure: UnitOfMeasure = .pieces
     private var unitNetPrice = Decimal()
-    private var vatValueInPercent = Decimal()
+    private var vatRateInPercent = Decimal()
     
     
     func from(source: InvoiceItem) -> InvoiceItemBuilder {
@@ -57,7 +57,7 @@ class InvoiceItemBuilder {
         self.amount = source.amount
         self.unitOfMeasure = source.unitOfMeasure
         self.unitNetPrice = source.unitNetPrice
-        self.vatValueInPercent = source.vatValueInPercent
+        self.vatRateInPercent = source.vatRateInPercent
         return self
     }
     
@@ -81,12 +81,12 @@ class InvoiceItemBuilder {
         return self
     }
     
-    func withVatValueInPercent(_ vatValueInPercent: Decimal) -> InvoiceItemBuilder {
-        self.vatValueInPercent = vatValueInPercent
+    func withVatRateInPercent(_ vatRateInPercent: Decimal) -> InvoiceItemBuilder {
+        self.vatRateInPercent = vatRateInPercent
         return self
     }
     
     func build()->InvoiceItem {
-        return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure!, unitNetPrice: unitNetPrice, vatValueInPercent: vatValueInPercent)
+        return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRateInPercent: vatRateInPercent)
     }
 }
