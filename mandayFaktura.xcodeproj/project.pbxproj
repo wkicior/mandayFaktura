@@ -43,8 +43,8 @@
 		D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A120321C6500F507AD /* VatRateRepository.swift */; };
 		D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */; };
 		D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */; };
+		D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
-		D395D836202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D835202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,8 +108,8 @@
 		D37560A120321C6500F507AD /* VatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateRepository.swift; sourceTree = "<group>"; };
 		D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryVatRateRepository.swift; sourceTree = "<group>"; };
 		D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatePopUpButton.swift; sourceTree = "<group>"; };
+		D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCounterpartyRepository.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
-		D395D835202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCounterpartyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,7 +343,7 @@
 		D395D834202CEABA00D129B6 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				D395D835202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift */,
+				D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -489,7 +489,6 @@
 				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
-				D395D836202CEB5700D129B6 /* InMemoryCounterpartyRepository.swift in Sources */,
 				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
 				D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */,
@@ -503,6 +502,7 @@
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,

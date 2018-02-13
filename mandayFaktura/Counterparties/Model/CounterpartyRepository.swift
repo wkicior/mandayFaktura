@@ -15,5 +15,10 @@ protocol CounterpartyRepository {
    /**
     Returns the seller
     */
-    func getSeller() -> Counterparty
+    func getSeller() -> Counterparty?
+    
+    /*
+    Saves seller
+     */
+    func saveSeller(seller: Counterparty)
 }
