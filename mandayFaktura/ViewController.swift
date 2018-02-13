@@ -28,8 +28,6 @@ class ViewController: NSViewController {
                                                 (notification) in
                                                 self.invoiceHistoryTableView.reloadData()
         }
-        
-
     }
     
     override var representedObject: Any? {

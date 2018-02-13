@@ -38,6 +38,9 @@ import Foundation
     
 }
 
+/**
+The implementation of CounterpartyRepository using NSKeyedArchiver storage
+ */
 class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
     func saveSeller(seller: Counterparty) {
         let data = NSKeyedArchiver.archivedData(withRootObject: CounterpartyCoding(seller))

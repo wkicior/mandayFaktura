@@ -176,6 +176,7 @@
 		D34D0ED0201A7CBC000D1EC6 /* mandayFakturaTests */ = {
 			isa = PBXGroup;
 			children = (
+				D37560AB2033941C00F507AD /* VAT */,
 				D370A7F02023AB0400FFB262 /* Invoices */,
 				D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */,
 				D34D0ED3201A7CBC000D1EC6 /* Info.plist */,
@@ -280,7 +281,6 @@
 			children = (
 				D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */,
 				D370A7F4202614C100FFB262 /* InvoiceTests.swift */,
-				D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +338,22 @@
 				D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		D37560AB2033941C00F507AD /* VAT */ = {
+			isa = PBXGroup;
+			children = (
+				D37560AC2033942600F507AD /* Model */,
+			);
+			path = VAT;
+			sourceTree = "<group>";
+		};
+		D37560AC2033942600F507AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {

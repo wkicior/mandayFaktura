@@ -9,6 +9,9 @@
 import Foundation
 import Cocoa
 
+/**
+ * PopUpButton which initializes itself with available vat rates from the repository
+ */
 class VatRatePopUpButton: NSPopUpButton {
     let vatRateRepository = InMemoryVatRateRepository()
     required init?(coder: NSCoder) {
