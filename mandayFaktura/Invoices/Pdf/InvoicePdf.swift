@@ -21,7 +21,11 @@ class InvoicePdf {
     func getDocument() -> PDFDocument {       
         let doc = PDFDocument()
         let invoicePage = InvoicePdfPage(invoice: self.invoice, pageNumber: 1)
+        let invoicePage2 = InvoicePdfPage(invoice: self.invoice, pageNumber: 2)
+
         doc.insert(invoicePage, at: 0)
+        doc.insert(invoicePage2, at: 1)
+        
         return doc
     }
 }

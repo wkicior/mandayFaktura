@@ -14,12 +14,16 @@ class PdfViewController: NSViewController {
     @IBOutlet weak var pdfView: PDFView!
     
     var invoice: Invoice?
+    var invoicePdf: InvoicePdf?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let invoicePdf = InvoicePdf(invoice: self.invoice!)
-        pdfView.document = invoicePdf.getDocument()
+        invoicePdf = InvoicePdf(invoice: self.invoice!)
+        pdfView.document = invoicePdf!.getDocument()
     }
     
+    @IBAction func onPrintButtonClicked(_ sender: NSButton) {
+        pdfView.document?.write(toFile: "/Users/disorder/Downloads/\(invoice?.number ?? "Faktura").pdf")
+    }
 }
