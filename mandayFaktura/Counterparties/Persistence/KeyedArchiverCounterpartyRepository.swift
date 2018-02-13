@@ -52,3 +52,5 @@ class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
         return nil
     }
 }
+
+

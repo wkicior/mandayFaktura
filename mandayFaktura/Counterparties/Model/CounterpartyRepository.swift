@@ -22,3 +22,22 @@ protocol CounterpartyRepository {
      */
     func saveSeller(seller: Counterparty)
 }
+
+/**
+ This class will provide the instances of implementations of CounterpartyRepository
+ */
+class CounterpartyRepositoryFactory {
+    private static var repository: CounterpartyRepository?
+    
+    /**
+    Applicaiton registers the instance to be used as a CounterpartyRepository through this method
+     */
+    static func register(repository: CounterpartyRepository) {
+        CounterpartyRepositoryFactory.repository = repository
+    }
+    static var instance: CounterpartyRepository {
+        get {
+            return repository!
+        }
+    }
+}

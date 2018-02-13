@@ -14,7 +14,7 @@ struct NewInvoiceViewControllerConstants {
 
 class NewInvoiceViewController: NSViewController {
     var invoiceRepository: InvoiceRepository?
-    var counterpartyRepository: CounterpartyRepository?
+    let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
     var itemsTableViewController: ItemsTableViewController?
     
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
@@ -33,9 +33,6 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var removeItemButton: NSButton!
     
-    
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         issueDatePicker.dateValue = Date()
@@ -43,7 +40,6 @@ class NewInvoiceViewController: NSViewController {
         dueDatePicker.dateValue = Date()
         let appDel = NSApplication.shared.delegate as! AppDelegate
         invoiceRepository = appDel.invoiceRepository
-        counterpartyRepository = appDel.counterpartyRepository
         itemsTableViewController = ItemsTableViewController(itemsTableView: itemsTableView)
         itemsTableView.delegate = itemsTableViewController
         itemsTableView.dataSource = itemsTableViewController
@@ -73,7 +69,7 @@ class NewInvoiceViewController: NSViewController {
     
     var invoice: Invoice {
         get {
-            let seller = self.counterpartyRepository!.getSeller() ?? Counterparty(name: "Firma XYZ", streetAndNumber: "Ulica 1/2", city: "Gdańsk", postalCode: "00-000", taxCode: "123456789", accountNumber: "00 1234 0000 5555 7777")
+            let seller = self.counterpartyRepository.getSeller() ?? Counterparty(name: "Firma XYZ", streetAndNumber: "Ulica 1/2", city: "Gdańsk", postalCode: "00-000", taxCode: "123456789", accountNumber: "00 1234 0000 5555 7777")
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
             return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewController!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }
