@@ -38,17 +38,18 @@ import Foundation
     
 }
 
-/**
+/** s
 The implementation of CounterpartyRepository using NSKeyedArchiver storage
  */
 class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
+    private let key = "seller"
     func saveSeller(seller: Counterparty) {
         let data = NSKeyedArchiver.archivedData(withRootObject: CounterpartyCoding(seller))
-        UserDefaults.standard.set(data, forKey: "seller")
+        UserDefaults.standard.set(data, forKey: key)
     }
     
     func getSeller() -> Counterparty? {
-        if let data = UserDefaults.standard.object(forKey: "seller") as? NSData {
+        if let data = UserDefaults.standard.object(forKey: key) as? NSData {
             let seller:CounterpartyCoding = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! CounterpartyCoding
             return seller.counterparty
         }
