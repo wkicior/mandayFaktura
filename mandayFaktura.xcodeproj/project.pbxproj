@@ -45,6 +45,8 @@
 		D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */; };
 		D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */; };
 		D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560AE2033974100F507AD /* SellerSettingsViewController.swift */; };
+		D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B12034C20F00F507AD /* DecimalFormatter.swift */; };
+		D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B42034C25600F507AD /* DecimalFormatterTests.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,8 @@
 		D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatePopUpButton.swift; sourceTree = "<group>"; };
 		D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCounterpartyRepository.swift; sourceTree = "<group>"; };
 		D37560AE2033974100F507AD /* SellerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSettingsViewController.swift; sourceTree = "<group>"; };
+		D37560B12034C20F00F507AD /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
+		D37560B42034C25600F507AD /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +202,7 @@
 		D34D0F08201CE888000D1EC6 /* Invoices */ = {
 			isa = PBXGroup;
 			children = (
+				D37560B02034C1F800F507AD /* Conversions */,
 				D34D0F1E2020E907000D1EC6 /* Pdf */,
 				D34D0F13201DD9E6000D1EC6 /* Model */,
 				D34D0F14201DD9F9000D1EC6 /* Persistence */,
@@ -273,6 +278,7 @@
 		D370A7F02023AB0400FFB262 /* Invoices */ = {
 			isa = PBXGroup;
 			children = (
+				D37560B32034C24100F507AD /* Conversions */,
 				D370A813202A30AC00FFB262 /* Pdf */,
 				D370A7F12023AB1000FFB262 /* Model */,
 			);
@@ -365,6 +371,22 @@
 				D37560AE2033974100F507AD /* SellerSettingsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D37560B02034C1F800F507AD /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B12034C20F00F507AD /* DecimalFormatter.swift */,
+			);
+			path = Conversions;
+			sourceTree = "<group>";
+		};
+		D37560B32034C24100F507AD /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B42034C25600F507AD /* DecimalFormatterTests.swift */,
+			);
+			path = Conversions;
 			sourceTree = "<group>";
 		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {
@@ -528,6 +550,7 @@
 				D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
+				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
@@ -546,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
 				D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,

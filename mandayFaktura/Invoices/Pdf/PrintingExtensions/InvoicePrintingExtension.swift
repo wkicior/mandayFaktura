@@ -13,7 +13,7 @@ internal extension Invoice {
     
     var propertiesForDisplay: [String] {
         get {
-            return [self.totalNetValue.description, "*", self.totalVatValue.description, self.totalGrossValue.description]
+            return [self.totalNetValue.formatAmount(), "*", self.totalVatValue.formatAmount(), self.totalGrossValue.formatAmount()]
         }
     }
     
@@ -43,7 +43,7 @@ internal extension Invoice {
     var printedPaymentSummary: String {
         let summary =
         """
-        Do zapłaty \(totalGrossValue) PLN
+        Do zapłaty \(totalGrossValue.formatAmount()) PLN
         słownie: \(totalGrossValue.spelledOut) PLN
         forma płatności: \(paymentFormLabel)
         termin płatności: \(DateFormatting.getDateString(paymentDueDate))

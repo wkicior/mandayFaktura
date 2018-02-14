@@ -32,8 +32,6 @@ private extension UnitOfMeasure {
     }
 }
 
-
-
 class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
@@ -66,13 +64,12 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             cellIdentifier = CellIdentifiers.amountCell
         } else if tableColumn == tableView.tableColumns[2] {
             cellIdentifier = CellIdentifiers.unitOfMeasureCell
-
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! NSPopUpButton
             cell.selectItem(at: item.unitOfMeasure.tag)
             cell.tag = row
             return cell
         } else if tableColumn == tableView.tableColumns[3] {
-            text = item.unitNetPrice.description
+            text = item.unitNetPrice.formatAmount()
             cellIdentifier = CellIdentifiers.unitNetPriceCell
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
@@ -81,10 +78,10 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             cell.tag = row
             return cell
         } else if tableColumn == tableView.tableColumns[5] {
-            text = item.netValue.description
+            text = item.netValue.formatAmount()
             cellIdentifier = CellIdentifiers.netValueCell
         } else if tableColumn == tableView.tableColumns[6] {
-            text = item.grossValue.description
+            text = item.grossValue.formatAmount()
             cellIdentifier = CellIdentifiers.grossValueCell
         }
         

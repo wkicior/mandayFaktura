@@ -38,7 +38,7 @@ import Foundation
     
 }
 
-/** s
+/**
 The implementation of CounterpartyRepository using NSKeyedArchiver storage
  */
 class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
