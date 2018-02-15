@@ -100,19 +100,25 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         }
     }
     
-    func changeItemNetValue(_ sender: NSTextField) {
+    func changeItemNetValue(_ sender: NSTextField) throws {
+        guard let unitNetPrice = Decimal(string: sender.stringValue) else {
+            throw InputValidationError.invalidNumber(fieldName: "Cena netto")
+        }
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(Decimal(string: sender.stringValue)!).build()
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(unitNetPrice).build()
         }
     }
     
-    func changeAmount(_ sender: NSTextField) {
+    func changeAmount(_ sender: NSTextField) throws {
+        guard let amount = Decimal(string: sender.stringValue) else {
+            throw InputValidationError.invalidNumber(fieldName: "Ilość")
+        }
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(Decimal(string: sender.stringValue)!).build()
+            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(amount).build()
         }
     }
     

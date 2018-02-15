@@ -97,13 +97,33 @@ class NewInvoiceViewController: NSViewController {
         self.itemsTableView.reloadData()
     }
     
+    func dialogWarning(warning: String, text: String){
+        let alert = NSAlert()
+        alert.messageText = warning
+        alert.informativeText = text
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
+    }
+    
+    private func tryWithWarning(_ fun: (NSTextField) throws -> Void, on: NSTextField) {
+        do {
+            try fun(on)
+        } catch InputValidationError.invalidNumber(let fieldName) {
+            dialogWarning(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23")
+        } catch {
+            //
+        }
+    }
+   
+    
     @IBAction func changeAmount(_ sender: NSTextField) {
-        self.itemsTableViewController!.changeAmount(sender)
+        tryWithWarning(self.itemsTableViewController!.changeAmount, on: sender)
         self.itemsTableView.reloadData()
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
-        self.itemsTableViewController!.changeItemNetValue(sender)
+        tryWithWarning(self.itemsTableViewController!.changeItemNetValue, on: sender)
         self.itemsTableView.reloadData()
     }
     

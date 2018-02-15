@@ -47,6 +47,7 @@
 		D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560AE2033974100F507AD /* SellerSettingsViewController.swift */; };
 		D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B12034C20F00F507AD /* DecimalFormatter.swift */; };
 		D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B42034C25600F507AD /* DecimalFormatterTests.swift */; };
+		D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B8203601DF00F507AD /* InputValidationError.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		D37560AE2033974100F507AD /* SellerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSettingsViewController.swift; sourceTree = "<group>"; };
 		D37560B12034C20F00F507AD /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 		D37560B42034C25600F507AD /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
+		D37560B8203601DF00F507AD /* InputValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationError.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D37560B6203601B100F507AD /* Application */,
 				D375609F20321BD600F507AD /* VAT */,
 				D34D0F2520225A81000D1EC6 /* Counterparties */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
@@ -389,6 +392,22 @@
 			path = Conversions;
 			sourceTree = "<group>";
 		};
+		D37560B6203601B100F507AD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B7203601C000F507AD /* Errors */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D37560B7203601C000F507AD /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B8203601DF00F507AD /* InputValidationError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +556,7 @@
 				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
 				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
+				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift in Sources */,
