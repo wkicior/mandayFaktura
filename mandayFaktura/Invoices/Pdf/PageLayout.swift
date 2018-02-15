@@ -100,7 +100,8 @@ class PageLayout {
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
-    func drawVatBreakdown(breakdownTableData: [[String]]) {
+    func drawVatBreakdown(breakdownLabel: String, breakdownTableData: [[String]]) {
+        drawVatBreakdownCell(content: breakdownLabel, row: 0, column: -1)
         for i in 0 ..< breakdownTableData.count {
             for j in 0 ..< breakdownTableData[i].count {
                 drawVatBreakdownCell(content: breakdownTableData[i][j], row: i,column: j)
@@ -141,8 +142,8 @@ class PageLayout {
     }
     
     private func drawVatBreakdownGrid(rows: Int, columns: Int) {
-        (0 ... rows).forEach({r in drawVatBreakdownHorizontalGrid(row: r)})
-        (0 ... columns).forEach({c in drawVatBreakdownVerticalGrid(cell: c)})
+        (0 ... rows).forEach({r in drawVatBreakdownHorizontalGrid(row: r, of: rows)})
+        (0 ... columns + 1).forEach({c in drawVatBreakdownVerticalGrid(cell: c)})
     }
     
     private func drawItemVerticalGrid(cell: Int) {
@@ -160,15 +161,16 @@ class PageLayout {
     }
     
     private func drawVatBreakdownVerticalGrid(cell: Int)  {
-        let x = leftMargin + getColumnXOffset(column: cell + 5)
+        let x = leftMargin + getColumnXOffset(column: cell + 4)
         let fromPoint = NSMakePoint(x, itemsSummaryYPosition + defaultRowHeight + extraItemsHeaderPadding / 2)
         let toPoint = NSMakePoint(x, itemsSummaryYPosition  - (CGFloat(breakdownItemsCount) * defaultRowHeight) + extraItemsHeaderPadding / 2)
         drawPath(from: fromPoint, to: toPoint)
     }
     
-    private func drawVatBreakdownHorizontalGrid(row: Int)  {
+    private func drawVatBreakdownHorizontalGrid(row: Int, of: Int)  {
         let y = itemsSummaryYPosition - (CGFloat(row) * defaultRowHeight) + gridPadding
-        let fromPoint = NSMakePoint(leftMargin + self.getColumnXOffset(column: 5) , y)
+        let isFirstOrLastRow = row == of || row == 0
+        let fromPoint = NSMakePoint(leftMargin + self.getColumnXOffset(column: isFirstOrLastRow ? 4 : 5) , y)
         let toPoint = NSMakePoint(self.itemsTableWidth + leftMargin, y)
         drawPath(from: fromPoint, to: toPoint)
     }

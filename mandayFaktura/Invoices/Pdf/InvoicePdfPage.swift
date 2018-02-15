@@ -49,7 +49,7 @@ class InvoicePdfPage: BasePDFPage {
            let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        pageLayout.drawVatBreakdown(breakdownTableData: breakdownTableData)
+        pageLayout.drawVatBreakdown(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData)
     }
     
     func drawPaymentSummary() {
