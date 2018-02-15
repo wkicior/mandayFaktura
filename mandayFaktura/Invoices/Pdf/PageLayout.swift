@@ -38,6 +38,14 @@ class PageLayout {
         header.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
+    func drawCopyLabel(label: String) {
+        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
+                              headerStartingYPosition - CGFloat(30),
+                              1/2 * self.pdfWidth,
+                              CGFloat(20.0))
+        label.uppercased().draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+    }
+    
     func drawSeller(seller: String) {
         let rect = NSMakeRect(CGFloat(100.0),
                               headerStartingYPosition - CGFloat(150),
