@@ -33,9 +33,8 @@ class FontFormatting {
 
         fontAttributesBoldLeft = [
             NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleLeft
+            NSAttributedStringKey.paragraphStyle:paragraphStyleLeft,
         ]
-        
         
         fontAttributesCenter = [
             NSAttributedStringKey.font: font ?? NSFont.labelFont(ofSize: 12),
@@ -44,7 +43,7 @@ class FontFormatting {
         
         fontAttributesBoldCenter = [
             NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleCenter
+            NSAttributedStringKey.paragraphStyle:paragraphStyleCenter,
         ]
         
         fontAttributesPageNumber = [

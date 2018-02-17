@@ -48,6 +48,7 @@
 		D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B12034C20F00F507AD /* DecimalFormatter.swift */; };
 		D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B42034C25600F507AD /* DecimalFormatterTests.swift */; };
 		D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B8203601DF00F507AD /* InputValidationError.swift */; };
+		D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BA20377D7800F507AD /* NSColorExtension.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		D37560B12034C20F00F507AD /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 		D37560B42034C25600F507AD /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
 		D37560B8203601DF00F507AD /* InputValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationError.swift; sourceTree = "<group>"; };
+		D37560BA20377D7800F507AD /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -305,6 +307,7 @@
 				D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */,
 				D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */,
 				D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */,
+				D37560BA20377D7800F507AD /* NSColorExtension.swift */,
 			);
 			path = PrintingExtensions;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
 				D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
+				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,

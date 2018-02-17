@@ -38,13 +38,13 @@ class InvoicePdfPage: BasePDFPage {
         pageLayout.drawBuyer(buyer: invoice.buyer.printedBuyer)
     }
     
-    func drawItems() {
+    func drawItemsTable() {
         var itemTableData: [[String]] = []
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
             itemTableData.append(properties)
         }
-        pageLayout.drawItems(headerData: InvoiceItem.itemColumnNames, tableData: itemTableData)
+        pageLayout.drawItemsTable(headerData: InvoiceItem.itemColumnNames, tableData: itemTableData)
     }
     
     func drawItemsSummary() {
@@ -74,7 +74,7 @@ class InvoicePdfPage: BasePDFPage {
         self.drawCopyLabel()
         self.drawSeller()
         self.drawBuyer()
-        self.drawItems()
+        self.drawItemsTable()
         self.drawItemsSummary()
         self.drawVatBreakdown()
         self.drawPaymentSummary()

@@ -8,6 +8,7 @@
 
 import Foundation
 import Quartz
+import AppKit
 
 
 class PageLayout {
@@ -17,15 +18,20 @@ class PageLayout {
     let pdfHeight = CGFloat(1024.0)
     let pdfWidth = CGFloat(768.0)
     
-    private let itemsStartYPosition = CGFloat(674)
     private let headerStartingYPosition = CGFloat(900)
-    
+    private let copyLabelStartingYPosition = CGFloat(870)
+    private let itemsStartYPosition = CGFloat(674)
+    private let counterpartiesStartYPosition = CGFloat(750)
+   
     private let defaultRowHeight = CGFloat(25.0)
     private let gridPadding = CGFloat(5)
     
     private let fontFormatting = FontFormatting()
     private var itemRowsCounter = 0
     private var breakdownItemsCount = 0
+    
+    private let lightCellColor = NSColor.fromRGB(red: 215, green: 233, blue: 246)
+    private let darkHeaderColor =  NSColor.fromRGB(red: 90, green: 164, blue: 218)
     
     let itemColumnsWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.1), CGFloat(0.05), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
     let itemsTableWidth =  CGFloat(728)
@@ -40,7 +46,7 @@ class PageLayout {
     
     func drawCopyLabel(label: String) {
         let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
-                              headerStartingYPosition - CGFloat(30),
+                              copyLabelStartingYPosition,
                               1/2 * self.pdfWidth,
                               CGFloat(20.0))
         label.uppercased().draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
@@ -48,7 +54,7 @@ class PageLayout {
     
     func drawSeller(seller: String) {
         let rect = NSMakeRect(CGFloat(100.0),
-                              headerStartingYPosition - CGFloat(150),
+                              counterpartiesStartYPosition,
                               1/2 * self.pdfWidth,
                               CGFloat(90.0))
         seller.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
@@ -56,13 +62,13 @@ class PageLayout {
     
     func drawBuyer(buyer: String) {
         let rect = NSMakeRect(1/2 * self.pdfWidth,
-                              headerStartingYPosition - CGFloat(150),
+                              counterpartiesStartYPosition,
                               1/2 * self.pdfWidth,
                               CGFloat(90.0))
         buyer.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
-    func drawItems(headerData: [String], tableData: [[String]]) {
+    func drawItemsTable(headerData: [String], tableData: [[String]]) {
         itemRowsCounter = tableData.count
         for i in 0 ..< headerData.count {
             drawItemsHeaderCell(content: headerData[i], column: i)
@@ -75,22 +81,42 @@ class PageLayout {
         drawItemTableGrid(rows: tableData.count, columns: headerData.count)
     }
     
-    private func drawItemTableCell(content: String, row: Int, column: Int) {
-        let rect = NSMakeRect(
-            leftMargin + self.getColumnXOffset(column: column),
-            itemsStartYPosition - (defaultRowHeight * (CGFloat(row) + 1)) - extraItemsHeaderPadding,
-            self.getColumnWidth(column: column),
-            defaultRowHeight)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
-    }
-    
     private func drawItemsHeaderCell(content: String, column: Int) {
         let rect = NSMakeRect(
             leftMargin + self.getColumnXOffset(column: column),
             itemsStartYPosition,
             getColumnWidth(column: column),
-            defaultRowHeight)
+            defaultRowHeight )
+        fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
+                           y: itemsStartYPosition - gridPadding,
+                           width:  getColumnWidth(column: column),
+                           height: defaultRowHeight + 2 * gridPadding,
+                           color: darkHeaderColor)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
+    }
+    
+    private func drawItemTableCell(content: String, row: Int, column: Int) {
+        let yStartingPosition =  itemsStartYPosition - (defaultRowHeight * (CGFloat(row) + 1)) - extraItemsHeaderPadding
+        let rect = NSMakeRect(
+            leftMargin + self.getColumnXOffset(column: column),
+            yStartingPosition,
+            self.getColumnWidth(column: column),
+            defaultRowHeight)
+        if row % 2 == 1{
+            fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
+                               y: yStartingPosition + gridPadding,
+                               width:  self.getColumnWidth(column: column),
+                               height: defaultRowHeight,
+                               color: lightCellColor)
+        }
+        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+
+    }
+    
+    func fillCellBackground(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: NSColor) {
+        let rectBackground = NSMakeRect(x, y, width, height)
+        color.set()
+        __NSRectFill(rectBackground)
     }
     
     func drawItemsSummary(summaryData: [String]) {
@@ -105,6 +131,11 @@ class PageLayout {
                               itemsSummaryYPosition,
                               getColumnWidth(column: column + shift),
                               defaultRowHeight)
+        fillCellBackground(x: leftMargin + getColumnXOffset(column: column + shift),
+                           y: itemsSummaryYPosition + gridPadding,
+                           width:  self.getColumnWidth(column: column + shift),
+                           height: defaultRowHeight,
+                           color: darkHeaderColor)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
@@ -125,6 +156,13 @@ class PageLayout {
                               itemsSummaryYPosition - CGFloat(row + 1) * defaultRowHeight,
                               getColumnWidth(column: column + shift),
                               defaultRowHeight)
+        if row % 2 == 1{
+            fillCellBackground(x: leftMargin + getColumnXOffset(column: column + shift),
+                               y: itemsSummaryYPosition - CGFloat(row + 1) * defaultRowHeight + gridPadding,
+                               width:  self.getColumnWidth(column: column + shift),
+                               height: defaultRowHeight,
+                               color: lightCellColor)
+        }
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
