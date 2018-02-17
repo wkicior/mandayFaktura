@@ -1036,7 +1036,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I6U-Sl-dTM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="371" height="17"/>
+                                                                    <rect key="frame" x="2" y="0.0" width="367" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" drawsBackground="YES" id="x3f-rI-Y1r">
                                                                         <font key="font" metaFont="system"/>
@@ -1143,7 +1143,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPV-1j-8QY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="17"/>
+                                                                    <rect key="frame" x="2" y="0.0" width="98" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="EVX-nr-mu4">
                                                                         <font key="font" metaFont="system"/>
@@ -1363,6 +1363,7 @@
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
                         <outlet property="postalCodeTextField" destination="gcd-iG-LE0" id="8WE-XU-yH2"/>
+                        <outlet property="previewButton" destination="gWk-za-B4i" id="bLm-HA-G9y"/>
                         <outlet property="removeItemButton" destination="KpK-4W-CCE" id="IZ0-hl-I3Q"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
                         <outlet property="sellingDatePicker" destination="ckj-xA-UAK" id="u2m-bb-OCJ"/>

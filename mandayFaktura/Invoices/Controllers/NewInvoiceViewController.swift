@@ -32,6 +32,7 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var dueDatePicker: NSDatePicker!
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var removeItemButton: NSButton!
+    @IBOutlet weak var previewButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class NewInvoiceViewController: NSViewController {
         itemsTableView.delegate = itemsTableViewController
         itemsTableView.dataSource = itemsTableViewController
         self.removeItemButton.isEnabled = false
+        checkPreviewButtonEnabled()
     }
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
@@ -89,12 +91,14 @@ class NewInvoiceViewController: NSViewController {
     @IBAction func onAddItemClicked(_ sender: NSButton) {
         self.itemsTableViewController!.addItem()
         self.itemsTableView.reloadData()
+        checkPreviewButtonEnabled()
     }
     
     @IBAction func onMinusButtonClicked(_ sender: Any) {
         self.removeItemButton.isEnabled = false
         self.itemsTableViewController!.removeSelectedItem()
         self.itemsTableView.reloadData()
+        checkPreviewButtonEnabled()
     }
     
     func dialogWarning(warning: String, text: String){
@@ -114,6 +118,10 @@ class NewInvoiceViewController: NSViewController {
         } catch {
             //
         }
+    }
+    
+    private func checkPreviewButtonEnabled() {
+        self.previewButton.isEnabled = self.itemsTableView.numberOfRows > 0
     }
    
     
