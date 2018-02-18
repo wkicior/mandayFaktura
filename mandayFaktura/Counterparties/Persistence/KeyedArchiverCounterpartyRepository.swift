@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc(CounterpartyCoding)private class CounterpartyCoding: NSObject, NSCoding {
+@objc(CounterpartyCoding) class CounterpartyCoding: NSObject, NSCoding {
     let counterparty: Counterparty
     
     func encode(with coder: NSCoder) {

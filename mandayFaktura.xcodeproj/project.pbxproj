@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */; };
 		D3310DC8202F5854008467BD /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewController.swift */; };
 		D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
 		D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B42034C25600F507AD /* DecimalFormatterTests.swift */; };
 		D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B8203601DF00F507AD /* InputValidationError.swift */; };
 		D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BA20377D7800F507AD /* NSColorExtension.swift */; };
+		D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemCoding.swift; sourceTree = "<group>"; };
 		D3310DC7202F5854008467BD /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mandayFaktura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		D37560B42034C25600F507AD /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
 		D37560B8203601DF00F507AD /* InputValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationError.swift; sourceTree = "<group>"; };
 		D37560BA20377D7800F507AD /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceRepository.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				D34D0F0D201CEB02000D1EC6 /* InMemoryInvoiceRepository.swift */,
+				D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */,
+				D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -569,6 +575,7 @@
 				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
+				D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */,
 				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
 				D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
@@ -585,6 +592,7 @@
 				D3310DC8202F5854008467BD /* ItemsTableViewController.swift in Sources */,
 				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
 				D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */,
+				D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */,
 				D34D0F0E201CEB02000D1EC6 /* InMemoryInvoiceRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

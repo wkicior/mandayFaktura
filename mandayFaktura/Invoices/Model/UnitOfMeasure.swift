@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum UnitOfMeasure {
-    case pieces, km, service, kg, hour
+enum UnitOfMeasure: Int {
+    case pieces = 1, km, service, kg, hour
 }

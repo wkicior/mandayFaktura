@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum PaymentForm {
-    case cash, transfer
+enum PaymentForm: Int {
+    case cash = 1, transfer
 }

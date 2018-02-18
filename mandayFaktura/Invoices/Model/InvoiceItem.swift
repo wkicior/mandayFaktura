@@ -86,7 +86,7 @@ class InvoiceItemBuilder {
         return self
     }
     
-    func build()->InvoiceItem {
+    func build() -> InvoiceItem {
         return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRateInPercent: vatRateInPercent)
     }
 }

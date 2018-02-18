@@ -42,3 +42,62 @@ struct Invoice {
         }
     }
 }
+
+func anInvoice() -> InvoiceBuilder {
+    return InvoiceBuilder()
+}
+
+class InvoiceBuilder {
+    private var issueDate = Date()
+    private var number = ""
+    private var sellingDate = Date()
+    private var seller: Counterparty?
+    private var buyer: Counterparty?
+    private var items: [InvoiceItem] = []
+    private var paymentForm: PaymentForm = .transfer
+    private var paymentDueDate = Date()
+    
+    func withIssueDate(_ issueDate: Date) -> InvoiceBuilder {
+        self.issueDate = issueDate
+        return self
+    }
+    
+    func withNumber(_ number: String) -> InvoiceBuilder {
+        self.number = number
+        return self
+    }
+    
+    func withSellingDate(_ sellingDate: Date) -> InvoiceBuilder {
+        self.sellingDate = sellingDate
+        return self
+    }
+    
+    func withSeller(_ seller: Counterparty) -> InvoiceBuilder {
+        self.seller = seller
+        return self
+    }
+    
+    func withBuyer(_ buyer: Counterparty) -> InvoiceBuilder {
+        self.buyer = buyer
+        return self
+    }
+    
+    func withItems(_ items: [InvoiceItem]) -> InvoiceBuilder {
+        self.items = items
+        return self
+    }
+    
+    func withPaymentForm(_ paymentForm: PaymentForm) -> InvoiceBuilder {
+        self.paymentForm = paymentForm
+        return self
+    }
+    
+    func withPaymentDueDate(_ paymentDueDate: Date) -> InvoiceBuilder {
+        self.paymentDueDate = paymentDueDate
+        return self
+    }
+    
+    func build() -> Invoice {
+        return Invoice(issueDate: issueDate, number: number, sellingDate: sellingDate, seller: seller!, buyer: buyer!, items: items, paymentForm: paymentForm, paymentDueDate: paymentDueDate)
+    }
+}
