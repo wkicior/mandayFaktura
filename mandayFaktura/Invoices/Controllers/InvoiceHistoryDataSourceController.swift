@@ -54,4 +54,8 @@ class InvoiceHistoryTableViewController : NSObject, NSTableViewDataSource, NSTab
         }
         return nil
     }
+    
+    func getSelectedInvoice(index: Int) -> Invoice {
+        return invoiceRepository.getInvoices()[index]
+    }
 }

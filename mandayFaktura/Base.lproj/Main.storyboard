@@ -1517,6 +1517,7 @@
                     </view>
                     <connections>
                         <outlet property="invoiceHistoryTableView" destination="qJi-3B-zhE" id="i5o-OV-iwt"/>
+                        <segue destination="xVm-3h-MS1" kind="show" identifier="showPdfViewSegue" id="0VC-n4-z2H"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1528,4 +1529,7 @@
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0VC-n4-z2H"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -22,6 +22,8 @@ class ViewController: NSViewController {
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewController
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewController
         
+        invoiceHistoryTableView.doubleAction = #selector(onTableViewClicked)
+        
         NotificationCenter.default.addObserver(forName: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in
@@ -34,7 +36,22 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    @objc func onTableViewClicked(sender: AnyObject) {
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showPdfViewSegue"), sender: sender)
+    }
+    
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is PdfViewController {
+            let vc = segue.destinationController as? PdfViewController
+            let index = self.invoiceHistoryTableView.selectedRow
+            vc?.invoice = invoiceHistoryTableViewController?.getSelectedInvoice(index: index)
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: NSStoryboardSegue.Identifier, sender: Any?) -> Bool {
+        return self.invoiceHistoryTableView.selectedRow != -1
+    }
 }
 
