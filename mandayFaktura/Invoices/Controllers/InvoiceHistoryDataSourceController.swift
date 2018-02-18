@@ -21,11 +21,10 @@ fileprivate enum CellIdentifiers {
  */
 class InvoiceHistoryTableViewController : NSObject, NSTableViewDataSource, NSTableViewDelegate {
    
-    let invoiceRepository:InvoiceRepository
+    let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
     let dateFormatter = DateFormatter()
     
-    init(invoiceRepository: InvoiceRepository) {
-        self.invoiceRepository = invoiceRepository
+    override init() {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .long
         super.init()

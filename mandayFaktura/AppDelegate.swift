@@ -11,10 +11,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let invoiceRepository: InvoiceRepository = KeyedArchiverInvoiceRepository()
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        CounterpartyRepositoryFactory.register(repository: KeyedArchiverCounterpartyRepository())
+     
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

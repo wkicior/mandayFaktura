@@ -11,15 +11,14 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
-    var invoiceRepository:InvoiceRepository?
     var invoiceHistoryTableViewController:InvoiceHistoryTableViewController?
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDel = NSApplication.shared.delegate as! AppDelegate
-        invoiceRepository = appDel.invoiceRepository
-        invoiceHistoryTableViewController = InvoiceHistoryTableViewController(invoiceRepository: invoiceRepository!)
+        CounterpartyRepositoryFactory.register(repository: KeyedArchiverCounterpartyRepository())
+        InvoiceRepositoryFactory.register(repository: KeyedArchiverInvoiceRepository())
+        invoiceHistoryTableViewController = InvoiceHistoryTableViewController()
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewController
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewController
         

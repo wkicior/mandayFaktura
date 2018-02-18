@@ -13,7 +13,7 @@ struct NewInvoiceViewControllerConstants {
 }
 
 class NewInvoiceViewController: NSViewController {
-    var invoiceRepository: InvoiceRepository?
+    let invoiceRepository = InvoiceRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
     var itemsTableViewController: ItemsTableViewController?
     
@@ -39,8 +39,6 @@ class NewInvoiceViewController: NSViewController {
         issueDatePicker.dateValue = Date()
         sellingDatePicker.dateValue = Date()
         dueDatePicker.dateValue = Date()
-        let appDel = NSApplication.shared.delegate as! AppDelegate
-        invoiceRepository = appDel.invoiceRepository
         itemsTableViewController = ItemsTableViewController(itemsTableView: itemsTableView)
         itemsTableView.delegate = itemsTableViewController
         itemsTableView.dataSource = itemsTableViewController
@@ -49,7 +47,7 @@ class NewInvoiceViewController: NSViewController {
     }
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
-        invoiceRepository?.addInvoice(invoice)
+        invoiceRepository.addInvoice(invoice)
         NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
         view.window?.close()
     }

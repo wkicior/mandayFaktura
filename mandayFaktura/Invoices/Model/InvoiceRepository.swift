@@ -23,3 +23,22 @@ protocol InvoiceRepository {
     */
     func addInvoice(_ invoice:Invoice)
 }
+
+/**
+ This class will provide the instances of implementations of CounterpartyRepository
+ */
+class InvoiceRepositoryFactory {
+    private static var repository: InvoiceRepository?
+    
+    /**
+     Applicaiton registers the instance to be used as a InvoiceRepository through this method
+     */
+    static func register(repository: InvoiceRepository) {
+        InvoiceRepositoryFactory.repository = repository
+    }
+    static var instance: InvoiceRepository {
+        get {
+            return repository!
+        }
+    }
+}
