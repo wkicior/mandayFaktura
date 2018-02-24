@@ -42,18 +42,53 @@ import Foundation
 The implementation of CounterpartyRepository using NSKeyedArchiver storage
  */
 class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
-    private let key = "seller"
+    private let sellerKey = "seller"
+    private let buyersKey = "buyers_test"
     func saveSeller(seller: Counterparty) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: CounterpartyCoding(seller))
-        UserDefaults.standard.set(data, forKey: key)
+        sellerCoding = CounterpartyCoding(seller)
     }
     
     func getSeller() -> Counterparty? {
-        if let data = UserDefaults.standard.object(forKey: key) as? NSData {
-            let seller:CounterpartyCoding = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! CounterpartyCoding
-            return seller.counterparty
+        return sellerCoding?.counterparty
+    }
+    
+    func getBuyers() -> [Counterparty] {
+        return buyersCoding.map{buyer in buyer.counterparty}
+    }
+    
+    func addBuyer(buyer: Counterparty) {
+        buyersCoding.append(CounterpartyCoding(buyer))
+    }
+    
+    func update(buyer: Counterparty) {
+        let index = buyersCoding.index(where: {bc in bc.counterparty.name == buyer.name})
+        buyersCoding[index!] = CounterpartyCoding(buyer)
+    }
+    
+    private var sellerCoding: CounterpartyCoding? {
+        get {
+            if let data = UserDefaults.standard.object(forKey: sellerKey) as? NSData {
+                return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as? CounterpartyCoding
+            }
+            return nil
         }
-        return nil
+        set {
+            let data = NSKeyedArchiver.archivedData(withRootObject: newValue!)
+            UserDefaults.standard.set(data, forKey: sellerKey)
+        }
+    }
+    
+    private var buyersCoding: [CounterpartyCoding] {
+        get {
+            if let data = UserDefaults.standard.object(forKey: buyersKey) as? NSData {
+                return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [CounterpartyCoding]
+            }
+            return []
+        }
+        set {
+            let data = NSKeyedArchiver.archivedData(withRootObject: newValue)
+            UserDefaults.standard.set(data, forKey: buyersKey)
+        }
     }
 }
 

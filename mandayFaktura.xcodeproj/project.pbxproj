@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */; };
+		D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */; };
+		D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */; };
+		D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD0203CB869003CCC5B /* BuyerAutoSaveTests.swift */; };
+		D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */; };
+		D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD520417AB9003CCC5B /* UserAbortError.swift */; };
 		D3310DC8202F5854008467BD /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewController.swift */; };
 		D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
 		D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */; };
@@ -72,6 +77,11 @@
 
 /* Begin PBXFileReference section */
 		D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemCoding.swift; sourceTree = "<group>"; };
+		D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSavingController.swift; sourceTree = "<group>"; };
+		D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSave.swift; sourceTree = "<group>"; };
+		D330BFD0203CB869003CCC5B /* BuyerAutoSaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSaveTests.swift; sourceTree = "<group>"; };
+		D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBuyerWithThatNameExistsError.swift; sourceTree = "<group>"; };
+		D330BFD520417AB9003CCC5B /* UserAbortError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAbortError.swift; sourceTree = "<group>"; };
 		D3310DC7202F5854008467BD /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mandayFaktura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +159,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D330BFCE203CB83B003CCC5B /* Counterparties */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFCF203CB850003CCC5B /* Model */,
+			);
+			path = Counterparties;
+			sourceTree = "<group>";
+		};
+		D330BFCF203CB850003CCC5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD0203CB869003CCC5B /* BuyerAutoSaveTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D330BFD2203E031C003CCC5B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		D34D0EB2201A7CBC000D1EC6 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +223,7 @@
 		D34D0ED0201A7CBC000D1EC6 /* mandayFakturaTests */ = {
 			isa = PBXGroup;
 			children = (
+				D330BFCE203CB83B003CCC5B /* Counterparties */,
 				D37560AB2033941C00F507AD /* VAT */,
 				D370A7F02023AB0400FFB262 /* Invoices */,
 				D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */,
@@ -266,6 +301,7 @@
 		D34D0F2520225A81000D1EC6 /* Counterparties */ = {
 			isa = PBXGroup;
 			children = (
+				D330BFD2203E031C003CCC5B /* Errors */,
 				D37560AD2033972800F507AD /* Controllers */,
 				D395D834202CEABA00D129B6 /* Persistence */,
 				D34D0F2620225A9A000D1EC6 /* Model */,
@@ -278,6 +314,7 @@
 			children = (
 				D34D0F2720225AAB000D1EC6 /* Counterparty.swift */,
 				D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */,
+				D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				D37560AE2033974100F507AD /* SellerSettingsViewController.swift */,
+				D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -409,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				D37560B8203601DF00F507AD /* InputValidationError.swift */,
+				D330BFD520417AB9003CCC5B /* UserAbortError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -557,11 +596,14 @@
 			files = (
 				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
+				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
 				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
+				D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */,
 				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
+				D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */,
 				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
@@ -573,6 +615,7 @@
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
 				D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */,
+				D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */,
 				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
 				D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
@@ -602,6 +645,7 @@
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
+				D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */,
 				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,8 +16,8 @@ class NewInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
     var itemsTableViewController: ItemsTableViewController?
-    
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
+    let buyerAutoSavingController =  BuyerAutoSavingController()
 
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
@@ -33,6 +33,7 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var removeItemButton: NSButton!
     @IBOutlet weak var previewButton: NSButton!
+    @IBOutlet weak var viewSellersPopUpButton: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +45,25 @@ class NewInvoiceViewController: NSViewController {
         itemsTableView.dataSource = itemsTableViewController
         self.removeItemButton.isEnabled = false
         checkPreviewButtonEnabled()
+        print(self.counterpartyRepository.getBuyers())
+        self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
+    }
+    
+    private func addBuyerToHistory(invoice: Invoice) throws {
+        try BuyerAutoSavingController().saveIfNewBuyer(buyer: invoice.buyer)
     }
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
-        invoiceRepository.addInvoice(invoice)
-        NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
-        view.window?.close()
+        do {
+            try addBuyerToHistory(invoice: invoice)
+            invoiceRepository.addInvoice(invoice)
+            NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
+            view.window?.close()
+        } catch is UserAbortError {
+            //
+        } catch {
+            //
+        }
     }
     
     @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {

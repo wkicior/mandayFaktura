@@ -17,6 +17,18 @@ struct Counterparty {
     let accountNumber: String
 }
 
+extension Counterparty: Equatable {
+    static func == (lhs: Counterparty, rhs: Counterparty) -> Bool {
+        return
+            lhs.name == rhs.name &&
+            lhs.streetAndNumber == rhs.streetAndNumber &&
+            lhs.city == rhs.city &&
+            lhs.postalCode == rhs.postalCode &&
+            lhs.taxCode == lhs.taxCode &&
+            lhs.accountNumber == lhs.accountNumber
+    }
+}
+
 class CounterpartyBuilder {
     var name:String?
     var streetAndNumber: String?

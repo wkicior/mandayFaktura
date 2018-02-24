@@ -52,9 +52,13 @@ import Foundation
 }
 
 class KeyedArchiverInvoiceRepository: InvoiceRepository {
-    private let key = "invoices"
+    private let key = "invoices_test7"
     func getInvoices() -> [Invoice] {
         return invoicesCoding.map{ic in ic.invoice}
+    }
+    
+    func addInvoice(_ invoice: Invoice) {
+        invoicesCoding.append(InvoiceCoding(invoice))
     }
     
     private var invoicesCoding: [InvoiceCoding] {
@@ -64,14 +68,9 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
             }
             return []
         }
+        set {
+            let data = NSKeyedArchiver.archivedData(withRootObject: newValue)
+            UserDefaults.standard.set(data, forKey: key)
+        }
     }
-    
-    func addInvoice(_ invoice: Invoice) {
-        var invoicesCodingNew = invoicesCoding
-        invoicesCodingNew.append(InvoiceCoding(invoice))
-        let data = NSKeyedArchiver.archivedData(withRootObject: invoicesCodingNew)
-        UserDefaults.standard.set(data, forKey: key)
-    }
-    
-    
 }

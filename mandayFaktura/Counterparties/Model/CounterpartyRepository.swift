@@ -21,6 +21,15 @@ protocol CounterpartyRepository {
     Saves seller
      */
     func saveSeller(seller: Counterparty)
+    
+    /**
+    Gets all the buyers
+     */
+    func getBuyers() -> [Counterparty]
+    
+    func addBuyer(buyer: Counterparty)
+    
+    func update(buyer: Counterparty)
 }
 
 /**
