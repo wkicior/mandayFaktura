@@ -27,6 +27,8 @@ protocol CounterpartyRepository {
      */
     func getBuyers() -> [Counterparty]
     
+    func getBuyer(name: String) -> Counterparty?
+    
     func addBuyer(buyer: Counterparty)
     
     func update(buyer: Counterparty)

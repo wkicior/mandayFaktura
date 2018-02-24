@@ -10,6 +10,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    static let keyedArchiverProfile = "_test_7"
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
      

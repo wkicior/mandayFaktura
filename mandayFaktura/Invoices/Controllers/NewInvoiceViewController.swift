@@ -45,7 +45,6 @@ class NewInvoiceViewController: NSViewController {
         itemsTableView.dataSource = itemsTableViewController
         self.removeItemButton.isEnabled = false
         checkPreviewButtonEnabled()
-        print(self.counterpartyRepository.getBuyers())
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
     }
     
@@ -158,6 +157,19 @@ class NewInvoiceViewController: NSViewController {
         self.itemsTableView.reloadData()
     }
     
+    @IBAction func onSelectBuyerButtonClicked(_ sender: NSPopUpButton) {
+        let buyerName = sender.selectedItem?.title
+        let buyer = self.counterpartyRepository.getBuyer(name: buyerName!)
+        setBuyer(buyer: buyer ?? aCounterparty().build())
+    }
+    
+    private func setBuyer(buyer: Counterparty) {
+        self.buyerNameTextField.stringValue = buyer.name
+        self.streetAndNumberTextField.stringValue = buyer.streetAndNumber
+        self.cityTextField.stringValue = buyer.city
+        self.postalCodeTextField.stringValue = buyer.postalCode
+        self.taxCodeTextField.stringValue = buyer.taxCode
+    }
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
         self.itemsTableViewController!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)    }
 }

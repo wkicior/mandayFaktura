@@ -1364,6 +1364,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="onSelectBuyerButtonClicked:" target="haF-wG-vwp" id="eOc-21-XOd"/>
+                                </connections>
                             </popUpButton>
                         </subviews>
                     </view>

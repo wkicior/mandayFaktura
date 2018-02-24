@@ -52,7 +52,7 @@ import Foundation
 }
 
 class KeyedArchiverInvoiceRepository: InvoiceRepository {
-    private let key = "invoices_test7"
+    private let key = "invoices" + AppDelegate.keyedArchiverProfile
     func getInvoices() -> [Invoice] {
         return invoicesCoding.map{ic in ic.invoice}
     }

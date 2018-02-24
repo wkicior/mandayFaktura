@@ -24,6 +24,10 @@ private class CounterpartyRepositoryMock: CounterpartyRepository {
         return buyers
     }
     
+    func getBuyer(name: String) -> Counterparty? {
+        return buyers.first(where: {b in b.name == name})
+    }
+    
     func addBuyer(buyer: Counterparty) {
         buyers.append(buyer)
     }

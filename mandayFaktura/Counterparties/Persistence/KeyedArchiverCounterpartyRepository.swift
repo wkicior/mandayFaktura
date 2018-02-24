@@ -42,8 +42,8 @@ import Foundation
 The implementation of CounterpartyRepository using NSKeyedArchiver storage
  */
 class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
-    private let sellerKey = "seller"
-    private let buyersKey = "buyers_test"
+    private let sellerKey = "seller" + AppDelegate.keyedArchiverProfile
+    private let buyersKey = "buyers" + AppDelegate.keyedArchiverProfile
     func saveSeller(seller: Counterparty) {
         sellerCoding = CounterpartyCoding(seller)
     }
@@ -54,6 +54,10 @@ class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
     
     func getBuyers() -> [Counterparty] {
         return buyersCoding.map{buyer in buyer.counterparty}
+    }
+    
+    func getBuyer(name: String) -> Counterparty? {
+        return getBuyers().first(where: {bc in bc.name == name})
     }
     
     func addBuyer(buyer: Counterparty) {
