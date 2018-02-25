@@ -51,7 +51,7 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var text: String = ""
+        var text: String = ""   
         var cellIdentifier: String = ""
         
         let item = items[row]

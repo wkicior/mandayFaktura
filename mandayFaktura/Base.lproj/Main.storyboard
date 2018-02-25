@@ -1357,7 +1357,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="squareTextured" title="Item 1" bezelStyle="texturedSquare" image="popUpButtonCell:zML-m2-Mvs:image" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="zML-m2-Mvs">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="axl-yE-m3c">
                                         <items>
                                             <menuItem title="Item 1" image="NSUserGroup" hidden="YES" id="ZHV-CB-Gi2"/>
@@ -1368,6 +1368,33 @@
                                     <action selector="onSelectBuyerButtonClicked:" target="haF-wG-vwp" id="eOc-21-XOd"/>
                                 </connections>
                             </popUpButton>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjh-0J-Qeo">
+                                <rect key="frame" x="80" y="175" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSTouchBarTagIconTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7S4-7H-RRe">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oq8-Td-u7x">
+                                <rect key="frame" x="109" y="175" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSTouchBarFolderTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ji8-Jd-ZbE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onMinusButtonClicked:" target="haF-wG-vwp" id="7eJ-56-kJx"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vme-bB-4SD">
+                                <rect key="frame" x="109" y="175" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSTouchBarFolderTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Er6-CD-73e">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1375,6 +1402,7 @@
                         <outlet property="cityTextField" destination="FUc-7D-udx" id="3yZ-vk-e8F"/>
                         <outlet property="dueDatePicker" destination="JDm-Wx-S0z" id="pij-Ti-1gU"/>
                         <outlet property="issueDatePicker" destination="84I-PQ-C04" id="yDD-rb-nxq"/>
+                        <outlet property="itemsCataloguqButton" destination="vme-bB-4SD" id="bJE-oN-cZU"/>
                         <outlet property="itemsTableView" destination="PmG-hq-Jia" id="Vs1-Qb-7tW"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
@@ -1382,6 +1410,7 @@
                         <outlet property="previewButton" destination="gWk-za-B4i" id="bLm-HA-G9y"/>
                         <outlet property="removeItemButton" destination="KpK-4W-CCE" id="IZ0-hl-I3Q"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
+                        <outlet property="saveItemButton" destination="qjh-0J-Qeo" id="q8k-yn-b2H"/>
                         <outlet property="sellingDatePicker" destination="ckj-xA-UAK" id="u2m-bb-OCJ"/>
                         <outlet property="streetAndNumberTextField" destination="2dq-vq-HAv" id="Q6L-Gc-pcb"/>
                         <outlet property="taxCodeTextField" destination="NGC-id-gtL" id="GlB-yy-j1b"/>
@@ -1545,6 +1574,8 @@
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="NSTouchBarFolderTemplate" width="22" height="30"/>
+        <image name="NSTouchBarTagIconTemplate" width="23" height="30"/>
         <image name="NSUserGroup" width="32" height="32"/>
         <image name="popUpButtonCell:zML-m2-Mvs:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
@@ -1678,6 +1709,6 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0VC-n4-z2H"/>
+        <segue reference="mvy-hV-L5q"/>
     </inferredMetricsTieBreakers>
 </document>

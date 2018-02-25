@@ -159,6 +159,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3052F49204318BF0064DF10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3310DC7202F5854008467BD /* ItemsTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D330BFCE203CB83B003CCC5B /* Counterparties */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +189,40 @@
 				D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		D330BFD72041DCFA003CCC5B /* Invoice Items */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F49204318BF0064DF10 /* Controllers */,
+				D330BFD82041DD27003CCC5B /* Model */,
+			);
+			path = "Invoice Items";
+			sourceTree = "<group>";
+		};
+		D330BFD82041DD27003CCC5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
+				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D330BFD92041DD6F003CCC5B /* Invoice Items */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFDA2041DD81003CCC5B /* Model */,
+			);
+			path = "Invoice Items";
+			sourceTree = "<group>";
+		};
+		D330BFDA2041DD81003CCC5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D34D0EB2201A7CBC000D1EC6 = {
@@ -206,6 +248,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D330BFD72041DCFA003CCC5B /* Invoice Items */,
 				D37560B6203601B100F507AD /* Application */,
 				D375609F20321BD600F507AD /* VAT */,
 				D34D0F2520225A81000D1EC6 /* Counterparties */,
@@ -223,6 +266,7 @@
 		D34D0ED0201A7CBC000D1EC6 /* mandayFakturaTests */ = {
 			isa = PBXGroup;
 			children = (
+				D330BFD92041DD6F003CCC5B /* Invoice Items */,
 				D330BFCE203CB83B003CCC5B /* Counterparties */,
 				D37560AB2033941C00F507AD /* VAT */,
 				D370A7F02023AB0400FFB262 /* Invoices */,
@@ -258,8 +302,6 @@
 			children = (
 				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
 				D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */,
-				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
-				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
 				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
 			);
 			path = Model;
@@ -277,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryDataSourceController.swift */,
-				D3310DC7202F5854008467BD /* ItemsTableViewController.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
 			);
@@ -332,7 +373,6 @@
 		D370A7F12023AB1000FFB262 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */,
 				D370A7F4202614C100FFB262 /* InvoiceTests.swift */,
 			);
 			path = Model;

@@ -34,6 +34,8 @@ class NewInvoiceViewController: NSViewController {
     @IBOutlet weak var removeItemButton: NSButton!
     @IBOutlet weak var previewButton: NSButton!
     @IBOutlet weak var viewSellersPopUpButton: NSPopUpButton!
+    @IBOutlet weak var saveItemButton: NSButton!
+    @IBOutlet weak var itemsCataloguqButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,8 @@ class NewInvoiceViewController: NSViewController {
         self.removeItemButton.isEnabled = false
         checkPreviewButtonEnabled()
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
+        self.saveItemButton.isEnabled = false
+
     }
     
     private func addBuyerToHistory(invoice: Invoice) throws {
@@ -97,6 +101,7 @@ class NewInvoiceViewController: NSViewController {
     
     @IBAction func onItemsTableViewClicked(_ sender: Any) {
        self.removeItemButton.isEnabled =  self.itemsTableView.selectedRow != -1
+        self.saveItemButton.isEnabled = self.itemsTableView.selectedRow != -1
     }
     
     @IBAction func onAddItemClicked(_ sender: NSButton) {
