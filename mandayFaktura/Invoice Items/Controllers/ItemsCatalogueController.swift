@@ -9,12 +9,12 @@
 import Cocoa
 
 class ItemsCatalogueController: NSViewController {
-    var itemsCatalogueTableViewController: ItemsCatalogueTableViewController?
+    var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     @IBOutlet weak var itemsTableView: NSTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemsCatalogueTableViewController = ItemsCatalogueTableViewController(itemsTableView: itemsTableView)
-        itemsTableView.delegate = itemsCatalogueTableViewController
-        itemsTableView.dataSource = itemsCatalogueTableViewController
+        itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView)
+        itemsTableView.delegate = itemsCatalogueTableViewDelegate
+        itemsTableView.dataSource = itemsCatalogueTableViewDelegate
     }
 }
