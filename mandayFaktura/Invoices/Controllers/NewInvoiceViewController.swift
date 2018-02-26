@@ -15,7 +15,7 @@ struct NewInvoiceViewControllerConstants {
 class NewInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
-    var itemsTableViewController: ItemsTableViewController?
+    var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
 
@@ -42,9 +42,9 @@ class NewInvoiceViewController: NSViewController {
         issueDatePicker.dateValue = Date()
         sellingDatePicker.dateValue = Date()
         dueDatePicker.dateValue = Date()
-        itemsTableViewController = ItemsTableViewController(itemsTableView: itemsTableView)
-        itemsTableView.delegate = itemsTableViewController
-        itemsTableView.dataSource = itemsTableViewController
+        itemsTableViewDelegate = ItemsTableViewDelegate(itemsTableView: itemsTableView)
+        itemsTableView.delegate = itemsTableViewDelegate
+        itemsTableView.dataSource = itemsTableViewDelegate
         self.removeItemButton.isEnabled = false
         checkPreviewButtonEnabled()
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
@@ -88,7 +88,7 @@ class NewInvoiceViewController: NSViewController {
         get {
             let seller = self.counterpartyRepository.getSeller() ?? Counterparty(name: "Firma XYZ", streetAndNumber: "Ulica 1/2", city: "Gdańsk", postalCode: "00-000", taxCode: "123456789", accountNumber: "00 1234 0000 5555 7777")
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewController!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
+            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }
     }
     
@@ -105,14 +105,14 @@ class NewInvoiceViewController: NSViewController {
     }
     
     @IBAction func onAddItemClicked(_ sender: NSButton) {
-        self.itemsTableViewController!.addItem()
+        self.itemsTableViewDelegate!.addItem()
         self.itemsTableView.reloadData()
         checkPreviewButtonEnabled()
     }
     
     @IBAction func onMinusButtonClicked(_ sender: Any) {
         self.removeItemButton.isEnabled = false
-        self.itemsTableViewController!.removeSelectedItem()
+        self.itemsTableViewDelegate!.removeSelectedItem()
         self.itemsTableView.reloadData()
         checkPreviewButtonEnabled()
     }
@@ -142,23 +142,23 @@ class NewInvoiceViewController: NSViewController {
    
     
     @IBAction func changeAmount(_ sender: NSTextField) {
-        tryWithWarning(self.itemsTableViewController!.changeAmount, on: sender)
+        tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
         self.itemsTableView.reloadData()
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
-        tryWithWarning(self.itemsTableViewController!.changeItemNetValue, on: sender)
+        tryWithWarning(self.itemsTableViewDelegate!.changeItemNetValue, on: sender)
         self.itemsTableView.reloadData()
     }
     
     @IBAction func changeItemName(_ sender: NSTextField) {
-        self.itemsTableViewController!.changeItemName(sender)
+        self.itemsTableViewDelegate!.changeItemName(sender)
         self.itemsTableView.reloadData()
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
         let vatRate = Decimal(sender.selectedItem!.tag)
-        self.itemsTableViewController!.changeVatRate(row: sender.tag, vatRate: vatRate)
+        self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
         self.itemsTableView.reloadData()
     }
     
@@ -176,5 +176,5 @@ class NewInvoiceViewController: NSViewController {
         self.taxCodeTextField.stringValue = buyer.taxCode
     }
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
-        self.itemsTableViewController!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)    }
+        self.itemsTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)    }
 }

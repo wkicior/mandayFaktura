@@ -32,7 +32,7 @@ extension UnitOfMeasure {
     }
 }
 
-class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
     let vatRateRepository = InMemoryVatRateRepository()
