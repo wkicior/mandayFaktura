@@ -1,8 +1,8 @@
 //
-//  ItemsTableViewController.swift
+//  ItemsCatalogueTableViewController.swift
 //  mandayFaktura
 //
-//  Created by Wojciech Kicior on 10.02.2018.
+//  Created by Wojciech Kicior on 25.02.2018.
 //  Copyright © 2018 Wojciech Kicior. All rights reserved.
 //
 
@@ -11,47 +11,33 @@ import AppKit
 
 fileprivate enum CellIdentifiers {
     static let nameCell = "nameCellId"
-    static let amountCell = "amountCellId"
+    static let aliasCell = "aliasCellId"
     static let unitOfMeasureCell = "unitOfMeasureCellId"
     static let unitNetPriceCell = "unitNetPriceCellId"
     static let vatValueCell = "vatValueCellId"
-    static let netValueCell = "netValueCellId"
-    static let grossValueCell = "grossValueCellId"
 }
 
-extension UnitOfMeasure {
-    static let ordering: [UnitOfMeasure] = [.hour, .kg, .km, .service, .pieces]
-    var tag: Int {
-        get {
-            return UnitOfMeasure.ordering.index(of: self)!
-        }
-    }
-    
-    static func byTag(_ tag: Int) -> UnitOfMeasure? {
-        return UnitOfMeasure.ordering[tag]
-    }
-}
 
-class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class ItemsCatalogueTableViewController: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
-    var items = [InvoiceItem]()
+    var items = [ItemDefinition]()
     let vatRateRepository = InMemoryVatRateRepository()
     
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
-        let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatRateInPercent: Decimal(23))
-        let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .km, unitNetPrice: Decimal(120), vatRateInPercent: Decimal(8))
+        let item1 = ItemDefinition(name: "Usługa informatyczna", alias: "Usługa test 1", unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatRateInPercent: Decimal(23))
+        let item2 = ItemDefinition(name: "Usługa informatyczna 2", alias: "Usługa test 2", unitOfMeasure: .km, unitNetPrice: Decimal(120), vatRateInPercent: Decimal(8))
         items.append(item1)
         items.append(item2)
         super.init()
     }
-   
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return items.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var text: String = ""   
+        var text: String = ""
         var cellIdentifier: String = ""
         
         let item = items[row]
@@ -60,8 +46,8 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             text = item.name
             cellIdentifier = CellIdentifiers.nameCell
         } else if tableColumn == tableView.tableColumns[1] {
-            text = item.amount.description
-            cellIdentifier = CellIdentifiers.amountCell
+            text = item.alias
+            cellIdentifier = CellIdentifiers.aliasCell
         } else if tableColumn == tableView.tableColumns[2] {
             cellIdentifier = CellIdentifiers.unitOfMeasureCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! NSPopUpButton
@@ -77,12 +63,6 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
             cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatRateInPercent)!)
             cell.tag = row
             return cell
-        } else if tableColumn == tableView.tableColumns[5] {
-            text = item.netValue.formatAmount()
-            cellIdentifier = CellIdentifiers.netValueCell
-        } else if tableColumn == tableView.tableColumns[6] {
-            text = item.grossValue.formatAmount()
-            cellIdentifier = CellIdentifiers.grossValueCell
         }
         
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
@@ -92,7 +72,7 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         return nil
     }
     
-    func changeItemName(_ sender: NSTextField) {
+    /*func changeItemName(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
@@ -143,4 +123,5 @@ class ItemsTableViewController: NSObject, NSTableViewDataSource, NSTableViewDele
         let oldItem = items[row]
         items[row] = anInvoiceItem().from(source: oldItem).withVatRateInPercent(vatRate).build()
     }
+ */
 }
