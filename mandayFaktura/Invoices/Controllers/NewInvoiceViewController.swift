@@ -49,13 +49,43 @@ class NewInvoiceViewController: NSViewController {
         checkPreviewButtonEnabled()
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
         self.saveItemButton.isEnabled = false
+    }
+    
+    var invoice: Invoice {
+        get {
+            let seller = self.counterpartyRepository.getSeller() ?? Counterparty(name: "Firma XYZ", streetAndNumber: "Ulica 1/2", city: "Gdańsk", postalCode: "00-000", taxCode: "123456789", accountNumber: "00 1234 0000 5555 7777")
+            let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
+            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
+        }
+    }
+}
 
+/**
+ * Integration with other controllers
+ */
+extension NewInvoiceViewController {
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is PdfViewController {
+            let vc = segue.destinationController as? PdfViewController
+            vc?.invoice = invoice
+        } else if segue.destinationController is ItemsCatalogueController {
+            let vc = segue.destinationController as? ItemsCatalogueController
+            vc?.newInvoiceController = self
+        }
     }
     
-    private func addBuyerToHistory(invoice: Invoice) throws {
-        try BuyerAutoSavingController().saveIfNewBuyer(buyer: invoice.buyer)
+    func addItem(itemDefinition: ItemDefinition) {
+        self.itemsTableViewDelegate!.addItem(itemDefinition: itemDefinition)
+        self.itemsTableView.reloadData()
+        checkPreviewButtonEnabled()
     }
-    
+}
+
+/**
+ Actions
+ */
+extension NewInvoiceViewController {
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         do {
             try addBuyerToHistory(invoice: invoice)
@@ -68,81 +98,6 @@ class NewInvoiceViewController: NSViewController {
             //
         }
     }
-    
-    @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {
-        selectedPaymentForm = getPaymentFormByTag(sender.selectedTag())
-    }
-    
-    func getPaymentFormByTag(_ tag: Int)-> PaymentForm? {
-        switch tag {
-        case 0:
-            return PaymentForm.transfer
-        case 1:
-            return PaymentForm.cash
-        default:
-            return Optional.none
-        }
-    }
-    
-    var invoice: Invoice {
-        get {
-            let seller = self.counterpartyRepository.getSeller() ?? Counterparty(name: "Firma XYZ", streetAndNumber: "Ulica 1/2", city: "Gdańsk", postalCode: "00-000", taxCode: "123456789", accountNumber: "00 1234 0000 5555 7777")
-            let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
-        }
-    }
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is PdfViewController {
-            let vc = segue.destinationController as? PdfViewController
-            vc?.invoice = invoice
-        } else if segue.destinationController is ItemsCatalogueController {
-            let vc = segue.destinationController as? ItemsCatalogueController
-            vc?.newInvoiceController = self
-        }
-    }
-    
-    @IBAction func onItemsTableViewClicked(_ sender: Any) {
-       self.removeItemButton.isEnabled =  self.itemsTableView.selectedRow != -1
-        self.saveItemButton.isEnabled = self.itemsTableView.selectedRow != -1
-    }
-    
-    @IBAction func onAddItemClicked(_ sender: NSButton) {
-        self.itemsTableViewDelegate!.addItem()
-        self.itemsTableView.reloadData()
-        checkPreviewButtonEnabled()
-    }
-    
-    @IBAction func onMinusButtonClicked(_ sender: Any) {
-        self.removeItemButton.isEnabled = false
-        self.itemsTableViewDelegate!.removeSelectedItem()
-        self.itemsTableView.reloadData()
-        checkPreviewButtonEnabled()
-    }
-    
-    func dialogWarning(warning: String, text: String){
-        let alert = NSAlert()
-        alert.messageText = warning
-        alert.informativeText = text
-        alert.alertStyle = .warning
-        alert.addButton(withTitle: "OK")
-        alert.runModal()
-    }
-    
-    private func tryWithWarning(_ fun: (NSTextField) throws -> Void, on: NSTextField) {
-        do {
-            try fun(on)
-        } catch InputValidationError.invalidNumber(let fieldName) {
-            dialogWarning(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23")
-        } catch {
-            //
-        }
-    }
-    
-    private func checkPreviewButtonEnabled() {
-        self.previewButton.isEnabled = self.itemsTableView.numberOfRows > 0
-    }
-   
     
     @IBAction func changeAmount(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
@@ -178,14 +133,69 @@ class NewInvoiceViewController: NSViewController {
         self.postalCodeTextField.stringValue = buyer.postalCode
         self.taxCodeTextField.stringValue = buyer.taxCode
     }
+    
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
         self.itemsTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
     }
     
-    func addItem(itemDefinition: ItemDefinition) {
-        self.itemsTableViewDelegate!.addItem(itemDefinition: itemDefinition)
+    @IBAction func onItemsTableViewClicked(_ sender: Any) {
+        self.removeItemButton.isEnabled =  self.itemsTableView.selectedRow != -1
+        self.saveItemButton.isEnabled = self.itemsTableView.selectedRow != -1
+    }
+    
+    @IBAction func onAddItemClicked(_ sender: NSButton) {
+        self.itemsTableViewDelegate!.addItem()
         self.itemsTableView.reloadData()
         checkPreviewButtonEnabled()
     }
-
+    
+    @IBAction func onMinusButtonClicked(_ sender: Any) {
+        self.removeItemButton.isEnabled = false
+        self.itemsTableViewDelegate!.removeSelectedItem()
+        self.itemsTableView.reloadData()
+        checkPreviewButtonEnabled()
+    }
+    
+    @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {
+        selectedPaymentForm = getPaymentFormByTag(sender.selectedTag())
+    }
+    
+    private func addBuyerToHistory(invoice: Invoice) throws {
+        try BuyerAutoSavingController().saveIfNewBuyer(buyer: invoice.buyer)
+    }
+    
+    private func checkPreviewButtonEnabled() {
+        self.previewButton.isEnabled = self.itemsTableView.numberOfRows > 0
+    }
+    
+    func getPaymentFormByTag(_ tag: Int)-> PaymentForm? {
+        switch tag {
+        case 0:
+            return PaymentForm.transfer
+        case 1:
+            return PaymentForm.cash
+        default:
+            return Optional.none
+        }
+    }
+    
+    func dialogWarning(warning: String, text: String) {
+        let alert = NSAlert()
+        alert.messageText = warning
+        alert.informativeText = text
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
+    }
+    
+    private func tryWithWarning(_ fun: (NSTextField) throws -> Void, on: NSTextField) {
+        do {
+            try fun(on)
+        } catch InputValidationError.invalidNumber(let fieldName) {
+            dialogWarning(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23")
+        } catch {
+            //
+        }
+    }
+    
 }
