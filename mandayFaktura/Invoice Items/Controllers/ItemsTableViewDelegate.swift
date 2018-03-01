@@ -32,6 +32,9 @@ extension UnitOfMeasure {
     }
 }
 
+/**
+ * The table view delegate that manages the table of invoice items on new invoice view
+ */
 class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
@@ -39,10 +42,6 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
     
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
-        let item1 = InvoiceItem(name: "Usługa informatyczna", amount: Decimal(1), unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatRateInPercent: Decimal(23))
-        let item2 = InvoiceItem(name: "Usługa informatyczna 2", amount: Decimal(1), unitOfMeasure: .km, unitNetPrice: Decimal(120), vatRateInPercent: Decimal(8))
-        items.append(item1)
-        items.append(item2)
         super.init()
     }
    
@@ -91,6 +90,12 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
         }
         return nil
     }
+}
+
+/**
+ * The extension that provides method for manipulating with the invoices table view
+ */
+extension ItemsTableViewDelegate {
     
     func changeItemName(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
@@ -130,6 +135,15 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
     func addItem() {
         let defaultVatRate = self.vatRateRepository.getDefaultVatRate()
         items.append(anInvoiceItem().withVatRateInPercent(defaultVatRate).withUnitOfMeasure(.pieces).build())
+    }
+    
+    func addItem(itemDefinition: ItemDefinition) {
+        items.append(anInvoiceItem()
+            .withName(itemDefinition.name)
+            .withUnitNetPrice(itemDefinition.unitNetPrice)
+            .withVatRateInPercent(itemDefinition.vatRateInPercent)
+            .withUnitOfMeasure(itemDefinition.unitOfMeasure)
+            .build())
     }
     
     func removeSelectedItem() {

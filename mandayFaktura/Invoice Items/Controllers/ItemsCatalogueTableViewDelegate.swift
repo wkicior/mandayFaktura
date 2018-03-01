@@ -72,6 +72,10 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         return nil
     }
     
+    func getSelectedInvoice(index: Int) -> ItemDefinition {
+        return self.items[index]
+    }
+    
     /*func changeItemName(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {

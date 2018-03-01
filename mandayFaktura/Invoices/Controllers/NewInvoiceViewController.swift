@@ -96,6 +96,9 @@ class NewInvoiceViewController: NSViewController {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
             vc?.invoice = invoice
+        } else if segue.destinationController is ItemsCatalogueController {
+            let vc = segue.destinationController as? ItemsCatalogueController
+            vc?.newInvoiceController = self
         }
     }
     
@@ -176,5 +179,13 @@ class NewInvoiceViewController: NSViewController {
         self.taxCodeTextField.stringValue = buyer.taxCode
     }
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
-        self.itemsTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)    }
+        self.itemsTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
+    }
+    
+    func addItem(itemDefinition: ItemDefinition) {
+        self.itemsTableViewDelegate!.addItem(itemDefinition: itemDefinition)
+        self.itemsTableView.reloadData()
+        checkPreviewButtonEnabled()
+    }
+
 }

@@ -1395,7 +1395,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="Qt6-jW-0p7" kind="show" id="w1w-6e-kdz"/>
+                                    <segue destination="463-Th-NCJ" kind="show" id="HSy-Yv-XGf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1445,10 +1445,10 @@
             </objects>
             <point key="canvasLocation" x="293" y="1510"/>
         </scene>
-        <!--Items Catalogue Controller-->
+        <!--Katalog usług i produktów-->
         <scene sceneID="SeB-cZ-Dp7">
             <objects>
-                <viewController id="463-Th-NCJ" customClass="ItemsCatalogueController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Katalog usług i produktów" id="463-Th-NCJ" customClass="ItemsCatalogueController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="GhZ-pL-spw">
                         <rect key="frame" x="0.0" y="0.0" width="621" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1650,7 +1650,7 @@
                 </viewController>
                 <customObject id="cwG-X4-Efz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070.5" y="1485"/>
+            <point key="canvasLocation" x="1049" y="1541"/>
         </scene>
         <!--Podgląd-->
         <scene sceneID="nFV-gN-acI">
@@ -1941,6 +1941,7 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mvy-hV-L5q"/>
-        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="VWJ-bc-Zac"/>
+        <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>
