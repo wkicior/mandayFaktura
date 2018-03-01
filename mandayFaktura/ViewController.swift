@@ -11,16 +11,16 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
-    var invoiceHistoryTableViewController:InvoiceHistoryTableViewController?
+    var invoiceHistoryTableViewDelegate:InvoiceHistoryTableViewDelegate?
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         CounterpartyRepositoryFactory.register(repository: KeyedArchiverCounterpartyRepository())
         InvoiceRepositoryFactory.register(repository: KeyedArchiverInvoiceRepository())
-        invoiceHistoryTableViewController = InvoiceHistoryTableViewController()
-        invoiceHistoryTableView.delegate = invoiceHistoryTableViewController
-        invoiceHistoryTableView.dataSource = invoiceHistoryTableViewController
+        invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate()
+        invoiceHistoryTableView.delegate = invoiceHistoryTableViewDelegate
+        invoiceHistoryTableView.dataSource = invoiceHistoryTableViewDelegate
         
         invoiceHistoryTableView.doubleAction = #selector(onTableViewClicked)
         
@@ -46,7 +46,7 @@ class ViewController: NSViewController {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
             let index = self.invoiceHistoryTableView.selectedRow
-            vc?.invoice = invoiceHistoryTableViewController?.getSelectedInvoice(index: index)
+            vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
         }
     }
     

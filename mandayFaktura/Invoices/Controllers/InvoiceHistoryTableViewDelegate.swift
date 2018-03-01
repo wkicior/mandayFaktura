@@ -19,7 +19,7 @@ fileprivate enum CellIdentifiers {
  Serves as delegate and the datasource for the table.
  Fetches the data from the model invoicesRepository protocol
  */
-class InvoiceHistoryTableViewController : NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate {
    
     let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
     let dateFormatter = DateFormatter()
