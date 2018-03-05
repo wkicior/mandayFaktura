@@ -19,16 +19,14 @@ fileprivate enum CellIdentifiers {
 
 
 class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let itemsTableView: NSTableView
-    var items = [ItemDefinition]()
     let vatRateRepository = InMemoryVatRateRepository()
+    var items: [ItemDefinition] = []
     
     init(itemsTableView: NSTableView) {
         self.itemsTableView = itemsTableView
-        let item1 = ItemDefinition(name: "Usługa informatyczna", alias: "Usługa test 1", unitOfMeasure: .service, unitNetPrice: Decimal(10000), vatRateInPercent: Decimal(23))
-        let item2 = ItemDefinition(name: "Usługa informatyczna 2", alias: "Usługa test 2", unitOfMeasure: .km, unitNetPrice: Decimal(120), vatRateInPercent: Decimal(8))
-        items.append(item1)
-        items.append(item2)
+        self.items = self.itemDefinitionRepository.getItemDefinitions()
         super.init()
     }
     
@@ -40,7 +38,7 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let item = items[row]
+        let item = self.items[row]
         
         if tableColumn == tableView.tableColumns[0] {
             text = item.name
@@ -76,12 +74,28 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         return self.items[index]
     }
     
-    /*func changeItemName(_ sender: NSTextField) {
+    func changeItemName(_ sender: NSTextField) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withName(sender.stringValue).build()
+            items[selectedRowNumber] = anItemDefinition().from(source: oldItem).withName(sender.stringValue).build()
         }
+    }
+    
+    func changeItemAlias(_ sender: NSTextField) {
+        let selectedRowNumber = itemsTableView.selectedRow
+        if selectedRowNumber != -1 {
+            let oldItem = items[selectedRowNumber]
+            items[selectedRowNumber] = anItemDefinition().from(source: oldItem).withAlias(sender.stringValue).build()
+        }
+    }
+    
+    func saveRepository() {
+        self.itemDefinitionRepository.saveItemDefinitions(self.items)
+    }
+    
+    func addItemDefinition() {
+        self.items.append(anItemDefinition().build())
     }
     
     func changeItemNetValue(_ sender: NSTextField) throws {
@@ -91,30 +105,15 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withUnitNetPrice(unitNetPrice).build()
-        }
-    }
-    
-    func changeAmount(_ sender: NSTextField) throws {
-        guard let amount = Decimal(string: sender.stringValue) else {
-            throw InputValidationError.invalidNumber(fieldName: "Ilość")
-        }
-        let selectedRowNumber = itemsTableView.selectedRow
-        if selectedRowNumber != -1 {
-            let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anInvoiceItem().from(source: oldItem).withAmount(amount).build()
+            items[selectedRowNumber] = anItemDefinition().from(source: oldItem).withUnitNetPrice(unitNetPrice).build()
         }
     }
     
     func changeUnitOfMeasure(row: Int, index: Int) {
         let oldItem = items[row]
-        items[row] = anInvoiceItem().from(source: oldItem).withUnitOfMeasure(UnitOfMeasure.byTag(index)!).build()
+        items[row] = anItemDefinition().from(source: oldItem).withUnitOfMeasure(UnitOfMeasure.byTag(index)!).build()
     }
     
-    func addItem() {
-        let defaultVatRate = self.vatRateRepository.getDefaultVatRate()
-        items.append(anInvoiceItem().withVatRateInPercent(defaultVatRate).withUnitOfMeasure(.pieces).build())
-    }
     
     func removeSelectedItem() {
         let selectedRowNumber = itemsTableView.selectedRow
@@ -125,7 +124,7 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
     
     func changeVatRate(row: Int, vatRate: Decimal) {
         let oldItem = items[row]
-        items[row] = anInvoiceItem().from(source: oldItem).withVatRateInPercent(vatRate).build()
+        items[row] = anItemDefinition().from(source: oldItem).withVatRateInPercent(vatRate).build()
     }
- */
+ 
 }

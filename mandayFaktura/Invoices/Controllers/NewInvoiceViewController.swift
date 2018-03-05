@@ -179,20 +179,11 @@ extension NewInvoiceViewController {
         }
     }
     
-    func dialogWarning(warning: String, text: String) {
-        let alert = NSAlert()
-        alert.messageText = warning
-        alert.informativeText = text
-        alert.alertStyle = .warning
-        alert.addButton(withTitle: "OK")
-        alert.runModal()
-    }
-    
     private func tryWithWarning(_ fun: (NSTextField) throws -> Void, on: NSTextField) {
         do {
             try fun(on)
         } catch InputValidationError.invalidNumber(let fieldName) {
-            dialogWarning(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23")
+            WarningAlert(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23").runModal()
         } catch {
             //
         }

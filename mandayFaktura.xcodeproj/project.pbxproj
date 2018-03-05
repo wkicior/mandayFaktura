@@ -10,6 +10,9 @@
 		D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4A2043411B0064DF10 /* ItemsCatalogueController.swift */; };
 		D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */; };
 		D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4E20434F140064DF10 /* ItemDefinition.swift */; };
+		D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */; };
+		D3052F54204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F53204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift */; };
+		D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F57204DE2490064DF10 /* WarningAlert.swift */; };
 		D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */; };
 		D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */; };
 		D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */; };
@@ -82,6 +85,9 @@
 		D3052F4A2043411B0064DF10 /* ItemsCatalogueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCatalogueController.swift; sourceTree = "<group>"; };
 		D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCatalogueTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3052F4E20434F140064DF10 /* ItemDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDefinition.swift; sourceTree = "<group>"; };
+		D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDefinitionRepository.swift; sourceTree = "<group>"; };
+		D3052F53204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryItemDefinitionRepository.swift; sourceTree = "<group>"; };
+		D3052F57204DE2490064DF10 /* WarningAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningAlert.swift; sourceTree = "<group>"; };
 		D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemCoding.swift; sourceTree = "<group>"; };
 		D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSavingController.swift; sourceTree = "<group>"; };
 		D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSave.swift; sourceTree = "<group>"; };
@@ -175,6 +181,30 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D3052F52204B1DD70064DF10 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F53204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D3052F55204DE2280064DF10 /* Warnings */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F56204DE2310064DF10 /* Dialogs */,
+			);
+			path = Warnings;
+			sourceTree = "<group>";
+		};
+		D3052F56204DE2310064DF10 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F57204DE2490064DF10 /* WarningAlert.swift */,
+			);
+			path = Dialogs;
+			sourceTree = "<group>";
+		};
 		D330BFCE203CB83B003CCC5B /* Counterparties */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +232,7 @@
 		D330BFD72041DCFA003CCC5B /* Invoice Items */ = {
 			isa = PBXGroup;
 			children = (
+				D3052F52204B1DD70064DF10 /* Persistence */,
 				D3052F49204318BF0064DF10 /* Controllers */,
 				D330BFD82041DD27003CCC5B /* Model */,
 			);
@@ -214,6 +245,7 @@
 				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
 				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
 				D3052F4E20434F140064DF10 /* ItemDefinition.swift */,
+				D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +519,7 @@
 		D37560B6203601B100F507AD /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D3052F55204DE2280064DF10 /* Warnings */,
 				D37560B7203601C000F507AD /* Errors */,
 			);
 			path = Application;
@@ -645,6 +678,7 @@
 			files = (
 				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
+				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
@@ -672,9 +706,11 @@
 				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
+				D3052F54204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift in Sources */,
 				D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
+				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,

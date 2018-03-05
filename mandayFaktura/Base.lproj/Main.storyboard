@@ -1492,6 +1492,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <action selector="onNameChange:" target="463-Th-NCJ" id="LlF-Fk-pY1"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -1520,13 +1523,13 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjM-gb-6f8">
                                                                     <rect key="frame" x="2" y="23" width="174" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" drawsBackground="YES" id="XSV-th-NYq">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Alias towaru lub usługi" drawsBackground="YES" id="XSV-th-NYq">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <action selector="changeItemName:" target="haF-wG-vwp" id="E66-2q-6aw"/>
+                                                                        <action selector="onAliasChange:" target="463-Th-NCJ" id="hyR-Yd-ay5"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -1565,6 +1568,9 @@
                                                                     </items>
                                                                 </menu>
                                                             </popUpButtonCell>
+                                                            <connections>
+                                                                <action selector="onUnitOfMeasureSelect:" target="463-Th-NCJ" id="3Ed-jS-eRA"/>
+                                                            </connections>
                                                         </popUpButton>
                                                     </prototypeCellViews>
                                                 </tableColumn>
@@ -1593,6 +1599,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <action selector="onUnitNetPriceChange:" target="463-Th-NCJ" id="iWy-tx-W0D"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -1622,6 +1631,9 @@
                                                                 <font key="font" metaFont="menu"/>
                                                                 <menu key="menu" id="NQk-9T-hWg"/>
                                                             </popUpButtonCell>
+                                                            <connections>
+                                                                <action selector="onVatRateInPercentChange:" target="463-Th-NCJ" id="fGe-cc-CfG"/>
+                                                            </connections>
                                                         </popUpButton>
                                                     </prototypeCellViews>
                                                 </tableColumn>
@@ -1642,6 +1654,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiQ-6D-f4F">
+                                <rect key="frame" x="536" y="4" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tTG-bf-qdE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSaveButtonClicked:" target="463-Th-NCJ" id="JLy-YQ-aSc"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhL-Dq-tZX">
+                                <rect key="frame" x="10" y="61" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jha-Sv-kh9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onAddItemDefinition:" target="463-Th-NCJ" id="GBT-QH-3gF"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1941,7 +1975,7 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mvy-hV-L5q"/>
-        <segue reference="VWJ-bc-Zac"/>
+        <segue reference="HSy-Yv-XGf"/>
         <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>
