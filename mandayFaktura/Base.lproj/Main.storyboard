@@ -1638,6 +1638,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <action selector="onTableViewClicked:" target="463-Th-NCJ" id="cwc-Bz-zLu"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -1676,10 +1679,22 @@
                                     <action selector="onAddItemDefinition:" target="463-Th-NCJ" id="GBT-QH-3gF"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q4d-k6-IsF">
+                                <rect key="frame" x="44" y="61" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="B9g-Ah-JZV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onRemoveItemButtonClicked:" target="463-Th-NCJ" id="Uu2-oF-YtV"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="itemsTableView" destination="pde-XL-Bhc" id="cPG-23-hwA"/>
+                        <outlet property="removeItemButton" destination="q4d-k6-IsF" id="UTo-zx-9UM"/>
                     </connections>
                 </viewController>
                 <customObject id="cwG-X4-Efz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

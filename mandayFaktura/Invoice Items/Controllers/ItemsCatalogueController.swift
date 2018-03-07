@@ -12,26 +12,32 @@ class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var newInvoiceController: NewInvoiceViewController?
     @IBOutlet weak var itemsTableView: NSTableView!
+    @IBOutlet weak var removeItemButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView)
         itemsTableView.delegate = itemsCatalogueTableViewDelegate
         itemsTableView.dataSource = itemsCatalogueTableViewDelegate
-        itemsTableView.doubleAction = #selector(onTableViewClicked)
+        itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
+        removeItemButton.isEnabled = false
     }
-    
    
    
 }
 
 extension ItemsCatalogueController {
     
-    @objc func onTableViewClicked(sender: AnyObject) {
+    @objc func onTableViewDoubleClicked(sender: AnyObject) {
         if (sender.selectedRow != -1) {
             let invoice = itemsCatalogueTableViewDelegate!.getSelectedInvoice(index: sender.selectedRow)
             newInvoiceController!.addItem(itemDefinition: invoice)
         }
     }
+    
+    @IBAction func onTableViewClicked(_ sender: NSTableView) {
+        self.removeItemButton.isEnabled = sender.selectedRow != -1
+    }
+    
     @IBAction func onNameChange(_ sender: NSTextField) {
         self.itemsCatalogueTableViewDelegate!.changeItemName(sender)
         self.itemsTableView.reloadData()
@@ -42,7 +48,13 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onAddItemDefinition(_ sender: Any) {
+        self.removeItemButton.isEnabled = false
         self.itemsCatalogueTableViewDelegate!.addItemDefinition()
+        self.itemsTableView.reloadData()
+    }
+    
+    @IBAction func onRemoveItemButtonClicked(_ sender: NSButton) {
+        self.itemsCatalogueTableViewDelegate!.removeSelectedItem()
         self.itemsTableView.reloadData()
     }
     
