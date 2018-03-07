@@ -11,8 +11,8 @@
 		D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */; };
 		D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4E20434F140064DF10 /* ItemDefinition.swift */; };
 		D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */; };
-		D3052F54204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F53204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift */; };
 		D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F57204DE2490064DF10 /* WarningAlert.swift */; };
+		D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */; };
 		D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */; };
 		D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */; };
 		D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */; };
@@ -86,8 +86,8 @@
 		D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCatalogueTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3052F4E20434F140064DF10 /* ItemDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDefinition.swift; sourceTree = "<group>"; };
 		D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDefinitionRepository.swift; sourceTree = "<group>"; };
-		D3052F53204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryItemDefinitionRepository.swift; sourceTree = "<group>"; };
 		D3052F57204DE2490064DF10 /* WarningAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningAlert.swift; sourceTree = "<group>"; };
+		D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverItemDefinitionRepository.swift; sourceTree = "<group>"; };
 		D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemCoding.swift; sourceTree = "<group>"; };
 		D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSavingController.swift; sourceTree = "<group>"; };
 		D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSave.swift; sourceTree = "<group>"; };
@@ -184,7 +184,8 @@
 		D3052F52204B1DD70064DF10 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				D3052F53204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift */,
+				D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */,
+				D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -538,7 +539,6 @@
 			isa = PBXGroup;
 			children = (
 				D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */,
-				D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -706,13 +706,13 @@
 				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
-				D3052F54204B1DED0064DF10 /* InMemoryItemDefinitionRepository.swift in Sources */,
 				D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
+				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
