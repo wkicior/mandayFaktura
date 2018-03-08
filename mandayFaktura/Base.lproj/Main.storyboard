@@ -849,6 +849,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onTagItemButtonClicked:" target="haF-wG-vwp" id="ald-PL-o4j"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oq8-Td-u7x">
                                 <rect key="frame" x="109" y="175" width="27" height="25"/>
@@ -1464,7 +1467,7 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mvy-hV-L5q"/>
-        <segue reference="7xi-xw-zjF"/>
+        <segue reference="HSy-Yv-XGf"/>
         <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>

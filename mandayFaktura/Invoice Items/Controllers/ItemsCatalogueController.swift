@@ -33,12 +33,21 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onTableViewClicked(_ sender: NSTableView) {
-        self.removeItemButton.isEnabled = sender.selectedRow != -1
+        setRemoveItemAvailability()
+    }
+    
+    private func setRemoveItemAvailability() {
+        self.removeItemButton.isEnabled = self.itemsTableView.selectedRow != -1
+    }
+    
+    private func safeReloadData() {
+        self.itemsTableView.reloadData()
+        setRemoveItemAvailability()
     }
     
     @IBAction func onNameChange(_ sender: NSTextField) {
         self.itemsCatalogueTableViewDelegate!.changeItemName(sender)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
@@ -48,30 +57,31 @@ extension ItemsCatalogueController {
     @IBAction func onAddItemDefinition(_ sender: Any) {
         self.removeItemButton.isEnabled = false
         self.itemsCatalogueTableViewDelegate!.addItemDefinition()
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func onRemoveItemButtonClicked(_ sender: NSButton) {
         self.itemsCatalogueTableViewDelegate!.removeSelectedItem()
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func onVatRateInPercentChange(_ sender: NSPopUpButton) {
         let vatRate = Decimal(sender.selectedItem!.tag)
         self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     @IBAction func onUnitNetPriceChange(_ sender: NSTextField) {
         tryWithWarning(self.itemsCatalogueTableViewDelegate!.changeItemNetValue, on: sender)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
          self.itemsCatalogueTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
-         self.itemsTableView.reloadData()
+          safeReloadData()
     }
+    
     @IBAction func onAliasChange(_ sender: NSTextField) {
          self.itemsCatalogueTableViewDelegate!.changeItemAlias(sender)
-         self.itemsTableView.reloadData()
+         safeReloadData()
     }
     
     private func tryWithWarning(_ fun: (NSTextField) throws -> Void, on: NSTextField) {

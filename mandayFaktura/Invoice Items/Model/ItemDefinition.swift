@@ -34,6 +34,15 @@ class ItemDefinitionBuilder {
         return self
     }
     
+    func from(item: InvoiceItem) -> ItemDefinitionBuilder {
+        self.name = item.name
+        self.alias = item.name
+        self.unitOfMeasure = item.unitOfMeasure
+        self.unitNetPrice = item.unitNetPrice
+        self.vatRateInPercent = item.vatRateInPercent
+        return self
+    }
+    
     func build() -> ItemDefinition {
         return ItemDefinition(name: name, alias: alias, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRateInPercent: vatRateInPercent)
     }

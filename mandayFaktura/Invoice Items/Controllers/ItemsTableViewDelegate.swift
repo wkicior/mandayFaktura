@@ -146,6 +146,14 @@ extension ItemsTableViewDelegate {
             .build())
     }
     
+    func getSelectedItem() -> InvoiceItem? {
+        let selectedRowNumber = itemsTableView.selectedRow
+        if selectedRowNumber != -1 {
+            return items[selectedRowNumber]
+        }
+        return nil
+    }
+    
     func removeSelectedItem() {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {

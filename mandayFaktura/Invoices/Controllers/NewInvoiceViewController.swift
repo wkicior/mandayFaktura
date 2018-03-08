@@ -14,6 +14,7 @@ struct NewInvoiceViewControllerConstants {
 
 class NewInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
+    let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
@@ -58,6 +59,7 @@ class NewInvoiceViewController: NSViewController {
             return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }
     }
+    
 }
 
 /**
@@ -101,23 +103,23 @@ extension NewInvoiceViewController {
     
     @IBAction func changeAmount(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeItemNetValue, on: sender)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func changeItemName(_ sender: NSTextField) {
         self.itemsTableViewDelegate!.changeItemName(sender)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
         let vatRate = Decimal(sender.selectedItem!.tag)
         self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
-        self.itemsTableView.reloadData()
+        safeReloadData()
     }
     
     @IBAction func onSelectBuyerButtonClicked(_ sender: NSPopUpButton) {
@@ -139,6 +141,10 @@ extension NewInvoiceViewController {
     }
     
     @IBAction func onItemsTableViewClicked(_ sender: Any) {
+       setButtonsAvailability()
+    }
+    
+    private func setButtonsAvailability() {
         self.removeItemButton.isEnabled =  self.itemsTableView.selectedRow != -1
         self.saveItemButton.isEnabled = self.itemsTableView.selectedRow != -1
     }
@@ -152,12 +158,17 @@ extension NewInvoiceViewController {
     @IBAction func onMinusButtonClicked(_ sender: Any) {
         self.removeItemButton.isEnabled = false
         self.itemsTableViewDelegate!.removeSelectedItem()
-        self.itemsTableView.reloadData()
+        safeReloadData()
         checkPreviewButtonEnabled()
     }
     
     @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {
         selectedPaymentForm = getPaymentFormByTag(sender.selectedTag())
+    }
+    
+    @IBAction func onTagItemButtonClicked(_ sender: NSButton) {
+        let itemDefinition = anItemDefinition().from(item: self.itemsTableViewDelegate!.getSelectedItem()!).build()
+        self.itemDefinitionRepository.addItemDefinition(itemDefinition)
     }
     
     private func addBuyerToHistory(invoice: Invoice) throws {
@@ -166,6 +177,11 @@ extension NewInvoiceViewController {
     
     private func checkPreviewButtonEnabled() {
         self.previewButton.isEnabled = self.itemsTableView.numberOfRows > 0
+    }
+    
+    private func safeReloadData() {
+        self.itemsTableView.reloadData()
+        setButtonsAvailability()
     }
     
     func getPaymentFormByTag(_ tag: Int)-> PaymentForm? {
