@@ -21,14 +21,12 @@ class ItemsCatalogueController: NSViewController {
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
         removeItemButton.isEnabled = false
     }
-   
-   
 }
 
 extension ItemsCatalogueController {
     
     @objc func onTableViewDoubleClicked(sender: AnyObject) {
-        if (sender.selectedRow != -1) {
+        if (newInvoiceController != nil && sender.selectedRow != -1) {
             let invoice = itemsCatalogueTableViewDelegate!.getSelectedInvoice(index: sender.selectedRow)
             newInvoiceController!.addItem(itemDefinition: invoice)
         }
