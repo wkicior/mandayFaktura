@@ -9,6 +9,14 @@
 import Cocoa
 import Quartz
 
+private extension String {
+    var encodeToFilename: String {
+        get {
+            return self.replacingOccurrences(of: "/", with: "-")
+        }
+    }
+}
+
 class PdfViewController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
@@ -24,6 +32,6 @@ class PdfViewController: NSViewController {
     }
     
     @IBAction func onPrintButtonClicked(_ sender: NSButton) {
-        pdfView.document?.write(toFile: "/Users/disorder/Downloads/\(invoice?.number ?? "Faktura").pdf")
+        pdfView.document?.write(toFile: "/Users/disorder/Downloads/\(invoice?.number.encodeToFilename ?? "Faktura").pdf")
     }
 }
