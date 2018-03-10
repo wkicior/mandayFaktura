@@ -1,0 +1,1016 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4A2043411B0064DF10 /* ItemsCatalogueController.swift */; };
+		D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */; };
+		D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F4E20434F140064DF10 /* ItemDefinition.swift */; };
+		D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */; };
+		D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F57204DE2490064DF10 /* WarningAlert.swift */; };
+		D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */; };
+		D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */; };
+		D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */; };
+		D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */; };
+		D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD0203CB869003CCC5B /* BuyerAutoSaveTests.swift */; };
+		D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */; };
+		D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD520417AB9003CCC5B /* UserAbortError.swift */; };
+		D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */; };
+		D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
+		D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */; };
+		D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */; };
+		D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */; };
+		D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */; };
+		D34D0EDD201A7CBC000D1EC6 /* mandayFakturaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */; };
+		D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F09201CE8B2000D1EC6 /* Invoice.swift */; };
+		D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */; };
+		D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */; };
+		D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */; };
+		D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */; };
+		D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1F2020E939000D1EC6 /* InvoicePdf.swift */; };
+		D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */; };
+		D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */; };
+		D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2720225AAB000D1EC6 /* Counterparty.swift */; };
+		D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */; };
+		D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */; };
+		D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */; };
+		D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F4202614C100FFB262 /* InvoiceTests.swift */; };
+		D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F620261A8500FFB262 /* PaymentForm.swift */; };
+		D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7F82027110E00FFB262 /* VatBreakdown.swift */; };
+		D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */; };
+		D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7FC202757AF00FFB262 /* FontFormatting.swift */; };
+		D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A8002027893B00FFB262 /* InvoiceItemPrintingExtension.swift */; };
+		D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */; };
+		D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */; };
+		D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */; };
+		D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80B2027A60600FFB262 /* DateFormatting.swift */; };
+		D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */; };
+		D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A8112028ED7500FFB262 /* PageLayout.swift */; };
+		D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A814202A311200FFB262 /* PageLayoutTests.swift */; };
+		D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A120321C6500F507AD /* VatRateRepository.swift */; };
+		D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */; };
+		D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */; };
+		D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */; };
+		D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560AE2033974100F507AD /* SellerSettingsViewController.swift */; };
+		D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B12034C20F00F507AD /* DecimalFormatter.swift */; };
+		D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B42034C25600F507AD /* DecimalFormatterTests.swift */; };
+		D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B8203601DF00F507AD /* InputValidationError.swift */; };
+		D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BA20377D7800F507AD /* NSColorExtension.swift */; };
+		D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */; };
+		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D34D0ECE201A7CBC000D1EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D34D0EB3201A7CBC000D1EC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D34D0EBA201A7CBC000D1EC6;
+			remoteInfo = mandayFaktura;
+		};
+		D34D0ED9201A7CBC000D1EC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D34D0EB3201A7CBC000D1EC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D34D0EBA201A7CBC000D1EC6;
+			remoteInfo = mandayFaktura;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D3052F4A2043411B0064DF10 /* ItemsCatalogueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCatalogueController.swift; sourceTree = "<group>"; };
+		D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCatalogueTableViewDelegate.swift; sourceTree = "<group>"; };
+		D3052F4E20434F140064DF10 /* ItemDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDefinition.swift; sourceTree = "<group>"; };
+		D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDefinitionRepository.swift; sourceTree = "<group>"; };
+		D3052F57204DE2490064DF10 /* WarningAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningAlert.swift; sourceTree = "<group>"; };
+		D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverItemDefinitionRepository.swift; sourceTree = "<group>"; };
+		D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemCoding.swift; sourceTree = "<group>"; };
+		D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSavingController.swift; sourceTree = "<group>"; };
+		D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSave.swift; sourceTree = "<group>"; };
+		D330BFD0203CB869003CCC5B /* BuyerAutoSaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSaveTests.swift; sourceTree = "<group>"; };
+		D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBuyerWithThatNameExistsError.swift; sourceTree = "<group>"; };
+		D330BFD520417AB9003CCC5B /* UserAbortError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAbortError.swift; sourceTree = "<group>"; };
+		D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDelegate.swift; sourceTree = "<group>"; };
+		D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mandayFaktura.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D34D0EC5201A7CBC000D1EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D34D0EC7201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34D0EC8201A7CBC000D1EC6 /* mandayFaktura.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mandayFaktura.entitlements; sourceTree = "<group>"; };
+		D34D0ECD201A7CBC000D1EC6 /* mandayFakturaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mandayFakturaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mandayFakturaTests.swift; sourceTree = "<group>"; };
+		D34D0ED3201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34D0ED8201A7CBC000D1EC6 /* mandayFakturaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mandayFakturaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mandayFakturaUITests.swift; sourceTree = "<group>"; };
+		D34D0EDE201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34D0F09201CE8B2000D1EC6 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryTableViewDelegate.swift; sourceTree = "<group>"; };
+		D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRepository.swift; sourceTree = "<group>"; };
+		D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
+		D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
+		D34D0F1F2020E939000D1EC6 /* InvoicePdf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdf.swift; sourceTree = "<group>"; };
+		D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePdfPage.swift; sourceTree = "<group>"; };
+		D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdfPage.swift; sourceTree = "<group>"; };
+		D34D0F2720225AAB000D1EC6 /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };
+		D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
+		D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOfMeasure.swift; sourceTree = "<group>"; };
+		D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTests.swift; sourceTree = "<group>"; };
+		D370A7F4202614C100FFB262 /* InvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTests.swift; sourceTree = "<group>"; };
+		D370A7F620261A8500FFB262 /* PaymentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentForm.swift; sourceTree = "<group>"; };
+		D370A7F82027110E00FFB262 /* VatBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdown.swift; sourceTree = "<group>"; };
+		D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownTests.swift; sourceTree = "<group>"; };
+		D370A7FC202757AF00FFB262 /* FontFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFormatting.swift; sourceTree = "<group>"; };
+		D370A8002027893B00FFB262 /* InvoiceItemPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemPrintingExtension.swift; sourceTree = "<group>"; };
+		D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownPrintingExtension.swift; sourceTree = "<group>"; };
+		D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePrintingExtension.swift; sourceTree = "<group>"; };
+		D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalPrintingExtension.swift; sourceTree = "<group>"; };
+		D370A80B2027A60600FFB262 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
+		D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyPrintingExtension.swift; sourceTree = "<group>"; };
+		D370A8112028ED7500FFB262 /* PageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
+		D370A814202A311200FFB262 /* PageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayoutTests.swift; sourceTree = "<group>"; };
+		D37560A120321C6500F507AD /* VatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateRepository.swift; sourceTree = "<group>"; };
+		D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryVatRateRepository.swift; sourceTree = "<group>"; };
+		D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatePopUpButton.swift; sourceTree = "<group>"; };
+		D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCounterpartyRepository.swift; sourceTree = "<group>"; };
+		D37560AE2033974100F507AD /* SellerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSettingsViewController.swift; sourceTree = "<group>"; };
+		D37560B12034C20F00F507AD /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
+		D37560B42034C25600F507AD /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
+		D37560B8203601DF00F507AD /* InputValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationError.swift; sourceTree = "<group>"; };
+		D37560BA20377D7800F507AD /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceRepository.swift; sourceTree = "<group>"; };
+		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D34D0EB8201A7CBC000D1EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D34D0ECA201A7CBC000D1EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D34D0ED5201A7CBC000D1EC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D3052F49204318BF0064DF10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */,
+				D3052F4A2043411B0064DF10 /* ItemsCatalogueController.swift */,
+				D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D3052F52204B1DD70064DF10 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */,
+				D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D3052F55204DE2280064DF10 /* Warnings */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F56204DE2310064DF10 /* Dialogs */,
+			);
+			path = Warnings;
+			sourceTree = "<group>";
+		};
+		D3052F56204DE2310064DF10 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F57204DE2490064DF10 /* WarningAlert.swift */,
+			);
+			path = Dialogs;
+			sourceTree = "<group>";
+		};
+		D330BFCE203CB83B003CCC5B /* Counterparties */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFCF203CB850003CCC5B /* Model */,
+			);
+			path = Counterparties;
+			sourceTree = "<group>";
+		};
+		D330BFCF203CB850003CCC5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD0203CB869003CCC5B /* BuyerAutoSaveTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D330BFD2203E031C003CCC5B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		D330BFD72041DCFA003CCC5B /* Invoice Items */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F52204B1DD70064DF10 /* Persistence */,
+				D3052F49204318BF0064DF10 /* Controllers */,
+				D330BFD82041DD27003CCC5B /* Model */,
+			);
+			path = "Invoice Items";
+			sourceTree = "<group>";
+		};
+		D330BFD82041DD27003CCC5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */,
+				D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */,
+				D3052F4E20434F140064DF10 /* ItemDefinition.swift */,
+				D3052F50204B1B570064DF10 /* ItemDefinitionRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D330BFD92041DD6F003CCC5B /* Invoice Items */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFDA2041DD81003CCC5B /* Model */,
+			);
+			path = "Invoice Items";
+			sourceTree = "<group>";
+		};
+		D330BFDA2041DD81003CCC5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7F22023AB2C00FFB262 /* InvoiceItemTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D34D0EB2201A7CBC000D1EC6 = {
+			isa = PBXGroup;
+			children = (
+				D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */,
+				D34D0ED0201A7CBC000D1EC6 /* mandayFakturaTests */,
+				D34D0EDB201A7CBC000D1EC6 /* mandayFakturaUITests */,
+				D34D0EBC201A7CBC000D1EC6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D34D0EBC201A7CBC000D1EC6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */,
+				D34D0ECD201A7CBC000D1EC6 /* mandayFakturaTests.xctest */,
+				D34D0ED8201A7CBC000D1EC6 /* mandayFakturaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD72041DCFA003CCC5B /* Invoice Items */,
+				D37560B6203601B100F507AD /* Application */,
+				D375609F20321BD600F507AD /* VAT */,
+				D34D0F2520225A81000D1EC6 /* Counterparties */,
+				D34D0F08201CE888000D1EC6 /* Invoices */,
+				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
+				D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */,
+				D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */,
+				D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */,
+				D34D0EC7201A7CBC000D1EC6 /* Info.plist */,
+				D34D0EC8201A7CBC000D1EC6 /* mandayFaktura.entitlements */,
+			);
+			path = mandayFaktura;
+			sourceTree = "<group>";
+		};
+		D34D0ED0201A7CBC000D1EC6 /* mandayFakturaTests */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD92041DD6F003CCC5B /* Invoice Items */,
+				D330BFCE203CB83B003CCC5B /* Counterparties */,
+				D37560AB2033941C00F507AD /* VAT */,
+				D370A7F02023AB0400FFB262 /* Invoices */,
+				D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */,
+				D34D0ED3201A7CBC000D1EC6 /* Info.plist */,
+			);
+			path = mandayFakturaTests;
+			sourceTree = "<group>";
+		};
+		D34D0EDB201A7CBC000D1EC6 /* mandayFakturaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */,
+				D34D0EDE201A7CBC000D1EC6 /* Info.plist */,
+			);
+			path = mandayFakturaUITests;
+			sourceTree = "<group>";
+		};
+		D34D0F08201CE888000D1EC6 /* Invoices */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B02034C1F800F507AD /* Conversions */,
+				D34D0F1E2020E907000D1EC6 /* Pdf */,
+				D34D0F13201DD9E6000D1EC6 /* Model */,
+				D34D0F14201DD9F9000D1EC6 /* Persistence */,
+				D34D0F15201DDA0D000D1EC6 /* Controllers */,
+			);
+			path = Invoices;
+			sourceTree = "<group>";
+		};
+		D34D0F13201DD9E6000D1EC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
+				D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */,
+				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D34D0F14201DD9F9000D1EC6 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D34D0F15201DDA0D000D1EC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */,
+				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
+				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D34D0F1E2020E907000D1EC6 /* Pdf */ = {
+			isa = PBXGroup;
+			children = (
+				D370A80820278B3A00FFB262 /* PrintingExtensions */,
+				D34D0F1F2020E939000D1EC6 /* InvoicePdf.swift */,
+				D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */,
+				D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */,
+				D370A7FC202757AF00FFB262 /* FontFormatting.swift */,
+				D370A80B2027A60600FFB262 /* DateFormatting.swift */,
+				D370A8112028ED7500FFB262 /* PageLayout.swift */,
+			);
+			path = Pdf;
+			sourceTree = "<group>";
+		};
+		D34D0F2520225A81000D1EC6 /* Counterparties */ = {
+			isa = PBXGroup;
+			children = (
+				D330BFD2203E031C003CCC5B /* Errors */,
+				D37560AD2033972800F507AD /* Controllers */,
+				D395D834202CEABA00D129B6 /* Persistence */,
+				D34D0F2620225A9A000D1EC6 /* Model */,
+			);
+			path = Counterparties;
+			sourceTree = "<group>";
+		};
+		D34D0F2620225A9A000D1EC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F2720225AAB000D1EC6 /* Counterparty.swift */,
+				D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */,
+				D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D370A7F02023AB0400FFB262 /* Invoices */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B32034C24100F507AD /* Conversions */,
+				D370A813202A30AC00FFB262 /* Pdf */,
+				D370A7F12023AB1000FFB262 /* Model */,
+			);
+			path = Invoices;
+			sourceTree = "<group>";
+		};
+		D370A7F12023AB1000FFB262 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7F4202614C100FFB262 /* InvoiceTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D370A80820278B3A00FFB262 /* PrintingExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */,
+				D370A8002027893B00FFB262 /* InvoiceItemPrintingExtension.swift */,
+				D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */,
+				D370A80620278AB700FFB262 /* DecimalPrintingExtension.swift */,
+				D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */,
+				D37560BA20377D7800F507AD /* NSColorExtension.swift */,
+			);
+			path = PrintingExtensions;
+			sourceTree = "<group>";
+		};
+		D370A813202A30AC00FFB262 /* Pdf */ = {
+			isa = PBXGroup;
+			children = (
+				D370A814202A311200FFB262 /* PageLayoutTests.swift */,
+			);
+			path = Pdf;
+			sourceTree = "<group>";
+		};
+		D375609F20321BD600F507AD /* VAT */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A620321D4300F507AD /* UI */,
+				D37560A320321CD900F507AD /* Persistence */,
+				D37560A020321C3200F507AD /* Model */,
+			);
+			path = VAT;
+			sourceTree = "<group>";
+		};
+		D37560A020321C3200F507AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7F82027110E00FFB262 /* VatBreakdown.swift */,
+				D37560A120321C6500F507AD /* VatRateRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D37560A320321CD900F507AD /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D37560A620321D4300F507AD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D37560AB2033941C00F507AD /* VAT */ = {
+			isa = PBXGroup;
+			children = (
+				D37560AC2033942600F507AD /* Model */,
+			);
+			path = VAT;
+			sourceTree = "<group>";
+		};
+		D37560AC2033942600F507AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D370A7FA202711C800FFB262 /* VatBreakdownTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D37560AD2033972800F507AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D37560AE2033974100F507AD /* SellerSettingsViewController.swift */,
+				D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D37560B02034C1F800F507AD /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B12034C20F00F507AD /* DecimalFormatter.swift */,
+			);
+			path = Conversions;
+			sourceTree = "<group>";
+		};
+		D37560B32034C24100F507AD /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B42034C25600F507AD /* DecimalFormatterTests.swift */,
+			);
+			path = Conversions;
+			sourceTree = "<group>";
+		};
+		D37560B6203601B100F507AD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D3052F55204DE2280064DF10 /* Warnings */,
+				D37560B7203601C000F507AD /* Errors */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D37560B7203601C000F507AD /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D37560B8203601DF00F507AD /* InputValidationError.swift */,
+				D330BFD520417AB9003CCC5B /* UserAbortError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		D395D834202CEABA00D129B6 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D34D0EBA201A7CBC000D1EC6 /* mandayFaktura */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D34D0EE1201A7CBC000D1EC6 /* Build configuration list for PBXNativeTarget "mandayFaktura" */;
+			buildPhases = (
+				D34D0EB7201A7CBC000D1EC6 /* Sources */,
+				D34D0EB8201A7CBC000D1EC6 /* Frameworks */,
+				D34D0EB9201A7CBC000D1EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mandayFaktura;
+			productName = mandayFaktura;
+			productReference = D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D34D0ECC201A7CBC000D1EC6 /* mandayFakturaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D34D0EE4201A7CBC000D1EC6 /* Build configuration list for PBXNativeTarget "mandayFakturaTests" */;
+			buildPhases = (
+				D34D0EC9201A7CBC000D1EC6 /* Sources */,
+				D34D0ECA201A7CBC000D1EC6 /* Frameworks */,
+				D34D0ECB201A7CBC000D1EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D34D0ECF201A7CBC000D1EC6 /* PBXTargetDependency */,
+			);
+			name = mandayFakturaTests;
+			productName = mandayFakturaTests;
+			productReference = D34D0ECD201A7CBC000D1EC6 /* mandayFakturaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D34D0ED7201A7CBC000D1EC6 /* mandayFakturaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D34D0EE7201A7CBC000D1EC6 /* Build configuration list for PBXNativeTarget "mandayFakturaUITests" */;
+			buildPhases = (
+				D34D0ED4201A7CBC000D1EC6 /* Sources */,
+				D34D0ED5201A7CBC000D1EC6 /* Frameworks */,
+				D34D0ED6201A7CBC000D1EC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D34D0EDA201A7CBC000D1EC6 /* PBXTargetDependency */,
+			);
+			name = mandayFakturaUITests;
+			productName = mandayFakturaUITests;
+			productReference = D34D0ED8201A7CBC000D1EC6 /* mandayFakturaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D34D0EB3201A7CBC000D1EC6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Wojciech Kicior";
+				TargetAttributes = {
+					D34D0EBA201A7CBC000D1EC6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					D34D0ECC201A7CBC000D1EC6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D34D0EBA201A7CBC000D1EC6;
+					};
+					D34D0ED7201A7CBC000D1EC6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D34D0EBA201A7CBC000D1EC6;
+					};
+				};
+			};
+			buildConfigurationList = D34D0EB6201A7CBC000D1EC6 /* Build configuration list for PBXProject "mandayFaktura" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D34D0EB2201A7CBC000D1EC6;
+			productRefGroup = D34D0EBC201A7CBC000D1EC6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D34D0EBA201A7CBC000D1EC6 /* mandayFaktura */,
+				D34D0ECC201A7CBC000D1EC6 /* mandayFakturaTests */,
+				D34D0ED7201A7CBC000D1EC6 /* mandayFakturaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D34D0EB9201A7CBC000D1EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */,
+				D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D34D0ECB201A7CBC000D1EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D34D0ED6201A7CBC000D1EC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D34D0EB7201A7CBC000D1EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
+				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
+				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
+				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
+				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
+				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
+				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
+				D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */,
+				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
+				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
+				D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */,
+				D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */,
+				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
+				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
+				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
+				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
+				D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */,
+				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
+				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
+				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,
+				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
+				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
+				D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */,
+				D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */,
+				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
+				D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */,
+				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
+				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
+				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
+				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
+				D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */,
+				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
+				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
+				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
+				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
+				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
+				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
+				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
+				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
+				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
+				D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */,
+				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
+				D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */,
+				D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D34D0EC9201A7CBC000D1EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
+				D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */,
+				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
+				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
+				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
+				D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */,
+				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D34D0ED4201A7CBC000D1EC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D34D0EDD201A7CBC000D1EC6 /* mandayFakturaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D34D0ECF201A7CBC000D1EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D34D0EBA201A7CBC000D1EC6 /* mandayFaktura */;
+			targetProxy = D34D0ECE201A7CBC000D1EC6 /* PBXContainerItemProxy */;
+		};
+		D34D0EDA201A7CBC000D1EC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D34D0EBA201A7CBC000D1EC6 /* mandayFaktura */;
+			targetProxy = D34D0ED9201A7CBC000D1EC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D34D0EC5201A7CBC000D1EC6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D34D0EDF201A7CBC000D1EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D34D0EE0201A7CBC000D1EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		D34D0EE2201A7CBC000D1EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = mandayFaktura/mandayFaktura.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = mandayFaktura/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D34D0EE3201A7CBC000D1EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = mandayFaktura/mandayFaktura.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = mandayFaktura/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		D34D0EE5201A7CBC000D1EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = mandayFakturaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFakturaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mandayFaktura.app/Contents/MacOS/mandayFaktura";
+			};
+			name = Debug;
+		};
+		D34D0EE6201A7CBC000D1EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = mandayFakturaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFakturaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mandayFaktura.app/Contents/MacOS/mandayFaktura";
+			};
+			name = Release;
+		};
+		D34D0EE8201A7CBC000D1EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = mandayFakturaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFakturaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = mandayFaktura;
+			};
+			name = Debug;
+		};
+		D34D0EE9201A7CBC000D1EC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = mandayFakturaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFakturaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = mandayFaktura;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D34D0EB6201A7CBC000D1EC6 /* Build configuration list for PBXProject "mandayFaktura" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D34D0EDF201A7CBC000D1EC6 /* Debug */,
+				D34D0EE0201A7CBC000D1EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D34D0EE1201A7CBC000D1EC6 /* Build configuration list for PBXNativeTarget "mandayFaktura" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D34D0EE2201A7CBC000D1EC6 /* Debug */,
+				D34D0EE3201A7CBC000D1EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D34D0EE4201A7CBC000D1EC6 /* Build configuration list for PBXNativeTarget "mandayFakturaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D34D0EE5201A7CBC000D1EC6 /* Debug */,
+				D34D0EE6201A7CBC000D1EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D34D0EE7201A7CBC000D1EC6 /* Build configuration list for PBXNativeTarget "mandayFakturaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D34D0EE8201A7CBC000D1EC6 /* Debug */,
+				D34D0EE9201A7CBC000D1EC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D34D0EB3201A7CBC000D1EC6 /* Project object */;
+}
