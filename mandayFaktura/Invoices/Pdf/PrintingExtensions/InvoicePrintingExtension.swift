@@ -31,11 +31,16 @@ internal extension Invoice {
         """
         Faktura VAT
         Nr: \(number)
+
+        """
+        return header
+    }
+    
+    var printedDates: String {
+        let header =
+        """
         Data wystawienia: \(DateFormatting.getDateString(issueDate))
         Data sprzedaży: \(DateFormatting.getDateString(sellingDate))
-        
-        
-        ORYGINAŁ
         """
         return header
     }

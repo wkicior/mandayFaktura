@@ -18,8 +18,8 @@ class PageLayout {
     let pdfHeight = CGFloat(1024.0)
     let pdfWidth = CGFloat(768.0)
     
-    private let headerStartingYPosition = CGFloat(900)
-    private let copyLabelStartingYPosition = CGFloat(870)
+    private let headerStartingYPosition = CGFloat(930)
+    private let copyLabelStartingYPosition = CGFloat(860)
     private let itemsStartYPosition = CGFloat(674)
     private let counterpartiesStartYPosition = CGFloat(750)
    
@@ -40,8 +40,16 @@ class PageLayout {
         let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
             headerStartingYPosition,
             1/2 * self.pdfWidth,
-            CGFloat(80.0))
-        header.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+            CGFloat(40.0))
+        header.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesHeaderLeft)
+    }
+    
+    func drawInvoiceHeaderDates(dates: String) {
+        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
+                              headerStartingYPosition - CGFloat(40.0),
+                              1/2 * self.pdfWidth,
+                              CGFloat(40.0))
+        dates.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawCopyLabel(label: String) {

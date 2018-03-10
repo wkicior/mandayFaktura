@@ -24,6 +24,7 @@ class InvoicePdfPage: BasePDFPage {
     
     func drawInvoiceHeader()  {
         pageLayout.drawInvoiceHeader(header: invoice.printedHeader)
+        pageLayout.drawInvoiceHeaderDates(dates: invoice.printedDates)
     }
     
     func drawCopyLabel() {
