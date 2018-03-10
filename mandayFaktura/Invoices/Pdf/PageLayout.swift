@@ -19,7 +19,7 @@ class PageLayout {
     let pdfWidth = CGFloat(768.0)
     
     private let headerStartingYPosition = CGFloat(930)
-    private let copyLabelStartingYPosition = CGFloat(860)
+    private let copyLabelStartingYPosition = CGFloat(910)
     private let itemsStartYPosition = CGFloat(674)
     private let counterpartiesStartYPosition = CGFloat(750)
    
@@ -44,22 +44,6 @@ class PageLayout {
         header.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesHeaderLeft)
     }
     
-    func drawInvoiceHeaderDates(dates: String) {
-        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
-                              headerStartingYPosition - CGFloat(40.0),
-                              1/2 * self.pdfWidth,
-                              CGFloat(40.0))
-        dates.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
-        drawHeaderHorizontalLine()
-    }
-    
-    func drawHeaderHorizontalLine() {
-        let y =  headerStartingYPosition - CGFloat(40.0)
-        let fromPoint = NSMakePoint(leftMargin , y)
-        let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
-        drawPath(from: fromPoint, to: toPoint)
-    }
-    
     func drawCopyLabel(label: String) {
         let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
                               copyLabelStartingYPosition,
@@ -67,6 +51,24 @@ class PageLayout {
                               CGFloat(20.0))
         label.uppercased().draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
+    
+    func drawInvoiceHeaderDates(dates: String) {
+        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
+                              headerStartingYPosition - CGFloat(55.0),
+                              1/2 * self.pdfWidth,
+                              CGFloat(40.0))
+        dates.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+        drawHeaderHorizontalLine()
+    }
+    
+    func drawHeaderHorizontalLine() {
+        let y =  headerStartingYPosition - CGFloat(60.0)
+        let fromPoint = NSMakePoint(leftMargin , y)
+        let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
+        drawPath(from: fromPoint, to: toPoint)
+    }
+    
+    
     
     func drawSeller(seller: String) {
         let rect = NSMakeRect(CGFloat(100.0),
