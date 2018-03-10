@@ -50,6 +50,14 @@ class PageLayout {
                               1/2 * self.pdfWidth,
                               CGFloat(40.0))
         dates.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+        drawHeaderHorizontalLine()
+    }
+    
+    func drawHeaderHorizontalLine() {
+        let y =  headerStartingYPosition - CGFloat(40.0)
+        let fromPoint = NSMakePoint(leftMargin , y)
+        let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
+        drawPath(from: fromPoint, to: toPoint)
     }
     
     func drawCopyLabel(label: String) {
@@ -175,11 +183,19 @@ class PageLayout {
     }
     
     func drawPaymentSummary(content: String) {
+        drawPaymentSummaryHorizontalLine()
         let rect = NSMakeRect(CGFloat(100.0),
                               paymentSummaryYPosition,
                               1/3 * self.pdfWidth,
                               CGFloat(80.0))
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+    }
+    
+    func drawPaymentSummaryHorizontalLine() {
+        let y =  paymentSummaryYPosition + CGFloat(90)
+        let fromPoint = NSMakePoint(leftMargin , y)
+        let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
+        drawPath(from: fromPoint, to: toPoint)
     }
     
     func drawPageNumber(content: String) {
