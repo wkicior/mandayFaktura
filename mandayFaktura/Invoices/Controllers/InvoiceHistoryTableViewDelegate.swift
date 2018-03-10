@@ -10,8 +10,10 @@ import Foundation
 import AppKit
 
 fileprivate enum CellIdentifiers {
-    static let NumberCell = "numberCellId"
-    static let IssueDateCell = "issueDateCellId"
+    static let numberCell = "numberCellId"
+    static let issueDateCell = "issueDateCellId"
+    static let buyerName = "buyerNameCellId"
+    static let grossValueCell = "grossValueCellId"
 }
 
 /**
@@ -26,7 +28,7 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
     
     override init() {
         dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .long
+        dateFormatter.timeStyle = .short
         super.init()
     }
     
@@ -42,10 +44,16 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number
-            cellIdentifier = CellIdentifiers.NumberCell
+            cellIdentifier = CellIdentifiers.numberCell
         } else if tableColumn == tableView.tableColumns[1] {
             text = dateFormatter.string(from: item.issueDate)
-            cellIdentifier = CellIdentifiers.IssueDateCell
+            cellIdentifier = CellIdentifiers.issueDateCell
+        } else if tableColumn == tableView.tableColumns[2] {
+            text = item.buyer.name
+            cellIdentifier = CellIdentifiers.buyerName
+        } else if tableColumn == tableView.tableColumns[3] {
+            text = item.totalGrossValue.formatAmount()
+            cellIdentifier = CellIdentifiers.grossValueCell
         }
 
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
