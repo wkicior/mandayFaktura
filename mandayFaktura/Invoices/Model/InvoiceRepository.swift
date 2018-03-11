@@ -21,7 +21,12 @@ protocol InvoiceRepository {
     /**
     Adds new invoice to the repository
     */
-    func addInvoice(_ invoice:Invoice)
+    func addInvoice(_ invoice: Invoice)
+    
+    /**
+    Deletes the invoice
+    */
+    func delete(_ invoice: Invoice)
 }
 
 /**

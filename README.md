@@ -11,6 +11,7 @@ The development is still ongoing, therefore the application provides some basic 
 - exporting the invoices to PDF files
 - management of invoice items
 - saving the counterparties
+- deleting saved invoices
 
 
 Aplikacja jest nadal w fazie implemementacji, aktualnie następujące funkcjonalności są dostępne:
@@ -18,10 +19,11 @@ Aplikacja jest nadal w fazie implemementacji, aktualnie następujące funkcjonal
 - eksport faktur do pliku PDF
 - zarządzanie towarami i usługami
 - zapisywanie kontrahentów
+- usuwanie faktur
 
 ## Next features / Planowana implementacja
 The features I'm working on and should be delivered any day now include:
-- editing/deleting the invoices
+- editing the invoices
 - improving UI and windows presentation
 - improving UX
 - management of counterparties
@@ -31,7 +33,7 @@ The features I'm working on and should be delivered any day now include:
 - more VAT options
 
 Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe lada dzień):
-- edycja/usuwanie faktur
+- edycja faktur
 - ulepszenie interfejsu i wyglądu okien
 - user experience
 - zarządzanie kontrahentami

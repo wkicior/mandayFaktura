@@ -8,12 +8,18 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+struct ViewControllerConstants {
+    static let INVOICE_SELECTED_NOTIFICATION = Notification.Name(rawValue: "InvoiceSelected")
+    static let INVOICE_TO_REMOVE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToRemove")
 
+    static let INVOICE_NOTIFICATION_KEY = "invoice"
+}
+
+class ViewController: NSViewController {
+    var invoiceRepository:InvoiceRepository?
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
     var invoiceHistoryTableViewDelegate:InvoiceHistoryTableViewDelegate?
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         CounterpartyRepositoryFactory.register(repository: KeyedArchiverCounterpartyRepository())
@@ -30,12 +36,39 @@ class ViewController: NSViewController {
                                                 (notification) in
                                                 self.invoiceHistoryTableView.reloadData()
         }
+        NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_REMOVE_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.deleteInvoice()}
+        invoiceRepository = InvoiceRepositoryFactory.instance
     }
     
+   
+    func deleteInvoice() {
+        let alert = NSAlert()
+        alert.messageText = "Usunięcie faktury!"
+        alert.informativeText = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Usuń")
+        alert.addButton(withTitle: "Nie usuwaj")
+        let modalResponse = alert.runModal()
+        if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+            invoiceRepository!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
+            self.invoiceHistoryTableView.reloadData()
+        } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
+           return
+        }
+    }
+
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    @IBAction func onInvoiceHistoryTableViewClicked(_ sender: NSTableView) {
+        let invoice: Invoice? = sender.selectedRow != -1 ? invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: sender.selectedRow): nil
+        let invoiceDataDict:[String: Any] = [ViewControllerConstants.INVOICE_NOTIFICATION_KEY: invoice as Any]
+        NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_SELECTED_NOTIFICATION, object: nil, userInfo: invoiceDataDict)
     }
     
     @objc func onTableViewClicked(sender: AnyObject) {

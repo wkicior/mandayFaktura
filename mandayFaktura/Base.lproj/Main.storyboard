@@ -194,6 +194,11 @@
                                                 <segue destination="haF-wG-vwp" kind="show" id="ALL-qi-P1w"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Usuń" enabled="NO" keyEquivalent="d" id="3Ww-3p-vUu">
+                                            <connections>
+                                                <action selector="onRemoveInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="0SF-Hf-PBF"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Katalog usług i towarów" keyEquivalent="u" id="5jG-eT-cGH" userLabel="Katalog usług i towarów">
                                             <connections>
                                                 <segue destination="463-Th-NCJ" kind="show" id="7xi-xw-zjF"/>
@@ -278,7 +283,12 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="mandayFaktura" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="mandayFaktura" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menu" destination="bib-Uj-vzu" id="1kv-bH-Ghf"/>
+                        <outlet property="removeInvoiceMenuItem" destination="3Ww-3p-vUu" id="DNA-Bb-TiK"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1366,11 +1376,14 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <action selector="onInvoiceHistoryTableViewClicked:" target="XfG-lQ-9wD" id="2Ri-O6-k4d"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="bXg-74-aO4">
-                                    <rect key="frame" x="1" y="398" width="638" height="16"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="sbl-sb-KtD">
@@ -1533,7 +1546,7 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0VC-n4-z2H"/>
-        <segue reference="VWJ-bc-Zac"/>
-        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="7xi-xw-zjF"/>
+        <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>
