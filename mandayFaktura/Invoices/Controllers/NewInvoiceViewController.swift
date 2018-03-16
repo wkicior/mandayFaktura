@@ -19,6 +19,7 @@ class NewInvoiceViewController: NSViewController {
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
+    let invoiceNumbering: InvoiceNumbering = InvoiceNumbering()
 
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
@@ -50,6 +51,7 @@ class NewInvoiceViewController: NSViewController {
         checkPreviewButtonEnabled()
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
         self.saveItemButton.isEnabled = false
+        self.numberTextField.stringValue = self.invoiceNumbering.nextInvoiceNumber
     }
     
     var invoice: Invoice {

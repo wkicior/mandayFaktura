@@ -52,8 +52,6 @@ import Foundation
 }
 
 class KeyedArchiverInvoiceRepository: InvoiceRepository {
-   
-    
     private let key = "invoices" + AppDelegate.keyedArchiverProfile
     func getInvoices() -> [Invoice] {
         return invoicesCoding.map{ic in ic.invoice}
@@ -66,6 +64,10 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
     func delete(_ invoice: Invoice) {
         let index = invoicesCoding.index(where: {ic in ic.invoice.number == invoice.number})
         invoicesCoding.remove(at: index!)
+    }
+    
+    func getLastInvoice() -> Invoice? {
+        return invoicesCoding.last.map({ic in ic.invoice})
     }
     
     private var invoicesCoding: [InvoiceCoding] {

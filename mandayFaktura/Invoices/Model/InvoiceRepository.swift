@@ -27,6 +27,11 @@ protocol InvoiceRepository {
     Deletes the invoice
     */
     func delete(_ invoice: Invoice)
+    
+    /**
+     Returns last registered invoice
+    */
+    func getLastInvoice() -> Invoice?
 }
 
 /**
