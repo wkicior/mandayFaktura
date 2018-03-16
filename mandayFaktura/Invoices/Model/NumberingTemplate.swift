@@ -26,9 +26,14 @@ private extension Date {
 }
 
 class IncrementWithYearNumberingTemplate: NumberingTemplate {
-    let pattern = "\\b(\\d+)/[\\d\\w]+/\\d{4}\\b"
+    let pattern: String
+    let fixedPart: String
+    init(delimeter: String, fixedPart: String) {
+        self.fixedPart = fixedPart //fixedPart is not applied to the pattern so the customer may change it without breaking the pattern
+        pattern = "\\b(\\d+)\(delimeter)[\\d\\w]+\(delimeter)\\d{4}\\b"
+    }
     func getInvoiceNumber(incrementingNumber: Int) -> String {
-        return "\(incrementingNumber)/A/\(Date().year)"
+        return "\(incrementingNumber)/\(fixedPart)/\(Date().year)"
     }
     
     func getIncrementingNumber(invoiceNumber: String) -> Int? {
