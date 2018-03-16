@@ -10,7 +10,7 @@ import Foundation
 
 class InvoiceNumbering {
     let invoiceRepository = InvoiceRepositoryFactory.instance
-    var numberingTemplate: NumberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "A")
+    var numberingTemplate: NumberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "A", ordering: [.incrementingNumber, .fixedPart, .year])
     var nextInvoiceNumber: String {
         get {
             var incrementedNumber: Int?
