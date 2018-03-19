@@ -234,6 +234,17 @@
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ij3-Vp-Lb8" customClass="DragOrderingDestination" customModule="mandayFaktura" customModuleProvider="target">
                                 <rect key="frame" x="1" y="77" width="449" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCB-4g-0Ao" userLabel="TemplateNumber">
+                                        <rect key="frame" x="107" y="20" width="234" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="mIu-bc-byX">
+                                            <font key="font" metaFont="system" size="21"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
                             </customView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Xr-t7J" customClass="YearSourceView" customModule="mandayFaktura" customModuleProvider="target">
                                 <rect key="frame" x="240" y="155" width="111" height="61"/>
@@ -256,6 +267,7 @@
                         <outlet property="dragOrderingDestination" destination="ij3-Vp-Lb8" id="6w8-o4-uUO"/>
                         <outlet property="fixedPartTextField" destination="jIL-Bg-P1y" id="CQz-dy-X7j"/>
                         <outlet property="separatorTextField" destination="pOg-ER-QwB" id="JK7-ee-loI"/>
+                        <outlet property="templateNumberLabel" destination="RCB-4g-0Ao" id="dRO-SR-hyr"/>
                     </connections>
                 </viewController>
                 <customObject id="AfS-Px-UCV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

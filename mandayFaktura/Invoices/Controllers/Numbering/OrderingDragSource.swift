@@ -26,15 +26,15 @@ extension NSView {
 
 class OrderingDragSource: NSView {
     static let type = NSPasteboard.PasteboardType(rawValue: "com.github.wkicior.mandayFaktura")
-    var action: String {
+    var action: TemplateOrdering {
         get {
-            return ""
+            return .incrementingNumber
         }
     }
     
     override func mouseDown(with theEvent: NSEvent) {
         let pasteboardItem = NSPasteboardItem()
-        pasteboardItem.setString(self.action, forType: OrderingDragSource.type)
+        pasteboardItem.setString(self.action.rawValue, forType: OrderingDragSource.type)
         let draggingItem = NSDraggingItem(pasteboardWriter: pasteboardItem)
         draggingItem.setDraggingFrame(self.bounds, contents: self.snapshot())
         
@@ -58,25 +58,25 @@ extension OrderingDragSource : NSDraggingSource {
 }
 
 class IncrementNumberSourceView: OrderingDragSource {
-    override var action: String {
+    override var action: TemplateOrdering {
         get {
-            return "increment number"
+            return TemplateOrdering.incrementingNumber
         }
     }
 }
 
 class FixedPartSourceView: OrderingDragSource {
-    override var action: String {
+    override var action: TemplateOrdering {
         get {
-            return "fixed part"
+            return TemplateOrdering.fixedPart
         }
     }
 }
 
 class YearSourceView: OrderingDragSource {
-    override var action: String {
+    override var action: TemplateOrdering {
         get {
-            return "year"
+            return TemplateOrdering.year
         }
     }
 }

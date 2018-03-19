@@ -10,5 +10,20 @@ import Foundation
 
 
 enum TemplateOrdering: String {
-    case year = "\\d{4}", fixedPart = "[\\d\\w]+", incrementingNumber = "(\\d+)"
+    case year, fixedPart, incrementingNumber
+    
+    var regex: String {
+        get {
+            switch self {
+            case .year:
+                return "\\d{4}"
+            case .fixedPart:
+                return "[\\d\\w]+"
+            case .incrementingNumber:
+                return "(\\d+)"
+            }
+           
+        }
+    }
 }
+

@@ -13,7 +13,10 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     @IBOutlet weak var separatorTextField: NSTextField!
     @IBOutlet weak var fixedPartTextField: NSTextField!
     @IBOutlet weak var dragOrderingDestination: DragOrderingDestination!
+    @IBOutlet weak var templateNumberLabel: NSTextField!
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
+    
+    var ordering: [TemplateOrdering] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +37,10 @@ class InvoiceNumberingSettingsViewController: NSViewController {
 }
 
 extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
-    
-    func processAction(_ action: String, center: NSPoint) {
-        print(action)
+    func processAction(_ action: TemplateOrdering, center: NSPoint) {
+        self.ordering.append(action)
+        let numberingTemplate: NumberingTemplate = IncrementWithYearNumberingTemplate(delimeter: self.separatorTextField.stringValue, fixedPart: self.fixedPartTextField.stringValue, ordering: ordering)
+        templateNumberLabel.stringValue = numberingTemplate.getInvoiceNumber(incrementingNumber: 1)
     }
 }
 

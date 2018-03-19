@@ -36,7 +36,7 @@ class IncrementWithYearNumberingTemplate: NumberingTemplate {
         self.fixedPart = fixedPart //fixedPart is not applied to the pattern so the customer may change it without breaking the pattern
         self.ordering = ordering
         self.year = year
-        let regex = self.ordering.map({oi in oi.rawValue}).joined(separator: delimeter)
+        let regex = self.ordering.map({oi in oi.regex}).joined(separator: delimeter)
         pattern = "\\b\(regex)\\b"
     }
     
