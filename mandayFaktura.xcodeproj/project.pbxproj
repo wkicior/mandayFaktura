@@ -17,6 +17,11 @@
 		D3254EA820563BF300CC889C /* InvoiceNumberingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */; };
 		D3254EAA2059852200CC889C /* NumberingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA92059852200CC889C /* NumberingTemplate.swift */; };
 		D3254EAC205B0F4D00CC889C /* NumberingTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */; };
+		D3254EAE205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */; };
+		D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */; };
+		D3254EB2205C28B900CC889C /* InvoiceNumberingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */; };
+		D3254EB6205C298900CC889C /* TemplateOrdering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB5205C298900CC889C /* TemplateOrdering.swift */; };
+		D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */; };
 		D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */; };
 		D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */; };
 		D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */; };
@@ -96,6 +101,11 @@
 		D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingTests.swift; sourceTree = "<group>"; };
 		D3254EA92059852200CC889C /* NumberingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingTemplate.swift; sourceTree = "<group>"; };
 		D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingTemplateTests.swift; sourceTree = "<group>"; };
+		D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsViewController.swift; sourceTree = "<group>"; };
+		D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsRepository.swift; sourceTree = "<group>"; };
+		D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettings.swift; sourceTree = "<group>"; };
+		D3254EB5205C298900CC889C /* TemplateOrdering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateOrdering.swift; sourceTree = "<group>"; };
+		D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceNumberingSettingsRepository.swift; sourceTree = "<group>"; };
 		D330BFC82038CF4A003CCC5B /* InvoiceItemCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemCoding.swift; sourceTree = "<group>"; };
 		D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSavingController.swift; sourceTree = "<group>"; };
 		D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerAutoSave.swift; sourceTree = "<group>"; };
@@ -212,6 +222,27 @@
 				D3052F57204DE2490064DF10 /* WarningAlert.swift */,
 			);
 			path = Dialogs;
+			sourceTree = "<group>";
+		};
+		D3254EB3205C293800CC889C /* Numbering */ = {
+			isa = PBXGroup;
+			children = (
+				D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */,
+				D3254EA92059852200CC889C /* NumberingTemplate.swift */,
+				D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */,
+				D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */,
+				D3254EB5205C298900CC889C /* TemplateOrdering.swift */,
+			);
+			path = Numbering;
+			sourceTree = "<group>";
+		};
+		D3254EB4205C295800CC889C /* Numbering */ = {
+			isa = PBXGroup;
+			children = (
+				D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */,
+				D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */,
+			);
+			path = Numbering;
 			sourceTree = "<group>";
 		};
 		D330BFCE203CB83B003CCC5B /* Counterparties */ = {
@@ -350,11 +381,10 @@
 		D34D0F13201DD9E6000D1EC6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3254EB3205C293800CC889C /* Numbering */,
 				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
 				D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */,
 				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
-				D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */,
-				D3254EA92059852200CC889C /* NumberingTemplate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */,
+				D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -370,6 +401,7 @@
 		D34D0F15201DDA0D000D1EC6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */,
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
@@ -425,9 +457,8 @@
 		D370A7F12023AB1000FFB262 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3254EB4205C295800CC889C /* Numbering */,
 				D370A7F4202614C100FFB262 /* InvoiceTests.swift */,
-				D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */,
-				D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -689,6 +720,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
+				D3254EB6205C298900CC889C /* TemplateOrdering.swift in Sources */,
+				D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */,
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
 				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
@@ -712,6 +745,7 @@
 				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
 				D3254EAA2059852200CC889C /* NumberingTemplate.swift in Sources */,
 				D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */,
+				D3254EB2205C28B900CC889C /* InvoiceNumberingSettings.swift in Sources */,
 				D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */,
 				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
 				D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */,
@@ -724,6 +758,7 @@
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
+				D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
@@ -731,6 +766,7 @@
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
+				D3254EAE205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift in Sources */,
 				D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */,
 				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
 				D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */,

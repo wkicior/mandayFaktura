@@ -25,23 +25,23 @@ private extension Date {
     }
 }
 
-enum TemplateOrdering: String {
-    case year = "\\d{4}", fixedPart = "[\\d\\w]+", incrementingNumber = "(\\d+)"
-}
-
 class IncrementWithYearNumberingTemplate: NumberingTemplate {
     let pattern: String
     let fixedPart: String
     let ordering: [TemplateOrdering]
     let separator: String
-    init(delimeter: String, fixedPart: String, ordering: [TemplateOrdering]) {
+    var year: Int
+    init(delimeter: String, fixedPart: String, ordering: [TemplateOrdering], year: Int = Date().year) {
         self.separator = delimeter
         self.fixedPart = fixedPart //fixedPart is not applied to the pattern so the customer may change it without breaking the pattern
         self.ordering = ordering
-        pattern = "\\b\(ordering[0].rawValue)\(delimeter)\(ordering[1].rawValue)\(delimeter)\(ordering[2].rawValue)\\b"
+        self.year = year
+        let regex = self.ordering.map({oi in oi.rawValue}).joined(separator: delimeter)
+        pattern = "\\b\(regex)\\b"
     }
+    
     func getInvoiceNumber(incrementingNumber: Int) -> String {
-        let orderingValues: [TemplateOrdering: String] = [.year: "\(Date().year)", .incrementingNumber: String(incrementingNumber), .fixedPart: fixedPart]
+        let orderingValues: [TemplateOrdering: String] = [.year: "\(self.year)", .incrementingNumber: String(incrementingNumber), .fixedPart: fixedPart]
         return self.ordering.map({oi in orderingValues[oi]!}).joined(separator: self.separator)
     }
     
