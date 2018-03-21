@@ -16,7 +16,7 @@
 		D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */; };
 		D3254EA820563BF300CC889C /* InvoiceNumberingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */; };
 		D3254EAA2059852200CC889C /* NumberingSegmentCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */; };
-		D3254EAC205B0F4D00CC889C /* NumberingTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */; };
+		D3254EAC205B0F4D00CC889C /* NumberingSegmentCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAB205B0F4D00CC889C /* NumberingSegmentCoderTests.swift */; };
 		D3254EAE205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */; };
 		D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */; };
 		D3254EB2205C28B900CC889C /* InvoiceNumberingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */; };
@@ -102,7 +102,7 @@
 		D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumbering.swift; sourceTree = "<group>"; };
 		D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingTests.swift; sourceTree = "<group>"; };
 		D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingSegmentCoder.swift; sourceTree = "<group>"; };
-		D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingTemplateTests.swift; sourceTree = "<group>"; };
+		D3254EAB205B0F4D00CC889C /* NumberingSegmentCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingSegmentCoderTests.swift; sourceTree = "<group>"; };
 		D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsViewController.swift; sourceTree = "<group>"; };
 		D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsRepository.swift; sourceTree = "<group>"; };
 		D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettings.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		D3254EB4205C295800CC889C /* Numbering */ = {
 			isa = PBXGroup;
 			children = (
-				D3254EAB205B0F4D00CC889C /* NumberingTemplateTests.swift */,
+				D3254EAB205B0F4D00CC889C /* NumberingSegmentCoderTests.swift */,
 				D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */,
 			);
 			path = Numbering;
@@ -802,7 +802,7 @@
 				D3254EA820563BF300CC889C /* InvoiceNumberingTests.swift in Sources */,
 				D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */,
 				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
-				D3254EAC205B0F4D00CC889C /* NumberingTemplateTests.swift in Sources */,
+				D3254EAC205B0F4D00CC889C /* NumberingSegmentCoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
