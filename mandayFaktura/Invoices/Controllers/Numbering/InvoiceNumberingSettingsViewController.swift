@@ -16,19 +16,19 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     @IBOutlet weak var templateNumberLabel: NSTextField!
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
     
-    var ordering: [NumberingSegmentType] = []
+    var segments: [NumberingSegment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let numberingSettings = invoiceNumberingSettingsRepository.getInvoiceNumberingSettings()
         self.separatorTextField.stringValue = (numberingSettings?.separator) ?? ""
-        //self.fixedPartTextField.stringValue = (numberingSettings?.fixedPart) ?? ""
         dragOrderingDestination.delegate = self
     }
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
-        //let settings = InvoiceNumberingSettings(separator: separatorTextField.stringValue, fixedPart: fixedPartTextField.stringValue, templateOrderings: (invoiceNumberingSettingsRepository.getInvoiceNumberingSettings()?.templateOrderings)!)
-        //invoiceNumberingSettingsRepository.save(invoiceNumberingSettings: settings)
+        // TODO strip segments from sample values
+        let settings = InvoiceNumberingSettings(separator: separatorTextField.stringValue, segments: segments)
+        invoiceNumberingSettingsRepository.save(invoiceNumberingSettings: settings)
         view.window?.close()
     }
     @IBAction func onCancelButtonClicked(_ sender: NSButton) {
@@ -38,9 +38,23 @@ class InvoiceNumberingSettingsViewController: NSViewController {
 
 extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
     func processAction(_ action: NumberingSegmentType, center: NSPoint) {
-        self.ordering.append(action)
-        //let numberingTemplate: NumberingTemplate = IncrementWithYearNumberingTemplate(delimeter: self.separatorTextField.stringValue, fixedPart: self.fixedPartTextField.stringValue, ordering: ordering)
-        //templateNumberLabel.stringValue = numberingTemplate.getInvoiceNumber(incrementingNumber: 1)
+        let value = defaultValue(type: action)
+        let segment = NumberingSegment(type: action, value: value)
+        self.segments.append(segment)
+        let numberingTemplate: NumberingCoder = NumberingSegmentCoder(delimeter: self.separatorTextField.stringValue, segmentTypes: [])
+        
+        templateNumberLabel.stringValue = numberingTemplate.encodeNumber(segments: segments)
+    }
+    
+    func defaultValue(type: NumberingSegmentType) -> String {
+        switch (type) {
+        case .fixedPart:
+            return self.fixedPartTextField.stringValue
+        case .year:
+            return "2018"
+        case .incrementingNumber:
+            return "1"
+        }
     }
 }
 
