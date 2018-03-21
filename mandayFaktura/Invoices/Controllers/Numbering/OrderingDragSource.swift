@@ -26,7 +26,7 @@ extension NSView {
 
 class OrderingDragSource: NSView {
     static let type = NSPasteboard.PasteboardType(rawValue: "com.github.wkicior.mandayFaktura")
-    var action: TemplateOrdering {
+    var action: NumberingSegmentType {
         get {
             return .incrementingNumber
         }
@@ -58,25 +58,25 @@ extension OrderingDragSource : NSDraggingSource {
 }
 
 class IncrementNumberSourceView: OrderingDragSource {
-    override var action: TemplateOrdering {
+    override var action: NumberingSegmentType {
         get {
-            return TemplateOrdering.incrementingNumber
+            return NumberingSegmentType.incrementingNumber
         }
     }
 }
 
 class FixedPartSourceView: OrderingDragSource {
-    override var action: TemplateOrdering {
+    override var action: NumberingSegmentType {
         get {
-            return TemplateOrdering.fixedPart
+            return NumberingSegmentType.fixedPart
         }
     }
 }
 
 class YearSourceView: OrderingDragSource {
-    override var action: TemplateOrdering {
+    override var action: NumberingSegmentType {
         get {
-            return TemplateOrdering.year
+            return NumberingSegmentType.year
         }
     }
 }

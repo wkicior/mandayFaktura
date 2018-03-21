@@ -10,7 +10,6 @@ import Foundation
 
 struct InvoiceNumberingSettings {
     let separator: String
-    let fixedPart: String
-    let templateOrderings: [TemplateOrdering]
+    let segments: [NumberingSegment]
 }
 

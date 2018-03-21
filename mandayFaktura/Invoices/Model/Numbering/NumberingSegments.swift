@@ -1,5 +1,5 @@
 //
-//  TemplateOrdering.swift
+//  NumberingSegment.swift
 //  mandayFaktura
 //
 //  Created by Wojciech Kicior on 16.03.2018.
@@ -9,16 +9,16 @@
 import Foundation
 
 
-enum TemplateOrdering: String {
+enum NumberingSegmentType: String {
     case year, fixedPart, incrementingNumber
     
     var regex: String {
         get {
             switch self {
             case .year:
-                return "\\d{4}"
+                return "(\\d{4})"
             case .fixedPart:
-                return "[\\d\\w]+"
+                return "([\\d\\w]+)"
             case .incrementingNumber:
                 return "(\\d+)"
             }
@@ -26,4 +26,15 @@ enum TemplateOrdering: String {
         }
     }
 }
+
+struct NumberingSegment {
+    let type: NumberingSegmentType
+    let value: String?
+    
+    init(type: NumberingSegmentType, value: String? = nil) {
+        self.type = type
+        self.value = value
+    }
+}
+
 

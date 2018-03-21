@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 protocol DestinationViewDelegate {
-    func processAction(_ action: TemplateOrdering, center: NSPoint)
+    func processAction(_ action: NumberingSegmentType, center: NSPoint)
 }
 
 class DragOrderingDestination: NSView {
@@ -83,7 +83,7 @@ class DragOrderingDestination: NSView {
         let point = convert(draggingInfo.draggingLocation(), from: nil)
         if let types = pasteBoard.types, types.contains(OrderingDragSource.type),
             let action = pasteBoard.string(forType: OrderingDragSource.type) {
-            delegate?.processAction(TemplateOrdering(rawValue: action)!, center:point)
+            delegate?.processAction(NumberingSegmentType(rawValue: action)!, center:point)
             return true
         }
         return false

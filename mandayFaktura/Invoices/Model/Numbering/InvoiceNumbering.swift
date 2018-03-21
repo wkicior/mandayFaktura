@@ -8,16 +8,44 @@
 
 import Foundation
 
+private extension Date {
+    var year: Int {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            let year = dateFormatter.string(from: Date())
+            return Int(year)!
+        }
+    }
+}
+
 class InvoiceNumbering {
     let invoiceRepository = InvoiceRepositoryFactory.instance
-    var numberingTemplate: NumberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "A", ordering: [.incrementingNumber, .fixedPart, .year])
+    var numberingTemplateFactory = NumberingTemplateFactory()
+    var settings = InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .fixedPart, value: "A"), NumberingSegment(type: .year)])
+
     var nextInvoiceNumber: String {
         get {
-            var incrementedNumber: Int?
+            let numberingTemplate: NumberingCoder = numberingTemplateFactory.getInstance(settings: settings)
+            let segments = settings.segments.map({s in buildSegment(from: s)})
+            return numberingTemplate.encodeNumber(segments: segments)
+        }
+    }
+    
+    private func buildSegment(from: NumberingSegment) -> NumberingSegment {
+        switch from.type {
+        case .fixedPart:
+            return NumberingSegment(type: from.type, value: from.value)
+        case .year:
+            return NumberingSegment(type: from.type, value: String(Date().year))
+        case .incrementingNumber:
+            let numberingTemplate: NumberingCoder = numberingTemplateFactory.getInstance(settings: settings)
+            var numberingSegments = [NumberingSegment(type: from.type, value: "0")]
             if let previousNumber = invoiceRepository.getLastInvoice()?.number {
-                incrementedNumber = (numberingTemplate.getIncrementingNumber(invoiceNumber: previousNumber) ?? 0) + 1
+                numberingSegments = numberingTemplate.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
             }
-            return numberingTemplate.getInvoiceNumber(incrementingNumber: incrementedNumber ?? 1)
+            let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.value!)!
+            return NumberingSegment(type: from.type, value: String(oldIncrementingNumber + 1))
         }
     }
 }

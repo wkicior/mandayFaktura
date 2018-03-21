@@ -33,13 +33,19 @@ class MockInvoiceRepository: InvoiceRepository {
     }
 }
 
-class MockNumberingTemplate: NumberingTemplate {
-    func getInvoiceNumber(incrementingNumber: Int) -> String {
-        return "A-\(incrementingNumber.description)"
+class MockNumberingCoder: NumberingCoder {
+    func decodeNumber(invoiceNumber: String) -> [NumberingSegment]? {
+        return [NumberingSegment(type: .fixedPart, value: "A"), NumberingSegment(type: .incrementingNumber, value: "1")]
     }
     
-    func getIncrementingNumber(invoiceNumber: String) -> Int? {
-        return Int(invoiceNumber.split(separator: "-")[1])
+    func encodeNumber(segments: [NumberingSegment]) -> String {
+        return segments.map({s in s.value!}).joined(separator: "-")
+    }
+}
+
+class MockNumberingTemplateFactory: NumberingTemplateFactory {
+    override func getInstance(settings: InvoiceNumberingSettings) -> NumberingCoder {
+        return MockNumberingCoder()
     }
 }
 
@@ -49,19 +55,38 @@ class InvoiceNumberingTests: XCTestCase {
         let mockInvoiceRepository = MockInvoiceRepository(invoices: [])
         InvoiceRepositoryFactory.register(repository: mockInvoiceRepository)
         let invoiceNumbering = InvoiceNumbering()
-        invoiceNumbering.numberingTemplate = MockNumberingTemplate()
+        invoiceNumbering.numberingTemplateFactory = MockNumberingTemplateFactory()
+        invoiceNumbering.settings = settings
+        XCTAssertEqual("A-1", invoiceNumbering.nextInvoiceNumber, "invoice numbers must match")
+    }
+    
+    func testGetNextInvoiceNumber_generates_fresh_invoice_number_if_failed_to_parse_previous_number() {
+        let mockInvoiceRepository = MockInvoiceRepository(invoices: [])
+        InvoiceRepositoryFactory.register(repository: mockInvoiceRepository)
+        let invoiceNumbering = InvoiceNumbering()
+        invoiceNumbering.numberingTemplateFactory = MockNumberingTemplateFactory()
+        invoiceNumbering.settings = settings
         XCTAssertEqual("A-1", invoiceNumbering.nextInvoiceNumber, "invoice numbers must match")
     }
     
     func testGetNextInvoiceNumber_increments_invoice_number_on_previous_invoice_found() {
-        let mockInvoiceRepository = MockInvoiceRepository(invoices: [aTestInvoice().withNumber("A-1").build()])
+        let mockInvoiceRepository = MockInvoiceRepository(invoices: [aTestInvoice.withNumber("A-1").build()])
         InvoiceRepositoryFactory.register(repository: mockInvoiceRepository)
         let invoiceNumbering = InvoiceNumbering()
-        invoiceNumbering.numberingTemplate = MockNumberingTemplate()
+        invoiceNumbering.numberingTemplateFactory = MockNumberingTemplateFactory()
+        invoiceNumbering.settings = settings
         XCTAssertEqual("A-2", invoiceNumbering.nextInvoiceNumber, "invoice number should be incremented")
     }
     
-    func aTestInvoice() -> InvoiceBuilder {
-        return anInvoice().withBuyer(aCounterparty().build()).withSeller(aCounterparty().build())
+    var settings: InvoiceNumberingSettings {
+        get {
+            return InvoiceNumberingSettings(separator: "-", segments:[NumberingSegment(type: .fixedPart, value: "A"), NumberingSegment(type: .incrementingNumber)])
+        }
+    }
+    
+    var aTestInvoice: InvoiceBuilder {
+        get {
+            return anInvoice().withBuyer(aCounterparty().build()).withSeller(aCounterparty().build())
+        }
     }
 }

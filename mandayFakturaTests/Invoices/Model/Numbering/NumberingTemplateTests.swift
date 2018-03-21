@@ -10,54 +10,65 @@ import Foundation
 import XCTest
 @testable import mandayFaktura
 
-class IncrementWithYearNumberingTemplateTests: XCTestCase {
+class NumberingSegmentCoderTests: XCTestCase {
     
-    func testGetNextInvoiceNumber_fetches_incrementing_number_from_invoice_number() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "B", ordering: [.incrementingNumber, .fixedPart, .year], year: 2018)
-        let incrementingNumber = numberingTemplate.getIncrementingNumber(invoiceNumber: "1/B/2018")
-        XCTAssertEqual(1, incrementingNumber!, "invoice numbers must match")
-    }
-    
-    func testGetNextInvoiceNumber_fetches_incrementing_number_from_invoice_number_different_ordering() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "B", ordering: [.year, .incrementingNumber, .fixedPart], year: 2019)
-        let incrementingNumber = numberingTemplate.getIncrementingNumber(invoiceNumber: "2019/9/B")
-        XCTAssertEqual(9, incrementingNumber!, "invoice numbers must match")
-    }
-    
-    func testGetNextInvoiceNumber_fetches_incrementing_number_from_invoice_number_redudant_ordering() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "B", ordering: [.year, .year, .fixedPart, .incrementingNumber], year: 2018)
-        let incrementingNumber = numberingTemplate.getIncrementingNumber(invoiceNumber: "2018/2018/B/9")
-        XCTAssertEqual(9, incrementingNumber!, "invoice numbers must match")
-    }
-    
-    func testGetNextInvoiceNumber_fetches_incrementing_number_from_invoice_number_few_digits() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "-", fixedPart: "A", ordering: [.incrementingNumber, .fixedPart, .year], year: 2018)
-        let incrementingNumber = numberingTemplate.getIncrementingNumber(invoiceNumber: "123403-A-2018")
-        XCTAssertEqual(123403, incrementingNumber!, "invoice numbers must match")
-    }
-    
-    func testGetNextInvoiceNumber_returns_nil_incrementing_number_on_not_matched_template() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "A", ordering: [.incrementingNumber, .fixedPart, .year], year:  2018)
-        let incrementingNumber = numberingTemplate.getIncrementingNumber(invoiceNumber: "foobar/A/2018")
-        XCTAssertNil(incrementingNumber, "invoice number should be nil")
-    }
-    
-    func testGetInvoiceNumber() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "A", ordering: [.incrementingNumber, .fixedPart, .year], year: 2018)
-        let invoiceNumber = numberingTemplate.getInvoiceNumber(incrementingNumber: 13)
-        XCTAssertEqual("13/A/2018", invoiceNumber, "invoice numbers must match")
+    func testDecodeNumber_decodes_incrementingNumber_fixedPart_year() {
+        let numberingTemplate = NumberingSegmentCoder(delimeter: "/", segmentTypes: [.incrementingNumber, .fixedPart, .year])
+        let segments = numberingTemplate.decodeNumber(invoiceNumber: "1234/B14/2018")
+        XCTAssertEqual("1234", segments![0].value, "invoice numbers must match")
+        XCTAssertEqual(.incrementingNumber, segments![0].type, "invoice numbers must match")
+        
+        XCTAssertEqual("B14", segments![1].value, "invoice fixed parts must match")
+        XCTAssertEqual(.fixedPart, segments![1].type, "invoice fixed parts must match")
+        
+        XCTAssertEqual("2018", segments![2].value, "invoice year must match")
+        XCTAssertEqual(.year, segments![2].type, "invoice fixed parts must match")
 
     }
     
-    func testGetInvoiceNumber_different_ordering() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "B", ordering: [.year, .incrementingNumber, .fixedPart], year: 2018)
-        let invoiceNumber = numberingTemplate.getInvoiceNumber(incrementingNumber: 13)
-        XCTAssertEqual("2018/13/B", invoiceNumber, "invoice numbers must match")
+    func testDecodeNumber_decodes_fixedPart_year_incrementingNumber() {
+        let numberingTemplate = NumberingSegmentCoder(delimeter: "/", segmentTypes: [.fixedPart, .year, .incrementingNumber])
+        let segments = numberingTemplate.decodeNumber(invoiceNumber: "B/2018/2")
+        
+        XCTAssertEqual("B", segments![0].value, "invoice fixed parts must match")
+        XCTAssertEqual(.fixedPart, segments![0].type, "invoice fixed parts must match")
+        
+        XCTAssertEqual("2018", segments![1].value, "invoice year must match")
+        XCTAssertEqual(.year, segments![1].type, "invoice fixed parts must match")
+        
+        XCTAssertEqual("2", segments![2].value, "invoice numbers must match")
+        XCTAssertEqual(.incrementingNumber, segments![2].type, "invoice numbers must match")
+        
     }
     
-    func testGetInvoiceNumber_redudant_ordering() {
-        let numberingTemplate = IncrementWithYearNumberingTemplate(delimeter: "/", fixedPart: "B", ordering: [.fixedPart, .year, .incrementingNumber, .fixedPart], year: 2018)
-        let invoiceNumber = numberingTemplate.getInvoiceNumber(incrementingNumber: 13)
-        XCTAssertEqual("B/2018/13/B", invoiceNumber, "invoice numbers must match")
+    func testDecodeNumber_decodes_fixedPart_incrementingNumber_fixedPart() {
+        let numberingTemplate = NumberingSegmentCoder(delimeter: "/", segmentTypes: [.fixedPart, .incrementingNumber, .fixedPart])
+        let segments = numberingTemplate.decodeNumber(invoiceNumber: "BAR/2/FOO")
+        
+        XCTAssertEqual("BAR", segments![0].value, "invoice fixed parts must match")
+        XCTAssertEqual(.fixedPart, segments![0].type, "invoice fixed parts must match")
+        
+        XCTAssertEqual("2", segments![1].value, "invoice numbers must match")
+        XCTAssertEqual(.incrementingNumber, segments![1].type, "invoice numbers must match")
+        
+        XCTAssertEqual("FOO", segments![2].value, "invoice fixed parts must match")
+        XCTAssertEqual(.fixedPart, segments![2].type, "invoice fixed parts must match")
+        
     }
+    
+    func testDecodeNumber_returns_nil_on_not_matched() {
+        let numberingTemplate = NumberingSegmentCoder(delimeter: "/", segmentTypes: [.fixedPart, .incrementingNumber, .fixedPart])
+        let segments = numberingTemplate.decodeNumber(invoiceNumber: "FOOBAR")
+        XCTAssertNil(segments, "segments should be nil")
+    }
+    
+    
+    func testEncodeNumber() {
+        let numberingTemplate = NumberingSegmentCoder(delimeter: "/", segmentTypes: [.incrementingNumber, .fixedPart, .year])
+        let segments = [NumberingSegment(type: .incrementingNumber, value: "13"), NumberingSegment(type: .year, value: "2018")]
+        let invoiceNumber = numberingTemplate.encodeNumber(segments: segments)
+        XCTAssertEqual("13/2018", invoiceNumber, "invoice numbers must match")
+        
+    }
+    
 }
