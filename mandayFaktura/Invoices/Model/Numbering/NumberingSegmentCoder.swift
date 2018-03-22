@@ -9,9 +9,9 @@
 import Foundation
 
 protocol NumberingCoder {
-    func decodeNumber(invoiceNumber: String) -> [NumberingSegment]?
+    func decodeNumber(invoiceNumber: String) -> [NumberingSegmentValue]?
     
-    func encodeNumber(segments: [NumberingSegment]) -> String
+    func encodeNumber(segments: [NumberingSegmentValue]) -> String
 }
 
 class NumberingTemplateFactory {
@@ -31,15 +31,15 @@ class NumberingSegmentCoder: NumberingCoder {
         pattern = "\\b\(regex)\\b"
     }
     
-    func encodeNumber(segments: [NumberingSegment]) -> String {
-        return segments.map({oi in oi.fixedValue!}).joined(separator: self.separator)
+    func encodeNumber(segments: [NumberingSegmentValue]) -> String {
+        return segments.map({oi in oi.value}).joined(separator: self.separator)
     }
     
-    func decodeNumber(invoiceNumber: String) -> [NumberingSegment]? {
-        var result: [NumberingSegment] = []
+    func decodeNumber(invoiceNumber: String) -> [NumberingSegmentValue]? {
+        var result: [NumberingSegmentValue] = []
         for i in 0 ..< self.segmentTypes.count {
             if let value = regex(from: invoiceNumber, at: i + 1) {
-                result.append(NumberingSegment(type: segmentTypes[i], value: value))
+                result.append(NumberingSegmentValue(type: segmentTypes[i], value: value))
             } else {
                 return nil
             }

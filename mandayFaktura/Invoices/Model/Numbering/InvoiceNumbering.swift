@@ -8,7 +8,7 @@
 
 import Foundation
 
-private extension Date {
+extension Date {
     var year: Int {
         get {
             let dateFormatter = DateFormatter()
@@ -27,25 +27,25 @@ class InvoiceNumbering {
     var nextInvoiceNumber: String {
         get {
             let numberingTemplate: NumberingCoder = numberingTemplateFactory.getInstance(settings: settings)
-            let segments = settings.segments.map({s in buildSegment(from: s)})
+            let segments = settings.segments.map({s in buildSegmentValue(from: s)})
             return numberingTemplate.encodeNumber(segments: segments)
         }
     }
     
-    private func buildSegment(from: NumberingSegment) -> NumberingSegment {
+    private func buildSegmentValue(from: NumberingSegment) -> NumberingSegmentValue {
         switch from.type {
         case .fixedPart:
-            return NumberingSegment(type: from.type, value: from.fixedValue)
+            return NumberingSegmentValue(type: from.type, value: from.fixedValue ?? "")
         case .year:
-            return NumberingSegment(type: from.type, value: String(Date().year))
+            return NumberingSegmentValue(type: from.type, value: String(Date().year))
         case .incrementingNumber:
             let numberingTemplate: NumberingCoder = numberingTemplateFactory.getInstance(settings: settings)
-            var numberingSegments = [NumberingSegment(type: from.type, value: "0")]
+            var numberingSegments = [NumberingSegmentValue(type: from.type, value: "0")]
             if let previousNumber = invoiceRepository.getLastInvoice()?.number {
                 numberingSegments = numberingTemplate.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
             }
-            let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.fixedValue!)!
-            return NumberingSegment(type: from.type, value: String(oldIncrementingNumber + 1))
+            let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.value)!
+            return NumberingSegmentValue(type: from.type, value: String(oldIncrementingNumber + 1))
         }
     }
 }

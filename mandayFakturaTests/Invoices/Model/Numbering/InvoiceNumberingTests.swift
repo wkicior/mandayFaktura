@@ -34,12 +34,12 @@ class MockInvoiceRepository: InvoiceRepository {
 }
 
 class MockNumberingCoder: NumberingCoder {
-    func decodeNumber(invoiceNumber: String) -> [NumberingSegment]? {
-        return [NumberingSegment(type: .fixedPart, value: "A"), NumberingSegment(type: .incrementingNumber, value: "1")]
+    func decodeNumber(invoiceNumber: String) -> [NumberingSegmentValue]? {
+        return [NumberingSegmentValue(type: .fixedPart, value: "A"), NumberingSegmentValue(type: .incrementingNumber, value: "1")]
     }
     
-    func encodeNumber(segments: [NumberingSegment]) -> String {
-        return segments.map({s in s.fixedValue!}).joined(separator: "-")
+    func encodeNumber(segments: [NumberingSegmentValue]) -> String {
+        return segments.map({s in s.value}).joined(separator: "-")
     }
 }
 

@@ -14,6 +14,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     @IBOutlet weak var fixedPartTextField: NSTextField!
     @IBOutlet weak var dragOrderingDestination: DragOrderingDestination!
     @IBOutlet weak var templateNumberLabel: NSTextField!
+    
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
     
     var segments: [NumberingSegment] = []
@@ -35,6 +36,11 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     @IBAction func onCancelButtonClicked(_ sender: NSButton) {
         view.window?.close()
     }
+    
+    @IBAction func onClearSegmentsButtonClicked(_ sender: NSButton) {
+        self.segments = []
+        showSampleInvoiceNumber()
+    }
 }
 
 extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
@@ -50,9 +56,10 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
         templateNumberLabel.stringValue = numberingTemplate.encodeNumber(segments: segmentsToDisplay)
     }
     
-    var segmentsToDisplay: [NumberingSegment] {
+    var segmentsToDisplay: [NumberingSegmentValue] {
         get {
-            return segments.map({s in s.type == .fixedPart ? s : NumberingSegment(type: s.type, value: defaultValue(type: s.type))})
+            return segments.map({s in s.type == .fixedPart ? NumberingSegmentValue(type: s.type, value: s.fixedValue!) :
+                NumberingSegmentValue(type: s.type, value: defaultValue(type: s.type))})
         }
     }
     
@@ -61,7 +68,7 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
         case .fixedPart:
             return self.fixedPartTextField.stringValue
         case .year:
-            return "2018"
+            return String(Date().year)
         case .incrementingNumber:
             return "1"
         }
