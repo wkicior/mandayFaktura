@@ -35,7 +35,7 @@ class InvoiceNumbering {
     private func buildSegment(from: NumberingSegment) -> NumberingSegment {
         switch from.type {
         case .fixedPart:
-            return NumberingSegment(type: from.type, value: from.value)
+            return NumberingSegment(type: from.type, value: from.fixedValue)
         case .year:
             return NumberingSegment(type: from.type, value: String(Date().year))
         case .incrementingNumber:
@@ -44,7 +44,7 @@ class InvoiceNumbering {
             if let previousNumber = invoiceRepository.getLastInvoice()?.number {
                 numberingSegments = numberingTemplate.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
             }
-            let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.value!)!
+            let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.fixedValue!)!
             return NumberingSegment(type: from.type, value: String(oldIncrementingNumber + 1))
         }
     }

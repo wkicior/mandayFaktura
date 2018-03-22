@@ -39,7 +39,7 @@ class MockNumberingCoder: NumberingCoder {
     }
     
     func encodeNumber(segments: [NumberingSegment]) -> String {
-        return segments.map({s in s.value!}).joined(separator: "-")
+        return segments.map({s in s.fixedValue!}).joined(separator: "-")
     }
 }
 

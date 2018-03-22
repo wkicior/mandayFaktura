@@ -32,7 +32,7 @@ class NumberingSegmentCoder: NumberingCoder {
     }
     
     func encodeNumber(segments: [NumberingSegment]) -> String {
-        return segments.map({oi in oi.value!}).joined(separator: self.separator)
+        return segments.map({oi in oi.fixedValue!}).joined(separator: self.separator)
     }
     
     func decodeNumber(invoiceNumber: String) -> [NumberingSegment]? {

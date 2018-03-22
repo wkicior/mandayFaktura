@@ -9,7 +9,7 @@
 import Foundation
 
 class InMemoryInvoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository {
-    var invoiceNumberingSettings = InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber, value: nil), NumberingSegment(type: .fixedPart, value: nil), NumberingSegment(type: .year, value: nil)])
+    var invoiceNumberingSettings = InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber, value: nil), NumberingSegment(type: .fixedPart, value: "A"), NumberingSegment(type: .year, value: nil)])
     func getInvoiceNumberingSettings() -> InvoiceNumberingSettings? {
         return self.invoiceNumberingSettings
     }

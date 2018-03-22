@@ -29,11 +29,11 @@ enum NumberingSegmentType: String {
 
 struct NumberingSegment {
     let type: NumberingSegmentType
-    let value: String?
+    let fixedValue: String?
     
     init(type: NumberingSegmentType, value: String? = nil) {
         self.type = type
-        self.value = value
+        self.fixedValue = value
     }
 }
 

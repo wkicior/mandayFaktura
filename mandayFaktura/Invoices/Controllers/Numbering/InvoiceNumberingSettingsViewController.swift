@@ -23,10 +23,11 @@ class InvoiceNumberingSettingsViewController: NSViewController {
         let numberingSettings = invoiceNumberingSettingsRepository.getInvoiceNumberingSettings()
         self.separatorTextField.stringValue = (numberingSettings?.separator) ?? ""
         dragOrderingDestination.delegate = self
+        self.segments = numberingSettings?.segments ?? []
+        showSampleInvoiceNumber()
     }
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
-        // TODO strip segments from sample values
         let settings = InvoiceNumberingSettings(separator: separatorTextField.stringValue, segments: segments)
         invoiceNumberingSettingsRepository.save(invoiceNumberingSettings: settings)
         view.window?.close()
@@ -39,11 +40,20 @@ class InvoiceNumberingSettingsViewController: NSViewController {
 extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
     func processAction(_ action: NumberingSegmentType, center: NSPoint) {
         let value = defaultValue(type: action)
-        let segment = NumberingSegment(type: action, value: value)
-        self.segments.append(segment)
+        self.segments.append(NumberingSegment(type: action, value: action == .fixedPart ? value : nil))
+        showSampleInvoiceNumber()
+    }
+    
+    func showSampleInvoiceNumber() {
         let numberingTemplate: NumberingCoder = NumberingSegmentCoder(delimeter: self.separatorTextField.stringValue, segmentTypes: [])
         
-        templateNumberLabel.stringValue = numberingTemplate.encodeNumber(segments: segments)
+        templateNumberLabel.stringValue = numberingTemplate.encodeNumber(segments: segmentsToDisplay)
+    }
+    
+    var segmentsToDisplay: [NumberingSegment] {
+        get {
+            return segments.map({s in s.type == .fixedPart ? s : NumberingSegment(type: s.type, value: defaultValue(type: s.type))})
+        }
     }
     
     func defaultValue(type: NumberingSegmentType) -> String {
