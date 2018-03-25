@@ -12,14 +12,16 @@ The development is still ongoing, therefore the application provides some basic 
 - management of invoice items
 - saving the counterparties
 - deleting saved invoices
+- invoice numbering management and automatic generation
 
 
-Aplikacja jest nadal w fazie implemementacji, aktualnie następujące funkcjonalności są dostępne:
+Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalności są dostępne:
 - tworzenie fakturowania
 - eksport faktur do pliku PDF
 - zarządzanie towarami i usługami
 - zapisywanie kontrahentów
 - usuwanie faktur
+- zarządzanie automatyczną numeracją faktur
 
 ## Next features / Planowana implementacja
 The features I'm working on and should be delivered any day now include:
@@ -27,7 +29,6 @@ The features I'm working on and should be delivered any day now include:
 - improving UI and windows presentation
 - improving UX
 - management of counterparties
-- invoice numbering management and automatic generation
 - fixing the menu
 - name of the issuer
 - more VAT options
@@ -37,7 +38,6 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - ulepszenie interfejsu i wyglądu okien
 - user experience
 - zarządzanie kontrahentami
-- zarządzanie automatyczną numeracją faktur
 - poprawa menu
 - nazwa wystawiającego
 - więcej pozycji VAT
