@@ -50,9 +50,16 @@ class InvoiceNumberingSettingsViewController: NSViewController {
 
 extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
     func processAction(_ action: NumberingSegmentType, center: NSPoint) {
-        let value = defaultValue(type: action)
-        self.segments.append(NumberingSegment(type: action, value: action == .fixedPart ? value : nil))
-        showSampleInvoiceNumber()
+        do {
+            let value = try defaultValue(type: action)
+            self.segments.append(NumberingSegment(type: action, value: action == .fixedPart ? value : nil))
+            showSampleInvoiceNumber()
+        } catch InputValidationError.invalidNumber(let fieldName) {
+            WarningAlert(warning: "\(fieldName) - błędny format ciągu znaków", text: "Zawartość pola musi być cyfrą lub literą.").runModal()
+        } catch {
+            //
+        }
+     
     }
     
     func showSampleInvoiceNumber() {
@@ -64,13 +71,14 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
     var segmentsToDisplay: [NumberingSegmentValue] {
         get {
             return segments.map({s in s.type == .fixedPart ? NumberingSegmentValue(type: s.type, value: s.fixedValue!) :
-                NumberingSegmentValue(type: s.type, value: defaultValue(type: s.type))})
+                NumberingSegmentValue(type: s.type, value: try! defaultValue(type: s.type))})
         }
     }
     
-    func defaultValue(type: NumberingSegmentType) -> String {
+    func defaultValue(type: NumberingSegmentType) throws -> String {
         switch (type) {
         case .fixedPart:
+            try validateFixedPart()
             return self.fixedPartTextField.stringValue
         case .year:
             return String(Date().year)
@@ -78,5 +86,18 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
             return "1"
         }
     }
+
+    func validateFixedPart() throws {
+        let value = self.fixedPartTextField.stringValue
+        let regex = NumberingSegmentType.fixedPart.regex
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", regex)
+        if !emailTest.evaluate(with: value) {
+              throw InputValidationError.invalidNumber(fieldName: "Własny ciąg znaków")
+        }
+       
+        
+    }
+ 
 }
 

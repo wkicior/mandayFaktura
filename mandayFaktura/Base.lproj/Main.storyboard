@@ -15,7 +15,7 @@
                         <tabViewItem label="Numeracja" identifier="" id="ULa-nh-Cjx"/>
                     </tabViewItems>
                     <tabView key="tabView" autoresizesSubviews="NO" type="noTabsNoBorder" id="a5q-V5-GpW">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="1" y="0.0" width="449" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="message"/>
                         <tabViewItems/>
@@ -31,7 +31,7 @@
                 </tabViewController>
                 <customObject id="OA8-l1-ldy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725" y="-850"/>
+            <point key="canvasLocation" x="822.5" y="-823"/>
         </scene>
         <!--Seller Settings View Controller-->
         <scene sceneID="Bcp-G7-BE3">
@@ -183,7 +183,7 @@
                                 </subviews>
                             </customView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TN-Fi-2i1">
-                                <rect key="frame" x="256" y="3" width="78" height="32"/>
+                                <rect key="frame" x="255" y="34" width="78" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Anuluj" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4rq-Wo-9j0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -191,17 +191,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="onCancelButtonClicked:" target="4iu-O0-OUn" id="de0-Ys-h8n"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APf-B1-7HS">
-                                <rect key="frame" x="368" y="3" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zuy-Lh-CmR">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onSaveButtonClicked:" target="4iu-O0-OUn" id="gtA-WV-Jc2"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fsv-aR-aY0">
@@ -230,7 +219,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCB-4g-0Ao" userLabel="TemplateNumber">
-                                        <rect key="frame" x="4" y="20" width="440" height="37"/>
+                                        <rect key="frame" x="4" y="20" width="430" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="mIu-bc-byX">
                                             <font key="font" metaFont="system" size="21"/>
@@ -275,6 +264,17 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APf-B1-7HS">
+                                <rect key="frame" x="368" y="34" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zuy-Lh-CmR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSaveButtonClicked:" target="4iu-O0-OUn" id="gtA-WV-Jc2"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </customView>
                     <connections>
@@ -287,6 +287,28 @@
                 <customObject id="AfS-Px-UCV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1395" y="-642"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="DeB-Uq-Ck4">
+            <objects>
+                <windowController id="2H3-MA-dRK" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="ra0-RU-SXS">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="310" width="450" height="300"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <value key="maxSize" type="size" width="450" height="300"/>
+                        <connections>
+                            <outlet property="delegate" destination="2H3-MA-dRK" id="jIB-GH-S1s"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="1Qp-5H-TcE" kind="relationship" relationship="window.shadowedContentViewController" id="m6j-W3-eaw"/>
+                    </connections>
+                </windowController>
+                <customObject id="TwL-OB-WMF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269" y="-808"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -307,7 +329,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Ustawienia…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="1Qp-5H-TcE" kind="show" id="nXE-qX-KJx"/>
+                                                <segue destination="2H3-MA-dRK" kind="show" id="fGc-t3-aQO"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
