@@ -43,19 +43,13 @@ class MockNumberingCoder: NumberingCoder {
     }
 }
 
-class MockNumberingTemplateFactory: NumberingTemplateFactory {
-    override func getInstance(settings: InvoiceNumberingSettings) -> NumberingCoder {
-        return MockNumberingCoder()
-    }
-}
-
 class InvoiceNumberingTests: XCTestCase {
     
     func testGetNextInvoiceNumber_generates_fresh_invoice_number_if_no_invoice_found() {
         let mockInvoiceRepository = MockInvoiceRepository(invoices: [])
         InvoiceRepositoryFactory.register(repository: mockInvoiceRepository)
         let invoiceNumbering = InvoiceNumbering()
-        invoiceNumbering.numberingTemplateFactory = MockNumberingTemplateFactory()
+        invoiceNumbering.numberingCoder = MockNumberingCoder()
         invoiceNumbering.settings = settings
         XCTAssertEqual("A-1", invoiceNumbering.nextInvoiceNumber, "invoice numbers must match")
     }
@@ -64,7 +58,7 @@ class InvoiceNumberingTests: XCTestCase {
         let mockInvoiceRepository = MockInvoiceRepository(invoices: [])
         InvoiceRepositoryFactory.register(repository: mockInvoiceRepository)
         let invoiceNumbering = InvoiceNumbering()
-        invoiceNumbering.numberingTemplateFactory = MockNumberingTemplateFactory()
+        invoiceNumbering.numberingCoder = MockNumberingCoder()
         invoiceNumbering.settings = settings
         XCTAssertEqual("A-1", invoiceNumbering.nextInvoiceNumber, "invoice numbers must match")
     }
@@ -73,7 +67,7 @@ class InvoiceNumberingTests: XCTestCase {
         let mockInvoiceRepository = MockInvoiceRepository(invoices: [aTestInvoice.withNumber("A-1").build()])
         InvoiceRepositoryFactory.register(repository: mockInvoiceRepository)
         let invoiceNumbering = InvoiceNumbering()
-        invoiceNumbering.numberingTemplateFactory = MockNumberingTemplateFactory()
+        invoiceNumbering.numberingCoder = MockNumberingCoder()
         invoiceNumbering.settings = settings
         XCTAssertEqual("A-2", invoiceNumbering.nextInvoiceNumber, "invoice number should be incremented")
     }

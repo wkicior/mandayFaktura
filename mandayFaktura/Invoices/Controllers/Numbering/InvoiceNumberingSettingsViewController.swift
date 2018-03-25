@@ -19,6 +19,10 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     
     var segments: [NumberingSegment] = []
     
+    @IBAction func onSeparatorValueChange(_ sender: NSTextField) {
+        showSampleInvoiceNumber()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let numberingSettings = invoiceNumberingSettingsRepository.getInvoiceNumberingSettings()
@@ -33,6 +37,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
         invoiceNumberingSettingsRepository.save(invoiceNumberingSettings: settings)
         view.window?.close()
     }
+    
     @IBAction func onCancelButtonClicked(_ sender: NSButton) {
         view.window?.close()
     }

@@ -21,14 +21,22 @@ extension Date {
 
 class InvoiceNumbering {
     let invoiceRepository = InvoiceRepositoryFactory.instance
+    let invoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
     var numberingTemplateFactory = NumberingTemplateFactory()
-    var settings = InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .fixedPart, value: "A"), NumberingSegment(type: .year)])
+    var settings: InvoiceNumberingSettings
+    var numberingCoder: NumberingCoder
+    
+    init () {
+        self.settings = self.invoiceNumberingSettingsRepository.getInvoiceNumberingSettings() ??
+          InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year)])
+        self.numberingCoder = numberingTemplateFactory.getInstance(settings: settings)
+    }
 
     var nextInvoiceNumber: String {
         get {
-            let numberingTemplate: NumberingCoder = numberingTemplateFactory.getInstance(settings: settings)
+            
             let segments = settings.segments.map({s in buildSegmentValue(from: s)})
-            return numberingTemplate.encodeNumber(segments: segments)
+            return numberingCoder.encodeNumber(segments: segments)
         }
     }
     
@@ -39,10 +47,9 @@ class InvoiceNumbering {
         case .year:
             return NumberingSegmentValue(type: from.type, value: String(Date().year))
         case .incrementingNumber:
-            let numberingTemplate: NumberingCoder = numberingTemplateFactory.getInstance(settings: settings)
             var numberingSegments = [NumberingSegmentValue(type: from.type, value: "0")]
             if let previousNumber = invoiceRepository.getLastInvoice()?.number {
-                numberingSegments = numberingTemplate.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
+                numberingSegments = numberingCoder.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
             }
             let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.value)!
             return NumberingSegmentValue(type: from.type, value: String(oldIncrementingNumber + 1))
