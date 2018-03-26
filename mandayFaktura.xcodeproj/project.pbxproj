@@ -14,6 +14,7 @@
 		D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F57204DE2490064DF10 /* WarningAlert.swift */; };
 		D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */; };
 		D3248605206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3248604206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift */; };
+		D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324860720697C5E00BB79F6 /* InvoiceExistsError.swift */; };
 		D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */; };
 		D3254EA820563BF300CC889C /* InvoiceNumberingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */; };
 		D3254EAA2059852200CC889C /* NumberingSegmentCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */; };
@@ -101,6 +102,7 @@
 		D3052F57204DE2490064DF10 /* WarningAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningAlert.swift; sourceTree = "<group>"; };
 		D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverItemDefinitionRepository.swift; sourceTree = "<group>"; };
 		D3248604206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsViewControllerTests.swift; sourceTree = "<group>"; };
+		D324860720697C5E00BB79F6 /* InvoiceExistsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceExistsError.swift; sourceTree = "<group>"; };
 		D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumbering.swift; sourceTree = "<group>"; };
 		D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingTests.swift; sourceTree = "<group>"; };
 		D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingSegmentCoder.swift; sourceTree = "<group>"; };
@@ -244,6 +246,14 @@
 				D3248604206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift */,
 			);
 			path = Numbering;
+			sourceTree = "<group>";
+		};
+		D324860620697C4C00BB79F6 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D324860720697C5E00BB79F6 /* InvoiceExistsError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		D3254EB3205C293800CC889C /* Numbering */ = {
@@ -391,6 +401,7 @@
 		D34D0F08201CE888000D1EC6 /* Invoices */ = {
 			isa = PBXGroup;
 			children = (
+				D324860620697C4C00BB79F6 /* Errors */,
 				D37560B02034C1F800F507AD /* Conversions */,
 				D34D0F1E2020E907000D1EC6 /* Pdf */,
 				D34D0F13201DD9E6000D1EC6 /* Model */,
@@ -772,6 +783,7 @@
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
 				D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */,
+				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
 				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
 				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,

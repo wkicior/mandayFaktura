@@ -57,7 +57,10 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
         return invoicesCoding.map{ic in ic.invoice}
     }
     
-    func addInvoice(_ invoice: Invoice) {
+    func addInvoice(_ invoice: Invoice) throws {
+        if (getInvoices().first(where: {i in i.number == invoice.number}) != nil) {
+            throw InvoiceExistsError.invoiceNumber(number: invoice.number)
+        }
         invoicesCoding.append(InvoiceCoding(invoice))
     }
     

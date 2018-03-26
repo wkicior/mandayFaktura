@@ -93,11 +93,13 @@ extension NewInvoiceViewController {
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         do {
             try addBuyerToHistory(invoice: invoice)
-            invoiceRepository.addInvoice(invoice)
+            try invoiceRepository.addInvoice(invoice)
             NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
             view.window?.close()
         } catch is UserAbortError {
             //
+        } catch InvoiceExistsError.invoiceNumber(let number)  {
+            WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
         } catch {
             //
         }
