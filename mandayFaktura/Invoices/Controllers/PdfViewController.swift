@@ -32,6 +32,10 @@ class PdfViewController: NSViewController {
     }
     
     @IBAction func onPrintButtonClicked(_ sender: NSButton) {
-        pdfView.document?.write(toFile: "/Users/disorder/Downloads/\(invoice?.number.encodeToFilename ?? "Faktura").pdf")
+        let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
+        let original = invoicePdf!.getDocument(copyTemplate: .original)
+        original.write(toFile: "\(homeDirURL.path)/Downloads/\(invoice?.number.encodeToFilename ?? "Faktura")-org.pdf")
+        let copy = invoicePdf!.getDocument(copyTemplate: .copy)
+        copy.write(toFile: "\(homeDirURL.path)/Downloads/\(invoice?.number.encodeToFilename ?? "Faktura")-kopia.pdf")
     }
 }

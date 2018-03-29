@@ -15,23 +15,19 @@ class FontFormatting {
     let fontAttributesHeaderLeft: [NSAttributedStringKey: Any]
     let fontAttributesCenter: [NSAttributedStringKey: Any]
     let fontAttributesBoldCenter: [NSAttributedStringKey: Any]
-    let fontAttributesPageNumber: [NSAttributedStringKey: Any]
 
     
     private let paragraphStyleLeft = NSMutableParagraphStyle()
     private let paragraphStyleCenter = NSMutableParagraphStyle()
-    private let pageNumParagraphStyle = NSMutableParagraphStyle()
     
     private let fontBold = NSFont(name: "Helvetica Bold", size: 11.0)
     private let fontHeader = NSFont(name: "Helvetica Bold", size: 16.0)
     private let font = NSFont(name: "Helvetica", size: 11.0)
-    private let pageNumFont = NSFont(name: "Helvetica", size: 15.0)
   
     
     init () {
         paragraphStyleLeft.alignment = .left
         paragraphStyleCenter.alignment = .center
-        pageNumParagraphStyle.alignment = .center
 
         fontAttributesBoldLeft = [
             NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
@@ -51,12 +47,6 @@ class FontFormatting {
         fontAttributesBoldCenter = [
             NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
             NSAttributedStringKey.paragraphStyle:paragraphStyleCenter,
-        ]
-        
-        fontAttributesPageNumber = [
-            NSAttributedStringKey.font: pageNumFont ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:pageNumParagraphStyle,
-            NSAttributedStringKey.foregroundColor: NSColor.darkGray
         ]
     }
 }

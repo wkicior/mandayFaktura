@@ -13,12 +13,10 @@ import Quartz
 class InvoicePdfPage: BasePDFPage {
     let invoice: Invoice
     let copyLabel: String
-    let pageNumber: Int
 
-    init(invoice: Invoice, pageNumber: Int, copyLabel: String) {
+    init(invoice: Invoice, copyLabel: String) {
         self.invoice = invoice
         self.copyLabel = copyLabel
-        self.pageNumber = pageNumber
         super.init()
     }
     
@@ -66,10 +64,6 @@ class InvoicePdfPage: BasePDFPage {
     }
     
     
-    func drawPageNumber() {
-        pageLayout.drawPageNumber(content: "\(self.pageNumber)")
-    }
-    
     override func draw(with box: PDFDisplayBox) {
         self.drawInvoiceHeader()
         self.drawCopyLabel()
@@ -79,6 +73,5 @@ class InvoicePdfPage: BasePDFPage {
         self.drawItemsSummary()
         self.drawVatBreakdown()
         self.drawPaymentSummary()
-        self.drawPageNumber()
     }
 }

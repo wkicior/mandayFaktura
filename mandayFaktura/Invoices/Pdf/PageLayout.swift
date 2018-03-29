@@ -200,14 +200,6 @@ class PageLayout {
         drawPath(from: fromPoint, to: toPoint)
     }
     
-    func drawPageNumber(content: String) {
-        let rect = NSMakeRect(pdfWidth/2,
-                             CGFloat(15.0),
-                             CGFloat(40.0),
-                             CGFloat(20.0))
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesPageNumber)
-    }
-    
     private func drawItemTableGrid(rows: Int, columns: Int) {
         (0 ... rows + 1).forEach({r in drawItemHorizontalGrid(row: r)})
         (0 ... columns).forEach({c in drawItemVerticalGrid(cell: c)})

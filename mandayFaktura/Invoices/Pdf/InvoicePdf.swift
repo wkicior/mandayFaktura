@@ -1,5 +1,5 @@
 //
-//  PdfInvoice.swift
+//  InvoicePdf.swift
 //  mandayFaktura
 //
 //  Created by Wojciech Kicior on 30.01.2018.
@@ -9,7 +9,9 @@
 import Foundation
 import Quartz
 
-
+enum CopyTemplate: String {
+    case original = "oryginał", copy = "kopia"
+}
 
 class InvoicePdf {
     let invoice: Invoice
@@ -20,12 +22,19 @@ class InvoicePdf {
     
     func getDocument() -> PDFDocument {       
         let doc = PDFDocument()
-        let invoicePage = InvoicePdfPage(invoice: self.invoice, pageNumber: 1, copyLabel: "oryginał")
-        let invoicePage2 = InvoicePdfPage(invoice: self.invoice, pageNumber: 2, copyLabel: "kopia")
+        let invoicePage = InvoicePdfPage(invoice: self.invoice, copyLabel: CopyTemplate.original.rawValue)
+        let invoicePage2 = InvoicePdfPage(invoice: self.invoice, copyLabel: CopyTemplate.copy.rawValue)
 
         doc.insert(invoicePage, at: 0)
         doc.insert(invoicePage2, at: 1)
         
+        return doc
+    }
+    
+    func getDocument(copyTemplate: CopyTemplate) -> PDFDocument {
+        let doc = PDFDocument()
+        let invoicePage = InvoicePdfPage(invoice: self.invoice, copyLabel: copyTemplate.rawValue)
+        doc.insert(invoicePage, at: 0)
         return doc
     }
 }
