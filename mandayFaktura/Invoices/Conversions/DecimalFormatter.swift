@@ -15,4 +15,12 @@ extension Decimal {
         formatter.currencySymbol = ""
         return formatter.string(from: self as NSDecimalNumber)!.trimmingCharacters(in: .whitespaces)
     }
+    
+    func formatDecimal() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.currencyDecimalSeparator = ","
+        formatter.currencyGroupingSeparator = " "
+        return formatter.string(from: self as NSDecimalNumber)!.trimmingCharacters(in: .whitespaces)
+    }
 }

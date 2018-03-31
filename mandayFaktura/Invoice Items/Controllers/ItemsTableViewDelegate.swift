@@ -59,7 +59,7 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
             text = item.name
             cellIdentifier = CellIdentifiers.nameCell
         } else if tableColumn == tableView.tableColumns[1] {
-            text = item.amount.description
+            text = item.amount.formatDecimal()
             cellIdentifier = CellIdentifiers.amountCell
         } else if tableColumn == tableView.tableColumns[2] {
             cellIdentifier = CellIdentifiers.unitOfMeasureCell
