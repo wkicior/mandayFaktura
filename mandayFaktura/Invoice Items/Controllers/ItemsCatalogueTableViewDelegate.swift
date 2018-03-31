@@ -99,7 +99,8 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
     }
     
     func changeItemNetValue(_ sender: NSTextField) throws {
-        guard let unitNetPrice = Decimal(string: sender.stringValue) else {
+        let netValue = sender.stringValue.replacingOccurrences(of: ",", with: ".")
+        guard let unitNetPrice = Decimal(string: netValue) else {
             throw InputValidationError.invalidNumber(fieldName: "Cena netto")
         }
         let selectedRowNumber = itemsTableView.selectedRow

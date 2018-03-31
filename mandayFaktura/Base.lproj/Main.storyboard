@@ -733,7 +733,7 @@
                                                                 <textField identifier="amountCellId" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QQT-Di-ETM">
                                                                     <rect key="frame" x="2" y="0.0" width="76" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" drawsBackground="YES" id="co5-cZ-V21">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="co5-cZ-V21">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1721,8 +1721,8 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0VC-n4-z2H"/>
-        <segue reference="7xi-xw-zjF"/>
+        <segue reference="mvy-hV-L5q"/>
+        <segue reference="HSy-Yv-XGf"/>
         <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>

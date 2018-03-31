@@ -106,7 +106,8 @@ extension ItemsTableViewDelegate {
     }
     
     func changeItemNetValue(_ sender: NSTextField) throws {
-        guard let unitNetPrice = Decimal(string: sender.stringValue) else {
+        let netValue = sender.stringValue.replacingOccurrences(of: ",", with: ".")
+        guard let unitNetPrice = Decimal(string: netValue) else {
             throw InputValidationError.invalidNumber(fieldName: "Cena netto")
         }
         let selectedRowNumber = itemsTableView.selectedRow
@@ -117,7 +118,8 @@ extension ItemsTableViewDelegate {
     }
     
     func changeAmount(_ sender: NSTextField) throws {
-        guard let amount = Decimal(string: sender.stringValue) else {
+        let amountString = sender.stringValue.replacingOccurrences(of: ",", with: ".")
+        guard let amount = Decimal(string: amountString) else {
             throw InputValidationError.invalidNumber(fieldName: "Ilość")
         }
         let selectedRowNumber = itemsTableView.selectedRow
