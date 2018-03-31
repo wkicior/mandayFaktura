@@ -61,13 +61,6 @@ class NewInvoiceViewController: NSViewController {
             return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }
     }
-    
-    @IBAction func changeAmount(_ sender: NSTextField) {
-        tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
-        safeReloadData()
-    }
-   
-    
 }
 
 /**
@@ -120,6 +113,11 @@ extension NewInvoiceViewController {
     
     @IBAction func changeItemName(_ sender: NSTextField) {
         self.itemsTableViewDelegate!.changeItemName(sender)
+        safeReloadData()
+    }
+    
+    @IBAction func changeAmount(_ sender: NSTextField) {
+        tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
         safeReloadData()
     }
     
