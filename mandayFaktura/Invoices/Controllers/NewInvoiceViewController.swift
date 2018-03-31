@@ -62,6 +62,12 @@ class NewInvoiceViewController: NSViewController {
         }
     }
     
+    @IBAction func changeAmount(_ sender: NSTextField) {
+        tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
+        safeReloadData()
+    }
+   
+    
 }
 
 /**
@@ -105,10 +111,7 @@ extension NewInvoiceViewController {
         }
     }
     
-    @IBAction func changeAmount(_ sender: NSTextField) {
-        tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
-        safeReloadData()
-    }
+   
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeItemNetValue, on: sender)
