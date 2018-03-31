@@ -415,6 +415,90 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Edycja" id="6ca-HP-AIQ" userLabel="Edycja">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edycja" id="T1L-Ea-9uZ">
+                                    <items>
+                                        <menuItem title="Cofnij" keyEquivalent="z" id="VqM-xz-aqM" userLabel="Cofnij">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="cDK-sq-6u4"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Przywróć" keyEquivalent="Z" id="gH7-hH-oXL">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="5oA-mm-coU"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Is6-BU-jkk"/>
+                                        <menuItem title="Wytnij" keyEquivalent="x" id="uv1-V5-bFI">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="3Xq-nH-I4z"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Kopiuj" keyEquivalent="c" id="Las-aG-JSs">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="qLr-lb-iQ5"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Wklej" keyEquivalent="v" id="tFk-Uu-Dcy">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="N06-Y6-RVD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="aVI-U8-sU1">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="CKe-DV-nJH"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="qx3-fv-Qh4"/>
+                                        <menuItem title="Transformacje" id="jLg-5s-Ka2">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Transformacje" id="4Jk-WK-s7q">
+                                                <items>
+                                                    <menuItem title="WIelkie litery" id="GjM-mE-IFV">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="uppercaseWord:" target="Ady-hI-5gd" id="lem-LQ-kjh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Małe litery" id="6xe-ty-1pL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="lowercaseWord:" target="Ady-hI-5gd" id="4t8-Yf-Tp0"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Tytuł" id="EpG-hq-Xg2">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="capitalizeWord:" target="Ady-hI-5gd" id="p1t-oQ-upG"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Mowa" id="hGO-8M-umO">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Mowa" id="ArV-YG-KtP">
+                                                <items>
+                                                    <menuItem title="Zacznij mówić" id="xmM-9a-R4F">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="startSpeaking:" target="Ady-hI-5gd" id="h2X-Ry-Hgz"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Przestań mówić" id="hdl-bi-HHc">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="stopSpeaking:" target="Ady-hI-5gd" id="Woj-Px-hrO"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Okno" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Okno" systemMenu="window" id="Td7-aD-5lo">
@@ -1722,7 +1806,7 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mvy-hV-L5q"/>
-        <segue reference="HSy-Yv-XGf"/>
+        <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>
