@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     // keyed archiver name - change it for testing purposes
-    static let keyedArchiverProfile = ""
+    static let keyedArchiverProfile = "test"
     
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var removeInvoiceMenuItem: NSMenuItem!

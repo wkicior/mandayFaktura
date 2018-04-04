@@ -20,7 +20,7 @@ class NewInvoiceViewController: NSViewController {
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
     let invoiceNumbering: InvoiceNumbering = InvoiceNumbering()
-
+    
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
     @IBOutlet weak var sellingDatePicker: NSDatePicker!
@@ -52,6 +52,8 @@ class NewInvoiceViewController: NSViewController {
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
         self.saveItemButton.isEnabled = false
         self.numberTextField.stringValue = self.invoiceNumbering.nextInvoiceNumber
+        self.checkSaveButtonEnabled()
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
     }
     
     var invoice: Invoice {
@@ -104,8 +106,6 @@ extension NewInvoiceViewController {
         }
     }
     
-   
-    
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeItemNetValue, on: sender)
         safeReloadData()
@@ -131,6 +131,7 @@ extension NewInvoiceViewController {
         let buyerName = sender.selectedItem?.title
         let buyer = self.counterpartyRepository.getBuyer(name: buyerName!)
         setBuyer(buyer: buyer ?? aCounterparty().build())
+        checkSaveButtonEnabled()
     }
     
     private func setBuyer(buyer: Counterparty) {
@@ -146,10 +147,10 @@ extension NewInvoiceViewController {
     }
     
     @IBAction func onItemsTableViewClicked(_ sender: Any) {
-       setButtonsAvailability()
+       setItemButtonsAvailability()
     }
     
-    private func setButtonsAvailability() {
+    private func setItemButtonsAvailability() {
         self.removeItemButton.isEnabled =  self.itemsTableView.selectedRow != -1
         self.saveItemButton.isEnabled = self.itemsTableView.selectedRow != -1
     }
@@ -184,12 +185,27 @@ extension NewInvoiceViewController {
         self.previewButton.isEnabled = self.itemsTableView.numberOfRows > 0
     }
     
-    private func safeReloadData() {
-        self.itemsTableView.reloadData()
-        setButtonsAvailability()
+    @objc func textFieldDidChange(_ notification: Notification) {
+        checkSaveButtonEnabled()
     }
     
-    func getPaymentFormByTag(_ tag: Int)-> PaymentForm? {
+    private func checkSaveButtonEnabled() {
+        self.saveButton.isEnabled = self.itemsTableView.numberOfRows > 0
+            && !self.numberTextField.stringValue.isEmpty
+            && !self.buyerNameTextField.stringValue.isEmpty
+            && !self.streetAndNumberTextField.stringValue.isEmpty
+            && !self.postalCodeTextField.stringValue.isEmpty
+            && !self.taxCodeTextField.stringValue.isEmpty
+            && !self.cityTextField.stringValue.isEmpty
+    }
+    
+    private func safeReloadData() {
+        self.itemsTableView.reloadData()
+        checkSaveButtonEnabled()
+        setItemButtonsAvailability()
+    }
+    
+    func getPaymentFormByTag(_ tag: Int) -> PaymentForm? {
         switch tag {
         case 0:
             return PaymentForm.transfer
