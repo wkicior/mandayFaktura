@@ -32,6 +32,8 @@ protocol CounterpartyRepository {
     func addBuyer(buyer: Counterparty)
     
     func update(buyer: Counterparty)
+    
+    func saveBuyers(_ buyers: [Counterparty])
 }
 
 /**

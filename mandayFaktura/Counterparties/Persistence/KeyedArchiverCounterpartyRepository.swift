@@ -69,6 +69,10 @@ class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
         buyersCoding[index!] = CounterpartyCoding(buyer)
     }
     
+    func saveBuyers(_ buyers: [Counterparty]) {
+        buyersCoding = buyers.map{b in CounterpartyCoding(b)}
+    }
+    
     private var sellerCoding: CounterpartyCoding? {
         get {
             if let data = UserDefaults.standard.object(forKey: sellerKey) as? NSData {

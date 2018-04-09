@@ -310,6 +310,135 @@
             </objects>
             <point key="canvasLocation" x="269" y="-808"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="Yha-Ou-SCe">
+            <objects>
+                <windowController id="KBz-VZ-nWT" sceneMemberID="viewController">
+                    <window key="window" title="Katalog nabywców" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="qeb-hI-I95">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="310" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <connections>
+                            <outlet property="delegate" destination="KBz-VZ-nWT" id="GpL-5p-9Uv"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="TB5-8g-p08" kind="relationship" relationship="window.shadowedContentViewController" id="oKb-mC-MpY"/>
+                    </connections>
+                </windowController>
+                <customObject id="vSL-WJ-9jx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-884" y="-366"/>
+        </scene>
+        <!--Buyers Catalogue View Controller-->
+        <scene sceneID="C7s-BE-jDp">
+            <objects>
+                <viewController id="TB5-8g-p08" customClass="BuyersCatalogueViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="rtc-QM-Dg7">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My1-CI-L8J">
+                                <rect key="frame" x="20" y="36" width="440" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="s88-Y1-iq9">
+                                    <rect key="frame" x="1" y="23" width="438" height="190"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="afa-HG-g51" viewBased="YES" id="Wzj-Yb-5RU">
+                                            <rect key="frame" x="0.0" y="0.0" width="444" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="nameCellId" width="441" minWidth="40" maxWidth="1000" id="HPa-As-6g5">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa firmy">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="fs8-v9-Br8">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="HVo-9k-1zY">
+                                                            <rect key="frame" x="1" y="1" width="441" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PqJ-Vp-Tgi">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="441" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="x9U-T1-vhJ">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="PqJ-Vp-Tgi" id="EKq-uG-0OF"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <action selector="onBuyersTableViewClicked:" target="TB5-8g-p08" id="EKQ-GE-Fin"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.33333333333333331" horizontal="YES" id="hdt-PX-zZN">
+                                    <rect key="frame" x="1" y="197" width="438" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="44N-ru-8EI">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="afa-HG-g51">
+                                    <rect key="frame" x="0.0" y="0.0" width="444" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN2-7t-e4Q">
+                                <rect key="frame" x="20" y="4" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m1o-XU-R5R">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onDeleteBuyerButtonClicked:" target="TB5-8g-p08" id="cJ0-Gw-MK0"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkL-b7-P6L">
+                                <rect key="frame" x="385" y="0.0" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rlI-oY-Wet">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSaveButtonClicked:" target="TB5-8g-p08" id="xUm-jR-aXS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="buyersTableView" destination="Wzj-Yb-5RU" id="qfy-r1-5Kt"/>
+                        <outlet property="deleteBuyerButton" destination="TN2-7t-e4Q" id="8gY-Vb-ysH"/>
+                    </connections>
+                </viewController>
+                <customObject id="MZW-ta-iBQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-884" y="124"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
@@ -377,6 +506,11 @@
                                         <menuItem title="Katalog usług i towarów" keyEquivalent="u" id="5jG-eT-cGH" userLabel="Katalog usług i towarów">
                                             <connections>
                                                 <segue destination="463-Th-NCJ" kind="show" id="7xi-xw-zjF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Katalog nabywców" keyEquivalent="k" id="W7P-pA-tCN" userLabel="Katalog nabywców">
+                                            <connections>
+                                                <segue destination="KBz-VZ-nWT" kind="show" id="yZX-n7-FdB"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
@@ -1807,6 +1941,6 @@ AAAAAAAcgQ
     <inferredMetricsTieBreakers>
         <segue reference="mvy-hV-L5q"/>
         <segue reference="HSy-Yv-XGf"/>
-        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="ALL-qi-P1w"/>
     </inferredMetricsTieBreakers>
 </document>

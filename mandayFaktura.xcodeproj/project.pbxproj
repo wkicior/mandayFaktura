@@ -15,6 +15,8 @@
 		D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */; };
 		D3248605206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3248604206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift */; };
 		D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324860720697C5E00BB79F6 /* InvoiceExistsError.swift */; };
+		D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32486092075621500BB79F6 /* BuyersCatalogueViewController.swift */; };
+		D324860C2075637200BB79F6 /* BuyersTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324860B2075637200BB79F6 /* BuyersTableViewDelegate.swift */; };
 		D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */; };
 		D3254EA820563BF300CC889C /* InvoiceNumberingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */; };
 		D3254EAA2059852200CC889C /* NumberingSegmentCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */; };
@@ -103,6 +105,8 @@
 		D3052F59205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverItemDefinitionRepository.swift; sourceTree = "<group>"; };
 		D3248604206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsViewControllerTests.swift; sourceTree = "<group>"; };
 		D324860720697C5E00BB79F6 /* InvoiceExistsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceExistsError.swift; sourceTree = "<group>"; };
+		D32486092075621500BB79F6 /* BuyersCatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyersCatalogueViewController.swift; sourceTree = "<group>"; };
+		D324860B2075637200BB79F6 /* BuyersTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyersTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumbering.swift; sourceTree = "<group>"; };
 		D3254EA720563BF300CC889C /* InvoiceNumberingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingTests.swift; sourceTree = "<group>"; };
 		D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingSegmentCoder.swift; sourceTree = "<group>"; };
@@ -574,6 +578,8 @@
 			children = (
 				D37560AE2033974100F507AD /* SellerSettingsViewController.swift */,
 				D330BFCA203B682C003CCC5B /* BuyerAutoSavingController.swift */,
+				D32486092075621500BB79F6 /* BuyersCatalogueViewController.swift */,
+				D324860B2075637200BB79F6 /* BuyersTableViewDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -807,6 +813,7 @@
 				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
 				D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
@@ -817,6 +824,7 @@
 				D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */,
 				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
 				D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */,
+				D324860C2075637200BB79F6 /* BuyersTableViewDelegate.swift in Sources */,
 				D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
