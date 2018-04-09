@@ -75,6 +75,7 @@
 		D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BA20377D7800F507AD /* NSColorExtension.swift */; };
 		D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
+		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3D82327206042960031C2D1 /* OrderingDragSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82326206042960031C2D1 /* OrderingDragSource.swift */; };
 		D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82328206043080031C2D1 /* DragOrderingDestination.swift */; };
 /* End PBXBuildFile section */
@@ -172,6 +173,7 @@
 		D37560BA20377D7800F507AD /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
 		D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceRepository.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
+		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3D82326206042960031C2D1 /* OrderingDragSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingDragSource.swift; sourceTree = "<group>"; };
 		D3D82328206043080031C2D1 /* DragOrderingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragOrderingDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -376,6 +378,7 @@
 				D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */,
 				D34D0EC7201A7CBC000D1EC6 /* Info.plist */,
 				D34D0EC8201A7CBC000D1EC6 /* mandayFaktura.entitlements */,
+				D3B7C954207BF2C400432176 /* Settings.plist */,
 			);
 			path = mandayFaktura;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 			files = (
 				D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */,
 				D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */,
+				D3B7C955207BF2C400432176 /* Settings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

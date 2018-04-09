@@ -11,7 +11,17 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     // keyed archiver name - change it for testing purposes
-    static let keyedArchiverProfile = ""
+    static var keyedArchiverProfile: String {
+        get {
+            if let path = Bundle.main.path(forResource: "Settings", ofType: "plist") {
+                let dictRoot = NSDictionary(contentsOfFile: path)
+                if let dict = dictRoot {
+                    return dict["profile"] as! String
+                }
+            }
+            return ""
+        }
+    }
     
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var removeInvoiceMenuItem: NSMenuItem!
