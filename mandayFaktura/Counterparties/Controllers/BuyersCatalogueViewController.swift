@@ -21,6 +21,14 @@ class BuyersCatalogueViewController: NSViewController {
         buyersTableView.delegate = buyersTableViewDelegate
         buyersTableView.dataSource = buyersTableViewDelegate
         self.deleteBuyerButton.isEnabled = false
+        NotificationCenter.default.addObserver(forName: NewBuyerViewControllerConstants.BUYER_ADDED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in
+                                                
+                                                self.buyersTableViewDelegate?.reloadData()
+                                                self.buyersTableView.reloadData()
+
+        }
     }
     
     @IBAction func onBuyersTableViewClicked(_ sender: NSTableView) {
@@ -31,10 +39,24 @@ class BuyersCatalogueViewController: NSViewController {
     }
     
     @IBAction func onDeleteBuyerButtonClicked(_ sender: NSButton) {
-        buyersTableViewDelegate!.remove(at: self.buyersTableView.selectedRow)
-        self.buyersTableView.reloadData()
-        setDeleteBuyerButtonAvailability()
-        
+        let modalResponse = deleteAlert.runModal()
+        if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+            buyersTableViewDelegate!.remove(at: self.buyersTableView.selectedRow)
+            self.buyersTableView.reloadData()
+            setDeleteBuyerButtonAvailability()
+        }
+    }
+    
+    private var deleteAlert: NSAlert {
+        get{
+            let alert = NSAlert()
+            alert.messageText = "Usunięcie nabywcy!"
+            alert.informativeText = "Czy na pewno chcesz usunąć nabywcę z katalogu?"
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "Usuń")
+            alert.addButton(withTitle: "Nie usuwaj")
+            return alert
+        }
     }
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         self.buyersTableViewDelegate!.save()

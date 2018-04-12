@@ -51,5 +51,9 @@ class BuyersTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDeleg
     func save() {
         self.counterpartyRepository.saveBuyers(buyers)
     }
+    
+    func reloadData() {
+        self.buyers = counterpartyRepository.getBuyers()
+    }
 }
 
