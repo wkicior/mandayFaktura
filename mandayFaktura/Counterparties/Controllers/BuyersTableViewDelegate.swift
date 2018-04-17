@@ -55,5 +55,9 @@ class BuyersTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDeleg
     func reloadData() {
         self.buyers = counterpartyRepository.getBuyers()
     }
+    
+    func getSelectedBuyer(index: Int) -> Counterparty {
+        return self.buyers[index]
+    }
 }
 

@@ -21,13 +21,18 @@ class BuyersCatalogueViewController: NSViewController {
         buyersTableView.delegate = buyersTableViewDelegate
         buyersTableView.dataSource = buyersTableViewDelegate
         self.deleteBuyerButton.isEnabled = false
+        buyersTableView.doubleAction = #selector(onTableViewClicked)
         NotificationCenter.default.addObserver(forName: NewBuyerViewControllerConstants.BUYER_ADDED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in
-                                                
                                                 self.buyersTableViewDelegate?.reloadData()
                                                 self.buyersTableView.reloadData()
-
+        }
+        NotificationCenter.default.addObserver(forName: EditBuyerViewControllerConstants.BUYER_EDITED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in
+                                                self.buyersTableViewDelegate?.reloadData()
+                                                self.buyersTableView.reloadData()
         }
     }
     
@@ -60,5 +65,17 @@ class BuyersCatalogueViewController: NSViewController {
     }
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         self.buyersTableViewDelegate!.save()
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is EditBuyerController {
+            let vc = segue.destinationController as? EditBuyerController
+            let index = self.buyersTableView.selectedRow
+            vc?.buyer = buyersTableViewDelegate?.getSelectedBuyer(index: index)
+        }
+    }
+    
+    @objc func onTableViewClicked(sender: AnyObject) {
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "editBuyerSegue"), sender: sender)
     }
 }
