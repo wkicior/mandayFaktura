@@ -46,6 +46,7 @@ class BuyersTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDeleg
     
     func remove(at: Int) {
         buyers.remove(at: at)
+        save()
     }
     
     func save() {

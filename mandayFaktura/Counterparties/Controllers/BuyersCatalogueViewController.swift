@@ -63,9 +63,7 @@ class BuyersCatalogueViewController: NSViewController {
             return alert
         }
     }
-    @IBAction func onSaveButtonClicked(_ sender: NSButton) {
-        self.buyersTableViewDelegate!.save()
-    }
+   
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is EditBuyerController {
