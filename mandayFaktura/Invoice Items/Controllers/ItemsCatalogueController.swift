@@ -12,6 +12,7 @@ class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var newInvoiceController: NewInvoiceViewController?
     @IBOutlet weak var itemsTableView: NSTableView!
+    @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,31 @@ class ItemsCatalogueController: NSViewController {
         itemsTableView.dataSource = itemsCatalogueTableViewDelegate
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
         removeItemButton.isEnabled = false
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
     }
 }
 
 extension ItemsCatalogueController {
+    
+    @objc func textFieldDidChange(_ notification: Notification) {
+        checkSaveButtonEnabledOnTableView()
+    }
+    
+    /**
+    This method can detect changes not persisted yet to model - the text field being updated
+     */
+    func checkSaveButtonEnabledOnTableView() {
+        let allNamesAreFilled = (0 ..< itemsTableView.numberOfRows).map({c in itemsTableView.rowView(atRow: c, makeIfNecessary: false)}) // get rows
+            .map({row in (row?.view(atColumn: 0) as! NSTableCellView)}) // get cells
+            .map({c in c.textField?.stringValue}) //get cell text values
+            .reduce(true, { (r, s) -> Bool in r && (s != nil) && !s!.isEmpty}) // checks whether all are not blank
+        self.saveButton.isEnabled = allNamesAreFilled
+    }
+    
+    func checkSaveButtonEnabledOnModel() {
+        let notFilled = itemsCatalogueTableViewDelegate?.items.first(where: { i in i.name.isEmpty })
+        self.saveButton.isEnabled = notFilled == nil
+    }
     
     @objc func onTableViewDoubleClicked(sender: AnyObject) {
         if (newInvoiceController != nil && sender.selectedRow != -1) {
@@ -58,11 +80,13 @@ extension ItemsCatalogueController {
         self.removeItemButton.isEnabled = false
         self.itemsCatalogueTableViewDelegate!.addItemDefinition()
         safeReloadData()
+        self.saveButton.isEnabled = false
     }
     
     @IBAction func onRemoveItemButtonClicked(_ sender: NSButton) {
         self.itemsCatalogueTableViewDelegate!.removeSelectedItem()
         safeReloadData()
+        checkSaveButtonEnabledOnModel()
     }
     
     @IBAction func onVatRateInPercentChange(_ sender: NSPopUpButton) {
