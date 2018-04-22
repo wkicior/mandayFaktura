@@ -32,6 +32,11 @@ protocol InvoiceRepository {
      Returns last registered invoice
     */
     func getLastInvoice() -> Invoice?
+    
+    /**
+    Edits (replaces) old invoice with the new one
+    */
+    func editInvoice(old: Invoice, new: Invoice)
 }
 
 /**

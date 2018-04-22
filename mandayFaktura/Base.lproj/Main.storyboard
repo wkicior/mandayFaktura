@@ -740,10 +740,9 @@
                                                 <segue destination="haF-wG-vwp" kind="show" id="ALL-qi-P1w"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Edycja" keyEquivalent="e" id="NE7-Mf-tLH" userLabel="Edycja">
+                                        <menuItem title="Edycja" enabled="NO" keyEquivalent="e" id="NE7-Mf-tLH" userLabel="Edycja">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="oAK-dk-mXv"/>
-                                                <segue destination="Pk8-xk-tGP" kind="modal" id="pLv-yD-iY7"/>
+                                                <action selector="onEditInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="dxn-bs-h9o"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Usuń" enabled="NO" keyEquivalent="d" id="3Ww-3p-vUu">
@@ -926,6 +925,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="mandayFaktura" customModuleProvider="target">
                     <connections>
+                        <outlet property="editInvoiceMenuItem" destination="NE7-Mf-tLH" id="Mk5-hw-rvU"/>
                         <outlet property="menu" destination="bib-Uj-vzu" id="1kv-bH-Ghf"/>
                         <outlet property="removeInvoiceMenuItem" destination="3Ww-3p-vUu" id="DNA-Bb-TiK"/>
                     </connections>
@@ -2042,6 +2042,7 @@
                     <connections>
                         <outlet property="invoiceHistoryTableView" destination="qJi-3B-zhE" id="i5o-OV-iwt"/>
                         <segue destination="xVm-3h-MS1" kind="show" identifier="showPdfViewSegue" id="0VC-n4-z2H"/>
+                        <segue destination="Pk8-xk-tGP" kind="modal" identifier="editInvoiceSegue" id="2fz-Zu-mfT"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -2118,7 +2119,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="onSaveButtonClicked:" target="Pk8-xk-tGP" id="rB0-dW-jNN"/>
+                                    <action selector="saveButtonClicked:" target="Pk8-xk-tGP" id="aHv-fn-Nz9"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-2I-E5L">
@@ -2908,7 +2909,7 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pLv-yD-iY7"/>
+        <segue reference="2fz-Zu-mfT"/>
         <segue reference="0VC-n4-z2H"/>
         <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>

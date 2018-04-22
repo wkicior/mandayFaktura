@@ -73,6 +73,11 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
         return invoicesCoding.last.map({ic in ic.invoice})
     }
     
+    func editInvoice(old: Invoice, new: Invoice) {
+        let index = invoicesCoding.index(where: {ic in ic.invoice.number == old.number})
+        invoicesCoding[index!] = InvoiceCoding(new)
+    }
+    
     private var invoicesCoding: [InvoiceCoding] {
         get {
             if let data = UserDefaults.standard.object(forKey: key) as? NSData {

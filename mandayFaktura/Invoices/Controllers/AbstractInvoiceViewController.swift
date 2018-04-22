@@ -181,4 +181,13 @@ extension AbstractInvoiceViewController {
         }
     }
     
+    func getPaymentFormTag(from: PaymentForm) -> Int {
+        switch from {
+        case .transfer:
+            return 0
+        case .cash:
+            return 1
+        }
+    }
+    
 }
