@@ -1861,7 +1861,7 @@
                 </viewController>
                 <customObject id="rLB-gr-hT2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1978" y="1590"/>
+            <point key="canvasLocation" x="2010" y="1674"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -2068,7 +2068,7 @@
                 </windowController>
                 <customObject id="Lqr-lq-Fnj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999" y="166"/>
+            <point key="canvasLocation" x="2032" y="166"/>
         </scene>
         <!--Edycja faktury-->
         <scene sceneID="Y8q-AA-Ux3">
@@ -2615,6 +2615,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="463-Th-NCJ" kind="modal" id="7rX-Ec-kKv"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
@@ -2640,7 +2643,7 @@
                 </viewController>
                 <customObject id="ZOJ-Ft-keB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999" y="876"/>
+            <point key="canvasLocation" x="2032" y="842"/>
         </scene>
     </scenes>
     <resources>
@@ -2912,9 +2915,9 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2fz-Zu-mfT"/>
+        <segue reference="o5h-iw-LOf"/>
         <segue reference="pNf-8A-Ove"/>
-        <segue reference="7xi-xw-zjF"/>
+        <segue reference="7rX-Ec-kKv"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
