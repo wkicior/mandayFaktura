@@ -79,6 +79,8 @@
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
 		D3B7C959207FDD3400432176 /* EditBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C958207FDD3400432176 /* EditBuyerController.swift */; };
 		D3B7C95B207FE2C400432176 /* AbstractBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C95A207FE2C400432176 /* AbstractBuyerController.swift */; };
+		D3B7C95D2087B92D00432176 /* AbstractInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */; };
+		D3B7C95F2087B98900432176 /* EditInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */; };
 		D3D82327206042960031C2D1 /* OrderingDragSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82326206042960031C2D1 /* OrderingDragSource.swift */; };
 		D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82328206043080031C2D1 /* DragOrderingDestination.swift */; };
 /* End PBXBuildFile section */
@@ -180,6 +182,8 @@
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
 		D3B7C958207FDD3400432176 /* EditBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuyerController.swift; sourceTree = "<group>"; };
 		D3B7C95A207FE2C400432176 /* AbstractBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractBuyerController.swift; sourceTree = "<group>"; };
+		D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractInvoiceViewController.swift; sourceTree = "<group>"; };
+		D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInvoiceViewController.swift; sourceTree = "<group>"; };
 		D3D82326206042960031C2D1 /* OrderingDragSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingDragSource.swift; sourceTree = "<group>"; };
 		D3D82328206043080031C2D1 /* DragOrderingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragOrderingDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -451,6 +455,8 @@
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
+				D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */,
+				D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -832,9 +838,11 @@
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
+				D3B7C95F2087B98900432176 /* EditInvoiceViewController.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
+				D3B7C95D2087B92D00432176 /* AbstractInvoiceViewController.swift in Sources */,
 				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
 				D3254EAE205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift in Sources */,
 				D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */,

@@ -10,7 +10,7 @@ import Cocoa
 
 class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
-    var newInvoiceController: NewInvoiceViewController?
+    var invoiceController: AbstractInvoiceViewController?
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
@@ -48,9 +48,9 @@ extension ItemsCatalogueController {
     }
     
     @objc func onTableViewDoubleClicked(sender: AnyObject) {
-        if (newInvoiceController != nil && sender.selectedRow != -1) {
+        if (invoiceController != nil && sender.selectedRow != -1) {
             let invoice = itemsCatalogueTableViewDelegate!.getSelectedInvoice(index: sender.selectedRow)
-            newInvoiceController!.addItem(itemDefinition: invoice)
+            invoiceController!.addItem(itemDefinition: invoice)
         }
     }
     

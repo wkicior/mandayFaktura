@@ -11,6 +11,7 @@ import Cocoa
 struct ViewControllerConstants {
     static let INVOICE_SELECTED_NOTIFICATION = Notification.Name(rawValue: "InvoiceSelected")
     static let INVOICE_TO_REMOVE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToRemove")
+    static let INVOICE_TO_EDIT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToEdit")
 
     static let INVOICE_NOTIFICATION_KEY = "invoice"
 }
@@ -37,9 +38,17 @@ class ViewController: NSViewController {
                                                 (notification) in
                                                 self.invoiceHistoryTableView.reloadData()
         }
+        NotificationCenter.default.addObserver(forName: EditInvoiceViewControllerConstants.INVOICE_EDITED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in
+                                                self.invoiceHistoryTableView.reloadData()
+        }
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_REMOVE_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.deleteInvoice()}
+        NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.editInvoice()}
         invoiceRepository = InvoiceRepositoryFactory.instance
     }
     
@@ -57,6 +66,21 @@ class ViewController: NSViewController {
             self.invoiceHistoryTableView.reloadData()
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
            return
+        }
+    }
+    
+    func editInvoice() {
+        let alert = NSAlert()
+        alert.messageText = "Edycja faktury!"
+        alert.informativeText = "Dane faktury mogą zostać nadpisane. Czy na pewno chcesz edytować fakturę?"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Edytuj")
+        alert.addButton(withTitle: "Zamknij")
+        let modalResponse = alert.runModal()
+        if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+            performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "editInvoiceSegue"), sender: nil)
+        } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
+            return
         }
     }
 
@@ -80,6 +104,10 @@ class ViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
+            let index = self.invoiceHistoryTableView.selectedRow
+            vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
+        } else if segue.destinationController is EditInvoiceViewController {
+            let vc = segue.destinationController as? EditInvoiceViewController
             let index = self.invoiceHistoryTableView.selectedRow
             vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
         }
