@@ -2140,6 +2140,9 @@
                                     <string key="keyEquivalent">p</string>
                                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="xVm-3h-MS1" kind="modal" id="pNf-8A-Ove"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zi-ng-4iH">
                                 <rect key="frame" x="713" y="478" width="109" height="17"/>
@@ -2637,7 +2640,7 @@
                 </viewController>
                 <customObject id="ZOJ-Ft-keB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999" y="857"/>
+            <point key="canvasLocation" x="1999" y="876"/>
         </scene>
     </scenes>
     <resources>
@@ -2910,7 +2913,7 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2fz-Zu-mfT"/>
-        <segue reference="0VC-n4-z2H"/>
+        <segue reference="pNf-8A-Ove"/>
         <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="lJP-li-Rqb"/>

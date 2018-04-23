@@ -43,7 +43,6 @@ class AbstractInvoiceViewController: NSViewController {
         itemsTableView.delegate = itemsTableViewDelegate
         itemsTableView.dataSource = itemsTableViewDelegate
         self.removeItemButton.isEnabled = false
-        checkPreviewButtonEnabled()
         self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
         self.saveItemButton.isEnabled = false
         self.checkSaveButtonEnabled()

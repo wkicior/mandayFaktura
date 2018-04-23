@@ -35,6 +35,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         
         self.itemsTableViewDelegate!.items = invoice!.items
         self.itemsTableView.reloadData()
+        self.previewButton.isEnabled = true
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
@@ -49,6 +50,16 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
             WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
         } catch {
             //
+        }
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is PdfViewController {
+            let vc = segue.destinationController as? PdfViewController
+            vc?.invoice = newInvoice
+        } else if segue.destinationController is ItemsCatalogueController {
+            let vc = segue.destinationController as? ItemsCatalogueController
+            vc?.invoiceController = self
         }
     }
     
