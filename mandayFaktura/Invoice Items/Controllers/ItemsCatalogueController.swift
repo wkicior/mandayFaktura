@@ -74,6 +74,7 @@ extension ItemsCatalogueController {
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
         self.itemsCatalogueTableViewDelegate!.saveRepository()
+        view.window?.close()
     }
     
     @IBAction func onAddItemDefinition(_ sender: Any) {
