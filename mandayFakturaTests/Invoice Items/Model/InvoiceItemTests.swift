@@ -55,33 +55,33 @@ class InvoiceItemTests: XCTestCase {
     }
     
     func testGrossValue_calculates_gross_value_for_one_net_price() {
-        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1.0")!).withVatRateInPercent(Decimal(23)).build()
+        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1.0")!).withVatRate(VatRate(value: 0.23)).build()
         XCTAssertEqual(Decimal(1.23), item.grossValue, "Gross values must be equal")
     }
     
     
     func testGrossValue_calculates_gross_value_for_zero_vat() {
-        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1.0")!).withVatRateInPercent(Decimal(0)).build()
+        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1.0")!).withVatRate(VatRate(value: 0)).build()
         XCTAssertEqual(Decimal(1), item.grossValue, "Gross values must be equal")
     }
     
     func testGrossValue_calculates_gross_value_for_decimal_net_price_rounding_rounding_down() {
-        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1.23")!).withVatRateInPercent(Decimal(23)).build()
+        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1.23")!).withVatRate(VatRate(value: 0.23)).build()
         XCTAssertEqual(Decimal(1.51), item.grossValue, "Gross values must be equal")
     }
     
     func testGrossValue_calculates_gross_value_for_decimal_net_price_rounding_up_big_number() {
-        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "999999.99")!).withVatRateInPercent(Decimal(23)).build()
+        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "999999.99")!).withVatRate(VatRate(value: 0.23)).build()
         XCTAssertEqual(Decimal(1229999.99), item.grossValue, "Gross values must be equal")
     }
     
     func testGrossValue_calculates_gross_value_for_decimal_net_price_rounding_half_up_big_number() {
-        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "111111.98")!).withVatRateInPercent(Decimal(23)).build()
+        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "111111.98")!).withVatRate(VatRate(value: 0.23)).build()
         XCTAssertEqual(Decimal(136667.74), item.grossValue, "Gross values must be equal")
     }
     
     func testVatValue_for_one() {
-        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1")!).withVatRateInPercent(Decimal(23)).build()
+        let item = anInvoiceItem().withAmount(Decimal(1)).withUnitNetPrice(Decimal(string: "1")!).withVatRate(VatRate(value: 0.23)).build()
         XCTAssertEqual(Decimal(string: "0.23"), item.vatValue, "VAT values must be equal")
     }
 }

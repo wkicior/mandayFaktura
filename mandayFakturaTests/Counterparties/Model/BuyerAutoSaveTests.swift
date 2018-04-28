@@ -12,6 +12,14 @@ import XCTest
 @testable import mandayFaktura
 
 private class CounterpartyRepositoryMock: CounterpartyRepository {
+    func saveBuyers(_ buyers: [Counterparty]) {
+        //
+    }
+    
+    func replaceBuyer(_ buyer: Counterparty, with: Counterparty) {
+        //
+    }
+    
     func getSeller() -> Counterparty? {
         return nil
     }

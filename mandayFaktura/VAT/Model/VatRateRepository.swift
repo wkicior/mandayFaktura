@@ -9,6 +9,6 @@
 import Foundation
 
 protocol VatRateRepository {
-    func getVatRates() -> [Decimal]
-    func getDefaultVatRate() -> Decimal
+    func getVatRates() -> [VatRate]
+    func getDefaultVatRate() -> VatRate
 }

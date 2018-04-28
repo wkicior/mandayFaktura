@@ -58,7 +58,7 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatRateInPercent)!)
+            cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatRate)!)
             cell.tag = row
             return cell
         }
@@ -123,9 +123,9 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         }
     }
     
-    func changeVatRate(row: Int, vatRate: Decimal) {
+    func changeVatRate(row: Int, vatRate: VatRate) {
         let oldItem = items[row]
-        items[row] = anItemDefinition().from(source: oldItem).withVatRateInPercent(vatRate).build()
+        items[row] = anItemDefinition().from(source: oldItem).withVatRate(vatRate).build()
     }
  
 }

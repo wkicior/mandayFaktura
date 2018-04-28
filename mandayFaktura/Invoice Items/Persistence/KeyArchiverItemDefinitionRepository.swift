@@ -8,39 +8,6 @@
 
 import Foundation
 
-@objc(ItemDefinitionCoding) class ItemDefinitionCoding: NSObject, NSCoding {
-    let itemDefinition: ItemDefinition
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(self.itemDefinition.name, forKey: "name")
-        coder.encode(self.itemDefinition.alias, forKey: "alias")
-        coder.encode(self.itemDefinition.unitNetPrice, forKey: "unitNetPrice")
-        coder.encode(self.itemDefinition.unitOfMeasure.rawValue, forKey: "unitOfMeasure")
-        coder.encode(self.itemDefinition.vatRateInPercent, forKey: "vatRateInPercent")
-    }
-    
-    required convenience init?(coder decoder: NSCoder) {
-        guard let name = decoder.decodeObject(forKey: "name") as? String,
-            let alias = decoder.decodeObject(forKey: "alias") as? String,
-            let unitNetPrice = decoder.decodeObject(forKey: "unitNetPrice") as? Decimal,
-            let vatRateInPercent = decoder.decodeObject(forKey: "vatRateInPercent") as? Decimal
-            else { return nil }
-        let unitOfMeasure = UnitOfMeasure(rawValue: (decoder.decodeInteger(forKey: "unitOfMeasure")))!
-        self.init(anItemDefinition()
-            .withName(name)
-            .withAlias(alias)
-            .withUnitNetPrice(unitNetPrice)
-            .withUnitOfMeasure(unitOfMeasure)
-            .withVatRateInPercent(vatRateInPercent)
-            .build())
-    }
-    
-    init(_ itemDefinition: ItemDefinition) {
-        self.itemDefinition = itemDefinition
-    }
-    
-}
-
 /**
  The implementation of ItemDefinitionRepository using NSKeyedArchiver storage
  */

@@ -12,9 +12,11 @@ class AbstractInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
+    let vatRateRepository: VatRateRepository = InMemoryVatRateRepository()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
+
     
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
@@ -94,7 +96,7 @@ extension AbstractInvoiceViewController {
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
-        let vatRate = Decimal(sender.selectedItem!.tag)
+        let vatRate = self.vatRateRepository.getVatRates()[sender.selectedItem!.tag]
         self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
         safeReloadData()
     }

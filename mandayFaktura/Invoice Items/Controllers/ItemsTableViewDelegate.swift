@@ -73,7 +73,7 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            cell.selectItem(at: self.vatRateRepository.getVatRates().index(of: item.vatRateInPercent)!)
+            cell.selectItem(at: self.vatRateRepository.getVatRates().index {vr in vr.literal == item.vatRate.literal}!)
             cell.tag = row
             return cell
         } else if tableColumn == tableView.tableColumns[5] {
@@ -136,14 +136,14 @@ extension ItemsTableViewDelegate {
     
     func addItem() {
         let defaultVatRate = self.vatRateRepository.getDefaultVatRate()
-        items.append(anInvoiceItem().withVatRateInPercent(defaultVatRate).withUnitOfMeasure(.pieces).build())
+        items.append(anInvoiceItem().withVatRate(defaultVatRate).withUnitOfMeasure(.pieces).build())
     }
     
     func addItem(itemDefinition: ItemDefinition) {
         items.append(anInvoiceItem()
             .withName(itemDefinition.name)
             .withUnitNetPrice(itemDefinition.unitNetPrice)
-            .withVatRateInPercent(itemDefinition.vatRateInPercent)
+            .withVatRate(itemDefinition.vatRate)
             .withUnitOfMeasure(itemDefinition.unitOfMeasure)
             .build())
     }
@@ -163,8 +163,8 @@ extension ItemsTableViewDelegate {
         }
     }
     
-    func changeVatRate(row: Int, vatRate: Decimal) {
+    func changeVatRate(row: Int, vatRate: VatRate) {
         let oldItem = items[row]
-        items[row] = anInvoiceItem().from(source: oldItem).withVatRateInPercent(vatRate).build()
+        items[row] = anInvoiceItem().from(source: oldItem).withVatRate(vatRate).build()
     }
 }

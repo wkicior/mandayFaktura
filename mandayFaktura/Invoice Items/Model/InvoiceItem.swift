@@ -13,7 +13,7 @@ struct InvoiceItem {
     let amount: Decimal
     let unitOfMeasure: UnitOfMeasure
     let unitNetPrice: Decimal
-    let vatRateInPercent: Decimal
+    let vatRate: VatRate
     
     var netValue: Decimal {
         get {
@@ -32,7 +32,7 @@ struct InvoiceItem {
     
     var vatValue: Decimal {
         get {
-            var vatValue = vatRateInPercent/100 * netValue
+            var vatValue = vatRate.value * netValue
             var result = Decimal()
             NSDecimalRound(&result, &vatValue, 2, .plain)
             return result
@@ -49,7 +49,7 @@ class InvoiceItemBuilder {
     private var amount = Decimal()
     private var unitOfMeasure: UnitOfMeasure = .pieces
     private var unitNetPrice = Decimal()
-    private var vatRateInPercent = Decimal()
+    private var vatRate = VatRate(value: Decimal(),literal: "0%")
     
     
     func from(source: InvoiceItem) -> InvoiceItemBuilder {
@@ -57,7 +57,7 @@ class InvoiceItemBuilder {
         self.amount = source.amount
         self.unitOfMeasure = source.unitOfMeasure
         self.unitNetPrice = source.unitNetPrice
-        self.vatRateInPercent = source.vatRateInPercent
+        self.vatRate = source.vatRate
         return self
     }
     
@@ -81,12 +81,12 @@ class InvoiceItemBuilder {
         return self
     }
     
-    func withVatRateInPercent(_ vatRateInPercent: Decimal) -> InvoiceItemBuilder {
-        self.vatRateInPercent = vatRateInPercent
+    func withVatRate(_ vatRate: VatRate) -> InvoiceItemBuilder {
+        self.vatRate = vatRate
         return self
     }
     
     func build() -> InvoiceItem {
-        return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRateInPercent: vatRateInPercent)
+        return InvoiceItem(name: name, amount: amount, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRate: vatRate)
     }
 }

@@ -13,7 +13,7 @@ struct ItemDefinition {
     let alias: String
     let unitOfMeasure: UnitOfMeasure
     let unitNetPrice: Decimal
-    let vatRateInPercent: Decimal
+    let vatRate: VatRate
 }
 func anItemDefinition() -> ItemDefinitionBuilder {
     return ItemDefinitionBuilder()
@@ -23,14 +23,14 @@ class ItemDefinitionBuilder {
     var alias = ""
     var unitOfMeasure: UnitOfMeasure = .pieces
     var unitNetPrice = Decimal()
-    var vatRateInPercent = Decimal()
+    var vatRate = VatRate(value: Decimal(), literal: "0%")
     
     func from(source: ItemDefinition) -> ItemDefinitionBuilder {
         self.name = source.name
         self.alias = source.alias
         self.unitOfMeasure = source.unitOfMeasure
         self.unitNetPrice = source.unitNetPrice
-        self.vatRateInPercent = source.vatRateInPercent
+        self.vatRate = source.vatRate
         return self
     }
     
@@ -39,12 +39,12 @@ class ItemDefinitionBuilder {
         self.alias = item.name
         self.unitOfMeasure = item.unitOfMeasure
         self.unitNetPrice = item.unitNetPrice
-        self.vatRateInPercent = item.vatRateInPercent
+        self.vatRate = item.vatRate
         return self
     }
     
     func build() -> ItemDefinition {
-        return ItemDefinition(name: name, alias: alias, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRateInPercent: vatRateInPercent)
+        return ItemDefinition(name: name, alias: alias, unitOfMeasure: unitOfMeasure, unitNetPrice: unitNetPrice, vatRate: vatRate)
     }
     
     func withName(_ name: String) -> ItemDefinitionBuilder {
@@ -67,8 +67,8 @@ class ItemDefinitionBuilder {
         return self
     }
     
-    func withVatRateInPercent(_ vatRateInPercent: Decimal) -> ItemDefinitionBuilder {
-        self.vatRateInPercent = vatRateInPercent
+    func withVatRate(_ vatRate: VatRate) -> ItemDefinitionBuilder {
+        self.vatRate = vatRate
         return self
     }
     

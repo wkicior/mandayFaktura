@@ -31,8 +31,8 @@ class InvoiceTests: XCTestCase {
     }
     
     func testTotalVatValue_sums_invoice_items() {
-        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRateInPercent(1).build()
-        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRateInPercent(1).build()
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
+        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
         
         let invoice = Invoice(issueDate: Date(), number: "", sellingDate: Date(), seller: aCounterparty(), buyer: aCounterparty(), items: [item1, item2], paymentForm: .cash, paymentDueDate: Date())
         XCTAssertEqual(Decimal(string: "0.06"), invoice.totalVatValue, "Vat values must be equal")
@@ -44,8 +44,8 @@ class InvoiceTests: XCTestCase {
     }
     
     func testTotalGrossValue_sums_invoice_items() {
-        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRateInPercent(1).build()
-        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRateInPercent(1).build()
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
+        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
        
         let invoice = Invoice(issueDate: Date(), number: "", sellingDate: Date(), seller: aCounterparty(), buyer: aCounterparty(), items: [item1, item2], paymentForm: .cash, paymentDueDate: Date())
         XCTAssertEqual(Decimal(string: "6.06"), invoice.totalGrossValue, "Gross values must be equal")

@@ -11,6 +11,7 @@ import Cocoa
 class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var invoiceController: AbstractInvoiceViewController?
+    let vatRateRepository: InMemoryVatRateRepository = InMemoryVatRateRepository()
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
@@ -91,7 +92,7 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onVatRateInPercentChange(_ sender: NSPopUpButton) {
-        let vatRate = Decimal(sender.selectedItem!.tag)
+        let vatRate = self.vatRateRepository.getVatRates()[sender.selectedItem!.tag]
         self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
         safeReloadData()
     }

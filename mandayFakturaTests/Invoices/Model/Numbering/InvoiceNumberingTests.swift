@@ -11,6 +11,10 @@ import XCTest
 @testable import mandayFaktura
 
 class MockInvoiceRepository: InvoiceRepository {
+    func editInvoice(old: Invoice, new: Invoice) {
+        //
+    }
+    
     let invoices: [Invoice]
     
     init(invoices: [Invoice]) {

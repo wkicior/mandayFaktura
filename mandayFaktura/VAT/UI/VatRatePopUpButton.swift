@@ -16,7 +16,8 @@ class VatRatePopUpButton: NSPopUpButton {
     let vatRateRepository = InMemoryVatRateRepository()
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        vatRateRepository.getVatRates().map({vr in "\(vr)%"}).forEach({vr in self.addItem(withTitle: vr)})
-        self.itemArray.forEach({item in item.tag = Int(item.title.replacingOccurrences(of: "%", with: ""))!})
+        let vatRates = vatRateRepository.getVatRates()
+        vatRates.map({vr in vr.literal}).forEach({vr in self.addItem(withTitle: vr)})
+        self.itemArray.forEach({item in item.tag = vatRates.index(where : {vr in vr.literal == item.title})!})
     }
 }
