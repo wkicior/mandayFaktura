@@ -21,4 +21,14 @@ class VatRateTests: XCTestCase {
         let vatRate = VatRate(value: 0)
         XCTAssertEqual("0%", vatRate.literal)
     }
+    
+    func testIsSpecial_returns_false_for_0_percent() {
+        let vatRate = VatRate(value: 0)
+        XCTAssertFalse(vatRate.special)
+    }
+    
+    func testIsSpecial_returns_true_for_special_value() {
+        let vatRate = VatRate(value: 0, literal: "zw.")
+        XCTAssertTrue(vatRate.special)
+    }
 }

@@ -49,7 +49,12 @@ struct VatBreakdown {
     */
     var entries: [BreakdownEntry] {
         get {
-          let vatRates =  Array(Set<VatRate>(invoiceItems.map({i in i.vatRate}))).sorted {$0.value < $1.value}
+            let vatRates =  Array(Set<VatRate>(invoiceItems.map({i in i.vatRate}))).sorted {
+                if (!$0.special && !$1.special) {
+                    return $0.value < $1.value
+                }
+                return $0.literal < $1.literal
+            }
             return vatRates.map({ vat in
                 let netValueSum = invoiceItems.filter({i in vat.literal == i.vatRate.literal}).map({i in i.netValue}).reduce(0, +)
                 return BreakdownEntry(vatRate: vat, netValue: netValueSum)

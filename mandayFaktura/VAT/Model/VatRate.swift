@@ -18,4 +18,10 @@ struct VatRate: Hashable {
         self.value = value
         self.literal = literal ?? "\(value * 100)%"
     }
+    
+    var special: Bool {
+        get {
+            return self.literal != "\(value * 100)%"
+        }
+    }
 }
