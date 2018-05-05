@@ -62,6 +62,7 @@ extension AbstractInvoiceViewController {
     
     internal func checkSaveButtonEnabled() {
         self.saveButton.isEnabled = self.itemsTableView.numberOfRows > 0
+            && !(self.itemsTableViewDelegate?.items.map({i in i.name.isEmpty}).reduce(false, { (r, s) -> Bool in r || s}))!
             && !self.numberTextField.stringValue.isEmpty
             && !self.buyerNameTextField.stringValue.isEmpty
             && !self.streetAndNumberTextField.stringValue.isEmpty
@@ -133,6 +134,7 @@ extension AbstractInvoiceViewController {
         self.itemsTableViewDelegate!.addItem()
         self.itemsTableView.reloadData()
         checkPreviewButtonEnabled()
+        checkSaveButtonEnabled()
     }
     
     @IBAction func onMinusButtonClicked(_ sender: Any) {
@@ -140,6 +142,7 @@ extension AbstractInvoiceViewController {
         self.itemsTableViewDelegate!.removeSelectedItem()
         safeReloadData()
         checkPreviewButtonEnabled()
+        checkSaveButtonEnabled()
     }
     
     @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {
