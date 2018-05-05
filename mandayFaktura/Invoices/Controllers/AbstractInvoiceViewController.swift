@@ -40,7 +40,7 @@ class AbstractInvoiceViewController: NSViewController {
         super.viewDidLoad()
         issueDatePicker.dateValue = Date()
         sellingDatePicker.dateValue = Date()
-        dueDatePicker.dateValue = Date()
+        dueDatePicker.dateValue = Calendar.current.date(byAdding: .day, value: 14, to: Date())!
         itemsTableViewDelegate = ItemsTableViewDelegate(itemsTableView: itemsTableView)
         itemsTableView.delegate = itemsTableViewDelegate
         itemsTableView.dataSource = itemsTableViewDelegate
