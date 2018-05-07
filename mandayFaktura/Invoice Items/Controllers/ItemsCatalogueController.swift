@@ -33,7 +33,7 @@ extension ItemsCatalogueController {
     }
     
     /**
-    This method can detect changes not persisted yet to model - the text field being updated
+     This method can detect changes not persisted yet to model - for instance: the text field being updated
      */
     func checkSaveButtonEnabledOnTableView() {
         let allNamesAreFilled = (0 ..< itemsTableView.numberOfRows).map({c in itemsTableView.rowView(atRow: c, makeIfNecessary: false)}) // get rows
@@ -95,14 +95,16 @@ extension ItemsCatalogueController {
         let vatRate = self.vatRateRepository.getVatRates()[sender.selectedItem!.tag]
         self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
         safeReloadData()
+        checkSaveButtonEnabledOnModel()
     }
     @IBAction func onUnitNetPriceChange(_ sender: NSTextField) {
         tryWithWarning(self.itemsCatalogueTableViewDelegate!.changeItemNetValue, on: sender)
         safeReloadData()
     }
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
-         self.itemsCatalogueTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
-          safeReloadData()
+        self.itemsCatalogueTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
+        safeReloadData()
+        checkSaveButtonEnabledOnModel()
     }
     
     @IBAction func onAliasChange(_ sender: NSTextField) {
