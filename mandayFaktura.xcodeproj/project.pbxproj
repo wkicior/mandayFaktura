@@ -87,6 +87,7 @@
 		D3B7C96720924E6300432176 /* VatRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C96620924E6300432176 /* VatRateTests.swift */; };
 		D3D82327206042960031C2D1 /* OrderingDragSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82326206042960031C2D1 /* OrderingDragSource.swift */; };
 		D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82328206043080031C2D1 /* DragOrderingDestination.swift */; };
+		D3E312C520A0DC6500C84CEE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,7 @@
 		D3B7C96620924E6300432176 /* VatRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateTests.swift; sourceTree = "<group>"; };
 		D3D82326206042960031C2D1 /* OrderingDragSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingDragSource.swift; sourceTree = "<group>"; };
 		D3D82328206043080031C2D1 /* DragOrderingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragOrderingDestination.swift; sourceTree = "<group>"; };
+		D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +635,7 @@
 		D37560B6203601B100F507AD /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D3E312C320A0DC4B00C84CEE /* Controllers */,
 				D3052F55204DE2280064DF10 /* Warnings */,
 				D37560B7203601C000F507AD /* Errors */,
 			);
@@ -664,6 +667,14 @@
 				D3D82328206043080031C2D1 /* DragOrderingDestination.swift */,
 			);
 			path = Numbering;
+			sourceTree = "<group>";
+		};
+		D3E312C320A0DC4B00C84CEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -826,6 +837,7 @@
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
 				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
 				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,
+				D3E312C520A0DC6500C84CEE /* DatePickerViewController.swift in Sources */,
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
 				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
 				D3254EAA2059852200CC889C /* NumberingSegmentCoder.swift in Sources */,

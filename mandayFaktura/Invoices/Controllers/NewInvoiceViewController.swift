@@ -47,11 +47,21 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
-            let vc = segue.destinationController as? PdfViewController
-            vc?.invoice = invoice
+            let vc = segue.destinationController as! PdfViewController
+            vc.invoice = invoice
         } else if segue.destinationController is ItemsCatalogueController {
-            let vc = segue.destinationController as? ItemsCatalogueController
-            vc?.invoiceController = self
+            let vc = segue.destinationController as! ItemsCatalogueController
+            vc.invoiceController = self
+        } else if segue.destinationController is DatePickerViewController {
+            let vc = segue.destinationController as! DatePickerViewController
+            if segue.identifier == NSStoryboardSegue.Identifier("issueDatePickerSegue") {
+               
+                vc.relatedDatePicker = self.issueDatePicker
+            } else if segue.identifier == NSStoryboardSegue.Identifier("sellDatePickerSegue") {
+                vc.relatedDatePicker = self.sellingDatePicker
+            } else if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
+                vc.relatedDatePicker = self.dueDatePicker
+            }
         }
     }
 }
