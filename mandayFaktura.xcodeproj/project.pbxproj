@@ -88,6 +88,8 @@
 		D3D82327206042960031C2D1 /* OrderingDragSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82326206042960031C2D1 /* OrderingDragSource.swift */; };
 		D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82328206043080031C2D1 /* DragOrderingDestination.swift */; };
 		D3E312C520A0DC6500C84CEE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */; };
+		D3E312CA20A4DCFF00C84CEE /* VatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */; };
+		D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +198,8 @@
 		D3D82326206042960031C2D1 /* OrderingDragSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingDragSource.swift; sourceTree = "<group>"; };
 		D3D82328206043080031C2D1 /* DragOrderingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragOrderingDestination.swift; sourceTree = "<group>"; };
 		D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatSettingsViewController.swift; sourceTree = "<group>"; };
+		D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatesTableViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +555,7 @@
 		D375609F20321BD600F507AD /* VAT */ = {
 			isa = PBXGroup;
 			children = (
+				D3E312C820A4DCED00C84CEE /* Controllers */,
 				D37560A620321D4300F507AD /* UI */,
 				D37560A320321CD900F507AD /* Persistence */,
 				D37560A020321C3200F507AD /* Model */,
@@ -673,6 +678,15 @@
 			isa = PBXGroup;
 			children = (
 				D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D3E312C820A4DCED00C84CEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */,
+				D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -853,6 +867,7 @@
 				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
+				D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */,
 				D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */,
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
@@ -867,6 +882,7 @@
 				D3B7C95F2087B98900432176 /* EditInvoiceViewController.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,
+				D3E312CA20A4DCFF00C84CEE /* VatSettingsViewController.swift in Sources */,
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D3B7C95D2087B92D00432176 /* AbstractInvoiceViewController.swift in Sources */,
 				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,

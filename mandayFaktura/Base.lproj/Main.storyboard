@@ -6,58 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab View Controller-->
-        <scene sceneID="U9L-kg-8ax">
-            <objects>
-                <tabViewController id="IdJ-jx-zoM" sceneMemberID="viewController">
-                    <tabViewItems>
-                        <tabViewItem identifier="" id="cvZ-ey-qRi"/>
-                        <tabViewItem identifier="" id="PLX-1a-LRU"/>
-                    </tabViewItems>
-                    <tabView key="tabView" type="noTabsNoBorder" id="awc-gA-sJN">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" metaFont="message"/>
-                        <connections>
-                            <outlet property="delegate" destination="IdJ-jx-zoM" id="8Bf-II-tis"/>
-                        </connections>
-                    </tabView>
-                    <connections>
-                        <outlet property="tabView" destination="awc-gA-sJN" id="6mf-KH-y53"/>
-                        <segue destination="iAE-SK-PX7" kind="relationship" relationship="tabItems" id="uVS-9o-DuC"/>
-                        <segue destination="ZEy-Fc-ROn" kind="relationship" relationship="tabItems" id="kNy-Vl-Vue"/>
-                    </connections>
-                </tabViewController>
-                <customObject id="hUI-Wy-Pkp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="618" y="-1227"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="uhB-OY-Csx">
-            <objects>
-                <viewController id="iAE-SK-PX7" sceneMemberID="viewController">
-                    <view key="view" id="0Io-mi-eFW">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="zTt-AQ-pgK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1288" y="-1413"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="aC2-yi-1eX">
-            <objects>
-                <viewController id="ZEy-Fc-ROn" sceneMemberID="viewController">
-                    <view key="view" id="PUe-qK-XcA">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="zEn-bP-D1W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1288" y="-1041"/>
-        </scene>
         <!--Ustawienia-->
         <scene sceneID="nuJ-Mp-Okx">
             <objects>
@@ -65,6 +13,7 @@
                     <tabViewItems>
                         <tabViewItem label="Dane firmy" identifier="" id="cJA-bK-apM"/>
                         <tabViewItem label="Numeracja" identifier="" id="ULa-nh-Cjx"/>
+                        <tabViewItem label="Stawki VAT" id="mGw-VY-vaY"/>
                     </tabViewItems>
                     <tabView key="tabView" autoresizesSubviews="NO" type="noTabsNoBorder" id="a5q-V5-GpW">
                         <rect key="frame" x="1" y="0.0" width="449" height="300"/>
@@ -78,6 +27,7 @@
                         <outlet property="tabView" destination="a5q-V5-GpW" id="P7o-b1-agP"/>
                         <segue destination="ONU-i2-fbc" kind="relationship" relationship="tabItems" id="KU1-hG-9BN"/>
                         <segue destination="4iu-O0-OUn" kind="relationship" relationship="tabItems" id="WpX-8m-9dk"/>
+                        <segue destination="oyF-0z-qfU" kind="relationship" relationship="tabItems" id="BbN-d0-N9O"/>
                     </connections>
                 </tabViewController>
                 <customObject id="OA8-l1-ldy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1118,7 +1068,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWk-J3-2aN">
-                                <rect key="frame" x="675" y="503" width="109" height="17"/>
+                                <rect key="frame" x="687" y="503" width="109" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data wystawienia" id="PZc-0Z-54G">
                                     <font key="font" metaFont="system"/>
@@ -1139,15 +1089,6 @@
                                     <segue destination="xVm-3h-MS1" kind="show" id="mvy-hV-L5q"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7a-72-gJL">
-                                <rect key="frame" x="689" y="477" width="109" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data sprzedaży" id="TtX-PT-VRV">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckj-xA-UAK">
                                 <rect key="frame" x="835" y="472" width="111" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1636,6 +1577,15 @@
                                     <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="HEL-Yc-qpf" popoverBehavior="t" preferredEdge="maxY" id="Z1u-ve-SKZ"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7a-72-gJL">
+                                <rect key="frame" x="687" y="477" width="109" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data sprzedaży" id="TtX-PT-VRV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -2234,7 +2184,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-2I-E5L">
-                                <rect key="frame" x="713" y="503" width="109" height="17"/>
+                                <rect key="frame" x="680" y="503" width="109" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data wystawienia" id="B3p-j5-IeY">
                                     <font key="font" metaFont="system"/>
@@ -2256,7 +2206,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zi-ng-4iH">
-                                <rect key="frame" x="713" y="478" width="109" height="17"/>
+                                <rect key="frame" x="680" y="478" width="109" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data sprzedaży" id="kXf-as-TW0">
                                     <font key="font" metaFont="system"/>
@@ -2673,7 +2623,7 @@
                                 </datePickerCell>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8j-uN-G3n">
-                                <rect key="frame" x="326" y="140" width="49" height="17"/>
+                                <rect key="frame" x="297" y="140" width="49" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Termin:" id="fCN-G1-U64">
                                     <font key="font" metaFont="system"/>
@@ -2730,6 +2680,39 @@
                                     <segue destination="463-Th-NCJ" kind="modal" id="7rX-Ec-kKv"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ER-YO-NOl">
+                                <rect key="frame" x="793" y="501" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JdW-Cn-SAO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="issueDatePickerSegue" popoverAnchorView="4ER-YO-NOl" popoverBehavior="t" preferredEdge="maxY" id="vDY-KR-MZq"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ysu-pk-0x5">
+                                <rect key="frame" x="793" y="474" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JuL-zg-1BQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="sellDatePickerSegue" popoverAnchorView="Ysu-pk-0x5" popoverBehavior="t" preferredEdge="maxY" id="zjh-ad-f7W"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCW-XI-td3">
+                                <rect key="frame" x="345" y="138" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CJs-Hn-EJf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="yCW-XI-td3" popoverBehavior="t" preferredEdge="maxY" id="lEd-0Y-pPs"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -2756,6 +2739,123 @@
             </objects>
             <point key="canvasLocation" x="2032" y="842"/>
         </scene>
+        <!--Stawki VAT-->
+        <scene sceneID="ZOj-b8-qsg">
+            <objects>
+                <viewController title="Stawki VAT" id="oyF-0z-qfU" customClass="VatSettingsViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="dtz-gY-7SO">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azw-8H-Kof">
+                                <rect key="frame" x="20" y="66" width="410" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="eQm-YU-hz8">
+                                    <rect key="frame" x="1" y="23" width="408" height="202"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="oiM-uo-YeV" viewBased="YES" id="9lb-ni-6bM">
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="202"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="" width="405" minWidth="40" maxWidth="1000" id="9II-l9-zdB">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Stawki VAT">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="xOe-rV-s4f">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="vatRateCellId" id="XfE-fl-lbo">
+                                                            <rect key="frame" x="1" y="1" width="405" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3Z-7Z-UtH">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="405" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="RQh-u0-Sg1">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="u3Z-7Z-UtH" id="CtM-NP-wL4"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="eB0-7M-TPi">
+                                    <rect key="frame" x="1" y="235" width="408" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="D63-dS-J0y">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="oiM-uo-YeV">
+                                    <rect key="frame" x="0.0" y="0.0" width="408" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LwF-rB-jI9">
+                                <rect key="frame" x="20" y="34" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aSu-em-P0S">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onAddItemClicked:" target="Pk8-xk-tGP" id="naZ-2v-i0O"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCN-1s-7M8">
+                                <rect key="frame" x="50" y="34" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wm1-19-nEh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onDeleteVatRateButtonClicked:" target="oyF-0z-qfU" id="RzZ-po-fcF"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umt-ZH-Ly9">
+                                <rect key="frame" x="20" y="34" width="27" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oYh-8r-NCQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onAddVatRateButtonClicked:" target="oyF-0z-qfU" id="SCI-wr-e5u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="addVatRateButton" destination="LwF-rB-jI9" id="qun-oM-8UY"/>
+                        <outlet property="removeVatRateButton" destination="hCN-1s-7M8" id="ifN-Uv-tff"/>
+                        <outlet property="vatTableView" destination="9lb-ni-6bM" id="oim-5u-BhV"/>
+                    </connections>
+                </viewController>
+                <customObject id="Ze7-jC-wd8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="-1398"/>
+        </scene>
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
@@ -2764,7 +2864,7 @@
         <image name="NSTouchBarTagIconTemplate" width="23" height="30"/>
         <image name="NSTrashEmpty" width="32" height="32"/>
         <image name="NSUserGroup" width="32" height="32"/>
-        <image name="calendar-alt" width="16" height="18"/>
+        <image name="calendar-alt" width="32" height="37"/>
         <image name="popUpButtonCell:zML-m2-Mvs:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -2901,7 +3001,7 @@ AAAAAAAcgQ
         <segue reference="mvy-hV-L5q"/>
         <segue reference="7rX-Ec-kKv"/>
         <segue reference="ALL-qi-P1w"/>
-        <segue reference="rlR-6U-R4S"/>
+        <segue reference="Z1u-ve-SKZ"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
 </document>

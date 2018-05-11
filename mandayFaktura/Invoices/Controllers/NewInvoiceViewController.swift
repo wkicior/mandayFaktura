@@ -55,7 +55,6 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         } else if segue.destinationController is DatePickerViewController {
             let vc = segue.destinationController as! DatePickerViewController
             if segue.identifier == NSStoryboardSegue.Identifier("issueDatePickerSegue") {
-               
                 vc.relatedDatePicker = self.issueDatePicker
             } else if segue.identifier == NSStoryboardSegue.Identifier("sellDatePickerSegue") {
                 vc.relatedDatePicker = self.sellingDatePicker
