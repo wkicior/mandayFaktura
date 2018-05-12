@@ -74,11 +74,11 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         return self.items[index]
     }
     
-    func changeItemName(_ sender: NSTextField) {
+    func changeItemName(_ name: String) {
         let selectedRowNumber = itemsTableView.selectedRow
         if selectedRowNumber != -1 {
             let oldItem = items[selectedRowNumber]
-            items[selectedRowNumber] = anItemDefinition().from(source: oldItem).withName(sender.stringValue).build()
+            items[selectedRowNumber] = anItemDefinition().from(source: oldItem).withName(name).build()
         }
     }
     

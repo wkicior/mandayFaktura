@@ -34,7 +34,6 @@ class InvoiceNumbering {
 
     var nextInvoiceNumber: String {
         get {
-            
             let segments = settings.segments.map({s in buildSegmentValue(from: s)})
             return numberingCoder.encodeNumber(segments: segments)
         }

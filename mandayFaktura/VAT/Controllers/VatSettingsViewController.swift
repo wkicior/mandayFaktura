@@ -20,11 +20,26 @@ class VatSettingsViewController: NSViewController {
     @IBOutlet weak var vatTableView: NSTableView!
     @IBOutlet weak var addVatRateButton: NSButton!
     @IBOutlet weak var removeVatRateButton: NSButton!
+    
     @IBAction func onAddVatRateButtonClicked(_ sender: NSButton) {
-        
+        vatRatesTableViewDelegate?.addVatRate()
+        self.vatTableView.reloadData()
     }
     @IBAction func onDeleteVatRateButtonClicked(_ sender: NSButton) {
         vatRatesTableViewDelegate!.removeSelectedItem()
+        self.vatTableView.reloadData()
+        setRemoveItemAvailability()
+    }
+    
+    @IBAction func onTableViewClicked(_ sender: NSTableView) {
+        setRemoveItemAvailability()
+    }
+    private func setRemoveItemAvailability() {
+        self.removeVatRateButton.isEnabled = self.vatTableView.selectedRow != -1
+    }
+    @IBAction func onVatRateChanged(_ sender: NSTextFieldCell) {
+        let vatRate: VatRate = VatRate(string: sender.stringValue)
+        vatRatesTableViewDelegate!.updateVatRate(vatRate)
         self.vatTableView.reloadData()
     }
 }

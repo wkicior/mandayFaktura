@@ -69,7 +69,7 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onNameChange(_ sender: NSTextField) {
-        self.itemsCatalogueTableViewDelegate!.changeItemName(sender)
+        self.itemsCatalogueTableViewDelegate!.changeItemName(sender.stringValue)
         safeReloadData()
     }
     

@@ -38,13 +38,25 @@ class VatRatesTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDel
             return cell
         }
         return nil
-        
+    }
+    
+    func addVatRate() {
+        self.vatRates.append(VatRate(value: 0.00, literal: ""))
     }
     
     func removeSelectedItem() {
         let selectedRowNumber = vatRatesTableView.selectedRow
         if selectedRowNumber != -1 {
             vatRates.remove(at: selectedRowNumber)
+            self.vatRateRepository.saveVatRates(vatRates: vatRates)
+        }
+    }
+    
+    func updateVatRate(_ vatRate: VatRate) {
+        let selectedRowNumber = vatRatesTableView.selectedRow
+        if selectedRowNumber != -1 {
+            let oldItem = vatRates[selectedRowNumber]
+            vatRates[selectedRowNumber] = vatRate
             self.vatRateRepository.saveVatRates(vatRates: vatRates)
         }
     }

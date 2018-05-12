@@ -31,4 +31,40 @@ class VatRateTests: XCTestCase {
         let vatRate = VatRate(value: 0, literal: "zw.")
         XCTAssertTrue(vatRate.special)
     }
+    
+    func testVatRate_initsFromString_specialValue() {
+        let vatRate = VatRate(string: "foo")
+        XCTAssertEqual("foo", vatRate.literal)
+        XCTAssertEqual(0, vatRate.value)
+    }
+    
+    func testVatRate_initsFromString_0percent() {
+        let vatRate = VatRate(string: "0%")
+        XCTAssertEqual("0%", vatRate.literal)
+        XCTAssertEqual(0, vatRate.value)
+    }
+    
+    func testVatRate_initsFromString_10() {
+        let vatRate = VatRate(string: "10")
+        XCTAssertEqual("10", vatRate.literal)
+        XCTAssertEqual(0, vatRate.value)
+    }
+    
+    func testVatRate_initsFromString_30percent() {
+        let vatRate = VatRate(string: "30%")
+        XCTAssertEqual("30%", vatRate.literal)
+        XCTAssertEqual(Decimal(string: "0.3"), vatRate.value)
+    }
+    
+    func testVatRate_initsFromString_30percent_not_trimmed() {
+        let vatRate = VatRate(string: " 30%" )
+        XCTAssertEqual("30%", vatRate.literal)
+        XCTAssertEqual(Decimal(string: "0.3"), vatRate.value)
+    }
+    
+    func testVatRate_initsFromString_30percentfoobar() {
+        let vatRate = VatRate(string: "30%foobar")
+        XCTAssertEqual("30%foobar", vatRate.literal)
+        XCTAssertEqual(Decimal(string: "0"), vatRate.value)
+    }
 }
