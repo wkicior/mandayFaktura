@@ -97,9 +97,12 @@ extension AbstractInvoiceViewController {
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
-        let vatRate = self.vatRateRepository.getVatRates()[sender.selectedItem!.tag]
-        self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
-        safeReloadData()
+        let vatRates = self.vatRateRepository.getVatRates() // this does not contain all values
+        if !vatRates.isEmpty {
+            let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
+            self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
+            safeReloadData()
+        }
     }
     
     @IBAction func onSelectBuyerButtonClicked(_ sender: NSPopUpButton) {

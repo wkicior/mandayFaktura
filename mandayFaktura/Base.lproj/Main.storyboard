@@ -1706,7 +1706,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tu5-7u-OCz">
-                                                            <rect key="frame" x="212.5" y="1" width="178" height="40"/>
+                                                            <rect key="frame" x="213" y="1" width="178" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjM-gb-6f8">
@@ -1813,7 +1813,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <popUpButton id="TVc-5d-Gsk" customClass="VatRatePopUpButton" customModule="mandayFaktura" customModuleProvider="target">
-                                                            <rect key="frame" x="542.5" y="1" width="54" height="25"/>
+                                                            <rect key="frame" x="543" y="1" width="54" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <popUpButtonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="right" lineBreakMode="truncatingTail" borderStyle="bezel" inset="2" id="SgE-SO-NR4">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

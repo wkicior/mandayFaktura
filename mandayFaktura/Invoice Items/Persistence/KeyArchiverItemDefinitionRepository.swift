@@ -13,6 +13,7 @@ import Foundation
  */
 class KeyArchiverItemDefinitionRepository: ItemDefinitionRepository {
     private let itemDefinitionsKey = "itemDefinitions" + AppDelegate.keyedArchiverProfile
+    
 
     func getItemDefinitions() -> [ItemDefinition] {
         return itemDefinitionsCoding.map{itemDefinitionCoding in itemDefinitionCoding.itemDefinition}
@@ -30,7 +31,7 @@ class KeyArchiverItemDefinitionRepository: ItemDefinitionRepository {
         get {
             if let data = UserDefaults.standard.object(forKey: itemDefinitionsKey) as? NSData {
                 return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [ItemDefinitionCoding]
-            }
+            } 
             return []
         }
         set {

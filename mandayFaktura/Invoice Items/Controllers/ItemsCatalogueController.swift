@@ -92,10 +92,13 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onVatRateInPercentChange(_ sender: NSPopUpButton) {
-        let vatRate = self.vatRateRepository.getVatRates()[sender.selectedItem!.tag]
-        self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
-        safeReloadData()
-        checkSaveButtonEnabledOnModel()
+        let vatRates = self.vatRateRepository.getVatRates()
+        if !vatRates.isEmpty {
+            let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
+            self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
+            safeReloadData()
+            checkSaveButtonEnabledOnModel()
+        }
     }
     @IBAction func onUnitNetPriceChange(_ sender: NSTextField) {
         tryWithWarning(self.itemsCatalogueTableViewDelegate!.changeItemNetValue, on: sender)

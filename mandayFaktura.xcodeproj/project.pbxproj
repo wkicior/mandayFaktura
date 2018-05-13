@@ -90,6 +90,7 @@
 		D3E312C520A0DC6500C84CEE /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */; };
 		D3E312CA20A4DCFF00C84CEE /* VatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */; };
 		D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */; };
+		D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +201,7 @@
 		D3E312C420A0DC6500C84CEE /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatSettingsViewController.swift; sourceTree = "<group>"; };
 		D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatesTableViewDelegate.swift; sourceTree = "<group>"; };
+		D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverVatRateRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -578,6 +580,7 @@
 			children = (
 				D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */,
 				D3B7C96220924ADB00432176 /* VatRateCoding.swift */,
+				D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				D34D0F202020E939000D1EC6 /* InvoicePdf.swift in Sources */,
 				D3B7C96520924C0000432176 /* ItemDefinitionCoding.swift in Sources */,
 				D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */,
+				D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */,
 				D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */,
 				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,

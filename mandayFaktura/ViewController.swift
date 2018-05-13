@@ -27,7 +27,7 @@ class ViewController: NSViewController {
         InvoiceRepositoryFactory.register(repository: KeyedArchiverInvoiceRepository())
         ItemDefinitionRepositoryFactory.register(repository: KeyArchiverItemDefinitionRepository())
         InvoiceNumberingSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceNumberingSettingsRepository())
-        VatRateRepositoryFactory.register(repository: InMemoryVatRateRepository())
+        VatRateRepositoryFactory.register(repository: KeyArchiverVatRateRepository())
         invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate()
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewDelegate
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewDelegate

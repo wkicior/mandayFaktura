@@ -17,7 +17,7 @@ class InMemoryVatRateRepository: VatRateRepository {
                                VatRate(value: Decimal(), literal: "nd."),
                                VatRate(value: Decimal(), literal: "np."),
                                ]
-    func getDefaultVatRate() -> VatRate {
+    func getDefaultVatRate() -> VatRate? {
         return VatRate(value: Decimal(23), literal: "23%")
     }
     

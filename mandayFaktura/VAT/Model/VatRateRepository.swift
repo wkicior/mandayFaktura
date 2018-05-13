@@ -10,7 +10,7 @@ import Foundation
 
 protocol VatRateRepository {
     func getVatRates() -> [VatRate]
-    func getDefaultVatRate() -> VatRate
+    func getDefaultVatRate() -> VatRate?
     func saveVatRates(vatRates: [VatRate])
 }
 
