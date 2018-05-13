@@ -12,7 +12,7 @@ class AbstractInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
-    let vatRateRepository: VatRateRepository = InMemoryVatRateRepository()
+    let vatRateRepository: VatRateRepository = VatRateRepositoryFactory.instance
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()

@@ -21,7 +21,7 @@ fileprivate enum CellIdentifiers {
 class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let itemsTableView: NSTableView
-    let vatRateRepository = InMemoryVatRateRepository()
+    let vatRateRepository = VatRateRepositoryFactory.instance
     var items: [ItemDefinition] = []
     
     init(itemsTableView: NSTableView) {

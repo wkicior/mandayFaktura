@@ -1541,7 +1541,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="onMinusButtonClicked:" target="haF-wG-vwp" id="7eJ-56-kJx"/>
+                                    <segue destination="463-Th-NCJ" kind="show" id="q7C-5l-bPd"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vme-bB-4SD">
@@ -3004,10 +3004,10 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
-        <segue reference="pNf-8A-Ove"/>
-        <segue reference="7rX-Ec-kKv"/>
+        <segue reference="mvy-hV-L5q"/>
+        <segue reference="q7C-5l-bPd"/>
         <segue reference="ALL-qi-P1w"/>
-        <segue reference="vDY-KR-MZq"/>
+        <segue reference="Z1u-ve-SKZ"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
 </document>

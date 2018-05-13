@@ -11,7 +11,7 @@ import Cocoa
 class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var invoiceController: AbstractInvoiceViewController?
-    let vatRateRepository: InMemoryVatRateRepository = InMemoryVatRateRepository()
+    let vatRateRepository: VatRateRepository = VatRateRepositoryFactory.instance
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
