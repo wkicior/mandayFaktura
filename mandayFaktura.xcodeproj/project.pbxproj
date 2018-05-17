@@ -65,7 +65,6 @@
 		D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A8112028ED7500FFB262 /* PageLayout.swift */; };
 		D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A814202A311200FFB262 /* PageLayoutTests.swift */; };
 		D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A120321C6500F507AD /* VatRateRepository.swift */; };
-		D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */; };
 		D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */; };
 		D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */; };
 		D37560AF2033974100F507AD /* SellerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560AE2033974100F507AD /* SellerSettingsViewController.swift */; };
@@ -176,7 +175,6 @@
 		D370A8112028ED7500FFB262 /* PageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
 		D370A814202A311200FFB262 /* PageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayoutTests.swift; sourceTree = "<group>"; };
 		D37560A120321C6500F507AD /* VatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateRepository.swift; sourceTree = "<group>"; };
-		D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryVatRateRepository.swift; sourceTree = "<group>"; };
 		D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatePopUpButton.swift; sourceTree = "<group>"; };
 		D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCounterpartyRepository.swift; sourceTree = "<group>"; };
 		D37560AE2033974100F507AD /* SellerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSettingsViewController.swift; sourceTree = "<group>"; };
@@ -578,7 +576,6 @@
 		D37560A320321CD900F507AD /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				D37560A420321CEF00F507AD /* InMemoryVatRateRepository.swift */,
 				D3B7C96220924ADB00432176 /* VatRateCoding.swift */,
 				D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */,
 			);
@@ -850,7 +847,6 @@
 				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
-				D37560A520321CEF00F507AD /* InMemoryVatRateRepository.swift in Sources */,
 				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
 				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
