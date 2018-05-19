@@ -10,12 +10,11 @@ import Foundation
 
 class KeyArchiverVatRateRepository: VatRateRepository {
     private let vatRateDefinitionsKey = "vatRates" + AppDelegate.keyedArchiverProfile
-    private let defaultVatRateDefinitionKey = "defaultVatRate" + AppDelegate.keyedArchiverProfile
     
     var defaultVatRates: [VatRate] = [VatRate(value: Decimal(0)),
                                       VatRate(value: Decimal(string: "0.05")!),
                                       VatRate(value: Decimal(string: "0.08")!),
-                                      VatRate(value: Decimal(string: "0.23")!),
+                                      VatRate(value: Decimal(string: "0.23")!, isDefault: true),
                                       VatRate(value: Decimal(), literal: "zw."),
                                       VatRate(value: Decimal(), literal: "nd."),
                                       VatRate(value: Decimal(), literal: "np."),
@@ -26,8 +25,7 @@ class KeyArchiverVatRateRepository: VatRateRepository {
     }
     
     func getDefaultVatRate() -> VatRate? {
-        let vatRates = getVatRates()
-        return defaultVatRateCoding.map{c in c.vatRate} ?? (vatRates.isEmpty ? nil : vatRates[0])
+        return getVatRates().first(where: {v in v.isDefault}) ?? getVatRates().first
     }
     
     func saveVatRates(vatRates: [VatRate]) {
@@ -48,20 +46,4 @@ class KeyArchiverVatRateRepository: VatRateRepository {
             UserDefaults.standard.set(data, forKey: vatRateDefinitionsKey)
         }
     }
-    
-    private var defaultVatRateCoding: VatRateCoding? {
-        get {
-            if let data = UserDefaults.standard.object(forKey: defaultVatRateDefinitionKey) as? NSData {
-                return (NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! VatRateCoding)
-            }
-            return nil
-        }
-        set {
-            let data = NSKeyedArchiver.archivedData(withRootObject: newValue!)
-            UserDefaults.standard.set(data, forKey: defaultVatRateDefinitionKey)
-        }
-        
-    }
-    
-    
 }

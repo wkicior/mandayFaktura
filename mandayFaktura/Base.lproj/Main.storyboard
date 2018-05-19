@@ -287,7 +287,7 @@
                 </viewController>
                 <customObject id="AfS-Px-UCV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1395" y="-642"/>
+            <point key="canvasLocation" x="1395" y="-670"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="DeB-Uq-Ck4">
@@ -1090,7 +1090,7 @@
                                 </connections>
                             </button>
                             <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckj-xA-UAK">
-                                <rect key="frame" x="835" y="472" width="111" height="31"/>
+                                <rect key="frame" x="835" y="472" width="111" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="E4A-KW-BgS">
                                     <font key="font" metaFont="system"/>
@@ -1706,11 +1706,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tu5-7u-OCz">
-                                                            <rect key="frame" x="213" y="1" width="178" height="40"/>
+                                                            <rect key="frame" x="213" y="1" width="179" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjM-gb-6f8">
-                                                                    <rect key="frame" x="2" y="23" width="174" height="17"/>
+                                                                    <rect key="frame" x="2" y="23" width="175" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Alias towaru lub usługi" drawsBackground="YES" id="XSV-th-NYq">
                                                                         <font key="font" metaFont="system"/>
@@ -1813,7 +1813,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <popUpButton id="TVc-5d-Gsk" customClass="VatRatePopUpButton" customModule="mandayFaktura" customModuleProvider="target">
-                                                            <rect key="frame" x="543" y="1" width="54" height="25"/>
+                                                            <rect key="frame" x="543" y="1" width="55" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <popUpButtonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="right" lineBreakMode="truncatingTail" borderStyle="bezel" inset="2" id="SgE-SO-NR4">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2751,7 +2751,7 @@
                                 <rect key="frame" x="20" y="66" width="410" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="eQm-YU-hz8">
-                                    <rect key="frame" x="1" y="23" width="408" height="202"/>
+                                    <rect key="frame" x="1" y="0.0" width="408" height="225"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="oiM-uo-YeV" viewBased="YES" id="9lb-ni-6bM">
@@ -2761,7 +2761,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="405" minWidth="40" maxWidth="1000" id="9II-l9-zdB">
+                                                <tableColumn identifier="vatRateCellId" width="284.5" minWidth="40" maxWidth="1000" id="9II-l9-zdB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Stawki VAT">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2774,12 +2774,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="vatRateCellId" id="XfE-fl-lbo">
-                                                            <rect key="frame" x="1" y="1" width="405" height="17"/>
+                                                        <tableCellView id="XfE-fl-lbo">
+                                                            <rect key="frame" x="1" y="1" width="285" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3Z-7Z-UtH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="405" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Stawka VAT" id="RQh-u0-Sg1">
                                                                         <font key="font" metaFont="system"/>
@@ -2797,6 +2797,38 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
+                                                <tableColumn identifier="defaultRateCellId" width="117.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="QDv-ew-8VB">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Domyślne">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="FiN-Yw-iIz">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="tya-HV-so7">
+                                                            <rect key="frame" x="289" y="1" width="118" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-Md-Ob1">
+                                                                    <rect key="frame" x="47" y="-1" width="23" height="20"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="pcy-Xh-47k">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="onDefaultRateCheckboxChanged:" target="oyF-0z-qfU" id="LIH-pU-eJK"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
                                             </tableColumns>
                                             <connections>
                                                 <action selector="onTableViewClicked:" target="oyF-0z-qfU" id="2rR-cM-C21"/>
@@ -2805,7 +2837,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="eB0-7M-TPi">
-                                    <rect key="frame" x="1" y="209" width="408" height="16"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="D63-dS-J0y">

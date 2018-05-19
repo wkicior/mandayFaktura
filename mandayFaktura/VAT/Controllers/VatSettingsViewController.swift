@@ -37,6 +37,12 @@ class VatSettingsViewController: NSViewController {
     private func setRemoveItemAvailability() {
         self.removeVatRateButton.isEnabled = self.vatTableView.selectedRow != -1
     }
+    @IBAction func onDefaultRateCheckboxChanged(_ sender: NSButton) {
+        let checked: Bool = sender.state == NSControl.StateValue.on
+        vatRatesTableViewDelegate?.setDefaultRate(isDefault: checked, row: sender.tag)
+        self.vatTableView.reloadData()
+
+    }
     @IBAction func onVatRateChanged(_ sender: NSTextFieldCell) {
         let vatRate: VatRate = VatRate(string: sender.stringValue)
         vatRatesTableViewDelegate!.updateVatRate(vatRate)

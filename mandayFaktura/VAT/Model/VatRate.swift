@@ -11,10 +11,12 @@ import Foundation
 struct VatRate: Hashable {
     let value: Decimal
     let literal: String
+    let isDefault: Bool
     
-    init(value: Decimal, literal: String? = nil) {
+    init(value: Decimal, literal: String? = nil, isDefault: Bool = false) {
         self.value = value
         self.literal = literal ?? "\(value * 100)%"
+        self.isDefault = isDefault
     }
     
     init(string: String) {
@@ -29,6 +31,7 @@ struct VatRate: Hashable {
             }
         }
         self.value = tmpValue
+        isDefault = false
     }
     
     var special: Bool {

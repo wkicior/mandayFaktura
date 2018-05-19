@@ -13,6 +13,7 @@ The development is still ongoing, therefore the application provides some basic 
 - management of counterparties
 - deleting saved invoices
 - invoice numbering management and automatic generation
+- VAT rates management
 
 
 Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalności są dostępne:
@@ -22,6 +23,7 @@ Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalno
 - zarządzanie kontrahentami
 - usuwanie faktur
 - zarządzanie automatyczną numeracją faktur
+- zarządzanie stawkami VAT
 
 ## Next features / Planowana implementacja
 The features I'm working on and should be delivered any day now include:
@@ -30,7 +32,6 @@ The features I'm working on and should be delivered any day now include:
 - improving UX
 - fixing the menu
 - name of the issuer
-- more VAT options
 
 Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe lada dzień):
 - edycja faktur
@@ -38,7 +39,6 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - user experience
 - poprawa menu
 - nazwa wystawiającego
-- więcej pozycji VAT
 
 ## Features currently not supported / Nie wspierane funkcjonalności
 - Other documents like ProForma, invoice correction
@@ -46,14 +46,12 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - Direct printing
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
-- VAT management
 
 - Inne dokumenty takie jak: ProForma, korekta
 - Wyszukiwanie
 - Bezpośredni wydruk
 - Waluty inne niż Planowana
 - Inne metody płatności (tylko przelew i gotówka są aktualnie wspierane)
-- zarządzanie wartościami VAT
 
 
 ## License

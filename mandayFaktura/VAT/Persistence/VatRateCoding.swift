@@ -16,14 +16,16 @@ import Foundation
     func encode(with coder: NSCoder) {
         coder.encode(self.vatRate.value, forKey: "value")
         coder.encode(self.vatRate.literal, forKey: "literal")
+        coder.encode(self.vatRate.isDefault, forKey: "isDefault")
     }
     
     required convenience init?(coder decoder: NSCoder) {
         guard let value = decoder.decodeObject(forKey: "value") as? Decimal,
             let literal = decoder.decodeObject(forKey: "literal") as? String
+
             else { return nil }
-        
-        self.init(VatRate(value: value, literal: literal))
+        let isDefault = decoder.decodeBool(forKey: "isDefault")
+        self.init(VatRate(value: value, literal: literal, isDefault: isDefault))
     }
     
     init(_ vatRate: VatRate) {
