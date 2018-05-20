@@ -21,12 +21,13 @@ fileprivate enum CellIdentifiers {
 class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let itemsTableView: NSTableView
-    let vatRateRepository = VatRateRepositoryFactory.instance
+    let vatRateInteractor: VatRateInteractor
     var items: [ItemDefinition] = []
     
-    init(itemsTableView: NSTableView) {
+    init(itemsTableView: NSTableView, vatRateInteractor: VatRateInteractor) {
         self.itemsTableView = itemsTableView
         self.items = self.itemDefinitionRepository.getItemDefinitions()
+        self.vatRateInteractor = vatRateInteractor
         super.init()
     }
     
@@ -58,7 +59,7 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            if let index = self.vatRateRepository.getVatRates().index(of: item.vatRate) {
+            if let index = self.vatRateInteractor.getVatRates().index(of: item.vatRate) {
                  cell.selectItem(at: index)
             } else {
                 // exceptionally add vat rate which does not exist in settings anymore

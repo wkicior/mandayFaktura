@@ -11,13 +11,13 @@ import Cocoa
 class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var invoiceController: AbstractInvoiceViewController?
-    let vatRateRepository: VatRateRepository = VatRateRepositoryFactory.instance
+    let vatRateInteractor = VatRateInteractor()
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView)
+        itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView, vatRateInteractor: vatRateInteractor)
         itemsTableView.delegate = itemsCatalogueTableViewDelegate
         itemsTableView.dataSource = itemsCatalogueTableViewDelegate
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
@@ -92,7 +92,7 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onVatRateInPercentChange(_ sender: NSPopUpButton) {
-        let vatRates = self.vatRateRepository.getVatRates()
+        let vatRates = self.vatRateInteractor.getVatRates()
         if !vatRates.isEmpty {
             let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
             self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)

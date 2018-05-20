@@ -12,7 +12,7 @@ class AbstractInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
-    let vatRateRepository: VatRateRepository = VatRateRepositoryFactory.instance
+    let vatRateInteractor = VatRateInteractor()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
@@ -41,7 +41,7 @@ class AbstractInvoiceViewController: NSViewController {
         issueDatePicker.dateValue = Date()
         sellingDatePicker.dateValue = Date()
         dueDatePicker.dateValue = Calendar.current.date(byAdding: .day, value: 14, to: Date())!
-        itemsTableViewDelegate = ItemsTableViewDelegate(itemsTableView: itemsTableView)
+        itemsTableViewDelegate = ItemsTableViewDelegate(itemsTableView: itemsTableView, vatRateInteractor: vatRateInteractor)
         itemsTableView.delegate = itemsTableViewDelegate
         itemsTableView.dataSource = itemsTableViewDelegate
         self.removeItemButton.isEnabled = false
@@ -97,7 +97,7 @@ extension AbstractInvoiceViewController {
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
-        let vatRates = self.vatRateRepository.getVatRates() // this does not contain all values
+        let vatRates = self.vatRateInteractor.getVatRates() // this does not contain all values
         if !vatRates.isEmpty {
             let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
             self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)

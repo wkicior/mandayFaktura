@@ -42,7 +42,10 @@ class VatRateInteractor {
         let index = vatRates.index(where: {v in v.literal == vatRate.literal} )
         vatRates[index!] = VatRate(value: vatRate.value, literal: vatRate.literal, isDefault: isDefault)
         self.vatRateRepository.saveVatRates(vatRates: vatRates)
-        
+    }
+    
+    func getDefaultVatRate() -> VatRate? {
+        return self.vatRateRepository.getDefaultVatRate()
     }
     
 }
