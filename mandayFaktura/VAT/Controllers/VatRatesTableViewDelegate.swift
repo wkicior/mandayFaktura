@@ -16,11 +16,11 @@ fileprivate enum CellIdentifiers {
 
 class VatRatesTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let vatRatesTableView: NSTableView
-    var vatRates = [VatRate]()
-    let vatRateRepository: VatRateRepository = VatRateRepositoryFactory.instance
-    init(vatRatesTableView: NSTableView) {
+    var vatRates: [VatRate]
+    
+    init(vatRatesTableView: NSTableView, vatRates: [VatRate]) {
         self.vatRatesTableView = vatRatesTableView
-        self.vatRates = vatRateRepository.getVatRates()
+        self.vatRates = vatRates
         super.init()
     }
     
@@ -56,34 +56,29 @@ class VatRatesTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDel
     
     func addVatRate() {
         self.vatRates.append(VatRate(value: 0.00, literal: ""))
+        self.vatRatesTableView.reloadData()
     }
     
-    func removeSelectedItem() {
+    func getSelectedVatRate() -> VatRate? {
         let selectedRowNumber = vatRatesTableView.selectedRow
         if selectedRowNumber != -1 {
-            vatRates.remove(at: selectedRowNumber)
-            self.vatRateRepository.saveVatRates(vatRates: vatRates)
+            return vatRates[selectedRowNumber]
         }
+        return nil
     }
     
     func updateVatRate(_ vatRate: VatRate) {
         let selectedRowNumber = vatRatesTableView.selectedRow
         if selectedRowNumber != -1 {
             vatRates[selectedRowNumber] = vatRate
-            self.vatRateRepository.saveVatRates(vatRates: vatRates)
+            self.vatRatesTableView.reloadData()
         }
     }
     
-    func setDefaultRate(isDefault: Bool, row: Int) {
-        if (isDefault) {
-            if let currentDefaultIndex = vatRates.index(where: {v in v.isDefault}) {
-                let currentDefault = vatRates[currentDefaultIndex]
-                vatRates[currentDefaultIndex] = VatRate(value: currentDefault.value, literal: currentDefault.literal)
-            }
-        }
-        let oldValue = vatRates[row]
-        vatRates[row] = VatRate(value: oldValue.value, literal: oldValue.literal, isDefault: isDefault)
-        self.vatRateRepository.saveVatRates(vatRates: vatRates)
-
+    func setVatRates(_ vatRates: [VatRate]) {
+        self.vatRates = vatRates
+        self.vatRatesTableView.reloadData()
     }
+    
+   
 }

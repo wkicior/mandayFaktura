@@ -12,6 +12,7 @@ protocol VatRateRepository {
     func getVatRates() -> [VatRate]
     func getDefaultVatRate() -> VatRate?
     func saveVatRates(vatRates: [VatRate])
+    func delete(_ vatRate: VatRate)
 }
 
 

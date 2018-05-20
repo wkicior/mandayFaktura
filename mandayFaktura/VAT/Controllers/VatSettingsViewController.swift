@@ -10,10 +10,11 @@ import Foundation
 import Cocoa
 
 class VatSettingsViewController: NSViewController {
+    let vatRateInteractor = VatRateInteractor()
     var vatRatesTableViewDelegate: VatRatesTableViewDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        vatRatesTableViewDelegate = VatRatesTableViewDelegate(vatRatesTableView: vatTableView)
+        vatRatesTableViewDelegate = VatRatesTableViewDelegate(vatRatesTableView: vatTableView, vatRates: vatRateInteractor.getVatRates())
         self.vatTableView.delegate = vatRatesTableViewDelegate!
         self.vatTableView.dataSource = vatRatesTableViewDelegate!
     }
@@ -23,10 +24,12 @@ class VatSettingsViewController: NSViewController {
     
     @IBAction func onAddVatRateButtonClicked(_ sender: NSButton) {
         vatRatesTableViewDelegate?.addVatRate()
-        self.vatTableView.reloadData()
+      
     }
     @IBAction func onDeleteVatRateButtonClicked(_ sender: NSButton) {
-        vatRatesTableViewDelegate!.removeSelectedItem()
+        if let vatRate = vatRatesTableViewDelegate!.getSelectedVatRate() {
+             self.vatRateInteractor.delete(vatRate)
+        }
         self.vatTableView.reloadData()
         setRemoveItemAvailability()
     }
@@ -39,13 +42,14 @@ class VatSettingsViewController: NSViewController {
     }
     @IBAction func onDefaultRateCheckboxChanged(_ sender: NSButton) {
         let checked: Bool = sender.state == NSControl.StateValue.on
-        vatRatesTableViewDelegate?.setDefaultRate(isDefault: checked, row: sender.tag)
-        self.vatTableView.reloadData()
+        let vatRate = vatRatesTableViewDelegate?.vatRates[sender.tag]
+        vatRateInteractor.setDefault(isDefault: checked, vatRate: vatRate!)
+        vatRatesTableViewDelegate!.setVatRates(vatRateInteractor.getVatRates())
 
     }
     @IBAction func onVatRateChanged(_ sender: NSTextFieldCell) {
         let vatRate: VatRate = VatRate(string: sender.stringValue)
         vatRatesTableViewDelegate!.updateVatRate(vatRate)
-        self.vatTableView.reloadData()
+        self.vatRateInteractor.saveVatRates(vatRates: vatRatesTableViewDelegate!.vatRates)
     }
 }

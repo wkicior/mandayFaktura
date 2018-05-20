@@ -73,6 +73,8 @@
 		D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B8203601DF00F507AD /* InputValidationError.swift */; };
 		D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BA20377D7800F507AD /* NSColorExtension.swift */; };
 		D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */; };
+		D3781B7F20B055D400CA420E /* VatRateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B7E20B055D400CA420E /* VatRateInteractor.swift */; };
+		D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -183,6 +185,8 @@
 		D37560B8203601DF00F507AD /* InputValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidationError.swift; sourceTree = "<group>"; };
 		D37560BA20377D7800F507AD /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
 		D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceRepository.swift; sourceTree = "<group>"; };
+		D3781B7E20B055D400CA420E /* VatRateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateInteractor.swift; sourceTree = "<group>"; };
+		D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateInteractorTests.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -559,6 +563,7 @@
 				D37560A620321D4300F507AD /* UI */,
 				D37560A320321CD900F507AD /* Persistence */,
 				D37560A020321C3200F507AD /* Model */,
+				D3781B7E20B055D400CA420E /* VatRateInteractor.swift */,
 			);
 			path = VAT;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				D37560AC2033942600F507AD /* Model */,
+				D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */,
 			);
 			path = VAT;
 			sourceTree = "<group>";
@@ -829,6 +835,7 @@
 				D3254EB6205C298900CC889C /* NumberingSegments.swift in Sources */,
 				D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */,
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
+				D3781B7F20B055D400CA420E /* VatRateInteractor.swift in Sources */,
 				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
 				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
@@ -900,6 +907,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */,
 				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
 				D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,

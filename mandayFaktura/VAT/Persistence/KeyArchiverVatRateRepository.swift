@@ -32,6 +32,12 @@ class KeyArchiverVatRateRepository: VatRateRepository {
         vatRatesCoding = vatRates.map{v in VatRateCoding(v)}
     }
     
+    func delete(_ vatRate: VatRate) {
+        if let index = vatRatesCoding.index(where: {v in v.vatRate.literal == vatRate.literal}) {
+            vatRatesCoding.remove(at: index)
+        }
+    }
+    
     private var vatRatesCoding: [VatRateCoding] {
         get {
             if let data = UserDefaults.standard.object(forKey: vatRateDefinitionsKey) as? NSData {
