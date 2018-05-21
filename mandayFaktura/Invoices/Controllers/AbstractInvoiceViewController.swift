@@ -11,7 +11,7 @@ import Cocoa
 class AbstractInvoiceViewController: NSViewController {
     let invoiceRepository = InvoiceRepositoryFactory.instance
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
-    let counterpartyRepository:CounterpartyRepository = CounterpartyRepositoryFactory.instance
+    let counterpartyInteractor = CounterpartyInteractor()
     let vatRateInteractor = VatRateInteractor()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
@@ -45,7 +45,7 @@ class AbstractInvoiceViewController: NSViewController {
         itemsTableView.delegate = itemsTableViewDelegate
         itemsTableView.dataSource = itemsTableViewDelegate
         self.removeItemButton.isEnabled = false
-        self.counterpartyRepository.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
+        self.counterpartyInteractor.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
         self.saveItemButton.isEnabled = false
         self.checkSaveButtonEnabled()
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
@@ -107,7 +107,7 @@ extension AbstractInvoiceViewController {
     
     @IBAction func onSelectBuyerButtonClicked(_ sender: NSPopUpButton) {
         let buyerName = sender.selectedItem?.title
-        let buyer = self.counterpartyRepository.getBuyer(name: buyerName!)
+        let buyer = self.counterpartyInteractor.getBuyer(name: buyerName!)
         setBuyer(buyer: buyer ?? aCounterparty().build())
         checkSaveButtonEnabled()
     }

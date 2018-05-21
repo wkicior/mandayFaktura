@@ -74,7 +74,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
     
     var newInvoice: Invoice {
         get {
-            let seller = self.counterpartyRepository.getSeller() ?? invoice!.seller
+            let seller = self.counterpartyInteractor.getSeller() ?? invoice!.seller
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
             return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
         }

@@ -34,7 +34,7 @@ class EditBuyerController: AbstractBuyerController {
             .withPostalCode(postalCodeTextField.stringValue)
             .withTaxCode(taxCodeTextField.stringValue)
             .build()
-        counterpartyRepository.replaceBuyer(buyer!, with: newBuyer)
+        counterpartyInteractor.replaceBuyer(buyer!, with: newBuyer)
         NotificationCenter.default.post(name: EditBuyerViewControllerConstants.BUYER_EDITED_NOTIFICATION, object: newBuyer)
         view.window?.close()
     }

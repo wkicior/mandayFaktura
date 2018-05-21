@@ -27,7 +27,7 @@ class NewBuyerController: AbstractBuyerController {
             .withPostalCode(postalCodeTextField.stringValue)
             .withTaxCode(taxCodeTextField.stringValue)
             .build()
-        counterpartyRepository.addBuyer(buyer: buyer)
+        counterpartyInteractor.addBuyer(buyer: buyer)
         NotificationCenter.default.post(name: NewBuyerViewControllerConstants.BUYER_ADDED_NOTIFICATION, object: buyer)
         view.window?.close()
     }

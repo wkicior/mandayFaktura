@@ -10,8 +10,7 @@ import Foundation
 import Cocoa
 
 class SellerSettingsViewController: NSViewController {
-    let counterpartyRepository = CounterpartyRepositoryFactory.instance
-    
+    let counterpartyInteractor = CounterpartyInteractor()
     @IBOutlet weak var streetAndNumberTextField: NSTextField!
     @IBOutlet weak var nameTextField: NSTextField!
     @IBOutlet weak var postalCodeTextField: NSTextField!
@@ -28,7 +27,7 @@ class SellerSettingsViewController: NSViewController {
             .withAccountNumber(accountNumberTextField.stringValue)
             .withStreetAndNumber(streetAndNumberTextField.stringValue)
             .build()
-        counterpartyRepository.saveSeller(seller: counterparty)
+        counterpartyInteractor.saveSeller(seller: counterparty)
         view.window?.close()
     }
     
@@ -38,7 +37,7 @@ class SellerSettingsViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let seller = counterpartyRepository.getSeller()
+        let seller = counterpartyInteractor.getSeller()
         nameTextField.stringValue = seller?.name ?? ""
         streetAndNumberTextField.stringValue = seller?.streetAndNumber ?? ""
         postalCodeTextField.stringValue = seller?.postalCode ?? ""
