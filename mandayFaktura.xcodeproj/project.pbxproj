@@ -75,6 +75,7 @@
 		D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */; };
 		D3781B7F20B055D400CA420E /* VatRateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B7E20B055D400CA420E /* VatRateInteractor.swift */; };
 		D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */; };
+		D3781B8320B3484100CA420E /* InvoiceItemDefinitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8220B3484100CA420E /* InvoiceItemDefinitionInteractor.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -187,6 +188,7 @@
 		D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceRepository.swift; sourceTree = "<group>"; };
 		D3781B7E20B055D400CA420E /* VatRateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateInteractor.swift; sourceTree = "<group>"; };
 		D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateInteractorTests.swift; sourceTree = "<group>"; };
+		D3781B8220B3484100CA420E /* InvoiceItemDefinitionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemDefinitionInteractor.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				D3052F52204B1DD70064DF10 /* Persistence */,
 				D3052F49204318BF0064DF10 /* Controllers */,
 				D330BFD82041DD27003CCC5B /* Model */,
+				D3781B8220B3484100CA420E /* InvoiceItemDefinitionInteractor.swift */,
 			);
 			path = "Invoice Items";
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
+				D3781B8320B3484100CA420E /* InvoiceItemDefinitionInteractor.swift in Sources */,
 				D3B7C95F2087B98900432176 /* EditInvoiceViewController.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,
 				D370A7F720261A8500FFB262 /* PaymentForm.swift in Sources */,

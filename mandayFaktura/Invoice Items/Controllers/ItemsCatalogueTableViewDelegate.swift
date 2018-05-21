@@ -19,15 +19,17 @@ fileprivate enum CellIdentifiers {
 
 
 class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
+   
+    let invoiceItemDefinitionInteractor: InvoiceItemDefinitionInteractor
     let itemsTableView: NSTableView
     let vatRateInteractor: VatRateInteractor
     var items: [ItemDefinition] = []
     
-    init(itemsTableView: NSTableView, vatRateInteractor: VatRateInteractor) {
+    init(itemsTableView: NSTableView, vatRateInteractor: VatRateInteractor, invoiceItemDefinitionInteractor: InvoiceItemDefinitionInteractor) {
         self.itemsTableView = itemsTableView
-        self.items = self.itemDefinitionRepository.getItemDefinitions()
         self.vatRateInteractor = vatRateInteractor
+        self.invoiceItemDefinitionInteractor = invoiceItemDefinitionInteractor
+        self.items = self.invoiceItemDefinitionInteractor.getItemDefinitions()
         super.init()
     }
     
@@ -98,7 +100,7 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
     }
     
     func saveRepository() {
-        self.itemDefinitionRepository.saveItemDefinitions(self.items)
+        self.invoiceItemDefinitionInteractor.saveItemDefinitions(self.items)
     }
     
     func addItemDefinition() {

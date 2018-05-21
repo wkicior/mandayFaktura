@@ -12,12 +12,15 @@ class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var invoiceController: AbstractInvoiceViewController?
     let vatRateInteractor = VatRateInteractor()
+    let invoiceItemDefinitionInteractor = InvoiceItemDefinitionInteractor()
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView, vatRateInteractor: vatRateInteractor)
+        itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView,
+                                                                          vatRateInteractor: vatRateInteractor,
+                                                                          invoiceItemDefinitionInteractor: invoiceItemDefinitionInteractor)
         itemsTableView.delegate = itemsCatalogueTableViewDelegate
         itemsTableView.dataSource = itemsCatalogueTableViewDelegate
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
