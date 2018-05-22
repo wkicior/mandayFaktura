@@ -1,5 +1,7 @@
 # mandayFaktura
-### EN
+For Polish see below / język polski - zobacz poniżej
+
+## EN
 Invoicing MacOS application dedicated for small business and self employed.
 The application is optimized for polish market, therefore some of the documentation below is written in Polish language.
 
@@ -29,7 +31,7 @@ The features I'm working on and should be delivered any day now include:
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
 
-### PL
+##PL
 mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
 Zoptymalizowana jest pod małe przedsiębiorstwa, osoby samozatrudnione wystawiające kilka faktur w miesiącu.
 
