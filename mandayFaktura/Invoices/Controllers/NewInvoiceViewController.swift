@@ -14,12 +14,13 @@ struct NewInvoiceViewControllerConstants {
 
 
 class NewInvoiceViewController: AbstractInvoiceViewController {
-    let invoiceNumbering: InvoiceNumbering = InvoiceNumbering()
+   
+    let invoiceNumberingInteractor = InvoiceNumberingInteractor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         checkPreviewButtonEnabled()
-        self.numberTextField.stringValue = self.invoiceNumbering.nextInvoiceNumber
+        self.numberTextField.stringValue = invoiceNumberingInteractor.getNextInvoiceNumber()
     }
     
     var invoice: Invoice {

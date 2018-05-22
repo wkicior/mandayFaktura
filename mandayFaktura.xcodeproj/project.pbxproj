@@ -77,6 +77,7 @@
 		D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */; };
 		D3781B8320B3484100CA420E /* InvoiceItemDefinitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8220B3484100CA420E /* InvoiceItemDefinitionInteractor.swift */; };
 		D3781B8520B34B0000CA420E /* CounterpartyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8420B34B0000CA420E /* CounterpartyInteractor.swift */; };
+		D3781B8720B492B700CA420E /* InvoiceNumberingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8620B492B700CA420E /* InvoiceNumberingInteractor.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -191,6 +192,7 @@
 		D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateInteractorTests.swift; sourceTree = "<group>"; };
 		D3781B8220B3484100CA420E /* InvoiceItemDefinitionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemDefinitionInteractor.swift; sourceTree = "<group>"; };
 		D3781B8420B34B0000CA420E /* CounterpartyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyInteractor.swift; sourceTree = "<group>"; };
+		D3781B8620B492B700CA420E /* InvoiceNumberingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingInteractor.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				D34D0F13201DD9E6000D1EC6 /* Model */,
 				D34D0F14201DD9F9000D1EC6 /* Persistence */,
 				D34D0F15201DDA0D000D1EC6 /* Controllers */,
+				D3781B8620B492B700CA420E /* InvoiceNumberingInteractor.swift */,
 			);
 			path = Invoices;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
+				D3781B8720B492B700CA420E /* InvoiceNumberingInteractor.swift in Sources */,
 				D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */,
 				D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */,
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,

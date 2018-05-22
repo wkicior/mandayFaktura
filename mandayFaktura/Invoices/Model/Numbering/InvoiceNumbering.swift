@@ -20,13 +20,15 @@ extension Date {
 }
 
 class InvoiceNumbering {
-    let invoiceRepository = InvoiceRepositoryFactory.instance
-    let invoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
+    let invoiceRepository: InvoiceRepository
+    let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository
     var numberingTemplateFactory = NumberingTemplateFactory()
     var settings: InvoiceNumberingSettings
     var numberingCoder: NumberingCoder
     
-    init () {
+    init (invoiceRepository: InvoiceRepository, invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository) {
+        self.invoiceRepository = invoiceRepository
+        self.invoiceNumberingSettingsRepository = invoiceNumberingSettingsRepository
         self.settings = self.invoiceNumberingSettingsRepository.getInvoiceNumberingSettings() ??
           InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year)])
         self.numberingCoder = numberingTemplateFactory.getInstance(settings: settings)
