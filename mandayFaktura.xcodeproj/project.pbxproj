@@ -34,7 +34,7 @@
 		D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD520417AB9003CCC5B /* UserAbortError.swift */; };
 		D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */; };
 		D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
-		D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */; };
+		D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */; };
 		D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */; };
 		D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */; };
 		D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */; };
@@ -142,7 +142,7 @@
 		D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDelegate.swift; sourceTree = "<group>"; };
 		D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mandayFaktura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryController.swift; sourceTree = "<group>"; };
 		D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D34D0EC5201A7CBC000D1EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D34D0EC7201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -407,7 +407,6 @@
 				D34D0F2520225A81000D1EC6 /* Counterparties */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
 				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
-				D34D0EC0201A7CBC000D1EC6 /* ViewController.swift */,
 				D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */,
 				D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */,
 				D34D0EC7201A7CBC000D1EC6 /* Info.plist */,
@@ -478,6 +477,7 @@
 				D3D82325206041F50031C2D1 /* Numbering */,
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
+				D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */,
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
 				D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */,
 				D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */,
@@ -844,7 +844,7 @@
 				D3781B7F20B055D400CA420E /* VatRateInteractor.swift in Sources */,
 				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
-				D34D0EC1201A7CBC000D1EC6 /* ViewController.swift in Sources */,
+				D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */,
 				D3B7C95B207FE2C400432176 /* AbstractBuyerController.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
 				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
