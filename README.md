@@ -31,7 +31,7 @@ The features I'm working on and should be delivered any day now include:
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
 
-##PL
+## PL
 mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
 Zoptymalizowana jest pod małe przedsiębiorstwa, osoby samozatrudnione wystawiające kilka faktur w miesiącu.
 
