@@ -34,7 +34,7 @@ The features I'm working on and should be delivered any day now include:
 - Complex payment methods (only payment and cash are supported)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## PL
 mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
@@ -68,4 +68,4 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - Inne metody płatności (tylko przelew i gotówka są aktualnie wspierane)
 
 ## Licencja
-Projekt jest objęty licencją MIT. Zobacz plik [LICENSE.md](LICENSE.md) w celu uzyskania więcej szczegółów.
+Projekt jest objęty licencją MIT. Zobacz plik [LICENSE](LICENSE) w celu uzyskania więcej szczegółów.
