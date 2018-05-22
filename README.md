@@ -1,11 +1,13 @@
 # mandayFaktura
+### EN
 Invoicing MacOS application dedicated for small business and self employed.
 The application is optimized for polish market, therefore some of the documentation below is written in Polish language.
 
+### PL
 mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
 Zoptymalizowana jest pod małe przedsiębiorstwa, osoby samozatrudnione wystawiające kilka faktur w miesiącu.
 
-## Functionalities / Funkcjonalności
+## Functionalities
 The development is still ongoing, therefore the application provides some basic functionality:
 - creation of new invoices
 - exporting the invoices to PDF files
@@ -15,7 +17,7 @@ The development is still ongoing, therefore the application provides some basic 
 - invoice numbering management and automatic generation
 - VAT rates management
 
-
+## Funkcjonalności
 Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalności są dostępne:
 - tworzenie fakturowania
 - eksport faktur do pliku PDF
@@ -25,7 +27,7 @@ Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalno
 - zarządzanie automatyczną numeracją faktur
 - zarządzanie stawkami VAT
 
-## Next features / Planowana implementacja
+## Next features
 The features I'm working on and should be delivered any day now include:
 - editing the invoices
 - improving UI and windows presentation
@@ -33,6 +35,7 @@ The features I'm working on and should be delivered any day now include:
 - fixing the menu
 - name of the issuer
 
+## Planowana implementacja
 Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe lada dzień):
 - edycja faktur
 - ulepszenie interfejsu i wyglądu okien
@@ -40,13 +43,14 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - poprawa menu
 - nazwa wystawiającego
 
-## Features currently not supported / Nie wspierane funkcjonalności
+## Features currently not supported
 - Other documents like ProForma, invoice correction
 - Searching
 - Direct printing
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
 
+## Nie wspierane funkcjonalności
 - Inne dokumenty takie jak: ProForma, korekta
 - Wyszukiwanie
 - Bezpośredni wydruk
