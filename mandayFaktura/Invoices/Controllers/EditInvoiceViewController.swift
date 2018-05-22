@@ -41,7 +41,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         do {
             try addBuyerToHistory(invoice: newInvoice)
-            invoiceRepository.editInvoice(old: invoice!, new: newInvoice)
+            invoiceInteractor.editInvoice(old: invoice!, new: newInvoice)
             NotificationCenter.default.post(name: EditInvoiceViewControllerConstants.INVOICE_EDITED_NOTIFICATION, object: invoice)
             view.window?.close()
         } catch is UserAbortError {

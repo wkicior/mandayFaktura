@@ -9,8 +9,8 @@
 import Cocoa
 
 class AbstractInvoiceViewController: NSViewController {
-    let invoiceRepository = InvoiceRepositoryFactory.instance
-    let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
+    let invoiceInteractor = InvoiceInteractor()
+    let itemDefinitionInteractor = InvoiceItemDefinitionInteractor()
     let counterpartyInteractor = CounterpartyInteractor()
     let vatRateInteractor = VatRateInteractor()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
@@ -154,7 +154,7 @@ extension AbstractInvoiceViewController {
     
     @IBAction func onTagItemButtonClicked(_ sender: NSButton) {
         let itemDefinition = anItemDefinition().from(item: self.itemsTableViewDelegate!.getSelectedItem()!).build()
-        self.itemDefinitionRepository.addItemDefinition(itemDefinition)
+        self.itemDefinitionInteractor.addItemDefinition(itemDefinition)
     }
     
     internal func addBuyerToHistory(invoice: Invoice) throws {

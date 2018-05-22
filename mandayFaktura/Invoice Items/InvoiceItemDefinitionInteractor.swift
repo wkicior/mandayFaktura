@@ -18,4 +18,8 @@ class InvoiceItemDefinitionInteractor {
     func saveItemDefinitions(_ itemDefinitions: [ItemDefinition]) {
         itemDefinitionRepository.saveItemDefinitions(itemDefinitions)
     }
+    
+    func addItemDefinition(_ item: ItemDefinition) {
+        itemDefinitionRepository.addItemDefinition(item)
+    }
 }

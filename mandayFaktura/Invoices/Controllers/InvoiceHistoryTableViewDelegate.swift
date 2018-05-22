@@ -22,25 +22,25 @@ fileprivate enum CellIdentifiers {
  Fetches the data from the model invoicesRepository protocol
  */
 class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate {
-   
-    let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
+    let invoiceInteractor: InvoiceInteractor
     let dateFormatter = DateFormatter()
     
-    override init() {
+    init(invoiceInteractor: InvoiceInteractor) {
+        self.invoiceInteractor = invoiceInteractor
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
         super.init()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return invoiceRepository.getInvoices().count
+        return invoiceInteractor.getInvoices().count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let item = invoiceRepository.getInvoices()[row]
+        let item = invoiceInteractor.getInvoices()[row]
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number
@@ -64,6 +64,6 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
     }
     
     func getSelectedInvoice(index: Int) -> Invoice {
-        return invoiceRepository.getInvoices()[index]
+        return invoiceInteractor.getInvoices()[index]
     }
 }

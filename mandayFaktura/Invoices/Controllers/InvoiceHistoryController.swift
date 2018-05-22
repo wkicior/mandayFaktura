@@ -17,18 +17,16 @@ struct ViewControllerConstants {
 }
 
 class ViewController: NSViewController {
-    var invoiceRepository:InvoiceRepository?
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
     var invoiceHistoryTableViewDelegate:InvoiceHistoryTableViewDelegate?
+    var invoiceInteractor: InvoiceInteractor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CounterpartyRepositoryFactory.register(repository: KeyedArchiverCounterpartyRepository())
-        InvoiceRepositoryFactory.register(repository: KeyedArchiverInvoiceRepository())
-        ItemDefinitionRepositoryFactory.register(repository: KeyArchiverItemDefinitionRepository())
-        InvoiceNumberingSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceNumberingSettingsRepository())
-        VatRateRepositoryFactory.register(repository: KeyArchiverVatRateRepository())
-        invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate()
+        self.initializeRepositories()
+        
+        self.invoiceInteractor = InvoiceInteractor()
+        invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate(invoiceInteractor: self.invoiceInteractor!)
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewDelegate
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewDelegate
         
@@ -50,7 +48,14 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.editInvoice()}
-        invoiceRepository = InvoiceRepositoryFactory.instance
+    }
+    
+    func initializeRepositories() {
+        CounterpartyRepositoryFactory.register(repository: KeyedArchiverCounterpartyRepository())
+        InvoiceRepositoryFactory.register(repository: KeyedArchiverInvoiceRepository())
+        ItemDefinitionRepositoryFactory.register(repository: KeyArchiverItemDefinitionRepository())
+        InvoiceNumberingSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceNumberingSettingsRepository())
+        VatRateRepositoryFactory.register(repository: KeyArchiverVatRateRepository())
     }
     
    
@@ -63,7 +68,7 @@ class ViewController: NSViewController {
         alert.addButton(withTitle: "Nie usuwaj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-            invoiceRepository!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
+            invoiceInteractor!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
             self.invoiceHistoryTableView.reloadData()
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
            return
