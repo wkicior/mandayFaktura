@@ -3,11 +3,6 @@
 Invoicing MacOS application dedicated for small business and self employed.
 The application is optimized for polish market, therefore some of the documentation below is written in Polish language.
 
-### PL
-mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
-Zoptymalizowana jest pod małe przedsiębiorstwa, osoby samozatrudnione wystawiające kilka faktur w miesiącu.
-
-### EN
 ## Functionalities
 The development is still ongoing, therefore the application provides some basic functionality:
 - creation of new invoices
@@ -34,8 +29,10 @@ The features I'm working on and should be delivered any day now include:
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
 
-
 ### PL
+mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
+Zoptymalizowana jest pod małe przedsiębiorstwa, osoby samozatrudnione wystawiające kilka faktur w miesiącu.
+
 ## Funkcjonalności
 Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalności są dostępne:
 - tworzenie faktur
