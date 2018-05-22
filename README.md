@@ -5,7 +5,7 @@
 
 ## EN
 Invoicing MacOS application dedicated for small business and self employed.
-The application is optimized for polish market, therefore some of the documentation below is written in Polish language.
+The application is optimized for polish market.
 
 ## Functionalities
 The development is still ongoing, therefore the application provides some basic functionality:
@@ -32,6 +32,9 @@ The features I'm working on and should be delivered any day now include:
 - Direct printing
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## PL
 mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
@@ -64,7 +67,5 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - Waluty inne niż Planowana
 - Inne metody płatności (tylko przelew i gotówka są aktualnie wspierane)
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+## Licencja
+Projekt jest objęty licencją MIT. Zobacz plik [LICENSE.md](LICENSE.md) w celu uzyskania więcej szczegółów.
