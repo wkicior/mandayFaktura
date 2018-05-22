@@ -1,5 +1,6 @@
 # mandayFaktura
-For Polish see below / język polski - zobacz poniżej
+[English](https://github.com/wkicior/mandayFaktura#en)
+[Język polski](https://github.com/wkicior/mandayFaktura#pl)
 
 ## EN
 Invoicing MacOS application dedicated for small business and self employed.
