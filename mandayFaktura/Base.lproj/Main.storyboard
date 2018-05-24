@@ -752,6 +752,11 @@
                                                 <action selector="onRemoveInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="0SF-Hf-PBF"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Historia faktur" keyEquivalent="f" id="hXz-u0-mXm" userLabel="Katalog nabywców">
+                                            <connections>
+                                                <segue destination="B8D-0N-5wS" kind="show" id="ldj-Kx-pcK"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Katalog usług i towarów" keyEquivalent="u" id="5jG-eT-cGH" userLabel="Katalog usług i towarów">
                                             <connections>
                                                 <segue destination="463-Th-NCJ" kind="show" id="7xi-xw-zjF"/>
@@ -1706,7 +1711,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tu5-7u-OCz">
-                                                            <rect key="frame" x="213" y="1" width="179" height="40"/>
+                                                            <rect key="frame" x="212.5" y="1" width="179" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjM-gb-6f8">
@@ -1813,7 +1818,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <popUpButton id="TVc-5d-Gsk" customClass="VatRatePopUpButton" customModule="mandayFaktura" customModuleProvider="target">
-                                                            <rect key="frame" x="543" y="1" width="55" height="25"/>
+                                                            <rect key="frame" x="542.5" y="1" width="55" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <popUpButtonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="right" lineBreakMode="truncatingTail" borderStyle="bezel" inset="2" id="SgE-SO-NR4">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2811,7 +2816,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tya-HV-so7">
-                                                            <rect key="frame" x="289" y="1" width="118" height="17"/>
+                                                            <rect key="frame" x="288.5" y="1" width="118" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-Md-Ob1">
@@ -3037,7 +3042,7 @@ AAAAAAAcgQ
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
         <segue reference="mvy-hV-L5q"/>
-        <segue reference="q7C-5l-bPd"/>
+        <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="Z1u-ve-SKZ"/>
         <segue reference="lJP-li-Rqb"/>
