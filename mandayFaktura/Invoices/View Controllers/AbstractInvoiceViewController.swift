@@ -157,7 +157,7 @@ extension AbstractInvoiceViewController {
     @IBAction func onTagItemButtonClicked(_ sender: NSButton) {
         let itemDefinition = anItemDefinition().from(item: self.itemsTableViewDelegate!.getSelectedItem()!).build()
         self.itemDefinitionInteractor.addItemDefinition(itemDefinition)
-        let invoiceItemTagAnimation = InvoiceItemTagAnimation(layer: self.view.layer!)
+        let invoiceItemTagAnimation = InvoiceItemTagAnimation(layer: self.view.layer!, targetButton: self.itemsCataloguqButton)
         invoiceItemTagAnimation.start()
     }
     

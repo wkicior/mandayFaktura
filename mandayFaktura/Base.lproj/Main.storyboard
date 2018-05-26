@@ -1009,7 +1009,7 @@
         <scene sceneID="APm-JB-6kt">
             <objects>
                 <viewController title="Nowa faktura" id="haF-wG-vwp" customClass="NewInvoiceViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="tbo-lw-l1z">
+                    <view key="view" wantsLayer="YES" id="tbo-lw-l1z">
                         <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -1584,7 +1584,7 @@
                         <outlet property="dueDatePicker" destination="JDm-Wx-S0z" id="pij-Ti-1gU"/>
                         <outlet property="issueDateGraphicalPickerButton" destination="vme-bB-4SD" id="gRa-ea-P9Q"/>
                         <outlet property="issueDatePicker" destination="84I-PQ-C04" id="yDD-rb-nxq"/>
-                        <outlet property="itemsCataloguqButton" destination="vme-bB-4SD" id="bJE-oN-cZU"/>
+                        <outlet property="itemsCataloguqButton" destination="oq8-Td-u7x" id="Xxc-1a-5NS"/>
                         <outlet property="itemsTableView" destination="PmG-hq-Jia" id="Vs1-Qb-7tW"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
@@ -3027,7 +3027,7 @@ AAAAAAAcgQ
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
         <segue reference="mvy-hV-L5q"/>
-        <segue reference="7xi-xw-zjF"/>
+        <segue reference="q7C-5l-bPd"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="Z1u-ve-SKZ"/>
         <segue reference="lJP-li-Rqb"/>
