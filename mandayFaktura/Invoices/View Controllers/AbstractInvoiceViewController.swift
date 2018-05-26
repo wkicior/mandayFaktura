@@ -16,6 +16,7 @@ class AbstractInvoiceViewController: NSViewController {
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
+    
 
     
     @IBOutlet weak var numberTextField: NSTextField!
@@ -49,6 +50,7 @@ class AbstractInvoiceViewController: NSViewController {
         self.saveItemButton.isEnabled = false
         self.checkSaveButtonEnabled()
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
+        self.view.wantsLayer = true
     }
     
 }
@@ -155,6 +157,8 @@ extension AbstractInvoiceViewController {
     @IBAction func onTagItemButtonClicked(_ sender: NSButton) {
         let itemDefinition = anItemDefinition().from(item: self.itemsTableViewDelegate!.getSelectedItem()!).build()
         self.itemDefinitionInteractor.addItemDefinition(itemDefinition)
+        let invoiceItemTagAnimation = InvoiceItemTagAnimation(layer: self.view.layer!)
+        invoiceItemTagAnimation.start()
     }
     
     internal func addBuyerToHistory(invoice: Invoice) throws {

@@ -79,6 +79,7 @@
 		D3781B8520B34B0000CA420E /* CounterpartyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8420B34B0000CA420E /* CounterpartyInteractor.swift */; };
 		D3781B8720B492B700CA420E /* InvoiceNumberingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8620B492B700CA420E /* InvoiceNumberingInteractor.swift */; };
 		D3781B8920B496E100CA420E /* InvoiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8820B496E100CA420E /* InvoiceInteractor.swift */; };
+		D3781B8B20B9CBC100CA420E /* InvoiceItemTagAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -195,6 +196,7 @@
 		D3781B8420B34B0000CA420E /* CounterpartyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyInteractor.swift; sourceTree = "<group>"; };
 		D3781B8620B492B700CA420E /* InvoiceNumberingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingInteractor.swift; sourceTree = "<group>"; };
 		D3781B8820B496E100CA420E /* InvoiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceInteractor.swift; sourceTree = "<group>"; };
+		D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTagAnimation.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 			children = (
 				D3D82325206041F50031C2D1 /* Numbering */,
 				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */,
+				D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
 				D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */,
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
@@ -873,6 +876,7 @@
 				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,
 				D3E312C520A0DC6500C84CEE /* DatePickerViewController.swift in Sources */,
 				D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */,
+				D3781B8B20B9CBC100CA420E /* InvoiceItemTagAnimation.swift in Sources */,
 				D370A8012027893B00FFB262 /* InvoiceItemPrintingExtension.swift in Sources */,
 				D3254EAA2059852200CC889C /* NumberingSegmentCoder.swift in Sources */,
 				D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */,
