@@ -13,9 +13,11 @@ import Cocoa
 class InvoiceItemTagAnimation {
     let layer: CALayer
     let animationLayer = CALayer()
+    let sourceButton: NSButton
     let targetButton: NSButton
-    init(layer: CALayer, targetButton: NSButton) {
+    init(layer: CALayer, sourceButton: NSButton, targetButton: NSButton) {
         self.layer = layer
+        self.sourceButton = sourceButton
         self.targetButton = targetButton
 
         initializeLayer()
@@ -52,7 +54,6 @@ class InvoiceItemTagAnimation {
         let shadow = NSShadow()
         shadow.shadowColor = NSColor.systemBlue
         shadow.shadowBlurRadius = 1.2
-        //shadow.shadowOffset =  CGSize(width: 10, height: 10)
         self.targetButton.shadow = shadow
         self.targetButton.shadow?.set()
     }
@@ -66,9 +67,12 @@ class InvoiceItemTagAnimation {
     var path: CGMutablePath {
         get {
             let result = CGMutablePath()
-            result.move(to: CGPoint(x: 90, y: 185))
-            result.addCurve(to: CGPoint(x: 120, y: 185), control1: CGPoint(x: 100, y: 200), control2: CGPoint(x: 110, y: 200))
-           // path.addCurve(to: CGPoint(x: 280, y: 100), control1: CGPoint(x: 600, y: 500), control2: CGPoint(x:0, y: 500))
+            let sourceX = self.sourceButton.frame.origin.x + self.sourceButton.frame.size.width / 2
+            let sourceY = self.sourceButton.frame.origin.y + self.sourceButton.frame.size.height / 2
+            result.move(to: CGPoint(x: sourceX, y: sourceY))
+            let targetX = self.targetButton.frame.origin.x + self.targetButton.frame.size.width / 2
+            let targetY = self.targetButton.frame.origin.y + self.targetButton.frame.size.height / 2
+            result.addCurve(to: CGPoint(x: targetX, y: targetY), control1: CGPoint(x: sourceX + 10, y: sourceY + 20), control2: CGPoint(x: targetX - 10, y: targetY + 20))
             return result
         }
     }
