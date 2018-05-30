@@ -103,8 +103,8 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         self.invoiceItemDefinitionInteractor.saveItemDefinitions(self.items)
     }
     
-    func addItemDefinition() {
-        self.items.append(anItemDefinition().build())
+    func addItemDefinition(defaultVatRate: VatRate) {
+        self.items.append(anItemDefinition().withVatRate(defaultVatRate).build())
     }
     
     func changeItemNetValue(_ sender: NSTextField) throws {

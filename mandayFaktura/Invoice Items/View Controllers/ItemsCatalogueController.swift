@@ -84,7 +84,8 @@ extension ItemsCatalogueController {
     
     @IBAction func onAddItemDefinition(_ sender: Any) {
         self.removeItemButton.isEnabled = false
-        self.itemsCatalogueTableViewDelegate!.addItemDefinition()
+        let defaultVatRate = self.vatRateInteractor.getDefaultVatRate() ?? VatRate(value: 0)
+        self.itemsCatalogueTableViewDelegate!.addItemDefinition(defaultVatRate: defaultVatRate)
         safeReloadData()
         self.saveButton.isEnabled = false
     }
