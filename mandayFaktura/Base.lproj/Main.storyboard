@@ -747,11 +747,7 @@
                                                 <action selector="onEditInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="dxn-bs-h9o"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Usuń" enabled="NO" id="3Ww-3p-vUu">
-                                            <string key="keyEquivalent" base64-UTF8="YES">
-CA
-</string>
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Usuń" enabled="NO" keyEquivalent="d" id="3Ww-3p-vUu">
                                             <connections>
                                                 <action selector="onRemoveInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="0SF-Hf-PBF"/>
                                             </connections>
@@ -3034,6 +3030,6 @@ AAAAAAAcgQ
         <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="Z1u-ve-SKZ"/>
-        <segue reference="lJP-li-Rqb"/>
+        <segue reference="lUp-1X-7iT"/>
     </inferredMetricsTieBreakers>
 </document>
