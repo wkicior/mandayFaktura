@@ -45,6 +45,10 @@ class BuyersCatalogueViewController: NSViewController {
     }
     
     @IBAction func onDeleteBuyerButtonClicked(_ sender: NSButton) {
+       deleteSelectedBuyer()
+    }
+    
+    private func deleteSelectedBuyer() {
         let modalResponse = deleteAlert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
             buyersTableViewDelegate!.remove(at: self.buyersTableView.selectedRow)
@@ -76,5 +80,12 @@ class BuyersCatalogueViewController: NSViewController {
     
     @objc func onTableViewClicked(sender: AnyObject) {
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "editBuyerSegue"), sender: sender)
+    }
+    
+    override func keyDown(with: NSEvent) {
+        super.keyDown(with: with)
+        if with.keyCode == 51 && self.buyersTableView.selectedRow != -1 {
+            deleteSelectedBuyer()
+        }
     }
 }

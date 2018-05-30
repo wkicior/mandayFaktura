@@ -143,6 +143,10 @@ extension AbstractInvoiceViewController {
     }
     
     @IBAction func onMinusButtonClicked(_ sender: Any) {
+       deleteSelectedItem()
+    }
+    
+    private func deleteSelectedItem() {
         self.removeItemButton.isEnabled = false
         self.itemsTableViewDelegate!.removeSelectedItem()
         safeReloadData()
@@ -198,6 +202,13 @@ extension AbstractInvoiceViewController {
             return 0
         case .cash:
             return 1
+        }
+    }
+    
+    override func keyDown(with: NSEvent) {
+        super.keyDown(with: with)
+        if with.keyCode == 51 && self.itemsTableView.selectedRow != -1 {
+           deleteSelectedItem()
         }
     }
     
