@@ -26,6 +26,7 @@ class ItemsCatalogueController: NSViewController {
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
         removeItemButton.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: NSControl.k, object: <#T##Any?#>)
     }
 }
 
@@ -125,6 +126,15 @@ extension ItemsCatalogueController {
             WarningAlert(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23").runModal()
         } catch {
             //
+        }
+    }
+    
+    override func keyDown(with: NSEvent) {
+        super.keyDown(with: with)
+        if with.keyCode == 51 && self.itemsTableView.selectedRow != -1 {
+            self.itemsCatalogueTableViewDelegate!.removeSelectedItem()
+            safeReloadData()
+            checkSaveButtonEnabledOnModel()
         }
     }
 }
