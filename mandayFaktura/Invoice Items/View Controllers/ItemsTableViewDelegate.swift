@@ -143,12 +143,15 @@ extension ItemsTableViewDelegate {
     
     func addItem() {
         let defaultVatRate = self.vatRateInteractor.getDefaultVatRate()
-        items.append(anInvoiceItem().withVatRate(defaultVatRate ?? VatRate(value: Decimal())).withUnitOfMeasure(.pieces).build())
+        items.append(anInvoiceItem().withAmount(Decimal(1))
+            .withVatRate(defaultVatRate ?? VatRate(value: Decimal()))
+            .withUnitOfMeasure(.pieces).build())
     }
     
     func addItem(itemDefinition: ItemDefinition) {
         items.append(anInvoiceItem()
             .withName(itemDefinition.name)
+            .withAmount(Decimal(1))
             .withUnitNetPrice(itemDefinition.unitNetPrice)
             .withVatRate(itemDefinition.vatRate)
             .withUnitOfMeasure(itemDefinition.unitOfMeasure)
