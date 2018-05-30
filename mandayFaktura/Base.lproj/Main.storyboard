@@ -1629,18 +1629,17 @@
             <objects>
                 <viewController title="Katalog usług i produktów" id="463-Th-NCJ" customClass="ItemsCatalogueController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="GhZ-pL-spw">
-                        <rect key="frame" x="0.0" y="0.0" width="621" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="621" height="322"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxc-1v-YTM">
-                                <rect key="frame" x="10" y="93" width="601" height="157"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="gbt-Tw-IIL">
-                                    <rect key="frame" x="1" y="0.0" width="599" height="156"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxc-1v-YTM">
+                                <rect key="frame" x="10" y="42" width="601" height="267"/>
+                                <clipView key="contentView" id="gbt-Tw-IIL">
+                                    <rect key="frame" x="1" y="0.0" width="599" height="266"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="medium" headerView="gI1-Ag-mQI" viewBased="YES" id="pde-XL-Bhc">
-                                            <rect key="frame" x="0.0" y="0.0" width="599" height="133"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="medium" headerView="gI1-Ag-mQI" viewBased="YES" id="pde-XL-Bhc">
+                                            <rect key="frame" x="0.0" y="0.0" width="599" height="243"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1836,9 +1835,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiQ-6D-f4F">
-                                <rect key="frame" x="536" y="4" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iiQ-6D-f4F">
+                                <rect key="frame" x="536" y="3" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tTG-bf-qdE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1847,9 +1845,8 @@
                                     <action selector="onSaveButtonClicked:" target="463-Th-NCJ" id="JLy-YQ-aSc"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhL-Dq-tZX">
-                                <rect key="frame" x="10" y="61" width="27" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GhL-Dq-tZX">
+                                <rect key="frame" x="10" y="8" width="21" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jha-Sv-kh9">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1858,9 +1855,8 @@
                                     <action selector="onAddItemDefinition:" target="463-Th-NCJ" id="GBT-QH-3gF"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q4d-k6-IsF">
-                                <rect key="frame" x="44" y="61" width="27" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q4d-k6-IsF">
+                                <rect key="frame" x="39" y="8" width="21" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="B9g-Ah-JZV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1870,6 +1866,18 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="q4d-k6-IsF" secondAttribute="bottom" constant="10" id="1eI-1b-g1I"/>
+                            <constraint firstAttribute="trailing" secondItem="iiQ-6D-f4F" secondAttribute="trailing" constant="10" id="FBe-g9-Q6A"/>
+                            <constraint firstItem="q4d-k6-IsF" firstAttribute="leading" secondItem="GhL-Dq-tZX" secondAttribute="trailing" constant="8" id="KpH-Ff-dXU"/>
+                            <constraint firstItem="GhL-Dq-tZX" firstAttribute="leading" secondItem="GhZ-pL-spw" secondAttribute="leading" constant="10" id="OVP-7r-Jd0"/>
+                            <constraint firstItem="GhL-Dq-tZX" firstAttribute="top" secondItem="jxc-1v-YTM" secondAttribute="bottom" constant="10" id="S7B-zc-q3f"/>
+                            <constraint firstAttribute="bottom" secondItem="iiQ-6D-f4F" secondAttribute="bottom" constant="10" id="SMh-fe-shB"/>
+                            <constraint firstItem="jxc-1v-YTM" firstAttribute="leading" secondItem="GhZ-pL-spw" secondAttribute="leading" constant="10" id="U3V-eh-6Aj"/>
+                            <constraint firstAttribute="bottom" secondItem="GhL-Dq-tZX" secondAttribute="bottom" constant="10" id="mRn-u8-7jo"/>
+                            <constraint firstAttribute="trailing" secondItem="jxc-1v-YTM" secondAttribute="trailing" constant="10" id="uaP-PQ-7l0"/>
+                            <constraint firstItem="jxc-1v-YTM" firstAttribute="top" secondItem="GhZ-pL-spw" secondAttribute="top" constant="13" id="zcl-Om-eTV"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="itemsTableView" destination="pde-XL-Bhc" id="cPG-23-hwA"/>
@@ -1879,7 +1887,7 @@
                 </viewController>
                 <customObject id="cwG-X4-Efz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="1541"/>
+            <point key="canvasLocation" x="1048.5" y="1597"/>
         </scene>
         <!--Podgląd-->
         <scene sceneID="nFV-gN-acI">
