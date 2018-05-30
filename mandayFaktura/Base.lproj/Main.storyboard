@@ -340,21 +340,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My1-CI-L8J">
-                                <rect key="frame" x="20" y="36" width="440" height="214"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="s88-Y1-iq9">
-                                    <rect key="frame" x="1" y="0.0" width="438" height="213"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My1-CI-L8J">
+                                <rect key="frame" x="10" y="42" width="460" height="218"/>
+                                <clipView key="contentView" id="s88-Y1-iq9">
+                                    <rect key="frame" x="1" y="0.0" width="458" height="217"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="afa-HG-g51" viewBased="YES" id="Wzj-Yb-5RU">
-                                            <rect key="frame" x="0.0" y="0.0" width="444" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="458" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="nameCellId" width="441" minWidth="40" maxWidth="1000" id="HPa-As-6g5">
+                                                <tableColumn identifier="nameCellId" width="455" minWidth="40" maxWidth="1600" id="HPa-As-6g5">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa firmy">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -368,11 +367,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="HVo-9k-1zY">
-                                                            <rect key="frame" x="1" y="1" width="441" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="455" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PqJ-Vp-Tgi">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="441" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="455" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="x9U-T1-vhJ">
                                                                         <font key="font" metaFont="system"/>
@@ -394,8 +393,8 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="hdt-PX-zZN">
-                                    <rect key="frame" x="1" y="197" width="438" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="hdt-PX-zZN">
+                                    <rect key="frame" x="1" y="201" width="458" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="44N-ru-8EI">
@@ -403,13 +402,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="afa-HG-g51">
-                                    <rect key="frame" x="0.0" y="0.0" width="444" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="458" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN2-7t-e4Q">
-                                <rect key="frame" x="20" y="4" width="27" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TN2-7t-e4Q">
+                                <rect key="frame" x="10" y="8" width="21" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m1o-XU-R5R">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -418,9 +416,8 @@
                                     <action selector="onDeleteBuyerButtonClicked:" target="TB5-8g-p08" id="cJ0-Gw-MK0"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXw-Oi-38M">
-                                <rect key="frame" x="55" y="4" width="27" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PXw-Oi-38M">
+                                <rect key="frame" x="39" y="8" width="21" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mhi-MR-gQ1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -431,6 +428,16 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PXw-Oi-38M" secondAttribute="bottom" constant="10" id="3bI-Ea-kn6"/>
+                            <constraint firstAttribute="trailing" secondItem="My1-CI-L8J" secondAttribute="trailing" constant="10" id="6zp-wk-8c8"/>
+                            <constraint firstItem="TN2-7t-e4Q" firstAttribute="leading" secondItem="rtc-QM-Dg7" secondAttribute="leading" constant="10" id="Dri-ed-YIZ"/>
+                            <constraint firstAttribute="bottom" secondItem="TN2-7t-e4Q" secondAttribute="bottom" constant="10" id="K4D-nS-EBU"/>
+                            <constraint firstItem="PXw-Oi-38M" firstAttribute="leading" secondItem="TN2-7t-e4Q" secondAttribute="trailing" constant="8" id="M3K-PJ-zwR"/>
+                            <constraint firstItem="TN2-7t-e4Q" firstAttribute="top" secondItem="My1-CI-L8J" secondAttribute="bottom" constant="10" id="TjH-0l-Nfj"/>
+                            <constraint firstItem="My1-CI-L8J" firstAttribute="leading" secondItem="rtc-QM-Dg7" secondAttribute="leading" constant="10" id="oDA-Wb-oKy"/>
+                            <constraint firstItem="My1-CI-L8J" firstAttribute="top" secondItem="rtc-QM-Dg7" secondAttribute="top" constant="10" id="zNk-X5-n58"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="buyersTableView" destination="Wzj-Yb-5RU" id="qfy-r1-5Kt"/>
@@ -3049,6 +3056,6 @@ AAAAAAAcgQ
         <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="Z1u-ve-SKZ"/>
-        <segue reference="lUp-1X-7iT"/>
+        <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
 </document>
