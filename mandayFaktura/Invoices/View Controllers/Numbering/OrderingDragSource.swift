@@ -32,6 +32,15 @@ class OrderingDragSource: NSView {
         }
     }
     
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        self.view
+        self.layer?.backgroundColor = NSColor.lightGray.cgColor
+        self.layer?.borderWidth = 2
+        self.layer?.borderColor = NSColor.systemBlue.cgColor
+
+    }
+   
     override func mouseDown(with theEvent: NSEvent) {
         let pasteboardItem = NSPasteboardItem()
         pasteboardItem.setString(self.action.rawValue, forType: OrderingDragSource.type)
