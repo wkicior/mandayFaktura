@@ -2011,13 +2011,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="900" height="650"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEl-qq-eeQ">
-                                <rect key="frame" x="0.0" y="50" width="900" height="650"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEl-qq-eeQ">
+                                <rect key="frame" x="0.0" y="50" width="900" height="600"/>
                             </pdfView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-lR-0u3">
-                                <rect key="frame" x="14" y="2" width="145" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-lR-0u3">
+                                <rect key="frame" x="4" y="3" width="145" height="32"/>
                                 <buttonCell key="cell" type="push" title="Eksportuj do PDF" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vgd-M5-4TG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -2027,6 +2025,14 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="lv8-lR-0u3" secondAttribute="bottom" constant="10" id="6Oy-1w-bcS"/>
+                            <constraint firstItem="lEl-qq-eeQ" firstAttribute="top" secondItem="UXu-OU-yTn" secondAttribute="top" id="Yte-hP-c8Q"/>
+                            <constraint firstItem="lv8-lR-0u3" firstAttribute="top" secondItem="lEl-qq-eeQ" secondAttribute="bottom" constant="19" id="gZe-No-yL3"/>
+                            <constraint firstItem="lEl-qq-eeQ" firstAttribute="leading" secondItem="UXu-OU-yTn" secondAttribute="leading" id="u7s-GI-vWD"/>
+                            <constraint firstItem="lv8-lR-0u3" firstAttribute="leading" secondItem="UXu-OU-yTn" secondAttribute="leading" constant="10" id="uev-Gf-Ynu"/>
+                            <constraint firstAttribute="trailing" secondItem="lEl-qq-eeQ" secondAttribute="trailing" id="zth-Z6-f1d"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pdfView" destination="lEl-qq-eeQ" id="xeh-p2-Kqf"/>
