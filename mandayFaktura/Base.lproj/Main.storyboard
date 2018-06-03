@@ -157,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="IHI-3W-Dul" customClass="IncrementNumberSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="10" y="155" width="130" height="61"/>
+                                <rect key="frame" x="10" y="138" width="130" height="61"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NoK-bQ-1az">
                                         <rect key="frame" x="18" y="18" width="100" height="23"/>
@@ -206,30 +206,8 @@
                                     <action selector="onSeparatorValueChange:" target="4iu-O0-OUn" id="Qhj-40-uy9"/>
                                 </connections>
                             </textField>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ij3-Vp-Lb8" customClass="DragOrderingDestination" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="15" y="42" width="428" height="77"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RCB-4g-0Ao" userLabel="TemplateNumber">
-                                        <rect key="frame" x="10" y="20" width="408" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="b7d-ar-G5p"/>
-                                        </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="mIu-bc-byX">
-                                            <font key="font" metaFont="system" size="21"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="RCB-4g-0Ao" secondAttribute="trailing" constant="10" id="CON-e3-DYd"/>
-                                    <constraint firstItem="RCB-4g-0Ao" firstAttribute="top" secondItem="ij3-Vp-Lb8" secondAttribute="top" constant="20" id="GCV-hC-nhM"/>
-                                    <constraint firstAttribute="height" constant="77" id="HCn-Z4-lWc"/>
-                                    <constraint firstItem="RCB-4g-0Ao" firstAttribute="leading" secondItem="ij3-Vp-Lb8" secondAttribute="leading" constant="10" id="Zg7-CT-twh"/>
-                                </constraints>
-                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Xr-t7J" customClass="YearSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="319" y="155" width="119" height="61"/>
+                                <rect key="frame" x="319" y="138" width="119" height="61"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v3j-iX-PVx">
                                         <rect key="frame" x="37" y="22" width="37" height="17"/>
@@ -256,9 +234,9 @@
                                     <action selector="onClearSegmentsButtonClicked:" target="4iu-O0-OUn" id="Yky-rV-nca"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="plA-vV-uNt">
-                                <rect key="frame" x="8" y="224" width="432" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Przeciągnij sekcje na pole faktury aby utworzyć własny format." id="22g-nF-aww">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plA-vV-uNt">
+                                <rect key="frame" x="8" y="224" width="432" height="36"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Przeciągnij sekcje oznaczome szarym kolorem na błękitne pole faktury aby utworzyć własny format." id="22g-nF-aww">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -275,7 +253,7 @@
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="VOW-3T-fYL" customClass="FixedPartSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="150" y="155" width="159" height="61"/>
+                                <rect key="frame" x="150" y="138" width="159" height="61"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jIL-Bg-P1y">
                                         <rect key="frame" x="5" y="20" width="149" height="22"/>
@@ -293,6 +271,28 @@
                                     <constraint firstItem="jIL-Bg-P1y" firstAttribute="top" secondItem="VOW-3T-fYL" secondAttribute="top" constant="19" id="x9I-02-ZnP"/>
                                 </constraints>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ij3-Vp-Lb8" customClass="DragOrderingDestination" customModule="mandayFaktura" customModuleProvider="target">
+                                <rect key="frame" x="10" y="46" width="428" height="77"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RCB-4g-0Ao" userLabel="TemplateNumber">
+                                        <rect key="frame" x="10" y="20" width="408" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="b7d-ar-G5p"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="mIu-bc-byX">
+                                            <font key="font" metaFont="system" size="21"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RCB-4g-0Ao" secondAttribute="trailing" constant="10" id="CON-e3-DYd"/>
+                                    <constraint firstItem="RCB-4g-0Ao" firstAttribute="top" secondItem="ij3-Vp-Lb8" secondAttribute="top" constant="20" id="GCV-hC-nhM"/>
+                                    <constraint firstAttribute="height" constant="77" id="HCn-Z4-lWc"/>
+                                    <constraint firstItem="RCB-4g-0Ao" firstAttribute="leading" secondItem="ij3-Vp-Lb8" secondAttribute="leading" constant="10" id="Zg7-CT-twh"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ij3-Vp-Lb8" secondAttribute="trailing" constant="5" id="0hz-XS-svn"/>
@@ -303,15 +303,16 @@
                             <constraint firstAttribute="bottom" secondItem="EL9-WQ-95b" secondAttribute="bottom" constant="10" id="9Y2-a5-zQa"/>
                             <constraint firstItem="GH8-Xr-t7J" firstAttribute="trailing" secondItem="plA-vV-uNt" secondAttribute="trailing" id="B0K-JU-QOc"/>
                             <constraint firstAttribute="bottom" secondItem="APf-B1-7HS" secondAttribute="bottom" constant="10" id="D92-u8-1Qq"/>
-                            <constraint firstItem="ij3-Vp-Lb8" firstAttribute="top" secondItem="IHI-3W-Dul" secondAttribute="bottom" constant="36" id="Exa-L6-Mq2"/>
+                            <constraint firstItem="ij3-Vp-Lb8" firstAttribute="top" secondItem="IHI-3W-Dul" secondAttribute="bottom" constant="15" id="Exa-L6-Mq2"/>
                             <constraint firstItem="VOW-3T-fYL" firstAttribute="leading" secondItem="IHI-3W-Dul" secondAttribute="trailing" constant="10" id="F1C-Jf-BPP"/>
                             <constraint firstItem="GH8-Xr-t7J" firstAttribute="leading" secondItem="VOW-3T-fYL" secondAttribute="trailing" constant="10" id="HEs-VK-gAb"/>
                             <constraint firstAttribute="trailing" secondItem="APf-B1-7HS" secondAttribute="trailing" constant="10" id="Pil-04-CYk"/>
                             <constraint firstAttribute="bottom" secondItem="7TN-Fi-2i1" secondAttribute="bottom" constant="10" id="VT2-rx-S4e"/>
                             <constraint firstItem="plA-vV-uNt" firstAttribute="leading" secondItem="oaH-ES-rZz" secondAttribute="leading" constant="10" id="YR0-qn-EnZ"/>
-                            <constraint firstItem="ij3-Vp-Lb8" firstAttribute="leading" secondItem="oaH-ES-rZz" secondAttribute="leading" constant="15" id="Ywx-NH-Bp8"/>
+                            <constraint firstItem="ij3-Vp-Lb8" firstAttribute="leading" secondItem="oaH-ES-rZz" secondAttribute="leading" constant="10" id="Ywx-NH-Bp8"/>
                             <constraint firstItem="IHI-3W-Dul" firstAttribute="top" secondItem="plA-vV-uNt" secondAttribute="bottom" constant="8" id="aEJ-oe-Fg6"/>
                             <constraint firstItem="VOW-3T-fYL" firstAttribute="top" secondItem="plA-vV-uNt" secondAttribute="bottom" constant="8" id="coG-HO-KNK"/>
+                            <constraint firstAttribute="trailing" secondItem="ij3-Vp-Lb8" secondAttribute="trailing" constant="10" id="jQ6-gj-0hI"/>
                             <constraint firstItem="pOg-ER-QwB" firstAttribute="top" secondItem="oaH-ES-rZz" secondAttribute="top" constant="10" id="lhr-0C-dAP"/>
                             <constraint firstItem="pOg-ER-QwB" firstAttribute="leading" secondItem="Fsv-aR-aY0" secondAttribute="trailing" constant="8" id="ote-1K-eQV"/>
                             <constraint firstAttribute="trailing" secondItem="plA-vV-uNt" secondAttribute="trailing" constant="10" id="r2G-7g-8IN"/>
@@ -2889,7 +2890,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tya-HV-so7">
-                                                            <rect key="frame" x="288.5" y="1" width="137" height="17"/>
+                                                            <rect key="frame" x="288.5" y="1" width="138" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-Md-Ob1">
