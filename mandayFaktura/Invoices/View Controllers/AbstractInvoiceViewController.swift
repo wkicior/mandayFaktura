@@ -17,8 +17,6 @@ class AbstractInvoiceViewController: NSViewController {
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
     
-
-    
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
     @IBOutlet weak var sellingDatePicker: NSDatePicker!
@@ -52,7 +50,6 @@ class AbstractInvoiceViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
     }
-    
 }
 
 extension AbstractInvoiceViewController {
