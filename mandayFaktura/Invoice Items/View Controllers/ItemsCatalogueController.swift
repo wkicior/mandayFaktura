@@ -48,12 +48,16 @@ extension ItemsCatalogueController {
     }
     
     func checkSaveButtonEnabledOnModel() {
+        self.saveButton.isEnabled = isFormValid()
+    }
+    
+    func isFormValid() -> Bool {
         let notFilled = itemsCatalogueTableViewDelegate?.items.first(where: { i in i.name.isEmpty })
-        self.saveButton.isEnabled = notFilled == nil
+        return notFilled == nil
     }
     
     @objc func onTableViewDoubleClicked(sender: AnyObject) {
-        if (invoiceController != nil && sender.selectedRow != -1) {
+        if (invoiceController != nil && sender.selectedRow != -1 && isFormValid()) {
             let invoice = itemsCatalogueTableViewDelegate!.getSelectedInvoice(index: sender.selectedRow)
             invoiceController!.addItem(itemDefinition: invoice)
         }
