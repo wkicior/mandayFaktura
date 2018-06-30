@@ -67,4 +67,22 @@ class VatRateTests: XCTestCase {
         XCTAssertEqual("30%foobar", vatRate.literal)
         XCTAssertEqual(Decimal(string: "0"), vatRate.value)
     }
+    
+    func testVatRate_hashValueSame() {
+        let vatRate1 = VatRate(value: 0, literal: "0%", isDefault: false)
+        let vatRate2 = VatRate(value: 0, literal: "0%", isDefault: false)
+        XCTAssertEqual(vatRate1.hashValue, vatRate2.hashValue)
+    }
+    
+    func testVatRate_hashValueDifferent() {
+        let vatRate1 = VatRate(value: 0, literal: "0", isDefault: false)
+        let vatRate2 = VatRate(value: 0, literal: "0%", isDefault: false)
+        XCTAssertNotEqual(vatRate1.hashValue, vatRate2.hashValue)
+    }
+    
+    func testVatRate_isDefaultIsIgnoredOnHashable() {
+        let vatRate1 = VatRate(value: 0, literal: "0%", isDefault: false)
+        let vatRate2 = VatRate(value: 0, literal: "0%", isDefault: true)
+        XCTAssertEqual(vatRate1.hashValue, vatRate2.hashValue)
+    }
 }

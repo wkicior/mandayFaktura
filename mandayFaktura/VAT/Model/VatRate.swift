@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VatRate: Hashable {
+struct VatRate: Hashable  {
     let value: Decimal
     let literal: String
     let isDefault: Bool
@@ -39,4 +39,24 @@ struct VatRate: Hashable {
             return self.literal != "\(value * 100)%"
         }
     }
+    
+    var hashValue: Int {
+        return value.hashValue ^ literal.hashValue &* 16777619
+    }
+    
+    static func == (lhs: VatRate, rhs: VatRate) -> Bool {
+        return lhs.value == rhs.value && lhs.literal == rhs.literal
+    }
+}
+
+extension VatRate{
+    
+    /*static func == (lhs: VatRate, rhs: VatRate) -> Bool {
+        return lhs.value == rhs.value && lhs.literal == rhs.literal
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+        hasher.combine(literal)
+    }*/
 }
