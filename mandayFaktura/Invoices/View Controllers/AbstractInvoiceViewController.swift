@@ -57,6 +57,7 @@ extension AbstractInvoiceViewController {
         self.itemsTableViewDelegate!.addItem(itemDefinition: itemDefinition)
         self.itemsTableView.reloadData()
         checkPreviewButtonEnabled()
+        checkSaveButtonEnabled()
     }
     
     internal func checkSaveButtonEnabled() {
