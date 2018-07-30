@@ -65,7 +65,7 @@ class ViewController: NSViewController {
         alert.informativeText = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?"
         alert.alertStyle = .warning
         alert.addButton(withTitle: "Usuń")
-        alert.addButton(withTitle: "Nie usuwaj")
+        alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
             invoiceInteractor!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
@@ -81,7 +81,7 @@ class ViewController: NSViewController {
         alert.informativeText = "Dane faktury mogą zostać nadpisane. Czy na pewno chcesz edytować fakturę?"
         alert.alertStyle = .warning
         alert.addButton(withTitle: "Edytuj")
-        alert.addButton(withTitle: "Zamknij")
+        alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
             performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "editInvoiceSegue"), sender: nil)
