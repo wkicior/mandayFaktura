@@ -802,13 +802,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Plik" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="Nowa" keyEquivalent="n" id="Was-JA-tGl" userLabel="Nowa">
+                                        <menuItem title="Nowa..." keyEquivalent="n" id="Was-JA-tGl" userLabel="Nowa">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
                                                 <segue destination="haF-wG-vwp" kind="show" id="ALL-qi-P1w"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Edycja" enabled="NO" keyEquivalent="e" id="NE7-Mf-tLH" userLabel="Edycja">
+                                        <menuItem title="Edycja..." enabled="NO" keyEquivalent="e" id="NE7-Mf-tLH" userLabel="Edycja">
                                             <connections>
                                                 <action selector="onEditInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="dxn-bs-h9o"/>
                                             </connections>
@@ -823,18 +823,18 @@
                                                 <segue destination="B8D-0N-5wS" kind="show" id="ldj-Kx-pcK"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Katalog usług i towarów" keyEquivalent="u" id="5jG-eT-cGH" userLabel="Katalog usług i towarów">
+                                        <menuItem title="Katalog usług i towarów..." keyEquivalent="u" id="5jG-eT-cGH" userLabel="Katalog usług i towarów">
                                             <connections>
                                                 <segue destination="463-Th-NCJ" kind="show" id="7xi-xw-zjF"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Katalog nabywców" keyEquivalent="k" id="W7P-pA-tCN" userLabel="Katalog nabywców">
+                                        <menuItem title="Katalog nabywców..." keyEquivalent="k" id="W7P-pA-tCN" userLabel="Katalog nabywców">
                                             <connections>
                                                 <segue destination="KBz-VZ-nWT" kind="show" id="yZX-n7-FdB"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                                        <menuItem title="Zamknij" keyEquivalent="w" id="DVo-aG-piG">
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
@@ -942,7 +942,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Okno" systemMenu="window" id="Td7-aD-5lo">
                                     <items>
-                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
+                                        <menuItem title="Minimalizuj" keyEquivalent="m" id="OY7-WF-poV">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
                                             </connections>
@@ -954,7 +954,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
-                                        <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
+                                        <menuItem title="Umieść wszystko na wierzchu" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
@@ -2114,7 +2114,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tW4-jT-itO">
-                                                            <rect key="frame" x="124.5" y="1" width="185" height="17"/>
+                                                            <rect key="frame" x="125" y="1" width="185" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-D1-ABt">
@@ -2147,7 +2147,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xGW-Bu-cYZ">
-                                                            <rect key="frame" x="312.5" y="1" width="235" height="17"/>
+                                                            <rect key="frame" x="313" y="1" width="235" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7x-C1-Ae8">
@@ -2180,7 +2180,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="nml-Nc-Xga">
-                                                            <rect key="frame" x="550.5" y="1" width="106" height="17"/>
+                                                            <rect key="frame" x="551" y="1" width="106" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjY-hu-jB8">
@@ -3223,7 +3223,7 @@ AAAAAAAcgQ
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
         <segue reference="pNf-8A-Ove"/>
-        <segue reference="7rX-Ec-kKv"/>
+        <segue reference="7xi-xw-zjF"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="lEd-0Y-pPs"/>
         <segue reference="lJP-li-Rqb"/>
