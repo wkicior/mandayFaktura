@@ -56,6 +56,7 @@ class ViewController: NSViewController {
         ItemDefinitionRepositoryFactory.register(repository: KeyArchiverItemDefinitionRepository())
         InvoiceNumberingSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceNumberingSettingsRepository())
         VatRateRepositoryFactory.register(repository: KeyArchiverVatRateRepository())
+        InvoiceSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceSettingsRepository())
     }
     
    

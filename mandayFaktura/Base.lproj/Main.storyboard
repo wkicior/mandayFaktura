@@ -14,6 +14,7 @@
                         <tabViewItem label="Dane firmy" identifier="" id="cJA-bK-apM"/>
                         <tabViewItem label="Numeracja" identifier="" id="ULa-nh-Cjx"/>
                         <tabViewItem label="Stawki VAT" id="mGw-VY-vaY"/>
+                        <tabViewItem label="Dokument" id="haE-qU-sJy"/>
                     </tabViewItems>
                     <tabView key="tabView" autoresizesSubviews="NO" type="noTabsNoBorder" id="a5q-V5-GpW">
                         <rect key="frame" x="1" y="0.0" width="449" height="300"/>
@@ -28,6 +29,7 @@
                         <segue destination="ONU-i2-fbc" kind="relationship" relationship="tabItems" id="KU1-hG-9BN"/>
                         <segue destination="4iu-O0-OUn" kind="relationship" relationship="tabItems" id="WpX-8m-9dk"/>
                         <segue destination="oyF-0z-qfU" kind="relationship" relationship="tabItems" id="BbN-d0-N9O"/>
+                        <segue destination="RUf-8q-9Iu" kind="relationship" relationship="tabItems" id="0DY-XN-5OW"/>
                     </connections>
                 </tabViewController>
                 <customObject id="OA8-l1-ldy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -3080,6 +3082,95 @@
             </objects>
             <point key="canvasLocation" x="1395" y="-1398"/>
         </scene>
+        <!--Dokument-->
+        <scene sceneID="pjY-4v-Ss5">
+            <objects>
+                <customObject id="zud-sV-xuo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController title="Dokument" id="RUf-8q-9Iu" customClass="InvoiceDocumentSettingsViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="dAf-Cg-nXv">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-O4-h05">
+                                <rect key="frame" x="365" y="3" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0tV-hd-K6Z">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onSave:" target="RUf-8q-9Iu" id="bkh-zS-VMW"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MTT-rb-BIh">
+                                <rect key="frame" x="289" y="3" width="78" height="32"/>
+                                <buttonCell key="cell" type="push" title="Anuluj" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jGj-6Z-OBR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onCancel:" target="RUf-8q-9Iu" id="6cC-vW-DoI"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KjL-O6-XWZ">
+                                <rect key="frame" x="12" y="267" width="95" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data płatności:" id="BaX-NI-GtG">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJ4-Ut-XR7">
+                                <rect key="frame" x="186" y="261" width="257" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="od daty wystawienia" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Rkq-eA-ldu" id="2Uq-Hx-ueq">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="phb-MG-PLq">
+                                        <items>
+                                            <menuItem title="od daty wystawienia" state="on" id="Rkq-eA-ldu"/>
+                                            <menuItem title="od daty wystawienia (na formularzu)" tag="1" id="HjX-x9-nlF"/>
+                                            <menuItem title="od daty sprzedaży" tag="2" id="C2U-v2-Kse"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVO-bn-P9K">
+                                <rect key="frame" x="159" y="267" width="23" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="dni" id="GgW-FM-whc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0vF-Ar-Rfa">
+                                <rect key="frame" x="122" y="263" width="31" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0" drawsBackground="YES" id="xEu-LV-5Cg">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="K04-J7-wHG"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MTT-rb-BIh" secondAttribute="bottom" constant="10" id="5mN-l5-pO6"/>
+                            <constraint firstAttribute="trailing" secondItem="hrd-O4-h05" secondAttribute="trailing" constant="10" id="Qv2-Zi-RJW"/>
+                            <constraint firstAttribute="bottom" secondItem="hrd-O4-h05" secondAttribute="bottom" constant="10" id="Sl9-kz-sjy"/>
+                            <constraint firstItem="hrd-O4-h05" firstAttribute="leading" secondItem="MTT-rb-BIh" secondAttribute="trailing" constant="10" id="l6c-84-63g"/>
+                            <constraint firstItem="MTT-rb-BIh" firstAttribute="top" secondItem="dAf-Cg-nXv" secondAttribute="top" constant="269" id="xN0-8d-0hJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="paymentDateDays" destination="0vF-Ar-Rfa" id="7EK-R5-s6q"/>
+                        <outlet property="paymentDateFrom" destination="OJ4-Ut-XR7" id="Ex3-Hd-sgO"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="823" y="-357"/>
+        </scene>
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
@@ -3222,10 +3313,10 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
-        <segue reference="pNf-8A-Ove"/>
-        <segue reference="7xi-xw-zjF"/>
+        <segue reference="mvy-hV-L5q"/>
+        <segue reference="q7C-5l-bPd"/>
         <segue reference="ALL-qi-P1w"/>
-        <segue reference="lEd-0Y-pPs"/>
+        <segue reference="cdO-Kg-uj2"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
 </document>

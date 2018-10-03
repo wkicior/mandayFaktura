@@ -81,7 +81,7 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
     private var invoicesCoding: [InvoiceCoding] {
         get {
             if let data = UserDefaults.standard.object(forKey: key) as? NSData {
-                return  NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [InvoiceCoding]
+                return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [InvoiceCoding]
             }
             return []
         }

@@ -26,7 +26,6 @@ import Foundation
     init(_ numberingSegment: NumberingSegment) {
         self.numberingSegment = numberingSegment
     }
-    
 }
 
 @objc(InvoiceNumberingSettingsCoding) private class InvoiceNumberingSettingsCoding: NSObject, NSCoding {

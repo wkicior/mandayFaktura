@@ -26,7 +26,6 @@ class ItemsCatalogueController: NSViewController {
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
         removeItemButton.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: NSControl.k, object: <#T##Any?#>)
     }
 }
 
@@ -109,10 +108,12 @@ extension ItemsCatalogueController {
             checkSaveButtonEnabledOnModel()
         }
     }
+    
     @IBAction func onUnitNetPriceChange(_ sender: NSTextField) {
         tryWithWarning(self.itemsCatalogueTableViewDelegate!.changeItemNetValue, on: sender)
         safeReloadData()
     }
+    
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
         self.itemsCatalogueTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
         safeReloadData()
