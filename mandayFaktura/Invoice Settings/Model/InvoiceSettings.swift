@@ -10,10 +10,29 @@ import Foundation
 
 class InvoiceSettings {
     var paymentDateDays = 0
-    var paymentDateFrom = PaymentDateFrom.today
+    var paymentDateFrom = PaymentDateFrom.createDate
     
-    init(paymentDateDays: Int, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.today) {
+    init(paymentDateDays: Int, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate) {
         self.paymentDateDays = paymentDateDays
         self.paymentDateFrom = paymentDateFrom
+    }
+    
+    func getDueDate(issueDate: Date, sellDate: Date) -> Date {
+        return getDueDate(date: selectDateFrom(issueDate: issueDate, sellDate: sellDate))
+    }
+    
+    private func selectDateFrom(issueDate: Date, sellDate: Date) -> Date {
+        switch(paymentDateFrom) {
+        case .createDate:
+            return Date()
+        case .issueDate:
+            return issueDate
+        case .sellDate:
+            return sellDate
+        }
+    }
+    
+    func getDueDate(date: Date) -> Date {
+         return Calendar.current.date(byAdding: .day, value: paymentDateDays, to: date)!
     }
 }

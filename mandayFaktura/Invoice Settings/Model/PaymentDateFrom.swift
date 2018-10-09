@@ -9,5 +9,5 @@
 import Foundation
 
 enum PaymentDateFrom: Int {
-    case today = 1, issueDate, sellDate
+    case createDate = 1, issueDate, sellDate
 }

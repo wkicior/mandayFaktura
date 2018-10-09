@@ -13,10 +13,11 @@ class AbstractInvoiceViewController: NSViewController {
     let itemDefinitionInteractor = InvoiceItemDefinitionInteractor()
     let counterpartyInteractor = CounterpartyInteractor()
     let vatRateInteractor = VatRateInteractor()
+    let invoiceSettingsInteractor = InvoiceSettingsInteractor()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
-    
+   
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
     @IBOutlet weak var sellingDatePicker: NSDatePicker!
@@ -49,6 +50,8 @@ class AbstractInvoiceViewController: NSViewController {
         self.checkSaveButtonEnabled()
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
+        let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
+        dueDatePicker.dateValue = invoiceSettings.getDueDate(issueDate: issueDatePicker.dateValue, sellDate: sellingDatePicker.dateValue)
     }
 }
 
@@ -210,4 +213,20 @@ extension AbstractInvoiceViewController {
         }
     }
     
+}
+
+extension AbstractInvoiceViewController {
+    @IBAction func onIssueDateSelected(_ sender: NSDatePicker) {
+        let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings()
+        if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .issueDate) {
+            self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.issueDatePicker.dateValue)
+        }
+    }
+    
+    @IBAction func onSellDateSelected(_ sender: NSDatePicker) {
+        let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings()
+        if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .sellDate) {
+            self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.sellingDatePicker.dateValue)
+        }
+    }
 }

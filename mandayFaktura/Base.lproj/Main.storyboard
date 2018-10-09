@@ -1113,6 +1113,9 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </datePickerCell>
+                                <connections>
+                                    <action selector="onIssueDateSelected:" target="haF-wG-vwp" id="tkk-Px-Ylj"/>
+                                </connections>
                             </datePicker>
                             <button toolTip="Zapis faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1gg-h9-i9W">
                                 <rect key="frame" x="875" y="3" width="81" height="32"/>
@@ -1157,6 +1160,9 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </datePickerCell>
+                                <connections>
+                                    <action selector="onSellDateSelected:" target="haF-wG-vwp" id="wuF-V2-gUy"/>
+                                </connections>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Acv-JA-I3R">
                                 <rect key="frame" x="8" y="488" width="96" height="17"/>
@@ -3123,14 +3129,14 @@
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJ4-Ut-XR7">
                                 <rect key="frame" x="186" y="261" width="257" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="od daty wystawienia" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Rkq-eA-ldu" id="2Uq-Hx-ueq">
+                                <popUpButtonCell key="cell" type="push" title="od daty utworzenia" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="Rkq-eA-ldu" id="2Uq-Hx-ueq">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="phb-MG-PLq">
                                         <items>
-                                            <menuItem title="od daty wystawienia" state="on" id="Rkq-eA-ldu"/>
-                                            <menuItem title="od daty wystawienia (na formularzu)" tag="1" id="HjX-x9-nlF"/>
-                                            <menuItem title="od daty sprzedaży" tag="2" id="C2U-v2-Kse"/>
+                                            <menuItem title="od daty utworzenia" state="on" tag="1" id="Rkq-eA-ldu"/>
+                                            <menuItem title="od daty wystawienia (na formularzu)" tag="2" id="HjX-x9-nlF"/>
+                                            <menuItem title="od daty sprzedaży" tag="3" id="C2U-v2-Kse"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
