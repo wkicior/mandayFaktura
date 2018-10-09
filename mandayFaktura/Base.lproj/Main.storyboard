@@ -3134,12 +3134,17 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="phb-MG-PLq">
                                         <items>
-                                            <menuItem title="od daty utworzenia" state="on" tag="1" id="Rkq-eA-ldu"/>
+                                            <menuItem title="od daty utworzenia" state="on" tag="1" id="Rkq-eA-ldu">
+                                                <accessibility description="some desc" help="some help"/>
+                                            </menuItem>
                                             <menuItem title="od daty wystawienia (na formularzu)" tag="2" id="HjX-x9-nlF"/>
                                             <menuItem title="od daty sprzedaży" tag="3" id="C2U-v2-Kse"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="onSelectPaymentDateFrom:" target="RUf-8q-9Iu" id="iQt-XG-BBN"/>
+                                </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVO-bn-P9K">
                                 <rect key="frame" x="159" y="267" width="23" height="17"/>
@@ -3160,6 +3165,15 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUX-Ps-18x">
+                                <rect key="frame" x="12" y="183" width="430" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Wybrana opcja spowoduje nadpisanie daty płatności po zmianie pola, którego dotyczy" id="cVc-rc-veO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MTT-rb-BIh" secondAttribute="bottom" constant="10" id="5mN-l5-pO6"/>
@@ -3170,6 +3184,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="helpText" destination="QUX-Ps-18x" id="jYc-nd-xEa"/>
                         <outlet property="paymentDateDays" destination="0vF-Ar-Rfa" id="7EK-R5-s6q"/>
                         <outlet property="paymentDateFrom" destination="OJ4-Ut-XR7" id="Ex3-Hd-sgO"/>
                     </connections>

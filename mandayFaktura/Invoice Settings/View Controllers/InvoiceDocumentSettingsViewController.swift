@@ -16,11 +16,21 @@ class InvoiceDocumentSettingsViewController: NSViewController {
     
     let invoiceSettingsInteractor = InvoiceSettingsInteractor()
     
+    @IBOutlet weak var helpText: NSTextField!
+    
+    @IBAction func onSelectPaymentDateFrom(_ sender: Any) {
+        setHelpTextVisibility()
+    }
+    
+    func setHelpTextVisibility() {
+         self.helpText.isHidden = (paymentDateFrom.selectedItem?.tag == 1)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let invoiceSettings: InvoiceSettings? = self.invoiceSettingsInteractor.getInvoiceSettings();
         self.paymentDateDays.stringValue = String(invoiceSettings?.paymentDateDays ?? 0)
         self.paymentDateFrom.selectItem(withTag: invoiceSettings?.paymentDateFrom.rawValue ?? 0)
+        setHelpTextVisibility()
     }
     @IBAction func onSave(_ sender: NSButton) {
         let paymentDateDays = Int(self.paymentDateDays.stringValue)!
