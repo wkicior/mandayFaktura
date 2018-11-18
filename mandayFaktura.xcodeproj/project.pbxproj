@@ -40,6 +40,7 @@
 		D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */; };
 		D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD520417AB9003CCC5B /* UserAbortError.swift */; };
 		D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */; };
+		D34339B821A1DF1400C583D2 /* PdfDocumentPrintOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34339B721A1DF1400C583D2 /* PdfDocumentPrintOperation.swift */; };
 		D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
 		D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */; };
 		D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */; };
@@ -157,6 +158,7 @@
 		D330BFD3203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBuyerWithThatNameExistsError.swift; sourceTree = "<group>"; };
 		D330BFD520417AB9003CCC5B /* UserAbortError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAbortError.swift; sourceTree = "<group>"; };
 		D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewDelegate.swift; sourceTree = "<group>"; };
+		D34339B721A1DF1400C583D2 /* PdfDocumentPrintOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPrintOperation.swift; sourceTree = "<group>"; };
 		D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mandayFaktura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryController.swift; sourceTree = "<group>"; };
@@ -436,6 +438,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D34339B921A1DF2300C583D2 /* Printing */ = {
+			isa = PBXGroup;
+			children = (
+				D34339B721A1DF1400C583D2 /* PdfDocumentPrintOperation.swift */,
+			);
+			path = Printing;
+			sourceTree = "<group>";
+		};
 		D34D0EB2201A7CBC000D1EC6 = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +510,7 @@
 		D34D0F08201CE888000D1EC6 /* Invoices */ = {
 			isa = PBXGroup;
 			children = (
+				D34339B921A1DF2300C583D2 /* Printing */,
 				D324860620697C4C00BB79F6 /* Errors */,
 				D37560B02034C1F800F507AD /* Conversions */,
 				D34D0F1E2020E907000D1EC6 /* Pdf */,
@@ -964,6 +975,7 @@
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D3781B8320B3484100CA420E /* InvoiceItemDefinitionInteractor.swift in Sources */,
+				D34339B821A1DF1400C583D2 /* PdfDocumentPrintOperation.swift in Sources */,
 				D32ED32D215FA36800BDC6BE /* KeyedArchiverInvoiceSettingsRepository.swift in Sources */,
 				D3B7C95F2087B98900432176 /* EditInvoiceViewController.swift in Sources */,
 				D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */,

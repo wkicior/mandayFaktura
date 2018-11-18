@@ -26,24 +26,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var menu: NSMenu!
     @IBOutlet weak var removeInvoiceMenuItem: NSMenuItem!
     @IBOutlet weak var editInvoiceMenuItem: NSMenuItem!
+    @IBOutlet weak var printInvoiceMenuItem: NSMenuItem!
     
     @IBAction func onRemoveInvoiceMenuItemClicked(_ sender: NSMenuItem) {
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_REMOVE_NOTIFICATION, object: nil)
 
     }
+    
     @IBAction func onEditInvoiceMenuItemClicked(_ sender: Any) {
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION, object: nil)
     }
+    
+    @IBAction func onPrintInvoiceMenuItemClicked(_ sender: NSMenuItem) {
+        NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_PRINT_NOTIFICATION, object: nil)
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         menu.autoenablesItems = false
         self.removeInvoiceMenuItem.isEnabled = false
-        
-        
+        self.printInvoiceMenuItem.isEnabled = false
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_SELECTED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.setInvoiceMenuItemAvailability(notification: notification)
-                                                
-                                           
         }
     }
     
@@ -52,6 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let invoice = dict?[ViewControllerConstants.INVOICE_NOTIFICATION_KEY] as? Invoice
         self.removeInvoiceMenuItem.isEnabled = invoice != nil
         self.editInvoiceMenuItem.isEnabled = invoice != nil
+        self.printInvoiceMenuItem.isEnabled = invoice != nil
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -12,6 +12,7 @@ struct ViewControllerConstants {
     static let INVOICE_SELECTED_NOTIFICATION = Notification.Name(rawValue: "InvoiceSelected")
     static let INVOICE_TO_REMOVE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToRemove")
     static let INVOICE_TO_EDIT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToEdit")
+    static let INVOICE_TO_PRINT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToPrint")
 
     static let INVOICE_NOTIFICATION_KEY = "invoice"
 }
@@ -48,6 +49,9 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.editInvoice()}
+        NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_PRINT_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.printInvoice()}
     }
     
     func initializeRepositories() {
@@ -89,6 +93,13 @@ class ViewController: NSViewController {
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
             return
         }
+    }
+    
+    func printInvoice() {
+        let invoice: Invoice = (self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!
+        let invoicePdf = InvoicePdf(invoice: invoice)
+        let pdfPrintOperation = PdfDocumentPrintOperation(document: invoicePdf.getDocument())
+        pdfPrintOperation.runModal(on: self)
     }
 
     override var representedObject: Any? {

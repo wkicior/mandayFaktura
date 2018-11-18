@@ -16,6 +16,7 @@ The development is still ongoing, therefore the application provides some basic 
 - creation of new invoices
 - invoice edition
 - exporting the invoices to PDF files
+- printing invoices
 - management of invoice items
 - management of counterparties
 - deleting saved invoices
@@ -28,12 +29,10 @@ The features I'm working on and should be delivered any day now include:
 - improving UX
 - fixing the menu
 - name of the issuer
-- improve printing
 
 ## Features currently not supported
 - Other documents like ProForma, invoice correction
 - Searching
-- Direct printing
 - Currencies other than PLN
 - Complex payment methods (only payment and cash are supported)
 
@@ -53,6 +52,7 @@ Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalno
 - tworzenie faktur
 - edycja faktur
 - eksport faktur do pliku PDF
+- drukowanie faktur
 - zarządzanie towarami i usługami
 - zarządzanie kontrahentami
 - usuwanie faktur
@@ -66,12 +66,10 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - user experience
 - poprawa menu
 - nazwa wystawiającego
-- ulepszenie wydruków
 
 ## Nie wspierane funkcjonalności
 - Inne dokumenty takie jak: ProForma, korekta
 - Wyszukiwanie
-- Bezpośredni wydruk
 - Waluty inne niż Planowana
 - Inne metody płatności (tylko przelew i gotówka są aktualnie wspierane)
 

@@ -32,10 +32,8 @@ class PdfViewController: NSViewController {
     }
     
     @IBAction func onPrintButtonClicked(_ sender: NSButton) {
-        let printInfoDictionary = NSMutableDictionary(dictionary: NSPrintInfo.shared.dictionary())
-        let printInfo = NSPrintInfo(dictionary: printInfoDictionary as! [NSPrintInfo.AttributeKey : Any])
-        let printOperation = pdfView.document?.printOperation(for: printInfo, scalingMode: .pageScaleToFit, autoRotate: false)
-        printOperation?.runModal(for: self.view.window!, delegate: self, didRun: nil, contextInfo: nil)
+        let pdfPrintOperation = PdfDocumentPrintOperation(document: pdfView.document!)
+        pdfPrintOperation.runModal(on: self)
     }
     
     @IBAction func onExportButtonClicked(_ sender: NSButton) {

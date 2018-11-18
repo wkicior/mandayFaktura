@@ -860,9 +860,9 @@ DQ
                                                 <action selector="runPageLayout:" target="Ady-hI-5gd" id="Din-rz-gC5"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
+                                        <menuItem title="Drukuj..." keyEquivalent="p" id="aTl-1u-JFS">
                                             <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
+                                                <action selector="onPrintInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="GAn-3o-pod"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -999,6 +999,7 @@ DQ
                     <connections>
                         <outlet property="editInvoiceMenuItem" destination="NE7-Mf-tLH" id="Mk5-hw-rvU"/>
                         <outlet property="menu" destination="bib-Uj-vzu" id="1kv-bH-Ghf"/>
+                        <outlet property="printInvoiceMenuItem" destination="aTl-1u-JFS" id="y05-KD-gi2"/>
                         <outlet property="removeInvoiceMenuItem" destination="3Ww-3p-vUu" id="DNA-Bb-TiK"/>
                     </connections>
                 </customObject>
@@ -2153,7 +2154,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tW4-jT-itO">
-                                                            <rect key="frame" x="125" y="1" width="185" height="17"/>
+                                                            <rect key="frame" x="124.5" y="1" width="185" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-D1-ABt">
@@ -2186,7 +2187,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xGW-Bu-cYZ">
-                                                            <rect key="frame" x="313" y="1" width="235" height="17"/>
+                                                            <rect key="frame" x="312.5" y="1" width="235" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7x-C1-Ae8">
@@ -2219,7 +2220,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="nml-Nc-Xga">
-                                                            <rect key="frame" x="551" y="1" width="106" height="17"/>
+                                                            <rect key="frame" x="550.5" y="1" width="106" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjY-hu-jB8">
@@ -3372,8 +3373,8 @@ AAAAAAAcgQ
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
         <segue reference="pNf-8A-Ove"/>
-        <segue reference="7rX-Ec-kKv"/>
-        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="7xi-xw-zjF"/>
+        <segue reference="ALL-qi-P1w"/>
         <segue reference="vDY-KR-MZq"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
