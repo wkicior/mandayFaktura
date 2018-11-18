@@ -32,6 +32,13 @@ class PdfViewController: NSViewController {
     }
     
     @IBAction func onPrintButtonClicked(_ sender: NSButton) {
+        let printInfoDictionary = NSMutableDictionary(dictionary: NSPrintInfo.shared.dictionary())
+        let printInfo = NSPrintInfo(dictionary: printInfoDictionary as! [NSPrintInfo.AttributeKey : Any])
+        let printOperation = pdfView.document?.printOperation(for: printInfo, scalingMode: .pageScaleToFit, autoRotate: false)
+        printOperation?.runModal(for: self.view.window!, delegate: self, didRun: nil, contextInfo: nil)
+    }
+    
+    @IBAction func onExportButtonClicked(_ sender: NSButton) {
         let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
         let original = invoicePdf!.getDocument(copyTemplate: .original)
         original.write(toFile: "\(homeDirURL.path)/Downloads/\(invoice?.number.encodeToFilename ?? "Faktura")-org.pdf")

@@ -2051,14 +2051,27 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="onPrintButtonClicked:" target="xVm-3h-MS1" id="Q9Q-uU-WLz"/>
+                                    <action selector="onExportButtonClicked:" target="xVm-3h-MS1" id="dQZ-fl-7PC"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rBA-vh-agR">
+                                <rect key="frame" x="810" y="3" width="91" height="32"/>
+                                <buttonCell key="cell" type="push" title="Drukuj..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7GG-bU-fxb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onPrintButtonClicked:" target="xVm-3h-MS1" id="S8r-nE-oHl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rBA-vh-agR" secondAttribute="bottom" constant="10" id="2Am-NJ-dhJ"/>
                             <constraint firstAttribute="bottom" secondItem="lv8-lR-0u3" secondAttribute="bottom" constant="10" id="6Oy-1w-bcS"/>
+                            <constraint firstItem="rBA-vh-agR" firstAttribute="top" secondItem="lEl-qq-eeQ" secondAttribute="bottom" constant="19" id="7e7-ef-VzV"/>
                             <constraint firstItem="lEl-qq-eeQ" firstAttribute="top" secondItem="UXu-OU-yTn" secondAttribute="top" id="Yte-hP-c8Q"/>
                             <constraint firstItem="lv8-lR-0u3" firstAttribute="top" secondItem="lEl-qq-eeQ" secondAttribute="bottom" constant="19" id="gZe-No-yL3"/>
+                            <constraint firstAttribute="trailing" secondItem="rBA-vh-agR" secondAttribute="trailing" constant="5" id="h4h-Id-x7a"/>
                             <constraint firstItem="lEl-qq-eeQ" firstAttribute="leading" secondItem="UXu-OU-yTn" secondAttribute="leading" id="u7s-GI-vWD"/>
                             <constraint firstItem="lv8-lR-0u3" firstAttribute="leading" secondItem="UXu-OU-yTn" secondAttribute="leading" constant="10" id="uev-Gf-Ynu"/>
                             <constraint firstAttribute="trailing" secondItem="lEl-qq-eeQ" secondAttribute="trailing" id="zth-Z6-f1d"/>
