@@ -103,6 +103,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YkP-GR-qn1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zE4-xG-VA7">
@@ -180,6 +183,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zuy-Lh-CmR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onSaveButtonClicked:" target="4iu-O0-OUn" id="gtA-WV-Jc2"/>
@@ -581,6 +587,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b1W-hj-Ckb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onSaveButtonClickedAction:" target="jZ8-TV-xZJ" id="YnV-PJ-GFl"/>
@@ -691,6 +700,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bgf-kq-fBT">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onSaveButtonClickedAction:" target="n9k-5a-UWE" id="iPO-x1-6w3"/>
@@ -1119,9 +1131,12 @@
                             </datePicker>
                             <button toolTip="Zapis faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1gg-h9-i9W">
                                 <rect key="frame" x="875" y="3" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nc5-sw-XpX">
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="nc5-sw-XpX" colorLabel="IBBuiltInLabel-Red">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onSaveButtonClicked:" target="haF-wG-vwp" id="ekE-RN-zTa"/>
@@ -1966,6 +1981,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tTG-bf-qdE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onSaveButtonClicked:" target="463-Th-NCJ" id="JLy-YQ-aSc"/>
@@ -2315,6 +2333,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" toolTip="Zapis faktury" imageScaling="proportionallyDown" inset="2" id="G6N-5g-vh5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="saveButtonClicked:" target="Pk8-xk-tGP" id="aHv-fn-Nz9"/>
@@ -3102,6 +3123,9 @@
                                 <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0tV-hd-K6Z">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onSave:" target="RUf-8q-9Iu" id="bkh-zS-VMW"/>
@@ -3334,10 +3358,10 @@ AAAAAAAcgQ
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
-        <segue reference="mvy-hV-L5q"/>
-        <segue reference="q7C-5l-bPd"/>
-        <segue reference="ALL-qi-P1w"/>
-        <segue reference="cdO-Kg-uj2"/>
+        <segue reference="pNf-8A-Ove"/>
+        <segue reference="7rX-Ec-kKv"/>
+        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="vDY-KR-MZq"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
 </document>
