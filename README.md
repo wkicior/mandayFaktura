@@ -65,12 +65,12 @@ Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe
 - ulepszenie interfejsu i wyglądu okien
 - user experience
 - poprawa menu
-- nazwa wystawiającego
+- Imię i nazwisko wystawiającego fakturę
 
 ## Nie wspierane funkcjonalności
 - Inne dokumenty takie jak: ProForma, korekta
 - Wyszukiwanie
-- Waluty inne niż Planowana
+- Waluty inne niż PLN
 - Inne metody płatności (tylko przelew i gotówka są aktualnie wspierane)
 
 ## Licencja
