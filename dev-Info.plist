@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>keyed_archiver_profile</key>
-	<string></string>
+	<string>test</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

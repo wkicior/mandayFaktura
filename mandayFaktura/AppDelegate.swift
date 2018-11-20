@@ -13,13 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // keyed archiver name - change it for testing purposes
     static var keyedArchiverProfile: String {
         get {
-            if let path = Bundle.main.path(forResource: "Settings", ofType: "plist") {
-                let dictRoot = NSDictionary(contentsOfFile: path)
-                if let dict = dictRoot {
-                    return dict["profile"] as! String
-                }
-            }
-            return ""
+            return Bundle.main.object(forInfoDictionaryKey: "keyed_archiver_profile") as! String
         }
     }
     
