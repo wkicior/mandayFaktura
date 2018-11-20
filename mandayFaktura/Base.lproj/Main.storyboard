@@ -2060,6 +2060,8 @@ DQ
                                 <buttonCell key="cell" type="push" title="Drukuj..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7GG-bU-fxb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">p</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onPrintButtonClicked:" target="xVm-3h-MS1" id="S8r-nE-oHl"/>
@@ -2154,7 +2156,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tW4-jT-itO">
-                                                            <rect key="frame" x="124.5" y="1" width="185" height="17"/>
+                                                            <rect key="frame" x="125" y="1" width="185" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-D1-ABt">
@@ -2187,7 +2189,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xGW-Bu-cYZ">
-                                                            <rect key="frame" x="312.5" y="1" width="235" height="17"/>
+                                                            <rect key="frame" x="313" y="1" width="235" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7x-C1-Ae8">
@@ -2220,7 +2222,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="nml-Nc-Xga">
-                                                            <rect key="frame" x="550.5" y="1" width="106" height="17"/>
+                                                            <rect key="frame" x="551" y="1" width="106" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjY-hu-jB8">
@@ -3373,8 +3375,8 @@ AAAAAAAcgQ
     <inferredMetricsTieBreakers>
         <segue reference="o5h-iw-LOf"/>
         <segue reference="pNf-8A-Ove"/>
-        <segue reference="7xi-xw-zjF"/>
-        <segue reference="ALL-qi-P1w"/>
+        <segue reference="7rX-Ec-kKv"/>
+        <segue reference="cPw-Au-6Bj"/>
         <segue reference="vDY-KR-MZq"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
