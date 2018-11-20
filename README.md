@@ -44,7 +44,7 @@ mandayFaktura to darmowa aplikacja do fakturowania dla systemu MacOS.
 Zoptymalizowana jest pod małe przedsiębiorstwa, osoby samozatrudnione wystawiające kilka faktur w miesiącu.
 
 ## Pobranie i instalacja
-Aplikacja może zostać pobrana z  [wydania 0.0.1](https://github.com/wkicior/mandayFaktura/releases/download/release%2F0.0.1/mandayFaktura.app.zip)
+Aplikacja może zostać pobrana z [wydania 0.0.2](https://github.com/wkicior/mandayFaktura/releases/download/release%2F0.0.2/mandayFaktura.app.zip)
 Aplikacja potrzebuje Twojej zgody w Preferencje Systemowe/Ochrona i Prywatność w celu uruchomienia.
 
 ## Funkcjonalności
