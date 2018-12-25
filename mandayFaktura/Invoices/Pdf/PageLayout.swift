@@ -23,8 +23,8 @@ class PageLayout {
     private let itemsStartYPosition = CGFloat(674)
     private let counterpartiesStartYPosition = CGFloat(750)
    
-    private let defaultRowHeight = CGFloat(25.0)
-    private let gridPadding = CGFloat(5)
+    private let defaultRowHeight = CGFloat(25) // TODO: there is some padding included - which multiplies on many lines
+    private let gridPadding = CGFloat(5.0)
     
     private let fontFormatting = FontFormatting()
     private var itemRowsCounter = 0
@@ -68,8 +68,6 @@ class PageLayout {
         drawPath(from: fromPoint, to: toPoint)
     }
     
-    
-    
     func drawSeller(seller: String) {
         let rect = NSMakeRect(CGFloat(100.0),
                               counterpartiesStartYPosition,
@@ -87,16 +85,19 @@ class PageLayout {
     }
     
     func drawItemsTable(headerData: [String], tableData: [[String]]) {
-        itemRowsCounter = tableData.count
+        itemRowsCounter = 0 // TODO PageLayout is being reused for copy as well - fix this
         for i in 0 ..< headerData.count {
             drawItemsHeaderCell(content: headerData[i], column: i)
         }
+        var tableRow = 0
         for i in 0 ..< tableData.count {
+            let rowLineCount = Int(ceil(CGFloat(CGFloat(tableData[i][1].count) / 35.0)))// TODO: check max
+            itemRowsCounter = itemRowsCounter + rowLineCount
+            tableRow = tableRow + rowLineCount // TODO: rename - table row is physical row (rowspan)
             for j in 0 ..< tableData[i].count {
-                drawItemTableCell(content: tableData[i][j], row: i, column: j)
+                drawItemTableCell(content: tableData[i][j], row: i, column: j, size: CGFloat(rowLineCount), tableRow: tableRow)
             }
         }
-        drawItemTableGrid(rows: tableData.count, columns: headerData.count)
     }
     
     private func drawItemsHeaderCell(content: String, column: Int) {
@@ -104,29 +105,36 @@ class PageLayout {
             leftMargin + self.getColumnXOffset(column: column),
             itemsStartYPosition,
             getColumnWidth(column: column),
-            defaultRowHeight )
+            defaultRowHeight * CGFloat(2.0) )
         fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
-                           y: itemsStartYPosition - gridPadding,
+                           y: itemsStartYPosition,
                            width:  getColumnWidth(column: column),
-                           height: defaultRowHeight + 2 * gridPadding,
+                           height: defaultRowHeight * CGFloat(2.0) + 2 * gridPadding,
                            color: darkHeaderColor)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
     
-    private func drawItemTableCell(content: String, row: Int, column: Int) {
-        let yStartingPosition =  itemsStartYPosition - (defaultRowHeight * (CGFloat(row) + 1)) - extraItemsHeaderPadding
-        let rect = NSMakeRect(
-            leftMargin + self.getColumnXOffset(column: column),
-            yStartingPosition,
-            self.getColumnWidth(column: column),
-            defaultRowHeight)
+    private func drawItemTableCell(content: String, row: Int, column: Int, size: CGFloat, tableRow: Int) {
+        let yBottom =  itemsStartYPosition - (defaultRowHeight * (CGFloat(tableRow))) - extraItemsHeaderPadding
+        let xLeft =  leftMargin + self.getColumnXOffset(column: column)
+        let width = self.getColumnWidth(column: column)
+        let height = defaultRowHeight * size
+        let rect = NSMakeRect(xLeft, yBottom, width, height)
         if row % 2 == 1{
-            fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
-                               y: yStartingPosition + gridPadding,
-                               width:  self.getColumnWidth(column: column),
-                               height: defaultRowHeight,
+            fillCellBackground(x: xLeft,
+                               y: yBottom + gridPadding,
+                               width:  width,
+                               height: height,
                                color: lightCellColor)
         }
+        drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
+                 to: NSMakePoint(xLeft + width, yBottom + gridPadding + height)) // TOP
+        drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding),
+                 to: NSMakePoint(xLeft + width, yBottom + gridPadding)) // BOTTOM
+        drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
+            to: NSMakePoint(xLeft, yBottom + gridPadding)) // LEFT
+        drawPath(from: NSMakePoint(xLeft + width , yBottom + gridPadding + height),
+                 to: NSMakePoint(xLeft + width, yBottom + gridPadding)) // RIGHT
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
 
     }
@@ -200,28 +208,9 @@ class PageLayout {
         drawPath(from: fromPoint, to: toPoint)
     }
     
-    private func drawItemTableGrid(rows: Int, columns: Int) {
-        (0 ... rows + 1).forEach({r in drawItemHorizontalGrid(row: r)})
-        (0 ... columns).forEach({c in drawItemVerticalGrid(cell: c)})
-    }
-    
     private func drawVatBreakdownGrid(rows: Int, columns: Int) {
         (0 ... rows).forEach({r in drawVatBreakdownHorizontalGrid(row: r, of: rows)})
         (0 ... columns + 1).forEach({c in drawVatBreakdownVerticalGrid(cell: c)})
-    }
-    
-    private func drawItemVerticalGrid(cell: Int) {
-        let x = leftMargin + getColumnXOffset(column: cell)
-        let fromPoint = NSMakePoint(x, itemsStartYPosition + defaultRowHeight + extraItemsHeaderPadding / 2)
-        let toPoint = NSMakePoint(x, itemsStartYPosition - (CGFloat(self.itemRowsCounter) * defaultRowHeight) - extraItemsHeaderPadding / 2)
-        drawPath(from: fromPoint, to: toPoint)
-    }
-    
-    private func drawItemHorizontalGrid(row: Int) {
-        let y = itemsStartYPosition - (CGFloat(row - 1) * defaultRowHeight) - ( row > 0 ? extraItemsHeaderPadding : 0) + gridPadding
-        let fromPoint = NSMakePoint(leftMargin , y)
-        let toPoint = NSMakePoint(self.itemsTableWidth + leftMargin, y)
-        drawPath(from: fromPoint, to: toPoint)
     }
     
     private func drawVatBreakdownVerticalGrid(cell: Int)  {

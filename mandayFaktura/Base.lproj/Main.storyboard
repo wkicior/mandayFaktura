@@ -854,7 +854,7 @@ DQ
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
+                                        <menuItem title="Ustawienia strony" keyEquivalent="P" id="qIS-W8-SiK">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="runPageLayout:" target="Ady-hI-5gd" id="Din-rz-gC5"/>
@@ -898,7 +898,7 @@ DQ
                                                 <action selector="paste:" target="Ady-hI-5gd" id="N06-Y6-RVD"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Delete" id="aVI-U8-sU1">
+                                        <menuItem title="Usuń" id="aVI-U8-sU1">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="delete:" target="Ady-hI-5gd" id="CKe-DV-nJH"/>
@@ -981,7 +981,7 @@ DQ
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Pomoc" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="mandayFaktura Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Pomoc mandayFaktura" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -1012,7 +1012,7 @@ DQ
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="viewController" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="mandayFaktura" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="mandayFaktura" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="680" height="455"/>
@@ -1264,7 +1264,7 @@ DQ
                                                             <subviews>
                                                                 <textField toolTip="Nazwa towaru lub usługi" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="I6U-Sl-dTM">
                                                                     <rect key="frame" x="2" y="0.0" width="367" height="17"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" drawsBackground="YES" id="x3f-rI-Y1r">
+                                                                    <textFieldCell key="cell" lineBreakMode="charWrapping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" drawsBackground="YES" id="x3f-rI-Y1r">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2156,7 +2156,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tW4-jT-itO">
-                                                            <rect key="frame" x="124.5" y="1" width="185" height="17"/>
+                                                            <rect key="frame" x="125" y="1" width="185" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-D1-ABt">
@@ -2189,7 +2189,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xGW-Bu-cYZ">
-                                                            <rect key="frame" x="312.5" y="1" width="235" height="17"/>
+                                                            <rect key="frame" x="313" y="1" width="235" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7x-C1-Ae8">
@@ -2222,7 +2222,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="nml-Nc-Xga">
-                                                            <rect key="frame" x="550.5" y="1" width="106" height="17"/>
+                                                            <rect key="frame" x="551" y="1" width="106" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjY-hu-jB8">
@@ -3373,11 +3373,11 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="o5h-iw-LOf"/>
-        <segue reference="pNf-8A-Ove"/>
-        <segue reference="7rX-Ec-kKv"/>
+        <segue reference="2fz-Zu-mfT"/>
+        <segue reference="mvy-hV-L5q"/>
+        <segue reference="q7C-5l-bPd"/>
         <segue reference="cPw-Au-6Bj"/>
-        <segue reference="vDY-KR-MZq"/>
+        <segue reference="Z1u-ve-SKZ"/>
         <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
 </document>

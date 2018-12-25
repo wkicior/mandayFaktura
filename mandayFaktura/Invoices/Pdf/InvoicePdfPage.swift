@@ -71,7 +71,7 @@ class InvoicePdfPage: BasePDFPage {
         self.drawBuyer()
         self.drawItemsTable()
         self.drawItemsSummary()
-        self.drawVatBreakdown()
-        self.drawPaymentSummary()
+        //self.drawVatBreakdown()
+        //self.drawPaymentSummary()
     }
 }
