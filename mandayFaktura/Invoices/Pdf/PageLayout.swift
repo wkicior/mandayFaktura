@@ -23,8 +23,8 @@ class PageLayout {
     private let itemsStartYPosition = CGFloat(674)
     private let counterpartiesStartYPosition = CGFloat(750)
    
-    private let defaultRowHeight = CGFloat(25) // TODO: there is some padding included - which multiplies on many lines
-    private let gridPadding = CGFloat(5.0)
+    private let defaultRowHeight = CGFloat(14) // TODO: there is some padding included - which multiplies on many lines
+    private let gridPadding = CGFloat(5)
     
     private let fontFormatting = FontFormatting()
     private var itemRowsCounter = 0
@@ -84,18 +84,33 @@ class PageLayout {
         buyer.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
+    /*
+    func drawTest() {
+        fillCellBackground(x: 30,
+                           y: 50 - gridPadding,
+                           width:  400,
+                           height: defaultRowHeight * 8 + 2 * gridPadding,
+                           color: NSColor.fromRGB(red: 255, green: 0, blue: 0))
+        let rect = NSMakeRect(
+            30,
+            50,
+            400,
+            defaultRowHeight * 8)
+        "bla\nbla\nbla\nbla\nbla\nbla\nbla\nbla".draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
+    }*/
+    
     func drawItemsTable(headerData: [String], tableData: [[String]]) {
         itemRowsCounter = 0 // TODO PageLayout is being reused for copy as well - fix this
         for i in 0 ..< headerData.count {
             drawItemsHeaderCell(content: headerData[i], column: i)
         }
-        var tableRow = 0
+        var startFromY = itemsStartYPosition
         for i in 0 ..< tableData.count {
             let rowLineCount = Int(ceil(CGFloat(CGFloat(tableData[i][1].count) / 35.0)))// TODO: check max
             itemRowsCounter = itemRowsCounter + rowLineCount
-            tableRow = tableRow + rowLineCount // TODO: rename - table row is physical row (rowspan)
+            startFromY = startFromY - CGFloat(rowLineCount) * defaultRowHeight - gridPadding * 2
             for j in 0 ..< tableData[i].count {
-                drawItemTableCell(content: tableData[i][j], row: i, column: j, size: CGFloat(rowLineCount), tableRow: tableRow)
+                drawItemTableCell(content: tableData[i][j], row: i, column: j, size: CGFloat(rowLineCount), startFromY: startFromY)
             }
         }
     }
@@ -105,36 +120,36 @@ class PageLayout {
             leftMargin + self.getColumnXOffset(column: column),
             itemsStartYPosition,
             getColumnWidth(column: column),
-            defaultRowHeight * CGFloat(2.0) )
+            defaultRowHeight * 2 )
         fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
-                           y: itemsStartYPosition,
+                           y: itemsStartYPosition - gridPadding,
                            width:  getColumnWidth(column: column),
-                           height: defaultRowHeight * CGFloat(2.0) + 2 * gridPadding,
+                           height: defaultRowHeight * 2 + 2 * gridPadding,
                            color: darkHeaderColor)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
     
-    private func drawItemTableCell(content: String, row: Int, column: Int, size: CGFloat, tableRow: Int) {
-        let yBottom =  itemsStartYPosition - (defaultRowHeight * (CGFloat(tableRow))) - extraItemsHeaderPadding
+    private func drawItemTableCell(content: String, row: Int, column: Int, size: CGFloat, startFromY: CGFloat) {
+        let yBottom = startFromY
         let xLeft =  leftMargin + self.getColumnXOffset(column: column)
         let width = self.getColumnWidth(column: column)
         let height = defaultRowHeight * size
         let rect = NSMakeRect(xLeft, yBottom, width, height)
         if row % 2 == 1{
             fillCellBackground(x: xLeft,
-                               y: yBottom + gridPadding,
+                               y: yBottom - gridPadding,
                                width:  width,
-                               height: height,
+                               height: height + 2 * gridPadding,
                                color: lightCellColor)
         }
         drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
                  to: NSMakePoint(xLeft + width, yBottom + gridPadding + height)) // TOP
-        drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding),
-                 to: NSMakePoint(xLeft + width, yBottom + gridPadding)) // BOTTOM
+        drawPath(from: NSMakePoint(xLeft, yBottom - gridPadding),
+                 to: NSMakePoint(xLeft + width, yBottom - gridPadding)) // BOTTOM
         drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
-            to: NSMakePoint(xLeft, yBottom + gridPadding)) // LEFT
+            to: NSMakePoint(xLeft, yBottom - gridPadding)) // LEFT
         drawPath(from: NSMakePoint(xLeft + width , yBottom + gridPadding + height),
-                 to: NSMakePoint(xLeft + width, yBottom + gridPadding)) // RIGHT
+                 to: NSMakePoint(xLeft + width, yBottom - gridPadding)) // RIGHT
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
 
     }
