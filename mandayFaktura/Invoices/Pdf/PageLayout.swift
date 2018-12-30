@@ -23,7 +23,7 @@ class PageLayout {
     private let itemsStartYPosition = CGFloat(674)
     private let counterpartiesStartYPosition = CGFloat(750)
    
-    private let defaultRowHeight = CGFloat(14) // TODO: there is some padding included - which multiplies on many lines
+    private let defaultRowHeight = CGFloat(14)
     private let gridPadding = CGFloat(5)
     
     private let fontFormatting = FontFormatting()
@@ -35,6 +35,8 @@ class PageLayout {
     
     let itemColumnsWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.1), CGFloat(0.05), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
     let itemsTableWidth =  CGFloat(728)
+    
+    private var itemsSummaryYPosition = CGFloat(0)
     
     func drawInvoiceHeader(header: String) {
         let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
@@ -84,21 +86,6 @@ class PageLayout {
         buyer.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
-    /*
-    func drawTest() {
-        fillCellBackground(x: 30,
-                           y: 50 - gridPadding,
-                           width:  400,
-                           height: defaultRowHeight * 8 + 2 * gridPadding,
-                           color: NSColor.fromRGB(red: 255, green: 0, blue: 0))
-        let rect = NSMakeRect(
-            30,
-            50,
-            400,
-            defaultRowHeight * 8)
-        "bla\nbla\nbla\nbla\nbla\nbla\nbla\nbla".draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
-    }*/
-    
     func drawItemsTable(headerData: [String], tableData: [[String]]) {
         itemRowsCounter = 0 // TODO PageLayout is being reused for copy as well - fix this
         for i in 0 ..< headerData.count {
@@ -106,26 +93,29 @@ class PageLayout {
         }
         var startFromY = itemsStartYPosition
         for i in 0 ..< tableData.count {
-            let rowLineCount = Int(ceil(CGFloat(CGFloat(tableData[i][1].count) / 35.0)))// TODO: check max
+            let count = tableData[i][1].count
+            let rowLineCount = Int(ceil(CGFloat(CGFloat(count) / 35.0)))
             itemRowsCounter = itemRowsCounter + rowLineCount
             startFromY = startFromY - CGFloat(rowLineCount) * defaultRowHeight - gridPadding * 2
             for j in 0 ..< tableData[i].count {
                 drawItemTableCell(content: tableData[i][j], row: i, column: j, size: CGFloat(rowLineCount), startFromY: startFromY)
             }
         }
+        self.itemsSummaryYPosition = startFromY
     }
     
     private func drawItemsHeaderCell(content: String, column: Int) {
-        let rect = NSMakeRect(
-            leftMargin + self.getColumnXOffset(column: column),
-            itemsStartYPosition,
-            getColumnWidth(column: column),
-            defaultRowHeight * 2 )
+        let xLeft = leftMargin + self.getColumnXOffset(column: column)
+        let yBottom = itemsStartYPosition
+        let width = getColumnWidth(column: column)
+        let height = defaultRowHeight * 2
+        let rect = NSMakeRect(xLeft, itemsStartYPosition, width, height)
         fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
-                           y: itemsStartYPosition - gridPadding,
+                           y: yBottom - gridPadding,
                            width:  getColumnWidth(column: column),
-                           height: defaultRowHeight * 2 + 2 * gridPadding,
+                           height: height + 2 * gridPadding,
                            color: darkHeaderColor)
+        drawItemBorder(xLeft, yBottom, height, width)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
     
@@ -142,16 +132,19 @@ class PageLayout {
                                height: height + 2 * gridPadding,
                                color: lightCellColor)
         }
+        drawItemBorder(xLeft, yBottom, height, width)
+        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+    }
+    
+    fileprivate func drawItemBorder(_ xLeft: CGFloat, _ yBottom: CGFloat, _ height: CGFloat, _ width: CGFloat) {
         drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
                  to: NSMakePoint(xLeft + width, yBottom + gridPadding + height)) // TOP
         drawPath(from: NSMakePoint(xLeft, yBottom - gridPadding),
                  to: NSMakePoint(xLeft + width, yBottom - gridPadding)) // BOTTOM
         drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
-            to: NSMakePoint(xLeft, yBottom - gridPadding)) // LEFT
-        drawPath(from: NSMakePoint(xLeft + width , yBottom + gridPadding + height),
-                 to: NSMakePoint(xLeft + width, yBottom - gridPadding)) // RIGHT
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
-
+                 to: NSMakePoint(xLeft, yBottom - gridPadding)) // LEFT
+        drawPath(from: NSMakePoint(xLeft + width , yBottom + gridPadding + height), // RIGHT
+            to: NSMakePoint(xLeft + width, yBottom - gridPadding))
     }
     
     func fillCellBackground(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: NSColor) {
@@ -161,6 +154,7 @@ class PageLayout {
     }
     
     func drawItemsSummary(summaryData: [String]) {
+        self.itemsSummaryYPosition = self.itemsSummaryYPosition - defaultRowHeight - 2 * gridPadding
         for i in 0 ..< summaryData.count {
             drawItemsSummaryCell(content: summaryData[i], column: i)
         }
@@ -168,19 +162,21 @@ class PageLayout {
     
     private func drawItemsSummaryCell(content: String, column: Int) {
         let shift = 4
+
         let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
                               itemsSummaryYPosition,
                               getColumnWidth(column: column + shift),
                               defaultRowHeight)
         fillCellBackground(x: leftMargin + getColumnXOffset(column: column + shift),
-                           y: itemsSummaryYPosition + gridPadding,
+                           y: itemsSummaryYPosition - gridPadding,
                            width:  self.getColumnWidth(column: column + shift),
-                           height: defaultRowHeight,
+                           height: defaultRowHeight + 2 * gridPadding,
                            color: darkHeaderColor)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
     func drawVatBreakdown(breakdownLabel: String, breakdownTableData: [[String]]) {
+        self.itemsSummaryYPosition = self.itemsSummaryYPosition - defaultRowHeight - 2 * gridPadding
         drawVatBreakdownCell(content: breakdownLabel, row: 0, column: -1)
         for i in 0 ..< breakdownTableData.count {
             for j in 0 ..< breakdownTableData[i].count {
@@ -193,15 +189,16 @@ class PageLayout {
     
     private func drawVatBreakdownCell(content: String, row: Int, column: Int) {
         let shift = 5
-        let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
-                              itemsSummaryYPosition - CGFloat(row + 1) * defaultRowHeight,
-                              getColumnWidth(column: column + shift),
-                              defaultRowHeight)
+        let yBottom = itemsSummaryYPosition - CGFloat(row) * (defaultRowHeight + 2 * gridPadding)
+        let xLeft = leftMargin + getColumnXOffset(column: column + shift)
+        let width = getColumnWidth(column: column + shift)
+        let height = defaultRowHeight
+        let rect = NSMakeRect(xLeft, yBottom, width, height)
         if row % 2 == 1{
-            fillCellBackground(x: leftMargin + getColumnXOffset(column: column + shift),
-                               y: itemsSummaryYPosition - CGFloat(row + 1) * defaultRowHeight + gridPadding,
-                               width:  self.getColumnWidth(column: column + shift),
-                               height: defaultRowHeight,
+            fillCellBackground(x: xLeft,
+                               y: yBottom - gridPadding,
+                               width:  width,
+                               height: height + 2 * gridPadding,
                                color: lightCellColor)
         }
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
@@ -230,13 +227,13 @@ class PageLayout {
     
     private func drawVatBreakdownVerticalGrid(cell: Int)  {
         let x = leftMargin + getColumnXOffset(column: cell + 4)
-        let fromPoint = NSMakePoint(x, itemsSummaryYPosition + defaultRowHeight + extraItemsHeaderPadding / 2)
-        let toPoint = NSMakePoint(x, itemsSummaryYPosition  - (CGFloat(breakdownItemsCount) * defaultRowHeight) + extraItemsHeaderPadding / 2)
+        let fromPoint = NSMakePoint(x, itemsSummaryYPosition + 2 * (defaultRowHeight + 2 * gridPadding))
+        let toPoint = NSMakePoint(x, itemsSummaryYPosition - gridPadding - (CGFloat(breakdownItemsCount - 1) * (defaultRowHeight + 2 * gridPadding)))
         drawPath(from: fromPoint, to: toPoint)
     }
     
     private func drawVatBreakdownHorizontalGrid(row: Int, of: Int)  {
-        let y = itemsSummaryYPosition - (CGFloat(row) * defaultRowHeight) + gridPadding
+        let y = itemsSummaryYPosition - CGFloat(row - 1) * (defaultRowHeight + 2 * gridPadding) - gridPadding
         let isFirstOrLastRow = row == of || row == 0
         let fromPoint = NSMakePoint(leftMargin + self.getColumnXOffset(column: isFirstOrLastRow ? 4 : 5) , y)
         let toPoint = NSMakePoint(self.itemsTableWidth + leftMargin, y)
@@ -261,22 +258,9 @@ class PageLayout {
         return self.itemColumnsWidths.prefix(upTo: safeColumnNo).reduce(0, +) * itemsTableWidth
     }
     
-    private var itemsSummaryYPosition: CGFloat {
-        get {
-            return itemsStartYPosition - (defaultRowHeight * (CGFloat(self.itemRowsCounter + 1))) - extraItemsHeaderPadding
-        }
-    }
-    
     private var paymentSummaryYPosition: CGFloat {
         get {
-            return itemsSummaryYPosition - (CGFloat(self.breakdownItemsCount + 6) * defaultRowHeight)
+            return itemsSummaryYPosition - (CGFloat(self.breakdownItemsCount + 6) * (defaultRowHeight + 2 * gridPadding))
         }
     }
-    
-    private var extraItemsHeaderPadding: CGFloat {
-        get {
-            return 0.4 * defaultRowHeight
-        }
-    }
-    
 }
