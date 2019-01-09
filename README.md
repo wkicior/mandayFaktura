@@ -1,5 +1,6 @@
 # mandayFaktura
 ![mandayFaktura app icon](https://github.com/wkicior/mandayFaktura/blob/master/manday.svg)
+
 [English](https://github.com/wkicior/mandayFaktura#en)
 
 [Język polski](https://github.com/wkicior/mandayFaktura#pl)
