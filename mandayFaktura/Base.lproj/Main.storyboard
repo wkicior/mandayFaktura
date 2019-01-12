@@ -1091,11 +1091,11 @@ DQ
             <objects>
                 <viewController title="Nowa faktura" id="haF-wG-vwp" customClass="NewInvoiceViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="tbo-lw-l1z">
-                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                        <rect key="frame" x="0.0" y="0.0" width="960" height="618"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VOZ-eV-MbK">
-                                <rect key="frame" x="8" y="513" width="95" height="17"/>
+                                <rect key="frame" x="8" y="591" width="95" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Numer faktury:" id="g3y-6U-V1P">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1103,7 +1103,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach." verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-EB-vYN">
-                                <rect key="frame" x="109" y="511" width="141" height="22"/>
+                                <rect key="frame" x="109" y="589" width="141" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="Fts-zG-H1A"/>
                                 </constraints>
@@ -1114,7 +1114,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <datePicker toolTip="Data wystawienia faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="84I-PQ-C04">
-                                <rect key="frame" x="855" y="507" width="98" height="27"/>
+                                <rect key="frame" x="855" y="585" width="98" height="27"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="gmC-kw-32j">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="567993600">
@@ -1144,7 +1144,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MWk-J3-2aN">
-                                <rect key="frame" x="690" y="511" width="109" height="17"/>
+                                <rect key="frame" x="690" y="589" width="109" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data wystawienia" id="PZc-0Z-54G">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1164,7 +1164,7 @@ DQ
                                 </connections>
                             </button>
                             <datePicker toolTip="Data sprzedaży towaru lub uslugi" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ckj-xA-UAK">
-                                <rect key="frame" x="855" y="474" width="98" height="27"/>
+                                <rect key="frame" x="855" y="552" width="98" height="27"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="E4A-KW-BgS">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="536457600">
@@ -1181,7 +1181,7 @@ DQ
                                 </connections>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Acv-JA-I3R">
-                                <rect key="frame" x="8" y="488" width="96" height="17"/>
+                                <rect key="frame" x="8" y="566" width="96" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dane nabywcy:" id="loA-i8-OPt">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1189,7 +1189,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Nazwa firmy nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1p-6P-cnK">
-                                <rect key="frame" x="109" y="485" width="353" height="22"/>
+                                <rect key="frame" x="109" y="563" width="353" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nazwa firmy" drawsBackground="YES" id="UKL-8b-2l9">
                                     <font key="font" metaFont="system"/>
@@ -1198,7 +1198,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Ulica, numer domu i numer mieszkania nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-vq-HAv">
-                                <rect key="frame" x="109" y="459" width="353" height="22"/>
+                                <rect key="frame" x="109" y="537" width="353" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Ulica 0/0" drawsBackground="YES" id="hR2-me-sAP">
                                     <font key="font" metaFont="system"/>
@@ -1207,7 +1207,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Kod pocztowy nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcd-iG-LE0">
-                                <rect key="frame" x="109" y="433" width="83" height="22"/>
+                                <rect key="frame" x="109" y="511" width="83" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="00-000" drawsBackground="YES" id="1hS-v7-61r">
                                     <font key="font" metaFont="system"/>
@@ -1216,7 +1216,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Miasto nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUc-7D-udx">
-                                <rect key="frame" x="206" y="433" width="256" height="22"/>
+                                <rect key="frame" x="206" y="511" width="256" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="6pI-yS-FAY">
                                     <font key="font" metaFont="system"/>
@@ -1225,7 +1225,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="NIP nabywcy" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGC-id-gtL">
-                                <rect key="frame" x="109" y="400" width="108" height="22"/>
+                                <rect key="frame" x="109" y="478" width="108" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="000-000-00-00" drawsBackground="YES" id="Lhg-Ne-iqe">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1233,13 +1233,13 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSx-2a-ghS">
-                                <rect key="frame" x="10" y="68" width="940" height="322"/>
+                                <rect key="frame" x="10" y="155" width="940" height="313"/>
                                 <clipView key="contentView" id="Zwa-dh-NDD">
-                                    <rect key="frame" x="1" y="0.0" width="938" height="321"/>
+                                    <rect key="frame" x="1" y="0.0" width="938" height="312"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="medium" headerView="yaq-g6-ysT" viewBased="YES" id="PmG-hq-Jia">
-                                            <rect key="frame" x="0.0" y="0.0" width="938" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="938" height="289"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1528,7 +1528,7 @@ DQ
                                 </tableHeaderView>
                             </scrollView>
                             <popUpButton identifier="Sposób płatności za towar lub usługę" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-lW-Lvv" userLabel="PaymentType">
-                                <rect key="frame" x="124" y="6" width="91" height="26"/>
+                                <rect key="frame" x="605" y="123" width="91" height="26"/>
                                 <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="tjr-mT-jrL" id="DnQ-bG-q2g">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -1544,7 +1544,7 @@ DQ
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hO6-wj-bfz">
-                                <rect key="frame" x="14" y="11" width="113" height="17"/>
+                                <rect key="frame" x="495" y="130" width="113" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="nlI-3T-fac">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1552,7 +1552,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <datePicker toolTip="Termin płatności" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-Wx-S0z">
-                                <rect key="frame" x="368" y="8" width="98" height="27"/>
+                                <rect key="frame" x="849" y="124" width="98" height="27"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="2wM-Uc-0nb">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="536457600">
@@ -1566,7 +1566,7 @@ DQ
                                 </datePickerCell>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rgl-DW-dvn">
-                                <rect key="frame" x="265" y="11" width="49" height="17"/>
+                                <rect key="frame" x="746" y="130" width="49" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Termin:" id="oB1-ze-vXM">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1574,7 +1574,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <popUpButton toolTip="Pozwala na wybranie nabywcy z listy" verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDO-61-dy0">
-                                <rect key="frame" x="461" y="481" width="49" height="25"/>
+                                <rect key="frame" x="461" y="559" width="49" height="25"/>
                                 <popUpButtonCell key="cell" type="squareTextured" title="Item 1" bezelStyle="texturedSquare" image="popUpButtonCell:zML-m2-Mvs:image" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="zML-m2-Mvs">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -1589,7 +1589,7 @@ DQ
                                 </connections>
                             </popUpButton>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vme-bB-4SD">
-                                <rect key="frame" x="805" y="506" width="42" height="25"/>
+                                <rect key="frame" x="805" y="584" width="42" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Er6-CD-73e">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1599,7 +1599,7 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nad-Ke-crb">
-                                <rect key="frame" x="805" y="474" width="42" height="25"/>
+                                <rect key="frame" x="805" y="552" width="42" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vhk-rI-ttq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1608,18 +1608,8 @@ DQ
                                     <segue destination="lA7-rT-KC5" kind="popover" identifier="sellDatePickerSegue" popoverAnchorView="Nad-Ke-crb" popoverBehavior="t" preferredEdge="maxY" id="rlR-6U-R4S"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HEL-Yc-qpf">
-                                <rect key="frame" x="320" y="9" width="42" height="25"/>
-                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3k4-RP-YG9">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="HEL-Yc-qpf" popoverBehavior="t" preferredEdge="maxY" id="Z1u-ve-SKZ"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R7a-72-gJL">
-                                <rect key="frame" x="700" y="484" width="99" height="17"/>
+                                <rect key="frame" x="700" y="562" width="99" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data sprzedaży" id="TtX-PT-VRV">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1627,7 +1617,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button toolTip="Dodaje nowy towar lub usługę do listy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SuU-L2-bDd">
-                                <rect key="frame" x="16" y="34" width="21" height="25"/>
+                                <rect key="frame" x="10" y="123" width="21" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fId-9u-KyI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1637,7 +1627,7 @@ DQ
                                 </connections>
                             </button>
                             <button toolTip="Usuwa wybrany towar lub usługę z listy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-4W-CCE">
-                                <rect key="frame" x="40" y="34" width="21" height="25"/>
+                                <rect key="frame" x="34" y="123" width="21" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gem-TH-xDI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1647,7 +1637,7 @@ DQ
                                 </connections>
                             </button>
                             <button toolTip="Zapisuje wybrany towar lub usługę do katalogu" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qjh-0J-Qeo">
-                                <rect key="frame" x="64" y="34" width="33" height="25"/>
+                                <rect key="frame" x="58" y="123" width="33" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSTouchBarTagIconTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7S4-7H-RRe">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1657,7 +1647,7 @@ DQ
                                 </connections>
                             </button>
                             <button toolTip="Otwiera okno z katalogiem usług i towarów" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oq8-Td-u7x">
-                                <rect key="frame" x="99" y="34" width="32" height="25"/>
+                                <rect key="frame" x="93" y="123" width="32" height="25"/>
                                 <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="NSTouchBarFolderTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ji8-Jd-ZbE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1666,57 +1656,81 @@ DQ
                                     <segue destination="463-Th-NCJ" kind="show" id="q7C-5l-bPd"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8nf-Ia-yZO">
+                                <rect key="frame" x="10" y="39" width="934" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="020-ZI-Mkg"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Uwagi" drawsBackground="YES" allowsEditingTextAttributes="YES" id="bFr-ar-ghT">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HEL-Yc-qpf">
+                                <rect key="frame" x="799" y="123" width="42" height="25"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3k4-RP-YG9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="HEL-Yc-qpf" popoverBehavior="t" preferredEdge="maxY" id="Z1u-ve-SKZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="oq8-Td-u7x" firstAttribute="leading" secondItem="qjh-0J-Qeo" secondAttribute="trailing" constant="2" id="08y-mV-d7G"/>
-                            <constraint firstItem="SuU-L2-bDd" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="16" id="12P-dd-Bbe"/>
-                            <constraint firstItem="kA3-lW-Lvv" firstAttribute="top" secondItem="oq8-Td-u7x" secondAttribute="bottom" constant="6" id="1VR-HD-24T"/>
+                            <constraint firstItem="8nf-Ia-yZO" firstAttribute="trailing" secondItem="JDm-Wx-S0z" secondAttribute="trailing" id="2Ry-mh-wpN"/>
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="leading" secondItem="VOZ-eV-MbK" secondAttribute="trailing" constant="8" id="2Uq-XA-j2a"/>
+                            <constraint firstItem="8nf-Ia-yZO" firstAttribute="leading" secondItem="SuU-L2-bDd" secondAttribute="leading" id="31g-7Z-y8z"/>
                             <constraint firstAttribute="bottom" secondItem="1gg-h9-i9W" secondAttribute="bottom" constant="10" id="353-8n-AWp"/>
+                            <constraint firstItem="kA3-lW-Lvv" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="4HS-1Z-CQj"/>
+                            <constraint firstItem="8nf-Ia-yZO" firstAttribute="top" secondItem="HEL-Yc-qpf" secondAttribute="bottom" constant="8" symbolic="YES" id="714-Pv-QwJ"/>
+                            <constraint firstItem="Rgl-DW-dvn" firstAttribute="leading" secondItem="kA3-lW-Lvv" secondAttribute="trailing" constant="55" id="7Tj-GC-cTj"/>
                             <constraint firstItem="fSx-2a-ghS" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="150" id="7hQ-az-Wdw"/>
                             <constraint firstItem="84I-PQ-C04" firstAttribute="leading" secondItem="vme-bB-4SD" secondAttribute="trailing" constant="8" id="7mL-JG-nNk"/>
-                            <constraint firstItem="HEL-Yc-qpf" firstAttribute="leading" secondItem="Rgl-DW-dvn" secondAttribute="trailing" constant="8" id="8UF-wc-SsH"/>
-                            <constraint firstAttribute="bottom" secondItem="JDm-Wx-S0z" secondAttribute="bottom" constant="8" id="A4j-Tq-Zmn"/>
                             <constraint firstItem="vme-bB-4SD" firstAttribute="leading" secondItem="MWk-J3-2aN" secondAttribute="trailing" constant="8" id="B3s-q3-mfH"/>
                             <constraint firstItem="fSx-2a-ghS" firstAttribute="leading" secondItem="Acv-JA-I3R" secondAttribute="leading" id="Ctv-i4-bsp"/>
                             <constraint firstItem="ckj-xA-UAK" firstAttribute="leading" secondItem="Nad-Ke-crb" secondAttribute="trailing" constant="8" id="DkI-0B-AaC"/>
                             <constraint firstItem="R7a-72-gJL" firstAttribute="leading" secondItem="RDO-61-dy0" secondAttribute="trailing" constant="192" id="FzN-jS-Pm6"/>
+                            <constraint firstItem="KpK-4W-CCE" firstAttribute="leading" secondItem="SuU-L2-bDd" secondAttribute="trailing" constant="3" id="Gh8-oS-1DI"/>
                             <constraint firstItem="fSx-2a-ghS" firstAttribute="top" secondItem="NGC-id-gtL" secondAttribute="bottom" constant="10" id="Gtk-ZT-5iG"/>
-                            <constraint firstItem="hO6-wj-bfz" firstAttribute="top" secondItem="SuU-L2-bDd" secondAttribute="bottom" constant="8" id="LAO-ZX-BOh"/>
+                            <constraint firstItem="SuU-L2-bDd" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="10" id="HS0-qm-hQE"/>
+                            <constraint firstItem="KpK-4W-CCE" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="Hfl-Lk-4EG"/>
+                            <constraint firstItem="hO6-wj-bfz" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="Jkd-fe-aeN"/>
+                            <constraint firstItem="oq8-Td-u7x" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="Kfh-9T-SbI"/>
                             <constraint firstAttribute="trailing" secondItem="ckj-xA-UAK" secondAttribute="trailing" constant="10" id="LZk-Rg-eox"/>
                             <constraint firstItem="84I-PQ-C04" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="10" id="ML4-LP-uMT"/>
-                            <constraint firstItem="SuU-L2-bDd" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="10" id="MZv-kM-QPK"/>
                             <constraint firstItem="ckj-xA-UAK" firstAttribute="top" secondItem="84I-PQ-C04" secondAttribute="bottom" constant="10" id="MbD-ku-hba"/>
                             <constraint firstAttribute="trailing" secondItem="fSx-2a-ghS" secondAttribute="trailing" constant="10" id="OQs-JQ-DJA"/>
                             <constraint firstItem="RDO-61-dy0" firstAttribute="leading" secondItem="Acv-JA-I3R" secondAttribute="trailing" constant="359" id="Paz-Ec-p61"/>
                             <constraint firstItem="fSx-2a-ghS" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="10" id="PoG-0D-JqW"/>
-                            <constraint firstItem="qjh-0J-Qeo" firstAttribute="leading" secondItem="KpK-4W-CCE" secondAttribute="trailing" constant="3" id="Q5T-dY-bnm"/>
                             <constraint firstAttribute="trailing" secondItem="84I-PQ-C04" secondAttribute="trailing" constant="10" id="Sce-KZ-XfB"/>
+                            <constraint firstItem="Rgl-DW-dvn" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="Usz-hj-9B3"/>
                             <constraint firstItem="VOZ-eV-MbK" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="10" id="VQn-OR-lnH"/>
                             <constraint firstItem="Nad-Ke-crb" firstAttribute="top" secondItem="vme-bB-4SD" secondAttribute="bottom" constant="10" id="VkK-l1-1Sq"/>
-                            <constraint firstItem="hO6-wj-bfz" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="16" id="WjP-Dy-lRu"/>
+                            <constraint firstItem="qjh-0J-Qeo" firstAttribute="leading" secondItem="KpK-4W-CCE" secondAttribute="trailing" constant="3" id="W40-by-gmX"/>
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="7" id="Wkl-Bf-s5D"/>
-                            <constraint firstItem="JDm-Wx-S0z" firstAttribute="leading" secondItem="HEL-Yc-qpf" secondAttribute="trailing" constant="6" id="WvS-7T-3pa"/>
-                            <constraint firstAttribute="bottom" secondItem="hO6-wj-bfz" secondAttribute="bottom" constant="11" id="YF7-hQ-ghB"/>
-                            <constraint firstItem="kA3-lW-Lvv" firstAttribute="leading" secondItem="hO6-wj-bfz" secondAttribute="trailing" constant="1" id="YgJ-pV-acY"/>
-                            <constraint firstItem="hO6-wj-bfz" firstAttribute="top" secondItem="qjh-0J-Qeo" secondAttribute="bottom" constant="8" id="ZdF-iz-eMP"/>
+                            <constraint firstItem="qjh-0J-Qeo" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="bP1-fh-S0Y"/>
+                            <constraint firstAttribute="trailing" secondItem="JDm-Wx-S0z" secondAttribute="trailing" constant="16" id="bjr-lN-SE7"/>
+                            <constraint firstItem="HEL-Yc-qpf" firstAttribute="leading" secondItem="Rgl-DW-dvn" secondAttribute="trailing" constant="6" id="bkc-lI-fqq"/>
+                            <constraint firstItem="JDm-Wx-S0z" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="cgd-Or-8hN"/>
+                            <constraint firstItem="kA3-lW-Lvv" firstAttribute="leading" secondItem="hO6-wj-bfz" secondAttribute="trailing" constant="1" id="eYQ-Zj-CXO"/>
                             <constraint firstItem="MWk-J3-2aN" firstAttribute="leading" secondItem="2Zb-EB-vYN" secondAttribute="trailing" constant="442" id="euk-gM-Css"/>
+                            <constraint firstItem="HEL-Yc-qpf" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="fVl-XC-u8C"/>
                             <constraint firstItem="R7a-72-gJL" firstAttribute="top" secondItem="MWk-J3-2aN" secondAttribute="bottom" constant="10" id="gXe-2g-plx"/>
                             <constraint firstItem="vme-bB-4SD" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="10" id="gjB-CD-rUj"/>
-                            <constraint firstItem="hO6-wj-bfz" firstAttribute="top" secondItem="KpK-4W-CCE" secondAttribute="bottom" constant="8" id="hgy-MT-P3d"/>
+                            <constraint firstItem="JDm-Wx-S0z" firstAttribute="leading" secondItem="HEL-Yc-qpf" secondAttribute="trailing" constant="8" id="iAd-K5-Nj3"/>
+                            <constraint firstItem="oq8-Td-u7x" firstAttribute="leading" secondItem="qjh-0J-Qeo" secondAttribute="trailing" constant="2" id="joD-p5-uDA"/>
                             <constraint firstItem="RDO-61-dy0" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="35" id="kR4-J6-Qua"/>
                             <constraint firstAttribute="trailing" secondItem="1gg-h9-i9W" secondAttribute="trailing" constant="10" id="lPU-UJ-UDd"/>
                             <constraint firstItem="1gg-h9-i9W" firstAttribute="leading" secondItem="gWk-za-B4i" secondAttribute="trailing" constant="7" id="lpl-IJ-mFd"/>
                             <constraint firstItem="MWk-J3-2aN" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="12" id="mzG-xG-aCP"/>
                             <constraint firstAttribute="bottom" secondItem="gWk-za-B4i" secondAttribute="bottom" constant="10" id="o26-TP-ApW"/>
                             <constraint firstItem="Nad-Ke-crb" firstAttribute="leading" secondItem="R7a-72-gJL" secondAttribute="trailing" constant="8" id="pc9-LL-Bbz"/>
-                            <constraint firstAttribute="bottom" secondItem="Rgl-DW-dvn" secondAttribute="bottom" constant="11" id="piC-da-dDI"/>
-                            <constraint firstItem="KpK-4W-CCE" firstAttribute="leading" secondItem="SuU-L2-bDd" secondAttribute="trailing" constant="3" id="tQr-qO-HJr"/>
-                            <constraint firstItem="Rgl-DW-dvn" firstAttribute="leading" secondItem="kA3-lW-Lvv" secondAttribute="trailing" constant="55" id="viY-Mu-YZQ"/>
-                            <constraint firstAttribute="bottom" secondItem="kA3-lW-Lvv" secondAttribute="bottom" constant="9" id="wec-Sj-rMh"/>
+                            <constraint firstItem="gWk-za-B4i" firstAttribute="top" secondItem="8nf-Ia-yZO" secondAttribute="bottom" constant="8" symbolic="YES" id="sU6-Jd-COT"/>
                             <constraint firstItem="Acv-JA-I3R" firstAttribute="top" secondItem="VOZ-eV-MbK" secondAttribute="bottom" constant="8" id="xcn-Cc-dyS"/>
                             <constraint firstItem="VOZ-eV-MbK" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="10" id="ypk-Jo-5Ye"/>
-                            <constraint firstAttribute="bottom" secondItem="HEL-Yc-qpf" secondAttribute="bottom" constant="11" id="zkl-GS-oig"/>
+                            <constraint firstItem="SuU-L2-bDd" firstAttribute="top" secondItem="fSx-2a-ghS" secondAttribute="bottom" constant="8" id="zSY-Ja-0ef"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2746,14 +2760,22 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nqH-3H-MHy">
-                                <rect key="frame" x="527" y="136" width="113" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="5Io-a5-o9d">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <popUpButton toolTip="Wybrany sposób płatności" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eNi-3x-GG4" userLabel="PaymentType">
+                                <rect key="frame" x="614" y="129" width="91" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="esZ-oI-9B6" id="4op-j6-O4S">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="20n-Re-WoK">
+                                        <items>
+                                            <menuItem title="Przelew" state="on" id="esZ-oI-9B6"/>
+                                            <menuItem title="Gotówka" tag="1" id="bSC-aF-QIN"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="paymentFormPopUpValueChanged:" target="Pk8-xk-tGP" id="8Ke-Sm-qI2"/>
+                                </connections>
+                            </popUpButton>
                             <datePicker toolTip="Termin płatności" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dca-Si-ive">
                                 <rect key="frame" x="857" y="130" width="98" height="27"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="0fL-Ly-yUn">
@@ -2882,22 +2904,14 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <popUpButton toolTip="Wybrany sposób płatności" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eNi-3x-GG4" userLabel="PaymentType">
-                                <rect key="frame" x="658" y="129" width="91" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="esZ-oI-9B6" id="4op-j6-O4S">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="20n-Re-WoK">
-                                        <items>
-                                            <menuItem title="Przelew" state="on" id="esZ-oI-9B6"/>
-                                            <menuItem title="Gotówka" tag="1" id="bSC-aF-QIN"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="paymentFormPopUpValueChanged:" target="Pk8-xk-tGP" id="8Ke-Sm-qI2"/>
-                                </connections>
-                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nqH-3H-MHy">
+                                <rect key="frame" x="497" y="136" width="113" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="5Io-a5-o9d">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="kFp-C7-dhD" firstAttribute="top" secondItem="LXG-wh-76g" secondAttribute="bottom" constant="8" id="28X-Ns-3xg"/>
@@ -2907,6 +2921,7 @@ DQ
                             <constraint firstAttribute="bottom" secondItem="LBS-47-5gd" secondAttribute="bottom" constant="8" id="A7H-t9-92E"/>
                             <constraint firstItem="dca-Si-ive" firstAttribute="leading" secondItem="yCW-XI-td3" secondAttribute="trailing" constant="8" id="C3C-P9-Erv"/>
                             <constraint firstItem="Lj3-Jl-hxi" firstAttribute="top" secondItem="0ge-Ca-dMh" secondAttribute="bottom" constant="8" id="CSO-mE-wyT"/>
+                            <constraint firstItem="V8j-uN-G3n" firstAttribute="leading" secondItem="eNi-3x-GG4" secondAttribute="trailing" constant="52" id="E9G-bg-wxR"/>
                             <constraint firstItem="LXG-wh-76g" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="141" id="IMx-ff-OwS"/>
                             <constraint firstItem="0ge-Ca-dMh" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="Jct-Af-7D4"/>
                             <constraint firstItem="4ER-YO-NOl" firstAttribute="leading" secondItem="V8M-2I-E5L" secondAttribute="trailing" constant="10" id="K3O-VC-2TJ"/>
@@ -2922,7 +2937,6 @@ DQ
                             <constraint firstItem="LXG-wh-76g" firstAttribute="top" secondItem="FsI-H3-dWr" secondAttribute="bottom" constant="8" id="RwP-os-n8s"/>
                             <constraint firstItem="dca-Si-ive" firstAttribute="top" secondItem="LXG-wh-76g" secondAttribute="bottom" constant="8" id="S6C-WE-JpS"/>
                             <constraint firstItem="V8M-2I-E5L" firstAttribute="leading" secondItem="hIb-6p-UXt" secondAttribute="trailing" constant="435" id="TMI-bg-fgS"/>
-                            <constraint firstItem="V8j-uN-G3n" firstAttribute="leading" secondItem="eNi-3x-GG4" secondAttribute="trailing" constant="8" id="Uil-aN-tJ8"/>
                             <constraint firstItem="M8z-76-JQz" firstAttribute="leading" secondItem="Ysu-pk-0x5" secondAttribute="trailing" constant="10" id="WPl-Ri-wkM"/>
                             <constraint firstItem="kFp-C7-dhD" firstAttribute="leading" secondItem="q9F-Vt-3ZT" secondAttribute="trailing" constant="2" id="X9a-ar-Hgg"/>
                             <constraint firstItem="hIb-6p-UXt" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="Ych-Zu-XHE"/>
@@ -2946,7 +2960,7 @@ DQ
                             <constraint firstItem="juC-Vw-Q29" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="qxx-yy-V14"/>
                             <constraint firstItem="yCW-XI-td3" firstAttribute="leading" secondItem="V8j-uN-G3n" secondAttribute="trailing" constant="8" id="sdt-yd-HJu"/>
                             <constraint firstItem="V8j-uN-G3n" firstAttribute="top" secondItem="LXG-wh-76g" secondAttribute="bottom" constant="8" id="se5-Ff-TKJ"/>
-                            <constraint firstItem="eNi-3x-GG4" firstAttribute="leading" secondItem="nqH-3H-MHy" secondAttribute="trailing" constant="22" id="tUF-BZ-Vyp"/>
+                            <constraint firstItem="eNi-3x-GG4" firstAttribute="leading" secondItem="nqH-3H-MHy" secondAttribute="trailing" constant="8" id="sez-c8-raB"/>
                             <constraint firstItem="yCW-XI-td3" firstAttribute="top" secondItem="LXG-wh-76g" secondAttribute="bottom" constant="8" id="uNu-dS-NEu"/>
                             <constraint firstAttribute="trailing" secondItem="juC-Vw-Q29" secondAttribute="trailing" constant="10" id="w0u-SL-c7H"/>
                             <constraint firstItem="EiU-1m-D9m" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="wES-hL-Iv8"/>
