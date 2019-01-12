@@ -13,6 +13,7 @@ class InvoiceDocumentSettingsViewController: NSViewController {
    
     @IBOutlet weak var paymentDateDays: NSTextField!
     @IBOutlet weak var paymentDateFrom: NSPopUpButton!
+    @IBOutlet weak var defaultNotestTextField: NSTextField!
     
     let invoiceSettingsInteractor = InvoiceSettingsInteractor()
     
@@ -30,12 +31,13 @@ class InvoiceDocumentSettingsViewController: NSViewController {
         let invoiceSettings: InvoiceSettings? = self.invoiceSettingsInteractor.getInvoiceSettings();
         self.paymentDateDays.stringValue = String(invoiceSettings?.paymentDateDays ?? 0)
         self.paymentDateFrom.selectItem(withTag: invoiceSettings?.paymentDateFrom.rawValue ?? 0)
+        self.defaultNotestTextField.stringValue = invoiceSettings?.defaultNotes ?? ""
         setHelpTextVisibility()
     }
     @IBAction func onSave(_ sender: NSButton) {
         let paymentDateDays = Int(self.paymentDateDays.stringValue)!
         let paymentDateFrom = PaymentDateFrom(rawValue: self.paymentDateFrom.selectedItem?.tag ?? 0)!
-        let invoiceSettings = InvoiceSettings(paymentDateDays: paymentDateDays, paymentDateFrom: paymentDateFrom)
+        let invoiceSettings = InvoiceSettings(paymentDateDays: paymentDateDays, paymentDateFrom: paymentDateFrom, defaultNotes: defaultNotestTextField.stringValue)
         invoiceSettingsInteractor.save(invoiceSettings)
         view.window?.close()
     }

@@ -53,6 +53,7 @@ class AbstractInvoiceViewController: NSViewController {
         self.view.wantsLayer = true
         let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         dueDatePicker.dateValue = invoiceSettings.getDueDate(issueDate: issueDatePicker.dateValue, sellDate: sellingDatePicker.dateValue)
+        notesTextField.stringValue = invoiceSettings.defaultNotes
     }
 }
 

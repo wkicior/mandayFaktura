@@ -11,10 +11,12 @@ import Foundation
 class InvoiceSettings {
     var paymentDateDays = 0
     var paymentDateFrom = PaymentDateFrom.createDate
+    var defaultNotes = ""
     
-    init(paymentDateDays: Int, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate) {
+    init(paymentDateDays: Int, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate, defaultNotes: String = "") {
         self.paymentDateDays = paymentDateDays
         self.paymentDateFrom = paymentDateFrom
+        self.defaultNotes = defaultNotes
     }
     
     func getDueDate(issueDate: Date, sellDate: Date) -> Date {
