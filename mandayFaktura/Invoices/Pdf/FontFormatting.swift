@@ -12,6 +12,7 @@ import Quartz
 
 class FontFormatting {
     let fontAttributesBoldLeft: [NSAttributedStringKey: Any]
+    let fontAttributesLeft: [NSAttributedStringKey: Any]
     let fontAttributesHeaderLeft: [NSAttributedStringKey: Any]
     let fontAttributesCenter: [NSAttributedStringKey: Any]
     let fontAttributesBoldCenter: [NSAttributedStringKey: Any]
@@ -31,6 +32,11 @@ class FontFormatting {
 
         fontAttributesBoldLeft = [
             NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
+            NSAttributedStringKey.paragraphStyle:paragraphStyleLeft,
+        ]
+        
+        fontAttributesLeft = [
+            NSAttributedStringKey.font: font ?? NSFont.labelFont(ofSize: 12),
             NSAttributedStringKey.paragraphStyle:paragraphStyleLeft,
         ]
         

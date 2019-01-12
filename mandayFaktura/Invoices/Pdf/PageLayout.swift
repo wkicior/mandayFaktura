@@ -213,6 +213,11 @@ class PageLayout {
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
+    func drawNotes(content: String) {
+        let rect = NSMakeRect(leftMargin, paymentSummaryYPosition - CGFloat(100.0), self.pdfWidth - rightMargin, CGFloat(100.0))
+        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesLeft)
+    }
+    
     func drawPaymentSummaryHorizontalLine() {
         let y =  paymentSummaryYPosition + CGFloat(90)
         let fromPoint = NSMakePoint(leftMargin , y)

@@ -63,6 +63,9 @@ class InvoicePdfPage: BasePDFPage {
         pageLayout.drawPaymentSummary(content: invoice.printedPaymentSummary)
     }
     
+    func drawNotes() {
+        pageLayout.drawNotes(content: invoice.notes)
+    }
     
     override func draw(with box: PDFDisplayBox) {
         self.drawInvoiceHeader()
@@ -73,5 +76,6 @@ class InvoicePdfPage: BasePDFPage {
         self.drawItemsSummary()
         self.drawVatBreakdown()
         self.drawPaymentSummary()
+        self.drawNotes()
     }
 }
