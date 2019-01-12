@@ -35,6 +35,7 @@ class AbstractInvoiceViewController: NSViewController {
     @IBOutlet weak var viewSellersPopUpButton: NSPopUpButton!
     @IBOutlet weak var saveItemButton: NSButton!
     @IBOutlet weak var itemsCataloguqButton: NSButton!
+    @IBOutlet weak var notesTextField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,7 @@ struct Invoice {
     let items: [InvoiceItem]
     let paymentForm: PaymentForm
     let paymentDueDate: Date
+    let notes: String
     
     var totalNetValue: Decimal {
         get {
@@ -56,6 +57,7 @@ class InvoiceBuilder {
     private var items: [InvoiceItem] = []
     private var paymentForm: PaymentForm = .transfer
     private var paymentDueDate = Date()
+    private var notes = ""
     
     func withIssueDate(_ issueDate: Date) -> InvoiceBuilder {
         self.issueDate = issueDate
@@ -97,7 +99,22 @@ class InvoiceBuilder {
         return self
     }
     
+    func withNotes(_ notes: String) -> InvoiceBuilder {
+        self.notes = notes
+        return self
+    }
+
+    
     func build() -> Invoice {
-        return Invoice(issueDate: issueDate, number: number, sellingDate: sellingDate, seller: seller!, buyer: buyer!, items: items, paymentForm: paymentForm, paymentDueDate: paymentDueDate)
+        return Invoice(issueDate: issueDate,
+                       number: number,
+                       sellingDate: sellingDate,
+                       seller: seller!,
+                       buyer: buyer!,
+                       items: items,
+                       paymentForm: paymentForm,
+                       paymentDueDate: paymentDueDate,
+                       notes: notes
+        )
     }
 }

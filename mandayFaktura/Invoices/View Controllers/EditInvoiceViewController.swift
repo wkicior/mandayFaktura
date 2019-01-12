@@ -29,6 +29,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         self.issueDatePicker.dateValue = invoice!.issueDate
         self.sellingDatePicker.dateValue = invoice!.sellingDate
         self.dueDatePicker.dateValue = invoice!.paymentDueDate
+        self.notesTextField.stringValue = invoice!.notes
         
         let tag = getPaymentFormTag(from: invoice!.paymentForm)
         self.paymentFormPopUp.selectItem(withTag: tag)
@@ -76,7 +77,18 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         get {
             let seller = self.counterpartyInteractor.getSeller() ?? invoice!.seller
             let buyer = Counterparty(name: buyerNameTextField.stringValue, streetAndNumber: streetAndNumberTextField.stringValue, city: cityTextField.stringValue, postalCode: postalCodeTextField.stringValue, taxCode: taxCodeTextField.stringValue, accountNumber:"")
-            return Invoice(issueDate: issueDatePicker.dateValue, number: numberTextField.stringValue, sellingDate: sellingDatePicker.dateValue, seller: seller, buyer: buyer, items:  self.itemsTableViewDelegate!.items, paymentForm: selectedPaymentForm!, paymentDueDate: self.dueDatePicker.dateValue)
+            return InvoiceBuilder()
+                .withIssueDate(issueDatePicker.dateValue)
+                .withNumber(numberTextField.stringValue)
+                .withSellingDate(sellingDatePicker.dateValue)
+                .withSeller(seller)
+                .withBuyer(buyer)
+                .withItems(self.itemsTableViewDelegate!.items)
+                .withPaymentForm(selectedPaymentForm!)
+                .withPaymentDueDate(self.dueDatePicker.dateValue)
+                .withNotes(self.notesTextField.stringValue)
+                .build()
+            
         }
     }
 }

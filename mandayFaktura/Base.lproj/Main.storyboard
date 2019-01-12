@@ -1741,6 +1741,7 @@ DQ
                         <outlet property="issueDatePicker" destination="84I-PQ-C04" id="yDD-rb-nxq"/>
                         <outlet property="itemsCataloguqButton" destination="oq8-Td-u7x" id="Xxc-1a-5NS"/>
                         <outlet property="itemsTableView" destination="PmG-hq-Jia" id="Vs1-Qb-7tW"/>
+                        <outlet property="notesTextField" destination="8nf-Ia-yZO" id="2pc-rB-D7h"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
                         <outlet property="postalCodeTextField" destination="gcd-iG-LE0" id="8WE-XU-yH2"/>
@@ -2976,6 +2977,7 @@ DQ
                         <outlet property="issueDatePicker" destination="juC-Vw-Q29" id="1vZ-A5-ld3"/>
                         <outlet property="itemsCataloguqButton" destination="kFp-C7-dhD" id="IMA-z7-biv"/>
                         <outlet property="itemsTableView" destination="ul5-wZ-dVy" id="rjH-Qc-pVg"/>
+                        <outlet property="notesTextField" destination="vZg-AQ-svB" id="jZc-di-CYY"/>
                         <outlet property="numberTextField" destination="hIb-6p-UXt" id="24k-C3-vWN"/>
                         <outlet property="paymentFormPopUp" destination="4op-j6-O4S" id="IAT-JL-QI8"/>
                         <outlet property="postalCodeTextField" destination="Kr0-dt-drY" id="YF2-fY-NYI"/>

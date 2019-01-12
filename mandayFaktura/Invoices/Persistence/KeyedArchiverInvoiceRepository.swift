@@ -20,6 +20,7 @@ import Foundation
         coder.encode(self.invoice.items.map{i in InvoiceItemCoding(i)}, forKey: "items")
         coder.encode(self.invoice.paymentForm.rawValue, forKey: "paymentForm")
         coder.encode(self.invoice.paymentDueDate, forKey: "paymentDueDate")
+        coder.encode(self.invoice.notes, forKey: "notes")
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -31,6 +32,7 @@ import Foundation
             let itemsCoding = decoder.decodeObject(forKey: "items") as? [InvoiceItemCoding],
             let paymentDueDate = decoder.decodeObject(forKey: "paymentDueDate") as? Date
             else { return nil }
+        let notes = decoder.decodeObject(forKey: "notes") as? String
         let items = itemsCoding.map({c in c.invoiceItem})
         let paymentForm = PaymentForm(rawValue: decoder.decodeInteger(forKey: "paymentForm"))!
 
@@ -43,6 +45,7 @@ import Foundation
             .withItems(items)
             .withPaymentForm(paymentForm)
             .withPaymentDueDate(paymentDueDate)
+            .withNotes(notes ?? "")
             .build())
     }
     
