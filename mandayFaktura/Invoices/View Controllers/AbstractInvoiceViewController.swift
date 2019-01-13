@@ -36,6 +36,7 @@ class AbstractInvoiceViewController: NSViewController {
     @IBOutlet weak var saveItemButton: NSButton!
     @IBOutlet weak var itemsCataloguqButton: NSButton!
     @IBOutlet weak var notesTextField: NSTextField!
+    @IBOutlet weak var buyerAdditionalInfo: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +124,7 @@ extension AbstractInvoiceViewController {
         self.cityTextField.stringValue = buyer.city
         self.postalCodeTextField.stringValue = buyer.postalCode
         self.taxCodeTextField.stringValue = buyer.taxCode
+        self.buyerAdditionalInfo.stringValue = buyer.additionalInfo
     }
     
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
@@ -215,6 +217,16 @@ extension AbstractInvoiceViewController {
         }
     }
     
+    func getBuyer() -> Counterparty {
+        return CounterpartyBuilder()
+            .withName(buyerNameTextField.stringValue)
+            .withStreetAndNumber(streetAndNumberTextField.stringValue)
+            .withCity(cityTextField.stringValue)
+            .withPostalCode(postalCodeTextField.stringValue)
+            .withTaxCode(taxCodeTextField.stringValue)
+            .withAdditionalInfo(buyerAdditionalInfo.stringValue)
+            .build()
+    }
 }
 
 extension AbstractInvoiceViewController {

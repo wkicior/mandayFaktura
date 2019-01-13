@@ -15,6 +15,7 @@ struct Counterparty {
     let postalCode: String
     let taxCode: String
     let accountNumber: String
+    let additionalInfo: String
 }
 
 extension Counterparty: Equatable {
@@ -24,8 +25,9 @@ extension Counterparty: Equatable {
             lhs.streetAndNumber == rhs.streetAndNumber &&
             lhs.city == rhs.city &&
             lhs.postalCode == rhs.postalCode &&
-            lhs.taxCode == lhs.taxCode &&
-            lhs.accountNumber == lhs.accountNumber
+            lhs.taxCode == rhs.taxCode &&
+            lhs.accountNumber == rhs.accountNumber &&
+            lhs.additionalInfo == rhs.additionalInfo
     }
 }
 
@@ -36,41 +38,52 @@ class CounterpartyBuilder {
     var postalCode: String?
     var taxCode: String?
     var accountNumber: String?
+    var additionalInfo: String?
     
-    func withName(_ name: String) -> CounterpartyBuilder{
+    func withName(_ name: String) -> CounterpartyBuilder {
         self.name = name;
         return self
     }
     
-    func withStreetAndNumber(_ streetAndNumber: String) -> CounterpartyBuilder{
+    func withStreetAndNumber(_ streetAndNumber: String) -> CounterpartyBuilder {
         self.streetAndNumber = streetAndNumber
         return self
     }
     
-    func withCity(_ city: String) -> CounterpartyBuilder{
+    func withCity(_ city: String) -> CounterpartyBuilder {
         self.city = city;
         return self
     }
     
-    func withPostalCode(_ postalCode: String) -> CounterpartyBuilder{
+    func withPostalCode(_ postalCode: String) -> CounterpartyBuilder {
         self.postalCode = postalCode;
         return self
     }
     
-    func withTaxCode(_ taxCode: String) -> CounterpartyBuilder{
+    func withTaxCode(_ taxCode: String) -> CounterpartyBuilder {
         self.taxCode = taxCode;
         return self
     }
     
-    func withAccountNumber(_ accountNumber: String) -> CounterpartyBuilder{
+    func withAccountNumber(_ accountNumber: String) -> CounterpartyBuilder {
         self.accountNumber = accountNumber;
         return self
     }
     
-    func build() -> Counterparty {
-        return Counterparty(name: name ?? "", streetAndNumber: streetAndNumber ?? "", city: city ?? "", postalCode: postalCode ?? "", taxCode: taxCode ?? "", accountNumber: accountNumber ?? "")
+    func withAdditionalInfo(_ additionalInfo: String) -> CounterpartyBuilder {
+        self.additionalInfo = additionalInfo
+        return self
     }
     
+    func build() -> Counterparty {
+        return Counterparty(name: name ?? "",
+                            streetAndNumber: streetAndNumber ?? "",
+                            city: city ?? "",
+                            postalCode: postalCode ?? "",
+                            taxCode: taxCode ?? "",
+                            accountNumber: accountNumber ?? "",
+                            additionalInfo: additionalInfo ?? "")
+    }
 }
 
 func aCounterparty() -> CounterpartyBuilder {

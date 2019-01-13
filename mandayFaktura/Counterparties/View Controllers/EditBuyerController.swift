@@ -13,7 +13,6 @@ struct EditBuyerViewControllerConstants {
     static let BUYER_EDITED_NOTIFICATION = Notification.Name(rawValue: "BuyerEdited")
 }
 
-
 class EditBuyerController: AbstractBuyerController {
     var buyer: Counterparty?
     
@@ -24,19 +23,13 @@ class EditBuyerController: AbstractBuyerController {
         self.postalCodeTextField.stringValue = buyer!.postalCode
         self.cityTextField.stringValue = buyer!.city
         self.taxCodeTextField.stringValue = buyer!.taxCode
+        self.additionalInfoTextField.stringValue = buyer!.additionalInfo
     }
     
     @IBAction func onSaveButtonClickedAction(_ sender: Any) {
-        let newBuyer = aCounterparty()
-            .withName(nameTextField.stringValue)
-            .withStreetAndNumber(streetTextField.stringValue)
-            .withCity(cityTextField.stringValue)
-            .withPostalCode(postalCodeTextField.stringValue)
-            .withTaxCode(taxCodeTextField.stringValue)
-            .build()
+        let newBuyer = getBuyer()
         counterpartyInteractor.replaceBuyer(buyer!, with: newBuyer)
         NotificationCenter.default.post(name: EditBuyerViewControllerConstants.BUYER_EDITED_NOTIFICATION, object: newBuyer)
         view.window?.close()
     }
-   
 }

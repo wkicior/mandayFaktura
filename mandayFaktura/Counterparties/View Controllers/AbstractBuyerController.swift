@@ -22,8 +22,8 @@ class AbstractBuyerController: NSViewController {
     @IBOutlet weak var postalCodeTextField: NSTextField!
     @IBOutlet weak var cityTextField: NSTextField!
     @IBOutlet weak var taxCodeTextField: NSTextField!
-    
-    
+    @IBOutlet weak var additionalInfoTextField: NSTextField!
+
     @IBAction func onCancelButtonClickedAction(_ sender: Any) {
         view.window?.close()
     }
@@ -40,4 +40,14 @@ class AbstractBuyerController: NSViewController {
             && !self.cityTextField.stringValue.isEmpty
     }
     
+    func getBuyer() -> Counterparty {
+        return aCounterparty()
+            .withName(nameTextField.stringValue)
+            .withStreetAndNumber(streetTextField.stringValue)
+            .withCity(cityTextField.stringValue)
+            .withPostalCode(postalCodeTextField.stringValue)
+            .withTaxCode(taxCodeTextField.stringValue)
+            .withAdditionalInfo(additionalInfoTextField.stringValue)
+            .build()
+    }
 }

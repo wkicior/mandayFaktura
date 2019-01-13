@@ -71,7 +71,7 @@ class BuyersCatalogueViewController: NSViewController {
    
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is EditBuyerController {
+       if segue.destinationController is AbstractBuyerController {
             let vc = segue.destinationController as? EditBuyerController
             let index = self.buyersTableView.selectedRow
             vc?.buyer = buyersTableViewDelegate?.getSelectedBuyer(index: index)

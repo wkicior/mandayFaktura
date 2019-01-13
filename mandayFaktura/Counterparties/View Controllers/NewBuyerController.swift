@@ -18,15 +18,9 @@ class NewBuyerController: AbstractBuyerController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-   
+    
     @IBAction func onSaveButtonClickedAction(_ sender: Any) {
-        let buyer = aCounterparty()
-            .withName(nameTextField.stringValue)
-            .withStreetAndNumber(streetTextField.stringValue)
-            .withCity(cityTextField.stringValue)
-            .withPostalCode(postalCodeTextField.stringValue)
-            .withTaxCode(taxCodeTextField.stringValue)
-            .build()
+        let buyer = getBuyer()
         counterpartyInteractor.addBuyer(buyer: buyer)
         NotificationCenter.default.post(name: NewBuyerViewControllerConstants.BUYER_ADDED_NOTIFICATION, object: buyer)
         view.window?.close()
