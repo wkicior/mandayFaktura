@@ -25,13 +25,6 @@ The development is still ongoing, therefore the application provides some basic 
 - invoice numbering management and automatic generation
 - VAT rates management
 
-## Next features
-The features I'm working on and should be delivered any day now include:
-- improving UI and windows presentation
-- improving UX
-- fixing the menu
-- name of the issuer
-
 ## Features currently not supported
 - Other documents like ProForma, invoice correction
 - Searching
@@ -61,15 +54,7 @@ Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalno
 - zarządzanie automatyczną numeracją faktur
 - zarządzanie stawkami VAT
 
-## Planowana implementacja
-Aktualnie pracuję nad następującymi funckcjonalnościami (powinny być gotowe lada dzień):
-
-- ulepszenie interfejsu i wyglądu okien
-- user experience
-- poprawa menu
-- Imię i nazwisko wystawiającego fakturę
-
-## Nie wspierane funkcjonalności
+## Nie jeszcze wspierane funkcjonalności
 - Inne dokumenty takie jak: ProForma, korekta
 - Wyszukiwanie
 - Waluty inne niż PLN
