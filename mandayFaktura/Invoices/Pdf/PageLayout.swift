@@ -10,7 +10,6 @@ import Foundation
 import Quartz
 import AppKit
 
-
 class PageLayout {
     let leftMargin = CGFloat(20.0)
     let rightMargin = CGFloat(20.0)
@@ -94,7 +93,7 @@ class PageLayout {
         var startFromY = itemsStartYPosition
         for i in 0 ..< tableData.count {
             let count = tableData[i][1].count
-            let rowLineCount = Int(ceil(CGFloat(CGFloat(count) / 35.0)))
+            let rowLineCount = max(tableData[i][1].linesCount(), Int(ceil(CGFloat(CGFloat(count) / 35.0))))
             itemRowsCounter = itemRowsCounter + rowLineCount
             startFromY = startFromY - CGFloat(rowLineCount) * defaultRowHeight - gridPadding * 2
             for j in 0 ..< tableData[i].count {

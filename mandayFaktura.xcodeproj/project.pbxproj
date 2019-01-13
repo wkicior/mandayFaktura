@@ -26,6 +26,8 @@
 		D3254EB2205C28B900CC889C /* InvoiceNumberingSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */; };
 		D3254EB6205C298900CC889C /* NumberingSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB5205C298900CC889C /* NumberingSegments.swift */; };
 		D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */; };
+		D32E361B21EB6DED0092EE5C /* StringUtilExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E361A21EB6DED0092EE5C /* StringUtilExtension.swift */; };
+		D32E361C21EB7D830092EE5C /* StringUtilExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E361A21EB6DED0092EE5C /* StringUtilExtension.swift */; };
 		D32ED31D2159789A00BDC6BE /* InvoiceDocumentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32ED31C2159789A00BDC6BE /* InvoiceDocumentSettingsViewController.swift */; };
 		D32ED31F215AA63300BDC6BE /* InvoiceSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32ED31E215AA63300BDC6BE /* InvoiceSettingsInteractor.swift */; };
 		D32ED324215ABF9400BDC6BE /* InvoiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32ED323215ABF9400BDC6BE /* InvoiceSettings.swift */; };
@@ -229,6 +231,7 @@
 		D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettings.swift; sourceTree = "<group>"; };
 		D3254EB5205C298900CC889C /* NumberingSegments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingSegments.swift; sourceTree = "<group>"; };
 		D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceNumberingSettingsRepository.swift; sourceTree = "<group>"; };
+		D32E361A21EB6DED0092EE5C /* StringUtilExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilExtension.swift; sourceTree = "<group>"; };
 		D32ED31C2159789A00BDC6BE /* InvoiceDocumentSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDocumentSettingsViewController.swift; sourceTree = "<group>"; };
 		D32ED31E215AA63300BDC6BE /* InvoiceSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceSettingsInteractor.swift; sourceTree = "<group>"; };
 		D32ED323215ABF9400BDC6BE /* InvoiceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceSettings.swift; sourceTree = "<group>"; };
@@ -713,6 +716,7 @@
 		D370A80820278B3A00FFB262 /* PrintingExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				D32E361A21EB6DED0092EE5C /* StringUtilExtension.swift */,
 				D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */,
 				D370A8002027893B00FFB262 /* InvoiceItemPrintingExtension.swift */,
 				D370A802202789B900FFB262 /* VatBreakdownPrintingExtension.swift */,
@@ -1043,6 +1047,7 @@
 				D34339BC21A48D6100C583D2 /* BasePdfPage.swift in Sources */,
 				D34339BD21A48D6100C583D2 /* NumberingSegments.swift in Sources */,
 				D34339BE21A48D6100C583D2 /* InvoiceNumberingSettingsRepository.swift in Sources */,
+				D32E361C21EB7D830092EE5C /* StringUtilExtension.swift in Sources */,
 				D34339BF21A48D6100C583D2 /* CounterpartyRepository.swift in Sources */,
 				D34339C021A48D6100C583D2 /* VatRateInteractor.swift in Sources */,
 				D34339C121A48D6100C583D2 /* WarningAlert.swift in Sources */,
@@ -1132,6 +1137,7 @@
 				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
 				D3254EB6205C298900CC889C /* NumberingSegments.swift in Sources */,
 				D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */,
+				D32E361B21EB6DED0092EE5C /* StringUtilExtension.swift in Sources */,
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
 				D3781B7F20B055D400CA420E /* VatRateInteractor.swift in Sources */,
 				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
