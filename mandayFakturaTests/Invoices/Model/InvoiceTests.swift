@@ -78,6 +78,7 @@ class InvoiceTests: XCTestCase {
     }
     
     func aCounterparty() -> Counterparty {
-        return Counterparty(name: "", streetAndNumber: "", city: "", postalCode: "", taxCode: "", accountNumber: "")
+        return CounterpartyBuilder()
+            .build()
     }
 }

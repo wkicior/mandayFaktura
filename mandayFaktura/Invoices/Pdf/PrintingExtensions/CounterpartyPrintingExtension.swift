@@ -30,6 +30,7 @@ extension Counterparty {
         \(streetAndNumber)
         \(postalCode) \(city)
         NIP: \(taxCode)
+        \(additionalInfo)
         """
         return buyer
     }

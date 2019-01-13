@@ -25,6 +25,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         self.cityTextField.stringValue = invoice!.buyer.city
         self.taxCodeTextField.stringValue = invoice!.buyer.taxCode
         self.cityTextField.stringValue = invoice!.buyer.city
+        self.buyerAdditionalInfo.stringValue = invoice!.buyer.additionalInfo
         
         self.issueDatePicker.dateValue = invoice!.issueDate
         self.sellingDatePicker.dateValue = invoice!.sellingDate
