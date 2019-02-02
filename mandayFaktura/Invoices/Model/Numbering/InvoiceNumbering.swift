@@ -53,7 +53,14 @@ class InvoiceNumbering {
                 numberingSegments = numberingCoder.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
             }
             let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.value)!
-            return NumberingSegmentValue(type: from.type, value: String(oldIncrementingNumber + 1))
+            let reset = resetOnYearChange(numberingSegments)
+            return NumberingSegmentValue(type: from.type, value: String(reset ? 1 : oldIncrementingNumber + 1))
         }
+    }
+    
+    fileprivate func resetOnYearChange(_ numberingSegments: [NumberingSegmentValue]) -> Bool {
+        return settings.resetOnYearChange
+            && settings.segments.filter({s in s.type == .year}).count > 0
+            && (numberingSegments.first(where: {s in s.type == .year})?.value != String(Date().year))
     }
 }
