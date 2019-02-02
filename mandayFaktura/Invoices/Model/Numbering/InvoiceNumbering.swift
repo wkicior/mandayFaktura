@@ -30,7 +30,7 @@ class InvoiceNumbering {
         self.invoiceRepository = invoiceRepository
         self.invoiceNumberingSettingsRepository = invoiceNumberingSettingsRepository
         self.settings = self.invoiceNumberingSettingsRepository.getInvoiceNumberingSettings() ??
-          InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year)])
+            InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year)], resetOnYearChange: true)
         self.numberingCoder = numberingTemplateFactory.getInstance(settings: settings)
     }
 

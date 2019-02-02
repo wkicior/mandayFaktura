@@ -30,6 +30,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
         self.segments = numberingSettings?.segments ?? []
         showSampleInvoiceNumber()
         setResetNumberOnYearChangeCheckboxAvailability()
+        self.resetNumberOnYearChangeCheckbox.state = (numberingSettings?.resetOnYearChange ?? true) ? NSControl.StateValue.on : NSControl.StateValue.off
     }
     
     fileprivate func setResetNumberOnYearChangeCheckboxAvailability() {
@@ -37,7 +38,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     }
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
-        let settings = InvoiceNumberingSettings(separator: separatorTextField.stringValue, segments: segments)
+        let settings = InvoiceNumberingSettings(separator: separatorTextField.stringValue, segments: segments, resetOnYearChange: self.resetNumberOnYearChangeCheckbox.state == NSControl.StateValue.on)
         invoiceNumberingInteractor.save(invoiceNumberingSettings: settings)
         view.window?.close()
     }

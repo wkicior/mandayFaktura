@@ -34,6 +34,7 @@ import Foundation
     func encode(with coder: NSCoder) {
         coder.encode(self.invoiceNumberingSettings.separator, forKey: "separator")
         coder.encode(self.invoiceNumberingSettings.segments.map{s in NumberingSegmentCoding(s)}, forKey: "segments")
+        coder.encode(self.invoiceNumberingSettings.resetOnYearChange, forKey: "resetOnYearChange")
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -41,8 +42,9 @@ import Foundation
             let segmentsCoding = decoder.decodeObject(forKey: "segments") as? [NumberingSegmentCoding]
             else { return nil }
         let segments = segmentsCoding.map({c in c.numberingSegment})
+        let resetOnYearChange = decoder.decodeBool(forKey: "resetOnYearChange") as Bool
         
-        self.init(InvoiceNumberingSettings(separator: separator, segments: segments))
+        self.init(InvoiceNumberingSettings(separator: separator, segments: segments, resetOnYearChange: resetOnYearChange))
     }
     
     init(_ invoiceNumberingSettings: InvoiceNumberingSettings) {
@@ -67,7 +69,7 @@ class KeyedArchiverInvoiceNumberingSettingsRepository: InvoiceNumberingSettingsR
             if let data = UserDefaults.standard.object(forKey: key) as? NSData {
                 return  NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! InvoiceNumberingSettingsCoding
             }
-            return InvoiceNumberingSettingsCoding(InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber, value: nil), NumberingSegment(type: .year, value: nil)]))
+            return InvoiceNumberingSettingsCoding(InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber, value: nil), NumberingSegment(type: .year, value: nil)], resetOnYearChange: true))
         }
         set {
             let data = NSKeyedArchiver.archivedData(withRootObject: newValue)

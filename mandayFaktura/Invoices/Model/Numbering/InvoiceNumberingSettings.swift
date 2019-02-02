@@ -11,5 +11,5 @@ import Foundation
 struct InvoiceNumberingSettings {
     let separator: String
     let segments: [NumberingSegment]
+    let resetOnYearChange: Bool
 }
-
