@@ -15,7 +15,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     @IBOutlet weak var fixedPartTextField: NSTextField!
     @IBOutlet weak var dragOrderingDestination: DragOrderingDestination!
     @IBOutlet weak var templateNumberLabel: NSTextField!
-    
+    @IBOutlet weak var resetNumberOnYearChangeCheckbox: NSButton!
     var segments: [NumberingSegment] = []
     
     @IBAction func onSeparatorValueChange(_ sender: NSTextField) {
@@ -29,6 +29,11 @@ class InvoiceNumberingSettingsViewController: NSViewController {
         dragOrderingDestination.delegate = self
         self.segments = numberingSettings?.segments ?? []
         showSampleInvoiceNumber()
+        setResetNumberOnYearChangeCheckboxAvailability()
+    }
+    
+    fileprivate func setResetNumberOnYearChangeCheckboxAvailability() {
+        self.resetNumberOnYearChangeCheckbox.isEnabled = self.segments.filter({ s in s.type == .year}).count > 0
     }
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
@@ -44,6 +49,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     @IBAction func onClearSegmentsButtonClicked(_ sender: NSButton) {
         self.segments = []
         showSampleInvoiceNumber()
+        setResetNumberOnYearChangeCheckboxAvailability()
     }
 }
 
@@ -53,17 +59,16 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
             let value = try defaultValue(type: action)
             self.segments.append(NumberingSegment(type: action, value: action == .fixedPart ? value : nil))
             showSampleInvoiceNumber()
+            setResetNumberOnYearChangeCheckboxAvailability()
         } catch InputValidationError.invalidNumber(let fieldName) {
             WarningAlert(warning: "\(fieldName) - błędny format ciągu znaków", text: "Zawartość pola musi być cyfrą lub literą.").runModal()
         } catch {
             //
         }
-     
     }
     
     func showSampleInvoiceNumber() {
         let numberingTemplate: NumberingCoder = NumberingSegmentCoder(delimeter: self.separatorTextField.stringValue, segmentTypes: [])
-        
         templateNumberLabel.stringValue = numberingTemplate.encodeNumber(segments: segmentsToDisplay)
     }
     
@@ -94,9 +99,6 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
         if !emailTest.evaluate(with: value) {
               throw InputValidationError.invalidNumber(fieldName: "Własny ciąg znaków")
         }
-       
-        
     }
- 
 }
 
