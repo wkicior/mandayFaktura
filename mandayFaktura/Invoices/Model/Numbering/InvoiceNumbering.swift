@@ -60,7 +60,7 @@ class InvoiceNumbering {
     
     fileprivate func resetOnYearChange(_ numberingSegments: [NumberingSegmentValue]) -> Bool {
         return settings.resetOnYearChange
-            && settings.segments.filter({s in s.type == .year}).count > 0
+            && settings.hasSegment(type: .year)
             && (numberingSegments.first(where: {s in s.type == .year})?.value != String(Date().year))
     }
 }
