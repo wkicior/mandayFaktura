@@ -9,9 +9,9 @@
 import Foundation
 
 struct InvoicePageComposition {
-    let header: String
-    let dates: String
-    let copyLabel: String
+    let header: HeaderLayout
+    let dates: HeaderInvoiceDatesLayout
+    let copyLabel: CopyLabelLayout
     let seller: String
     let buyer: String
     let itemTableData: [[String]]
@@ -27,9 +27,9 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 }
 
 class InvoicePageCompositionBuilder {
-    private var header: String = ""
-    private var dates: String = ""
-    private var copyLabel: String = ""
+    private var header: HeaderLayout?
+    private var dates: HeaderInvoiceDatesLayout?
+    private var copyLabel: CopyLabelLayout?
     private var seller: String = ""
     private var buyer: String = ""
     private var itemTableData: [[String]] = []
@@ -38,17 +38,17 @@ class InvoicePageCompositionBuilder {
     private var paymentSummary: String = ""
     private var notes: String = ""
     
-    func withHeader(_ header: String) -> InvoicePageCompositionBuilder {
+    func withHeader(_ header: HeaderLayout) -> InvoicePageCompositionBuilder {
         self.header = header
         return self
     }
     
-    func withDates(_ dates: String) -> InvoicePageCompositionBuilder {
+    func withDates(_ dates: HeaderInvoiceDatesLayout) -> InvoicePageCompositionBuilder {
         self.dates = dates
         return self
     }
     
-    func withCopyLabel(_ copyLabel: String) -> InvoicePageCompositionBuilder {
+    func withCopyLabel(_ copyLabel: CopyLabelLayout) -> InvoicePageCompositionBuilder {
         self.copyLabel = copyLabel
         return self
     }
@@ -90,9 +90,9 @@ class InvoicePageCompositionBuilder {
     
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
-            header: header,
-            dates: dates,
-            copyLabel: copyLabel,
+            header: header ?? HeaderLayout(content: ""),
+            dates: dates ?? HeaderInvoiceDatesLayout(content: ""),
+            copyLabel: copyLabel ?? CopyLabelLayout(content: ""),
             seller: seller,
             buyer: buyer,
             itemTableData: itemTableData,

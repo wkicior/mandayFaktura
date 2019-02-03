@@ -14,7 +14,7 @@ class BasePDFPage :PDFPage{
     let pageLayout = PageLayout()
    
     override func bounds(for box: PDFDisplayBox) -> NSRect {
-        return NSMakeRect(0, 0, self.pageLayout.pdfWidth, self.pageLayout.pdfHeight)
+        return NSMakeRect(0, 0, PageLayout.pdfWidth, self.pageLayout.pdfHeight)
     }
     
 }

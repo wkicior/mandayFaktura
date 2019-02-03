@@ -11,14 +11,15 @@ import Quartz
 import AppKit
 
 class PageLayout {
-    let leftMargin = CGFloat(20.0)
-    let rightMargin = CGFloat(20.0)
+    static let leftMargin = CGFloat(20.0)
+    static let rightMargin = CGFloat(20.0)
+    
+    static let debug = false
     
     let pdfHeight = CGFloat(1024.0)
-    let pdfWidth = CGFloat(768.0)
+    static let pdfWidth = CGFloat(768.0)
     
-    private let headerStartingYPosition = CGFloat(930)
-    private let copyLabelStartingYPosition = CGFloat(910)
+   
     private let itemsStartYPosition = CGFloat(674)
     private let counterpartiesStartYPosition = CGFloat(750)
    
@@ -37,50 +38,38 @@ class PageLayout {
     
     private var itemsSummaryYPosition = CGFloat(0)
     
-    func drawInvoiceHeader(header: String) {
-        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
-            headerStartingYPosition,
-            1/2 * self.pdfWidth,
-            CGFloat(40.0))
-        header.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesHeaderLeft)
+    func drawInvoiceHeader(header: HeaderLayout) {
+        header.draw()
     }
     
-    func drawCopyLabel(label: String) {
-        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
-                              copyLabelStartingYPosition,
-                              1/2 * self.pdfWidth,
-                              CGFloat(20.0))
-        label.uppercased().draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+    func drawCopyLabel(label: CopyLabelLayout) {
+        label.draw()
     }
     
-    func drawInvoiceHeaderDates(dates: String) {
-        let rect = NSMakeRect(1/2 * self.pdfWidth + CGFloat(100.0),
-                              headerStartingYPosition - CGFloat(55.0),
-                              1/2 * self.pdfWidth,
+    func drawInvoiceHeaderDates(dates: HeaderInvoiceDatesLayout) {
+        dates.draw()
+        /*(let rect = NSMakeRect(1/2 * PageLayout.pdfWidth + CGFloat(100.0),
+                    d          headerInvoiceDatesYPosition,
+                              1/2 * PageLayout.pdfWidth,
                               CGFloat(40.0))
         dates.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
-        drawHeaderHorizontalLine()
+        drawHeaderHorizontalLine()*/
     }
     
-    func drawHeaderHorizontalLine() {
-        let y =  headerStartingYPosition - CGFloat(60.0)
-        let fromPoint = NSMakePoint(leftMargin , y)
-        let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
-        drawPath(from: fromPoint, to: toPoint)
-    }
+    
     
     func drawSeller(seller: String) {
         let rect = NSMakeRect(CGFloat(100.0),
                               counterpartiesStartYPosition,
-                              1/2 * self.pdfWidth,
+                              1/2 * PageLayout.pdfWidth,
                               CGFloat(90.0))
         seller.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawBuyer(buyer: String) {
-        let rect = NSMakeRect(1/2 * self.pdfWidth,
+        let rect = NSMakeRect(1/2 * PageLayout.pdfWidth,
                               counterpartiesStartYPosition,
-                              1/2 * self.pdfWidth,
+                              1/2 * PageLayout.pdfWidth,
                               CGFloat(90.0))
         buyer.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
@@ -104,12 +93,12 @@ class PageLayout {
     }
     
     private func drawItemsHeaderCell(content: String, column: Int) {
-        let xLeft = leftMargin + self.getColumnXOffset(column: column)
+        let xLeft = PageLayout.leftMargin + self.getColumnXOffset(column: column)
         let yBottom = itemsStartYPosition
         let width = getColumnWidth(column: column)
         let height = defaultRowHeight * 2
         let rect = NSMakeRect(xLeft, itemsStartYPosition, width, height)
-        fillCellBackground(x: leftMargin + self.getColumnXOffset(column: column),
+        fillCellBackground(x: PageLayout.leftMargin + self.getColumnXOffset(column: column),
                            y: yBottom - gridPadding,
                            width:  getColumnWidth(column: column),
                            height: height + 2 * gridPadding,
@@ -120,7 +109,7 @@ class PageLayout {
     
     private func drawItemTableCell(content: String, row: Int, column: Int, size: CGFloat, startFromY: CGFloat) {
         let yBottom = startFromY
-        let xLeft =  leftMargin + self.getColumnXOffset(column: column)
+        let xLeft =  PageLayout.leftMargin + self.getColumnXOffset(column: column)
         let width = self.getColumnWidth(column: column)
         let height = defaultRowHeight * size
         let rect = NSMakeRect(xLeft, yBottom, width, height)
@@ -162,11 +151,11 @@ class PageLayout {
     private func drawItemsSummaryCell(content: String, column: Int) {
         let shift = 4
 
-        let rect = NSMakeRect(leftMargin + getColumnXOffset(column: column + shift),
+        let rect = NSMakeRect(PageLayout.leftMargin + getColumnXOffset(column: column + shift),
                               itemsSummaryYPosition,
                               getColumnWidth(column: column + shift),
                               defaultRowHeight)
-        fillCellBackground(x: leftMargin + getColumnXOffset(column: column + shift),
+        fillCellBackground(x: PageLayout.leftMargin + getColumnXOffset(column: column + shift),
                            y: itemsSummaryYPosition - gridPadding,
                            width:  self.getColumnWidth(column: column + shift),
                            height: defaultRowHeight + 2 * gridPadding,
@@ -189,7 +178,7 @@ class PageLayout {
     private func drawVatBreakdownCell(content: String, row: Int, column: Int) {
         let shift = 5
         let yBottom = itemsSummaryYPosition - CGFloat(row) * (defaultRowHeight + 2 * gridPadding)
-        let xLeft = leftMargin + getColumnXOffset(column: column + shift)
+        let xLeft = PageLayout.leftMargin + getColumnXOffset(column: column + shift)
         let width = getColumnWidth(column: column + shift)
         let height = defaultRowHeight
         let rect = NSMakeRect(xLeft, yBottom, width, height)
@@ -207,20 +196,20 @@ class PageLayout {
         drawPaymentSummaryHorizontalLine()
         let rect = NSMakeRect(CGFloat(100.0),
                               paymentSummaryYPosition,
-                              1/3 * self.pdfWidth,
+                              1/3 * PageLayout.pdfWidth,
                               CGFloat(80.0))
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawNotes(content: String) {
-        let rect = NSMakeRect(leftMargin, paymentSummaryYPosition - CGFloat(100.0), self.pdfWidth - rightMargin, CGFloat(100.0))
+        let rect = NSMakeRect(PageLayout.leftMargin, paymentSummaryYPosition - CGFloat(100.0), PageLayout.pdfWidth - PageLayout.rightMargin, CGFloat(100.0))
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesLeft)
     }
     
     func drawPaymentSummaryHorizontalLine() {
         let y =  paymentSummaryYPosition + CGFloat(90)
-        let fromPoint = NSMakePoint(leftMargin , y)
-        let toPoint = NSMakePoint(self.pdfWidth - rightMargin, y)
+        let fromPoint = NSMakePoint(PageLayout.leftMargin , y)
+        let toPoint = NSMakePoint(PageLayout.pdfWidth - PageLayout.rightMargin, y)
         drawPath(from: fromPoint, to: toPoint)
     }
     
@@ -230,7 +219,7 @@ class PageLayout {
     }
     
     private func drawVatBreakdownVerticalGrid(cell: Int)  {
-        let x = leftMargin + getColumnXOffset(column: cell + 4)
+        let x = PageLayout.leftMargin + getColumnXOffset(column: cell + 4)
         let fromPoint = NSMakePoint(x, itemsSummaryYPosition + 2 * (defaultRowHeight + 2 * gridPadding))
         let toPoint = NSMakePoint(x, itemsSummaryYPosition - gridPadding - (CGFloat(breakdownItemsCount - 1) * (defaultRowHeight + 2 * gridPadding)))
         drawPath(from: fromPoint, to: toPoint)
@@ -239,8 +228,8 @@ class PageLayout {
     private func drawVatBreakdownHorizontalGrid(row: Int, of: Int)  {
         let y = itemsSummaryYPosition - CGFloat(row - 1) * (defaultRowHeight + 2 * gridPadding) - gridPadding
         let isFirstOrLastRow = row == of || row == 0
-        let fromPoint = NSMakePoint(leftMargin + self.getColumnXOffset(column: isFirstOrLastRow ? 4 : 5) , y)
-        let toPoint = NSMakePoint(self.itemsTableWidth + leftMargin, y)
+        let fromPoint = NSMakePoint(PageLayout.leftMargin + self.getColumnXOffset(column: isFirstOrLastRow ? 4 : 5) , y)
+        let toPoint = NSMakePoint(self.itemsTableWidth + PageLayout.leftMargin, y)
         drawPath(from: fromPoint, to: toPoint)
     }
     
