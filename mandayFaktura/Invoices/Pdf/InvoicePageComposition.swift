@@ -12,15 +12,14 @@ struct InvoicePageComposition {
     let header: HeaderLayout
     let dates: HeaderInvoiceDatesLayout
     let copyLabel: CopyLabelLayout
-    let seller: String
-    let buyer: String
+    let seller: SellerLayout
+    let buyer: BuyerLayout
     let itemTableData: [[String]]
     let itemsSummary: [String]
     let vatBreakdownTableData: [[String]]
     let paymentSummary: String
     let notes: String
 }
-
 
 func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
     return InvoicePageCompositionBuilder()
@@ -30,8 +29,8 @@ class InvoicePageCompositionBuilder {
     private var header: HeaderLayout?
     private var dates: HeaderInvoiceDatesLayout?
     private var copyLabel: CopyLabelLayout?
-    private var seller: String = ""
-    private var buyer: String = ""
+    private var seller: SellerLayout?
+    private var buyer: BuyerLayout?
     private var itemTableData: [[String]] = []
     private var itemsSummary: [String] = []
     private var vatBreakdownTableData: [[String]] = []
@@ -53,12 +52,12 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withSeller(_ seller: String) -> InvoicePageCompositionBuilder {
+    func withSeller(_ seller: SellerLayout) -> InvoicePageCompositionBuilder {
         self.seller = seller
         return self
     }
     
-    func withBuyer(_ buyer: String) -> InvoicePageCompositionBuilder {
+    func withBuyer(_ buyer: BuyerLayout) -> InvoicePageCompositionBuilder {
         self.buyer = buyer
         return self
     }
@@ -93,8 +92,8 @@ class InvoicePageCompositionBuilder {
             header: header ?? HeaderLayout(content: ""),
             dates: dates ?? HeaderInvoiceDatesLayout(content: ""),
             copyLabel: copyLabel ?? CopyLabelLayout(content: ""),
-            seller: seller,
-            buyer: buyer,
+            seller: seller ?? SellerLayout(content: ""),
+            buyer: buyer ?? BuyerLayout(content: ""),
             itemTableData: itemTableData,
             itemsSummary: itemsSummary,
             vatBreakdownTableData: vatBreakdownTableData,

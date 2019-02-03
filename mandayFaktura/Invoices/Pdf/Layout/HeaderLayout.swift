@@ -10,7 +10,6 @@ import Foundation
 import AppKit
 
 class HeaderLayout : AbstractLayout{
-    private let fontFormatting = FontFormatting()
     static let yPosition = CGFloat(930)
     let height = CGFloat(42.0)
 

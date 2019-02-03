@@ -19,9 +19,7 @@ class PageLayout {
     let pdfHeight = CGFloat(1024.0)
     static let pdfWidth = CGFloat(768.0)
     
-   
     private let itemsStartYPosition = CGFloat(674)
-    private let counterpartiesStartYPosition = CGFloat(750)
    
     private let defaultRowHeight = CGFloat(14)
     private let gridPadding = CGFloat(5)
@@ -48,30 +46,14 @@ class PageLayout {
     
     func drawInvoiceHeaderDates(dates: HeaderInvoiceDatesLayout) {
         dates.draw()
-        /*(let rect = NSMakeRect(1/2 * PageLayout.pdfWidth + CGFloat(100.0),
-                    d          headerInvoiceDatesYPosition,
-                              1/2 * PageLayout.pdfWidth,
-                              CGFloat(40.0))
-        dates.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
-        drawHeaderHorizontalLine()*/
     }
     
-    
-    
-    func drawSeller(seller: String) {
-        let rect = NSMakeRect(CGFloat(100.0),
-                              counterpartiesStartYPosition,
-                              1/2 * PageLayout.pdfWidth,
-                              CGFloat(90.0))
-        seller.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+    func drawSeller(seller: SellerLayout) {
+        seller.draw()
     }
     
-    func drawBuyer(buyer: String) {
-        let rect = NSMakeRect(1/2 * PageLayout.pdfWidth,
-                              counterpartiesStartYPosition,
-                              1/2 * PageLayout.pdfWidth,
-                              CGFloat(90.0))
-        buyer.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
+    func drawBuyer(buyer: BuyerLayout) {
+        buyer.draw()
     }
     
     func drawItemsTable(headerData: [String], tableData: [[String]]) {

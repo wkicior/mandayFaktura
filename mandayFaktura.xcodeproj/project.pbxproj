@@ -206,6 +206,10 @@
 		D3F745DA220785B70057540E /* AbstractLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D8220785B70057540E /* AbstractLayout.swift */; };
 		D3F745DC220789940057540E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DB220789940057540E /* ColorExtension.swift */; };
 		D3F745DD220789940057540E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DB220789940057540E /* ColorExtension.swift */; };
+		D3F745DF22078F800057540E /* SellerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DE22078F7F0057540E /* SellerLayout.swift */; };
+		D3F745E022078F800057540E /* SellerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DE22078F7F0057540E /* SellerLayout.swift */; };
+		D3F745E2220792F70057540E /* BuyerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E1220792F70057540E /* BuyerLayout.swift */; };
+		D3F745E3220792F70057540E /* BuyerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E1220792F70057540E /* BuyerLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,6 +345,8 @@
 		D3F745D522077F500057540E /* HeaderInvoiceDatesLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInvoiceDatesLayout.swift; sourceTree = "<group>"; };
 		D3F745D8220785B70057540E /* AbstractLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractLayout.swift; sourceTree = "<group>"; };
 		D3F745DB220789940057540E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		D3F745DE22078F7F0057540E /* SellerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerLayout.swift; sourceTree = "<group>"; };
+		D3F745E1220792F70057540E /* BuyerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -908,6 +914,8 @@
 				D3F745D222077CBD0057540E /* CopyLabelLayout.swift */,
 				D3F745D522077F500057540E /* HeaderInvoiceDatesLayout.swift */,
 				D3F745D8220785B70057540E /* AbstractLayout.swift */,
+				D3F745DE22078F7F0057540E /* SellerLayout.swift */,
+				D3F745E1220792F70057540E /* BuyerLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -1092,6 +1100,8 @@
 				D34339C321A48D6100C583D2 /* InvoiceHistoryController.swift in Sources */,
 				D34339C421A48D6100C583D2 /* AbstractBuyerController.swift in Sources */,
 				D34339C521A48D6100C583D2 /* DateFormatting.swift in Sources */,
+				D3F745E022078F800057540E /* SellerLayout.swift in Sources */,
+				D3F745E3220792F70057540E /* BuyerLayout.swift in Sources */,
 				D34339C621A48D6100C583D2 /* InvoicePrintingExtension.swift in Sources */,
 				D34339C721A48D6100C583D2 /* BuyerAutoSavingController.swift in Sources */,
 				D34339C821A48D6100C583D2 /* VatRateRepository.swift in Sources */,
@@ -1189,6 +1199,8 @@
 				D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */,
 				D3B7C95B207FE2C400432176 /* AbstractBuyerController.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
+				D3F745DF22078F800057540E /* SellerLayout.swift in Sources */,
+				D3F745E2220792F70057540E /* BuyerLayout.swift in Sources */,
 				D370A80520278A7800FFB262 /* InvoicePrintingExtension.swift in Sources */,
 				D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */,
 				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,

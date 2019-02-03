@@ -25,8 +25,8 @@ class InvoiceDocumentComposition {
             .withHeader(HeaderLayout(content: invoice.printedHeader))
             .withDates(HeaderInvoiceDatesLayout(content: invoice.printedDates))
             .withCopyLabel(CopyLabelLayout(content: copyTemplate.rawValue))
-            .withSeller(invoice.seller.printedSeller)
-            .withBuyer(invoice.buyer.printedBuyer)
+            .withSeller(SellerLayout(content: invoice.seller.printedSeller))
+            .withBuyer(BuyerLayout(content: invoice.buyer.printedBuyer))
     }
     
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {

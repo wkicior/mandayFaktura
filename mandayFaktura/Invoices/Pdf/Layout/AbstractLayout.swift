@@ -13,6 +13,7 @@ import AppKit
 class AbstractLayout {
     let debug: Bool
     let debugColor = NSColor.random
+    let fontFormatting = FontFormatting()
     
     init(debug: Bool) {
        self.debug = debug

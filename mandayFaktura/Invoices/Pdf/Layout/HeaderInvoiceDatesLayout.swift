@@ -11,9 +11,8 @@ import AppKit
 
 
 class HeaderInvoiceDatesLayout : AbstractLayout {
-    private let fontFormatting = FontFormatting()
     static let heightOfDates = CGFloat(30.0)
-    static let heightOfLine = CGFloat(6.0)
+    static let heightOfLine = CGFloat(12.0)
     static let height = heightOfDates + heightOfLine
     static let yPosition = CopyLabelLayout.yPosition - height
 

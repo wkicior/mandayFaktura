@@ -10,10 +10,8 @@ import Foundation
 import AppKit
 
 class CopyLabelLayout : AbstractLayout{
-    private let fontFormatting = FontFormatting()
     static let height = CGFloat(14.0)
     static let yPosition = HeaderLayout.yPosition - height
-    static let debug = true
     
     let content: String
     init(content: String) {
