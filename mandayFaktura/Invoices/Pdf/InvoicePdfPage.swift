@@ -12,59 +12,49 @@ import Quartz
 
 class InvoicePdfPage: BasePDFPage {
     let invoice: Invoice
-    let copyLabel: String
+    let pageComposition: InvoicePageComposition
 
-    init(invoice: Invoice, copyLabel: String) {
+    init(invoice: Invoice, pageComposition: InvoicePageComposition) {
         self.invoice = invoice
-        self.copyLabel = copyLabel
+        self.pageComposition = pageComposition
         super.init()
     }
     
     func drawInvoiceHeader()  {
-        pageLayout.drawInvoiceHeader(header: invoice.printedHeader)
-        pageLayout.drawInvoiceHeaderDates(dates: invoice.printedDates)
+        pageLayout.drawInvoiceHeader(header: self.pageComposition.header)
+        pageLayout.drawInvoiceHeaderDates(dates: self.pageComposition.dates)
     }
     
     func drawCopyLabel() {
-        pageLayout.drawCopyLabel(label: self.copyLabel)
+        pageLayout.drawCopyLabel(label: self.pageComposition.copyLabel)
     }
     
     func drawSeller() {
-        pageLayout.drawSeller(seller: invoice.seller.printedSeller)
+        pageLayout.drawSeller(seller: self.pageComposition.seller)
     }
     
     func drawBuyer() {
-        pageLayout.drawBuyer(buyer: invoice.buyer.printedBuyer)
+        pageLayout.drawBuyer(buyer: self.pageComposition.buyer)
     }
     
     func drawItemsTable() {
-        var itemTableData: [[String]] = []
-        for itemCounter in 0 ..< self.invoice.items.count {
-            let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
-            itemTableData.append(properties)
-        }
-        pageLayout.drawItemsTable(headerData: InvoiceItem.itemColumnNames, tableData: itemTableData)
+        pageLayout.drawItemsTable(headerData: InvoiceItem.itemColumnNames, tableData: self.pageComposition.itemTableData)
     }
     
     func drawItemsSummary() {
-        pageLayout.drawItemsSummary(summaryData: ["Razem:"] + self.invoice.propertiesForDisplay)
+        pageLayout.drawItemsSummary(summaryData: ["Razem:"] + self.pageComposition.itemsSummary)
     }
     
     func drawVatBreakdown() {
-        var breakdownTableData: [[String]] = []
-        for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
-           let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
-            breakdownTableData.append(breakdown.propertiesForDisplay)
-        }
-        pageLayout.drawVatBreakdown(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData)
+        pageLayout.drawVatBreakdown(breakdownLabel: "W tym:", breakdownTableData: self.pageComposition.vatBreakdownTableData)
     }
     
     func drawPaymentSummary() {
-        pageLayout.drawPaymentSummary(content: invoice.printedPaymentSummary)
+        pageLayout.drawPaymentSummary(content: self.pageComposition.paymentSummary)
     }
     
     func drawNotes() {
-        pageLayout.drawNotes(content: invoice.notes)
+        pageLayout.drawNotes(content: self.pageComposition.notes)
     }
     
     override func draw(with box: PDFDisplayBox) {

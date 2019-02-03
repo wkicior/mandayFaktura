@@ -97,7 +97,7 @@ class ViewController: NSViewController {
     
     func printInvoice() {
         let invoice: Invoice = (self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!
-        let invoicePdf = InvoicePdf(invoice: invoice)
+        let invoicePdf = InvoicePdfDocument(invoice: invoice)
         let pdfPrintOperation = PdfDocumentPrintOperation(document: invoicePdf.getDocument())
         pdfPrintOperation.runModal(on: self)
     }

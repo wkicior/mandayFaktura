@@ -13,28 +13,29 @@ enum CopyTemplate: String {
     case original = "oryginał", copy = "kopia"
 }
 
-class InvoicePdf {
+class InvoicePdfDocument {
     let invoice: Invoice
+    let invoiceDocumentComposition: InvoiceDocumentComposition
     
     init(invoice: Invoice) {
         self.invoice = invoice
+        self.invoiceDocumentComposition = InvoiceDocumentComposition(invoice: invoice)
     }
     
     func getDocument() -> PDFDocument {       
         let doc = PDFDocument()
-        let invoicePage = InvoicePdfPage(invoice: self.invoice, copyLabel: CopyTemplate.original.rawValue)
-        let invoicePage2 = InvoicePdfPage(invoice: self.invoice, copyLabel: CopyTemplate.copy.rawValue)
-
-        doc.insert(invoicePage, at: 0)
-        doc.insert(invoicePage2, at: 1)
-        
+        for (index, element) in self.invoiceDocumentComposition.getInvoicePages(copies: [CopyTemplate.original, CopyTemplate.copy]).enumerated() {
+            doc.insert(element, at: index)
+        }
+    
         return doc
     }
     
     func getDocument(copyTemplate: CopyTemplate) -> PDFDocument {
         let doc = PDFDocument()
-        let invoicePage = InvoicePdfPage(invoice: self.invoice, copyLabel: copyTemplate.rawValue)
-        doc.insert(invoicePage, at: 0)
+        for (index, element) in self.invoiceDocumentComposition.getInvoicePages(copies: [CopyTemplate.original]).enumerated() {
+            doc.insert(element, at: index)
+        }
         return doc
     }
 }
