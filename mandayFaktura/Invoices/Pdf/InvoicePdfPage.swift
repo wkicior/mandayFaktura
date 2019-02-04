@@ -11,11 +11,9 @@ import Quartz
 
 
 class InvoicePdfPage: BasePDFPage {
-    let invoice: Invoice
     let pageComposition: InvoicePageComposition
 
-    init(invoice: Invoice, pageComposition: InvoicePageComposition) {
-        self.invoice = invoice
+    init(pageComposition: InvoicePageComposition) {
         self.pageComposition = pageComposition
         super.init()
     }
@@ -46,11 +44,11 @@ class InvoicePdfPage: BasePDFPage {
     }
     
     func drawVatBreakdown() {
-        pageLayout.drawVatBreakdown(breakdownLabel: "W tym:", breakdownTableData: self.pageComposition.vatBreakdownTableData)
+        pageLayout.drawVatBreakdown(vatBreakdown: self.pageComposition.vatBreakdownTableData)
     }
     
     func drawPaymentSummary() {
-        pageLayout.drawPaymentSummary(content: self.pageComposition.paymentSummary)
+        pageLayout.drawPaymentSummary(paymentSummary: self.pageComposition.paymentSummary)
     }
     
     func drawNotes() {

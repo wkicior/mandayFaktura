@@ -16,8 +16,8 @@ struct InvoicePageComposition {
     let buyer: BuyerLayout
     let itemTableData: ItemTableLayout
     let itemsSummary: ItemsSummaryLayout
-    let vatBreakdownTableData: [[String]]
-    let paymentSummary: String
+    let vatBreakdownTableData: VatBreakdownLayout
+    let paymentSummary: PaymentSummaryLayout
     let notes: String
 }
 
@@ -33,8 +33,8 @@ class InvoicePageCompositionBuilder {
     private var buyer: BuyerLayout?
     private var itemTableData: ItemTableLayout?
     private var itemsSummary: ItemsSummaryLayout?
-    private var vatBreakdownTableData: [[String]] = []
-    private var paymentSummary: String = ""
+    private var vatBreakdownTableData: VatBreakdownLayout?
+    private var paymentSummary: PaymentSummaryLayout?
     private var notes: String = ""
     
     func withHeader(_ header: HeaderLayout) -> InvoicePageCompositionBuilder {
@@ -72,12 +72,12 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withVatBreakdownTableData(_ vatBreakdownTableData: [[String]]) -> InvoicePageCompositionBuilder {
+    func withVatBreakdownTableData(_ vatBreakdownTableData: VatBreakdownLayout) -> InvoicePageCompositionBuilder {
         self.vatBreakdownTableData = vatBreakdownTableData
         return self
     }
     
-    func withPaymentSummary(_ paymentSummary: String) -> InvoicePageCompositionBuilder {
+    func withPaymentSummary(_ paymentSummary: PaymentSummaryLayout) -> InvoicePageCompositionBuilder {
         self.paymentSummary = paymentSummary
         return self
     }
@@ -96,8 +96,8 @@ class InvoicePageCompositionBuilder {
             buyer: buyer ?? BuyerLayout(content: ""),
             itemTableData: itemTableData ?? ItemTableLayout(headerData: [], tableData: []),
             itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: []),
-            vatBreakdownTableData: vatBreakdownTableData,
-            paymentSummary: paymentSummary,
+            vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownLayout(breakdownLabel: "", breakdownTableData: []),
+            paymentSummary: paymentSummary ?? PaymentSummaryLayout(content: ""),
             notes: notes)
     }
 }

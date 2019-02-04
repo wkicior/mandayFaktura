@@ -158,7 +158,6 @@
 		D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80B2027A60600FFB262 /* DateFormatting.swift */; };
 		D370A8102027A9BA00FFB262 /* CounterpartyPrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */; };
 		D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A8112028ED7500FFB262 /* PageLayout.swift */; };
-		D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A814202A311200FFB262 /* PageLayoutTests.swift */; };
 		D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A120321C6500F507AD /* VatRateRepository.swift */; };
 		D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */; };
 		D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */; };
@@ -214,6 +213,10 @@
 		D3F745E6220795260057540E /* ItemTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E4220795260057540E /* ItemTableLayout.swift */; };
 		D3F745E82208A9430057540E /* ItemsSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */; };
 		D3F745E92208A9430057540E /* ItemsSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */; };
+		D3F745EB2208B08F0057540E /* VatBreakdownLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */; };
+		D3F745EC2208B08F0057540E /* VatBreakdownLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */; };
+		D3F745EE2208B4450057540E /* PaymentSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */; };
+		D3F745EF2208B4450057540E /* PaymentSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,7 +311,6 @@
 		D370A80B2027A60600FFB262 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyPrintingExtension.swift; sourceTree = "<group>"; };
 		D370A8112028ED7500FFB262 /* PageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
-		D370A814202A311200FFB262 /* PageLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLayoutTests.swift; sourceTree = "<group>"; };
 		D37560A120321C6500F507AD /* VatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateRepository.swift; sourceTree = "<group>"; };
 		D37560A720321D5A00F507AD /* VatRatePopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatePopUpButton.swift; sourceTree = "<group>"; };
 		D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCounterpartyRepository.swift; sourceTree = "<group>"; };
@@ -353,6 +355,8 @@
 		D3F745E1220792F70057540E /* BuyerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerLayout.swift; sourceTree = "<group>"; };
 		D3F745E4220795260057540E /* ItemTableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableLayout.swift; sourceTree = "<group>"; };
 		D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSummaryLayout.swift; sourceTree = "<group>"; };
+		D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownLayout.swift; sourceTree = "<group>"; };
+		D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -766,7 +770,6 @@
 		D370A813202A30AC00FFB262 /* Pdf */ = {
 			isa = PBXGroup;
 			children = (
-				D370A814202A311200FFB262 /* PageLayoutTests.swift */,
 			);
 			path = Pdf;
 			sourceTree = "<group>";
@@ -924,6 +927,8 @@
 				D3F745E1220792F70057540E /* BuyerLayout.swift */,
 				D3F745E4220795260057540E /* ItemTableLayout.swift */,
 				D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */,
+				D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */,
+				D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -1127,6 +1132,7 @@
 				D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */,
 				D3F745D0220775800057540E /* HeaderLayout.swift in Sources */,
 				D34339D321A48D6100C583D2 /* InvoiceExistsError.swift in Sources */,
+				D3F745EF2208B4450057540E /* PaymentSummaryLayout.swift in Sources */,
 				D34339D421A48D6100C583D2 /* InvoiceSettingsCoding.swift in Sources */,
 				D34339D521A48D6100C583D2 /* CounterpartyInteractor.swift in Sources */,
 				D34339D621A48D6100C583D2 /* DecimalPrintingExtension.swift in Sources */,
@@ -1149,6 +1155,7 @@
 				D34339E521A48D6100C583D2 /* VatRate.swift in Sources */,
 				D34339E621A48D6100C583D2 /* Invoice.swift in Sources */,
 				D34339E721A48D6100C583D2 /* NSColorExtension.swift in Sources */,
+				D3F745EC2208B08F0057540E /* VatBreakdownLayout.swift in Sources */,
 				D34339E821A48D6100C583D2 /* InvoiceDocumentSettingsViewController.swift in Sources */,
 				D34339E921A48D6100C583D2 /* NewInvoiceViewController.swift in Sources */,
 				D34339EA21A48D6100C583D2 /* InvoiceSettings.swift in Sources */,
@@ -1228,6 +1235,7 @@
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
 				D3F745CF220775800057540E /* HeaderLayout.swift in Sources */,
 				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
+				D3F745EE2208B4450057540E /* PaymentSummaryLayout.swift in Sources */,
 				D32ED32B215F9D8900BDC6BE /* InvoiceSettingsCoding.swift in Sources */,
 				D3781B8520B34B0000CA420E /* CounterpartyInteractor.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
@@ -1250,6 +1258,7 @@
 				D3B7C9612090F96700432176 /* VatRate.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
 				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
+				D3F745EB2208B08F0057540E /* VatBreakdownLayout.swift in Sources */,
 				D32ED31D2159789A00BDC6BE /* InvoiceDocumentSettingsViewController.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
 				D32ED324215ABF9400BDC6BE /* InvoiceSettings.swift in Sources */,
@@ -1300,7 +1309,6 @@
 			files = (
 				D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */,
 				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
-				D370A815202A311200FFB262 /* PageLayoutTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
 				D3B7C96720924E6300432176 /* VatRateTests.swift in Sources */,

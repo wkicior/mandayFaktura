@@ -17,7 +17,7 @@ class InvoiceDocumentComposition {
     
     fileprivate func getInvoicePagesForCopy(_ copy: CopyTemplate) -> [InvoicePdfPage] {
         return distributeInvoiceOverPageCompositions(copyTemplate: copy)
-            .map({pageComposition in InvoicePdfPage(invoice: self.invoice, pageComposition: pageComposition)})
+            .map({pageComposition in InvoicePdfPage(pageComposition: pageComposition)})
     }
     
     fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
@@ -39,18 +39,18 @@ class InvoiceDocumentComposition {
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
         lastPage.withItemsSummary(ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay))
             .withVatBreakdownTableData(getVatBreakdownTableData())
-            .withPaymentSummary(invoice.printedPaymentSummary)
+            .withPaymentSummary(PaymentSummaryLayout(content: invoice.printedPaymentSummary))
             .withNotes(invoice.notes)
         return pagesWithTableData.map({page in page.build()})
     }
     
-    func getVatBreakdownTableData() -> [[String]] {
+    func getVatBreakdownTableData() -> VatBreakdownLayout {
         var breakdownTableData: [[String]] = []
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return breakdownTableData
+        return VatBreakdownLayout(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData)
     }
     
     func getItemTableDataChunksPerPage() -> [[[String]]] {
