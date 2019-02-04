@@ -37,21 +37,23 @@ class InvoiceDocumentComposition {
             return invoicePageComposition
         })
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
-        let itemsSummaryYPosition = ItemTableLayout.yPosition - lastPage.itemTableData!.height //TODO: clean this 
-        lastPage.withItemsSummary(ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yPosition: itemsSummaryYPosition))
-            .withVatBreakdownTableData(getVatBreakdownTableData())
+        let itemsSummaryYPosition = ItemTableLayout.yPosition - lastPage.itemTableData!.height //TODO: clean this
+        let itemsSummaryLayout = ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yTopPosition: itemsSummaryYPosition)
+        let vatBrakdownYPosition = itemsSummaryLayout.yPosition - ItemsSummaryLayout.height
+        lastPage.withItemsSummary(itemsSummaryLayout)
+            .withVatBreakdownTableData(getVatBreakdownTableData(topYPosition: vatBrakdownYPosition))
             .withPaymentSummary(PaymentSummaryLayout(content: invoice.printedPaymentSummary))
             .withNotes(NotesLayout(content: invoice.notes))
         return pagesWithTableData.map({page in page.build()})
     }
     
-    func getVatBreakdownTableData() -> VatBreakdownLayout {
+    func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownLayout {
         var breakdownTableData: [[String]] = []
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return VatBreakdownLayout(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData)
+        return VatBreakdownLayout(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData, topYPosition: topYPosition)
     }
     
     func getItemTableDataChunksPerPage() -> [[[String]]] {

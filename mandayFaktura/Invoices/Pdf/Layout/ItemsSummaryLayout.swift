@@ -13,8 +13,8 @@ class ItemsSummaryLayout : AbstractLayout {
     static let height = PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding
     
     let summaryData: [String]
-    init(summaryData: [String], yPosition: CGFloat) {
-        self.yPosition = yPosition - ItemsSummaryLayout.height
+    init(summaryData: [String], yTopPosition: CGFloat) {
+        self.yPosition = yTopPosition - ItemsSummaryLayout.height
         self.summaryData = summaryData
         super.init(debug: PageLayout.debug)
     }

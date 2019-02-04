@@ -21,7 +21,6 @@ class PageLayout {
     
     static let defaultRowHeight = CGFloat(14)
     static let gridPadding = CGFloat(5)
-    private var breakdownItemsCount = 0
     
     private var itemsSummaryYPosition = CGFloat(0)
     
@@ -50,13 +49,12 @@ class PageLayout {
     }
     
     func drawItemsSummary(summaryData: ItemsSummaryLayout) {
-        summaryData.draw() //TODO: clean this up
-        self.itemsSummaryYPosition = summaryData.yPosition
+        summaryData.draw()
     }
     
     func drawVatBreakdown(vatBreakdown: VatBreakdownLayout) {
-        vatBreakdown.draw(yPosition: self.itemsSummaryYPosition)
-        self.breakdownItemsCount = vatBreakdown.breakdownItemsCount //TODO align to pixels
+        vatBreakdown.draw()
+        self.itemsSummaryYPosition = vatBreakdown.yPosition - vatBreakdown.height
     }
     
     func drawPaymentSummary(paymentSummary: PaymentSummaryLayout) {
@@ -69,7 +67,7 @@ class PageLayout {
     
     private var paymentSummaryYPosition: CGFloat {
         get {
-            return itemsSummaryYPosition - (CGFloat(self.breakdownItemsCount + 6) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding))
+            return itemsSummaryYPosition - (CGFloat(6) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding))
         }
     }
 }

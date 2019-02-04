@@ -95,8 +95,8 @@ class InvoicePageCompositionBuilder {
             seller: seller ?? SellerLayout(content: ""),
             buyer: buyer ?? BuyerLayout(content: ""),
             itemTableData: itemTableData ?? ItemTableLayout(headerData: [], tableData: []),
-            itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: [], yPosition: CGFloat(0)),
-            vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownLayout(breakdownLabel: "", breakdownTableData: []),
+            itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: [], yTopPosition: CGFloat(0)),
+            vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownLayout(breakdownLabel: "", breakdownTableData: [], topYPosition: CGFloat(0)),
             paymentSummary: paymentSummary ?? PaymentSummaryLayout(content: ""),
             notes: notes ?? NotesLayout(content: ""))
     }
