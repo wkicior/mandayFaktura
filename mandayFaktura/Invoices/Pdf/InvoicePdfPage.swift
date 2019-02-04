@@ -38,11 +38,11 @@ class InvoicePdfPage: BasePDFPage {
     }
     
     func drawItemsTable() {
-        pageLayout.drawItemsTable(headerData: InvoiceItem.itemColumnNames, tableData: self.pageComposition.itemTableData)
+        pageLayout.drawItemsTable(itemTableLayout: self.pageComposition.itemTableData)
     }
     
     func drawItemsSummary() {
-        pageLayout.drawItemsSummary(summaryData: ["Razem:"] + self.pageComposition.itemsSummary)
+        pageLayout.drawItemsSummary(summaryData: self.pageComposition.itemsSummary)
     }
     
     func drawVatBreakdown() {

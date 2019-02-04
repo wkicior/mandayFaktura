@@ -14,8 +14,8 @@ struct InvoicePageComposition {
     let copyLabel: CopyLabelLayout
     let seller: SellerLayout
     let buyer: BuyerLayout
-    let itemTableData: [[String]]
-    let itemsSummary: [String]
+    let itemTableData: ItemTableLayout
+    let itemsSummary: ItemsSummaryLayout
     let vatBreakdownTableData: [[String]]
     let paymentSummary: String
     let notes: String
@@ -31,8 +31,8 @@ class InvoicePageCompositionBuilder {
     private var copyLabel: CopyLabelLayout?
     private var seller: SellerLayout?
     private var buyer: BuyerLayout?
-    private var itemTableData: [[String]] = []
-    private var itemsSummary: [String] = []
+    private var itemTableData: ItemTableLayout?
+    private var itemsSummary: ItemsSummaryLayout?
     private var vatBreakdownTableData: [[String]] = []
     private var paymentSummary: String = ""
     private var notes: String = ""
@@ -62,12 +62,12 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withItemTableData(_ itemTableData: [[String]]) -> InvoicePageCompositionBuilder {
+    func withItemTableData(_ itemTableData: ItemTableLayout) -> InvoicePageCompositionBuilder {
         self.itemTableData = itemTableData
         return self
     }
     
-    func withItemsSummary(_ itemsSummary: [String]) -> InvoicePageCompositionBuilder {
+    func withItemsSummary(_ itemsSummary: ItemsSummaryLayout) -> InvoicePageCompositionBuilder {
         self.itemsSummary = itemsSummary
         return self
     }
@@ -94,8 +94,8 @@ class InvoicePageCompositionBuilder {
             copyLabel: copyLabel ?? CopyLabelLayout(content: ""),
             seller: seller ?? SellerLayout(content: ""),
             buyer: buyer ?? BuyerLayout(content: ""),
-            itemTableData: itemTableData,
-            itemsSummary: itemsSummary,
+            itemTableData: itemTableData ?? ItemTableLayout(headerData: [], tableData: []),
+            itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: []),
             vatBreakdownTableData: vatBreakdownTableData,
             paymentSummary: paymentSummary,
             notes: notes)

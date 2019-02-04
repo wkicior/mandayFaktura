@@ -32,12 +32,12 @@ class InvoiceDocumentComposition {
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {
         let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
             let invoicePageComposition = self.minimumPageComposition(copyTemplate)
-                .withItemTableData(itemTableDataChunk)
+                .withItemTableData(ItemTableLayout(headerData: InvoiceItem.itemColumnNames, tableData: itemTableDataChunk))
             //TODO fix NPE on vat breakdown empty
             return invoicePageComposition
         })
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
-        lastPage.withItemsSummary(invoice.propertiesForDisplay)
+        lastPage.withItemsSummary(ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay))
             .withVatBreakdownTableData(getVatBreakdownTableData())
             .withPaymentSummary(invoice.printedPaymentSummary)
             .withNotes(invoice.notes)

@@ -210,6 +210,10 @@
 		D3F745E022078F800057540E /* SellerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DE22078F7F0057540E /* SellerLayout.swift */; };
 		D3F745E2220792F70057540E /* BuyerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E1220792F70057540E /* BuyerLayout.swift */; };
 		D3F745E3220792F70057540E /* BuyerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E1220792F70057540E /* BuyerLayout.swift */; };
+		D3F745E5220795260057540E /* ItemTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E4220795260057540E /* ItemTableLayout.swift */; };
+		D3F745E6220795260057540E /* ItemTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E4220795260057540E /* ItemTableLayout.swift */; };
+		D3F745E82208A9430057540E /* ItemsSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */; };
+		D3F745E92208A9430057540E /* ItemsSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -347,6 +351,8 @@
 		D3F745DB220789940057540E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		D3F745DE22078F7F0057540E /* SellerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerLayout.swift; sourceTree = "<group>"; };
 		D3F745E1220792F70057540E /* BuyerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerLayout.swift; sourceTree = "<group>"; };
+		D3F745E4220795260057540E /* ItemTableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableLayout.swift; sourceTree = "<group>"; };
+		D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSummaryLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -916,6 +922,8 @@
 				D3F745D8220785B70057540E /* AbstractLayout.swift */,
 				D3F745DE22078F7F0057540E /* SellerLayout.swift */,
 				D3F745E1220792F70057540E /* BuyerLayout.swift */,
+				D3F745E4220795260057540E /* ItemTableLayout.swift */,
+				D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -1107,12 +1115,14 @@
 				D34339C821A48D6100C583D2 /* VatRateRepository.swift in Sources */,
 				D34339C921A48D6100C583D2 /* InvoicePdfDocument.swift in Sources */,
 				D34339CA21A48D6100C583D2 /* ItemDefinitionCoding.swift in Sources */,
+				D3F745E92208A9430057540E /* ItemsSummaryLayout.swift in Sources */,
 				D34339CB21A48D6100C583D2 /* ItemDefinition.swift in Sources */,
 				D34339CC21A48D6100C583D2 /* KeyArchiverVatRateRepository.swift in Sources */,
 				D34339CD21A48D6100C583D2 /* BuyerAutoSave.swift in Sources */,
 				D34339CE21A48D6100C583D2 /* InputValidationError.swift in Sources */,
 				D34339CF21A48D6100C583D2 /* InvoiceRepository.swift in Sources */,
 				D34339D021A48D6100C583D2 /* PageLayout.swift in Sources */,
+				D3F745E6220795260057540E /* ItemTableLayout.swift in Sources */,
 				D34339D121A48D6100C583D2 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
 				D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */,
 				D3F745D0220775800057540E /* HeaderLayout.swift in Sources */,
@@ -1206,12 +1216,14 @@
 				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdfDocument.swift in Sources */,
 				D3B7C96520924C0000432176 /* ItemDefinitionCoding.swift in Sources */,
+				D3F745E82208A9430057540E /* ItemsSummaryLayout.swift in Sources */,
 				D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */,
 				D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */,
 				D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */,
 				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D370A8122028ED7500FFB262 /* PageLayout.swift in Sources */,
+				D3F745E5220795260057540E /* ItemTableLayout.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
 				D3F745CF220775800057540E /* HeaderLayout.swift in Sources */,

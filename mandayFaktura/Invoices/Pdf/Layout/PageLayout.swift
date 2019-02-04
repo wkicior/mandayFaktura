@@ -21,11 +21,10 @@ class PageLayout {
     
     private let itemsStartYPosition = CGFloat(674)
    
-    private let defaultRowHeight = CGFloat(14)
-    private let gridPadding = CGFloat(5)
+    static let defaultRowHeight = CGFloat(14)
+    static let gridPadding = CGFloat(5)
     
     private let fontFormatting = FontFormatting()
-    private var itemRowsCounter = 0
     private var breakdownItemsCount = 0
     
     private let lightCellColor = NSColor.fromRGB(red: 215, green: 233, blue: 246)
@@ -56,65 +55,9 @@ class PageLayout {
         buyer.draw()
     }
     
-    func drawItemsTable(headerData: [String], tableData: [[String]]) {
-        itemRowsCounter = 0 // TODO PageLayout is being reused for copy as well - fix this
-        for i in 0 ..< headerData.count {
-            drawItemsHeaderCell(content: headerData[i], column: i)
-        }
-        var startFromY = itemsStartYPosition
-        for i in 0 ..< tableData.count {
-            let count = tableData[i][1].count
-            let rowLineCount = max(tableData[i][1].linesCount(), Int(ceil(CGFloat(CGFloat(count) / 35.0))))
-            itemRowsCounter = itemRowsCounter + rowLineCount
-            startFromY = startFromY - CGFloat(rowLineCount) * defaultRowHeight - gridPadding * 2
-            for j in 0 ..< tableData[i].count {
-                drawItemTableCell(content: tableData[i][j], row: i, column: j, size: CGFloat(rowLineCount), startFromY: startFromY)
-            }
-        }
-        self.itemsSummaryYPosition = startFromY
-    }
-    
-    private func drawItemsHeaderCell(content: String, column: Int) {
-        let xLeft = PageLayout.leftMargin + self.getColumnXOffset(column: column)
-        let yBottom = itemsStartYPosition
-        let width = getColumnWidth(column: column)
-        let height = defaultRowHeight * 2
-        let rect = NSMakeRect(xLeft, itemsStartYPosition, width, height)
-        fillCellBackground(x: PageLayout.leftMargin + self.getColumnXOffset(column: column),
-                           y: yBottom - gridPadding,
-                           width:  getColumnWidth(column: column),
-                           height: height + 2 * gridPadding,
-                           color: darkHeaderColor)
-        drawItemBorder(xLeft, yBottom, height, width)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
-    }
-    
-    private func drawItemTableCell(content: String, row: Int, column: Int, size: CGFloat, startFromY: CGFloat) {
-        let yBottom = startFromY
-        let xLeft =  PageLayout.leftMargin + self.getColumnXOffset(column: column)
-        let width = self.getColumnWidth(column: column)
-        let height = defaultRowHeight * size
-        let rect = NSMakeRect(xLeft, yBottom, width, height)
-        if row % 2 == 1{
-            fillCellBackground(x: xLeft,
-                               y: yBottom - gridPadding,
-                               width:  width,
-                               height: height + 2 * gridPadding,
-                               color: lightCellColor)
-        }
-        drawItemBorder(xLeft, yBottom, height, width)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
-    }
-    
-    fileprivate func drawItemBorder(_ xLeft: CGFloat, _ yBottom: CGFloat, _ height: CGFloat, _ width: CGFloat) {
-        drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
-                 to: NSMakePoint(xLeft + width, yBottom + gridPadding + height)) // TOP
-        drawPath(from: NSMakePoint(xLeft, yBottom - gridPadding),
-                 to: NSMakePoint(xLeft + width, yBottom - gridPadding)) // BOTTOM
-        drawPath(from: NSMakePoint(xLeft, yBottom + gridPadding + height),
-                 to: NSMakePoint(xLeft, yBottom - gridPadding)) // LEFT
-        drawPath(from: NSMakePoint(xLeft + width , yBottom + gridPadding + height), // RIGHT
-            to: NSMakePoint(xLeft + width, yBottom - gridPadding))
+    func drawItemsTable(itemTableLayout: ItemTableLayout) {
+        itemTableLayout.draw()
+        self.itemsSummaryYPosition = itemTableLayout.itemsSummaryYPosition // TODO: clean this up
     }
     
     func fillCellBackground(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: NSColor) {
@@ -123,30 +66,15 @@ class PageLayout {
         __NSRectFill(rectBackground)
     }
     
-    func drawItemsSummary(summaryData: [String]) {
-        self.itemsSummaryYPosition = self.itemsSummaryYPosition - defaultRowHeight - 2 * gridPadding
-        for i in 0 ..< summaryData.count {
-            drawItemsSummaryCell(content: summaryData[i], column: i)
-        }
+    func drawItemsSummary(summaryData: ItemsSummaryLayout) {
+        summaryData.draw(yPosition: self.itemsSummaryYPosition) //TODO: clean this up
+        self.itemsSummaryYPosition = summaryData.yPosition
     }
     
-    private func drawItemsSummaryCell(content: String, column: Int) {
-        let shift = 4
-
-        let rect = NSMakeRect(PageLayout.leftMargin + getColumnXOffset(column: column + shift),
-                              itemsSummaryYPosition,
-                              getColumnWidth(column: column + shift),
-                              defaultRowHeight)
-        fillCellBackground(x: PageLayout.leftMargin + getColumnXOffset(column: column + shift),
-                           y: itemsSummaryYPosition - gridPadding,
-                           width:  self.getColumnWidth(column: column + shift),
-                           height: defaultRowHeight + 2 * gridPadding,
-                           color: darkHeaderColor)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
-    }
+    
     
     func drawVatBreakdown(breakdownLabel: String, breakdownTableData: [[String]]) {
-        self.itemsSummaryYPosition = self.itemsSummaryYPosition - defaultRowHeight - 2 * gridPadding
+        self.itemsSummaryYPosition = self.itemsSummaryYPosition - PageLayout.defaultRowHeight - 2 * PageLayout.gridPadding
         drawVatBreakdownCell(content: breakdownLabel, row: 0, column: -1)
         for i in 0 ..< breakdownTableData.count {
             for j in 0 ..< breakdownTableData[i].count {
@@ -159,16 +87,16 @@ class PageLayout {
     
     private func drawVatBreakdownCell(content: String, row: Int, column: Int) {
         let shift = 5
-        let yBottom = itemsSummaryYPosition - CGFloat(row) * (defaultRowHeight + 2 * gridPadding)
+        let yBottom = itemsSummaryYPosition - CGFloat(row) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding)
         let xLeft = PageLayout.leftMargin + getColumnXOffset(column: column + shift)
         let width = getColumnWidth(column: column + shift)
-        let height = defaultRowHeight
+        let height = PageLayout.defaultRowHeight
         let rect = NSMakeRect(xLeft, yBottom, width, height)
         if row % 2 == 1{
             fillCellBackground(x: xLeft,
-                               y: yBottom - gridPadding,
+                               y: yBottom - PageLayout.gridPadding,
                                width:  width,
-                               height: height + 2 * gridPadding,
+                               height: height + 2 * PageLayout.gridPadding,
                                color: lightCellColor)
         }
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
@@ -202,13 +130,13 @@ class PageLayout {
     
     private func drawVatBreakdownVerticalGrid(cell: Int)  {
         let x = PageLayout.leftMargin + getColumnXOffset(column: cell + 4)
-        let fromPoint = NSMakePoint(x, itemsSummaryYPosition + 2 * (defaultRowHeight + 2 * gridPadding))
-        let toPoint = NSMakePoint(x, itemsSummaryYPosition - gridPadding - (CGFloat(breakdownItemsCount - 1) * (defaultRowHeight + 2 * gridPadding)))
+        let fromPoint = NSMakePoint(x, itemsSummaryYPosition + 2 * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding))
+        let toPoint = NSMakePoint(x, itemsSummaryYPosition - PageLayout.gridPadding - (CGFloat(breakdownItemsCount - 1) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding)))
         drawPath(from: fromPoint, to: toPoint)
     }
     
     private func drawVatBreakdownHorizontalGrid(row: Int, of: Int)  {
-        let y = itemsSummaryYPosition - CGFloat(row - 1) * (defaultRowHeight + 2 * gridPadding) - gridPadding
+        let y = itemsSummaryYPosition - CGFloat(row - 1) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding) - PageLayout.gridPadding
         let isFirstOrLastRow = row == of || row == 0
         let fromPoint = NSMakePoint(PageLayout.leftMargin + self.getColumnXOffset(column: isFirstOrLastRow ? 4 : 5) , y)
         let toPoint = NSMakePoint(self.itemsTableWidth + PageLayout.leftMargin, y)
@@ -235,7 +163,7 @@ class PageLayout {
     
     private var paymentSummaryYPosition: CGFloat {
         get {
-            return itemsSummaryYPosition - (CGFloat(self.breakdownItemsCount + 6) * (defaultRowHeight + 2 * gridPadding))
+            return itemsSummaryYPosition - (CGFloat(self.breakdownItemsCount + 6) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding))
         }
     }
 }
