@@ -26,16 +26,16 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 }
 
 class InvoicePageCompositionBuilder {
-    private var header: HeaderLayout?
-    private var dates: HeaderInvoiceDatesLayout?
-    private var copyLabel: CopyLabelLayout?
-    private var seller: SellerLayout?
-    private var buyer: BuyerLayout?
-    private var itemTableData: ItemTableLayout?
-    private var itemsSummary: ItemsSummaryLayout?
-    private var vatBreakdownTableData: VatBreakdownLayout?
-    private var paymentSummary: PaymentSummaryLayout?
-    private var notes: NotesLayout?
+    var header: HeaderLayout?
+    var dates: HeaderInvoiceDatesLayout?
+    var copyLabel: CopyLabelLayout?
+    var seller: SellerLayout?
+    var buyer: BuyerLayout?
+    var itemTableData: ItemTableLayout?
+    var itemsSummary: ItemsSummaryLayout?
+    var vatBreakdownTableData: VatBreakdownLayout?
+    var paymentSummary: PaymentSummaryLayout?
+    var notes: NotesLayout?
     
     func withHeader(_ header: HeaderLayout) -> InvoicePageCompositionBuilder {
         self.header = header
@@ -95,7 +95,7 @@ class InvoicePageCompositionBuilder {
             seller: seller ?? SellerLayout(content: ""),
             buyer: buyer ?? BuyerLayout(content: ""),
             itemTableData: itemTableData ?? ItemTableLayout(headerData: [], tableData: []),
-            itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: []),
+            itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: [], yPosition: CGFloat(0)),
             vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownLayout(breakdownLabel: "", breakdownTableData: []),
             paymentSummary: paymentSummary ?? PaymentSummaryLayout(content: ""),
             notes: notes ?? NotesLayout(content: ""))

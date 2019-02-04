@@ -37,7 +37,8 @@ class InvoiceDocumentComposition {
             return invoicePageComposition
         })
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
-        lastPage.withItemsSummary(ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay))
+        let itemsSummaryYPosition = ItemTableLayout.yPosition - lastPage.itemTableData!.height //TODO: clean this 
+        lastPage.withItemsSummary(ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yPosition: itemsSummaryYPosition))
             .withVatBreakdownTableData(getVatBreakdownTableData())
             .withPaymentSummary(PaymentSummaryLayout(content: invoice.printedPaymentSummary))
             .withNotes(NotesLayout(content: invoice.notes))

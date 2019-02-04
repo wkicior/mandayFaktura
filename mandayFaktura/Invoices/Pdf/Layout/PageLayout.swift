@@ -47,11 +47,10 @@ class PageLayout {
     
     func drawItemsTable(itemTableLayout: ItemTableLayout) {
         itemTableLayout.draw()
-        self.itemsSummaryYPosition = ItemTableLayout.yPosition - itemTableLayout.height
     }
     
     func drawItemsSummary(summaryData: ItemsSummaryLayout) {
-        summaryData.draw(yPosition: self.itemsSummaryYPosition) //TODO: clean this up
+        summaryData.draw() //TODO: clean this up
         self.itemsSummaryYPosition = summaryData.yPosition
     }
     
