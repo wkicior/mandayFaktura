@@ -21,12 +21,14 @@ class ItemTableLayout : AbstractLayout {
         super.init(debug: PageLayout.debug)
     }
     
-    func height() -> CGFloat {
-        var startFromY = CGFloat(0)
-        for i in 0 ..< self.tableData.count {
-            startFromY = startFromY + calculateRowHeight(index: i)
+    var height: CGFloat {
+        get {
+            return heightUpTo(first: self.tableData.count)
         }
-        return startFromY
+    }
+    
+    func heightUpTo(first: Int) -> CGFloat {
+        return (0 ..< first).map({row in calculateRowHeight(index: row)}).reduce(0, +)
     }
     
     func calculateRowHeight(index: Int) -> CGFloat {
@@ -37,48 +39,32 @@ class ItemTableLayout : AbstractLayout {
     }
     
     func draw() {
-        for i in 0 ..< self.headerData.count {
-            drawItemsHeaderCell(content: headerData[i], column: i)
-        }
-        var startFromY = ItemTableLayout.yPosition
-        for i in 0 ..< self.tableData.count {
-            let rowHeight = calculateRowHeight(index: i)
-            startFromY = startFromY - rowHeight
-            for j in 0 ..< tableData[i].count {
-                drawItemTableCell(content: tableData[i][j], row: i, column: j, rowHeight: rowHeight, startFromY: startFromY)
-            }
-        }
+        (0 ..< self.headerData.count).forEach({col in drawItemsHeaderCell(content: headerData[col], column: col)})
+        (0 ..< self.tableData.count).forEach({ row in (0 ..< tableData[row].count).forEach({col in drawItemTableCell(row: row, column: col)})})
     }
     
     private func drawItemsHeaderCell(content: String, column: Int) {
         let xLeft = PageLayout.leftMargin + self.getColumnXOffset(column: column)
-        let yBottom = ItemTableLayout.yPosition
+        let yBottom = ItemTableLayout.yPosition - PageLayout.gridPadding
         let width = getColumnWidth(column: column)
-        let height = PageLayout.defaultRowHeight * 2
-        let rect = NSMakeRect(xLeft, ItemTableLayout.yPosition, width, height)
-        fillCellBackground(x: PageLayout.leftMargin + self.getColumnXOffset(column: column),
-                           y: yBottom - PageLayout.gridPadding,
-                           width:  getColumnWidth(column: column),
-                           height: height + 2 * PageLayout.gridPadding,
-                           color: darkHeaderColor)
+        let height = PageLayout.defaultRowHeight * 2 + 2 * PageLayout.gridPadding
+        fillCellBackground(x: xLeft,y: yBottom, width: width, height: height, color: darkHeaderColor)
         drawItemBorder(xLeft, yBottom, height, width)
+        let rect = NSMakeRect(xLeft, yBottom + PageLayout.gridPadding, width, height - 2 * PageLayout.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
     
-    private func drawItemTableCell(content: String, row: Int, column: Int, rowHeight: CGFloat, startFromY: CGFloat) {
-        let yBottom = startFromY
+    private func drawItemTableCell(row: Int, column: Int) {
+        let rowHeight = calculateRowHeight(index: row)
+        let yBottom = ItemTableLayout.yPosition - heightUpTo(first: row + 1) - PageLayout.gridPadding
         let xLeft =  PageLayout.leftMargin + self.getColumnXOffset(column: column)
         let width = self.getColumnWidth(column: column)
-        let rect = NSMakeRect(xLeft, yBottom, width, rowHeight - 2 * PageLayout.gridPadding)
-        if row % 2 == 1{
-            fillCellBackground(x: xLeft,
-                               y: yBottom - PageLayout.gridPadding,
-                               width:  width,
-                               height: rowHeight,
-                               color: lightCellColor)
+        if row % 2 == 1 {
+            fillCellBackground(x: xLeft, y: yBottom, width: width, height: rowHeight, color: lightCellColor)
         }
-        drawItemBorder(xLeft, yBottom - PageLayout.gridPadding, rowHeight, width)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+        drawItemBorder(xLeft, yBottom, rowHeight, width)
+        let rect = NSMakeRect(xLeft, yBottom + PageLayout.gridPadding, width, rowHeight - 2 * PageLayout.gridPadding)
+        tableData[row][column].draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
     fileprivate func drawItemBorder(_ xLeft: CGFloat, _ yBottom: CGFloat, _ height: CGFloat, _ width: CGFloat) {
