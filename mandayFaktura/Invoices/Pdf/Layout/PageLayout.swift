@@ -80,9 +80,8 @@ class PageLayout {
         paymentSummary.draw(yPosition: paymentSummaryYPosition)
     }
     
-    func drawNotes(content: String) {
-        let rect = NSMakeRect(PageLayout.leftMargin, paymentSummaryYPosition - CGFloat(100.0), PageLayout.pdfWidth - PageLayout.rightMargin, CGFloat(100.0))
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesLeft)
+    func drawNotes(notes: NotesLayout) {
+        notes.draw(yPosition: paymentSummaryYPosition - CGFloat(100.0))
     }
     
     private var paymentSummaryYPosition: CGFloat {

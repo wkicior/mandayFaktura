@@ -217,6 +217,8 @@
 		D3F745EC2208B08F0057540E /* VatBreakdownLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */; };
 		D3F745EE2208B4450057540E /* PaymentSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */; };
 		D3F745EF2208B4450057540E /* PaymentSummaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */; };
+		D3F745F12208B7230057540E /* NotesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745F02208B7230057540E /* NotesLayout.swift */; };
+		D3F745F22208B7230057540E /* NotesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745F02208B7230057540E /* NotesLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,6 +359,7 @@
 		D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsSummaryLayout.swift; sourceTree = "<group>"; };
 		D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownLayout.swift; sourceTree = "<group>"; };
 		D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryLayout.swift; sourceTree = "<group>"; };
+		D3F745F02208B7230057540E /* NotesLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -929,6 +932,7 @@
 				D3F745E72208A9430057540E /* ItemsSummaryLayout.swift */,
 				D3F745EA2208B08F0057540E /* VatBreakdownLayout.swift */,
 				D3F745ED2208B4450057540E /* PaymentSummaryLayout.swift */,
+				D3F745F02208B7230057540E /* NotesLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -1168,6 +1172,7 @@
 				D34339F121A48D6100C583D2 /* InvoiceNumbering.swift in Sources */,
 				D34339F221A48D6100C583D2 /* FontFormatting.swift in Sources */,
 				D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */,
+				D3F745F22208B7230057540E /* NotesLayout.swift in Sources */,
 				D34339F321A48D6100C583D2 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D34339F421A48D6100C583D2 /* PaymentDateFrom.swift in Sources */,
 				D34339F521A48D6100C583D2 /* ItemDefinitionRepository.swift in Sources */,
@@ -1271,6 +1276,7 @@
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */,
+				D3F745F12208B7230057540E /* NotesLayout.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D32ED328215AC0B600BDC6BE /* PaymentDateFrom.swift in Sources */,
 				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,

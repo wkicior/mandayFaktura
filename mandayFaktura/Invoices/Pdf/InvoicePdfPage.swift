@@ -52,7 +52,7 @@ class InvoicePdfPage: BasePDFPage {
     }
     
     func drawNotes() {
-        pageLayout.drawNotes(content: self.pageComposition.notes)
+        pageLayout.drawNotes(notes: self.pageComposition.notes)
     }
     
     override func draw(with box: PDFDisplayBox) {

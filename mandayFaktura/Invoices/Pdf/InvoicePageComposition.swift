@@ -18,7 +18,7 @@ struct InvoicePageComposition {
     let itemsSummary: ItemsSummaryLayout
     let vatBreakdownTableData: VatBreakdownLayout
     let paymentSummary: PaymentSummaryLayout
-    let notes: String
+    let notes: NotesLayout
 }
 
 func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
@@ -35,7 +35,7 @@ class InvoicePageCompositionBuilder {
     private var itemsSummary: ItemsSummaryLayout?
     private var vatBreakdownTableData: VatBreakdownLayout?
     private var paymentSummary: PaymentSummaryLayout?
-    private var notes: String = ""
+    private var notes: NotesLayout?
     
     func withHeader(_ header: HeaderLayout) -> InvoicePageCompositionBuilder {
         self.header = header
@@ -82,7 +82,7 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withNotes(_ notes: String) -> InvoicePageCompositionBuilder {
+    func withNotes(_ notes: NotesLayout) -> InvoicePageCompositionBuilder {
         self.notes = notes
         return self
     }
@@ -98,6 +98,6 @@ class InvoicePageCompositionBuilder {
             itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: []),
             vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownLayout(breakdownLabel: "", breakdownTableData: []),
             paymentSummary: paymentSummary ?? PaymentSummaryLayout(content: ""),
-            notes: notes)
+            notes: notes ?? NotesLayout(content: ""))
     }
 }

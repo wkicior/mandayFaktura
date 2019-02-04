@@ -40,7 +40,7 @@ class InvoiceDocumentComposition {
         lastPage.withItemsSummary(ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay))
             .withVatBreakdownTableData(getVatBreakdownTableData())
             .withPaymentSummary(PaymentSummaryLayout(content: invoice.printedPaymentSummary))
-            .withNotes(invoice.notes)
+            .withNotes(NotesLayout(content: invoice.notes))
         return pagesWithTableData.map({page in page.build()})
     }
     
