@@ -10,7 +10,7 @@ import Foundation
 import Quartz
 
 
-class InvoicePdfPage: BasePDFPage {
+class InvoicePdfPage: PDFPage {
     let pageComposition: InvoicePageComposition
 
     init(pageComposition: InvoicePageComposition) {
@@ -18,52 +18,11 @@ class InvoicePdfPage: BasePDFPage {
         super.init()
     }
     
-    func drawInvoiceHeader()  {
-        pageLayout.drawInvoiceHeader(header: self.pageComposition.header)
-        pageLayout.drawInvoiceHeaderDates(dates: self.pageComposition.dates)
-    }
-    
-    func drawCopyLabel() {
-        pageLayout.drawCopyLabel(label: self.pageComposition.copyLabel)
-    }
-    
-    func drawSeller() {
-        pageLayout.drawSeller(seller: self.pageComposition.seller)
-    }
-    
-    func drawBuyer() {
-        pageLayout.drawBuyer(buyer: self.pageComposition.buyer)
-    }
-    
-    func drawItemsTable() {
-        pageLayout.drawItemsTable(itemTableLayout: self.pageComposition.itemTableData)
-    }
-    
-    func drawItemsSummary() {
-        pageLayout.drawItemsSummary(summaryData: self.pageComposition.itemsSummary)
-    }
-    
-    func drawVatBreakdown() {
-        pageLayout.drawVatBreakdown(vatBreakdown: self.pageComposition.vatBreakdownTableData)
-    }
-    
-    func drawPaymentSummary() {
-        pageLayout.drawPaymentSummary(paymentSummary: self.pageComposition.paymentSummary)
-    }
-    
-    func drawNotes() {
-        pageLayout.drawNotes(notes: self.pageComposition.notes)
+    override func bounds(for box: PDFDisplayBox) -> NSRect {
+        return NSMakeRect(0, 0, PageLayout.pdfWidth, PageLayout.pdfHeight)
     }
     
     override func draw(with box: PDFDisplayBox) {
-        self.drawInvoiceHeader()
-        self.drawCopyLabel()
-        self.drawSeller()
-        self.drawBuyer()
-        self.drawItemsTable()
-        self.drawItemsSummary()
-        self.drawVatBreakdown()
-        self.drawPaymentSummary()
-        self.drawNotes()
+        self.pageComposition.draw()
     }
 }

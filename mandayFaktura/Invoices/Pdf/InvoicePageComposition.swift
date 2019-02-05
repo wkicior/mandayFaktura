@@ -19,6 +19,20 @@ struct InvoicePageComposition {
     let vatBreakdownTableData: VatBreakdownLayout
     let paymentSummary: PaymentSummaryLayout
     let notes: NotesLayout
+    
+    func draw() {
+        //TODO: extract prototype and iterate over array
+        self.header.draw()
+        self.dates.draw()
+        self.copyLabel.draw()
+        self.seller.draw()
+        self.buyer.draw()
+        self.itemTableData.draw()
+        self.itemsSummary.draw()
+        self.vatBreakdownTableData.draw()
+        self.paymentSummary.draw()
+        self.notes.draw()
+    }
 }
 
 func anInvoicePageComposition() -> InvoicePageCompositionBuilder {

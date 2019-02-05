@@ -43,7 +43,6 @@
 		D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD520417AB9003CCC5B /* UserAbortError.swift */; };
 		D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */; };
 		D34339B821A1DF1400C583D2 /* PdfDocumentPrintOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34339B721A1DF1400C583D2 /* PdfDocumentPrintOperation.swift */; };
-		D34339BC21A48D6100C583D2 /* BasePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */; };
 		D34339BD21A48D6100C583D2 /* NumberingSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EB5205C298900CC889C /* NumberingSegments.swift */; };
 		D34339BE21A48D6100C583D2 /* InvoiceNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */; };
 		D34339BF21A48D6100C583D2 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
@@ -140,7 +139,6 @@
 		D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */; };
 		D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */; };
 		D34D0F202020E939000D1EC6 /* InvoicePdfDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */; };
-		D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */; };
 		D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */; };
 		D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2720225AAB000D1EC6 /* Counterparty.swift */; };
 		D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */; };
@@ -295,7 +293,6 @@
 		D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
 		D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdfDocument.swift; sourceTree = "<group>"; };
-		D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePdfPage.swift; sourceTree = "<group>"; };
 		D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdfPage.swift; sourceTree = "<group>"; };
 		D34D0F2720225AAB000D1EC6 /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };
 		D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
@@ -703,7 +700,6 @@
 				D3F745D122077A7F0057540E /* Layout */,
 				D370A80820278B3A00FFB262 /* PrintingExtensions */,
 				D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */,
-				D34D0F21202101F9000D1EC6 /* BasePdfPage.swift */,
 				D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */,
 				D370A7FC202757AF00FFB262 /* FontFormatting.swift */,
 				D370A80B2027A60600FFB262 /* DateFormatting.swift */,
@@ -1105,7 +1101,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34339BC21A48D6100C583D2 /* BasePdfPage.swift in Sources */,
 				D34339BD21A48D6100C583D2 /* NumberingSegments.swift in Sources */,
 				D34339BE21A48D6100C583D2 /* InvoiceNumberingSettingsRepository.swift in Sources */,
 				D32E361C21EB7D830092EE5C /* StringUtilExtension.swift in Sources */,
@@ -1209,7 +1204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34D0F22202101F9000D1EC6 /* BasePdfPage.swift in Sources */,
 				D3254EB6205C298900CC889C /* NumberingSegments.swift in Sources */,
 				D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */,
 				D32E361B21EB6DED0092EE5C /* StringUtilExtension.swift in Sources */,
