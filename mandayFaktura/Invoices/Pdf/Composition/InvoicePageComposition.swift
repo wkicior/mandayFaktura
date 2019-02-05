@@ -41,6 +41,10 @@ struct InvoicePageComposition {
         self.paymentSummary.draw()
         self.notes.draw()
     }
+    
+    func bound() -> NSRect {
+        return NSMakeRect(0, 0, InvoicePageComposition.pdfWidth, InvoicePageComposition.pdfHeight)
+    }
 }
 
 func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
