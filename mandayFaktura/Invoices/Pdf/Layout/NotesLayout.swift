@@ -16,12 +16,12 @@ class NotesLayout : AbstractLayout {
     init(content: String, topYPosition: CGFloat) {
         self.yPosition = topYPosition - height
         self.content = content
-        super.init(debug: PageLayout.debug)
+        super.init(debug: InvoicePageComposition.debug)
     }
     
     func draw() {       
-        let xPosition = PageLayout.leftMargin
-        let width = PageLayout.pdfWidth - PageLayout.rightMargin
+        let xPosition = InvoicePageComposition.leftMargin
+        let width = InvoicePageComposition.pdfWidth - InvoicePageComposition.rightMargin
         markBackgroundIfDebug(xPosition, self.yPosition, width, self.height)
         let rect = NSMakeRect(xPosition, self.yPosition, width, self.height)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesLeft)

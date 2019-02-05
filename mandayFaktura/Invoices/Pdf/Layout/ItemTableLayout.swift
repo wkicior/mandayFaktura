@@ -18,7 +18,7 @@ class ItemTableLayout : AbstractLayout {
     init(headerData: [String], tableData: [[String]]) {
         self.headerData = headerData
         self.tableData = tableData
-        super.init(debug: PageLayout.debug)
+        super.init(debug: InvoicePageComposition.debug)
     }
     
     var height: CGFloat {
@@ -34,7 +34,7 @@ class ItemTableLayout : AbstractLayout {
     func calculateRowHeight(index: Int) -> CGFloat {
         let count = tableData[index][1].count
         let rowLineCount = max(tableData[index][1].linesCount(), Int(ceil(CGFloat(CGFloat(count) / 35.0))))
-        let rowHeight = CGFloat(rowLineCount) * PageLayout.defaultRowHeight + PageLayout.gridPadding * 2
+        let rowHeight = CGFloat(rowLineCount) * AbstractLayout.defaultRowHeight + AbstractLayout.gridPadding * 2
         return rowHeight
     }
     
@@ -44,26 +44,26 @@ class ItemTableLayout : AbstractLayout {
     }
     
     private func drawItemsHeaderCell(content: String, column: Int) {
-        let xLeft = PageLayout.leftMargin + self.getColumnXOffset(column: column)
-        let yBottom = ItemTableLayout.yPosition - PageLayout.gridPadding
+        let xLeft = InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
+        let yBottom = ItemTableLayout.yPosition - AbstractLayout.gridPadding
         let width = getColumnWidth(column: column)
-        let height = PageLayout.defaultRowHeight * 2 + 2 * PageLayout.gridPadding
+        let height = AbstractLayout.defaultRowHeight * 2 + 2 * AbstractLayout.gridPadding
         fillCellBackground(x: xLeft,y: yBottom, width: width, height: height, color: darkHeaderColor)
         drawItemBorder(xLeft, yBottom, height, width)
-        let rect = NSMakeRect(xLeft, yBottom + PageLayout.gridPadding, width, height - 2 * PageLayout.gridPadding)
+        let rect = NSMakeRect(xLeft, yBottom + AbstractLayout.gridPadding, width, height - 2 * AbstractLayout.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
     
     private func drawItemTableCell(row: Int, column: Int) {
         let rowHeight = calculateRowHeight(index: row)
-        let yBottom = ItemTableLayout.yPosition - heightUpTo(first: row + 1) - PageLayout.gridPadding
-        let xLeft =  PageLayout.leftMargin + self.getColumnXOffset(column: column)
+        let yBottom = ItemTableLayout.yPosition - heightUpTo(first: row + 1) - AbstractLayout.gridPadding
+        let xLeft =  InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
         let width = self.getColumnWidth(column: column)
         if row % 2 == 1 {
             fillCellBackground(x: xLeft, y: yBottom, width: width, height: rowHeight, color: lightCellColor)
         }
         drawItemBorder(xLeft, yBottom, rowHeight, width)
-        let rect = NSMakeRect(xLeft, yBottom + PageLayout.gridPadding, width, rowHeight - 2 * PageLayout.gridPadding)
+        let rect = NSMakeRect(xLeft, yBottom + AbstractLayout.gridPadding, width, rowHeight - 2 * AbstractLayout.gridPadding)
         tableData[row][column].draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     

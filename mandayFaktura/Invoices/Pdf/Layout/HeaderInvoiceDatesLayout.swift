@@ -19,12 +19,12 @@ class HeaderInvoiceDatesLayout : AbstractLayout {
     let content: String
     init(content: String) {
         self.content = content
-        super.init(debug: PageLayout.debug)
+        super.init(debug: InvoicePageComposition.debug)
     }
     
     func draw() {
-        let xPosition = 1/2 * PageLayout.pdfWidth + CGFloat(100.0)
-        let width = 1/2 * PageLayout.pdfWidth
+        let xPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+        let width = 1/2 * InvoicePageComposition.pdfWidth
         let yPosition = HeaderInvoiceDatesLayout.yPosition + HeaderInvoiceDatesLayout.heightOfLine
         let rect = NSMakeRect(xPosition, yPosition, width, HeaderInvoiceDatesLayout.heightOfDates)
         markBackgroundIfDebug(xPosition, yPosition, width, HeaderInvoiceDatesLayout.heightOfDates)
@@ -34,8 +34,8 @@ class HeaderInvoiceDatesLayout : AbstractLayout {
     
     func drawHeaderHorizontalLine() {
         let y = HeaderInvoiceDatesLayout.yPosition
-        let fromPoint = NSMakePoint(PageLayout.leftMargin , y)
-        let toPoint = NSMakePoint(PageLayout.pdfWidth - PageLayout.rightMargin, y)
+        let fromPoint = NSMakePoint(InvoicePageComposition.leftMargin , y)
+        let toPoint = NSMakePoint(InvoicePageComposition.pdfWidth - InvoicePageComposition.rightMargin, y)
         drawPath(from: fromPoint, to: toPoint)
     }
 }

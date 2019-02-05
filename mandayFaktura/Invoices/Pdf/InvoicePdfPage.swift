@@ -19,7 +19,8 @@ class InvoicePdfPage: PDFPage {
     }
     
     override func bounds(for box: PDFDisplayBox) -> NSRect {
-        return NSMakeRect(0, 0, PageLayout.pdfWidth, PageLayout.pdfHeight)
+        //TODO: delegate to pageComposition?
+        return NSMakeRect(0, 0, InvoicePageComposition.pdfWidth, InvoicePageComposition.pdfHeight)
     }
     
     override func draw(with box: PDFDisplayBox) {

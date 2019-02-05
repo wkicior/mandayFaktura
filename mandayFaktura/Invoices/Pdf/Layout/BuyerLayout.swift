@@ -16,12 +16,12 @@ class BuyerLayout : AbstractLayout {
     let content: String
     init(content: String) {
         self.content = content
-        super.init(debug: PageLayout.debug)
+        super.init(debug: InvoicePageComposition.debug)
     }
     
     func draw() {
-        let xPosition = 1/2 * PageLayout.pdfWidth
-        let width = 1/2 * PageLayout.pdfWidth
+        let xPosition = 1/2 * InvoicePageComposition.pdfWidth
+        let width = 1/2 * InvoicePageComposition.pdfWidth
         markBackgroundIfDebug(xPosition, SellerLayout.yPosition, width, SellerLayout.height)
         let rect = NSMakeRect(xPosition, SellerLayout.yPosition, width, SellerLayout.height)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)

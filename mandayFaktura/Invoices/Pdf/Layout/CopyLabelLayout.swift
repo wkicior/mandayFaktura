@@ -16,12 +16,12 @@ class CopyLabelLayout : AbstractLayout{
     let content: String
     init(content: String) {
         self.content = content
-        super.init(debug: PageLayout.debug)
+        super.init(debug: InvoicePageComposition.debug)
     }
     
     func draw() {
-        let xPosition = 1/2 * PageLayout.pdfWidth + CGFloat(100.0)
-        let width = 1/2 * PageLayout.pdfWidth
+        let xPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+        let width = 1/2 * InvoicePageComposition.pdfWidth
         let rect = NSMakeRect(xPosition, CopyLabelLayout.yPosition, width, CopyLabelLayout.height)
         markBackgroundIfDebug(xPosition,  CopyLabelLayout.yPosition, width, CopyLabelLayout.height)
         content.uppercased().draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)

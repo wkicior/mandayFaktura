@@ -10,13 +10,13 @@ import Foundation
 
 class ItemsSummaryLayout : AbstractLayout {
     var yPosition: CGFloat = CGFloat(0) //yPosition marks bottom border of text rectangle - it does not include bottom gridPadding
-    static let height = PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding
+    static let height = defaultRowHeight + 2 * AbstractLayout.gridPadding
     
     let summaryData: [String]
     init(summaryData: [String], yTopPosition: CGFloat) {
         self.yPosition = yTopPosition - ItemsSummaryLayout.height
         self.summaryData = summaryData
-        super.init(debug: PageLayout.debug)
+        super.init(debug: InvoicePageComposition.debug)
     }
     
     func draw() {
@@ -25,11 +25,11 @@ class ItemsSummaryLayout : AbstractLayout {
     
     private func drawItemsSummaryCell(content: String, column: Int) {
         let shift = 4
-        let yBottom = yPosition - PageLayout.gridPadding
-        let xLeft = PageLayout.leftMargin + getColumnXOffset(column: column + shift)
+        let yBottom = yPosition - AbstractLayout.gridPadding
+        let xLeft = InvoicePageComposition.leftMargin + getColumnXOffset(column: column + shift)
         let width = self.getColumnWidth(column: column + shift)
         fillCellBackground(x: xLeft, y: yBottom, width: width, height: ItemsSummaryLayout.height, color: darkHeaderColor)
-        let rect = NSMakeRect(xLeft, yBottom + PageLayout.gridPadding, width, ItemsSummaryLayout.height - 2 * PageLayout.gridPadding)
+        let rect = NSMakeRect(xLeft, yBottom + AbstractLayout.gridPadding, width, ItemsSummaryLayout.height - 2 * AbstractLayout.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
 }

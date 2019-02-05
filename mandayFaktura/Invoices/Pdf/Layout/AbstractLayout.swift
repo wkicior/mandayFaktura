@@ -21,6 +21,8 @@ class AbstractLayout {
     
     let itemColumnsWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.1), CGFloat(0.05), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
 
+    static let defaultRowHeight = CGFloat(14)
+    static let gridPadding = CGFloat(5)
     
     init(debug: Bool) {
        self.debug = debug

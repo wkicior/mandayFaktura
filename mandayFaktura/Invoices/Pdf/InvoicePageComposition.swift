@@ -9,6 +9,14 @@
 import Foundation
 
 struct InvoicePageComposition {
+    static let leftMargin = CGFloat(20.0)
+    static let rightMargin = CGFloat(20.0)
+    
+    static let debug = false
+    
+    static let pdfHeight = CGFloat(1024.0)
+    static let pdfWidth = CGFloat(768.0)
+    
     let header: HeaderLayout
     let dates: HeaderInvoiceDatesLayout
     let copyLabel: CopyLabelLayout
