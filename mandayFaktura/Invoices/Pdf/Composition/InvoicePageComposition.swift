@@ -22,6 +22,7 @@ struct InvoicePageComposition {
     let copyLabel: CopyLabelComponent
     let seller: SellerComponent
     let buyer: BuyerComponent
+    let itemTableHeaderComponent: ItemTableHeaderComponent
     let itemTableData: ItemTableComponent
     let itemsSummary: ItemsSummaryComponent
     let vatBreakdownTableData: VatBreakdownComponent
@@ -35,6 +36,7 @@ struct InvoicePageComposition {
         self.copyLabel.draw()
         self.seller.draw()
         self.buyer.draw()
+        self.itemTableHeaderComponent.draw()
         self.itemTableData.draw()
         self.itemsSummary.draw()
         self.vatBreakdownTableData.draw()
@@ -57,6 +59,7 @@ class InvoicePageCompositionBuilder {
     var copyLabel: CopyLabelComponent?
     var seller: SellerComponent?
     var buyer: BuyerComponent?
+    var itemTableHeaderComponent: ItemTableHeaderComponent?
     var itemTableData: ItemTableComponent?
     var itemsSummary: ItemsSummaryComponent?
     var vatBreakdownTableData: VatBreakdownComponent?
@@ -93,6 +96,11 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
+    func withItemTableHeaderComponent(_ itemTableHeaderComponent: ItemTableHeaderComponent) -> InvoicePageCompositionBuilder {
+        self.itemTableHeaderComponent = itemTableHeaderComponent
+        return self
+    }
+    
     func withItemsSummary(_ itemsSummary: ItemsSummaryComponent) -> InvoicePageCompositionBuilder {
         self.itemsSummary = itemsSummary
         return self
@@ -120,7 +128,8 @@ class InvoicePageCompositionBuilder {
             copyLabel: copyLabel ?? CopyLabelComponent(content: ""),
             seller: seller ?? SellerComponent(content: ""),
             buyer: buyer ?? BuyerComponent(content: ""),
-            itemTableData: itemTableData ?? ItemTableComponent(headerData: [], tableData: []),
+            itemTableHeaderComponent: itemTableHeaderComponent ?? ItemTableHeaderComponent(headerData: []),
+            itemTableData: itemTableData ?? ItemTableComponent(tableData: []),
             itemsSummary: itemsSummary ?? ItemsSummaryComponent(summaryData: [], yTopPosition: CGFloat(0)),
             vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownComponent(breakdownLabel: "", breakdownTableData: [], topYPosition: CGFloat(0)),
             paymentSummary: paymentSummary ?? PaymentSummaryComponent(content: "", topYPosition: CGFloat(0)),

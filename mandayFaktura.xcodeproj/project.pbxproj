@@ -215,6 +215,8 @@
 		D3F745EF2208B4450057540E /* PaymentSummaryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745ED2208B4450057540E /* PaymentSummaryComponent.swift */; };
 		D3F745F12208B7230057540E /* NotesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745F02208B7230057540E /* NotesComponent.swift */; };
 		D3F745F22208B7230057540E /* NotesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745F02208B7230057540E /* NotesComponent.swift */; };
+		D3F74600220A38C00057540E /* ItemTableHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */; };
+		D3F74601220A38C00057540E /* ItemTableHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +356,7 @@
 		D3F745EA2208B08F0057540E /* VatBreakdownComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatBreakdownComponent.swift; sourceTree = "<group>"; };
 		D3F745ED2208B4450057540E /* PaymentSummaryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryComponent.swift; sourceTree = "<group>"; };
 		D3F745F02208B7230057540E /* NotesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesComponent.swift; sourceTree = "<group>"; };
+		D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableHeaderComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -933,6 +936,7 @@
 				D3F745D522077F500057540E /* HeaderInvoiceDatesComponent.swift */,
 				D3F745D222077CBD0057540E /* CopyLabelComponent.swift */,
 				D3F745CE220775800057540E /* HeaderComponent.swift */,
+				D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */,
 			);
 			path = "Page Components";
 			sourceTree = "<group>";
@@ -1149,6 +1153,7 @@
 				D34339DF21A48D6100C583D2 /* InvoiceNumberingSettings.swift in Sources */,
 				D3F745DD220789940057540E /* ColorExtension.swift in Sources */,
 				D34339E021A48D6100C583D2 /* OrderingDragSource.swift in Sources */,
+				D3F74601220A38C00057540E /* ItemTableHeaderComponent.swift in Sources */,
 				D34339E121A48D6100C583D2 /* AnotherBuyerWithThatNameExistsError.swift in Sources */,
 				D34339E221A48D6100C583D2 /* VatBreakdownPrintingExtension.swift in Sources */,
 				D34339E321A48D6100C583D2 /* NewBuyerController.swift in Sources */,
@@ -1251,6 +1256,7 @@
 				D3254EB2205C28B900CC889C /* InvoiceNumberingSettings.swift in Sources */,
 				D3F745DC220789940057540E /* ColorExtension.swift in Sources */,
 				D3D82327206042960031C2D1 /* OrderingDragSource.swift in Sources */,
+				D3F74600220A38C00057540E /* ItemTableHeaderComponent.swift in Sources */,
 				D330BFD4203E032A003CCC5B /* AnotherBuyerWithThatNameExistsError.swift in Sources */,
 				D370A803202789B900FFB262 /* VatBreakdownPrintingExtension.swift in Sources */,
 				D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */,

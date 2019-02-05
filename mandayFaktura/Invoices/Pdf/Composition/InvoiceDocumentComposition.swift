@@ -23,7 +23,7 @@ class InvoiceDocumentComposition {
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {
         let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
             let invoicePageComposition = self.minimumPageComposition(copyTemplate)
-                .withItemTableData(ItemTableComponent(headerData: InvoiceItem.itemColumnNames, tableData: itemTableDataChunk))
+                .withItemTableData(ItemTableComponent(tableData: itemTableDataChunk))
             //TODO fix NPE on vat breakdown empty
             return invoicePageComposition
         })
@@ -48,6 +48,7 @@ class InvoiceDocumentComposition {
             .withCopyLabel(CopyLabelComponent(content: copyTemplate.rawValue))
             .withSeller(SellerComponent(content: invoice.seller.printedSeller))
             .withBuyer(BuyerComponent(content: invoice.buyer.printedBuyer))
+            .withItemTableHeaderComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
     }
     
     func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownComponent {

@@ -59,4 +59,15 @@ class AbstractComponent {
         let safeColumnNo = min(column, itemColumnsWidths.count)
         return self.itemColumnsWidths.prefix(upTo: safeColumnNo).reduce(0, +) * itemsTableWidth
     }
+    
+    func drawBorder(_ xLeft: CGFloat, _ yBottom: CGFloat, _ height: CGFloat, _ width: CGFloat) {
+        drawPath(from: NSMakePoint(xLeft, yBottom + height),
+                 to: NSMakePoint(xLeft + width, yBottom + height)) // TOP
+        drawPath(from: NSMakePoint(xLeft, yBottom),
+                 to: NSMakePoint(xLeft + width, yBottom)) // BOTTOM
+        drawPath(from: NSMakePoint(xLeft, yBottom + height),
+                 to: NSMakePoint(xLeft, yBottom)) // LEFT
+        drawPath(from: NSMakePoint(xLeft + width , yBottom + height), // RIGHT
+            to: NSMakePoint(xLeft + width, yBottom))
+    }
 }
