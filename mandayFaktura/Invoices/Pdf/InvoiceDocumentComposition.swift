@@ -20,15 +20,6 @@ class InvoiceDocumentComposition {
             .map({pageComposition in InvoicePdfPage(pageComposition: pageComposition)})
     }
     
-    fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
-        return anInvoicePageComposition()
-            .withHeader(HeaderComponent(content: invoice.printedHeader))
-            .withDates(HeaderInvoiceDatesComponent(content: invoice.printedDates))
-            .withCopyLabel(CopyLabelComponent(content: copyTemplate.rawValue))
-            .withSeller(SellerComponent(content: invoice.seller.printedSeller))
-            .withBuyer(BuyerComponent(content: invoice.buyer.printedBuyer))
-    }
-    
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {
         let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
             let invoicePageComposition = self.minimumPageComposition(copyTemplate)
@@ -48,6 +39,15 @@ class InvoiceDocumentComposition {
             .withPaymentSummary(paymentSummary)
             .withNotes(NotesComponent(content: invoice.notes, topYPosition: paymentSummary.yPosition))
         return pagesWithTableData.map({page in page.build()})
+    }
+    
+    fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
+        return anInvoicePageComposition()
+            .withHeader(HeaderComponent(content: invoice.printedHeader))
+            .withDates(HeaderInvoiceDatesComponent(content: invoice.printedDates))
+            .withCopyLabel(CopyLabelComponent(content: copyTemplate.rawValue))
+            .withSeller(SellerComponent(content: invoice.seller.printedSeller))
+            .withBuyer(BuyerComponent(content: invoice.buyer.printedBuyer))
     }
     
     func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownComponent {

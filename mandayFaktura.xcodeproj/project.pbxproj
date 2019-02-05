@@ -694,7 +694,7 @@
 		D34D0F1E2020E907000D1EC6 /* Pdf */ = {
 			isa = PBXGroup;
 			children = (
-				D3F745D122077A7F0057540E /* Layout */,
+				D3F745D122077A7F0057540E /* Composition */,
 				D370A80820278B3A00FFB262 /* PrintingExtensions */,
 				D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */,
 				D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */,
@@ -911,7 +911,7 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		D3F745D122077A7F0057540E /* Layout */ = {
+		D3F745D122077A7F0057540E /* Composition */ = {
 			isa = PBXGroup;
 			children = (
 				D3F745CE220775800057540E /* HeaderComponent.swift */,
@@ -926,7 +926,7 @@
 				D3F745ED2208B4450057540E /* PaymentSummaryComponent.swift */,
 				D3F745F02208B7230057540E /* NotesComponent.swift */,
 			);
-			path = Layout;
+			path = Composition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
