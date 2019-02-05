@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VatBreakdownLayout : AbstractComponent {
+class VatBreakdownComponent : AbstractComponent {
     var yPosition: CGFloat = CGFloat(0)
     private static let rowHeight = AbstractComponent.defaultRowHeight + AbstractComponent.gridPadding * 2
     private let breakdownLabel: String
@@ -28,7 +28,7 @@ class VatBreakdownLayout : AbstractComponent {
     }
     
     fileprivate func heightUpTo(first: Int) -> CGFloat {
-        return CGFloat(first) * VatBreakdownLayout.rowHeight
+        return CGFloat(first) * VatBreakdownComponent.rowHeight
     }
     
     func draw() {
@@ -47,9 +47,9 @@ class VatBreakdownLayout : AbstractComponent {
         let xLeft = InvoicePageComposition.leftMargin + getColumnXOffset(column: column + shift)
         let width = getColumnWidth(column: column + shift)
         if row % 2 == 1{
-            fillCellBackground(x: xLeft, y: yBottom, width:  width, height: VatBreakdownLayout.rowHeight, color: lightCellColor)
+            fillCellBackground(x: xLeft, y: yBottom, width:  width, height: VatBreakdownComponent.rowHeight, color: lightCellColor)
         }
-        let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, VatBreakdownLayout.rowHeight - 2 * AbstractComponent.gridPadding)
+        let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, VatBreakdownComponent.rowHeight - 2 * AbstractComponent.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
@@ -60,13 +60,13 @@ class VatBreakdownLayout : AbstractComponent {
     
     private func drawVatBreakdownVerticalGrid(cell: Int)  {
         let x = InvoicePageComposition.leftMargin + getColumnXOffset(column: cell + 4)
-        let fromPoint = NSMakePoint(x, self.yPosition + 2 * VatBreakdownLayout.rowHeight)
+        let fromPoint = NSMakePoint(x, self.yPosition + 2 * VatBreakdownComponent.rowHeight)
         let toPoint = NSMakePoint(x, self.yPosition - height + AbstractComponent.defaultRowHeight + AbstractComponent.gridPadding)
         drawPath(from: fromPoint, to: toPoint)
     }
     
     private func drawVatBreakdownHorizontalGrid(row: Int, of: Int)  {
-        let y = self.yPosition - CGFloat(row - 1) * VatBreakdownLayout.rowHeight - AbstractComponent.gridPadding
+        let y = self.yPosition - CGFloat(row - 1) * VatBreakdownComponent.rowHeight - AbstractComponent.gridPadding
         let isFirstOrLastRow = row == of || row == 0
         let fromPoint = NSMakePoint(InvoicePageComposition.leftMargin + self.getColumnXOffset(column: isFirstOrLastRow ? 4 : 5) , y)
         let toPoint = NSMakePoint(self.itemsTableWidth + InvoicePageComposition.leftMargin, y)

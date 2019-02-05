@@ -17,16 +17,16 @@ struct InvoicePageComposition {
     static let pdfHeight = CGFloat(1024.0)
     static let pdfWidth = CGFloat(768.0)
     
-    let header: HeaderLayout
-    let dates: HeaderInvoiceDatesLayout
-    let copyLabel: CopyLabelLayout
-    let seller: SellerLayout
-    let buyer: BuyerLayout
-    let itemTableData: ItemTableLayout
-    let itemsSummary: ItemsSummaryLayout
-    let vatBreakdownTableData: VatBreakdownLayout
-    let paymentSummary: PaymentSummaryLayout
-    let notes: NotesLayout
+    let header: HeaderComponent
+    let dates: HeaderInvoiceDatesComponent
+    let copyLabel: CopyLabelComponent
+    let seller: SellerComponent
+    let buyer: BuyerComponent
+    let itemTableData: ItemTableComponent
+    let itemsSummary: ItemsSummaryComponent
+    let vatBreakdownTableData: VatBreakdownComponent
+    let paymentSummary: PaymentSummaryComponent
+    let notes: NotesComponent
     
     func draw() {
         //TODO: extract prototype and iterate over array
@@ -48,78 +48,78 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 }
 
 class InvoicePageCompositionBuilder {
-    var header: HeaderLayout?
-    var dates: HeaderInvoiceDatesLayout?
-    var copyLabel: CopyLabelLayout?
-    var seller: SellerLayout?
-    var buyer: BuyerLayout?
-    var itemTableData: ItemTableLayout?
-    var itemsSummary: ItemsSummaryLayout?
-    var vatBreakdownTableData: VatBreakdownLayout?
-    var paymentSummary: PaymentSummaryLayout?
-    var notes: NotesLayout?
+    var header: HeaderComponent?
+    var dates: HeaderInvoiceDatesComponent?
+    var copyLabel: CopyLabelComponent?
+    var seller: SellerComponent?
+    var buyer: BuyerComponent?
+    var itemTableData: ItemTableComponent?
+    var itemsSummary: ItemsSummaryComponent?
+    var vatBreakdownTableData: VatBreakdownComponent?
+    var paymentSummary: PaymentSummaryComponent?
+    var notes: NotesComponent?
     
-    func withHeader(_ header: HeaderLayout) -> InvoicePageCompositionBuilder {
+    func withHeader(_ header: HeaderComponent) -> InvoicePageCompositionBuilder {
         self.header = header
         return self
     }
     
-    func withDates(_ dates: HeaderInvoiceDatesLayout) -> InvoicePageCompositionBuilder {
+    func withDates(_ dates: HeaderInvoiceDatesComponent) -> InvoicePageCompositionBuilder {
         self.dates = dates
         return self
     }
     
-    func withCopyLabel(_ copyLabel: CopyLabelLayout) -> InvoicePageCompositionBuilder {
+    func withCopyLabel(_ copyLabel: CopyLabelComponent) -> InvoicePageCompositionBuilder {
         self.copyLabel = copyLabel
         return self
     }
     
-    func withSeller(_ seller: SellerLayout) -> InvoicePageCompositionBuilder {
+    func withSeller(_ seller: SellerComponent) -> InvoicePageCompositionBuilder {
         self.seller = seller
         return self
     }
     
-    func withBuyer(_ buyer: BuyerLayout) -> InvoicePageCompositionBuilder {
+    func withBuyer(_ buyer: BuyerComponent) -> InvoicePageCompositionBuilder {
         self.buyer = buyer
         return self
     }
     
-    func withItemTableData(_ itemTableData: ItemTableLayout) -> InvoicePageCompositionBuilder {
+    func withItemTableData(_ itemTableData: ItemTableComponent) -> InvoicePageCompositionBuilder {
         self.itemTableData = itemTableData
         return self
     }
     
-    func withItemsSummary(_ itemsSummary: ItemsSummaryLayout) -> InvoicePageCompositionBuilder {
+    func withItemsSummary(_ itemsSummary: ItemsSummaryComponent) -> InvoicePageCompositionBuilder {
         self.itemsSummary = itemsSummary
         return self
     }
     
-    func withVatBreakdownTableData(_ vatBreakdownTableData: VatBreakdownLayout) -> InvoicePageCompositionBuilder {
+    func withVatBreakdownTableData(_ vatBreakdownTableData: VatBreakdownComponent) -> InvoicePageCompositionBuilder {
         self.vatBreakdownTableData = vatBreakdownTableData
         return self
     }
     
-    func withPaymentSummary(_ paymentSummary: PaymentSummaryLayout) -> InvoicePageCompositionBuilder {
+    func withPaymentSummary(_ paymentSummary: PaymentSummaryComponent) -> InvoicePageCompositionBuilder {
         self.paymentSummary = paymentSummary
         return self
     }
     
-    func withNotes(_ notes: NotesLayout) -> InvoicePageCompositionBuilder {
+    func withNotes(_ notes: NotesComponent) -> InvoicePageCompositionBuilder {
         self.notes = notes
         return self
     }
     
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
-            header: header ?? HeaderLayout(content: ""),
-            dates: dates ?? HeaderInvoiceDatesLayout(content: ""),
-            copyLabel: copyLabel ?? CopyLabelLayout(content: ""),
-            seller: seller ?? SellerLayout(content: ""),
-            buyer: buyer ?? BuyerLayout(content: ""),
-            itemTableData: itemTableData ?? ItemTableLayout(headerData: [], tableData: []),
-            itemsSummary: itemsSummary ?? ItemsSummaryLayout(summaryData: [], yTopPosition: CGFloat(0)),
-            vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownLayout(breakdownLabel: "", breakdownTableData: [], topYPosition: CGFloat(0)),
-            paymentSummary: paymentSummary ?? PaymentSummaryLayout(content: "", topYPosition: CGFloat(0)),
-            notes: notes ?? NotesLayout(content: "", topYPosition: CGFloat(0)))
+            header: header ?? HeaderComponent(content: ""),
+            dates: dates ?? HeaderInvoiceDatesComponent(content: ""),
+            copyLabel: copyLabel ?? CopyLabelComponent(content: ""),
+            seller: seller ?? SellerComponent(content: ""),
+            buyer: buyer ?? BuyerComponent(content: ""),
+            itemTableData: itemTableData ?? ItemTableComponent(headerData: [], tableData: []),
+            itemsSummary: itemsSummary ?? ItemsSummaryComponent(summaryData: [], yTopPosition: CGFloat(0)),
+            vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownComponent(breakdownLabel: "", breakdownTableData: [], topYPosition: CGFloat(0)),
+            paymentSummary: paymentSummary ?? PaymentSummaryComponent(content: "", topYPosition: CGFloat(0)),
+            notes: notes ?? NotesComponent(content: "", topYPosition: CGFloat(0)))
     }
 }

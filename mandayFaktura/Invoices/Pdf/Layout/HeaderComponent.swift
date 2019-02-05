@@ -9,7 +9,7 @@
 import Foundation
 import AppKit
 
-class HeaderLayout : AbstractComponent{
+class HeaderComponent : AbstractComponent{
     static let yPosition = CGFloat(930)
     let height = CGFloat(42.0)
 
@@ -22,8 +22,8 @@ class HeaderLayout : AbstractComponent{
     func draw() {
         let xPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
         let width = 1/2 * InvoicePageComposition.pdfWidth
-        markBackgroundIfDebug(xPosition, HeaderLayout.yPosition, width, height)
-        let rect = NSMakeRect(xPosition, HeaderLayout.yPosition, width, height)
+        markBackgroundIfDebug(xPosition, HeaderComponent.yPosition, width, height)
+        let rect = NSMakeRect(xPosition, HeaderComponent.yPosition, width, height)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesHeaderLeft)
     }
 }

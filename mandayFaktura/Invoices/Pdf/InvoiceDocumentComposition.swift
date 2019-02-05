@@ -22,41 +22,41 @@ class InvoiceDocumentComposition {
     
     fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
         return anInvoicePageComposition()
-            .withHeader(HeaderLayout(content: invoice.printedHeader))
-            .withDates(HeaderInvoiceDatesLayout(content: invoice.printedDates))
-            .withCopyLabel(CopyLabelLayout(content: copyTemplate.rawValue))
-            .withSeller(SellerLayout(content: invoice.seller.printedSeller))
-            .withBuyer(BuyerLayout(content: invoice.buyer.printedBuyer))
+            .withHeader(HeaderComponent(content: invoice.printedHeader))
+            .withDates(HeaderInvoiceDatesComponent(content: invoice.printedDates))
+            .withCopyLabel(CopyLabelComponent(content: copyTemplate.rawValue))
+            .withSeller(SellerComponent(content: invoice.seller.printedSeller))
+            .withBuyer(BuyerComponent(content: invoice.buyer.printedBuyer))
     }
     
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {
         let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
             let invoicePageComposition = self.minimumPageComposition(copyTemplate)
-                .withItemTableData(ItemTableLayout(headerData: InvoiceItem.itemColumnNames, tableData: itemTableDataChunk))
+                .withItemTableData(ItemTableComponent(headerData: InvoiceItem.itemColumnNames, tableData: itemTableDataChunk))
             //TODO fix NPE on vat breakdown empty
             return invoicePageComposition
         })
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
-        let itemsSummaryYPosition = ItemTableLayout.yPosition - lastPage.itemTableData!.height //TODO: clean this
-        let itemsSummaryLayout = ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yTopPosition: itemsSummaryYPosition)
-        let vatBrakdownYPosition = itemsSummaryLayout.yPosition - ItemsSummaryLayout.height
+        let itemsSummaryYPosition = ItemTableComponent.yPosition - lastPage.itemTableData!.height //TODO: clean this
+        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yTopPosition: itemsSummaryYPosition)
+        let vatBrakdownYPosition = itemsSummaryLayout.yPosition - ItemsSummaryComponent.height
         let vatBreakdownTableData = getVatBreakdownTableData(topYPosition: vatBrakdownYPosition)
         let paymentSummaryYPosition = vatBreakdownTableData.yPosition - vatBreakdownTableData.height
-        let paymentSummary = PaymentSummaryLayout(content: invoice.printedPaymentSummary, topYPosition: paymentSummaryYPosition)
+        let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary, topYPosition: paymentSummaryYPosition)
         lastPage.withItemsSummary(itemsSummaryLayout)
             .withVatBreakdownTableData(vatBreakdownTableData)
             .withPaymentSummary(paymentSummary)
-            .withNotes(NotesLayout(content: invoice.notes, topYPosition: paymentSummary.yPosition))
+            .withNotes(NotesComponent(content: invoice.notes, topYPosition: paymentSummary.yPosition))
         return pagesWithTableData.map({page in page.build()})
     }
     
-    func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownLayout {
+    func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownComponent {
         var breakdownTableData: [[String]] = []
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return VatBreakdownLayout(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData, topYPosition: topYPosition)
+        return VatBreakdownComponent(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData, topYPosition: topYPosition)
     }
     
     func getItemTableDataChunksPerPage() -> [[[String]]] {

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ItemTableLayout : AbstractComponent {
+class ItemTableComponent : AbstractComponent {
     static let marginTop = CGFloat(50)
-    static let yPosition = SellerLayout.yPosition - marginTop
+    static let yPosition = SellerComponent.yPosition - marginTop
     
     let headerData: [String]
     let tableData: [[String]]
@@ -45,7 +45,7 @@ class ItemTableLayout : AbstractComponent {
     
     private func drawItemsHeaderCell(content: String, column: Int) {
         let xLeft = InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
-        let yBottom = ItemTableLayout.yPosition - AbstractComponent.gridPadding
+        let yBottom = ItemTableComponent.yPosition - AbstractComponent.gridPadding
         let width = getColumnWidth(column: column)
         let height = AbstractComponent.defaultRowHeight * 2 + 2 * AbstractComponent.gridPadding
         fillCellBackground(x: xLeft,y: yBottom, width: width, height: height, color: darkHeaderColor)
@@ -56,7 +56,7 @@ class ItemTableLayout : AbstractComponent {
     
     private func drawItemTableCell(row: Int, column: Int) {
         let rowHeight = calculateRowHeight(index: row)
-        let yBottom = ItemTableLayout.yPosition - heightUpTo(first: row + 1) - AbstractComponent.gridPadding
+        let yBottom = ItemTableComponent.yPosition - heightUpTo(first: row + 1) - AbstractComponent.gridPadding
         let xLeft =  InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
         let width = self.getColumnWidth(column: column)
         if row % 2 == 1 {
