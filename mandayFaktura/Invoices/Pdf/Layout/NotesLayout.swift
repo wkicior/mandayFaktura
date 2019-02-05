@@ -13,14 +13,17 @@ class NotesLayout : AbstractLayout {
     var yPosition = CGFloat(0)
     
     let content: String
-    init(content: String) {
+    init(content: String, topYPosition: CGFloat) {
+        self.yPosition = topYPosition - height
         self.content = content
         super.init(debug: PageLayout.debug)
     }
     
-    func draw(yPosition: CGFloat) {
-        self.yPosition = yPosition
-        let rect = NSMakeRect(PageLayout.leftMargin, self.yPosition, PageLayout.pdfWidth - PageLayout.rightMargin, CGFloat(100.0))
+    func draw() {       
+        let xPosition = PageLayout.leftMargin
+        let width = PageLayout.pdfWidth - PageLayout.rightMargin
+        markBackgroundIfDebug(xPosition, self.yPosition, width, self.height)
+        let rect = NSMakeRect(xPosition, self.yPosition, width, self.height)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesLeft)
     }
 }

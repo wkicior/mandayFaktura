@@ -10,25 +10,29 @@ import Foundation
 
 class PaymentSummaryLayout : AbstractLayout {
     var yPosition = CGFloat(0)
+    private static let topPadding = (CGFloat(6) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding))
+    private static let notesHeight = CGFloat(80.0)
+    private static let lineHeight = CGFloat(10.0)
+    static let height = PaymentSummaryLayout.topPadding + notesHeight
     
     let content: String
-    init(content: String) {
+    init(content: String, topYPosition: CGFloat) {
+        self.yPosition = topYPosition - PaymentSummaryLayout.topPadding
         self.content = content
         super.init(debug: PageLayout.debug)
     }
     
-    func draw(yPosition: CGFloat) {
-        self.yPosition = yPosition
+    func draw() {
         drawPaymentSummaryHorizontalLine()
-        let rect = NSMakeRect(CGFloat(100.0),
-                              self.yPosition,
-                              1/3 * PageLayout.pdfWidth,
-                              CGFloat(80.0))
+        let xPosition = CGFloat(100.0)
+        let width = 1/3 * PageLayout.pdfWidth
+        markBackgroundIfDebug(xPosition, self.yPosition, width, PaymentSummaryLayout.notesHeight)
+        let rect = NSMakeRect(xPosition, self.yPosition, width, PaymentSummaryLayout.notesHeight)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
     
     func drawPaymentSummaryHorizontalLine() {
-        let y = self.yPosition + CGFloat(90)
+        let y = self.yPosition + PaymentSummaryLayout.notesHeight + PaymentSummaryLayout.lineHeight
         let fromPoint = NSMakePoint(PageLayout.leftMargin , y)
         let toPoint = NSMakePoint(PageLayout.pdfWidth - PageLayout.rightMargin, y)
         drawPath(from: fromPoint, to: toPoint)

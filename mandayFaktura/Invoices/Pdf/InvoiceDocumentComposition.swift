@@ -40,10 +40,13 @@ class InvoiceDocumentComposition {
         let itemsSummaryYPosition = ItemTableLayout.yPosition - lastPage.itemTableData!.height //TODO: clean this
         let itemsSummaryLayout = ItemsSummaryLayout(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yTopPosition: itemsSummaryYPosition)
         let vatBrakdownYPosition = itemsSummaryLayout.yPosition - ItemsSummaryLayout.height
+        let vatBreakdownTableData = getVatBreakdownTableData(topYPosition: vatBrakdownYPosition)
+        let paymentSummaryYPosition = vatBreakdownTableData.yPosition - vatBreakdownTableData.height
+        let paymentSummary = PaymentSummaryLayout(content: invoice.printedPaymentSummary, topYPosition: paymentSummaryYPosition)
         lastPage.withItemsSummary(itemsSummaryLayout)
-            .withVatBreakdownTableData(getVatBreakdownTableData(topYPosition: vatBrakdownYPosition))
-            .withPaymentSummary(PaymentSummaryLayout(content: invoice.printedPaymentSummary))
-            .withNotes(NotesLayout(content: invoice.notes))
+            .withVatBreakdownTableData(vatBreakdownTableData)
+            .withPaymentSummary(paymentSummary)
+            .withNotes(NotesLayout(content: invoice.notes, topYPosition: paymentSummary.yPosition))
         return pagesWithTableData.map({page in page.build()})
     }
     

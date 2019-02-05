@@ -21,9 +21,7 @@ class PageLayout {
     
     static let defaultRowHeight = CGFloat(14)
     static let gridPadding = CGFloat(5)
-    
-    private var itemsSummaryYPosition = CGFloat(0)
-    
+        
     func drawInvoiceHeader(header: HeaderLayout) {
         header.draw()
     }
@@ -54,20 +52,14 @@ class PageLayout {
     
     func drawVatBreakdown(vatBreakdown: VatBreakdownLayout) {
         vatBreakdown.draw()
-        self.itemsSummaryYPosition = vatBreakdown.yPosition - vatBreakdown.height
     }
     
     func drawPaymentSummary(paymentSummary: PaymentSummaryLayout) {
-        paymentSummary.draw(yPosition: paymentSummaryYPosition)
+        paymentSummary.draw()
     }
     
     func drawNotes(notes: NotesLayout) {
-        notes.draw(yPosition: paymentSummaryYPosition - CGFloat(100.0))
+        notes.draw()
     }
     
-    private var paymentSummaryYPosition: CGFloat {
-        get {
-            return itemsSummaryYPosition - (CGFloat(6) * (PageLayout.defaultRowHeight + 2 * PageLayout.gridPadding))
-        }
-    }
 }
