@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 
-class AbstractLayout {
+class AbstractComponent {
     let debug: Bool
     let debugColor = NSColor.random
     let fontFormatting = FontFormatting()

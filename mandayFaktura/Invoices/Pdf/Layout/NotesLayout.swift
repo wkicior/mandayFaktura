@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NotesLayout : AbstractLayout {
+class NotesLayout : AbstractComponent {
     var height = CGFloat(100.0) //TODO should be dynamic
     var yPosition = CGFloat(0)
     

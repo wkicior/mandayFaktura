@@ -9,7 +9,7 @@
 import Foundation
 import AppKit
 
-class HeaderLayout : AbstractLayout{
+class HeaderLayout : AbstractComponent{
     static let yPosition = CGFloat(930)
     let height = CGFloat(42.0)
 

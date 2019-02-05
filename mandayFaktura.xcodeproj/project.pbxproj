@@ -197,8 +197,8 @@
 		D3F745D422077CBD0057540E /* CopyLabelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D222077CBD0057540E /* CopyLabelLayout.swift */; };
 		D3F745D622077F500057540E /* HeaderInvoiceDatesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D522077F500057540E /* HeaderInvoiceDatesLayout.swift */; };
 		D3F745D722077F500057540E /* HeaderInvoiceDatesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D522077F500057540E /* HeaderInvoiceDatesLayout.swift */; };
-		D3F745D9220785B70057540E /* AbstractLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D8220785B70057540E /* AbstractLayout.swift */; };
-		D3F745DA220785B70057540E /* AbstractLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D8220785B70057540E /* AbstractLayout.swift */; };
+		D3F745D9220785B70057540E /* AbstractComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D8220785B70057540E /* AbstractComponent.swift */; };
+		D3F745DA220785B70057540E /* AbstractComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D8220785B70057540E /* AbstractComponent.swift */; };
 		D3F745DC220789940057540E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DB220789940057540E /* ColorExtension.swift */; };
 		D3F745DD220789940057540E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DB220789940057540E /* ColorExtension.swift */; };
 		D3F745DF22078F800057540E /* SellerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745DE22078F7F0057540E /* SellerLayout.swift */; };
@@ -345,7 +345,7 @@
 		D3F745CE220775800057540E /* HeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLayout.swift; sourceTree = "<group>"; };
 		D3F745D222077CBD0057540E /* CopyLabelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabelLayout.swift; sourceTree = "<group>"; };
 		D3F745D522077F500057540E /* HeaderInvoiceDatesLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInvoiceDatesLayout.swift; sourceTree = "<group>"; };
-		D3F745D8220785B70057540E /* AbstractLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractLayout.swift; sourceTree = "<group>"; };
+		D3F745D8220785B70057540E /* AbstractComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractComponent.swift; sourceTree = "<group>"; };
 		D3F745DB220789940057540E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		D3F745DE22078F7F0057540E /* SellerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerLayout.swift; sourceTree = "<group>"; };
 		D3F745E1220792F70057540E /* BuyerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerLayout.swift; sourceTree = "<group>"; };
@@ -917,7 +917,7 @@
 				D3F745CE220775800057540E /* HeaderLayout.swift */,
 				D3F745D222077CBD0057540E /* CopyLabelLayout.swift */,
 				D3F745D522077F500057540E /* HeaderInvoiceDatesLayout.swift */,
-				D3F745D8220785B70057540E /* AbstractLayout.swift */,
+				D3F745D8220785B70057540E /* AbstractComponent.swift */,
 				D3F745DE22078F7F0057540E /* SellerLayout.swift */,
 				D3F745E1220792F70057540E /* BuyerLayout.swift */,
 				D3F745E4220795260057540E /* ItemTableLayout.swift */,
@@ -1103,7 +1103,7 @@
 				D34339BF21A48D6100C583D2 /* CounterpartyRepository.swift in Sources */,
 				D34339C021A48D6100C583D2 /* VatRateInteractor.swift in Sources */,
 				D34339C121A48D6100C583D2 /* WarningAlert.swift in Sources */,
-				D3F745DA220785B70057540E /* AbstractLayout.swift in Sources */,
+				D3F745DA220785B70057540E /* AbstractComponent.swift in Sources */,
 				D34339C221A48D6100C583D2 /* UserAbortError.swift in Sources */,
 				D34339C321A48D6100C583D2 /* InvoiceHistoryController.swift in Sources */,
 				D34339C421A48D6100C583D2 /* AbstractBuyerController.swift in Sources */,
@@ -1205,7 +1205,7 @@
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
 				D3781B7F20B055D400CA420E /* VatRateInteractor.swift in Sources */,
 				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
-				D3F745D9220785B70057540E /* AbstractLayout.swift in Sources */,
+				D3F745D9220785B70057540E /* AbstractComponent.swift in Sources */,
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
 				D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */,
 				D3B7C95B207FE2C400432176 /* AbstractBuyerController.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 
-class HeaderInvoiceDatesLayout : AbstractLayout {
+class HeaderInvoiceDatesLayout : AbstractComponent {
     static let heightOfDates = CGFloat(30.0)
     static let heightOfLine = CGFloat(12.0)
     static let height = heightOfDates + heightOfLine

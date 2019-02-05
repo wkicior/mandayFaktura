@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BuyerLayout : AbstractLayout {
+class BuyerLayout : AbstractComponent {
     static let height = CGFloat(90.0)
     static let marginTop = CGFloat(20)
     static let yPosition = HeaderInvoiceDatesLayout.yPosition - marginTop - height

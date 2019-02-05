@@ -8,9 +8,9 @@
 
 import Foundation
 
-class PaymentSummaryLayout : AbstractLayout {
+class PaymentSummaryLayout : AbstractComponent {
     var yPosition = CGFloat(0)
-    private static let topPadding = (CGFloat(6) * (AbstractLayout.defaultRowHeight + 2 * AbstractLayout.gridPadding))
+    private static let topPadding = (CGFloat(6) * (AbstractComponent.defaultRowHeight + 2 * AbstractComponent.gridPadding))
     private static let notesHeight = CGFloat(80.0)
     private static let lineHeight = CGFloat(10.0)
     static let height = topPadding + notesHeight

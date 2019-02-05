@@ -9,7 +9,7 @@
 import Foundation
 import AppKit
 
-class CopyLabelLayout : AbstractLayout{
+class CopyLabelLayout : AbstractComponent{
     static let height = CGFloat(14.0)
     static let yPosition = HeaderLayout.yPosition - height
     
