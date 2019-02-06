@@ -10,7 +10,7 @@ import Foundation
 
 class ItemTableHeaderComponent : AbstractComponent {
     static let marginTop = CGFloat(50)
-    static let yPosition = SellerComponent.yPosition - marginTop
+    static let yPosition = CGFloat(930-14.0) - CGFloat(42.0) - CGFloat(20) - CGFloat(90.0) - marginTop
     static let height = AbstractComponent.defaultRowHeight + AbstractComponent.gridPadding * 2
     
     let headerData: [String]

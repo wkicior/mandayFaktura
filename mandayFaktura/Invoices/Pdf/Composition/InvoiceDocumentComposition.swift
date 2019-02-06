@@ -29,7 +29,7 @@ class InvoiceDocumentComposition {
         })*/
         var pagesWithTableData: [InvoicePageCompositionBuilder] = []
         let invoicePageComposition = self.minimumPageComposition(copyTemplate)
-        var yPosition = ItemTableHeaderComponent.yPosition - ItemTableHeaderComponent.height
+        var yPosition = CGFloat(930-14.0) - CGFloat(42.0) - CGFloat(70) - CGFloat(90.0) - AbstractComponent.defaultRowHeight - AbstractComponent.gridPadding * 2
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
             let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, topYPosition: yPosition, withBackground: itemCounter % 2 != 0)
@@ -55,10 +55,9 @@ class InvoiceDocumentComposition {
         return anInvoicePageComposition()
             .withPageComponent(HeaderComponent(content: invoice.printedHeader))
             .withPageComponent(CopyLabelComponent(content: copyTemplate.rawValue))
-            
             .withPageComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
-            .withSeller(SellerComponent(content: invoice.seller.printedSeller))
-            .withBuyer(BuyerComponent(content: invoice.buyer.printedBuyer))
+            .withPageComponent(SellerComponent(content: invoice.seller.printedSeller))
+            .withPageComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
             .withItemTableHeaderComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
     }
     

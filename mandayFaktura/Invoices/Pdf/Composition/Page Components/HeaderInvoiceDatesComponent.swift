@@ -11,6 +11,7 @@ import AppKit
 
 
 class HeaderInvoiceDatesComponent : AbstractComponent, PageComponent {
+    let type = PageComponentType.header
     static let heightOfDates = CGFloat(30.0)
     static let heightOfLine = CGFloat(12.0)
     var height: CGFloat {
@@ -18,7 +19,6 @@ class HeaderInvoiceDatesComponent : AbstractComponent, PageComponent {
             return HeaderInvoiceDatesComponent.heightOfDates + HeaderInvoiceDatesComponent.heightOfLine
         }
     }
-    //static let yPosition = CGFloat(930-14.0) - CGFloat(42.0)
     let content: String
     init(content: String) {
         self.content = content

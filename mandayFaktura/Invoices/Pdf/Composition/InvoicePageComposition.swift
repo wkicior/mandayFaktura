@@ -18,12 +18,13 @@ struct InvoicePageComposition {
     static let pdfWidth = CGFloat(768.0)
     
     static let headerYPosition = CGFloat(930 + 42.0)
-    static let headerXPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+    static let xPositions = [PageComponentType.header: 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0),
+                             PageComponentType.seller: CGFloat(100),
+                             PageComponentType.buyer: 1/2 * InvoicePageComposition.pdfWidth]
+    
     
     let pageComponents: [PageComponent]
     
-    let seller: SellerComponent
-    let buyer: BuyerComponent
     let itemTableHeaderComponent: ItemTableHeaderComponent
     let itemTableData: [ItemTableRowComponent]
     let itemsSummary: ItemsSummaryComponent
@@ -32,14 +33,15 @@ struct InvoicePageComposition {
     let notes: NotesComponent
     
     func draw() {
-        //TODO: extract prototype and iterate over array
-        var currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, InvoicePageComposition.headerYPosition)
+        var currentYPosition = InvoicePageComposition.headerYPosition
         for i in 0 ..< pageComponents.count {
+            let currentPosition = NSMakePoint(InvoicePageComposition.xPositions[pageComponents[i].type]!, currentYPosition)
             pageComponents[i].draw(at: currentPosition)
-            currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, currentPosition.y - pageComponents[i].height)
+            //TODO: ugly hack to keep two components in one row - maybe better to merge them or introduce row component that may contain child column components
+            if (pageComponents[i].type != PageComponentType.seller) {
+                currentYPosition = currentPosition.y - pageComponents[i].height
+            }
         }
-        self.seller.draw()
-        self.buyer.draw()
         self.itemTableHeaderComponent.draw()
         self.itemTableData.forEach({i in i.draw()})
         self.itemsSummary.draw()
@@ -59,8 +61,6 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 
 class InvoicePageCompositionBuilder {
     var pageComponents: [PageComponent] = []
-    var seller: SellerComponent?
-    var buyer: BuyerComponent?
     var itemTableHeaderComponent: ItemTableHeaderComponent?
     var itemTableData: [ItemTableRowComponent] = []
     var itemsSummary: ItemsSummaryComponent?
@@ -70,16 +70,6 @@ class InvoicePageCompositionBuilder {
     
     func withPageComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.pageComponents.append(pageComponent)
-        return self
-    }
-    
-    func withSeller(_ seller: SellerComponent) -> InvoicePageCompositionBuilder {
-        self.seller = seller
-        return self
-    }
-    
-    func withBuyer(_ buyer: BuyerComponent) -> InvoicePageCompositionBuilder {
-        self.buyer = buyer
         return self
     }
     
@@ -116,8 +106,6 @@ class InvoicePageCompositionBuilder {
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
             pageComponents: pageComponents,
-            seller: seller ?? SellerComponent(content: ""),
-            buyer: buyer ?? BuyerComponent(content: ""),
             itemTableHeaderComponent: itemTableHeaderComponent ?? ItemTableHeaderComponent(headerData: []),
             itemTableData: itemTableData ,
             itemsSummary: itemsSummary ?? ItemsSummaryComponent(summaryData: [], yTopPosition: CGFloat(0)),

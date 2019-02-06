@@ -8,10 +8,10 @@
 
 import Foundation
 
-class SellerComponent : AbstractComponent {
-    static let height = CGFloat(90.0)
-    static let marginTop = CGFloat(20)
-    static let yPosition = CGFloat(930-14.0) - CGFloat(42.0) - marginTop - height
+class SellerComponent : AbstractComponent, PageComponent {
+    let type = PageComponentType.seller
+    let height = CGFloat(90.0) + paddingTop
+    static let paddingTop = CGFloat(20)
 
     let content: String
     init(content: String) {
@@ -19,11 +19,11 @@ class SellerComponent : AbstractComponent {
         super.init(debug: InvoicePageComposition.debug)
     }
     
-    func draw() {
-        let xPosition = CGFloat(100.0)
+    func draw(at: NSPoint) {
+        let yBottom = at.y - height
         let width = 1/2 * InvoicePageComposition.pdfWidth
-        markBackgroundIfDebug(xPosition, SellerComponent.yPosition, width, SellerComponent.height)
-        let rect = NSMakeRect(xPosition, SellerComponent.yPosition, width, SellerComponent.height)
+        markBackgroundIfDebug(at.x, yBottom, width, height - SellerComponent.paddingTop)
+        let rect = NSMakeRect(at.x, yBottom, width, height - SellerComponent.paddingTop)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
 }
