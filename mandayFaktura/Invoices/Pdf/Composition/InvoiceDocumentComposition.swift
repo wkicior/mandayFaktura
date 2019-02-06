@@ -21,14 +21,24 @@ class InvoiceDocumentComposition {
     }
     
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {
-        let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
+        /*let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
             let invoicePageComposition = self.minimumPageComposition(copyTemplate)
                 .withItemTableData(ItemTableComponent(tableData: itemTableDataChunk))
             //TODO fix NPE on vat breakdown empty
             return invoicePageComposition
-        })
+        })*/
+        var pagesWithTableData: [InvoicePageCompositionBuilder] = []
+        let invoicePageComposition = self.minimumPageComposition(copyTemplate)
+        var yPosition = ItemTableHeaderComponent.yPosition - ItemTableHeaderComponent.height
+        for itemCounter in 0 ..< self.invoice.items.count {
+            let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
+            let itemTableComponent: ItemTableComponent = ItemTableComponent(tableData: properties, topYPosition: yPosition, withBackground: itemCounter % 2 != 0)
+            invoicePageComposition.withItemTableData(itemTableComponent)
+            yPosition = itemTableComponent.yPosition - itemTableComponent.height
+        }
+        pagesWithTableData.append(invoicePageComposition)
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
-        let itemsSummaryYPosition = ItemTableComponent.yPosition - lastPage.itemTableData!.height //TODO: clean this
+        let itemsSummaryYPosition = yPosition //TODO: clean this
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yTopPosition: itemsSummaryYPosition)
         let vatBrakdownYPosition = itemsSummaryLayout.yPosition - ItemsSummaryComponent.height
         let vatBreakdownTableData = getVatBreakdownTableData(topYPosition: vatBrakdownYPosition)
