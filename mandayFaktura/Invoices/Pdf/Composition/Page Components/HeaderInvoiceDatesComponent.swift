@@ -14,8 +14,7 @@ class HeaderInvoiceDatesComponent : AbstractComponent {
     static let heightOfDates = CGFloat(30.0)
     static let heightOfLine = CGFloat(12.0)
     static let height = heightOfDates + heightOfLine
-    static let yPosition = CopyLabelComponent.yPosition - height
-
+    static let yPosition = CGFloat(930-14.0) - height
     let content: String
     init(content: String) {
         self.content = content

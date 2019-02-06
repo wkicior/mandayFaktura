@@ -9,9 +9,12 @@
 import Foundation
 import AppKit
 
-class CopyLabelComponent : AbstractComponent{
-    static let height = CGFloat(14.0)
-    static let yPosition = CGFloat(930) - height
+class CopyLabelComponent : AbstractComponent, PageComponent {    
+    var height:CGFloat {
+        get {
+            return CGFloat(14.0)
+        }
+    }
     
     let content: String
     init(content: String) {
@@ -19,11 +22,11 @@ class CopyLabelComponent : AbstractComponent{
         super.init(debug: InvoicePageComposition.debug)
     }
     
-    func draw() {
-        let xPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+    func draw(at: NSPoint) {
+        let yBottom = at.y - height
         let width = 1/2 * InvoicePageComposition.pdfWidth
-        let rect = NSMakeRect(xPosition, CopyLabelComponent.yPosition, width, CopyLabelComponent.height)
-        markBackgroundIfDebug(xPosition,  CopyLabelComponent.yPosition, width, CopyLabelComponent.height)
+        let rect = NSMakeRect(at.x, yBottom, width, height)
+        markBackgroundIfDebug(at.x,  yBottom, width, height)
         content.uppercased().draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
     }
 }

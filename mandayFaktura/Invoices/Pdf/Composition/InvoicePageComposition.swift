@@ -24,7 +24,6 @@ struct InvoicePageComposition {
     
 //    let header: HeaderComponent
     let dates: HeaderInvoiceDatesComponent
-    let copyLabel: CopyLabelComponent
     let seller: SellerComponent
     let buyer: BuyerComponent
     let itemTableHeaderComponent: ItemTableHeaderComponent
@@ -36,9 +35,13 @@ struct InvoicePageComposition {
     
     func draw() {
         //TODO: extract prototype and iterate over array
-        self.pageComponents.forEach({component in component.draw()})
+        var currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, InvoicePageComposition.headerYPosition)
+        for i in 0 ..< pageComponents.count {
+            pageComponents[i].draw(at: currentPosition)
+            currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, currentPosition.y - pageComponents[i].height)
+        }
+
         self.dates.draw()
-        self.copyLabel.draw()
         self.seller.draw()
         self.buyer.draw()
         self.itemTableHeaderComponent.draw()
@@ -61,7 +64,6 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 class InvoicePageCompositionBuilder {
     var pageComponents: [PageComponent] = []
     var dates: HeaderInvoiceDatesComponent?
-    var copyLabel: CopyLabelComponent?
     var seller: SellerComponent?
     var buyer: BuyerComponent?
     var itemTableHeaderComponent: ItemTableHeaderComponent?
@@ -80,11 +82,7 @@ class InvoicePageCompositionBuilder {
         self.dates = dates
         return self
     }
-    
-    func withCopyLabel(_ copyLabel: CopyLabelComponent) -> InvoicePageCompositionBuilder {
-        self.copyLabel = copyLabel
-        return self
-    }
+   
     
     func withSeller(_ seller: SellerComponent) -> InvoicePageCompositionBuilder {
         self.seller = seller
@@ -130,7 +128,6 @@ class InvoicePageCompositionBuilder {
         return InvoicePageComposition(
             pageComponents: pageComponents,
             dates: dates ?? HeaderInvoiceDatesComponent(content: ""),
-            copyLabel: copyLabel ?? CopyLabelComponent(content: ""),
             seller: seller ?? SellerComponent(content: ""),
             buyer: buyer ?? BuyerComponent(content: ""),
             itemTableHeaderComponent: itemTableHeaderComponent ?? ItemTableHeaderComponent(headerData: []),
