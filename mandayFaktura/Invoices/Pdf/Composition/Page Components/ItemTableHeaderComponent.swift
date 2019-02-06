@@ -26,7 +26,7 @@ class ItemTableHeaderComponent : AbstractComponent {
     
     private func drawItemsHeaderCell(content: String, column: Int) {
         let xLeft = InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
-        let yBottom = ItemTableComponent.yPosition - AbstractComponent.gridPadding
+        let yBottom = ItemTableRowComponent.yPosition - AbstractComponent.gridPadding
         let width = getColumnWidth(column: column)
         let height = AbstractComponent.defaultRowHeight * 2 + 2 * AbstractComponent.gridPadding
         fillCellBackground(x: xLeft,y: yBottom, width: width, height: height, color: darkHeaderColor)

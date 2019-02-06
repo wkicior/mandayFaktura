@@ -32,7 +32,7 @@ class InvoiceDocumentComposition {
         var yPosition = ItemTableHeaderComponent.yPosition - ItemTableHeaderComponent.height
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
-            let itemTableComponent: ItemTableComponent = ItemTableComponent(tableData: properties, topYPosition: yPosition, withBackground: itemCounter % 2 != 0)
+            let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, topYPosition: yPosition, withBackground: itemCounter % 2 != 0)
             invoicePageComposition.withItemTableData(itemTableComponent)
             yPosition = itemTableComponent.yPosition - itemTableComponent.height
         }
@@ -53,7 +53,7 @@ class InvoiceDocumentComposition {
     
     fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
         return anInvoicePageComposition()
-            .withHeader(HeaderComponent(content: invoice.printedHeader))
+            .withPageComponent(HeaderComponent(xPosition: InvoicePageComposition.headerXPosition, yPosition: InvoicePageComposition.headerYPosition, content: invoice.printedHeader))
             .withDates(HeaderInvoiceDatesComponent(content: invoice.printedDates))
             .withCopyLabel(CopyLabelComponent(content: copyTemplate.rawValue))
             .withSeller(SellerComponent(content: invoice.seller.printedSeller))

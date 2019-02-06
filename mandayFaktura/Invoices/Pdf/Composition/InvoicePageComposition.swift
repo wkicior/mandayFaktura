@@ -17,13 +17,18 @@ struct InvoicePageComposition {
     static let pdfHeight = CGFloat(1024.0)
     static let pdfWidth = CGFloat(768.0)
     
-    let header: HeaderComponent
+    static let headerYPosition = CGFloat(930 + 42.0)
+    static let headerXPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+    
+    let pageComponents: [PageComponent]
+    
+//    let header: HeaderComponent
     let dates: HeaderInvoiceDatesComponent
     let copyLabel: CopyLabelComponent
     let seller: SellerComponent
     let buyer: BuyerComponent
     let itemTableHeaderComponent: ItemTableHeaderComponent
-    let itemTableData: [ItemTableComponent]
+    let itemTableData: [ItemTableRowComponent]
     let itemsSummary: ItemsSummaryComponent
     let vatBreakdownTableData: VatBreakdownComponent
     let paymentSummary: PaymentSummaryComponent
@@ -31,7 +36,7 @@ struct InvoicePageComposition {
     
     func draw() {
         //TODO: extract prototype and iterate over array
-        self.header.draw()
+        self.pageComponents.forEach({component in component.draw()})
         self.dates.draw()
         self.copyLabel.draw()
         self.seller.draw()
@@ -54,20 +59,20 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 }
 
 class InvoicePageCompositionBuilder {
-    var header: HeaderComponent?
+    var pageComponents: [PageComponent] = []
     var dates: HeaderInvoiceDatesComponent?
     var copyLabel: CopyLabelComponent?
     var seller: SellerComponent?
     var buyer: BuyerComponent?
     var itemTableHeaderComponent: ItemTableHeaderComponent?
-    var itemTableData: [ItemTableComponent] = []
+    var itemTableData: [ItemTableRowComponent] = []
     var itemsSummary: ItemsSummaryComponent?
     var vatBreakdownTableData: VatBreakdownComponent?
     var paymentSummary: PaymentSummaryComponent?
     var notes: NotesComponent?
     
-    func withHeader(_ header: HeaderComponent) -> InvoicePageCompositionBuilder {
-        self.header = header
+    func withPageComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.pageComponents.append(pageComponent)
         return self
     }
     
@@ -91,7 +96,7 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withItemTableData(_ itemTableData: ItemTableComponent) -> InvoicePageCompositionBuilder {
+    func withItemTableData(_ itemTableData: ItemTableRowComponent) -> InvoicePageCompositionBuilder {
         self.itemTableData.append(itemTableData)
         return self
     }
@@ -123,7 +128,7 @@ class InvoicePageCompositionBuilder {
     
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
-            header: header ?? HeaderComponent(content: ""),
+            pageComponents: pageComponents,
             dates: dates ?? HeaderInvoiceDatesComponent(content: ""),
             copyLabel: copyLabel ?? CopyLabelComponent(content: ""),
             seller: seller ?? SellerComponent(content: ""),

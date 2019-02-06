@@ -11,7 +11,7 @@ import AppKit
 
 class CopyLabelComponent : AbstractComponent{
     static let height = CGFloat(14.0)
-    static let yPosition = HeaderComponent.yPosition - height
+    static let yPosition = CGFloat(930) - height
     
     let content: String
     init(content: String) {
