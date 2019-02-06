@@ -10,7 +10,6 @@ import Foundation
 import AppKit
 
 class HeaderComponent :  AbstractComponent, PageComponent {
-    let type = PageComponentType.header
     var height: CGFloat {
         get {
             return CGFloat(42.0)

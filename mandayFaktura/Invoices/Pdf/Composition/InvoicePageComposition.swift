@@ -18,11 +18,10 @@ struct InvoicePageComposition {
     static let pdfWidth = CGFloat(768.0)
     
     static let headerYPosition = CGFloat(930 + 42.0)
-    static let xPositions = [PageComponentType.header: 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0),
-                             PageComponentType.seller: CGFloat(100),
-                             PageComponentType.buyer: 1/2 * InvoicePageComposition.pdfWidth]
-    
-    
+    static let headerXPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+
+    let headerComponents: [PageComponent]
+    let counterpartyComponents: [PageComponent]
     let pageComponents: [PageComponent]
     
     let itemTableHeaderComponent: ItemTableHeaderComponent
@@ -34,12 +33,16 @@ struct InvoicePageComposition {
     
     func draw() {
         var currentYPosition = InvoicePageComposition.headerYPosition
-        for i in 0 ..< pageComponents.count {
-            let currentPosition = NSMakePoint(InvoicePageComposition.xPositions[pageComponents[i].type]!, currentYPosition)
-            pageComponents[i].draw(at: currentPosition)
-            //TODO: ugly hack to keep two components in one row - maybe better to merge them or introduce row component that may contain child column components
-            if (pageComponents[i].type != PageComponentType.seller) {
-                currentYPosition = currentPosition.y - pageComponents[i].height
+        for i in 0 ..< headerComponents.count {
+            let currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, currentYPosition)
+            headerComponents[i].draw(at: currentPosition)
+            currentYPosition = currentPosition.y - headerComponents[i].height
+        }
+        for i in 0 ..< counterpartyComponents.count {
+            let currentPosition = NSMakePoint((i % 2 == 0 ? CGFloat(100) :  1/2 * InvoicePageComposition.pdfWidth), currentYPosition)
+            counterpartyComponents[i].draw(at: currentPosition)
+            if (i % 2 == 1) {
+                currentYPosition = currentPosition.y - counterpartyComponents[i].height
             }
         }
         self.itemTableHeaderComponent.draw()
@@ -60,6 +63,8 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 }
 
 class InvoicePageCompositionBuilder {
+    var headerComponents: [PageComponent] = []
+    var counterpartyComponents: [PageComponent] = []
     var pageComponents: [PageComponent] = []
     var itemTableHeaderComponent: ItemTableHeaderComponent?
     var itemTableData: [ItemTableRowComponent] = []
@@ -67,6 +72,16 @@ class InvoicePageCompositionBuilder {
     var vatBreakdownTableData: VatBreakdownComponent?
     var paymentSummary: PaymentSummaryComponent?
     var notes: NotesComponent?
+    
+    func withHeaderComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.headerComponents.append(pageComponent)
+        return self
+    }
+    
+    func withCounterpartyComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.counterpartyComponents.append(pageComponent)
+        return self
+    }
     
     func withPageComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.pageComponents.append(pageComponent)
@@ -105,6 +120,8 @@ class InvoicePageCompositionBuilder {
     
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
+            headerComponents: headerComponents,
+            counterpartyComponents: counterpartyComponents,
             pageComponents: pageComponents,
             itemTableHeaderComponent: itemTableHeaderComponent ?? ItemTableHeaderComponent(headerData: []),
             itemTableData: itemTableData ,

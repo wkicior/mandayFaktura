@@ -8,12 +8,8 @@
 
 import Foundation
 
-enum PageComponentType: Int {
-    case header = 1, buyer, seller
-}
 protocol PageComponent {
     var height: CGFloat { get }
-    var type: PageComponentType { get }
        
     func draw(at: NSPoint)
 }

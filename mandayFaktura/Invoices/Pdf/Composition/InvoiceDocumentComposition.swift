@@ -53,11 +53,11 @@ class InvoiceDocumentComposition {
     
     fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
         return anInvoicePageComposition()
-            .withPageComponent(HeaderComponent(content: invoice.printedHeader))
-            .withPageComponent(CopyLabelComponent(content: copyTemplate.rawValue))
-            .withPageComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
-            .withPageComponent(SellerComponent(content: invoice.seller.printedSeller))
-            .withPageComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
+            .withHeaderComponent(HeaderComponent(content: invoice.printedHeader))
+            .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
+            .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
+            .withCounterpartyComponent(SellerComponent(content: invoice.seller.printedSeller))
+            .withCounterpartyComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
             .withItemTableHeaderComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
     }
     

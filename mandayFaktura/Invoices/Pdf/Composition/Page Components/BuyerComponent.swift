@@ -9,7 +9,6 @@
 import Foundation
 
 class BuyerComponent : AbstractComponent, PageComponent {
-    let type = PageComponentType.buyer
     let height = CGFloat(90.0) + BuyerComponent.paddingTop
     static let paddingTop = CGFloat(20)
     

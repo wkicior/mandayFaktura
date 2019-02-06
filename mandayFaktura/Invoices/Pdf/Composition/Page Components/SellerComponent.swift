@@ -9,7 +9,6 @@
 import Foundation
 
 class SellerComponent : AbstractComponent, PageComponent {
-    let type = PageComponentType.seller
     let height = CGFloat(90.0) + paddingTop
     static let paddingTop = CGFloat(20)
 

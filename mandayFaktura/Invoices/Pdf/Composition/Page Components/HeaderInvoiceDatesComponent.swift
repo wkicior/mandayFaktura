@@ -11,7 +11,6 @@ import AppKit
 
 
 class HeaderInvoiceDatesComponent : AbstractComponent, PageComponent {
-    let type = PageComponentType.header
     static let heightOfDates = CGFloat(30.0)
     static let heightOfLine = CGFloat(12.0)
     var height: CGFloat {
