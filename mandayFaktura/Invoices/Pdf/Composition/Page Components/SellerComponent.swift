@@ -11,7 +11,7 @@ import Foundation
 class SellerComponent : AbstractComponent {
     static let height = CGFloat(90.0)
     static let marginTop = CGFloat(20)
-    static let yPosition = HeaderInvoiceDatesComponent.yPosition - marginTop - height
+    static let yPosition = CGFloat(930-14.0) - CGFloat(42.0) - marginTop - height
 
     let content: String
     init(content: String) {

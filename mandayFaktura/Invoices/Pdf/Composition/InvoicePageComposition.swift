@@ -22,8 +22,6 @@ struct InvoicePageComposition {
     
     let pageComponents: [PageComponent]
     
-//    let header: HeaderComponent
-    let dates: HeaderInvoiceDatesComponent
     let seller: SellerComponent
     let buyer: BuyerComponent
     let itemTableHeaderComponent: ItemTableHeaderComponent
@@ -40,8 +38,6 @@ struct InvoicePageComposition {
             pageComponents[i].draw(at: currentPosition)
             currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, currentPosition.y - pageComponents[i].height)
         }
-
-        self.dates.draw()
         self.seller.draw()
         self.buyer.draw()
         self.itemTableHeaderComponent.draw()
@@ -63,7 +59,6 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 
 class InvoicePageCompositionBuilder {
     var pageComponents: [PageComponent] = []
-    var dates: HeaderInvoiceDatesComponent?
     var seller: SellerComponent?
     var buyer: BuyerComponent?
     var itemTableHeaderComponent: ItemTableHeaderComponent?
@@ -77,12 +72,6 @@ class InvoicePageCompositionBuilder {
         self.pageComponents.append(pageComponent)
         return self
     }
-    
-    func withDates(_ dates: HeaderInvoiceDatesComponent) -> InvoicePageCompositionBuilder {
-        self.dates = dates
-        return self
-    }
-   
     
     func withSeller(_ seller: SellerComponent) -> InvoicePageCompositionBuilder {
         self.seller = seller
@@ -127,7 +116,6 @@ class InvoicePageCompositionBuilder {
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
             pageComponents: pageComponents,
-            dates: dates ?? HeaderInvoiceDatesComponent(content: ""),
             seller: seller ?? SellerComponent(content: ""),
             buyer: buyer ?? BuyerComponent(content: ""),
             itemTableHeaderComponent: itemTableHeaderComponent ?? ItemTableHeaderComponent(headerData: []),

@@ -10,29 +10,31 @@ import Foundation
 import AppKit
 
 
-class HeaderInvoiceDatesComponent : AbstractComponent {
+class HeaderInvoiceDatesComponent : AbstractComponent, PageComponent {
     static let heightOfDates = CGFloat(30.0)
     static let heightOfLine = CGFloat(12.0)
-    static let height = heightOfDates + heightOfLine
-    static let yPosition = CGFloat(930-14.0) - height
+    var height: CGFloat {
+        get {
+            return HeaderInvoiceDatesComponent.heightOfDates + HeaderInvoiceDatesComponent.heightOfLine
+        }
+    }
+    //static let yPosition = CGFloat(930-14.0) - CGFloat(42.0)
     let content: String
     init(content: String) {
         self.content = content
         super.init(debug: InvoicePageComposition.debug)
     }
     
-    func draw() {
-        let xPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+    func draw(at: NSPoint) {
         let width = 1/2 * InvoicePageComposition.pdfWidth
-        let yPosition = HeaderInvoiceDatesComponent.yPosition + HeaderInvoiceDatesComponent.heightOfLine
-        let rect = NSMakeRect(xPosition, yPosition, width, HeaderInvoiceDatesComponent.heightOfDates)
-        markBackgroundIfDebug(xPosition, yPosition, width, HeaderInvoiceDatesComponent.heightOfDates)
+        let yBottom = at.y - height + HeaderInvoiceDatesComponent.heightOfLine
+        let rect = NSMakeRect(at.x, yBottom, width, HeaderInvoiceDatesComponent.heightOfDates)
+        markBackgroundIfDebug(at.x, yBottom, width, HeaderInvoiceDatesComponent.heightOfDates)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldLeft)
-        drawHeaderHorizontalLine()
+        drawHeaderHorizontalLine(y: at.y - height)
     }
     
-    func drawHeaderHorizontalLine() {
-        let y = HeaderInvoiceDatesComponent.yPosition
+    func drawHeaderHorizontalLine(y: CGFloat) {
         let fromPoint = NSMakePoint(InvoicePageComposition.leftMargin , y)
         let toPoint = NSMakePoint(InvoicePageComposition.pdfWidth - InvoicePageComposition.rightMargin, y)
         drawPath(from: fromPoint, to: toPoint)

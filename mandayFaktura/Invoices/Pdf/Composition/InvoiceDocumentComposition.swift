@@ -56,7 +56,7 @@ class InvoiceDocumentComposition {
             .withPageComponent(HeaderComponent(content: invoice.printedHeader))
             .withPageComponent(CopyLabelComponent(content: copyTemplate.rawValue))
             
-            .withDates(HeaderInvoiceDatesComponent(content: invoice.printedDates))
+            .withPageComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
             .withSeller(SellerComponent(content: invoice.seller.printedSeller))
             .withBuyer(BuyerComponent(content: invoice.buyer.printedBuyer))
             .withItemTableHeaderComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
