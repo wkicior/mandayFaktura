@@ -10,6 +10,5 @@ import Foundation
 
 protocol PageComponent {
     var height: CGFloat { get }
-       
     func draw(at: NSPoint)
 }

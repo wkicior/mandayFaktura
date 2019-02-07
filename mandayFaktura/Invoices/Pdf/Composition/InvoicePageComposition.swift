@@ -22,11 +22,9 @@ struct InvoicePageComposition {
 
     let headerComponents: [PageComponent]
     let counterpartyComponents: [PageComponent]
-    let pageComponents: [PageComponent]
+    let itemTableRowComponents: [PageComponent]
+    let itemTableSummaryRowComponents: [PageComponent]
     
-    let itemTableHeaderComponent: ItemTableHeaderComponent
-    let itemTableData: [ItemTableRowComponent]
-    let itemsSummary: ItemsSummaryComponent
     let vatBreakdownTableData: VatBreakdownComponent
     let paymentSummary: PaymentSummaryComponent
     let notes: NotesComponent
@@ -45,9 +43,17 @@ struct InvoicePageComposition {
                 currentYPosition = currentPosition.y - counterpartyComponents[i].height
             }
         }
-        self.itemTableHeaderComponent.draw()
-        self.itemTableData.forEach({i in i.draw()})
-        self.itemsSummary.draw()
+        for i in 0 ..< itemTableRowComponents.count {
+            let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
+            itemTableRowComponents[i].draw(at: currentPosition)
+            currentYPosition = currentPosition.y - itemTableRowComponents[i].height
+        }
+        for i in 0 ..< itemTableSummaryRowComponents.count {
+            let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
+            itemTableSummaryRowComponents[i].draw(at: currentPosition)
+            currentYPosition = currentPosition.y - itemTableSummaryRowComponents[i].height
+        }
+        //self.itemsSummary.draw()
         self.vatBreakdownTableData.draw()
         self.paymentSummary.draw()
         self.notes.draw()
@@ -65,9 +71,9 @@ func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
 class InvoicePageCompositionBuilder {
     var headerComponents: [PageComponent] = []
     var counterpartyComponents: [PageComponent] = []
-    var pageComponents: [PageComponent] = []
-    var itemTableHeaderComponent: ItemTableHeaderComponent?
-    var itemTableData: [ItemTableRowComponent] = []
+    var itemTableRowComponents: [PageComponent] = []
+    var itemTableSummaryRowComponents: [PageComponent] = []
+   
     var itemsSummary: ItemsSummaryComponent?
     var vatBreakdownTableData: VatBreakdownComponent?
     var paymentSummary: PaymentSummaryComponent?
@@ -83,23 +89,13 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withPageComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
-        self.pageComponents.append(pageComponent)
+    func withItemTableRowComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.itemTableRowComponents.append(pageComponent)
         return self
     }
     
-    func withItemTableData(_ itemTableData: ItemTableRowComponent) -> InvoicePageCompositionBuilder {
-        self.itemTableData.append(itemTableData)
-        return self
-    }
-    
-    func withItemTableHeaderComponent(_ itemTableHeaderComponent: ItemTableHeaderComponent) -> InvoicePageCompositionBuilder {
-        self.itemTableHeaderComponent = itemTableHeaderComponent
-        return self
-    }
-    
-    func withItemsSummary(_ itemsSummary: ItemsSummaryComponent) -> InvoicePageCompositionBuilder {
-        self.itemsSummary = itemsSummary
+    func withItemTableSummaryRowComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.itemTableSummaryRowComponents.append(pageComponent)
         return self
     }
     
@@ -122,10 +118,8 @@ class InvoicePageCompositionBuilder {
         return InvoicePageComposition(
             headerComponents: headerComponents,
             counterpartyComponents: counterpartyComponents,
-            pageComponents: pageComponents,
-            itemTableHeaderComponent: itemTableHeaderComponent ?? ItemTableHeaderComponent(headerData: []),
-            itemTableData: itemTableData ,
-            itemsSummary: itemsSummary ?? ItemsSummaryComponent(summaryData: [], yTopPosition: CGFloat(0)),
+            itemTableRowComponents: itemTableRowComponents,
+            itemTableSummaryRowComponents: itemTableSummaryRowComponents,
             vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownComponent(breakdownLabel: "", breakdownTableData: [], topYPosition: CGFloat(0)),
             paymentSummary: paymentSummary ?? PaymentSummaryComponent(content: "", topYPosition: CGFloat(0)),
             notes: notes ?? NotesComponent(content: "", topYPosition: CGFloat(0)))

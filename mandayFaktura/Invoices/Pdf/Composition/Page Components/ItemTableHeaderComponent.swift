@@ -8,30 +8,31 @@
 
 import Foundation
 
-class ItemTableHeaderComponent : AbstractComponent {
-    static let marginTop = CGFloat(50)
-    static let yPosition = CGFloat(930-14.0) - CGFloat(42.0) - CGFloat(20) - CGFloat(90.0) - marginTop
-    static let height = AbstractComponent.defaultRowHeight + AbstractComponent.gridPadding * 2
+class ItemTableHeaderComponent : AbstractComponent, PageComponent {
+    static let paddingTop = CGFloat(41)
+    let height = AbstractComponent.defaultRowHeight * 2 + AbstractComponent.gridPadding * 2 + ItemTableHeaderComponent.paddingTop
     
     let headerData: [String]
+    private var position: NSPoint = NSMakePoint(0, 0)
     
     init(headerData: [String]) {
         self.headerData = headerData
         super.init(debug: InvoicePageComposition.debug)
     }
     
-    func draw() {
+    func draw(at: NSPoint) {
+        self.position = at
         (0 ..< self.headerData.count).forEach({col in drawItemsHeaderCell(content: headerData[col], column: col)})
     }
     
     private func drawItemsHeaderCell(content: String, column: Int) {
-        let xLeft = InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
-        let yBottom = ItemTableRowComponent.yPosition - AbstractComponent.gridPadding
+        let xLeft = self.position.x + self.getColumnXOffset(column: column)
+        let yBottom = self.position.y - height
         let width = getColumnWidth(column: column)
-        let height = AbstractComponent.defaultRowHeight * 2 + 2 * AbstractComponent.gridPadding
-        fillCellBackground(x: xLeft,y: yBottom, width: width, height: height, color: darkHeaderColor)
-        self.drawBorder(xLeft, yBottom, height, width)
-        let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, height - 2 * AbstractComponent.gridPadding)
+        let cellHeight = height - ItemTableHeaderComponent.paddingTop
+        fillCellBackground(x: xLeft,y: yBottom, width: width, height: cellHeight, color: darkHeaderColor)
+        self.drawBorder(xLeft, yBottom, cellHeight, width)
+        let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, cellHeight - 2 * AbstractComponent.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
 }

@@ -29,22 +29,19 @@ class InvoiceDocumentComposition {
         })*/
         var pagesWithTableData: [InvoicePageCompositionBuilder] = []
         let invoicePageComposition = self.minimumPageComposition(copyTemplate)
-        var yPosition = CGFloat(930-14.0) - CGFloat(42.0) - CGFloat(70) - CGFloat(90.0) - AbstractComponent.defaultRowHeight - AbstractComponent.gridPadding * 2
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
-            let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, topYPosition: yPosition, withBackground: itemCounter % 2 != 0)
-            invoicePageComposition.withItemTableData(itemTableComponent)
-            yPosition = itemTableComponent.yPosition - itemTableComponent.height
+            let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, withBackground: itemCounter % 2 != 0)
+            invoicePageComposition.withItemTableRowComponent(itemTableComponent)
         }
         pagesWithTableData.append(invoicePageComposition)
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
-        let itemsSummaryYPosition = yPosition //TODO: clean this
-        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay, yTopPosition: itemsSummaryYPosition)
-        let vatBrakdownYPosition = itemsSummaryLayout.yPosition - ItemsSummaryComponent.height
+        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay)
+        let vatBrakdownYPosition =  CGFloat(300)
         let vatBreakdownTableData = getVatBreakdownTableData(topYPosition: vatBrakdownYPosition)
         let paymentSummaryYPosition = vatBreakdownTableData.yPosition - vatBreakdownTableData.height
         let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary, topYPosition: paymentSummaryYPosition)
-        lastPage.withItemsSummary(itemsSummaryLayout)
+        lastPage.withItemTableRowComponent(itemsSummaryLayout)
             .withVatBreakdownTableData(vatBreakdownTableData)
             .withPaymentSummary(paymentSummary)
             .withNotes(NotesComponent(content: invoice.notes, topYPosition: paymentSummary.yPosition))
@@ -58,7 +55,7 @@ class InvoiceDocumentComposition {
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
             .withCounterpartyComponent(SellerComponent(content: invoice.seller.printedSeller))
             .withCounterpartyComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
-            .withItemTableHeaderComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
+            .withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
     }
     
     func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownComponent {

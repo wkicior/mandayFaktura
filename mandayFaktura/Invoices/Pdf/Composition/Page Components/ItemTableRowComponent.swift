@@ -8,17 +8,15 @@
 
 import Foundation
 
-class ItemTableRowComponent : AbstractComponent {
-    static let yPosition = ItemTableHeaderComponent.yPosition - ItemTableHeaderComponent.height
+class ItemTableRowComponent : AbstractComponent, PageComponent {
+    private let tableData: [String]
+    private let withBackground: Bool
     
-    let tableData: [String]
-    let withBackground: Bool
-    let yPosition: CGFloat
+    private var position: NSPoint = NSMakePoint(0, 0) //TODO: make private
     
-    init(tableData: [String], topYPosition: CGFloat, withBackground: Bool) {
+    init(tableData: [String], withBackground: Bool) {
         self.tableData = tableData
         self.withBackground = withBackground
-        self.yPosition = topYPosition
         super.init(debug: InvoicePageComposition.debug)
     }
     
@@ -31,13 +29,14 @@ class ItemTableRowComponent : AbstractComponent {
         }
     }
     
-    func draw() {
+    func draw(at: NSPoint) {
+        self.position = at
         (0 ..< tableData.count).forEach({col in drawItemTableCell(column: col)})
     }
     
     private func drawItemTableCell(column: Int) {
-        let yBottom = yPosition - height - AbstractComponent.gridPadding
-        let xLeft =  InvoicePageComposition.leftMargin + self.getColumnXOffset(column: column)
+        let yBottom = self.position.y - height
+        let xLeft =  self.position.x + self.getColumnXOffset(column: column)
         let width = self.getColumnWidth(column: column)
         if withBackground {
             fillCellBackground(x: xLeft, y: yBottom, width: width, height: height, color: lightCellColor)
