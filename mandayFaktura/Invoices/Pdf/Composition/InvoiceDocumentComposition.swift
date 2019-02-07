@@ -38,12 +38,11 @@ class InvoiceDocumentComposition {
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay)
         let vatBreakdownTableData = getVatBreakdownTableData()
-        let paymentSummaryYPosition = CGFloat(300)
-        let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary, topYPosition: paymentSummaryYPosition)
+        let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary)
         lastPage.withItemTableRowComponent(itemsSummaryLayout)
             .withItemTableRowComponent(vatBreakdownTableData)
-            .withPaymentSummary(paymentSummary)
-            .withNotes(NotesComponent(content: invoice.notes, topYPosition: paymentSummary.yPosition))
+            .withSummaryComponents(paymentSummary)
+            .withSummaryComponents(NotesComponent(content: invoice.notes))
         return pagesWithTableData.map({page in page.build()})
     }
     

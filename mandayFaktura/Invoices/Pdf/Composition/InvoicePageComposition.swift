@@ -23,9 +23,7 @@ struct InvoicePageComposition {
     let headerComponents: [PageComponent]
     let counterpartyComponents: [PageComponent]
     let itemTableRowComponents: [PageComponent]
-    let itemTableSummaryRowComponents: [PageComponent]
-    let paymentSummary: PaymentSummaryComponent
-    let notes: NotesComponent
+    let summaryComponents: [PageComponent]
     
     func draw() {
         var currentYPosition = InvoicePageComposition.headerYPosition
@@ -46,14 +44,11 @@ struct InvoicePageComposition {
             itemTableRowComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - itemTableRowComponents[i].height
         }
-        for i in 0 ..< itemTableSummaryRowComponents.count {
+        for i in 0 ..< summaryComponents.count {
             let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
-            itemTableSummaryRowComponents[i].draw(at: currentPosition)
-            currentYPosition = currentPosition.y - itemTableSummaryRowComponents[i].height
+            summaryComponents[i].draw(at: currentPosition)
+            currentYPosition = currentPosition.y - summaryComponents[i].height
         }
-     
-        self.paymentSummary.draw()
-        self.notes.draw()
     }
     
     func bound() -> NSRect {
@@ -69,10 +64,7 @@ class InvoicePageCompositionBuilder {
     var headerComponents: [PageComponent] = []
     var counterpartyComponents: [PageComponent] = []
     var itemTableRowComponents: [PageComponent] = []
-    var itemTableSummaryRowComponents: [PageComponent] = []
-   
-
-    var paymentSummary: PaymentSummaryComponent?
+    var summaryComponents: [PageComponent] = []
     var notes: NotesComponent?
     
     func withHeaderComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
@@ -90,18 +82,8 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withItemTableSummaryRowComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
-        self.itemTableSummaryRowComponents.append(pageComponent)
-        return self
-    }
-    
-    func withPaymentSummary(_ paymentSummary: PaymentSummaryComponent) -> InvoicePageCompositionBuilder {
-        self.paymentSummary = paymentSummary
-        return self
-    }
-    
-    func withNotes(_ notes: NotesComponent) -> InvoicePageCompositionBuilder {
-        self.notes = notes
+    func withSummaryComponents(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.summaryComponents.append(pageComponent)
         return self
     }
     
@@ -110,8 +92,6 @@ class InvoicePageCompositionBuilder {
             headerComponents: headerComponents,
             counterpartyComponents: counterpartyComponents,
             itemTableRowComponents: itemTableRowComponents,
-            itemTableSummaryRowComponents: itemTableSummaryRowComponents,
-            paymentSummary: paymentSummary ?? PaymentSummaryComponent(content: "", topYPosition: CGFloat(0)),
-            notes: notes ?? NotesComponent(content: "", topYPosition: CGFloat(0)))
+            summaryComponents: summaryComponents)
     }
 }

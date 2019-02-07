@@ -8,22 +8,20 @@
 
 import Foundation
 
-class NotesComponent : AbstractComponent {
+class NotesComponent : AbstractComponent, PageComponent {
     var height = CGFloat(100.0) //TODO should be dynamic
-    var yPosition = CGFloat(0)
     
     let content: String
-    init(content: String, topYPosition: CGFloat) {
-        self.yPosition = topYPosition - height
+    init(content: String) {
         self.content = content
         super.init(debug: InvoicePageComposition.debug)
     }
     
-    func draw() {       
-        let xPosition = InvoicePageComposition.leftMargin
+    func draw(at: NSPoint) {
+        let yBottom = at.y - height
         let width = InvoicePageComposition.pdfWidth - InvoicePageComposition.rightMargin
-        markBackgroundIfDebug(xPosition, self.yPosition, width, self.height)
-        let rect = NSMakeRect(xPosition, self.yPosition, width, self.height)
+        markBackgroundIfDebug(at.x, yBottom, width, self.height)
+        let rect = NSMakeRect(at.x, yBottom, width, self.height)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesLeft)
     }
 }
