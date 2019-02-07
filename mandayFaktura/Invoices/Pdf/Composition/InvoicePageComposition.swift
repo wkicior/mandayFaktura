@@ -87,6 +87,18 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
+    func componentsHeight() -> CGFloat {
+        let headerHeight = self.headerComponents.map({c in c.height}).reduce(InvoicePageComposition.pdfHeight - InvoicePageComposition.headerYPosition, +)
+        let counterPartyHeight = self.counterpartyComponents.first.map({c in c.height})!
+        let itemsTableHeight = self.itemTableRowComponents.map({c in c.height}).reduce(0, +)
+        let summaryHeight = self.summaryComponents.map({c in c.height}).reduce(0, +)
+        return headerHeight + counterPartyHeight + itemsTableHeight + summaryHeight
+    }
+    
+    func canFit(pageComponent: PageComponent) -> Bool {
+        return InvoicePageComposition.pdfHeight - CGFloat(100) - componentsHeight() - pageComponent.height > 0
+    }
+    
     func build() -> InvoicePageComposition {
         return InvoicePageComposition(
             headerComponents: headerComponents,

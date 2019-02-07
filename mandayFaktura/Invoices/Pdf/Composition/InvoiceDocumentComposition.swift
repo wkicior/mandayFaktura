@@ -11,6 +11,9 @@ import Foundation
 
 class InvoiceDocumentComposition {
     let invoice:Invoice
+    var pagesWithTableData: [InvoicePageCompositionBuilder] = []
+    var currentPageComposition: InvoicePageCompositionBuilder?
+
     init(invoice: Invoice) {
         self.invoice = invoice
     }
@@ -21,29 +24,54 @@ class InvoiceDocumentComposition {
     }
     
     fileprivate func distributeInvoiceOverPageCompositions(copyTemplate: CopyTemplate) -> [InvoicePageComposition] {
-        /*let pagesWithTableData: [InvoicePageCompositionBuilder] = getItemTableDataChunksPerPage().map({itemTableDataChunk in
-            let invoicePageComposition = self.minimumPageComposition(copyTemplate)
-                .withItemTableData(ItemTableComponent(tableData: itemTableDataChunk))
-            //TODO fix NPE on vat breakdown empty
-            return invoicePageComposition
-        })*/
-        var pagesWithTableData: [InvoicePageCompositionBuilder] = []
-        let invoicePageComposition = self.minimumPageComposition(copyTemplate)
+        pagesWithTableData = []
+        currentPageComposition = self.minimumPageComposition(copyTemplate)
+        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
             let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, withBackground: itemCounter % 2 != 0)
-            invoicePageComposition.withItemTableRowComponent(itemTableComponent)
+            appendIfFitsOtherwiseCreateNewPageComposition(item: itemTableComponent, copyTemplate: copyTemplate)
         }
-        pagesWithTableData.append(invoicePageComposition)
-        let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay)
+        appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(item: itemsSummaryLayout, copyTemplate: copyTemplate)
         let vatBreakdownTableData = getVatBreakdownTableData()
+        appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(item: vatBreakdownTableData, copyTemplate: copyTemplate)
         let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary)
-        lastPage.withItemTableRowComponent(itemsSummaryLayout)
-            .withItemTableRowComponent(vatBreakdownTableData)
-            .withSummaryComponents(paymentSummary)
-            .withSummaryComponents(NotesComponent(content: invoice.notes))
+        appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: paymentSummary,  copyTemplate: copyTemplate)
+        appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: NotesComponent(content: invoice.notes), copyTemplate: copyTemplate)
+        pagesWithTableData.append(currentPageComposition!) //TODO append only if it was not just appended :)
         return pagesWithTableData.map({page in page.build()})
+    }
+    
+    fileprivate func appendIfFitsOtherwiseCreateNewPageComposition(item: PageComponent, copyTemplate: CopyTemplate) {
+        if (currentPageComposition!.canFit(pageComponent:item)) {
+            currentPageComposition!.withItemTableRowComponent(item)
+        } else {
+            self.pagesWithTableData.append(currentPageComposition!)
+            currentPageComposition = self.minimumPageComposition(copyTemplate)
+            currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
+            currentPageComposition!.withItemTableRowComponent(item)
+        }
+    }
+    
+    fileprivate func appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(item: PageComponent, copyTemplate: CopyTemplate) {
+        if (currentPageComposition!.canFit(pageComponent:item)) {
+            currentPageComposition!.withItemTableRowComponent(item)
+        } else {
+            self.pagesWithTableData.append(currentPageComposition!)
+            currentPageComposition = self.minimumPageComposition(copyTemplate)
+            currentPageComposition!.withItemTableRowComponent(item)
+        }
+    }
+    
+    fileprivate func appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: PageComponent, copyTemplate: CopyTemplate) {
+        if (currentPageComposition!.canFit(pageComponent:item)) {
+            currentPageComposition!.withSummaryComponents(item)
+        } else {
+            self.pagesWithTableData.append(currentPageComposition!)
+            currentPageComposition = self.minimumPageComposition(copyTemplate)
+            currentPageComposition!.withSummaryComponents(item)
+        }
     }
     
     fileprivate func minimumPageComposition(_ copyTemplate: CopyTemplate) -> InvoicePageCompositionBuilder {
@@ -53,10 +81,9 @@ class InvoiceDocumentComposition {
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
             .withCounterpartyComponent(SellerComponent(content: invoice.seller.printedSeller))
             .withCounterpartyComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
-            .withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
     }
     
-    func getVatBreakdownTableData() -> VatBreakdownComponent {
+    private func getVatBreakdownTableData() -> VatBreakdownComponent {
         var breakdownTableData: [[String]] = []
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
@@ -65,7 +92,7 @@ class InvoiceDocumentComposition {
         return VatBreakdownComponent(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData)
     }
     
-    func getItemTableDataChunksPerPage() -> [[[String]]] {
+    private func getItemTableDataChunksPerPage() -> [[[String]]] {
         var itemTableData: [[String]] = []
         for itemCounter in 0 ..< self.invoice.items.count {
             let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
