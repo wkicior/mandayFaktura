@@ -24,8 +24,6 @@ struct InvoicePageComposition {
     let counterpartyComponents: [PageComponent]
     let itemTableRowComponents: [PageComponent]
     let itemTableSummaryRowComponents: [PageComponent]
-    
-    let vatBreakdownTableData: VatBreakdownComponent
     let paymentSummary: PaymentSummaryComponent
     let notes: NotesComponent
     
@@ -53,8 +51,7 @@ struct InvoicePageComposition {
             itemTableSummaryRowComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - itemTableSummaryRowComponents[i].height
         }
-        //self.itemsSummary.draw()
-        self.vatBreakdownTableData.draw()
+     
         self.paymentSummary.draw()
         self.notes.draw()
     }
@@ -74,8 +71,7 @@ class InvoicePageCompositionBuilder {
     var itemTableRowComponents: [PageComponent] = []
     var itemTableSummaryRowComponents: [PageComponent] = []
    
-    var itemsSummary: ItemsSummaryComponent?
-    var vatBreakdownTableData: VatBreakdownComponent?
+
     var paymentSummary: PaymentSummaryComponent?
     var notes: NotesComponent?
     
@@ -99,11 +95,6 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
-    func withVatBreakdownTableData(_ vatBreakdownTableData: VatBreakdownComponent) -> InvoicePageCompositionBuilder {
-        self.vatBreakdownTableData = vatBreakdownTableData
-        return self
-    }
-    
     func withPaymentSummary(_ paymentSummary: PaymentSummaryComponent) -> InvoicePageCompositionBuilder {
         self.paymentSummary = paymentSummary
         return self
@@ -120,7 +111,6 @@ class InvoicePageCompositionBuilder {
             counterpartyComponents: counterpartyComponents,
             itemTableRowComponents: itemTableRowComponents,
             itemTableSummaryRowComponents: itemTableSummaryRowComponents,
-            vatBreakdownTableData: vatBreakdownTableData ?? VatBreakdownComponent(breakdownLabel: "", breakdownTableData: [], topYPosition: CGFloat(0)),
             paymentSummary: paymentSummary ?? PaymentSummaryComponent(content: "", topYPosition: CGFloat(0)),
             notes: notes ?? NotesComponent(content: "", topYPosition: CGFloat(0)))
     }

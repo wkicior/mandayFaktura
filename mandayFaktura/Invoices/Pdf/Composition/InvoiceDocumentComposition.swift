@@ -37,12 +37,11 @@ class InvoiceDocumentComposition {
         pagesWithTableData.append(invoicePageComposition)
         let lastPage:InvoicePageCompositionBuilder = pagesWithTableData.last!
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: ["Razem:"] + invoice.propertiesForDisplay)
-        let vatBrakdownYPosition =  CGFloat(300)
-        let vatBreakdownTableData = getVatBreakdownTableData(topYPosition: vatBrakdownYPosition)
-        let paymentSummaryYPosition = vatBreakdownTableData.yPosition - vatBreakdownTableData.height
+        let vatBreakdownTableData = getVatBreakdownTableData()
+        let paymentSummaryYPosition = CGFloat(300)
         let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary, topYPosition: paymentSummaryYPosition)
         lastPage.withItemTableRowComponent(itemsSummaryLayout)
-            .withVatBreakdownTableData(vatBreakdownTableData)
+            .withItemTableRowComponent(vatBreakdownTableData)
             .withPaymentSummary(paymentSummary)
             .withNotes(NotesComponent(content: invoice.notes, topYPosition: paymentSummary.yPosition))
         return pagesWithTableData.map({page in page.build()})
@@ -58,13 +57,13 @@ class InvoiceDocumentComposition {
             .withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
     }
     
-    func getVatBreakdownTableData(topYPosition: CGFloat) -> VatBreakdownComponent {
+    func getVatBreakdownTableData() -> VatBreakdownComponent {
         var breakdownTableData: [[String]] = []
         for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return VatBreakdownComponent(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData, topYPosition: topYPosition)
+        return VatBreakdownComponent(breakdownLabel: "W tym:", breakdownTableData: breakdownTableData)
     }
     
     func getItemTableDataChunksPerPage() -> [[[String]]] {
