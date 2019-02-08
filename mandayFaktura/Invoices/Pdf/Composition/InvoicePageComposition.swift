@@ -26,12 +26,24 @@ struct InvoicePageComposition {
     let summaryComponents: [PageComponent]
     
     func draw() {
+        var currentYPosition = drawHeaderComponents()
+        currentYPosition = drawCounterpartyComponents(position: currentYPosition)
+        currentYPosition = drawItemTableRowComponents(position: currentYPosition)
+        drawSummaryComponents(position: currentYPosition)
+    }
+    
+    func drawHeaderComponents() -> CGFloat {
         var currentYPosition = InvoicePageComposition.headerYPosition
         for i in 0 ..< headerComponents.count {
             let currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, currentYPosition)
             headerComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - headerComponents[i].height
         }
+        return currentYPosition
+    }
+    
+    func drawCounterpartyComponents(position: CGFloat) -> CGFloat {
+        var currentYPosition = position
         for i in 0 ..< counterpartyComponents.count {
             let currentPosition = NSMakePoint((i % 2 == 0 ? CGFloat(100) :  1/2 * InvoicePageComposition.pdfWidth), currentYPosition)
             counterpartyComponents[i].draw(at: currentPosition)
@@ -39,11 +51,21 @@ struct InvoicePageComposition {
                 currentYPosition = currentPosition.y - counterpartyComponents[i].height
             }
         }
+        return currentYPosition
+    }
+    
+    func drawItemTableRowComponents(position: CGFloat) -> CGFloat {
+        var currentYPosition = position
         for i in 0 ..< itemTableRowComponents.count {
             let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
             itemTableRowComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - itemTableRowComponents[i].height
         }
+        return currentYPosition
+    }
+    
+    func drawSummaryComponents(position: CGFloat)  {
+        var currentYPosition = position
         for i in 0 ..< summaryComponents.count {
             let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
             summaryComponents[i].draw(at: currentPosition)
@@ -95,8 +117,16 @@ class InvoicePageCompositionBuilder {
         return headerHeight + counterPartyHeight + itemsTableHeight + summaryHeight
     }
     
+    fileprivate func canFit(height: CGFloat) -> Bool {
+        return InvoicePageComposition.pdfHeight - CGFloat(100) - componentsHeight() - height > 0
+    }
+    
     func canFit(pageComponent: PageComponent) -> Bool {
-        return InvoicePageComposition.pdfHeight - CGFloat(100) - componentsHeight() - pageComponent.height > 0
+        return self.canFit(height: pageComponent.height)
+    }
+    
+    func canFit(pageComponents: [PageComponent]) -> Bool {
+        return canFit(height: pageComponents.map({pc in pc.height}).reduce(0, +))
     }
     
     func build() -> InvoicePageComposition {

@@ -15,8 +15,8 @@ class VatBreakdownComponent : AbstractComponent, PageComponent {
     let breakdownTableData: [[String]]
     var position: NSPoint = NSPoint(x: 0, y: 0)
     
-    init(breakdownLabel: String, breakdownTableData: [[String]]) {
-        self.breakdownLabel = breakdownLabel
+    init(breakdownTableData: [[String]]) {
+        self.breakdownLabel = "W tym:"
         self.breakdownTableData = breakdownTableData
         super.init(debug: InvoicePageComposition.debug)
     }

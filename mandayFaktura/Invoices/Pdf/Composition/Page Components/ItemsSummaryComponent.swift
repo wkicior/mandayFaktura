@@ -13,7 +13,7 @@ class ItemsSummaryComponent : AbstractComponent, PageComponent {
     var position: NSPoint = NSPoint(x: 0, y: 0)
     let summaryData: [String]
     init(summaryData: [String]) {
-        self.summaryData = summaryData
+        self.summaryData = ["Razem:"] + summaryData
         super.init(debug: InvoicePageComposition.debug)
     }
     
