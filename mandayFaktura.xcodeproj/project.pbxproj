@@ -221,6 +221,7 @@
 		D3F74604220B677B0057540E /* PageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74602220B677B0057540E /* PageComponent.swift */; };
 		D3F74606220E1E560057540E /* InvoicePageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74605220E1E560057540E /* InvoicePageDistribution.swift */; };
 		D3F74607220E1E560057540E /* InvoicePageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74605220E1E560057540E /* InvoicePageDistribution.swift */; };
+		D3F74609220E2D980057540E /* InvoicePageDistributionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74608220E2D980057540E /* InvoicePageDistributionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,6 +364,7 @@
 		D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F74602220B677B0057540E /* PageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComponent.swift; sourceTree = "<group>"; };
 		D3F74605220E1E560057540E /* InvoicePageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageDistribution.swift; sourceTree = "<group>"; };
+		D3F74608220E2D980057540E /* InvoicePageDistributionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageDistributionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -770,6 +772,7 @@
 		D370A813202A30AC00FFB262 /* Pdf */ = {
 			isa = PBXGroup;
 			children = (
+				D3F74608220E2D980057540E /* InvoicePageDistributionTests.swift */,
 			);
 			path = Pdf;
 			sourceTree = "<group>";
@@ -1333,6 +1336,7 @@
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
 				D3B7C96720924E6300432176 /* VatRateTests.swift in Sources */,
 				D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */,
+				D3F74609220E2D980057540E /* InvoicePageDistributionTests.swift in Sources */,
 				D3254EA820563BF300CC889C /* InvoiceNumberingTests.swift in Sources */,
 				D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */,
 				D3248605206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift in Sources */,
