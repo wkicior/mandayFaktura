@@ -222,6 +222,8 @@
 		D3F74606220E1E560057540E /* InvoicePageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74605220E1E560057540E /* InvoicePageDistribution.swift */; };
 		D3F74607220E1E560057540E /* InvoicePageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74605220E1E560057540E /* InvoicePageDistribution.swift */; };
 		D3F74609220E2D980057540E /* InvoicePageDistributionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F74608220E2D980057540E /* InvoicePageDistributionTests.swift */; };
+		D3F7460B220EF5C80057540E /* PageNumberingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7460A220EF5C80057540E /* PageNumberingComponent.swift */; };
+		D3F7460C220EF5C80057540E /* PageNumberingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7460A220EF5C80057540E /* PageNumberingComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +367,7 @@
 		D3F74602220B677B0057540E /* PageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageComponent.swift; sourceTree = "<group>"; };
 		D3F74605220E1E560057540E /* InvoicePageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageDistribution.swift; sourceTree = "<group>"; };
 		D3F74608220E2D980057540E /* InvoicePageDistributionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageDistributionTests.swift; sourceTree = "<group>"; };
+		D3F7460A220EF5C80057540E /* PageNumberingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumberingComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -948,6 +951,7 @@
 				D3F745CE220775800057540E /* HeaderComponent.swift */,
 				D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */,
 				D3F74602220B677B0057540E /* PageComponent.swift */,
+				D3F7460A220EF5C80057540E /* PageNumberingComponent.swift */,
 			);
 			path = "Page Components";
 			sourceTree = "<group>";
@@ -1180,6 +1184,7 @@
 				D34339EA21A48D6100C583D2 /* InvoiceSettings.swift in Sources */,
 				D34339EB21A48D6100C583D2 /* InvoiceSettingsRepository.swift in Sources */,
 				D34339EC21A48D6100C583D2 /* DecimalFormatter.swift in Sources */,
+				D3F7460C220EF5C80057540E /* PageNumberingComponent.swift in Sources */,
 				D34339ED21A48D6100C583D2 /* InvoiceInteractor.swift in Sources */,
 				D34339EE21A48D6100C583D2 /* InvoiceNumberingInteractor.swift in Sources */,
 				D34339EF21A48D6100C583D2 /* VatRatesTableViewDelegate.swift in Sources */,
@@ -1285,6 +1290,7 @@
 				D32ED324215ABF9400BDC6BE /* InvoiceSettings.swift in Sources */,
 				D32ED326215ABFB200BDC6BE /* InvoiceSettingsRepository.swift in Sources */,
 				D37560B22034C20F00F507AD /* DecimalFormatter.swift in Sources */,
+				D3F7460B220EF5C80057540E /* PageNumberingComponent.swift in Sources */,
 				D3781B8920B496E100CA420E /* InvoiceInteractor.swift in Sources */,
 				D3781B8720B492B700CA420E /* InvoiceNumberingInteractor.swift in Sources */,
 				D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */,

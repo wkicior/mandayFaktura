@@ -12,7 +12,7 @@ struct InvoicePageComposition {
     static let leftMargin = CGFloat(20.0)
     static let rightMargin = CGFloat(20.0)
     
-    static let debug = true
+    static let debug = false
     
     static let pdfHeight = CGFloat(1024.0)
     static let pdfWidth = CGFloat(768.0)
@@ -25,12 +25,14 @@ struct InvoicePageComposition {
     let counterpartyComponents: [PageComponent]
     let itemTableRowComponents: [PageComponent]
     let summaryComponents: [PageComponent]
+    let pageNumberingComponent: PageComponent?
     
     func draw() {
         var currentYPosition = drawHeaderComponents()
         currentYPosition = drawCounterpartyComponents(position: currentYPosition)
         currentYPosition = drawItemTableRowComponents(position: currentYPosition)
         drawSummaryComponents(position: currentYPosition)
+        pageNumberingComponent?.draw(at: NSPoint(x: 0, y: InvoicePageComposition.marginBottom))
     }
     
     func drawHeaderComponents() -> CGFloat {
@@ -88,7 +90,7 @@ class InvoicePageCompositionBuilder {
     var counterpartyComponents: [PageComponent] = []
     var itemTableRowComponents: [PageComponent] = []
     var summaryComponents: [PageComponent] = []
-    var notes: NotesComponent?
+    var pageNumberingComponent: PageComponent?
     
     func withHeaderComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.headerComponents.append(pageComponent)
@@ -107,6 +109,11 @@ class InvoicePageCompositionBuilder {
     
     func withSummaryComponents(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.summaryComponents.append(pageComponent)
+        return self
+    }
+    
+    func withPageNumberingComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.pageNumberingComponent = pageComponent
         return self
     }
     
@@ -135,6 +142,8 @@ class InvoicePageCompositionBuilder {
             headerComponents: headerComponents,
             counterpartyComponents: counterpartyComponents,
             itemTableRowComponents: itemTableRowComponents,
-            summaryComponents: summaryComponents)
+            summaryComponents: summaryComponents,
+            pageNumberingComponent: pageNumberingComponent
+        )
     }
 }

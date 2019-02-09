@@ -20,6 +20,23 @@ class InvoicePageDistribution {
         self.copyTemplate = copyTemplate
         self.invoice = invoice
     }
+    
+    fileprivate func addPageNumbering() {
+        if (pagesWithTableData.count > 1) {
+            (0 ..< pagesWithTableData.count)
+                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
+        }
+    }
+    
+    func distributeInvoiceOverPageCompositions() -> [InvoicePageComposition] {
+        self.initNewPageWithMinimumConposition(copyTemplate)
+        distributeItemTableRow()
+        distributeVatBreakdown()
+        extractedFunc()
+        pagesWithTableData.append(currentPageComposition!)
+        addPageNumbering()
+        return pagesWithTableData.map({page in page.build()})
+    }
    
     fileprivate func distributeVatBreakdown() {
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay)
@@ -33,15 +50,6 @@ class InvoicePageDistribution {
         appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: NotesComponent(content: invoice.notes))
     }
     
-    func distributeInvoiceOverPageCompositions() -> [InvoicePageComposition] {
-        self.initNewPageWithMinimumConposition(copyTemplate)
-        distributeItemTableRow()
-        distributeVatBreakdown()
-        extractedFunc()
-        pagesWithTableData.append(currentPageComposition!) //TODO append only if it was not just appended :)
-        return pagesWithTableData.map({page in page.build()})
-    }
-    
     fileprivate func distributeItemTableRow() {
         currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
         for itemCounter in 0 ..< self.invoice.items.count {
@@ -50,7 +58,6 @@ class InvoicePageDistribution {
             appendIfFitsOtherwiseCreateNewPageComposition(item: itemTableComponent)
         }
     }
-    
     
     fileprivate func appendIfFitsOtherwiseCreateNewPageComposition(item: PageComponent) {
         if (currentPageComposition!.canFit(pageComponent:item)) {
