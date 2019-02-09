@@ -40,7 +40,7 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let item = invoiceFacade.getInvoices()[row]
+        let item = invoiceFacade.getInvoices().sorted(by: {$0.issueDate > $1.issueDate})[row]
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number
