@@ -15,7 +15,7 @@ class InvoiceDocumentSettingsViewController: NSViewController {
     @IBOutlet weak var paymentDateFrom: NSPopUpButton!
     @IBOutlet weak var defaultNotestTextField: NSTextField!
     
-    let invoiceSettingsInteractor = InvoiceSettingsInteractor()
+    let invoiceSettingsInteractor = InvoiceSettingsFacade()
     
     @IBOutlet weak var helpText: NSTextField!
     

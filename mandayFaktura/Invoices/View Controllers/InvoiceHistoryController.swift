@@ -20,13 +20,13 @@ struct ViewControllerConstants {
 class ViewController: NSViewController {
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
     var invoiceHistoryTableViewDelegate:InvoiceHistoryTableViewDelegate?
-    var invoiceInteractor: InvoiceInteractor?
+    var invoiceInteractor: InvoiceFacade?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeRepositories()
         
-        self.invoiceInteractor = InvoiceInteractor()
+        self.invoiceInteractor = InvoiceFacade()
         invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate(invoiceInteractor: self.invoiceInteractor!)
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewDelegate
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewDelegate

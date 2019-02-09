@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InvoiceNumberingInteractor {
+class InvoiceNumberingFacade {
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
     let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
     

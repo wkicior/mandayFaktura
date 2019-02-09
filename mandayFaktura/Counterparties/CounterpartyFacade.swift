@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CounterpartyInteractor {
+class CounterpartyFacade {
     let counterpartyRepository = CounterpartyRepositoryFactory.instance
     
     func saveSeller(seller: Counterparty) {

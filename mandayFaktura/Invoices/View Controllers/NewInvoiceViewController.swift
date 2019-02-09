@@ -15,7 +15,7 @@ struct NewInvoiceViewControllerConstants {
 
 class NewInvoiceViewController: AbstractInvoiceViewController {
    
-    let invoiceNumberingInteractor = InvoiceNumberingInteractor()
+    let invoiceNumberingInteractor = InvoiceNumberingFacade()
 
     override func viewDidLoad() {
         super.viewDidLoad()

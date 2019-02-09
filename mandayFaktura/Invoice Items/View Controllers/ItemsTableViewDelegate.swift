@@ -38,9 +38,9 @@ extension UnitOfMeasure {
 class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
-    let vatRateInteractor: VatRateInteractor
+    let vatRateInteractor: VatRateFacade
     
-    init(itemsTableView: NSTableView, vatRateInteractor: VatRateInteractor) {
+    init(itemsTableView: NSTableView, vatRateInteractor: VatRateFacade) {
         self.itemsTableView = itemsTableView
         self.vatRateInteractor = vatRateInteractor
         super.init()

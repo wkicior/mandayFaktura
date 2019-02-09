@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class AbstractBuyerController: NSViewController {
-    let counterpartyInteractor = CounterpartyInteractor()
+    let counterpartyInteractor = CounterpartyFacade()
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.isEnabled = false

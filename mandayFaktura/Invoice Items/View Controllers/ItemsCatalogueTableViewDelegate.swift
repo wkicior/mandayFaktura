@@ -20,12 +20,12 @@ fileprivate enum CellIdentifiers {
 
 class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
    
-    let invoiceItemDefinitionInteractor: InvoiceItemDefinitionInteractor
+    let invoiceItemDefinitionInteractor: InvoiceItemDefinitionFacade
     let itemsTableView: NSTableView
-    let vatRateInteractor: VatRateInteractor
+    let vatRateInteractor: VatRateFacade
     var items: [ItemDefinition] = []
     
-    init(itemsTableView: NSTableView, vatRateInteractor: VatRateInteractor, invoiceItemDefinitionInteractor: InvoiceItemDefinitionInteractor) {
+    init(itemsTableView: NSTableView, vatRateInteractor: VatRateFacade, invoiceItemDefinitionInteractor: InvoiceItemDefinitionFacade) {
         self.itemsTableView = itemsTableView
         self.vatRateInteractor = vatRateInteractor
         self.invoiceItemDefinitionInteractor = invoiceItemDefinitionInteractor

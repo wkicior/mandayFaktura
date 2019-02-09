@@ -14,11 +14,11 @@ fileprivate enum CellIdentifiers {
 }
 
 class BuyersTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let counterpartyInteractor: CounterpartyInteractor
+    let counterpartyInteractor: CounterpartyFacade
     
     var buyers: [Counterparty] = []
     
-    init(counterpartyInteractor: CounterpartyInteractor) {
+    init(counterpartyInteractor: CounterpartyFacade) {
         self.counterpartyInteractor = counterpartyInteractor
         self.buyers = counterpartyInteractor.getBuyers()
     }

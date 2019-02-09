@@ -14,7 +14,7 @@ class BuyersCatalogueViewController: NSViewController {
     @IBOutlet weak var deleteBuyerButton: NSButton!
     
     var buyersTableViewDelegate: BuyersTableViewDelegate?
-    let counterpartyInteractor = CounterpartyInteractor()
+    let counterpartyInteractor = CounterpartyFacade()
     
     override func viewDidLoad() {
         super.viewDidLoad()

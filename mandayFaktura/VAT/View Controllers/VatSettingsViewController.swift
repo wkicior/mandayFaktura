@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class VatSettingsViewController: NSViewController {
-    let vatRateInteractor = VatRateInteractor()
+    let vatRateInteractor = VatRateFacade()
     var vatRatesTableViewDelegate: VatRatesTableViewDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()

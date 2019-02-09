@@ -22,10 +22,10 @@ fileprivate enum CellIdentifiers {
  Fetches the data from the model invoicesRepository protocol
  */
 class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let invoiceInteractor: InvoiceInteractor
+    let invoiceInteractor: InvoiceFacade
     let dateFormatter = DateFormatter()
     
-    init(invoiceInteractor: InvoiceInteractor) {
+    init(invoiceInteractor: InvoiceFacade) {
         self.invoiceInteractor = invoiceInteractor
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short

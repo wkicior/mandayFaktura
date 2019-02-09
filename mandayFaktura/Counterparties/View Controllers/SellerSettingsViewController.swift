@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class SellerSettingsViewController: NSViewController {
-    let counterpartyInteractor = CounterpartyInteractor()
+    let counterpartyInteractor = CounterpartyFacade()
     @IBOutlet weak var streetAndNumberTextField: NSTextField!
     @IBOutlet weak var nameTextField: NSTextField!
     @IBOutlet weak var postalCodeTextField: NSTextField!

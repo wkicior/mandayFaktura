@@ -34,31 +34,31 @@ class VatRateRepositoryMocked: VatRateRepository {
 class VatRateInteractorTests: XCTestCase {
     let vatRateRepositoryMocked = VatRateRepositoryMocked()
     func testGetVatRates() {
-        let vatRateInteractor = VatRateInteractor(vatRateRepository: vatRateRepositoryMocked)
+        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
         let vatRates:[VatRate] = vatRateInteractor.getVatRates()
         XCTAssertEqual(vatRateRepositoryMocked.getVatRates(), vatRates)
     }
     
     func testDelete() {
-        let vatRateInteractor = VatRateInteractor(vatRateRepository: vatRateRepositoryMocked)
+        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
         vatRateInteractor.delete(VatRate(value: 0))
         XCTAssertTrue(vatRateRepositoryMocked.deleteCalled)
     }
     
     func testSetDefault_unsetsDefault() {
-        let vatRateInteractor = VatRateInteractor(vatRateRepository: vatRateRepositoryMocked)
+        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
         vatRateInteractor.setDefault(isDefault: false, vatRate: VatRate(value: 0, isDefault: true))
         XCTAssertFalse(vatRateRepositoryMocked.vatRates[0].isDefault)
     }
     
     func testSetDefault_setsDefaultForOnlyOneElement() {
-        let vatRateInteractor = VatRateInteractor(vatRateRepository: vatRateRepositoryMocked)
+        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
         vatRateInteractor.setDefault(isDefault: true, vatRate: VatRate(value: 0))
         XCTAssertTrue(vatRateRepositoryMocked.vatRates[0].isDefault)
     }
     
     func testSetDefault_setsDefaultForSelectedElementAndUnsetsForTheRest() {
-        let vatRateInteractor = VatRateInteractor(vatRateRepository: vatRateRepositoryMocked)
+        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
         let vatRates = [VatRate(value: 1, isDefault: true), VatRate(value: 0)]
         vatRateRepositoryMocked.saveVatRates(vatRates: vatRates)
         vatRateInteractor.setDefault(isDefault: true, vatRate: VatRate(value: 0))

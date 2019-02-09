@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InvoiceItemDefinitionInteractor {
+class InvoiceItemDefinitionFacade {
     let itemDefinitionRepository = ItemDefinitionRepositoryFactory.instance
     
     func getItemDefinitions() -> [ItemDefinition] {

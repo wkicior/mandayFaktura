@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class InvoiceNumberingSettingsViewController: NSViewController {
-    let invoiceNumberingInteractor = InvoiceNumberingInteractor()
+    let invoiceNumberingInteractor = InvoiceNumberingFacade()
     @IBOutlet weak var separatorTextField: NSTextField!
     @IBOutlet weak var fixedPartTextField: NSTextField!
     @IBOutlet weak var dragOrderingDestination: DragOrderingDestination!

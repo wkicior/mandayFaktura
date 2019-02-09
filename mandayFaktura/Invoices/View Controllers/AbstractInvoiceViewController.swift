@@ -9,11 +9,11 @@
 import Cocoa
 
 class AbstractInvoiceViewController: NSViewController {
-    let invoiceInteractor = InvoiceInteractor()
-    let itemDefinitionInteractor = InvoiceItemDefinitionInteractor()
-    let counterpartyInteractor = CounterpartyInteractor()
-    let vatRateInteractor = VatRateInteractor()
-    let invoiceSettingsInteractor = InvoiceSettingsInteractor()
+    let invoiceInteractor = InvoiceFacade()
+    let itemDefinitionInteractor = InvoiceItemDefinitionFacade()
+    let counterpartyInteractor = CounterpartyFacade()
+    let vatRateInteractor = VatRateFacade()
+    let invoiceSettingsInteractor = InvoiceSettingsFacade()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()

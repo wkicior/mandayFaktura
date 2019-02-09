@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VatRateInteractor {
+class VatRateFacade {
     let vatRateRepository: VatRateRepository
     
     init() {

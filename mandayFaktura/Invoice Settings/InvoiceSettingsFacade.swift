@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class InvoiceSettingsInteractor {
+class InvoiceSettingsFacade {
     let invoiceSettingsRepository: InvoiceSettingsRepository = InvoiceSettingsRepositoryFactory.instance
     
     func getInvoiceSettings() -> InvoiceSettings? {

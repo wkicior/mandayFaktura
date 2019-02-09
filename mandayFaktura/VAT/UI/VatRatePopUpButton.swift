@@ -13,7 +13,7 @@ import Cocoa
  * PopUpButton which initializes itself with available vat rates from the repository
  */
 class VatRatePopUpButton: NSPopUpButton {
-    let vatRateInteractor = VatRateInteractor()
+    let vatRateInteractor = VatRateFacade()
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         let vatRates = vatRateInteractor.getVatRates()

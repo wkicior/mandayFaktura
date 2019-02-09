@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InvoiceInteractor {
+class InvoiceFacade {
     let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
     
     func getInvoices() -> [Invoice] {
