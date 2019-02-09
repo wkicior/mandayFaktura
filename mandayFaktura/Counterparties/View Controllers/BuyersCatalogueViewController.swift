@@ -79,7 +79,7 @@ class BuyersCatalogueViewController: NSViewController {
     }
     
     @objc func onTableViewClicked(sender: AnyObject) {
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "editBuyerSegue"), sender: sender)
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier("editBuyerSegue"), sender: sender)
     }
     
     override func keyDown(with: NSEvent) {

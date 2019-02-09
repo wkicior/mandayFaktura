@@ -34,7 +34,7 @@ class OrderingDragSource: NSView {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.view
+        //self.view
         self.layer?.backgroundColor = NSColor.lightGray.cgColor
         self.layer?.borderWidth = 2
         self.layer?.borderColor = NSColor.systemBlue.cgColor

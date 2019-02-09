@@ -89,7 +89,7 @@ class ViewController: NSViewController {
         alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-            performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "editInvoiceSegue"), sender: nil)
+            performSegue(withIdentifier: NSStoryboardSegue.Identifier("editInvoiceSegue"), sender: nil)
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
             return
         }
@@ -115,7 +115,7 @@ class ViewController: NSViewController {
     }
     
     @objc func onTableViewClicked(sender: AnyObject) {
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showPdfViewSegue"), sender: sender)
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier("showPdfViewSegue"), sender: sender)
     }
     
     

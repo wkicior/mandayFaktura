@@ -36,7 +36,7 @@ class InvoiceItemTagAnimation {
         animationLayer.removeAllAnimations()
         
         let animation = CAKeyframeAnimation(keyPath: "position")
-        animation.calculationMode = kCAAnimationLinear
+        animation.calculationMode = CAAnimationCalculationMode.linear
         animation.path = path
      
         animation.duration = 0.5

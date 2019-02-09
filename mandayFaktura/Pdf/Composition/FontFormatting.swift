@@ -11,11 +11,11 @@ import Quartz
 
 
 class FontFormatting {
-    let fontAttributesBoldLeft: [NSAttributedStringKey: Any]
-    let fontAttributesLeft: [NSAttributedStringKey: Any]
-    let fontAttributesHeaderLeft: [NSAttributedStringKey: Any]
-    let fontAttributesCenter: [NSAttributedStringKey: Any]
-    let fontAttributesBoldCenter: [NSAttributedStringKey: Any]
+    let fontAttributesBoldLeft: [NSAttributedString.Key: NSObject]
+    let fontAttributesLeft: [NSAttributedString.Key: NSObject]
+    let fontAttributesHeaderLeft: [NSAttributedString.Key: NSObject]
+    let fontAttributesCenter: [NSAttributedString.Key: NSObject]
+    let fontAttributesBoldCenter: [NSAttributedString.Key: NSObject]
 
     
     private let paragraphStyleLeft = NSMutableParagraphStyle()
@@ -31,28 +31,28 @@ class FontFormatting {
         paragraphStyleCenter.alignment = .center
 
         fontAttributesBoldLeft = [
-            NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleLeft,
+            NSAttributedString.Key.font: fontBold ?? NSFont.labelFont(ofSize: 12),
+            NSAttributedString.Key.paragraphStyle:paragraphStyleLeft,
         ]
         
         fontAttributesLeft = [
-            NSAttributedStringKey.font: font ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleLeft,
+            NSAttributedString.Key.font: font ?? NSFont.labelFont(ofSize: 12),
+            NSAttributedString.Key.paragraphStyle:paragraphStyleLeft,
         ]
         
         fontAttributesHeaderLeft = [
-            NSAttributedStringKey.font: fontHeader ?? NSFont.labelFont(ofSize: 18),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleLeft,
+            NSAttributedString.Key.font: fontHeader ?? NSFont.labelFont(ofSize: 18),
+            NSAttributedString.Key.paragraphStyle:paragraphStyleLeft,
         ]
         
         fontAttributesCenter = [
-            NSAttributedStringKey.font: font ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleCenter
+            NSAttributedString.Key.font: font ?? NSFont.labelFont(ofSize: 12),
+            NSAttributedString.Key.paragraphStyle:paragraphStyleCenter
         ]
         
         fontAttributesBoldCenter = [
-            NSAttributedStringKey.font: fontBold ?? NSFont.labelFont(ofSize: 12),
-            NSAttributedStringKey.paragraphStyle:paragraphStyleCenter,
+            NSAttributedString.Key.font: fontBold ?? NSFont.labelFont(ofSize: 12),
+            NSAttributedString.Key.paragraphStyle:paragraphStyleCenter,
         ]
     }
 }

@@ -49,7 +49,7 @@ class DragOrderingDestination: NSView {
     
     func shouldAllowDrag(_ draggingInfo: NSDraggingInfo) -> Bool {
         var canAccept = false
-        let pasteBoard = draggingInfo.draggingPasteboard()
+        let pasteBoard = draggingInfo.draggingPasteboard
         if let types = pasteBoard.types, acceptableTypes.intersection(types).count > 0 {
             canAccept = true
         }
@@ -79,8 +79,8 @@ class DragOrderingDestination: NSView {
     
     override func performDragOperation(_ draggingInfo: NSDraggingInfo) -> Bool {
         isReceivingDrag = false
-        let pasteBoard = draggingInfo.draggingPasteboard()
-        let point = convert(draggingInfo.draggingLocation(), from: nil)
+        let pasteBoard = draggingInfo.draggingPasteboard
+        let point = convert(draggingInfo.draggingLocation, from: nil)
         if let types = pasteBoard.types, types.contains(OrderingDragSource.type),
             let action = pasteBoard.string(forType: OrderingDragSource.type) {
             delegate?.processAction(NumberingSegmentType(rawValue: action)!, center:point)
