@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class SellerSettingsViewController: NSViewController {
-    let counterpartyInteractor = CounterpartyFacade()
+    let counterpartyFacade = CounterpartyFacade()
     @IBOutlet weak var streetAndNumberTextField: NSTextField!
     @IBOutlet weak var nameTextField: NSTextField!
     @IBOutlet weak var postalCodeTextField: NSTextField!
@@ -18,16 +18,15 @@ class SellerSettingsViewController: NSViewController {
     @IBOutlet weak var taxCodeTextField: NSTextField!
     @IBOutlet weak var accountNumberTextField: NSTextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let seller = counterpartyFacade.getSeller()
+        fillFieldsFromSeller(seller)
+    }
+    
     @IBAction func saveButtonClicked(_ sender: NSButton) {
-        let counterparty = aCounterparty()
-            .withName(nameTextField.stringValue)
-            .withCity(cityTextCode.stringValue)
-            .withTaxCode(taxCodeTextField.stringValue)
-            .withPostalCode(postalCodeTextField.stringValue)
-            .withAccountNumber(accountNumberTextField.stringValue)
-            .withStreetAndNumber(streetAndNumberTextField.stringValue)
-            .build()
-        counterpartyInteractor.saveSeller(seller: counterparty)
+        let counterparty = buildSellerFromFields()
+        counterpartyFacade.saveSeller(seller: counterparty)
         view.window?.close()
     }
     
@@ -35,14 +34,23 @@ class SellerSettingsViewController: NSViewController {
         view.window?.close()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let seller = counterpartyInteractor.getSeller()
+    fileprivate func fillFieldsFromSeller(_ seller: Counterparty?) {
         nameTextField.stringValue = seller?.name ?? ""
         streetAndNumberTextField.stringValue = seller?.streetAndNumber ?? ""
         postalCodeTextField.stringValue = seller?.postalCode ?? ""
         cityTextCode.stringValue = seller?.city ?? ""
         taxCodeTextField.stringValue = seller?.taxCode ?? ""
         accountNumberTextField.stringValue = seller?.accountNumber ?? ""
+    }
+    
+    fileprivate func buildSellerFromFields() -> Counterparty {
+        return aCounterparty()
+            .withName(nameTextField.stringValue)
+            .withCity(cityTextCode.stringValue)
+            .withTaxCode(taxCodeTextField.stringValue)
+            .withPostalCode(postalCodeTextField.stringValue)
+            .withAccountNumber(accountNumberTextField.stringValue)
+            .withStreetAndNumber(streetAndNumberTextField.stringValue)
+            .build()
     }
 }

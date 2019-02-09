@@ -1,5 +1,5 @@
 //
-//  VatRateInteractor.swift
+//  VatRateFacade.swift
 //  mandayFaktura
 //
 //  Created by Wojciech Kicior on 19.05.2018.

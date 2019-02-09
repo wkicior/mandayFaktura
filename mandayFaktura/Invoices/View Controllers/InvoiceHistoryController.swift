@@ -20,14 +20,14 @@ struct ViewControllerConstants {
 class ViewController: NSViewController {
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
     var invoiceHistoryTableViewDelegate:InvoiceHistoryTableViewDelegate?
-    var invoiceInteractor: InvoiceFacade?
+    var invoiceFacade: InvoiceFacade?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeRepositories()
         
-        self.invoiceInteractor = InvoiceFacade()
-        invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate(invoiceInteractor: self.invoiceInteractor!)
+        self.invoiceFacade = InvoiceFacade()
+        invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate(invoiceFacade: self.invoiceFacade!)
         invoiceHistoryTableView.delegate = invoiceHistoryTableViewDelegate
         invoiceHistoryTableView.dataSource = invoiceHistoryTableViewDelegate
         
@@ -73,7 +73,7 @@ class ViewController: NSViewController {
         alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-            invoiceInteractor!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
+            invoiceFacade!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
             self.invoiceHistoryTableView.reloadData()
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
            return

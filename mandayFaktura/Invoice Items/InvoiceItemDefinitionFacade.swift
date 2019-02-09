@@ -1,5 +1,5 @@
 //
-//  InvoiceItemDefinitionInteractor.swift
+//  InvoiceItemDefinitionFacade.swift
 //  mandayFaktura
 //
 //  Created by Wojciech Kicior on 21.05.2018.

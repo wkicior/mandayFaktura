@@ -1,5 +1,5 @@
 //
-//  VatRateInteractorTests.swift
+//  VatRateFacadeTests.swift
 //  mandayFakturaTests
 //
 //  Created by Wojciech Kicior on 19.05.2018.
@@ -31,37 +31,37 @@ class VatRateRepositoryMocked: VatRateRepository {
     }
 }
 
-class VatRateInteractorTests: XCTestCase {
+class VatRateFacadeTests: XCTestCase {
     let vatRateRepositoryMocked = VatRateRepositoryMocked()
     func testGetVatRates() {
-        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
-        let vatRates:[VatRate] = vatRateInteractor.getVatRates()
+        let vatRateFacade = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
+        let vatRates:[VatRate] = vatRateFacade.getVatRates()
         XCTAssertEqual(vatRateRepositoryMocked.getVatRates(), vatRates)
     }
     
     func testDelete() {
-        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
-        vatRateInteractor.delete(VatRate(value: 0))
+        let vatRateFacade = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
+        vatRateFacade.delete(VatRate(value: 0))
         XCTAssertTrue(vatRateRepositoryMocked.deleteCalled)
     }
     
     func testSetDefault_unsetsDefault() {
-        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
-        vatRateInteractor.setDefault(isDefault: false, vatRate: VatRate(value: 0, isDefault: true))
+        let vatRateFacade = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
+        vatRateFacade.setDefault(isDefault: false, vatRate: VatRate(value: 0, isDefault: true))
         XCTAssertFalse(vatRateRepositoryMocked.vatRates[0].isDefault)
     }
     
     func testSetDefault_setsDefaultForOnlyOneElement() {
-        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
-        vatRateInteractor.setDefault(isDefault: true, vatRate: VatRate(value: 0))
+        let vatRateFacade = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
+        vatRateFacade.setDefault(isDefault: true, vatRate: VatRate(value: 0))
         XCTAssertTrue(vatRateRepositoryMocked.vatRates[0].isDefault)
     }
     
     func testSetDefault_setsDefaultForSelectedElementAndUnsetsForTheRest() {
-        let vatRateInteractor = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
+        let vatRateFacade = VatRateFacade(vatRateRepository: vatRateRepositoryMocked)
         let vatRates = [VatRate(value: 1, isDefault: true), VatRate(value: 0)]
         vatRateRepositoryMocked.saveVatRates(vatRates: vatRates)
-        vatRateInteractor.setDefault(isDefault: true, vatRate: VatRate(value: 0))
+        vatRateFacade.setDefault(isDefault: true, vatRate: VatRate(value: 0))
         XCTAssertFalse(vatRateRepositoryMocked.vatRates[0].isDefault)
         XCTAssertTrue(vatRateRepositoryMocked.vatRates[1].isDefault)
     }

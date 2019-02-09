@@ -13,10 +13,10 @@ import Cocoa
  * PopUpButton which initializes itself with available vat rates from the repository
  */
 class VatRatePopUpButton: NSPopUpButton {
-    let vatRateInteractor = VatRateFacade()
+    let vatRateFacade = VatRateFacade()
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        let vatRates = vatRateInteractor.getVatRates()
+        let vatRates = vatRateFacade.getVatRates()
         vatRates.map({vr in vr.literal}).forEach({vr in self.addItem(withTitle: vr)})
         self.itemArray.forEach({item in item.tag = vatRates.index(where : {vr in vr.literal == item.title})!})
     }

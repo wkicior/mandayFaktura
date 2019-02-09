@@ -28,7 +28,7 @@ class EditBuyerController: AbstractBuyerController {
     
     @IBAction func onSaveButtonClickedAction(_ sender: Any) {
         let newBuyer = getBuyer()
-        counterpartyInteractor.replaceBuyer(buyer!, with: newBuyer)
+        counterpartyFacade.replaceBuyer(buyer!, with: newBuyer)
         NotificationCenter.default.post(name: EditBuyerViewControllerConstants.BUYER_EDITED_NOTIFICATION, object: newBuyer)
         view.window?.close()
     }

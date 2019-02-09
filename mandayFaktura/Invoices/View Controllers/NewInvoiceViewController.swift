@@ -15,17 +15,17 @@ struct NewInvoiceViewControllerConstants {
 
 class NewInvoiceViewController: AbstractInvoiceViewController {
    
-    let invoiceNumberingInteractor = InvoiceNumberingFacade()
+    let invoiceNumberingFacade = InvoiceNumberingFacade()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         checkPreviewButtonEnabled()
-        self.numberTextField.stringValue = invoiceNumberingInteractor.getNextInvoiceNumber()
+        self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
     }
     
     var invoice: Invoice {
         get {
-            let seller = self.counterpartyInteractor.getSeller() ?? Counterparty(name: "Firma XYZ", streetAndNumber: "Ulica 1/2", city: "Gdańsk", postalCode: "00-000", taxCode: "123456789", accountNumber: "00 1234 0000 5555 7777", additionalInfo: "")
+            let seller = self.counterpartyFacade.getSeller() ?? defaultSeller()
             let buyer = getBuyer()
             return InvoiceBuilder()
                 .withIssueDate(issueDatePicker.dateValue)
@@ -44,13 +44,14 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         do {
             try addBuyerToHistory(invoice: invoice)
-            try invoiceInteractor.addInvoice(invoice)
+            try invoiceFacade.addInvoice(invoice)
             NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
             view.window?.close()
         } catch is UserAbortError {
             //
         } catch InvoiceExistsError.invoiceNumber(let number)  {
-            WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje",
+                text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
         } catch {
             //
         }
@@ -73,5 +74,16 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 vc.relatedDatePicker = self.dueDatePicker
             }
         }
+    }
+    
+    fileprivate func defaultSeller() -> Counterparty {
+        return aCounterparty()
+            .withName("Firma XYZ")
+            .withStreetAndNumber("Ulica 1/2")
+            .withCity("Gdańsk")
+            .withPostalCode("00-000")
+            .withTaxCode("123456789")
+            .withAccountNumber("00 1234 0000 5555 7777")
+            .build()
     }
 }

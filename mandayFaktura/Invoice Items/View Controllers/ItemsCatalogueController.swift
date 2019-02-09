@@ -11,16 +11,16 @@ import Cocoa
 class ItemsCatalogueController: NSViewController {
     var itemsCatalogueTableViewDelegate: ItemsCatalogueTableViewDelegate?
     var invoiceController: AbstractInvoiceViewController?
-    let vatRateInteractor = VatRateFacade()
-    let invoiceItemDefinitionInteractor = InvoiceItemDefinitionFacade()
+    let vatRateFacade = VatRateFacade()
+    let invoiceItemDefinitionFacade = InvoiceItemDefinitionFacade()
     @IBOutlet weak var itemsTableView: NSTableView!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var removeItemButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         itemsCatalogueTableViewDelegate = ItemsCatalogueTableViewDelegate(itemsTableView: itemsTableView,
-                                                                          vatRateInteractor: vatRateInteractor,
-                                                                          invoiceItemDefinitionInteractor: invoiceItemDefinitionInteractor)
+                                                                          vatRateFacade: vatRateFacade,
+                                                                          invoiceItemDefinitionFacade: invoiceItemDefinitionFacade)
         itemsTableView.delegate = itemsCatalogueTableViewDelegate
         itemsTableView.dataSource = itemsCatalogueTableViewDelegate
         itemsTableView.doubleAction = #selector(onTableViewDoubleClicked)
@@ -87,7 +87,7 @@ extension ItemsCatalogueController {
     
     @IBAction func onAddItemDefinition(_ sender: Any) {
         self.removeItemButton.isEnabled = false
-        let defaultVatRate = self.vatRateInteractor.getDefaultVatRate() ?? VatRate(value: 0)
+        let defaultVatRate = self.vatRateFacade.getDefaultVatRate() ?? VatRate(value: 0)
         self.itemsCatalogueTableViewDelegate!.addItemDefinition(defaultVatRate: defaultVatRate)
         safeReloadData()
         self.saveButton.isEnabled = false
@@ -100,7 +100,7 @@ extension ItemsCatalogueController {
     }
     
     @IBAction func onVatRateInPercentChange(_ sender: NSPopUpButton) {
-        let vatRates = self.vatRateInteractor.getVatRates()
+        let vatRates = self.vatRateFacade.getVatRates()
         if !vatRates.isEmpty {
             let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
             self.itemsCatalogueTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)

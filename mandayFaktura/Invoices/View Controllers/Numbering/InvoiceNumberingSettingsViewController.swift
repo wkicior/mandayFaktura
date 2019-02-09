@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 class InvoiceNumberingSettingsViewController: NSViewController {
-    let invoiceNumberingInteractor = InvoiceNumberingFacade()
+    let invoiceNumberingFacade = InvoiceNumberingFacade()
     @IBOutlet weak var separatorTextField: NSTextField!
     @IBOutlet weak var fixedPartTextField: NSTextField!
     @IBOutlet weak var dragOrderingDestination: DragOrderingDestination!
@@ -24,7 +24,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let numberingSettings = invoiceNumberingInteractor.getInvoiceNumberingSettings()
+        let numberingSettings = invoiceNumberingFacade.getInvoiceNumberingSettings()
         self.separatorTextField.stringValue = (numberingSettings?.separator) ?? ""
         dragOrderingDestination.delegate = self
         self.segments = numberingSettings?.segments ?? []
@@ -39,7 +39,7 @@ class InvoiceNumberingSettingsViewController: NSViewController {
     
     @IBAction func onSaveButtonClicked(_ sender: Any) {
         let settings = InvoiceNumberingSettings(separator: separatorTextField.stringValue, segments: segments, resetOnYearChange: self.resetNumberOnYearChangeCheckbox.state == NSControl.StateValue.on)
-        invoiceNumberingInteractor.save(invoiceNumberingSettings: settings)
+        invoiceNumberingFacade.save(invoiceNumberingSettings: settings)
         view.window?.close()
     }
     

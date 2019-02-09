@@ -38,12 +38,16 @@ extension UnitOfMeasure {
 class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let itemsTableView: NSTableView
     var items = [InvoiceItem]()
-    let vatRateInteractor: VatRateFacade
+    let vatRateFacade: VatRateFacade
     
-    init(itemsTableView: NSTableView, vatRateInteractor: VatRateFacade) {
+    init(itemsTableView: NSTableView, vatRateFacade: VatRateFacade) {
         self.itemsTableView = itemsTableView
-        self.vatRateInteractor = vatRateInteractor
+        self.vatRateFacade = vatRateFacade
         super.init()
+    }
+    
+    func anyItemHasEmptyName() -> Bool {
+     return items.map({i in i.hasEmptyName()}).reduce(false, { (r, s) -> Bool in r || s})
     }
    
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -74,7 +78,7 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            if let index = (self.vatRateInteractor.getVatRates().index {vr in vr.literal == item.vatRate.literal}) {
+            if let index = (self.vatRateFacade.getVatRates().index {vr in vr.literal == item.vatRate.literal}) {
                 cell.selectItem(at: index)
             } else {
                 // exceptionally add vat rate which does not exist in settings anymore
@@ -142,7 +146,7 @@ extension ItemsTableViewDelegate {
     }
     
     func addItem() {
-        let defaultVatRate = self.vatRateInteractor.getDefaultVatRate()
+        let defaultVatRate = self.vatRateFacade.getDefaultVatRate()
         items.append(anInvoiceItem().withAmount(Decimal(1))
             .withVatRate(defaultVatRate ?? VatRate(value: Decimal()))
             .withUnitOfMeasure(.pieces).build())

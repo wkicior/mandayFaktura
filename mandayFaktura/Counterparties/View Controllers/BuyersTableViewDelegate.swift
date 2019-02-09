@@ -14,13 +14,13 @@ fileprivate enum CellIdentifiers {
 }
 
 class BuyersTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let counterpartyInteractor: CounterpartyFacade
+    let counterpartyFacade: CounterpartyFacade
     
     var buyers: [Counterparty] = []
     
-    init(counterpartyInteractor: CounterpartyFacade) {
-        self.counterpartyInteractor = counterpartyInteractor
-        self.buyers = counterpartyInteractor.getBuyers()
+    init(counterpartyFacade: CounterpartyFacade) {
+        self.counterpartyFacade = counterpartyFacade
+        self.buyers = counterpartyFacade.getBuyers()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -51,11 +51,11 @@ class BuyersTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDeleg
     }
     
     func save() {
-        self.counterpartyInteractor.saveBuyers(buyers)
+        self.counterpartyFacade.saveBuyers(buyers)
     }
     
     func reloadData() {
-        self.buyers = counterpartyInteractor.getBuyers()
+        self.buyers = counterpartyFacade.getBuyers()
     }
     
     func getSelectedBuyer(index: Int) -> Counterparty {

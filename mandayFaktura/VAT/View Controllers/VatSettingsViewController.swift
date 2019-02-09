@@ -10,17 +10,19 @@ import Foundation
 import Cocoa
 
 class VatSettingsViewController: NSViewController {
-    let vatRateInteractor = VatRateFacade()
+    let vatRateFacade = VatRateFacade()
     var vatRatesTableViewDelegate: VatRatesTableViewDelegate?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        vatRatesTableViewDelegate = VatRatesTableViewDelegate(vatRatesTableView: vatTableView, vatRates: vatRateInteractor.getVatRates())
-        self.vatTableView.delegate = vatRatesTableViewDelegate!
-        self.vatTableView.dataSource = vatRatesTableViewDelegate!
-    }
+   
     @IBOutlet weak var vatTableView: NSTableView!
     @IBOutlet weak var addVatRateButton: NSButton!
     @IBOutlet weak var removeVatRateButton: NSButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        vatRatesTableViewDelegate = VatRatesTableViewDelegate(vatRatesTableView: vatTableView, vatRates: vatRateFacade.getVatRates())
+        self.vatTableView.delegate = vatRatesTableViewDelegate!
+        self.vatTableView.dataSource = vatRatesTableViewDelegate!
+    }
     
     @IBAction func onAddVatRateButtonClicked(_ sender: NSButton) {
         vatRatesTableViewDelegate?.addVatRate()
@@ -28,7 +30,7 @@ class VatSettingsViewController: NSViewController {
     }
     @IBAction func onDeleteVatRateButtonClicked(_ sender: NSButton) {
         if let vatRate = vatRatesTableViewDelegate!.getSelectedVatRate() {
-             self.vatRateInteractor.delete(vatRate)
+             self.vatRateFacade.delete(vatRate)
         }
         self.vatTableView.reloadData()
         setRemoveItemAvailability()
@@ -43,13 +45,13 @@ class VatSettingsViewController: NSViewController {
     @IBAction func onDefaultRateCheckboxChanged(_ sender: NSButton) {
         let checked: Bool = sender.state == NSControl.StateValue.on
         let vatRate = vatRatesTableViewDelegate?.vatRates[sender.tag]
-        vatRateInteractor.setDefault(isDefault: checked, vatRate: vatRate!)
-        vatRatesTableViewDelegate!.setVatRates(vatRateInteractor.getVatRates())
+        vatRateFacade.setDefault(isDefault: checked, vatRate: vatRate!)
+        vatRatesTableViewDelegate!.setVatRates(vatRateFacade.getVatRates())
 
     }
     @IBAction func onVatRateChanged(_ sender: NSTextFieldCell) {
         let vatRate: VatRate = VatRate(string: sender.stringValue)
         vatRatesTableViewDelegate!.updateVatRate(vatRate)
-        self.vatRateInteractor.saveVatRates(vatRates: vatRatesTableViewDelegate!.vatRates)
+        self.vatRateFacade.saveVatRates(vatRates: vatRatesTableViewDelegate!.vatRates)
     }
 }

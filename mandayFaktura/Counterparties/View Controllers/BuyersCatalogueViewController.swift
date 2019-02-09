@@ -14,11 +14,11 @@ class BuyersCatalogueViewController: NSViewController {
     @IBOutlet weak var deleteBuyerButton: NSButton!
     
     var buyersTableViewDelegate: BuyersTableViewDelegate?
-    let counterpartyInteractor = CounterpartyFacade()
+    let counterpartyFacade = CounterpartyFacade()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buyersTableViewDelegate = BuyersTableViewDelegate(counterpartyInteractor: counterpartyInteractor)
+        buyersTableViewDelegate = BuyersTableViewDelegate(counterpartyFacade: counterpartyFacade)
         buyersTableView.delegate = buyersTableViewDelegate
         buyersTableView.dataSource = buyersTableViewDelegate
         self.deleteBuyerButton.isEnabled = false

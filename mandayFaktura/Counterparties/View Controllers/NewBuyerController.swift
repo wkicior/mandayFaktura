@@ -21,7 +21,7 @@ class NewBuyerController: AbstractBuyerController {
     
     @IBAction func onSaveButtonClickedAction(_ sender: Any) {
         let buyer = getBuyer()
-        counterpartyInteractor.addBuyer(buyer: buyer)
+        counterpartyFacade.addBuyer(buyer: buyer)
         NotificationCenter.default.post(name: NewBuyerViewControllerConstants.BUYER_ADDED_NOTIFICATION, object: buyer)
         view.window?.close()
     }

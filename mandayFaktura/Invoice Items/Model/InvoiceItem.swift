@@ -15,6 +15,10 @@ struct InvoiceItem {
     let unitNetPrice: Decimal
     let vatRate: VatRate
     
+    func hasEmptyName() -> Bool {
+        return name.isEmpty
+    }
+    
     var netValue: Decimal {
         get {
             var netValue = amount * unitNetPrice

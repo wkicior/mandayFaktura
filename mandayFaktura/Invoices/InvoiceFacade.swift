@@ -1,5 +1,5 @@
 //
-//  InvoiceInteractor.swift
+//  InvoiceFacade.swift
 //  mandayFaktura
 //
 //  Created by Wojciech Kicior on 22.05.2018.

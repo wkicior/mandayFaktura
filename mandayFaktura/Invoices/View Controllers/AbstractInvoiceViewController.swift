@@ -9,11 +9,11 @@
 import Cocoa
 
 class AbstractInvoiceViewController: NSViewController {
-    let invoiceInteractor = InvoiceFacade()
-    let itemDefinitionInteractor = InvoiceItemDefinitionFacade()
-    let counterpartyInteractor = CounterpartyFacade()
-    let vatRateInteractor = VatRateFacade()
-    let invoiceSettingsInteractor = InvoiceSettingsFacade()
+    let invoiceFacade = InvoiceFacade()
+    let itemDefinitionFacade = InvoiceItemDefinitionFacade()
+    let counterpartyFacade = CounterpartyFacade()
+    let vatRateFacade = VatRateFacade()
+    let invoiceSettingsFacade = InvoiceSettingsFacade()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController =  BuyerAutoSavingController()
@@ -43,16 +43,16 @@ class AbstractInvoiceViewController: NSViewController {
         issueDatePicker.dateValue = Date()
         sellingDatePicker.dateValue = Date()
         dueDatePicker.dateValue = Calendar.current.date(byAdding: .day, value: 14, to: Date())!
-        itemsTableViewDelegate = ItemsTableViewDelegate(itemsTableView: itemsTableView, vatRateInteractor: vatRateInteractor)
+        itemsTableViewDelegate = ItemsTableViewDelegate(itemsTableView: itemsTableView, vatRateFacade: vatRateFacade)
         itemsTableView.delegate = itemsTableViewDelegate
         itemsTableView.dataSource = itemsTableViewDelegate
         self.removeItemButton.isEnabled = false
-        self.counterpartyInteractor.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
+        self.counterpartyFacade.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
         self.saveItemButton.isEnabled = false
         self.checkSaveButtonEnabled()
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
-        let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
+        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         dueDatePicker.dateValue = invoiceSettings.getDueDate(issueDate: issueDatePicker.dateValue, sellDate: sellingDatePicker.dateValue)
         notesTextField.stringValue = invoiceSettings.defaultNotes
     }
@@ -68,7 +68,7 @@ extension AbstractInvoiceViewController {
     
     internal func checkSaveButtonEnabled() {
         self.saveButton.isEnabled = self.itemsTableView.numberOfRows > 0
-            && !(self.itemsTableViewDelegate?.items.map({i in i.name.isEmpty}).reduce(false, { (r, s) -> Bool in r || s}))!
+            && !(self.itemsTableViewDelegate?.anyItemHasEmptyName())!
             && !self.numberTextField.stringValue.isEmpty
             && !self.buyerNameTextField.stringValue.isEmpty
             && !self.streetAndNumberTextField.stringValue.isEmpty
@@ -103,7 +103,7 @@ extension AbstractInvoiceViewController {
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
-        let vatRates = self.vatRateInteractor.getVatRates() // this does not contain all values
+        let vatRates = self.vatRateFacade.getVatRates() // this does not contain all values
         if !vatRates.isEmpty {
             let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
             self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
@@ -113,7 +113,7 @@ extension AbstractInvoiceViewController {
     
     @IBAction func onSelectBuyerButtonClicked(_ sender: NSPopUpButton) {
         let buyerName = sender.selectedItem?.title
-        let buyer = self.counterpartyInteractor.getBuyer(name: buyerName!)
+        let buyer = self.counterpartyFacade.getBuyer(name: buyerName!)
         setBuyer(buyer: buyer ?? aCounterparty().build())
         checkSaveButtonEnabled()
     }
@@ -165,7 +165,7 @@ extension AbstractInvoiceViewController {
     
     @IBAction func onTagItemButtonClicked(_ sender: NSButton) {
         let itemDefinition = anItemDefinition().from(item: self.itemsTableViewDelegate!.getSelectedItem()!).build()
-        self.itemDefinitionInteractor.addItemDefinition(itemDefinition)
+        self.itemDefinitionFacade.addItemDefinition(itemDefinition)
         let invoiceItemTagAnimation = InvoiceItemTagAnimation(layer: self.view.layer!, sourceButton: self.saveItemButton, targetButton: self.itemsCataloguqButton)
         invoiceItemTagAnimation.start()
     }
@@ -231,14 +231,14 @@ extension AbstractInvoiceViewController {
 
 extension AbstractInvoiceViewController {
     @IBAction func onIssueDateSelected(_ sender: NSDatePicker) {
-        let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings()
+        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
         if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .issueDate) {
             self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.issueDatePicker.dateValue)
         }
     }
     
     @IBAction func onSellDateSelected(_ sender: NSDatePicker) {
-        let invoiceSettings = self.invoiceSettingsInteractor.getInvoiceSettings()
+        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
         if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .sellDate) {
             self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.sellingDatePicker.dateValue)
         }

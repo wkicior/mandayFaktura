@@ -164,7 +164,7 @@
 		D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BA20377D7800F507AD /* NSColorExtension.swift */; };
 		D37560BD20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */; };
 		D3781B7F20B055D400CA420E /* VatRateFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B7E20B055D400CA420E /* VatRateFacade.swift */; };
-		D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */; };
+		D3781B8120B0562200CA420E /* VatRateFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8020B0562200CA420E /* VatRateFacadeTests.swift */; };
 		D3781B8320B3484100CA420E /* InvoiceItemDefinitionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8220B3484100CA420E /* InvoiceItemDefinitionFacade.swift */; };
 		D3781B8520B34B0000CA420E /* CounterpartyFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8420B34B0000CA420E /* CounterpartyFacade.swift */; };
 		D3781B8720B492B700CA420E /* InvoiceNumberingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8620B492B700CA420E /* InvoiceNumberingFacade.swift */; };
@@ -326,7 +326,7 @@
 		D37560BA20377D7800F507AD /* NSColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
 		D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverInvoiceRepository.swift; sourceTree = "<group>"; };
 		D3781B7E20B055D400CA420E /* VatRateFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateFacade.swift; sourceTree = "<group>"; };
-		D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateInteractorTests.swift; sourceTree = "<group>"; };
+		D3781B8020B0562200CA420E /* VatRateFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRateFacadeTests.swift; sourceTree = "<group>"; };
 		D3781B8220B3484100CA420E /* InvoiceItemDefinitionFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemDefinitionFacade.swift; sourceTree = "<group>"; };
 		D3781B8420B34B0000CA420E /* CounterpartyFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyFacade.swift; sourceTree = "<group>"; };
 		D3781B8620B492B700CA420E /* InvoiceNumberingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingFacade.swift; sourceTree = "<group>"; };
@@ -824,7 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				D37560AC2033942600F507AD /* Model */,
-				D3781B8020B0562200CA420E /* VatRateInteractorTests.swift */,
+				D3781B8020B0562200CA420E /* VatRateFacadeTests.swift */,
 			);
 			path = VAT;
 			sourceTree = "<group>";
@@ -1337,7 +1337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3781B8120B0562200CA420E /* VatRateInteractorTests.swift in Sources */,
+				D3781B8120B0562200CA420E /* VatRateFacadeTests.swift in Sources */,
 				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
