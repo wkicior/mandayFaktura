@@ -50,7 +50,7 @@ class InvoicePageDistributionTests: XCTestCase {
     func testDistributionOverPageCompositions_should_return_two_page_component_containing_invoice_with_number_of_items_that_splits_the_page() {
         //given
         let invoice: Invoice = aMinimumInvoice()
-            .withItems((0 ..< 25).map({i in anInvoiceItem().withName("a").build()}))
+            .withItems((0 ..< 27).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
@@ -60,7 +60,7 @@ class InvoicePageDistributionTests: XCTestCase {
         
         //then
         XCTAssertEqual(2, pageComponents.count)
-        XCTAssertEqual(25, pageComponents[0].itemTableRowComponents.count) //header + 24 invoice items
+        XCTAssertEqual(27, pageComponents[0].itemTableRowComponents.count) //header + 26 invoice items
         XCTAssertEqual(0, pageComponents[0].summaryComponents.count)
 
         XCTAssertEqual(3, pageComponents[1].headerComponents.count)
@@ -72,7 +72,7 @@ class InvoicePageDistributionTests: XCTestCase {
     func testDistributionOverPageCompositions_should_return_two_page_component_containing_invoice_with_number_of_items_that_vat_breakdown_splits_the_page() {
         //given
         let invoice: Invoice = aMinimumInvoice()
-            .withItems((0 ..< 24).map({i in anInvoiceItem().withName("a").build()}))
+            .withItems((0 ..< 26).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
@@ -82,7 +82,7 @@ class InvoicePageDistributionTests: XCTestCase {
         
         //then
         XCTAssertEqual(2, pageComponents.count)
-        XCTAssertEqual(25, pageComponents[0].itemTableRowComponents.count) //header + 24 invoice items
+        XCTAssertEqual(27, pageComponents[0].itemTableRowComponents.count) //header + 24 invoice items
         XCTAssertEqual(0, pageComponents[0].summaryComponents.count)
         
         XCTAssertEqual(3, pageComponents[1].headerComponents.count)
@@ -94,7 +94,7 @@ class InvoicePageDistributionTests: XCTestCase {
     func testDistributionOverPageCompositions_should_return_two_page_component_containing_invoice_with_number_of_items_that_notes_splits_the_page() {
         //given
         let invoice: Invoice = aMinimumInvoice()
-            .withItems((0 ..< 15).map({i in anInvoiceItem().withName("a").build()}))
+            .withItems((0 ..< 19).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
@@ -104,13 +104,13 @@ class InvoicePageDistributionTests: XCTestCase {
         
         //then
         XCTAssertEqual(2, pageComponents.count)
-        XCTAssertEqual(18, pageComponents[0].itemTableRowComponents.count) //header + 24 invoice items
-        XCTAssertEqual(1, pageComponents[0].summaryComponents.count)
+        XCTAssertEqual(22, pageComponents[0].itemTableRowComponents.count) //header + 19 invoice items + summary + vat breakdown
+        XCTAssertEqual(1, pageComponents[0].summaryComponents.count) // payment summary
         
         XCTAssertEqual(3, pageComponents[1].headerComponents.count)
         XCTAssertEqual(2, pageComponents[1].counterpartyComponents.count)
         XCTAssertEqual(0, pageComponents[1].itemTableRowComponents.count)
-        XCTAssertEqual(1, pageComponents[1].summaryComponents.count)
+        XCTAssertEqual(1, pageComponents[1].summaryComponents.count) //notes
     }
     
     func testDistributionOverPageCompositions_should_return_two_page_component_containing_invoice_with_number_of_items_that_payment_summary_splits_the_page() {

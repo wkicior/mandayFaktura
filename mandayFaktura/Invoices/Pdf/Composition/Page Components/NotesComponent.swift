@@ -9,8 +9,11 @@
 import Foundation
 
 class NotesComponent : AbstractComponent, PageComponent {
-    var height = CGFloat(100.0) //TODO should be dynamic
-    
+    var height: CGFloat {
+        get {
+            return AbstractComponent.defaultRowHeight * CGFloat(self.content.linesCount())
+        }
+    }
     let content: String
     init(content: String) {
         self.content = content
