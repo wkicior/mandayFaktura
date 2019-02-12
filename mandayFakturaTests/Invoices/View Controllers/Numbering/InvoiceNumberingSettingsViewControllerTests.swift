@@ -43,7 +43,8 @@ class InvoiceNumberingSettingsViewControllerTests: XCTestCase {
     
     func testValidateFixedPart_will_pass_on_numbers_and_letters() {
         let controller = InvoiceNumberingSettingsViewController()
-        controller.fixedPartTextField = NSTextField(labelWithString: "aB01")
+        let textField = NSTextField(labelWithString: "aB01")
+        controller.fixedPartTextField = textField
         try! controller.validateFixedPart()
     }
 }

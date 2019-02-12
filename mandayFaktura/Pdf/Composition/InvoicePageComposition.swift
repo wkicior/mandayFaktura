@@ -92,26 +92,31 @@ class InvoicePageCompositionBuilder {
     var summaryComponents: [PageComponent] = []
     var pageNumberingComponent: PageComponent?
     
+    @discardableResult
     func withHeaderComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.headerComponents.append(pageComponent)
         return self
     }
     
+    @discardableResult
     func withCounterpartyComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.counterpartyComponents.append(pageComponent)
         return self
     }
     
+    @discardableResult
     func withItemTableRowComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.itemTableRowComponents.append(pageComponent)
         return self
     }
     
+    @discardableResult
     func withSummaryComponents(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.summaryComponents.append(pageComponent)
         return self
     }
     
+    @discardableResult
     func withPageNumberingComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
         self.pageNumberingComponent = pageComponent
         return self
