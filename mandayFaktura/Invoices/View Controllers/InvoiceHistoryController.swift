@@ -13,6 +13,8 @@ struct ViewControllerConstants {
     static let INVOICE_TO_REMOVE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToRemove")
     static let INVOICE_TO_EDIT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToEdit")
     static let INVOICE_TO_PRINT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToPrint")
+    static let INVOICE_TO_CORRECT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToCorrect")
+
 
     static let INVOICE_NOTIFICATION_KEY = "invoice"
 }
@@ -49,6 +51,9 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.editInvoice()}
+        NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_CORRECT_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.correctInvoice()}
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_PRINT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.printInvoice()}
@@ -95,6 +100,10 @@ class ViewController: NSViewController {
         }
     }
     
+    func correctInvoice() {
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier("correctInvoiceSegue"), sender: nil)
+    }
+    
     func printInvoice() {
         let invoice: Invoice = (self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!
         let invoicePdf = InvoicePdfDocument(invoice: invoice)
@@ -126,6 +135,10 @@ class ViewController: NSViewController {
             vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
         } else if segue.destinationController is EditInvoiceViewController {
             let vc = segue.destinationController as? EditInvoiceViewController
+            let index = self.invoiceHistoryTableView.selectedRow
+            vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
+        } else if segue.destinationController is CorrectInvoiceViewController {
+            let vc = segue.destinationController as? CorrectInvoiceViewController
             let index = self.invoiceHistoryTableView.selectedRow
             vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
         }

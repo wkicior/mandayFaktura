@@ -170,6 +170,8 @@
 		D3781B8720B492B700CA420E /* InvoiceNumberingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8620B492B700CA420E /* InvoiceNumberingFacade.swift */; };
 		D3781B8920B496E100CA420E /* InvoiceFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8820B496E100CA420E /* InvoiceFacade.swift */; };
 		D3781B8B20B9CBC100CA420E /* InvoiceItemTagAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */; };
+		D38997282215E972004CC30C /* CorrectInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997272215E972004CC30C /* CorrectInvoiceViewController.swift */; };
+		D38997292215E972004CC30C /* CorrectInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997272215E972004CC30C /* CorrectInvoiceViewController.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -332,6 +334,7 @@
 		D3781B8620B492B700CA420E /* InvoiceNumberingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingFacade.swift; sourceTree = "<group>"; };
 		D3781B8820B496E100CA420E /* InvoiceFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceFacade.swift; sourceTree = "<group>"; };
 		D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTagAnimation.swift; sourceTree = "<group>"; };
+		D38997272215E972004CC30C /* CorrectInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectInvoiceViewController.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -701,6 +704,7 @@
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
 				D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */,
 				D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */,
+				D38997272215E972004CC30C /* CorrectInvoiceViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1156,6 +1160,7 @@
 				D3F745D0220775800057540E /* HeaderComponent.swift in Sources */,
 				D34339D321A48D6100C583D2 /* InvoiceExistsError.swift in Sources */,
 				D3F745EF2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
+				D38997292215E972004CC30C /* CorrectInvoiceViewController.swift in Sources */,
 				D34339D421A48D6100C583D2 /* InvoiceSettingsCoding.swift in Sources */,
 				D34339D521A48D6100C583D2 /* CounterpartyFacade.swift in Sources */,
 				D34339D621A48D6100C583D2 /* DecimalPrintingExtension.swift in Sources */,
@@ -1262,6 +1267,7 @@
 				D3F745CF220775800057540E /* HeaderComponent.swift in Sources */,
 				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
 				D3F745EE2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
+				D38997282215E972004CC30C /* CorrectInvoiceViewController.swift in Sources */,
 				D32ED32B215F9D8900BDC6BE /* InvoiceSettingsCoding.swift in Sources */,
 				D3781B8520B34B0000CA420E /* CounterpartyFacade.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
