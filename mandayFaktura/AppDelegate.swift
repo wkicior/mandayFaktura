@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func onCorrectInvoiceMenuItemClicked(_ sender: Any) {
-        NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_CORRECT_NOTIFICATION, object: nil)
+        NotificationCenter.default.post(name: ViewControllerConstants.CREDIT_NOTE_NOTIFICATION, object: nil)
     }
     @IBAction func onEditInvoiceMenuItemClicked(_ sender: Any) {
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION, object: nil)

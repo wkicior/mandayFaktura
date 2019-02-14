@@ -9,17 +9,17 @@
 import Foundation
 import Cocoa
 
-struct CorrectInvoiceViewControllerConstants {
-    static let INVOICE_CORRECTED_NOTIFICATION = Notification.Name(rawValue: "InvoiceCorrected")
+struct CreditNoteViewControllerConstants {
+    static let CREDIT_NOTE_NOTIFICATION = Notification.Name(rawValue: "CreditNoteCreated")
 }
 
-
-class CorrectInvoiceViewController: AbstractInvoiceViewController {
+class CreditNoteViewController: AbstractInvoiceViewController {
     var invoice: Invoice?
+    @IBOutlet weak var invoiceNumberLabel: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.invoiceNumberLabel.stringValue = invoice!.number
         self.buyerNameTextField.stringValue = invoice!.buyer.name
-        self.numberTextField.stringValue = invoice!.number
         self.streetAndNumberTextField.stringValue = invoice!.buyer.streetAndNumber
         self.postalCodeTextField.stringValue = invoice!.buyer.postalCode
         self.cityTextField.stringValue = invoice!.buyer.city
