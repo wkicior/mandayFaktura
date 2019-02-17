@@ -172,6 +172,10 @@
 		D3781B8B20B9CBC100CA420E /* InvoiceItemTagAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */; };
 		D38997282215E972004CC30C /* CreditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997272215E972004CC30C /* CreditNoteViewController.swift */; };
 		D38997292215E972004CC30C /* CreditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997272215E972004CC30C /* CreditNoteViewController.swift */; };
+		D389972D2219B6FF004CC30C /* CreditNoteFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D389972C2219B6FF004CC30C /* CreditNoteFacade.swift */; };
+		D389972E2219B6FF004CC30C /* CreditNoteFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D389972C2219B6FF004CC30C /* CreditNoteFacade.swift */; };
+		D38997312219B733004CC30C /* CreditNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997302219B733004CC30C /* CreditNote.swift */; };
+		D38997322219B733004CC30C /* CreditNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997302219B733004CC30C /* CreditNote.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -335,6 +339,8 @@
 		D3781B8820B496E100CA420E /* InvoiceFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceFacade.swift; sourceTree = "<group>"; };
 		D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItemTagAnimation.swift; sourceTree = "<group>"; };
 		D38997272215E972004CC30C /* CreditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteViewController.swift; sourceTree = "<group>"; };
+		D389972C2219B6FF004CC30C /* CreditNoteFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteFacade.swift; sourceTree = "<group>"; };
+		D38997302219B733004CC30C /* CreditNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNote.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -894,7 +900,9 @@
 		D389972A2215FE92004CC30C /* Credit notes */ = {
 			isa = PBXGroup;
 			children = (
+				D389972F2219B726004CC30C /* Model */,
 				D389972B2215FEB3004CC30C /* View Controllers */,
+				D389972C2219B6FF004CC30C /* CreditNoteFacade.swift */,
 			);
 			path = "Credit notes";
 			sourceTree = "<group>";
@@ -905,6 +913,14 @@
 				D38997272215E972004CC30C /* CreditNoteViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D389972F2219B726004CC30C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D38997302219B733004CC30C /* CreditNote.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {
@@ -1165,6 +1181,7 @@
 				D34339C921A48D6100C583D2 /* InvoicePdfDocument.swift in Sources */,
 				D34339CA21A48D6100C583D2 /* ItemDefinitionCoding.swift in Sources */,
 				D3F745E92208A9430057540E /* ItemsSummaryComponent.swift in Sources */,
+				D389972E2219B6FF004CC30C /* CreditNoteFacade.swift in Sources */,
 				D34339CB21A48D6100C583D2 /* ItemDefinition.swift in Sources */,
 				D34339CC21A48D6100C583D2 /* KeyArchiverVatRateRepository.swift in Sources */,
 				D34339CD21A48D6100C583D2 /* BuyerAutoSave.swift in Sources */,
@@ -1214,6 +1231,7 @@
 				D34339F121A48D6100C583D2 /* InvoiceNumbering.swift in Sources */,
 				D34339F221A48D6100C583D2 /* FontFormatting.swift in Sources */,
 				D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */,
+				D38997322219B733004CC30C /* CreditNote.swift in Sources */,
 				D3F745F22208B7230057540E /* NotesComponent.swift in Sources */,
 				D34339F321A48D6100C583D2 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D34339F421A48D6100C583D2 /* PaymentDateFrom.swift in Sources */,
@@ -1272,6 +1290,7 @@
 				D34D0F202020E939000D1EC6 /* InvoicePdfDocument.swift in Sources */,
 				D3B7C96520924C0000432176 /* ItemDefinitionCoding.swift in Sources */,
 				D3F745E82208A9430057540E /* ItemsSummaryComponent.swift in Sources */,
+				D389972D2219B6FF004CC30C /* CreditNoteFacade.swift in Sources */,
 				D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */,
 				D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */,
 				D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */,
@@ -1321,6 +1340,7 @@
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */,
+				D38997312219B733004CC30C /* CreditNote.swift in Sources */,
 				D3F745F12208B7230057540E /* NotesComponent.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D32ED328215AC0B600BDC6BE /* PaymentDateFrom.swift in Sources */,

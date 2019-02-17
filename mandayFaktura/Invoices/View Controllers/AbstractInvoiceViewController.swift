@@ -170,8 +170,8 @@ extension AbstractInvoiceViewController {
         invoiceItemTagAnimation.start()
     }
     
-    internal func addBuyerToHistory(invoice: Invoice) throws {
-        try BuyerAutoSavingController().saveIfNewBuyer(buyer: invoice.buyer)
+    internal func addBuyerToHistory(buyer: Counterparty) throws {
+        try BuyerAutoSavingController().saveIfNewBuyer(buyer: buyer)
     }
     
     private func safeReloadData() {

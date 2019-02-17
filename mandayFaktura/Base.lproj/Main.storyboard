@@ -3902,15 +3902,30 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJd-YS-dxv">
-                                <rect key="frame" x="116" y="591" width="119" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Faktura korygująca" id="6A2-Ex-qAT">
+                            <textField toolTip="Nazwa firmy nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tev-zY-Yj0">
+                                <rect key="frame" x="116" y="588" width="143" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nr korekty" drawsBackground="YES" id="bXP-pp-ML5">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <datePicker toolTip="Data wystawienia faktury" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="496-hz-Kv5">
+                                <rect key="frame" x="913" y="585" width="98" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="88m-1x-JU2">
+                                    <font key="font" metaFont="system"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="567993600">
+                                        <!--2019-01-01 00:00:00 +0000-->
+                                    </date>
+                                    <date key="minDate" timeIntervalSinceReferenceDate="536457600">
+                                        <!--2018-01-01 00:00:00 +0000-->
+                                    </date>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                </datePickerCell>
+                            </datePicker>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Xe5-J3-iPa" firstAttribute="leading" secondItem="gld-TT-gVC" secondAttribute="trailing" constant="6" id="2fJ-Z7-qFa"/>
@@ -3927,8 +3942,10 @@ DQ
                         <outlet property="buyerAdditionalInfo" destination="VKR-Ls-MCj" id="m6b-UD-xXz"/>
                         <outlet property="buyerNameTextField" destination="sJ8-C5-SHu" id="55N-la-mAD"/>
                         <outlet property="cityTextField" destination="6hT-Pw-flQ" id="uPf-78-YrI"/>
+                        <outlet property="creditNoteIssueDate" destination="496-hz-Kv5" id="jD2-rz-ogE"/>
+                        <outlet property="creditNoteNumber" destination="Tev-zY-Yj0" id="8QG-L0-UrA"/>
                         <outlet property="dueDatePicker" destination="MzK-FQ-Alm" id="NAT-G3-FDN"/>
-                        <outlet property="invoiceNumberLabel" destination="FJd-YS-dxv" id="Bjs-yP-gVr"/>
+                        <outlet property="invoiceIssueDate" destination="daa-P9-zHp" id="jND-hK-eKU"/>
                         <outlet property="issueDatePicker" destination="t4M-r0-6Lt" id="hHz-dT-cM0"/>
                         <outlet property="itemsCataloguqButton" destination="eU7-aR-xbm" id="2ul-zL-wAO"/>
                         <outlet property="itemsTableView" destination="K7l-SJ-g6u" id="m90-k8-bdL"/>

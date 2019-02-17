@@ -43,7 +43,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         do {
-            try addBuyerToHistory(invoice: invoice)
+            try addBuyerToHistory(buyer: invoice.buyer)
             try invoiceFacade.addInvoice(invoice)
             NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
             view.window?.close()

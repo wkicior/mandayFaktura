@@ -15,10 +15,14 @@ struct CreditNoteViewControllerConstants {
 
 class CreditNoteViewController: AbstractInvoiceViewController {
     var invoice: Invoice?
-    @IBOutlet weak var invoiceNumberLabel: NSTextField!
+    let creditNoteFacade = CreditNoteFacade()
+    @IBOutlet weak var invoiceIssueDate: NSDatePicker!
+    @IBOutlet weak var creditNoteNumber: NSTextField!
+    @IBOutlet weak var creditNoteIssueDate: NSDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.invoiceNumberLabel.stringValue = invoice!.number
+        self.creditNoteNumber.stringValue = invoice!.number + "/K"
         self.buyerNameTextField.stringValue = invoice!.buyer.name
         self.streetAndNumberTextField.stringValue = invoice!.buyer.streetAndNumber
         self.postalCodeTextField.stringValue = invoice!.buyer.postalCode
@@ -42,9 +46,9 @@ class CreditNoteViewController: AbstractInvoiceViewController {
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         do {
-            try addBuyerToHistory(invoice: newInvoice)
-            invoiceFacade.editInvoice(old: invoice!, new: newInvoice)
-            NotificationCenter.default.post(name: EditInvoiceViewControllerConstants.INVOICE_EDITED_NOTIFICATION, object: invoice)
+            try addBuyerToHistory(buyer: creditNote.buyer)
+            creditNoteFacade.saveCreditNote(creditNote)
+            NotificationCenter.default.post(name: CreditNoteViewControllerConstants.CREDIT_NOTE_NOTIFICATION, object: invoice)
             view.window?.close()
         } catch is UserAbortError {
             //
@@ -58,7 +62,7 @@ class CreditNoteViewController: AbstractInvoiceViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
-            vc?.invoice = newInvoice
+            //vc?.invoice = newInvoice TODO:
         } else if segue.destinationController is ItemsCatalogueController {
             let vc = segue.destinationController as? ItemsCatalogueController
             vc?.invoiceController = self
@@ -74,22 +78,22 @@ class CreditNoteViewController: AbstractInvoiceViewController {
         }
     }
     
-    var newInvoice: Invoice {
+    var creditNote: CreditNote {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? invoice!.seller
             let buyer = getBuyer()
-            return InvoiceBuilder()
-                .withIssueDate(issueDatePicker.dateValue)
-                .withNumber(numberTextField.stringValue)
-                .withSellingDate(sellingDatePicker.dateValue)
+            return aCreditNote()
+                .withNumber(creditNoteNumber.stringValue)
+                .withInvoiceNumber(invoice!.number)
+                .withInvoiceIssueDate(self.invoiceIssueDate.dateValue)
+                .withCreditNoteIssueDate(self.creditNoteIssueDate.dateValue)
                 .withSeller(seller)
                 .withBuyer(buyer)
                 .withItems(self.itemsTableViewDelegate!.items)
                 .withPaymentForm(selectedPaymentForm!)
-                .withPaymentDueDate(self.dueDatePicker.dateValue)
                 .withNotes(self.notesTextField.stringValue)
                 .build()
-            
         }
     }
+
 }
