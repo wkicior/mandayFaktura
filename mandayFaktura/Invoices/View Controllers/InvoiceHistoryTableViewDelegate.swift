@@ -33,14 +33,14 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return invoiceFacade.getInvoices().count
+        return self.getInvoiceList().count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let item = invoiceFacade.getInvoices().sorted(by: {$0.issueDate > $1.issueDate})[row]
+        let item = self.getInvoiceList()[row]
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number
@@ -63,7 +63,11 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
         return nil
     }
     
+    fileprivate func getInvoiceList() -> [Invoice] {
+        return invoiceFacade.getInvoices().sorted(by: {$0.issueDate > $1.issueDate})
+    }
+    
     func getSelectedInvoice(index: Int) -> Invoice {
-        return invoiceFacade.getInvoices()[index]
+        return self.getInvoiceList()[index]
     }
 }

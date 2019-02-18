@@ -22,14 +22,8 @@ class CreditNoteViewController: AbstractInvoiceViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.creditNoteNumber.stringValue = invoice!.number + "/K"
-        self.buyerNameTextField.stringValue = invoice!.buyer.name
-        self.streetAndNumberTextField.stringValue = invoice!.buyer.streetAndNumber
-        self.postalCodeTextField.stringValue = invoice!.buyer.postalCode
-        self.cityTextField.stringValue = invoice!.buyer.city
-        self.taxCodeTextField.stringValue = invoice!.buyer.taxCode
-        self.cityTextField.stringValue = invoice!.buyer.city
-        self.buyerAdditionalInfo.stringValue = invoice!.buyer.additionalInfo
         
         self.issueDatePicker.dateValue = invoice!.issueDate
         self.sellingDatePicker.dateValue = invoice!.sellingDate
@@ -60,6 +54,7 @@ class CreditNoteViewController: AbstractInvoiceViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+     print(segue.destinationController)
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
             //vc?.invoice = newInvoice TODO:
@@ -75,13 +70,16 @@ class CreditNoteViewController: AbstractInvoiceViewController {
             } else if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
                 vc.relatedDatePicker = self.dueDatePicker
             }
+        } else if segue.destinationController is BuyerViewController {
+            self.buyerViewController = segue.destinationController as? BuyerViewController
+            self.buyerViewController!.buyer = invoice!.buyer
         }
     }
     
     var creditNote: CreditNote {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? invoice!.seller
-            let buyer = getBuyer()
+            let buyer = self.buyerViewController!.getBuyer()
             return aCreditNote()
                 .withNumber(creditNoteNumber.stringValue)
                 .withInvoiceNumber(invoice!.number)

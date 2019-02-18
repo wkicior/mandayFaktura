@@ -14,7 +14,6 @@ struct NewInvoiceViewControllerConstants {
 
 
 class NewInvoiceViewController: AbstractInvoiceViewController {
-   
     let invoiceNumberingFacade = InvoiceNumberingFacade()
 
     override func viewDidLoad() {
@@ -26,13 +25,13 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     var invoice: Invoice {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? defaultSeller()
-            let buyer = getBuyer()
+            let buyer = self.buyerViewController?.getBuyer()
             return InvoiceBuilder()
                 .withIssueDate(issueDatePicker.dateValue)
                 .withNumber(numberTextField.stringValue)
                 .withSellingDate(sellingDatePicker.dateValue)
                 .withSeller(seller)
-                .withBuyer(buyer)
+                .withBuyer(buyer!)
                 .withItems(self.itemsTableViewDelegate!.items)
                 .withPaymentForm(selectedPaymentForm!)
                 .withPaymentDueDate(self.dueDatePicker.dateValue)
@@ -73,6 +72,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
             } else if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
                 vc.relatedDatePicker = self.dueDatePicker
             }
+        } else if segue.destinationController is BuyerViewController {
+            self.buyerViewController = segue.destinationController as? BuyerViewController
         }
     }
     

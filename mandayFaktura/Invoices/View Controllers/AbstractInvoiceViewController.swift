@@ -9,6 +9,7 @@
 import Cocoa
 
 class AbstractInvoiceViewController: NSViewController {
+    var buyerViewController: BuyerViewController?
     let invoiceFacade = InvoiceFacade()
     let itemDefinitionFacade = InvoiceItemDefinitionFacade()
     let counterpartyFacade = CounterpartyFacade()
@@ -16,16 +17,12 @@ class AbstractInvoiceViewController: NSViewController {
     let invoiceSettingsFacade = InvoiceSettingsFacade()
     var itemsTableViewDelegate: ItemsTableViewDelegate?
     var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
-    let buyerAutoSavingController =  BuyerAutoSavingController()
+    let buyerAutoSavingController = BuyerAutoSavingController()
    
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var issueDatePicker: NSDatePicker!
     @IBOutlet weak var sellingDatePicker: NSDatePicker!
-    @IBOutlet weak var buyerNameTextField: NSTextField!
-    @IBOutlet weak var streetAndNumberTextField: NSTextField!
-    @IBOutlet weak var postalCodeTextField: NSTextField!
-    @IBOutlet weak var cityTextField: NSTextField!
-    @IBOutlet weak var taxCodeTextField: NSTextField!
+    
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var paymentFormPopUp: NSPopUpButtonCell!
     @IBOutlet weak var dueDatePicker: NSDatePicker!
@@ -36,7 +33,6 @@ class AbstractInvoiceViewController: NSViewController {
     @IBOutlet weak var saveItemButton: NSButton!
     @IBOutlet weak var itemsCataloguqButton: NSButton!
     @IBOutlet weak var notesTextField: NSTextField!
-    @IBOutlet weak var buyerAdditionalInfo: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +43,7 @@ class AbstractInvoiceViewController: NSViewController {
         itemsTableView.delegate = itemsTableViewDelegate
         itemsTableView.dataSource = itemsTableViewDelegate
         self.removeItemButton.isEnabled = false
-        self.counterpartyFacade.getBuyers().forEach{buyer in viewSellersPopUpButton.addItem(withTitle: buyer.name)}
+       
         self.saveItemButton.isEnabled = false
         self.checkSaveButtonEnabled()
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
@@ -55,6 +51,10 @@ class AbstractInvoiceViewController: NSViewController {
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         dueDatePicker.dateValue = invoiceSettings.getDueDate(issueDate: issueDatePicker.dateValue, sellDate: sellingDatePicker.dateValue)
         notesTextField.stringValue = invoiceSettings.defaultNotes
+        
+        NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.checkSaveButtonEnabled()}
     }
 }
 
@@ -70,11 +70,7 @@ extension AbstractInvoiceViewController {
         self.saveButton.isEnabled = self.itemsTableView.numberOfRows > 0
             && !(self.itemsTableViewDelegate?.anyItemHasEmptyName())!
             && !self.numberTextField.stringValue.isEmpty
-            && !self.buyerNameTextField.stringValue.isEmpty
-            && !self.streetAndNumberTextField.stringValue.isEmpty
-            && !self.postalCodeTextField.stringValue.isEmpty
-            && !self.taxCodeTextField.stringValue.isEmpty
-            && !self.cityTextField.stringValue.isEmpty
+            && self.buyerViewController!.isValid()
     }
     
     internal func checkPreviewButtonEnabled() {
@@ -111,21 +107,6 @@ extension AbstractInvoiceViewController {
         }
     }
     
-    @IBAction func onSelectBuyerButtonClicked(_ sender: NSPopUpButton) {
-        let buyerName = sender.selectedItem?.title
-        let buyer = self.counterpartyFacade.getBuyer(name: buyerName!)
-        setBuyer(buyer: buyer ?? aCounterparty().build())
-        checkSaveButtonEnabled()
-    }
-    
-    private func setBuyer(buyer: Counterparty) {
-        self.buyerNameTextField.stringValue = buyer.name
-        self.streetAndNumberTextField.stringValue = buyer.streetAndNumber
-        self.cityTextField.stringValue = buyer.city
-        self.postalCodeTextField.stringValue = buyer.postalCode
-        self.taxCodeTextField.stringValue = buyer.taxCode
-        self.buyerAdditionalInfo.stringValue = buyer.additionalInfo
-    }
     
     @IBAction func onUnitOfMeasureSelect(_ sender: NSPopUpButton) {
         self.itemsTableViewDelegate!.changeUnitOfMeasure(row: sender.tag, index: (sender.selectedItem?.tag)!)
@@ -216,19 +197,8 @@ extension AbstractInvoiceViewController {
            deleteSelectedItem()
         }
     }
-    
-    func getBuyer() -> Counterparty {
-        return CounterpartyBuilder()
-            .withName(buyerNameTextField.stringValue)
-            .withStreetAndNumber(streetAndNumberTextField.stringValue)
-            .withCity(cityTextField.stringValue)
-            .withPostalCode(postalCodeTextField.stringValue)
-            .withTaxCode(taxCodeTextField.stringValue)
-            .withAdditionalInfo(buyerAdditionalInfo.stringValue)
-            .build()
-    }
-}
 
+}
 extension AbstractInvoiceViewController {
     @IBAction func onIssueDateSelected(_ sender: NSDatePicker) {
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()

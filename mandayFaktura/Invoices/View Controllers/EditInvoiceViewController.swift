@@ -15,17 +15,11 @@ struct EditInvoiceViewControllerConstants {
 
 
 class EditInvoiceViewController: AbstractInvoiceViewController {
+    
     var invoice: Invoice?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.buyerNameTextField.stringValue = invoice!.buyer.name
         self.numberTextField.stringValue = invoice!.number
-        self.streetAndNumberTextField.stringValue = invoice!.buyer.streetAndNumber
-        self.postalCodeTextField.stringValue = invoice!.buyer.postalCode
-        self.cityTextField.stringValue = invoice!.buyer.city
-        self.taxCodeTextField.stringValue = invoice!.buyer.taxCode
-        self.cityTextField.stringValue = invoice!.buyer.city
-        self.buyerAdditionalInfo.stringValue = invoice!.buyer.additionalInfo
         
         self.issueDatePicker.dateValue = invoice!.issueDate
         self.sellingDatePicker.dateValue = invoice!.sellingDate
@@ -71,19 +65,22 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
             } else if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
                 vc.relatedDatePicker = self.dueDatePicker
             }
+        } else if segue.destinationController is BuyerViewController {
+            self.buyerViewController = segue.destinationController as? BuyerViewController
+            self.buyerViewController!.buyer = invoice!.buyer
         }
     }
     
     var newInvoice: Invoice {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? invoice!.seller
-            let buyer = getBuyer()
+            let buyer = self.buyerViewController?.getBuyer()
             return InvoiceBuilder()
                 .withIssueDate(issueDatePicker.dateValue)
                 .withNumber(numberTextField.stringValue)
                 .withSellingDate(sellingDatePicker.dateValue)
                 .withSeller(seller)
-                .withBuyer(buyer)
+                .withBuyer(buyer!)
                 .withItems(self.itemsTableViewDelegate!.items)
                 .withPaymentForm(selectedPaymentForm!)
                 .withPaymentDueDate(self.dueDatePicker.dateValue)
