@@ -18,7 +18,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkPreviewButtonEnabled()
+        //checkPreviewButtonEnabled()
         self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
     }
     
@@ -32,7 +32,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 .withSellingDate(sellingDatePicker.dateValue)
                 .withSeller(seller)
                 .withBuyer(buyer!)
-                .withItems(self.itemsTableViewDelegate!.items)
+                .withItems(self.itemsTableViewController!.items)
                 .withPaymentForm(selectedPaymentForm!)
                 .withPaymentDueDate(self.dueDatePicker.dateValue)
                 .withNotes(self.notesTextField.stringValue)
@@ -60,9 +60,6 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as! PdfViewController
             vc.invoice = invoice
-        } else if segue.destinationController is ItemsCatalogueController {
-            let vc = segue.destinationController as! ItemsCatalogueController
-            vc.invoiceController = self
         } else if segue.destinationController is DatePickerViewController {
             let vc = segue.destinationController as! DatePickerViewController
             if segue.identifier == NSStoryboardSegue.Identifier("issueDatePickerSegue") {
@@ -74,6 +71,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
             }
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
+        } else if segue.destinationController is ItemsTableViewController {
+            self.itemsTableViewController = segue.destinationController as? ItemsTableViewController
         }
     }
     

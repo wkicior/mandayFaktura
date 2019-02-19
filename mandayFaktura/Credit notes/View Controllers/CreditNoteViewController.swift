@@ -33,8 +33,6 @@ class CreditNoteViewController: AbstractInvoiceViewController {
         let tag = getPaymentFormTag(from: invoice!.paymentForm)
         self.paymentFormPopUp.selectItem(withTag: tag)
         
-        self.itemsTableViewDelegate!.items = invoice!.items
-        self.itemsTableView.reloadData()
         self.previewButton.isEnabled = true
     }
     
@@ -58,9 +56,6 @@ class CreditNoteViewController: AbstractInvoiceViewController {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
             //vc?.invoice = newInvoice TODO:
-        } else if segue.destinationController is ItemsCatalogueController {
-            let vc = segue.destinationController as? ItemsCatalogueController
-            vc?.invoiceController = self
         } else if segue.destinationController is DatePickerViewController {
             let vc = segue.destinationController as! DatePickerViewController
             if segue.identifier == NSStoryboardSegue.Identifier("issueDatePickerSegue") {
@@ -73,6 +68,9 @@ class CreditNoteViewController: AbstractInvoiceViewController {
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
             self.buyerViewController!.buyer = invoice!.buyer
+        } else if segue.destinationController is ItemsTableViewController {
+            self.itemsTableViewController = segue.destinationController as? ItemsTableViewController
+            self.itemsTableViewController!.items = invoice!.items
         }
     }
     
@@ -87,7 +85,7 @@ class CreditNoteViewController: AbstractInvoiceViewController {
                 .withCreditNoteIssueDate(self.creditNoteIssueDate.dateValue)
                 .withSeller(seller)
                 .withBuyer(buyer)
-                .withItems(self.itemsTableViewDelegate!.items)
+                .withItems(self.itemsTableViewController!.items)
                 .withPaymentForm(selectedPaymentForm!)
                 .withNotes(self.notesTextField.stringValue)
                 .build()

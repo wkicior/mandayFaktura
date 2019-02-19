@@ -195,6 +195,8 @@
 		D3E312CA20A4DCFF00C84CEE /* VatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */; };
 		D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */; };
 		D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */; };
+		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
+		D3F0A510221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
 		D3F745C922075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */; };
 		D3F745CA22075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */; };
 		D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
@@ -361,6 +363,7 @@
 		D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatSettingsViewController.swift; sourceTree = "<group>"; };
 		D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatesTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverVatRateRepository.swift; sourceTree = "<group>"; };
+		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDocumentComposition.swift; sourceTree = "<group>"; };
 		D3F745CB22075ED00057540E /* InvoicePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageComposition.swift; sourceTree = "<group>"; };
 		D3F745CE220775800057540E /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
@@ -420,6 +423,7 @@
 				D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */,
 				D3052F4A2043411B0064DF10 /* ItemsCatalogueController.swift */,
 				D3052F4C20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift */,
+				D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1199,6 +1203,7 @@
 				D3F745EF2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
 				D38997292215E972004CC30C /* CreditNoteViewController.swift in Sources */,
 				D34339D421A48D6100C583D2 /* InvoiceSettingsCoding.swift in Sources */,
+				D3F0A510221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */,
 				D34339D521A48D6100C583D2 /* CounterpartyFacade.swift in Sources */,
 				D34339D621A48D6100C583D2 /* DecimalPrintingExtension.swift in Sources */,
 				D34339D721A48D6100C583D2 /* VatBreakdown.swift in Sources */,
@@ -1309,6 +1314,7 @@
 				D3F745EE2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
 				D38997282215E972004CC30C /* CreditNoteViewController.swift in Sources */,
 				D32ED32B215F9D8900BDC6BE /* InvoiceSettingsCoding.swift in Sources */,
+				D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */,
 				D3781B8520B34B0000CA420E /* CounterpartyFacade.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
 				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
