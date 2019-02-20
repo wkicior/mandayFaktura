@@ -21,8 +21,6 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         super.viewDidLoad()
         self.numberTextField.stringValue = invoice!.number
         
-        self.issueDatePicker.dateValue = invoice!.issueDate
-        self.sellingDatePicker.dateValue = invoice!.sellingDate
         self.dueDatePicker.dateValue = invoice!.paymentDueDate
         self.notesTextField.stringValue = invoice!.notes
         
@@ -53,11 +51,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
             vc?.invoice = newInvoice
         } else if segue.destinationController is DatePickerViewController {
             let vc = segue.destinationController as! DatePickerViewController
-            if segue.identifier == NSStoryboardSegue.Identifier("issueDatePickerSegue") {
-                vc.relatedDatePicker = self.issueDatePicker
-            } else if segue.identifier == NSStoryboardSegue.Identifier("sellDatePickerSegue") {
-                vc.relatedDatePicker = self.sellingDatePicker
-            } else if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
+            if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
                 vc.relatedDatePicker = self.dueDatePicker
             }
         } else if segue.destinationController is BuyerViewController {
@@ -66,6 +60,10 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         } else if segue.destinationController is ItemsTableViewController {
             self.itemsTableViewController = segue.destinationController as? ItemsTableViewController
             self.itemsTableViewController!.items = invoice!.items
+        } else if segue.destinationController is InvoiceDatesViewController {
+            self.invoiceDatesViewController = segue.destinationController as? InvoiceDatesViewController
+            self.invoiceDatesViewController!.issueDate = invoice!.issueDate
+            self.invoiceDatesViewController!.sellingDate = invoice!.sellingDate
         }
     }
     
@@ -74,9 +72,9 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
             let seller = self.counterpartyFacade.getSeller() ?? invoice!.seller
             let buyer = self.buyerViewController?.getBuyer()
             return InvoiceBuilder()
-                .withIssueDate(issueDatePicker.dateValue)
+                .withIssueDate(invoiceDatesViewController!.issueDate)
                 .withNumber(numberTextField.stringValue)
-                .withSellingDate(sellingDatePicker.dateValue)
+                .withSellingDate(invoiceDatesViewController!.sellingDate)
                 .withSeller(seller)
                 .withBuyer(buyer!)
                 .withItems(self.itemsTableViewController!.items)

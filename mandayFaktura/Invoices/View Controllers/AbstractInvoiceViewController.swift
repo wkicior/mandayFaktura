@@ -11,6 +11,7 @@ import Cocoa
 class AbstractInvoiceViewController: NSViewController {
     var buyerViewController: BuyerViewController?
     var itemsTableViewController: ItemsTableViewController?
+    var invoiceDatesViewController: InvoiceDatesViewController?
     
     let invoiceFacade = InvoiceFacade()
     let itemDefinitionFacade = InvoiceItemDefinitionFacade()
@@ -22,8 +23,6 @@ class AbstractInvoiceViewController: NSViewController {
     let buyerAutoSavingController = BuyerAutoSavingController()
    
     @IBOutlet weak var numberTextField: NSTextField!
-    @IBOutlet weak var issueDatePicker: NSDatePicker!
-    @IBOutlet weak var sellingDatePicker: NSDatePicker!
     
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var paymentFormPopUp: NSPopUpButtonCell!
@@ -35,15 +34,12 @@ class AbstractInvoiceViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        issueDatePicker.dateValue = Date()
-        sellingDatePicker.dateValue = Date()
         dueDatePicker.dateValue = Calendar.current.date(byAdding: .day, value: 14, to: Date())!
         
        self.saveButton.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
-        dueDatePicker.dateValue = invoiceSettings.getDueDate(issueDate: issueDatePicker.dateValue, sellDate: sellingDatePicker.dateValue)
         notesTextField.stringValue = invoiceSettings.defaultNotes
         
         NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,
@@ -58,6 +54,12 @@ class AbstractInvoiceViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.checkSaveButtonEnabled()}
+        NotificationCenter.default.addObserver(forName: InvoiceDatesViewControllerConstants.ISSUE_DATE_SELECTED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.onIssueDateSelected()}
+        NotificationCenter.default.addObserver(forName: InvoiceDatesViewControllerConstants.SELLING_DATE_SELECTED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.onSellingDateSelected()}
     }
 }
 
@@ -107,20 +109,19 @@ extension AbstractInvoiceViewController {
     internal func addBuyerToHistory(buyer: Counterparty) throws {
         try BuyerAutoSavingController().saveIfNewBuyer(buyer: buyer)
     }
-
-}
-extension AbstractInvoiceViewController {
-    @IBAction func onIssueDateSelected(_ sender: NSDatePicker) {
+    
+    func onIssueDateSelected() {
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
         if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .issueDate) {
-            self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.issueDatePicker.dateValue)
+           self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.invoiceDatesViewController!.issueDate)
         }
     }
     
-    @IBAction func onSellDateSelected(_ sender: NSDatePicker) {
+    func onSellingDateSelected() {
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
         if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .sellDate) {
-            self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.sellingDatePicker.dateValue)
+          self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.invoiceDatesViewController!.sellingDate)
         }
     }
+
 }

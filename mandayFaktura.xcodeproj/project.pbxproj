@@ -197,6 +197,8 @@
 		D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
 		D3F0A510221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
+		D3F0A512221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */; };
+		D3F0A513221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */; };
 		D3F745C922075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */; };
 		D3F745CA22075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */; };
 		D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
@@ -364,6 +366,7 @@
 		D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatesTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverVatRateRepository.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
+		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
 		D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDocumentComposition.swift; sourceTree = "<group>"; };
 		D3F745CB22075ED00057540E /* InvoicePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageComposition.swift; sourceTree = "<group>"; };
 		D3F745CE220775800057540E /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
@@ -718,6 +721,7 @@
 				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
 				D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */,
 				D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */,
+				D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1198,6 +1202,7 @@
 				D3F745E6220795260057540E /* ItemTableRowComponent.swift in Sources */,
 				D34339D121A48D6100C583D2 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
 				D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */,
+				D3F0A513221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */,
 				D3F745D0220775800057540E /* HeaderComponent.swift in Sources */,
 				D34339D321A48D6100C583D2 /* InvoiceExistsError.swift in Sources */,
 				D3F745EF2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
@@ -1309,6 +1314,7 @@
 				D3F745E5220795260057540E /* ItemTableRowComponent.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
+				D3F0A512221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */,
 				D3F745CF220775800057540E /* HeaderComponent.swift in Sources */,
 				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
 				D3F745EE2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,

@@ -24,9 +24,6 @@ class CreditNoteViewController: AbstractInvoiceViewController {
         super.viewDidLoad()
         
         self.creditNoteNumber.stringValue = invoice!.number + "/K"
-        
-        self.issueDatePicker.dateValue = invoice!.issueDate
-        self.sellingDatePicker.dateValue = invoice!.sellingDate
         self.dueDatePicker.dateValue = invoice!.paymentDueDate
         self.notesTextField.stringValue = invoice!.notes
         
@@ -58,11 +55,7 @@ class CreditNoteViewController: AbstractInvoiceViewController {
             //vc?.invoice = newInvoice TODO:
         } else if segue.destinationController is DatePickerViewController {
             let vc = segue.destinationController as! DatePickerViewController
-            if segue.identifier == NSStoryboardSegue.Identifier("issueDatePickerSegue") {
-                vc.relatedDatePicker = self.issueDatePicker
-            } else if segue.identifier == NSStoryboardSegue.Identifier("sellDatePickerSegue") {
-                vc.relatedDatePicker = self.sellingDatePicker
-            } else if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
+            if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
                 vc.relatedDatePicker = self.dueDatePicker
             }
         } else if segue.destinationController is BuyerViewController {
@@ -71,6 +64,10 @@ class CreditNoteViewController: AbstractInvoiceViewController {
         } else if segue.destinationController is ItemsTableViewController {
             self.itemsTableViewController = segue.destinationController as? ItemsTableViewController
             self.itemsTableViewController!.items = invoice!.items
+        } else if segue.destinationController is InvoiceDatesViewController {
+            self.invoiceDatesViewController = segue.destinationController as? InvoiceDatesViewController
+            self.invoiceDatesViewController!.issueDate = invoice!.issueDate
+            self.invoiceDatesViewController!.sellingDate = invoice!.sellingDate
         }
     }
     
@@ -81,8 +78,8 @@ class CreditNoteViewController: AbstractInvoiceViewController {
             return aCreditNote()
                 .withNumber(creditNoteNumber.stringValue)
                 .withInvoiceNumber(invoice!.number)
-                .withInvoiceIssueDate(self.invoiceIssueDate.dateValue)
-                .withCreditNoteIssueDate(self.creditNoteIssueDate.dateValue)
+                .withInvoiceIssueDate(self.invoiceDatesViewController!.issueDate)
+                .withCreditNoteIssueDate(self.invoiceDatesViewController!.sellingDate)
                 .withSeller(seller)
                 .withBuyer(buyer)
                 .withItems(self.itemsTableViewController!.items)
