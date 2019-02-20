@@ -49,6 +49,15 @@ class AbstractInvoiceViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.checkSaveButtonEnabled()}
+        NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_ADDED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.checkSaveButtonEnabled()}
+        NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_REMOVED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.checkSaveButtonEnabled()}
+        NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.checkSaveButtonEnabled()}
     }
 }
 

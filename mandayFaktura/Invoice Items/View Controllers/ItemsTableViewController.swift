@@ -9,6 +9,14 @@
 import Foundation
 import Cocoa
 
+struct ItemsTableViewControllerConstants {
+    static let ITEM_ADDED_NOTIFICATION = Notification.Name(rawValue: "ItemAdded")
+    static let ITEM_REMOVED_NOTIFICATION = Notification.Name(rawValue: "ItemRemoved")
+    static let ITEM_CHANGED_NOTIFICATION = Notification.Name(rawValue: "ItemChanged")
+
+
+}
+
 class ItemsTableViewController : NSViewController {
     
     var itemsTableViewDelegate: ItemsTableViewDelegate?
@@ -46,23 +54,28 @@ class ItemsTableViewController : NSViewController {
     func addItem(itemDefinition: ItemDefinition) {
         self.itemsTableViewDelegate!.addItem(itemDefinition: itemDefinition)
         self.itemsTableView.reloadData()
-        //checkPreviewButtonEnabled() TODO
-        //checkSaveButtonEnabled() TODO
+        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_ADDED_NOTIFICATION, object: itemDefinition)
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeItemNetValue, on: sender)
-        safeReloadData()
+        notifyItemChanged()
+        self.itemsTableView.reloadData()
+        setItemButtonsAvailability()
     }
     
     @IBAction func changeItemName(_ sender: NSTextField) {
         self.itemsTableViewDelegate!.changeItemName(sender)
-        safeReloadData()
+        notifyItemChanged()
+        self.itemsTableView.reloadData()
+        setItemButtonsAvailability()
     }
     
     @IBAction func changeAmount(_ sender: NSTextField) {
         tryWithWarning(self.itemsTableViewDelegate!.changeAmount, on: sender)
-        safeReloadData()
+        notifyItemChanged()
+        self.itemsTableView.reloadData()
+        setItemButtonsAvailability()
     }
     
     @IBAction func onVatRateSelect(_ sender: NSPopUpButton) {
@@ -70,8 +83,14 @@ class ItemsTableViewController : NSViewController {
         if !vatRates.isEmpty {
             let vatRate = vatRates.first(where: {v in v.literal == sender.selectedItem!.title}) ?? VatRate(string: sender.selectedItem!.title)
             self.itemsTableViewDelegate!.changeVatRate(row: sender.tag, vatRate: vatRate)
-            safeReloadData()
+            self.itemsTableView.reloadData()
+            setItemButtonsAvailability()
+            notifyItemChanged()
         }
+    }
+    
+    private func notifyItemChanged() {
+        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION, object: nil)
     }
     
     
@@ -91,8 +110,7 @@ class ItemsTableViewController : NSViewController {
     @IBAction func onAddItemClicked(_ sender: NSButton) {
         self.itemsTableViewDelegate!.addItem()
         self.itemsTableView.reloadData()
-        //checkPreviewButtonEnabled()
-        //checkSaveButtonEnabled()
+        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_ADDED_NOTIFICATION, object: nil)
     }
     
     @IBAction func onMinusButtonClicked(_ sender: Any) {
@@ -102,16 +120,11 @@ class ItemsTableViewController : NSViewController {
     private func deleteSelectedItem() {
         self.removeItemButton.isEnabled = false
         self.itemsTableViewDelegate!.removeSelectedItem()
-        safeReloadData()
-        //checkPreviewButtonEnabled()
-        //checkSaveButtonEnabled()
-    }
-    
-    private func safeReloadData() {
         self.itemsTableView.reloadData()
-        //checkSaveButtonEnabled()
         setItemButtonsAvailability()
+        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_REMOVED_NOTIFICATION, object: nil)
     }
+   
     
     override func keyDown(with: NSEvent) {
         super.keyDown(with: with)
@@ -139,7 +152,7 @@ class ItemsTableViewController : NSViewController {
     
     public func isValid() -> Bool {
         return self.itemsTableView.numberOfRows > 0
-        && !(self.itemsTableViewDelegate?.anyItemHasEmptyName())!
+        && !(self.itemsTableViewDelegate!.anyItemHasEmptyName())
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
