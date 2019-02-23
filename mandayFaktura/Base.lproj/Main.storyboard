@@ -2243,8 +2243,8 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ot-tv-6bf">
-                                <rect key="frame" x="8" y="591" width="95" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Numer faktury:" id="FtI-Sa-fAj">
+                                <rect key="frame" x="8" y="591" width="168" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Numer faktury korygującej:" id="FtI-Sa-fAj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -2283,14 +2283,6 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField toolTip="Nazwa firmy nabywcy" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tev-zY-Yj0">
-                                <rect key="frame" x="116" y="588" width="143" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nr korekty" drawsBackground="YES" id="bXP-pp-ML5">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsK-S7-xRb" userLabel="Buyer View">
                                 <rect key="frame" x="10" y="485" width="563" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -2319,6 +2311,14 @@ DQ
                                     <segue destination="2gN-yO-eCA" kind="embed" id="Fck-UU-eCt"/>
                                 </connections>
                             </containerView>
+                            <textField toolTip="Nazwa firmy nabywcy" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tev-zY-Yj0">
+                                <rect key="frame" x="182" y="589" width="143" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nr korekty" drawsBackground="YES" id="bXP-pp-ML5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Tev-zY-Yj0" firstAttribute="top" secondItem="lVG-Qa-JwV" secondAttribute="top" constant="8" id="GRA-99-GTq"/>
@@ -3177,10 +3177,10 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="luC-Kk-8jv"/>
-        <segue reference="wQo-ST-eOV"/>
-        <segue reference="Zcr-aY-8e1"/>
-        <segue reference="l92-wc-pcR"/>
+        <segue reference="Fck-UU-eCt"/>
+        <segue reference="Z5X-n5-XMy"/>
+        <segue reference="YuM-Kf-ezH"/>
+        <segue reference="cO2-sR-xaW"/>
         <segue reference="cg6-KF-gGH"/>
         <segue reference="2fz-Zu-mfT"/>
         <segue reference="pNf-8A-Ove"/>

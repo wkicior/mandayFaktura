@@ -93,14 +93,14 @@ class CreditNoteViewController: NSViewController {
             let buyer = self.buyerViewController!.getBuyer()
             return aCreditNote()
                 .withNumber(creditNoteNumber.stringValue)
-                .withInvoiceNumber(invoice!.number)
-                .withInvoiceIssueDate(self.invoiceDatesViewController!.issueDate)
-                .withCreditNoteIssueDate(self.invoiceDatesViewController!.sellingDate)
+                .withIssueDate(self.invoiceDatesViewController!.issueDate)
+                .withSellingDate(self.invoiceDatesViewController!.sellingDate)
                 .withSeller(seller)
                 .withBuyer(buyer)
                 .withItems(self.itemsTableViewController!.items)
                 .withPaymentForm(self.paymentDetailsViewController!.paymentForm!)
-                .withNotes(self.notesTextField.stringValue)
+                .withReason(self.notesTextField.stringValue)
+                .withInvoiceNumber(self.invoice!.number)
                 .build()
         }
     }

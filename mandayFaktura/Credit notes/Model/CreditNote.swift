@@ -9,18 +9,17 @@
 import Foundation
 
 struct CreditNote {
+    let issueDate: Date
     let number: String
-    let invoiceNumber: String
-    let invoiceIssueDate: Date
-    let creditNoteIssueDate: Date
+    let sellingDate: Date
     let seller: Counterparty
     let buyer: Counterparty
     let items: [InvoiceItem]
     let paymentForm: PaymentForm
     let paymentDueDate: Date
-    let notes: String
+    let reason: String
+    let invoiceNumber: String
 
-    
     var totalNetValue: Decimal {
         get {
             return items.map{i in i.netValue}.reduce(0, +)
@@ -53,34 +52,29 @@ func aCreditNote() -> CreditNoteBuilder {
 
 class CreditNoteBuilder {
     private var number = ""
-    private var invoiceNumber = ""
-    private var invoiceIssueDate = Date()
-    private var creditNoteIssueDate = Date()
+    private var issueDate = Date()
+    private var sellingDate = Date()
     private var seller: Counterparty?
     private var buyer: Counterparty?
     private var items: [InvoiceItem] = []
     private var paymentForm: PaymentForm = .transfer
     private var paymentDueDate = Date()
-    private var notes = ""
+    private var reason = ""
+    private var invoiceNumber: String?
     
     func withNumber(_ number: String) -> CreditNoteBuilder {
         self.number = number
         return self
     }
     
-    func withInvoiceNumber(_ number: String) -> CreditNoteBuilder {
-        self.invoiceNumber = number
-        return self
-    }
-    
-    func withInvoiceIssueDate(_ issueDate: Date) -> CreditNoteBuilder {
-        self.invoiceIssueDate = issueDate
+    func withIssueDate(_ issueDate: Date) -> CreditNoteBuilder {
+        self.issueDate = issueDate
         return self
     }
    
     
-    func withCreditNoteIssueDate(_ creditNoteIssueDate: Date) -> CreditNoteBuilder {
-        self.creditNoteIssueDate = creditNoteIssueDate
+    func withSellingDate(_ sellingDate: Date) -> CreditNoteBuilder {
+        self.sellingDate = sellingDate
         return self
     }
     
@@ -109,23 +103,28 @@ class CreditNoteBuilder {
         return self
     }
     
-    func withNotes(_ notes: String) -> CreditNoteBuilder {
-        self.notes = notes
+    func withReason(_ reason: String) -> CreditNoteBuilder {
+        self.reason = reason
+        return self
+    }
+    
+    func withInvoiceNumber(_ invoiceNumber: String) -> CreditNoteBuilder {
+        self.invoiceNumber = invoiceNumber
         return self
     }
     
     
     func build() -> CreditNote {
-        return CreditNote(number: number,
-                       invoiceNumber: invoiceNumber,
-                       invoiceIssueDate: invoiceIssueDate,
-                       creditNoteIssueDate: creditNoteIssueDate,
+        return CreditNote(issueDate: issueDate,
+                       number: number,
+                       sellingDate: sellingDate,
                        seller: seller!,
                        buyer: buyer!,
                        items: items,
                        paymentForm: paymentForm,
                        paymentDueDate: paymentDueDate,
-                       notes: notes
+                       reason: reason,
+                       invoiceNumber: invoiceNumber!
         )
     }
 }

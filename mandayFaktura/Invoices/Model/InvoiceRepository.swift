@@ -40,7 +40,7 @@ protocol InvoiceRepository {
 }
 
 /**
- This class will provide the instances of implementations of CounterpartyRepository
+ This class will provide the instances of implementations of InvoiceRepository
  */
 class InvoiceRepositoryFactory {
     private static var repository: InvoiceRepository?
