@@ -1176,52 +1176,6 @@ DQ
                                     <segue destination="xVm-3h-MS1" kind="modal" id="mvy-hV-L5q"/>
                                 </connections>
                             </button>
-                            <popUpButton identifier="Sposób płatności za towar lub usługę" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-lW-Lvv" userLabel="PaymentType">
-                                <rect key="frame" x="658" y="479" width="91" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="tjr-mT-jrL" id="DnQ-bG-q2g">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="Yd4-oo-QgJ">
-                                        <items>
-                                            <menuItem title="Przelew" state="on" id="tjr-mT-jrL"/>
-                                            <menuItem title="Gotówka" tag="1" id="M0X-OD-QIp"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="paymentFormPopUpValueChanged:" target="haF-wG-vwp" id="u6l-8B-N8c"/>
-                                </connections>
-                            </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hO6-wj-bfz">
-                                <rect key="frame" x="551" y="486" width="113" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="nlI-3T-fac">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <datePicker toolTip="Termin płatności" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-Wx-S0z">
-                                <rect key="frame" x="849" y="476" width="98" height="27"/>
-                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="2wM-Uc-0nb">
-                                    <font key="font" metaFont="system"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="536457600">
-                                        <!--2018-01-01 00:00:00 +0000-->
-                                    </date>
-                                    <date key="minDate" timeIntervalSinceReferenceDate="536457600">
-                                        <!--2018-01-01 00:00:00 +0000-->
-                                    </date>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                </datePickerCell>
-                            </datePicker>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rgl-DW-dvn">
-                                <rect key="frame" x="746" y="482" width="49" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Termin:" id="oB1-ze-vXM">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nf-Ia-yZO">
                                 <rect key="frame" x="10" y="39" width="934" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1231,18 +1185,8 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEL-Yc-qpf">
-                                <rect key="frame" x="799" y="475" width="42" height="25"/>
-                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3k4-RP-YG9">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="HEL-Yc-qpf" popoverBehavior="t" preferredEdge="maxY" id="Z1u-ve-SKZ"/>
-                                </connections>
-                            </button>
                             <containerView autoresizesSubviews="NO" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-6G-O1e" userLabel="BuyerView">
-                                <rect key="frame" x="10" y="476" width="543" height="107"/>
+                                <rect key="frame" x="10" y="476" width="512" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="Yv6-am-I98"/>
                                     <constraint firstAttribute="width" constant="609" id="Zg9-LF-70Q"/>
@@ -1259,10 +1203,17 @@ DQ
                                 </connections>
                             </containerView>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tFk-Ud-4oi" userLabel="Invoice Dates View">
-                                <rect key="frame" x="685" y="516" width="259" height="95"/>
+                                <rect key="frame" x="685" y="518" width="259" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <connections>
                                     <segue destination="Fqo-ol-DLC" kind="embed" id="b7W-sT-mer"/>
+                                </connections>
+                            </containerView>
+                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-r4-MFy" userLabel="Payment Details View Controller">
+                                <rect key="frame" x="535" y="478" width="409" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <connections>
+                                    <segue destination="2gN-yO-eCA" kind="embed" id="8r7-xr-IPP"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -1270,15 +1221,8 @@ DQ
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="leading" secondItem="VOZ-eV-MbK" secondAttribute="trailing" constant="8" id="2Uq-XA-j2a"/>
                             <constraint firstAttribute="bottom" secondItem="1gg-h9-i9W" secondAttribute="bottom" constant="10" id="353-8n-AWp"/>
                             <constraint firstItem="H4E-6G-O1e" firstAttribute="top" secondItem="2Zb-EB-vYN" secondAttribute="bottom" constant="6" id="75g-UE-9aQ"/>
-                            <constraint firstItem="Rgl-DW-dvn" firstAttribute="leading" secondItem="kA3-lW-Lvv" secondAttribute="trailing" constant="55" id="7Tj-GC-cTj"/>
-                            <constraint firstItem="HEL-Yc-qpf" firstAttribute="leading" secondItem="Rgl-DW-dvn" secondAttribute="trailing" constant="6" id="Piw-4l-EAS"/>
                             <constraint firstItem="VOZ-eV-MbK" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="10" id="VQn-OR-lnH"/>
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="7" id="Wkl-Bf-s5D"/>
-                            <constraint firstAttribute="trailing" secondItem="JDm-Wx-S0z" secondAttribute="trailing" constant="16" id="bjr-lN-SE7"/>
-                            <constraint firstItem="HEL-Yc-qpf" firstAttribute="leading" secondItem="Rgl-DW-dvn" secondAttribute="trailing" constant="6" id="bkc-lI-fqq"/>
-                            <constraint firstItem="kA3-lW-Lvv" firstAttribute="leading" secondItem="hO6-wj-bfz" secondAttribute="trailing" constant="1" id="eYQ-Zj-CXO"/>
-                            <constraint firstItem="JDm-Wx-S0z" firstAttribute="leading" secondItem="HEL-Yc-qpf" secondAttribute="trailing" constant="8" id="iAd-K5-Nj3"/>
-                            <constraint firstItem="JDm-Wx-S0z" firstAttribute="leading" secondItem="HEL-Yc-qpf" secondAttribute="trailing" constant="8" id="jvQ-gx-FSp"/>
                             <constraint firstAttribute="trailing" secondItem="1gg-h9-i9W" secondAttribute="trailing" constant="10" id="lPU-UJ-UDd"/>
                             <constraint firstItem="1gg-h9-i9W" firstAttribute="leading" secondItem="gWk-za-B4i" secondAttribute="trailing" constant="7" id="lpl-IJ-mFd"/>
                             <constraint firstAttribute="bottom" secondItem="gWk-za-B4i" secondAttribute="bottom" constant="10" id="o26-TP-ApW"/>
@@ -1287,10 +1231,8 @@ DQ
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dueDatePicker" destination="JDm-Wx-S0z" id="pij-Ti-1gU"/>
                         <outlet property="notesTextField" destination="8nf-Ia-yZO" id="2pc-rB-D7h"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
-                        <outlet property="paymentFormPopUp" destination="DnQ-bG-q2g" id="RH8-ob-V2Z"/>
                         <outlet property="previewButton" destination="gWk-za-B4i" id="bLm-HA-G9y"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
                     </connections>
@@ -1911,62 +1853,6 @@ DQ
                                     <segue destination="xVm-3h-MS1" kind="modal" id="pNf-8A-Ove"/>
                                 </connections>
                             </button>
-                            <popUpButton toolTip="Wybrany sposób płatności" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNi-3x-GG4" userLabel="PaymentType">
-                                <rect key="frame" x="658" y="486" width="91" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="esZ-oI-9B6" id="4op-j6-O4S">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="20n-Re-WoK">
-                                        <items>
-                                            <menuItem title="Przelew" state="on" id="esZ-oI-9B6"/>
-                                            <menuItem title="Gotówka" tag="1" id="bSC-aF-QIN"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="paymentFormPopUpValueChanged:" target="Pk8-xk-tGP" id="8Ke-Sm-qI2"/>
-                                </connections>
-                            </popUpButton>
-                            <datePicker toolTip="Termin płatności" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dca-Si-ive">
-                                <rect key="frame" x="857" y="485" width="98" height="27"/>
-                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="0fL-Ly-yUn">
-                                    <font key="font" metaFont="system"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="536457600">
-                                        <!--2018-01-01 00:00:00 +0000-->
-                                    </date>
-                                    <date key="minDate" timeIntervalSinceReferenceDate="536457600">
-                                        <!--2018-01-01 00:00:00 +0000-->
-                                    </date>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                </datePickerCell>
-                            </datePicker>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8j-uN-G3n">
-                                <rect key="frame" x="752" y="491" width="49" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Termin:" id="fCN-G1-U64">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCW-XI-td3">
-                                <rect key="frame" x="807" y="484" width="42" height="25"/>
-                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CJs-Hn-EJf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="yCW-XI-td3" popoverBehavior="t" preferredEdge="maxY" id="lEd-0Y-pPs"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqH-3H-MHy">
-                                <rect key="frame" x="541" y="491" width="113" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="5Io-a5-o9d">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZg-AQ-svB">
                                 <rect key="frame" x="10" y="44" width="934" height="78"/>
                                 <constraints>
@@ -1993,18 +1879,23 @@ DQ
                                 </connections>
                             </containerView>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5h-Nd-fWv" userLabel="Invoice Dates View">
-                                <rect key="frame" x="713" y="516" width="239" height="92"/>
+                                <rect key="frame" x="713" y="525" width="239" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <connections>
                                     <segue destination="Fqo-ol-DLC" kind="embed" id="wQo-ST-eOV"/>
+                                </connections>
+                            </containerView>
+                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2j9-He-WHt" userLabel="Payment Details View Controller">
+                                <rect key="frame" x="575" y="485" width="377" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <connections>
+                                    <segue destination="2gN-yO-eCA" kind="embed" id="luC-Kk-8jv"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="0ge-Ca-dMh" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="492-QL-6kJ"/>
                             <constraint firstAttribute="bottom" secondItem="LBS-47-5gd" secondAttribute="bottom" constant="8" id="A7H-t9-92E"/>
-                            <constraint firstItem="dca-Si-ive" firstAttribute="leading" secondItem="yCW-XI-td3" secondAttribute="trailing" constant="8" id="C3C-P9-Erv"/>
-                            <constraint firstItem="V8j-uN-G3n" firstAttribute="leading" secondItem="eNi-3x-GG4" secondAttribute="trailing" constant="52" id="E9G-bg-wxR"/>
                             <constraint firstItem="0ge-Ca-dMh" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="Jct-Af-7D4"/>
                             <constraint firstAttribute="trailing" secondItem="YnY-Of-fZk" secondAttribute="trailing" constant="10" id="Lkb-Od-9kR"/>
                             <constraint firstItem="vZg-AQ-svB" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="PLd-HP-WTt"/>
@@ -2014,16 +1905,11 @@ DQ
                             <constraint firstItem="YnY-Of-fZk" firstAttribute="leading" secondItem="LBS-47-5gd" secondAttribute="trailing" constant="7" id="dmL-d6-y3s"/>
                             <constraint firstItem="YnY-Of-fZk" firstAttribute="top" secondItem="vZg-AQ-svB" secondAttribute="bottom" constant="15" id="iuJ-mn-YvX"/>
                             <constraint firstAttribute="bottom" secondItem="YnY-Of-fZk" secondAttribute="bottom" constant="8" id="kfG-uR-AGX"/>
-                            <constraint firstAttribute="trailing" secondItem="dca-Si-ive" secondAttribute="trailing" constant="10" id="pHB-nO-B9F"/>
-                            <constraint firstItem="yCW-XI-td3" firstAttribute="leading" secondItem="V8j-uN-G3n" secondAttribute="trailing" constant="8" id="sdt-yd-HJu"/>
-                            <constraint firstItem="eNi-3x-GG4" firstAttribute="leading" secondItem="nqH-3H-MHy" secondAttribute="trailing" constant="8" id="sez-c8-raB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dueDatePicker" destination="dca-Si-ive" id="0Tl-L2-GC1"/>
                         <outlet property="notesTextField" destination="vZg-AQ-svB" id="jZc-di-CYY"/>
                         <outlet property="numberTextField" destination="hIb-6p-UXt" id="24k-C3-vWN"/>
-                        <outlet property="paymentFormPopUp" destination="4op-j6-O4S" id="IAT-JL-QI8"/>
                         <outlet property="previewButton" destination="LBS-47-5gd" id="h1J-QY-o9S"/>
                         <outlet property="saveButton" destination="YnY-Of-fZk" id="Jbw-jd-fcT"/>
                     </connections>
@@ -2349,49 +2235,6 @@ DQ
                                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                             </button>
-                            <popUpButton toolTip="Wybrany sposób płatności" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSu-7g-G2M" userLabel="PaymentType">
-                                <rect key="frame" x="696" y="485" width="91" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ghc-my-Vd6" id="V0d-6h-qLx">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="O2T-Yq-fbA">
-                                        <items>
-                                            <menuItem title="Przelew" state="on" id="ghc-my-Vd6"/>
-                                            <menuItem title="Gotówka" tag="1" id="JNl-Em-9N1"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="paymentFormPopUpValueChanged:" target="xel-JP-j4e" id="WCn-MB-ocR"/>
-                                </connections>
-                            </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NsA-l7-QTK">
-                                <rect key="frame" x="808" y="490" width="49" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Termin:" id="eVF-Em-DPL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74S-1r-QkT">
-                                <rect key="frame" x="861" y="488" width="42" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fKq-dp-EVd">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mV8-bs-nNT">
-                                <rect key="frame" x="579" y="491" width="113" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="WHt-Rk-rNo">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A14-zx-FZb">
                                 <rect key="frame" x="10" y="44" width="990" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -2423,21 +2266,6 @@ DQ
                                     <segue destination="rXT-Ax-ruS" kind="embed" id="YuM-Kf-ezH"/>
                                 </connections>
                             </containerView>
-                            <datePicker toolTip="Termin płatności" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MzK-FQ-Alm">
-                                <rect key="frame" x="913" y="488" width="98" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="8bV-oS-tfR">
-                                    <font key="font" metaFont="system"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="536457600">
-                                        <!--2018-01-01 00:00:00 +0000-->
-                                    </date>
-                                    <date key="minDate" timeIntervalSinceReferenceDate="536457600">
-                                        <!--2018-01-01 00:00:00 +0000-->
-                                    </date>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                </datePickerCell>
-                            </datePicker>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f29-kE-lai">
                                 <rect key="frame" x="751" y="515" width="257" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -2445,9 +2273,17 @@ DQ
                                     <segue destination="Fqo-ol-DLC" kind="embed" id="Z5X-n5-XMy"/>
                                 </connections>
                             </containerView>
+                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0L-sw-rvh" userLabel="Payment Details View Controller">
+                                <rect key="frame" x="599" y="482" width="409" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <connections>
+                                    <segue destination="2gN-yO-eCA" kind="embed" id="Fck-UU-eCt"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Tev-zY-Yj0" firstAttribute="top" secondItem="lVG-Qa-JwV" secondAttribute="top" constant="8" id="GRA-99-GTq"/>
+                            <constraint firstItem="0ot-tv-6bf" firstAttribute="leading" secondItem="lVG-Qa-JwV" secondAttribute="leading" constant="10" id="Ncy-2G-gEV"/>
                             <constraint firstItem="Tev-zY-Yj0" firstAttribute="leading" secondItem="0ot-tv-6bf" secondAttribute="trailing" constant="15" id="w0Y-LV-vKu"/>
                         </constraints>
                     </view>
@@ -2455,11 +2291,9 @@ DQ
                         <outlet property="buyerAdditionalInfo" destination="VKR-Ls-MCj" id="m6b-UD-xXz"/>
                         <outlet property="cityTextField" destination="6hT-Pw-flQ" id="uPf-78-YrI"/>
                         <outlet property="creditNoteNumber" destination="Tev-zY-Yj0" id="8QG-L0-UrA"/>
-                        <outlet property="dueDatePicker" destination="MzK-FQ-Alm" id="NAT-G3-FDN"/>
                         <outlet property="itemsCataloguqButton" destination="eU7-aR-xbm" id="2ul-zL-wAO"/>
                         <outlet property="itemsTableView" destination="K7l-SJ-g6u" id="m90-k8-bdL"/>
                         <outlet property="notesTextField" destination="A14-zx-FZb" id="jGR-jQ-oev"/>
-                        <outlet property="paymentFormPopUp" destination="V0d-6h-qLx" id="zq2-3r-ijh"/>
                         <outlet property="postalCodeTextField" destination="pSb-Kd-8wj" id="0pC-hN-Bmu"/>
                         <outlet property="previewButton" destination="bpZ-x8-h20" id="CXA-qF-O1N"/>
                         <outlet property="removeItemButton" destination="cle-5p-sRV" id="YsA-pW-TuW"/>
@@ -2978,9 +2812,9 @@ DQ
                                 </connections>
                             </datePicker>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-l3-WTO">
-                                <rect key="frame" x="-2" y="37" width="109" height="17"/>
+                                <rect key="frame" x="-2" y="37" width="113" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data wystawienia" id="7Q9-pF-007">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Data wystawienia:" id="7Q9-pF-007">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -3027,9 +2861,9 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vpl-J3-5Dh">
-                                <rect key="frame" x="8" y="10" width="99" height="17"/>
+                                <rect key="frame" x="4" y="10" width="103" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Data sprzedaży" id="LYb-aQ-Qhy">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Data sprzedaży:" id="LYb-aQ-Qhy">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -3045,6 +2879,86 @@ DQ
                 <customObject id="AF7-no-nem" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1077" y="1930"/>
+        </scene>
+        <!--Payment Details View Controller-->
+        <scene sceneID="Daw-zl-iei">
+            <objects>
+                <viewController id="2gN-yO-eCA" customClass="PaymentDetailsViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ZrL-nW-Vn9">
+                        <rect key="frame" x="0.0" y="0.0" width="409" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrK-Jo-tHc">
+                                <rect key="frame" x="217" y="5" width="49" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Termin:" id="Mbj-aL-Oib">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ox-jg-Ure">
+                                <rect key="frame" x="269" y="-1" width="42" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" alternateTitle="Dodaj towar lub usługę" bezelStyle="texturedRounded" image="calendar-alt" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t5T-xg-wI9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="lA7-rT-KC5" kind="popover" identifier="dueDatePickerSegue" popoverAnchorView="0ox-jg-Ure" popoverBehavior="t" preferredEdge="maxY" id="iWA-in-tWC"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-ue-01o">
+                                <rect key="frame" x="-2" y="5" width="113" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sposób płatności:" id="1s1-cK-LPF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <datePicker toolTip="Termin płatności" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9b-ZG-Xlk">
+                                <rect key="frame" x="314" y="2" width="98" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="aCX-5r-m8G">
+                                    <font key="font" metaFont="system"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="536457600">
+                                        <!--2018-01-01 00:00:00 +0000-->
+                                    </date>
+                                    <date key="minDate" timeIntervalSinceReferenceDate="536457600">
+                                        <!--2018-01-01 00:00:00 +0000-->
+                                    </date>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                </datePickerCell>
+                            </datePicker>
+                            <popUpButton identifier="Sposób płatności za towar lub usługę" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3Y-uwd" userLabel="PaymentType">
+                                <rect key="frame" x="107" y="-1" width="91" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Przelew" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2OT-Go-qw4" id="67p-Pj-dVY">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="b6C-ZJ-ClV">
+                                        <items>
+                                            <menuItem title="Przelew" state="on" id="2OT-Go-qw4"/>
+                                            <menuItem title="Gotówka" tag="1" id="YXp-uq-9Ps"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="paymentFormPopUpValueChanged:" target="2gN-yO-eCA" id="eK1-30-wUi"/>
+                                </connections>
+                            </popUpButton>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="dueDatePicker" destination="e9b-ZG-Xlk" id="GFg-mv-Rfi"/>
+                        <outlet property="paymentFormPopUp" destination="67p-Pj-dVY" id="K67-Xe-tx7"/>
+                    </connections>
+                </viewController>
+                <customObject id="qmG-I0-Coq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588.5" y="1979"/>
         </scene>
     </scenes>
     <resources>
@@ -3187,6 +3101,7 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Fck-UU-eCt"/>
         <segue reference="Z5X-n5-XMy"/>
         <segue reference="YuM-Kf-ezH"/>
         <segue reference="cO2-sR-xaW"/>
@@ -3195,7 +3110,7 @@ AAAAAAAcgQ
         <segue reference="pNf-8A-Ove"/>
         <segue reference="yaH-hv-UcY"/>
         <segue reference="cPw-Au-6Bj"/>
-        <segue reference="Mez-u1-M7I"/>
+        <segue reference="OW0-fA-AZa"/>
         <segue reference="lUp-1X-7iT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@ class AbstractInvoiceViewController: NSViewController {
     var buyerViewController: BuyerViewController?
     var itemsTableViewController: ItemsTableViewController?
     var invoiceDatesViewController: InvoiceDatesViewController?
+    var paymentDetailsViewController: PaymentDetailsViewController?
     
     let invoiceFacade = InvoiceFacade()
     let itemDefinitionFacade = InvoiceItemDefinitionFacade()
@@ -19,14 +20,11 @@ class AbstractInvoiceViewController: NSViewController {
     let vatRateFacade = VatRateFacade()
     let invoiceSettingsFacade = InvoiceSettingsFacade()
    
-    var selectedPaymentForm: PaymentForm? = PaymentForm.transfer
     let buyerAutoSavingController = BuyerAutoSavingController()
    
     @IBOutlet weak var numberTextField: NSTextField!
     
     @IBOutlet weak var saveButton: NSButton!
-    @IBOutlet weak var paymentFormPopUp: NSPopUpButtonCell!
-    @IBOutlet weak var dueDatePicker: NSDatePicker!
    
     @IBOutlet weak var previewButton: NSButton!
     @IBOutlet weak var viewSellersPopUpButton: NSPopUpButton!
@@ -34,9 +32,7 @@ class AbstractInvoiceViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dueDatePicker.dateValue = Calendar.current.date(byAdding: .day, value: 14, to: Date())!
-        
-       self.saveButton.isEnabled = false
+        self.saveButton.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
@@ -54,12 +50,6 @@ class AbstractInvoiceViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.checkSaveButtonEnabled()}
-        NotificationCenter.default.addObserver(forName: InvoiceDatesViewControllerConstants.ISSUE_DATE_SELECTED_NOTIFICATION,
-                                               object: nil, queue: nil) {
-                                                (notification) in self.onIssueDateSelected()}
-        NotificationCenter.default.addObserver(forName: InvoiceDatesViewControllerConstants.SELLING_DATE_SELECTED_NOTIFICATION,
-                                               object: nil, queue: nil) {
-                                                (notification) in self.onSellingDateSelected()}
     }
 }
 
@@ -78,50 +68,8 @@ extension AbstractInvoiceViewController {
     @objc func textFieldDidChange(_ notification: Notification) {
         checkSaveButtonEnabled()
     }
-}
-
-extension AbstractInvoiceViewController {
-    
-    @IBAction func paymentFormPopUpValueChanged(_ sender: NSPopUpButton) {
-        selectedPaymentForm = getPaymentFormByTag(sender.selectedTag())
-    }
-    
-    func getPaymentFormByTag(_ tag: Int) -> PaymentForm? {
-        switch tag {
-        case 0:
-            return PaymentForm.transfer
-        case 1:
-            return PaymentForm.cash
-        default:
-            return Optional.none
-        }
-    }
-    
-    func getPaymentFormTag(from: PaymentForm) -> Int {
-        switch from {
-        case .transfer:
-            return 0
-        case .cash:
-            return 1
-        }
-    }
     
     internal func addBuyerToHistory(buyer: Counterparty) throws {
         try BuyerAutoSavingController().saveIfNewBuyer(buyer: buyer)
     }
-    
-    func onIssueDateSelected() {
-        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
-        if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .issueDate) {
-           self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.invoiceDatesViewController!.issueDate)
-        }
-    }
-    
-    func onSellingDateSelected() {
-        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
-        if (invoiceSettings != nil && invoiceSettings!.paymentDateFrom == .sellDate) {
-          self.dueDatePicker.dateValue = invoiceSettings!.getDueDate(date: self.invoiceDatesViewController!.sellingDate)
-        }
-    }
-
 }

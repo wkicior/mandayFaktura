@@ -20,12 +20,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.numberTextField.stringValue = invoice!.number
-        
-        self.dueDatePicker.dateValue = invoice!.paymentDueDate
         self.notesTextField.stringValue = invoice!.notes
-        
-        let tag = getPaymentFormTag(from: invoice!.paymentForm)
-        self.paymentFormPopUp.selectItem(withTag: tag)
         
         self.previewButton.isEnabled = true
     }
@@ -49,11 +44,6 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
             vc?.invoice = newInvoice
-        } else if segue.destinationController is DatePickerViewController {
-            let vc = segue.destinationController as! DatePickerViewController
-            if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
-                vc.relatedDatePicker = self.dueDatePicker
-            }
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
             self.buyerViewController!.buyer = invoice!.buyer
@@ -64,6 +54,10 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
             self.invoiceDatesViewController = segue.destinationController as? InvoiceDatesViewController
             self.invoiceDatesViewController!.issueDate = invoice!.issueDate
             self.invoiceDatesViewController!.sellingDate = invoice!.sellingDate
+        } else if segue.destinationController is PaymentDetailsViewController {
+            self.paymentDetailsViewController = segue.destinationController as? PaymentDetailsViewController
+            self.paymentDetailsViewController!.dueDate = invoice!.paymentDueDate
+            self.paymentDetailsViewController!.paymentForm = invoice!.paymentForm
         }
     }
     
@@ -78,8 +72,8 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
                 .withSeller(seller)
                 .withBuyer(buyer!)
                 .withItems(self.itemsTableViewController!.items)
-                .withPaymentForm(selectedPaymentForm!)
-                .withPaymentDueDate(self.dueDatePicker.dateValue)
+                .withPaymentForm(self.paymentDetailsViewController!.paymentForm!)
+                .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
                 .build()
             

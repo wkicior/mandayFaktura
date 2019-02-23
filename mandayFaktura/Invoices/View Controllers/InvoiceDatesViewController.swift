@@ -12,6 +12,9 @@ import Cocoa
 struct InvoiceDatesViewControllerConstants {
     static let ISSUE_DATE_SELECTED_NOTIFICATION = Notification.Name(rawValue: "IssueDateSelected")
     static let SELLING_DATE_SELECTED_NOTIFICATION = Notification.Name(rawValue: "SellingDateSelected")
+    
+    static let ISSUE_DATE_NOTIFICATION_KEY = "issueDate"
+    static let SELLING_DATE_NOTIFICATION_KEY = "sellingDate"
 }
 
 class InvoiceDatesViewController: NSViewController {
@@ -48,11 +51,13 @@ class InvoiceDatesViewController: NSViewController {
     }
     
     @IBAction func onIssueDateSelected(_ sender: NSDatePicker) {
-        NotificationCenter.default.post(name: InvoiceDatesViewControllerConstants.ISSUE_DATE_SELECTED_NOTIFICATION, object: self.issueDatePicker.dateValue)
+        let dateDict:[String: Any] = [InvoiceDatesViewControllerConstants.ISSUE_DATE_NOTIFICATION_KEY: self.issueDatePicker.dateValue as Any]
+        NotificationCenter.default.post(name: InvoiceDatesViewControllerConstants.ISSUE_DATE_SELECTED_NOTIFICATION, object: nil, userInfo: dateDict)
     }
     
     @IBAction func onSellDateSelected(_ sender: NSDatePicker) {
-         NotificationCenter.default.post(name: InvoiceDatesViewControllerConstants.SELLING_DATE_SELECTED_NOTIFICATION, object: self.sellingDatePicker.dateValue)
+        let dateDict:[String: Any] = [InvoiceDatesViewControllerConstants.SELLING_DATE_NOTIFICATION_KEY: self.sellingDatePicker.dateValue as Any]
+        NotificationCenter.default.post(name: InvoiceDatesViewControllerConstants.SELLING_DATE_SELECTED_NOTIFICATION, object: nil, userInfo: dateDict)
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {

@@ -18,8 +18,6 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
-        dueDatePicker.dateValue = invoiceSettings.getDueDate(issueDate: Date(), sellDate: Date())
 
         //checkPreviewButtonEnabled()
         self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
@@ -36,8 +34,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 .withSeller(seller)
                 .withBuyer(buyer!)
                 .withItems(self.itemsTableViewController!.items)
-                .withPaymentForm(selectedPaymentForm!)
-                .withPaymentDueDate(self.dueDatePicker.dateValue)
+                .withPaymentForm(self.paymentDetailsViewController!.paymentForm!)
+                .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
                 .build()
         }
@@ -63,17 +61,16 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as! PdfViewController
             vc.invoice = invoice
-        } else if segue.destinationController is DatePickerViewController {
-            let vc = segue.destinationController as! DatePickerViewController
-            if segue.identifier == NSStoryboardSegue.Identifier("dueDatePickerSegue") {
-                vc.relatedDatePicker = self.dueDatePicker
-            }
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
         } else if segue.destinationController is ItemsTableViewController {
             self.itemsTableViewController = segue.destinationController as? ItemsTableViewController
         } else if segue.destinationController is InvoiceDatesViewController {
             self.invoiceDatesViewController = segue.destinationController as? InvoiceDatesViewController
+        } else if segue.destinationController is PaymentDetailsViewController {
+            self.paymentDetailsViewController = segue.destinationController as? PaymentDetailsViewController
+            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
+            self.paymentDetailsViewController!.dueDate = invoiceSettings.getDueDate(issueDate: Date(), sellDate: Date())
         }
     }
     
