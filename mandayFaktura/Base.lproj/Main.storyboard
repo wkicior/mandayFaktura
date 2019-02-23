@@ -1837,7 +1837,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-6p-UXt">
-                                <rect key="frame" x="116" y="586" width="141" height="22"/>
+                                <rect key="frame" x="109" y="589" width="141" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="5Bm-4M-kNy"/>
                                 </constraints>
@@ -1883,47 +1883,67 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCb-Lz-SRg" userLabel="Buyer View">
-                                <rect key="frame" x="10" y="485" width="525" height="98"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="yCb-Lz-SRg" userLabel="Buyer View">
+                                <rect key="frame" x="10" y="476" width="512" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="512" id="kGS-0j-JrE"/>
+                                    <constraint firstAttribute="height" constant="107" id="ynk-IN-6Su"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="2Wo-L9-0o2" kind="embed" id="l92-wc-pcR"/>
                                 </connections>
                             </containerView>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-Nd-qYr">
-                                <rect key="frame" x="10" y="130" width="942" height="347"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="IBR-Nd-qYr">
+                                <rect key="frame" x="10" y="136" width="942" height="329"/>
                                 <connections>
                                     <segue destination="rXT-Ax-ruS" kind="embed" id="Zcr-aY-8e1"/>
                                 </connections>
                             </containerView>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5h-Nd-fWv" userLabel="Invoice Dates View">
-                                <rect key="frame" x="713" y="525" width="239" height="83"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="k5h-Nd-fWv" userLabel="Invoice Dates View">
+                                <rect key="frame" x="692" y="516" width="260" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="ZHv-vY-Fcd"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="Fqo-ol-DLC" kind="embed" id="wQo-ST-eOV"/>
                                 </connections>
                             </containerView>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2j9-He-WHt" userLabel="Payment Details View Controller">
-                                <rect key="frame" x="575" y="485" width="377" height="32"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="2j9-He-WHt" userLabel="Payment Details View Controller">
+                                <rect key="frame" x="542" y="476" width="410" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="410" id="p4W-Ew-RvX"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="2gN-yO-eCA" kind="embed" id="luC-Kk-8jv"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="IBR-Nd-qYr" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="2yi-FQ-nj9"/>
                             <constraint firstItem="0ge-Ca-dMh" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="492-QL-6kJ"/>
                             <constraint firstAttribute="bottom" secondItem="LBS-47-5gd" secondAttribute="bottom" constant="8" id="A7H-t9-92E"/>
+                            <constraint firstItem="2j9-He-WHt" firstAttribute="top" secondItem="k5h-Nd-fWv" secondAttribute="bottom" constant="8" id="DYQ-ww-yoz"/>
+                            <constraint firstItem="IBR-Nd-qYr" firstAttribute="top" secondItem="yCb-Lz-SRg" secondAttribute="bottom" constant="11" id="Fbg-wR-Wg4"/>
+                            <constraint firstItem="2j9-He-WHt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yCb-Lz-SRg" secondAttribute="trailing" constant="-40" id="JN2-oh-44P"/>
                             <constraint firstItem="0ge-Ca-dMh" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="Jct-Af-7D4"/>
                             <constraint firstAttribute="trailing" secondItem="YnY-Of-fZk" secondAttribute="trailing" constant="10" id="Lkb-Od-9kR"/>
+                            <constraint firstAttribute="trailing" secondItem="IBR-Nd-qYr" secondAttribute="trailing" constant="10" id="MqC-ZX-00e"/>
                             <constraint firstItem="vZg-AQ-svB" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="PLd-HP-WTt"/>
                             <constraint firstAttribute="trailing" secondItem="vZg-AQ-svB" secondAttribute="trailing" constant="18" id="PWb-Tl-Jb4"/>
-                            <constraint firstItem="hIb-6p-UXt" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="Ych-Zu-XHE"/>
-                            <constraint firstItem="hIb-6p-UXt" firstAttribute="leading" secondItem="0ge-Ca-dMh" secondAttribute="trailing" constant="15" id="arf-SA-Nlk"/>
+                            <constraint firstItem="IBR-Nd-qYr" firstAttribute="top" secondItem="2j9-He-WHt" secondAttribute="bottom" constant="11" id="V1S-rM-R0D"/>
+                            <constraint firstItem="yCb-Lz-SRg" firstAttribute="top" secondItem="hIb-6p-UXt" secondAttribute="bottom" constant="6" id="Xxe-vO-aYz"/>
+                            <constraint firstItem="hIb-6p-UXt" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="7" id="Ych-Zu-XHE"/>
+                            <constraint firstItem="hIb-6p-UXt" firstAttribute="leading" secondItem="0ge-Ca-dMh" secondAttribute="trailing" constant="8" id="arf-SA-Nlk"/>
+                            <constraint firstItem="vZg-AQ-svB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yCb-Lz-SRg" secondAttribute="bottom" constant="170" id="beN-6J-kTH"/>
+                            <constraint firstItem="yCb-Lz-SRg" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="cxM-uK-iAC"/>
                             <constraint firstItem="YnY-Of-fZk" firstAttribute="leading" secondItem="LBS-47-5gd" secondAttribute="trailing" constant="7" id="dmL-d6-y3s"/>
+                            <constraint firstItem="vZg-AQ-svB" firstAttribute="top" secondItem="IBR-Nd-qYr" secondAttribute="bottom" constant="14" id="fJU-U0-JJa"/>
+                            <constraint firstAttribute="trailing" secondItem="2j9-He-WHt" secondAttribute="trailing" constant="10" id="g8K-Id-X7f"/>
+                            <constraint firstAttribute="trailing" secondItem="k5h-Nd-fWv" secondAttribute="trailing" constant="10" id="hNJ-tM-9HZ"/>
                             <constraint firstItem="YnY-Of-fZk" firstAttribute="top" secondItem="vZg-AQ-svB" secondAttribute="bottom" constant="15" id="iuJ-mn-YvX"/>
                             <constraint firstAttribute="bottom" secondItem="YnY-Of-fZk" secondAttribute="bottom" constant="8" id="kfG-uR-AGX"/>
+                            <constraint firstItem="2j9-He-WHt" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="110" id="ofQ-Zc-rRa"/>
+                            <constraint firstItem="k5h-Nd-fWv" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="10" id="shg-OG-uPN"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3157,13 +3177,13 @@ AAAAAAAcgQ
         </image>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8r7-xr-IPP"/>
-        <segue reference="b7W-sT-mer"/>
-        <segue reference="EAM-E1-2Ks"/>
-        <segue reference="aLx-64-csJ"/>
+        <segue reference="luC-Kk-8jv"/>
+        <segue reference="wQo-ST-eOV"/>
+        <segue reference="Zcr-aY-8e1"/>
+        <segue reference="l92-wc-pcR"/>
         <segue reference="cg6-KF-gGH"/>
         <segue reference="2fz-Zu-mfT"/>
-        <segue reference="mvy-hV-L5q"/>
+        <segue reference="pNf-8A-Ove"/>
         <segue reference="yaH-hv-UcY"/>
         <segue reference="cPw-Au-6Bj"/>
         <segue reference="iWA-in-tWC"/>
