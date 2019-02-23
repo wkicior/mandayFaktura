@@ -13,21 +13,13 @@ class AbstractInvoiceViewController: NSViewController {
     var itemsTableViewController: ItemsTableViewController?
     var invoiceDatesViewController: InvoiceDatesViewController?
     var paymentDetailsViewController: PaymentDetailsViewController?
-    
-    let invoiceFacade = InvoiceFacade()
-    let itemDefinitionFacade = InvoiceItemDefinitionFacade()
-    let counterpartyFacade = CounterpartyFacade()
-    let vatRateFacade = VatRateFacade()
-    let invoiceSettingsFacade = InvoiceSettingsFacade()
-   
     let buyerAutoSavingController = BuyerAutoSavingController()
+    let invoiceFacade = InvoiceFacade()
+    let counterpartyFacade = CounterpartyFacade()
    
     @IBOutlet weak var numberTextField: NSTextField!
-    
     @IBOutlet weak var saveButton: NSButton!
-   
     @IBOutlet weak var previewButton: NSButton!
-    @IBOutlet weak var viewSellersPopUpButton: NSPopUpButton!
     @IBOutlet weak var notesTextField: NSTextField!
     
     override func viewDidLoad() {
@@ -35,16 +27,7 @@ class AbstractInvoiceViewController: NSViewController {
         self.saveButton.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
-        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
-        notesTextField.stringValue = invoiceSettings.defaultNotes
-        
         NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,
-                                               object: nil, queue: nil) {
-                                                (notification) in self.checkSaveButtonEnabled()}
-        NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_ADDED_NOTIFICATION,
-                                               object: nil, queue: nil) {
-                                                (notification) in self.checkSaveButtonEnabled()}
-        NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_REMOVED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.checkSaveButtonEnabled()}
         NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION,
@@ -67,9 +50,5 @@ extension AbstractInvoiceViewController {
     
     @objc func textFieldDidChange(_ notification: Notification) {
         checkSaveButtonEnabled()
-    }
-    
-    internal func addBuyerToHistory(buyer: Counterparty) throws {
-        try BuyerAutoSavingController().saveIfNewBuyer(buyer: buyer)
     }
 }

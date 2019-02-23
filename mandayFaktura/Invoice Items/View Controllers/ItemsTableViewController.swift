@@ -10,11 +10,7 @@ import Foundation
 import Cocoa
 
 struct ItemsTableViewControllerConstants {
-    static let ITEM_ADDED_NOTIFICATION = Notification.Name(rawValue: "ItemAdded")
-    static let ITEM_REMOVED_NOTIFICATION = Notification.Name(rawValue: "ItemRemoved")
     static let ITEM_CHANGED_NOTIFICATION = Notification.Name(rawValue: "ItemChanged")
-
-
 }
 
 class ItemsTableViewController : NSViewController {
@@ -54,7 +50,7 @@ class ItemsTableViewController : NSViewController {
     func addItem(itemDefinition: ItemDefinition) {
         self.itemsTableViewDelegate!.addItem(itemDefinition: itemDefinition)
         self.itemsTableView.reloadData()
-        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_ADDED_NOTIFICATION, object: itemDefinition)
+        self.notifyItemChanged()
     }
     
     @IBAction func changeItemNetValue(_ sender: NSTextField) {
@@ -110,7 +106,7 @@ class ItemsTableViewController : NSViewController {
     @IBAction func onAddItemClicked(_ sender: NSButton) {
         self.itemsTableViewDelegate!.addItem()
         self.itemsTableView.reloadData()
-        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_ADDED_NOTIFICATION, object: nil)
+        self.notifyItemChanged()
     }
     
     @IBAction func onMinusButtonClicked(_ sender: Any) {
@@ -122,7 +118,7 @@ class ItemsTableViewController : NSViewController {
         self.itemsTableViewDelegate!.removeSelectedItem()
         self.itemsTableView.reloadData()
         setItemButtonsAvailability()
-        NotificationCenter.default.post(name: ItemsTableViewControllerConstants.ITEM_REMOVED_NOTIFICATION, object: nil)
+        self.notifyItemChanged()
     }
    
     

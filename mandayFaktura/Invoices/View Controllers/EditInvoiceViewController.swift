@@ -21,13 +21,12 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         super.viewDidLoad()
         self.numberTextField.stringValue = invoice!.number
         self.notesTextField.stringValue = invoice!.notes
-        
         self.previewButton.isEnabled = true
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         do {
-            try addBuyerToHistory(buyer: newInvoice.buyer)
+            try buyerAutoSavingController.saveIfNewBuyer(buyer: newInvoice.buyer)
             invoiceFacade.editInvoice(old: invoice!, new: newInvoice)
             NotificationCenter.default.post(name: EditInvoiceViewControllerConstants.INVOICE_EDITED_NOTIFICATION, object: invoice)
             view.window?.close()

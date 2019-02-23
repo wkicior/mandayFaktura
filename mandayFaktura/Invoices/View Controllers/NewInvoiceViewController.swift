@@ -12,13 +12,14 @@ struct NewInvoiceViewControllerConstants {
     static let INVOICE_ADDED_NOTIFICATION = Notification.Name(rawValue: "InvoiceAdded")
 }
 
-
 class NewInvoiceViewController: AbstractInvoiceViewController {
     let invoiceNumberingFacade = InvoiceNumberingFacade()
+    let invoiceSettingsFacade = InvoiceSettingsFacade()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
+        notesTextField.stringValue = invoiceSettings.defaultNotes
         //checkPreviewButtonEnabled()
         self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
     }
@@ -43,7 +44,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     
     @IBAction func onSaveButtonClicked(_ sender: NSButton) {
         do {
-            try addBuyerToHistory(buyer: invoice.buyer)
+            try buyerAutoSavingController.saveIfNewBuyer(buyer: invoice.buyer)
             try invoiceFacade.addInvoice(invoice)
             NotificationCenter.default.post(name: NewInvoiceViewControllerConstants.INVOICE_ADDED_NOTIFICATION, object: invoice)
             view.window?.close()

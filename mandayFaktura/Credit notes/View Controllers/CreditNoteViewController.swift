@@ -13,15 +13,37 @@ struct CreditNoteViewControllerConstants {
     static let CREDIT_NOTE_NOTIFICATION = Notification.Name(rawValue: "CreditNoteCreated")
 }
 
-class CreditNoteViewController: AbstractInvoiceViewController {
-    var invoice: Invoice?
+class CreditNoteViewController: NSViewController {
     let creditNoteFacade = CreditNoteFacade()
+    var buyerViewController: BuyerViewController?
+    var itemsTableViewController: ItemsTableViewController?
+    var invoiceDatesViewController: InvoiceDatesViewController?
+    var paymentDetailsViewController: PaymentDetailsViewController?
+    let buyerAutoSavingController = BuyerAutoSavingController()
+    let invoiceFacade = InvoiceFacade()
+    let counterpartyFacade = CounterpartyFacade()
+    
+    var invoice: Invoice?
+    
+    @IBOutlet weak var numberTextField: NSTextField!
+    @IBOutlet weak var saveButton: NSButton!
+    @IBOutlet weak var previewButton: NSButton!
+    @IBOutlet weak var notesTextField: NSTextField!
     @IBOutlet weak var invoiceIssueDate: NSDatePicker!
     @IBOutlet weak var creditNoteNumber: NSTextField!
     @IBOutlet weak var creditNoteIssueDate: NSDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveButton.isEnabled = false
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
+        self.view.wantsLayer = true
+        NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.checkSaveButtonEnabled()}
+        NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.checkSaveButtonEnabled()}
         
         self.creditNoteNumber.stringValue = invoice!.number + "/K"
         self.notesTextField.stringValue = invoice!.notes
@@ -30,7 +52,7 @@ class CreditNoteViewController: AbstractInvoiceViewController {
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         do {
-            try addBuyerToHistory(buyer: creditNote.buyer)
+            try buyerAutoSavingController.saveIfNewBuyer(buyer: invoice!.buyer)
             creditNoteFacade.saveCreditNote(creditNote)
             NotificationCenter.default.post(name: CreditNoteViewControllerConstants.CREDIT_NOTE_NOTIFICATION, object: invoice)
             view.window?.close()
@@ -82,5 +104,21 @@ class CreditNoteViewController: AbstractInvoiceViewController {
                 .build()
         }
     }
+}
 
+extension CreditNoteViewController {
+    internal func checkSaveButtonEnabled() {
+        self.saveButton.isEnabled =
+            self.itemsTableViewController!.isValid()
+            && !self.numberTextField.stringValue.isEmpty
+            && self.buyerViewController!.isValid()
+    }
+    
+    internal func checkPreviewButtonEnabled() {
+        self.previewButton.isEnabled = self.itemsTableViewController!.isValid()
+    }
+    
+    @objc func textFieldDidChange(_ notification: Notification) {
+        checkSaveButtonEnabled()
+    }
 }
