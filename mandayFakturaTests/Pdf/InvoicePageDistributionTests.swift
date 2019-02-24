@@ -20,7 +20,7 @@ class InvoicePageDistributionTests: XCTestCase {
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
         
         //when
-        let pageComponents: [InvoicePageComposition] = distribution.distributeInvoiceOverPageCompositions()
+        let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions()
         
         //then
         XCTAssertEqual(1, pageComponents.count)
@@ -42,7 +42,7 @@ class InvoicePageDistributionTests: XCTestCase {
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
         
         //when
-        let pageComponents: [InvoicePageComposition] = distribution.distributeInvoiceOverPageCompositions()
+        let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions()
         
         //then
         XCTAssertEqual(1, pageComponents.count)
@@ -61,7 +61,7 @@ class InvoicePageDistributionTests: XCTestCase {
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
         
         //when
-        let pageComponents: [InvoicePageComposition] = distribution.distributeInvoiceOverPageCompositions()
+        let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions()
         
         //then
         XCTAssertEqual(2, pageComponents.count)
@@ -87,7 +87,7 @@ class InvoicePageDistributionTests: XCTestCase {
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
         
         //when
-        let pageComponents: [InvoicePageComposition] = distribution.distributeInvoiceOverPageCompositions()
+        let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions()
         
         //then
         XCTAssertEqual(2, pageComponents.count)
@@ -109,7 +109,7 @@ class InvoicePageDistributionTests: XCTestCase {
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
         
         //when
-        let pageComponents: [InvoicePageComposition] = distribution.distributeInvoiceOverPageCompositions()
+        let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions()
         
         //then
         XCTAssertEqual(2, pageComponents.count)
@@ -131,7 +131,7 @@ class InvoicePageDistributionTests: XCTestCase {
         let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
         
         //when
-        let pageComponents: [InvoicePageComposition] = distribution.distributeInvoiceOverPageCompositions()
+        let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions()
         
         //then
         XCTAssertEqual(2, pageComponents.count)

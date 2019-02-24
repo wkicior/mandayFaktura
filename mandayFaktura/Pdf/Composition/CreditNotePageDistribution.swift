@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CreditNotePageDistribution {
+class CreditNotePageDistribution: DocumentPageDistribution {
     let copyTemplate: CopyTemplate
     let creditNote: CreditNote
     
@@ -27,7 +27,7 @@ class CreditNotePageDistribution {
         }
     }
     
-    func distributeInvoiceOverPageCompositions() -> [InvoicePageComposition] {
+    func distributeDocumentOverPageCompositions() -> [InvoicePageComposition] {
         self.initNewPageWithMinimumConposition(copyTemplate)
         distributeItemTableRow()
         distributeVatBreakdown()

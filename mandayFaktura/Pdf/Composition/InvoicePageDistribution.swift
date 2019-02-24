@@ -8,10 +8,9 @@
 
 import Foundation
 
-class InvoicePageDistribution {
+class InvoicePageDistribution: DocumentPageDistribution {
     let copyTemplate: CopyTemplate
     let invoice: Invoice
-    
     
     var pagesWithTableData: [InvoicePageCompositionBuilder] = []
     var currentPageComposition: InvoicePageCompositionBuilder?
@@ -28,7 +27,7 @@ class InvoicePageDistribution {
         }
     }
     
-    func distributeInvoiceOverPageCompositions() -> [InvoicePageComposition] {
+    func distributeDocumentOverPageCompositions() -> [InvoicePageComposition] {
         self.initNewPageWithMinimumConposition(copyTemplate)
         distributeItemTableRow()
         distributeVatBreakdown()
