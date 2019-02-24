@@ -9,10 +9,14 @@
 import Foundation
 
 protocol CreditNoteRepository {
+    func getCreditNotes() -> [CreditNote]
+    
     /**
      Adds new credit note to the repository
      */
     func addCreditNote(_ creditNote: CreditNote) throws
+    
+    func deleteCreditNote(_ creditNote: CreditNote)
 }
 
 

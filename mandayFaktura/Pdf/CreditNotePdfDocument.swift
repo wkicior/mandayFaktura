@@ -1,35 +1,35 @@
 //
-//  InvoicePdf.swift
+//  CreditNotePdfDocument.swift
 //  mandayFaktura
 //
-//  Created by Wojciech Kicior on 30.01.2018.
-//  Copyright © 2018 Wojciech Kicior. All rights reserved.
+//  Created by Wojciech Kicior on 24.02.2019.
+//  Copyright © 2019 Wojciech Kicior. All rights reserved.
 //
 
 import Foundation
 import Quartz
 
-class InvoicePdfDocument: PdfDocument{
-    let invoice: Invoice
+class CreditNotePdfDocument: PdfDocument {
+    let creditNote: CreditNote
     
-    init(invoice: Invoice) {
-        self.invoice = invoice
+    init(creditNote: CreditNote) {
+        self.creditNote = creditNote
     }
     
-    func getDocument() -> PDFDocument {       
+    func getDocument() -> PDFDocument {
         let doc = PDFDocument()
         for (index, element) in self.getInvoicePages(copies: [CopyTemplate.original, CopyTemplate.copy]).enumerated() {
             doc.insert(element, at: index)
         }
-    
+        
         return doc
     }
     
     func save(dir: URL) {
         let original = self.getDocument(copyTemplate: .original)
-        original.write(toFile: "\(dir.path)/Downloads/\(self.invoice.number.encodeToFilename)-org.pdf")
+        original.write(toFile: "\(dir.path)/Downloads/\(self.creditNote.number.encodeToFilename)-org.pdf")
         let copy = self.getDocument(copyTemplate: .copy)
-        copy.write(toFile: "\(dir.path)/Downloads/\(self.invoice.number.encodeToFilename)-kopia.pdf")
+        copy.write(toFile: "\(dir.path)/Downloads/\(self.creditNote.number.encodeToFilename)-kopia.pdf")
     }
     
     func getInvoicePages(copies: [CopyTemplate]) -> [DocumentPdfPage] {
@@ -37,7 +37,7 @@ class InvoicePdfDocument: PdfDocument{
     }
     
     fileprivate func getInvoicePagesForCopy(_ copy: CopyTemplate) -> [DocumentPdfPage] {
-        let invoicePageDistribution = InvoicePageDistribution(copyTemplate: copy, invoice: self.invoice)
+        let invoicePageDistribution = CreditNotePageDistribution(copyTemplate: copy, creditNote: self.creditNote)
         return invoicePageDistribution.distributeInvoiceOverPageCompositions()
             .map({pageComposition in DocumentPdfPage(pageComposition: pageComposition)})
     }

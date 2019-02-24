@@ -15,23 +15,24 @@ struct ViewControllerConstants {
     static let INVOICE_TO_PRINT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToPrint")
     static let CREDIT_NOTE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToCorrect")
 
-
     static let INVOICE_NOTIFICATION_KEY = "invoice"
 }
 
-class ViewController: NSViewController {
+class DocumentListViewController: NSViewController {
     @IBOutlet weak var invoiceHistoryTableView: NSTableView!
-    var invoiceHistoryTableViewDelegate:InvoiceHistoryTableViewDelegate?
+    var documentListTableViewDelegate: DocumentListTableViewDelegate?
     var invoiceFacade: InvoiceFacade?
+    var creditNoteFacade: CreditNoteFacade?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeRepositories()
         
         self.invoiceFacade = InvoiceFacade()
-        invoiceHistoryTableViewDelegate = InvoiceHistoryTableViewDelegate(invoiceFacade: self.invoiceFacade!)
-        invoiceHistoryTableView.delegate = invoiceHistoryTableViewDelegate
-        invoiceHistoryTableView.dataSource = invoiceHistoryTableViewDelegate
+        self.creditNoteFacade = CreditNoteFacade()
+        documentListTableViewDelegate = DocumentListTableViewDelegate(invoiceFacade: self.invoiceFacade!, creditNoteFacade: self.creditNoteFacade!)
+        invoiceHistoryTableView.delegate = documentListTableViewDelegate
+        invoiceHistoryTableView.dataSource = documentListTableViewDelegate
         
         invoiceHistoryTableView.doubleAction = #selector(onTableViewClicked)
         
@@ -45,9 +46,14 @@ class ViewController: NSViewController {
                                                 (notification) in
                                                 self.invoiceHistoryTableView.reloadData()
         }
+        NotificationCenter.default.addObserver(forName: CreditNoteViewControllerConstants.CREDIT_NOTE_CREATED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in
+                                                self.invoiceHistoryTableView.reloadData()
+        }
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_REMOVE_NOTIFICATION,
                                                object: nil, queue: nil) {
-                                                (notification) in self.deleteInvoice()}
+                                                (notification) in self.deleteDocument()}
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.editInvoice()}
@@ -66,19 +72,29 @@ class ViewController: NSViewController {
         InvoiceNumberingSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceNumberingSettingsRepository())
         VatRateRepositoryFactory.register(repository: KeyArchiverVatRateRepository())
         InvoiceSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceSettingsRepository())
+        CreditNoteRepositoryFactory.register(repository: KeyedArchiverCreditNoteRepository())
     }
     
    
-    func deleteInvoice() {
+    fileprivate func getSelectedDocument() -> Document {
+        return (self.documentListTableViewDelegate?.getSelectedDocument(index: invoiceHistoryTableView.selectedRow))!
+    }
+    
+    func deleteDocument() {
         let alert = NSAlert()
-        alert.messageText = "Usunięcie faktury!"
+        alert.messageText = "Usunięcie Dokumentu!"
         alert.informativeText = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?"
         alert.alertStyle = .warning
         alert.addButton(withTitle: "Usuń")
         alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
-            invoiceFacade!.delete((self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!)
+            let document = getSelectedDocument()
+            if document is Invoice {
+                invoiceFacade!.delete(document as! Invoice)
+            } else if document is CreditNote {
+                creditNoteFacade!.delete(document as! CreditNote)
+            }
             self.invoiceHistoryTableView.reloadData()
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
            return
@@ -105,9 +121,8 @@ class ViewController: NSViewController {
     }
     
     func printInvoice() {
-        let invoice: Invoice = (self.invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: invoiceHistoryTableView.selectedRow))!
-        let invoicePdf = InvoicePdfDocument(invoice: invoice)
-        let pdfPrintOperation = PdfDocumentPrintOperation(document: invoicePdf.getDocument())
+        let pdfDocument = getPdfDocument()!
+        let pdfPrintOperation = PdfDocumentPrintOperation(document: pdfDocument.getDocument())
         pdfPrintOperation.runModal(on: self)
     }
 
@@ -117,9 +132,19 @@ class ViewController: NSViewController {
         }
     }
     
+    private func getPdfDocument() -> PdfDocument? {
+        let document: Document = getSelectedDocument()
+        if document is Invoice {
+            return InvoicePdfDocument(invoice: document as! Invoice)
+        } else if document is CreditNote {
+            return CreditNotePdfDocument(creditNote: document as! CreditNote)
+        }
+        return nil
+    }
+    
     @IBAction func onInvoiceHistoryTableViewClicked(_ sender: NSTableView) {
-        let invoice: Invoice? = sender.selectedRow != -1 ? invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: sender.selectedRow): nil
-        let invoiceDataDict:[String: Any] = [ViewControllerConstants.INVOICE_NOTIFICATION_KEY: invoice as Any]
+        let document: Document? = sender.selectedRow != -1 ? getSelectedDocument() : nil
+        let invoiceDataDict:[String: Any] = [ViewControllerConstants.INVOICE_NOTIFICATION_KEY: document as Any]
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_SELECTED_NOTIFICATION, object: nil, userInfo: invoiceDataDict)
     }
     
@@ -131,16 +156,16 @@ class ViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
-            let index = self.invoiceHistoryTableView.selectedRow
-            vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
+            let pdfDocument = getPdfDocument()!
+            vc?.pdfDocument = pdfDocument
         } else if segue.destinationController is EditInvoiceViewController {
             let vc = segue.destinationController as? EditInvoiceViewController
             let index = self.invoiceHistoryTableView.selectedRow
-            vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
+            vc?.invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
         } else if segue.destinationController is CreditNoteViewController {
             let vc = segue.destinationController as? CreditNoteViewController
             let index = self.invoiceHistoryTableView.selectedRow
-            vc?.invoice = invoiceHistoryTableViewDelegate?.getSelectedInvoice(index: index)
+            vc?.invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
         }
     }
     

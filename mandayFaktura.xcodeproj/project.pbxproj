@@ -49,7 +49,7 @@
 		D34339C021A48D6100C583D2 /* VatRateFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3781B7E20B055D400CA420E /* VatRateFacade.swift */; };
 		D34339C121A48D6100C583D2 /* WarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3052F57204DE2490064DF10 /* WarningAlert.swift */; };
 		D34339C221A48D6100C583D2 /* UserAbortError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFD520417AB9003CCC5B /* UserAbortError.swift */; };
-		D34339C321A48D6100C583D2 /* InvoiceHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */; };
+		D34339C321A48D6100C583D2 /* DocumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* DocumentListViewController.swift */; };
 		D34339C421A48D6100C583D2 /* AbstractBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C95A207FE2C400432176 /* AbstractBuyerController.swift */; };
 		D34339C521A48D6100C583D2 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80B2027A60600FFB262 /* DateFormatting.swift */; };
 		D34339C621A48D6100C583D2 /* InvoicePrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A80420278A7700FFB262 /* InvoicePrintingExtension.swift */; };
@@ -62,7 +62,7 @@
 		D34339CD21A48D6100C583D2 /* BuyerAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D330BFCC203CB825003CCC5B /* BuyerAutoSave.swift */; };
 		D34339CE21A48D6100C583D2 /* InputValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37560B8203601DF00F507AD /* InputValidationError.swift */; };
 		D34339CF21A48D6100C583D2 /* InvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */; };
-		D34339D121A48D6100C583D2 /* InvoiceHistoryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */; };
+		D34339D121A48D6100C583D2 /* DocumentListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift */; };
 		D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D82328206043080031C2D1 /* DragOrderingDestination.swift */; };
 		D34339D321A48D6100C583D2 /* InvoiceExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324860720697C5E00BB79F6 /* InvoiceExistsError.swift */; };
 		D34339D421A48D6100C583D2 /* InvoiceSettingsCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32ED32A215F9D8900BDC6BE /* InvoiceSettingsCoding.swift */; };
@@ -115,7 +115,7 @@
 		D3433A0321A48D6100C583D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
 		D3433A0421A48D6100C583D2 /* AbstractInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */; };
 		D3433A0521A48D6100C583D2 /* InvoiceSettingsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32ED31E215AA63300BDC6BE /* InvoiceSettingsFacade.swift */; };
-		D3433A0621A48D6100C583D2 /* InvoicePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */; };
+		D3433A0621A48D6100C583D2 /* DocumentPdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* DocumentPdfPage.swift */; };
 		D3433A0721A48D6100C583D2 /* VatRateCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C96220924ADB00432176 /* VatRateCoding.swift */; };
 		D3433A0821A48D6100C583D2 /* InvoiceNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */; };
 		D3433A0921A48D6100C583D2 /* ItemsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3310DC7202F5854008467BD /* ItemsTableViewDelegate.swift */; };
@@ -127,18 +127,18 @@
 		D3433A1121A48D6100C583D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */; };
 		D3433A1221A48D6100C583D2 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */; };
-		D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */; };
+		D34D0EC1201A7CBC000D1EC6 /* DocumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EC0201A7CBC000D1EC6 /* DocumentListViewController.swift */; };
 		D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */; };
 		D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */; };
 		D34D0ED2201A7CBC000D1EC6 /* mandayFakturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0ED1201A7CBC000D1EC6 /* mandayFakturaTests.swift */; };
 		D34D0EDD201A7CBC000D1EC6 /* mandayFakturaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */; };
 		D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F09201CE8B2000D1EC6 /* Invoice.swift */; };
-		D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */; };
+		D34D0F11201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F10201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift */; };
 		D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */; };
 		D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */; };
 		D34D0F1B201E67E0000D1EC6 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */; };
 		D34D0F202020E939000D1EC6 /* InvoicePdfDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */; };
-		D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */; };
+		D34D0F2420210311000D1EC6 /* DocumentPdfPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2320210311000D1EC6 /* DocumentPdfPage.swift */; };
 		D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D0F2720225AAB000D1EC6 /* Counterparty.swift */; };
 		D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */; };
 		D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */; };
@@ -211,8 +211,16 @@
 		D3F0A52322218B0600CC0E08 /* CreditNoteCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52122218B0600CC0E08 /* CreditNoteCoding.swift */; };
 		D3F0A52622219A5F00CC0E08 /* CreditNoteExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52522219A5F00CC0E08 /* CreditNoteExistsError.swift */; };
 		D3F0A52722219A5F00CC0E08 /* CreditNoteExistsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52522219A5F00CC0E08 /* CreditNoteExistsError.swift */; };
-		D3F745C922075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */; };
-		D3F745CA22075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */; };
+		D3F0A52D2221A37700CC0E08 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52C2221A37700CC0E08 /* Document.swift */; };
+		D3F0A52E2221A37700CC0E08 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52C2221A37700CC0E08 /* Document.swift */; };
+		D3F0A5302222DE6100CC0E08 /* PdfDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52F2222DE6100CC0E08 /* PdfDocument.swift */; };
+		D3F0A5312222DE6100CC0E08 /* PdfDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A52F2222DE6100CC0E08 /* PdfDocument.swift */; };
+		D3F0A5332222E03000CC0E08 /* CreditNotePdfDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5322222E03000CC0E08 /* CreditNotePdfDocument.swift */; };
+		D3F0A5342222E03000CC0E08 /* CreditNotePdfDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5322222E03000CC0E08 /* CreditNotePdfDocument.swift */; };
+		D3F0A5362222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5352222E8B300CC0E08 /* CreditNotePageDistribution.swift */; };
+		D3F0A5372222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5352222E8B300CC0E08 /* CreditNotePageDistribution.swift */; };
+		D3F0A5392222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5382222E9DB00CC0E08 /* CreditNotePrintingExtension.swift */; };
+		D3F0A53A2222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5382222E9DB00CC0E08 /* CreditNotePrintingExtension.swift */; };
 		D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
 		D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
 		D3F745CF220775800057540E /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CE220775800057540E /* HeaderComponent.swift */; };
@@ -307,7 +315,7 @@
 		D3433A1721A48D6100C583D2 /* dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "dev-Info.plist"; path = "/Users/disorder/Projects/mandayFaktura/dev-Info.plist"; sourceTree = "<absolute>"; };
 		D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mandayFaktura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryController.swift; sourceTree = "<group>"; };
+		D34D0EC0201A7CBC000D1EC6 /* DocumentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListViewController.swift; sourceTree = "<group>"; };
 		D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D34D0EC5201A7CBC000D1EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D34D0EC7201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -319,12 +327,12 @@
 		D34D0EDC201A7CBC000D1EC6 /* mandayFakturaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mandayFakturaUITests.swift; sourceTree = "<group>"; };
 		D34D0EDE201A7CBC000D1EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D34D0F09201CE8B2000D1EC6 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
-		D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHistoryTableViewDelegate.swift; sourceTree = "<group>"; };
+		D34D0F10201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListTableViewDelegate.swift; sourceTree = "<group>"; };
 		D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRepository.swift; sourceTree = "<group>"; };
 		D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewController.swift; sourceTree = "<group>"; };
 		D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdfDocument.swift; sourceTree = "<group>"; };
-		D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePdfPage.swift; sourceTree = "<group>"; };
+		D34D0F2320210311000D1EC6 /* DocumentPdfPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPdfPage.swift; sourceTree = "<group>"; };
 		D34D0F2720225AAB000D1EC6 /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };
 		D370A7EC2023A69E00FFB262 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		D370A7EE2023A77300FFB262 /* UnitOfMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOfMeasure.swift; sourceTree = "<group>"; };
@@ -385,7 +393,11 @@
 		D3F0A51E222187F700CC0E08 /* InvoiceCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCoding.swift; sourceTree = "<group>"; };
 		D3F0A52122218B0600CC0E08 /* CreditNoteCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteCoding.swift; sourceTree = "<group>"; };
 		D3F0A52522219A5F00CC0E08 /* CreditNoteExistsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteExistsError.swift; sourceTree = "<group>"; };
-		D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDocumentComposition.swift; sourceTree = "<group>"; };
+		D3F0A52C2221A37700CC0E08 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		D3F0A52F2222DE6100CC0E08 /* PdfDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocument.swift; sourceTree = "<group>"; };
+		D3F0A5322222E03000CC0E08 /* CreditNotePdfDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePdfDocument.swift; sourceTree = "<group>"; };
+		D3F0A5352222E8B300CC0E08 /* CreditNotePageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePageDistribution.swift; sourceTree = "<group>"; };
+		D3F0A5382222E9DB00CC0E08 /* CreditNotePrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePrintingExtension.swift; sourceTree = "<group>"; };
 		D3F745CB22075ED00057540E /* InvoicePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageComposition.swift; sourceTree = "<group>"; };
 		D3F745CE220775800057540E /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
 		D3F745D222077CBD0057540E /* CopyLabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabelComponent.swift; sourceTree = "<group>"; };
@@ -734,11 +746,8 @@
 			isa = PBXGroup;
 			children = (
 				D3D82325206041F50031C2D1 /* Numbering */,
-				D34D0F10201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift */,
 				D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
-				D34D0EC0201A7CBC000D1EC6 /* InvoiceHistoryController.swift */,
-				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
 				D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */,
 				D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */,
 				D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */,
@@ -750,10 +759,13 @@
 		D34D0F1E2020E907000D1EC6 /* Pdf */ = {
 			isa = PBXGroup;
 			children = (
+				D3F0A52A2221A07400CC0E08 /* View Controllers */,
 				D34339B921A1DF2300C583D2 /* Printing */,
 				D3F745D122077A7F0057540E /* Composition */,
 				D370A80820278B3A00FFB262 /* PrintingExtensions */,
+				D3F0A52F2222DE6100CC0E08 /* PdfDocument.swift */,
 				D34D0F1F2020E939000D1EC6 /* InvoicePdfDocument.swift */,
+				D3F0A5322222E03000CC0E08 /* CreditNotePdfDocument.swift */,
 			);
 			path = Pdf;
 			sourceTree = "<group>";
@@ -810,6 +822,7 @@
 				D370A80F2027A9BA00FFB262 /* CounterpartyPrintingExtension.swift */,
 				D37560BA20377D7800F507AD /* NSColorExtension.swift */,
 				D3F745DB220789940057540E /* ColorExtension.swift */,
+				D3F0A5382222E9DB00CC0E08 /* CreditNotePrintingExtension.swift */,
 			);
 			path = PrintingExtensions;
 			sourceTree = "<group>";
@@ -1014,6 +1027,7 @@
 		D3F0A5282221A01C00CC0E08 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				D3F0A52B2221A36500CC0E08 /* Model */,
 				D3F0A5292221A02C00CC0E08 /* View Controllers */,
 			);
 			path = Documents;
@@ -1022,20 +1036,38 @@
 		D3F0A5292221A02C00CC0E08 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D34D0EC0201A7CBC000D1EC6 /* DocumentListViewController.swift */,
+				D34D0F10201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3F0A52A2221A07400CC0E08 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D34D0F1A201E67DF000D1EC6 /* PdfViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3F0A52B2221A36500CC0E08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D3F0A52C2221A37700CC0E08 /* Document.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D3F745D122077A7F0057540E /* Composition */ = {
 			isa = PBXGroup;
 			children = (
+				D3F745F6220A32950057540E /* Page Components */,
 				D3F745CB22075ED00057540E /* InvoicePageComposition.swift */,
 				D3F74605220E1E560057540E /* InvoicePageDistribution.swift */,
-				D3F745C822075EAF0057540E /* InvoiceDocumentComposition.swift */,
 				D370A80B2027A60600FFB262 /* DateFormatting.swift */,
 				D370A7FC202757AF00FFB262 /* FontFormatting.swift */,
-				D34D0F2320210311000D1EC6 /* InvoicePdfPage.swift */,
-				D3F745F6220A32950057540E /* Page Components */,
+				D34D0F2320210311000D1EC6 /* DocumentPdfPage.swift */,
+				D3F0A5352222E8B300CC0E08 /* CreditNotePageDistribution.swift */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -1239,7 +1271,7 @@
 				D34339C121A48D6100C583D2 /* WarningAlert.swift in Sources */,
 				D3F745DA220785B70057540E /* AbstractComponent.swift in Sources */,
 				D34339C221A48D6100C583D2 /* UserAbortError.swift in Sources */,
-				D34339C321A48D6100C583D2 /* InvoiceHistoryController.swift in Sources */,
+				D34339C321A48D6100C583D2 /* DocumentListViewController.swift in Sources */,
 				D34339C421A48D6100C583D2 /* AbstractBuyerController.swift in Sources */,
 				D34339C521A48D6100C583D2 /* DateFormatting.swift in Sources */,
 				D3F745E022078F800057540E /* SellerComponent.swift in Sources */,
@@ -1249,6 +1281,7 @@
 				D34339C721A48D6100C583D2 /* BuyerAutoSavingController.swift in Sources */,
 				D34339C821A48D6100C583D2 /* VatRateRepository.swift in Sources */,
 				D34339C921A48D6100C583D2 /* InvoicePdfDocument.swift in Sources */,
+				D3F0A5312222DE6100CC0E08 /* PdfDocument.swift in Sources */,
 				D34339CA21A48D6100C583D2 /* ItemDefinitionCoding.swift in Sources */,
 				D3F745E92208A9430057540E /* ItemsSummaryComponent.swift in Sources */,
 				D3F0A5192221865800CC0E08 /* CreditNoteRepository.swift in Sources */,
@@ -1259,7 +1292,7 @@
 				D34339CE21A48D6100C583D2 /* InputValidationError.swift in Sources */,
 				D34339CF21A48D6100C583D2 /* InvoiceRepository.swift in Sources */,
 				D3F745E6220795260057540E /* ItemTableRowComponent.swift in Sources */,
-				D34339D121A48D6100C583D2 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
+				D34339D121A48D6100C583D2 /* DocumentListTableViewDelegate.swift in Sources */,
 				D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */,
 				D3F0A513221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */,
 				D3F745D0220775800057540E /* HeaderComponent.swift in Sources */,
@@ -1269,6 +1302,7 @@
 				D34339D421A48D6100C583D2 /* InvoiceSettingsCoding.swift in Sources */,
 				D3F0A510221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */,
 				D34339D521A48D6100C583D2 /* CounterpartyFacade.swift in Sources */,
+				D3F0A52E2221A37700CC0E08 /* Document.swift in Sources */,
 				D34339D621A48D6100C583D2 /* DecimalPrintingExtension.swift in Sources */,
 				D34339D721A48D6100C583D2 /* VatBreakdown.swift in Sources */,
 				D34339D821A48D6100C583D2 /* VatRatePopUpButton.swift in Sources */,
@@ -1311,8 +1345,10 @@
 				D34339F421A48D6100C583D2 /* PaymentDateFrom.swift in Sources */,
 				D34339F521A48D6100C583D2 /* ItemDefinitionRepository.swift in Sources */,
 				D34339F621A48D6100C583D2 /* EditBuyerController.swift in Sources */,
+				D3F0A53A2222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */,
 				D34339F721A48D6100C583D2 /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34339F821A48D6100C583D2 /* Counterparty.swift in Sources */,
+				D3F0A5372222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
 				D34339F921A48D6100C583D2 /* BuyersCatalogueViewController.swift in Sources */,
 				D34339FA21A48D6100C583D2 /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74604220B677B0057540E /* PageComponent.swift in Sources */,
@@ -1328,15 +1364,15 @@
 				D3433A0321A48D6100C583D2 /* AppDelegate.swift in Sources */,
 				D3433A0421A48D6100C583D2 /* AbstractInvoiceViewController.swift in Sources */,
 				D3433A0521A48D6100C583D2 /* InvoiceSettingsFacade.swift in Sources */,
-				D3433A0621A48D6100C583D2 /* InvoicePdfPage.swift in Sources */,
+				D3433A0621A48D6100C583D2 /* DocumentPdfPage.swift in Sources */,
 				D3433A0721A48D6100C583D2 /* VatRateCoding.swift in Sources */,
 				D3433A0821A48D6100C583D2 /* InvoiceNumberingSettingsViewController.swift in Sources */,
-				D3F745CA22075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */,
 				D3433A0921A48D6100C583D2 /* ItemsTableViewDelegate.swift in Sources */,
 				D3433A0A21A48D6100C583D2 /* UnitOfMeasure.swift in Sources */,
 				D3F0A52322218B0600CC0E08 /* CreditNoteCoding.swift in Sources */,
 				D3433A0B21A48D6100C583D2 /* InvoiceItem.swift in Sources */,
 				D3433A0C21A48D6100C583D2 /* BuyersTableViewDelegate.swift in Sources */,
+				D3F0A5342222E03000CC0E08 /* CreditNotePdfDocument.swift in Sources */,
 				D3F0A516221DF8DC00CC0E08 /* PaymentDetailsViewController.swift in Sources */,
 				D3F745D722077F500057540E /* HeaderInvoiceDatesComponent.swift in Sources */,
 				D3433A0D21A48D6100C583D2 /* InvoiceItemCoding.swift in Sources */,
@@ -1357,7 +1393,7 @@
 				D3052F58204DE2490064DF10 /* WarningAlert.swift in Sources */,
 				D3F745D9220785B70057540E /* AbstractComponent.swift in Sources */,
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
-				D34D0EC1201A7CBC000D1EC6 /* InvoiceHistoryController.swift in Sources */,
+				D34D0EC1201A7CBC000D1EC6 /* DocumentListViewController.swift in Sources */,
 				D3B7C95B207FE2C400432176 /* AbstractBuyerController.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
 				D3F745DF22078F800057540E /* SellerComponent.swift in Sources */,
@@ -1367,6 +1403,7 @@
 				D330BFCB203B682C003CCC5B /* BuyerAutoSavingController.swift in Sources */,
 				D37560A220321C6500F507AD /* VatRateRepository.swift in Sources */,
 				D34D0F202020E939000D1EC6 /* InvoicePdfDocument.swift in Sources */,
+				D3F0A5302222DE6100CC0E08 /* PdfDocument.swift in Sources */,
 				D3B7C96520924C0000432176 /* ItemDefinitionCoding.swift in Sources */,
 				D3F745E82208A9430057540E /* ItemsSummaryComponent.swift in Sources */,
 				D3F0A5182221865800CC0E08 /* CreditNoteRepository.swift in Sources */,
@@ -1377,7 +1414,7 @@
 				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
 				D3F745E5220795260057540E /* ItemTableRowComponent.swift in Sources */,
-				D34D0F11201D3AA3000D1EC6 /* InvoiceHistoryTableViewDelegate.swift in Sources */,
+				D34D0F11201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
 				D3F0A512221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */,
 				D3F745CF220775800057540E /* HeaderComponent.swift in Sources */,
@@ -1387,6 +1424,7 @@
 				D32ED32B215F9D8900BDC6BE /* InvoiceSettingsCoding.swift in Sources */,
 				D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */,
 				D3781B8520B34B0000CA420E /* CounterpartyFacade.swift in Sources */,
+				D3F0A52D2221A37700CC0E08 /* Document.swift in Sources */,
 				D370A80720278AB800FFB262 /* DecimalPrintingExtension.swift in Sources */,
 				D370A7F92027110E00FFB262 /* VatBreakdown.swift in Sources */,
 				D37560A820321D5A00F507AD /* VatRatePopUpButton.swift in Sources */,
@@ -1429,8 +1467,10 @@
 				D32ED328215AC0B600BDC6BE /* PaymentDateFrom.swift in Sources */,
 				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
 				D3B7C959207FDD3400432176 /* EditBuyerController.swift in Sources */,
+				D3F0A5392222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */,
 				D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D3F0A5362222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74603220B677B0057540E /* PageComponent.swift in Sources */,
@@ -1446,15 +1486,15 @@
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D3B7C95D2087B92D00432176 /* AbstractInvoiceViewController.swift in Sources */,
 				D32ED31F215AA63300BDC6BE /* InvoiceSettingsFacade.swift in Sources */,
-				D34D0F2420210311000D1EC6 /* InvoicePdfPage.swift in Sources */,
+				D34D0F2420210311000D1EC6 /* DocumentPdfPage.swift in Sources */,
 				D3B7C96320924ADB00432176 /* VatRateCoding.swift in Sources */,
 				D3254EAE205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift in Sources */,
-				D3F745C922075EAF0057540E /* InvoiceDocumentComposition.swift in Sources */,
 				D3310DC8202F5854008467BD /* ItemsTableViewDelegate.swift in Sources */,
 				D370A7EF2023A77300FFB262 /* UnitOfMeasure.swift in Sources */,
 				D3F0A52222218B0600CC0E08 /* CreditNoteCoding.swift in Sources */,
 				D370A7ED2023A69E00FFB262 /* InvoiceItem.swift in Sources */,
 				D324860C2075637200BB79F6 /* BuyersTableViewDelegate.swift in Sources */,
+				D3F0A5332222E03000CC0E08 /* CreditNotePdfDocument.swift in Sources */,
 				D3F0A515221DF8DC00CC0E08 /* PaymentDetailsViewController.swift in Sources */,
 				D3F745D622077F500057540E /* HeaderInvoiceDatesComponent.swift in Sources */,
 				D330BFC92038CF4A003CCC5B /* InvoiceItemCoding.swift in Sources */,

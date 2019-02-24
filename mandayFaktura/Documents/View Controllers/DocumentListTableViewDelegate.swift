@@ -17,30 +17,33 @@ fileprivate enum CellIdentifiers {
 }
 
 /**
- The controller of invoices history table view.
+ The controller of document list table view.
  Serves as delegate and the datasource for the table.
- Fetches the data from the model invoicesRepository protocol
+ Fetches the data from invoices and credit note facades
  */
-class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class DocumentListTableViewDelegate : NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let invoiceFacade: InvoiceFacade
+    let creditNoteFacade: CreditNoteFacade
+    
     let dateFormatter = DateFormatter()
     
-    init(invoiceFacade: InvoiceFacade) {
+    init(invoiceFacade: InvoiceFacade, creditNoteFacade: CreditNoteFacade) {
         self.invoiceFacade = invoiceFacade
+        self.creditNoteFacade = creditNoteFacade
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
         super.init()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.getInvoiceList().count
+        return self.getDocumentList().count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var text: String = ""
         var cellIdentifier: String = ""
         
-        let item = self.getInvoiceList()[row]
+        let item = self.getDocumentList()[row]
 
         if tableColumn == tableView.tableColumns[0] {
             text = item.number
@@ -49,7 +52,7 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
             text = dateFormatter.string(from: item.issueDate)
             cellIdentifier = CellIdentifiers.issueDateCell
         } else if tableColumn == tableView.tableColumns[2] {
-            text = item.buyer.name
+            text = item.buyer.name           
             cellIdentifier = CellIdentifiers.buyerName
         } else if tableColumn == tableView.tableColumns[3] {
             text = item.totalGrossValue.formatAmount()
@@ -63,11 +66,12 @@ class InvoiceHistoryTableViewDelegate : NSObject, NSTableViewDataSource, NSTable
         return nil
     }
     
-    fileprivate func getInvoiceList() -> [Invoice] {
-        return invoiceFacade.getInvoices().sorted(by: {$0.issueDate > $1.issueDate})
+    fileprivate func getDocumentList() -> [Document] {
+        let documents = invoiceFacade.getInvoices() as [Document] + creditNoteFacade.getCreditNotes() as [Document]
+        return documents.sorted(by: {$0.issueDate > $1.issueDate})
     }
     
-    func getSelectedInvoice(index: Int) -> Invoice {
-        return self.getInvoiceList()[index]
+    func getSelectedDocument(index: Int) -> Document {
+        return self.getDocumentList()[index]
     }
 }

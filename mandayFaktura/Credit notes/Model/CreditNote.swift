@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CreditNote {
+struct CreditNote: Document {
     let issueDate: Date
     let number: String
     let sellingDate: Date

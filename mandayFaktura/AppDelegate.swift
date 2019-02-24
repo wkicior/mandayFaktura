@@ -52,10 +52,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func setInvoiceMenuItemAvailability(notification: Notification) {
         let dict = notification.userInfo as NSDictionary?
         let invoice = dict?[ViewControllerConstants.INVOICE_NOTIFICATION_KEY] as? Invoice
-        self.removeInvoiceMenuItem.isEnabled = invoice != nil
-        self.correctInvoiceMenuItem.isEnabled = invoice != nil
-        self.editInvoiceMenuItem.isEnabled = invoice != nil
-        self.printInvoiceMenuItem.isEnabled = invoice != nil
+        let creditNote = dict?[ViewControllerConstants.INVOICE_NOTIFICATION_KEY] as? CreditNote
+        if (invoice != nil) {
+            self.removeInvoiceMenuItem.isEnabled = true
+            self.correctInvoiceMenuItem.isEnabled = true
+            self.editInvoiceMenuItem.isEnabled = true
+            self.printInvoiceMenuItem.isEnabled = true
+        } else if creditNote != nil {
+            self.removeInvoiceMenuItem.isEnabled = true
+            self.correctInvoiceMenuItem.isEnabled = false
+            self.editInvoiceMenuItem.isEnabled = false
+            self.printInvoiceMenuItem.isEnabled = true
+        } else {
+            self.removeInvoiceMenuItem.isEnabled = false
+            self.correctInvoiceMenuItem.isEnabled = false
+            self.editInvoiceMenuItem.isEnabled = false
+            self.printInvoiceMenuItem.isEnabled = false
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

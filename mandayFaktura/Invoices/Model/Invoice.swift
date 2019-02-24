@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Invoice {
+struct Invoice: Document {
     let issueDate: Date
     let number: String
     let sellingDate: Date

@@ -22,6 +22,11 @@ class KeyedArchiverCreditNoteRepository: CreditNoteRepository {
         creditNotesCoding.append(CreditNoteCoding(creditNote))
     }
     
+    func deleteCreditNote(_ creditNote: CreditNote) {
+        let index = creditNotesCoding.index(where: {ic in ic.creditNote.number == creditNote.number})
+        creditNotesCoding.remove(at: index!)
+    }
+    
   
     private var creditNotesCoding: [CreditNoteCoding] {
         get {

@@ -9,7 +9,16 @@
 import Foundation
 
 class CreditNoteFacade {
-    func saveCreditNote(_ creditNote: CreditNote) {
-        //
+    let creditNoteRepository: CreditNoteRepository = CreditNoteRepositoryFactory.instance
+    func saveCreditNote(_ creditNote: CreditNote) throws {
+        try creditNoteRepository.addCreditNote(creditNote)
+    }
+    
+    func getCreditNotes() -> [CreditNote] {
+        return creditNoteRepository.getCreditNotes()
+    }
+    
+    func delete(_ creditNote: CreditNote) {
+        creditNoteRepository.deleteCreditNote(creditNote)
     }
 }

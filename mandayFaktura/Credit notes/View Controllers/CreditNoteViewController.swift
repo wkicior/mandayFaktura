@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 struct CreditNoteViewControllerConstants {
-    static let CREDIT_NOTE_NOTIFICATION = Notification.Name(rawValue: "CreditNoteCreated")
+    static let CREDIT_NOTE_CREATED_NOTIFICATION = Notification.Name(rawValue: "CreditNoteCreated")
 }
 
 class CreditNoteViewController: NSViewController {
@@ -53,23 +53,22 @@ class CreditNoteViewController: NSViewController {
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         do {
             try buyerAutoSavingController.saveIfNewBuyer(buyer: invoice!.buyer)
-            creditNoteFacade.saveCreditNote(creditNote)
-            NotificationCenter.default.post(name: CreditNoteViewControllerConstants.CREDIT_NOTE_NOTIFICATION, object: invoice)
+            try creditNoteFacade.saveCreditNote(creditNote)
+            NotificationCenter.default.post(name: CreditNoteViewControllerConstants.CREDIT_NOTE_CREATED_NOTIFICATION, object: invoice)
             view.window?.close()
         } catch is UserAbortError {
             //
-        } catch InvoiceExistsError.invoiceNumber(let number)  {
-            WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+        } catch CreditNoteExistsError.creditNoteNumber(let number)  {
+            WarningAlert(warning: "\(number) - faktura korygująca o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
         } catch {
             //
         }
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-     print(segue.destinationController)
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
-            //vc?.invoice = newInvoice TODO:
+            vc?.pdfDocument = CreditNotePdfDocument(creditNote: creditNote)
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
             self.buyerViewController!.buyer = invoice!.buyer
@@ -110,7 +109,7 @@ extension CreditNoteViewController {
     internal func checkSaveButtonEnabled() {
         self.saveButton.isEnabled =
             self.itemsTableViewController!.isValid()
-            && !self.numberTextField.stringValue.isEmpty
+            && !self.creditNoteNumber.stringValue.isEmpty
             && self.buyerViewController!.isValid()
     }
     

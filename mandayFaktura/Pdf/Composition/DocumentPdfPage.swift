@@ -10,7 +10,7 @@ import Foundation
 import Quartz
 
 
-class InvoicePdfPage: PDFPage {
+class DocumentPdfPage: PDFPage {
     let pageComposition: InvoicePageComposition
 
     init(pageComposition: InvoicePageComposition) {

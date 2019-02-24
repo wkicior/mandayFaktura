@@ -61,7 +61,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as! PdfViewController
-            vc.invoice = invoice
+            let pdfDocument = InvoicePdfDocument(invoice: invoice)
+            vc.pdfDocument = pdfDocument
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
         } else if segue.destinationController is ItemsTableViewController {
