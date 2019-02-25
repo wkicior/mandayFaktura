@@ -18,22 +18,26 @@ class InvoicePageDistribution: DocumentPageDistribution {
         self.invoice = invoice
         self.copyTemplate = copyTemplate
     }
-    
-    func addPageNumbering() {
-        if (pagesWithTableData.count > 1) {
-            (0 ..< pagesWithTableData.count)
-                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
-        }
-    }
 
     func distributeDocumentOverPageCompositions() -> [DocumentPageComposition] {
         self.initNewPageWithMinimumComposition(copyTemplate)
         distributeItemTableRow()
         distributeVatBreakdown()
-        extractedFunc()
+        distributePaymentSummary()
         pagesWithTableData.append(currentPageComposition!)
         addPageNumbering()
         return pagesWithTableData.map({page in page.build()})
+    }
+}
+
+extension InvoicePageDistribution {
+    func initNewPageWithMinimumComposition(_ copyTemplate: CopyTemplate) {
+        self.currentPageComposition = anInvoicePageComposition()
+            .withHeaderComponent(HeaderComponent(content: invoice.printedHeader))
+            .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
+            .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
+            .withCounterpartyComponent(SellerComponent(content: invoice.seller.printedSeller))
+            .withCounterpartyComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
     }
    
     fileprivate func distributeVatBreakdown() {
@@ -42,7 +46,7 @@ class InvoicePageDistribution: DocumentPageDistribution {
         appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(items: [itemsSummaryLayout, vatBreakdownTableData])
     }
     
-    fileprivate func extractedFunc() {
+    fileprivate func distributePaymentSummary() {
         let paymentSummary = PaymentSummaryComponent(content: invoice.printedPaymentSummary)
         appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: paymentSummary)
         appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: NotesComponent(content: invoice.notes))
@@ -56,6 +60,18 @@ class InvoicePageDistribution: DocumentPageDistribution {
             appendIfFitsOtherwiseCreateNewPageComposition(item: itemTableComponent)
         }
     }
+    
+    private func getVatBreakdownComponent() -> VatBreakdownComponent {
+        var breakdownTableData: [[String]] = []
+        for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
+            let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
+            breakdownTableData.append(breakdown.propertiesForDisplay)
+        }
+        return VatBreakdownComponent(breakdownTableData: breakdownTableData)
+    }
+}
+
+extension InvoicePageDistribution {
     
     fileprivate func appendIfFitsOtherwiseCreateNewPageComposition(item: PageComponent) {
         if (currentPageComposition!.canFit(pageComponent:item)) {
@@ -87,24 +103,14 @@ class InvoicePageDistribution: DocumentPageDistribution {
             currentPageComposition!.withSummaryComponents(item)
         }
     }
-
-    
-    func initNewPageWithMinimumComposition(_ copyTemplate: CopyTemplate) {
-        self.currentPageComposition = anInvoicePageComposition()
-            .withHeaderComponent(HeaderComponent(content: invoice.printedHeader))
-            .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
-            .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
-            .withCounterpartyComponent(SellerComponent(content: invoice.seller.printedSeller))
-            .withCounterpartyComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
-    }
-    
-    private func getVatBreakdownComponent() -> VatBreakdownComponent {
-        var breakdownTableData: [[String]] = []
-        for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
-            let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
-            breakdownTableData.append(breakdown.propertiesForDisplay)
-        }
-        return VatBreakdownComponent(breakdownTableData: breakdownTableData)
-    }
-
 }
+
+extension InvoicePageDistribution {
+    func addPageNumbering() {
+        if (pagesWithTableData.count > 1) {
+            (0 ..< pagesWithTableData.count)
+                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
+        }
+    }
+}
+

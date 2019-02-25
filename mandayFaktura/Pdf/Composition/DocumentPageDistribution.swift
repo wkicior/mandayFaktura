@@ -11,6 +11,3 @@ import Foundation
 protocol DocumentPageDistribution {
     func distributeDocumentOverPageCompositions() -> [DocumentPageComposition]
 }
-
-
-
