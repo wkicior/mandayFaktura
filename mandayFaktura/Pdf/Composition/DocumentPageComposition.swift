@@ -1,5 +1,5 @@
 //
-//  DocumentPageDistribution.swift
+//  DocumentPageComposition.swift
 //  mandayFaktura
 //
 //  Created by Wojciech Kicior on 24.02.2019.
@@ -8,9 +8,7 @@
 
 import Foundation
 
-protocol DocumentPageDistribution {
-    func distributeDocumentOverPageCompositions() -> [DocumentPageComposition]
+protocol DocumentPageComposition {
+    func draw()
+    func bound() -> NSRect
 }
-
-
-

@@ -1,29 +1,18 @@
 //
-//  InvoicePageComposition.swift
+//  CreditNotePageComposition.swift
 //  mandayFaktura
 //
-//  Created by Wojciech Kicior on 03.02.2019.
+//  Created by Wojciech Kicior on 24.02.2019.
 //  Copyright © 2019 Wojciech Kicior. All rights reserved.
 //
 
 import Foundation
 
-struct InvoicePageComposition: DocumentPageComposition {
-    static let leftMargin = CGFloat(20.0)
-    static let rightMargin = CGFloat(20.0)
-    
-    static let debug = false
-    
-    static let pdfHeight = CGFloat(1024.0)
-    static let pdfWidth = CGFloat(768.0)
-    
-    static let headerYPosition = CGFloat(972)
-    static let headerXPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
-    static let marginBottom = CGFloat(52)
-
+struct CreditNotePageComposition: DocumentPageComposition {
     let headerComponents: [PageComponent]
     let counterpartyComponents: [PageComponent]
     let itemTableRowComponents: [PageComponent]
+    let itemBeforeTableRowComponents: [PageComponent]
     let summaryComponents: [PageComponent]
     let pageNumberingComponent: PageComponent?
     
@@ -31,6 +20,7 @@ struct InvoicePageComposition: DocumentPageComposition {
         var currentYPosition = drawHeaderComponents()
         currentYPosition = drawCounterpartyComponents(position: currentYPosition)
         currentYPosition = drawItemTableRowComponents(position: currentYPosition)
+        currentYPosition = drawItemBeforeTableRowComponents(position: currentYPosition)
         drawSummaryComponents(position: currentYPosition)
         pageNumberingComponent?.draw(at: NSPoint(x: 0, y: InvoicePageComposition.marginBottom))
     }
@@ -67,6 +57,16 @@ struct InvoicePageComposition: DocumentPageComposition {
         return currentYPosition
     }
     
+    func drawItemBeforeTableRowComponents(position: CGFloat) -> CGFloat {
+        var currentYPosition = position
+        for i in 0 ..< itemBeforeTableRowComponents.count {
+            let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
+            itemBeforeTableRowComponents[i].draw(at: currentPosition)
+            currentYPosition = currentPosition.y - itemBeforeTableRowComponents[i].height
+        }
+        return currentYPosition
+    }
+    
     func drawSummaryComponents(position: CGFloat)  {
         var currentYPosition = position
         for i in 0 ..< summaryComponents.count {
@@ -81,43 +81,50 @@ struct InvoicePageComposition: DocumentPageComposition {
     }
 }
 
-func anInvoicePageComposition() -> InvoicePageCompositionBuilder {
-    return InvoicePageCompositionBuilder()
+func anInvoicePageComposition() -> CreditNotePageCompositionBuilder {
+    return CreditNotePageCompositionBuilder()
 }
 
-class InvoicePageCompositionBuilder {
+class CreditNotePageCompositionBuilder {
     var headerComponents: [PageComponent] = []
     var counterpartyComponents: [PageComponent] = []
     var itemTableRowComponents: [PageComponent] = []
+    var itemBeforeTableRowComponents: [PageComponent] = []
     var summaryComponents: [PageComponent] = []
     var pageNumberingComponent: PageComponent?
     
     @discardableResult
-    func withHeaderComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+    func withHeaderComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
         self.headerComponents.append(pageComponent)
         return self
     }
     
     @discardableResult
-    func withCounterpartyComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+    func withCounterpartyComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
         self.counterpartyComponents.append(pageComponent)
         return self
     }
     
     @discardableResult
-    func withItemTableRowComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+    func withItemTableRowComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
         self.itemTableRowComponents.append(pageComponent)
         return self
     }
     
     @discardableResult
-    func withSummaryComponents(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+    func withItemBeforeTableRowComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
+        self.itemBeforeTableRowComponents.append(pageComponent)
+        return self
+    }
+    
+    @discardableResult
+    func withSummaryComponents(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
         self.summaryComponents.append(pageComponent)
         return self
     }
     
     @discardableResult
-    func withPageNumberingComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+    func withPageNumberingComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
         self.pageNumberingComponent = pageComponent
         return self
     }
@@ -126,8 +133,9 @@ class InvoicePageCompositionBuilder {
         let headerHeight = self.headerComponents.map({c in c.height}).reduce(InvoicePageComposition.pdfHeight - InvoicePageComposition.headerYPosition, +)
         let counterPartyHeight = self.counterpartyComponents.first.map({c in c.height})!
         let itemsTableHeight = self.itemTableRowComponents.map({c in c.height}).reduce(0, +)
+        let itemsBeforeTableHeight = self.itemBeforeTableRowComponents.map({c in c.height}).reduce(0, +)
         let summaryHeight = self.summaryComponents.map({c in c.height}).reduce(0, +)
-        return headerHeight + counterPartyHeight + itemsTableHeight + summaryHeight
+        return headerHeight + counterPartyHeight + itemsTableHeight + itemsBeforeTableHeight + summaryHeight
     }
     
     fileprivate func canFit(height: CGFloat) -> Bool {
@@ -142,11 +150,12 @@ class InvoicePageCompositionBuilder {
         return canFit(height: pageComponents.map({pc in pc.height}).reduce(0, +))
     }
     
-    func build() -> InvoicePageComposition {
-        return InvoicePageComposition(
+    func build() -> CreditNotePageComposition {
+        return CreditNotePageComposition(
             headerComponents: headerComponents,
             counterpartyComponents: counterpartyComponents,
             itemTableRowComponents: itemTableRowComponents,
+            itemBeforeTableRowComponents: itemBeforeTableRowComponents,
             summaryComponents: summaryComponents,
             pageNumberingComponent: pageNumberingComponent
         )

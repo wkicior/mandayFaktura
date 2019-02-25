@@ -10,25 +10,24 @@ import Foundation
 
 class InvoicePageDistribution: DocumentPageDistribution {
     let copyTemplate: CopyTemplate
-    let invoice: Invoice
-    
     var pagesWithTableData: [InvoicePageCompositionBuilder] = []
     var currentPageComposition: InvoicePageCompositionBuilder?
+    let invoice: Invoice
     
     init (copyTemplate: CopyTemplate, invoice: Invoice) {
-        self.copyTemplate = copyTemplate
         self.invoice = invoice
+        self.copyTemplate = copyTemplate
     }
     
-    fileprivate func addPageNumbering() {
+    func addPageNumbering() {
         if (pagesWithTableData.count > 1) {
             (0 ..< pagesWithTableData.count)
                 .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
         }
     }
-    
-    func distributeDocumentOverPageCompositions() -> [InvoicePageComposition] {
-        self.initNewPageWithMinimumConposition(copyTemplate)
+
+    func distributeDocumentOverPageCompositions() -> [DocumentPageComposition] {
+        self.initNewPageWithMinimumComposition(copyTemplate)
         distributeItemTableRow()
         distributeVatBreakdown()
         extractedFunc()
@@ -63,7 +62,7 @@ class InvoicePageDistribution: DocumentPageDistribution {
             currentPageComposition!.withItemTableRowComponent(item)
         } else {
             self.pagesWithTableData.append(currentPageComposition!)
-            self.initNewPageWithMinimumConposition(copyTemplate)
+            self.initNewPageWithMinimumComposition(copyTemplate)
             currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
             currentPageComposition!.withItemTableRowComponent(item)
         }
@@ -74,23 +73,24 @@ class InvoicePageDistribution: DocumentPageDistribution {
             items.forEach({item in currentPageComposition!.withItemTableRowComponent(item)})
         } else {
             self.pagesWithTableData.append(currentPageComposition!)
-            self.initNewPageWithMinimumConposition(copyTemplate)
+            self.initNewPageWithMinimumComposition(copyTemplate)
             items.forEach({item in currentPageComposition!.withItemTableRowComponent(item)})
         }
     }
     
-    fileprivate func appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: PageComponent) {
+    func appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: PageComponent) {
         if (currentPageComposition!.canFit(pageComponent:item)) {
             currentPageComposition!.withSummaryComponents(item)
         } else {
             self.pagesWithTableData.append(currentPageComposition!)
-            self.initNewPageWithMinimumConposition(copyTemplate)
+            self.initNewPageWithMinimumComposition(copyTemplate)
             currentPageComposition!.withSummaryComponents(item)
         }
     }
+
     
-    fileprivate func initNewPageWithMinimumConposition(_ copyTemplate: CopyTemplate) {
-        self.currentPageComposition =  anInvoicePageComposition()
+    func initNewPageWithMinimumComposition(_ copyTemplate: CopyTemplate) {
+        self.currentPageComposition = anInvoicePageComposition()
             .withHeaderComponent(HeaderComponent(content: invoice.printedHeader))
             .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))

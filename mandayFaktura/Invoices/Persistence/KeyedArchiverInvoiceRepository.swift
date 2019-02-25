@@ -21,6 +21,10 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
         invoicesCoding.append(InvoiceCoding(invoice))
     }
     
+    func getInvoice(number: String) -> Invoice {
+        return getInvoices().first(where: {i in i.number == number})!
+    }
+    
     func delete(_ invoice: Invoice) {
         let index = invoicesCoding.index(where: {ic in ic.invoice.number == invoice.number})
         invoicesCoding.remove(at: index!)

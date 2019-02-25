@@ -15,6 +15,10 @@ class InvoiceFacade {
         return invoiceRepository.getInvoices()
     }
     
+    func getInvoice(number: String) -> Invoice {
+        return invoiceRepository.getInvoice(number: number)
+    }
+    
     func delete(_ invoice: Invoice) {
         invoiceRepository.delete(invoice)
     }

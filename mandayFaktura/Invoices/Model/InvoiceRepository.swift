@@ -19,6 +19,11 @@ protocol InvoiceRepository {
     func getInvoices() -> [Invoice]
     
     /**
+     Gets invoice by number
+    */
+    func getInvoice(number: String) -> Invoice
+    
+    /**
     Adds new invoice to the repository
     */
     func addInvoice(_ invoice: Invoice) throws

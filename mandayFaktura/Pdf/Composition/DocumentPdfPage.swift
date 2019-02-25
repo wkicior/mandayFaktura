@@ -11,9 +11,9 @@ import Quartz
 
 
 class DocumentPdfPage: PDFPage {
-    let pageComposition: InvoicePageComposition
+    let pageComposition: DocumentPageComposition
 
-    init(pageComposition: InvoicePageComposition) {
+    init(pageComposition: DocumentPageComposition) {
         self.pageComposition = pageComposition
         super.init()
     }
