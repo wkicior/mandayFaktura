@@ -40,8 +40,24 @@ struct CreditNote: Document {
     
     var vatBreakdown: VatBreakdown {
         get {
-            return VatBreakdown(invoiceItems: self.items)
+            return VatBreakdown.fromInvoiceItems(invoiceItems:  self.items)
         }
+    }
+    
+    func differenceNetValue(on: Invoice) -> Decimal {
+        return totalNetValue - on.totalNetValue
+    }
+    
+    func differenceVatValue(on: Invoice) -> Decimal {
+        return totalVatValue - on.totalVatValue
+    }
+    
+    func differenceGrossValue(on: Invoice) -> Decimal {
+        return totalGrossValue - on.totalGrossValue
+    }
+    
+    func differenceVatBreakdown(on: Invoice) -> VatBreakdown {
+        return vatBreakdown - on.vatBreakdown
     }
 }
 

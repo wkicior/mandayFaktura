@@ -36,6 +36,14 @@ internal extension Invoice {
         return header
     }
     
+    var creditedNoteHeader: String {
+        let header =
+        """
+        do faktury \(number) z dnia \(DateFormatting.getDateString(issueDate))
+        """
+        return header
+    }
+    
     var printedDates: String {
         let header =
         """

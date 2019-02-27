@@ -17,6 +17,11 @@ internal extension CreditNote {
         }
     }
     
+    func creditNoteDifferencesPropertiesForDisplay(on: Invoice) -> [String] {
+        return [self.differenceNetValue(on: on).formatAmount(), "*",  self.differenceVatValue(on: on).formatAmount(), self.differenceGrossValue(on: on).formatAmount()]
+
+    }
+    
     var paymentFormLabel: String {
         switch self.paymentForm {
         case .cash:
@@ -29,9 +34,7 @@ internal extension CreditNote {
     var printedHeader: String {
         let header =
         """
-        Faktura Korygująca
-        Nr: \(number)
-        
+        Faktura Korygująca nr: \(number)
         """
         return header
     }
@@ -45,11 +48,11 @@ internal extension CreditNote {
         return header
     }
     
-    var printedPaymentSummary: String {
+    func printedPaymentSummary(on: Invoice) -> String {
         let summary =
         """
-        Do zapłaty \(totalGrossValue.formatAmount()) PLN
-        słownie: \(totalGrossValue.spelledOut) PLN
+        Do zapłaty \(self.differenceGrossValue(on: on).formatAmount()) PLN
+        słownie: \(self.differenceGrossValue(on: on).spelledOut) PLN
         forma płatności: \(paymentFormLabel)
         termin płatności: \(DateFormatting.getDateString(paymentDueDate))
         """

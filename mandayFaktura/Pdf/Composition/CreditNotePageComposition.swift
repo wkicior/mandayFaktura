@@ -9,6 +9,19 @@
 import Foundation
 
 struct CreditNotePageComposition: DocumentPageComposition {
+    static let leftMargin = CGFloat(20.0)
+    static let rightMargin = CGFloat(20.0)
+    
+    static let debug = false
+    
+    static let pdfHeight = CGFloat(1024.0)
+    static let pdfWidth = CGFloat(768.0)
+    
+    static let headerYPosition = CGFloat(972)
+    static let headerXPosition = 1/2 * CreditNotePageComposition.pdfWidth + CGFloat(70.0)
+    static let marginBottom = CGFloat(52)
+
+    
     let headerComponents: [PageComponent]
     let counterpartyComponents: [PageComponent]
     let itemTableRowComponents: [PageComponent]
@@ -19,16 +32,16 @@ struct CreditNotePageComposition: DocumentPageComposition {
     func draw() {
         var currentYPosition = drawHeaderComponents()
         currentYPosition = drawCounterpartyComponents(position: currentYPosition)
-        currentYPosition = drawItemTableRowComponents(position: currentYPosition)
         currentYPosition = drawItemBeforeTableRowComponents(position: currentYPosition)
+        currentYPosition = drawItemTableRowComponents(position: currentYPosition)
         drawSummaryComponents(position: currentYPosition)
-        pageNumberingComponent?.draw(at: NSPoint(x: 0, y: InvoicePageComposition.marginBottom))
+        pageNumberingComponent?.draw(at: NSPoint(x: 0, y: CreditNotePageComposition.marginBottom))
     }
     
     func drawHeaderComponents() -> CGFloat {
-        var currentYPosition = InvoicePageComposition.headerYPosition
+        var currentYPosition = CreditNotePageComposition.headerYPosition
         for i in 0 ..< headerComponents.count {
-            let currentPosition = NSMakePoint(InvoicePageComposition.headerXPosition, currentYPosition)
+            let currentPosition = NSMakePoint(CreditNotePageComposition.headerXPosition, currentYPosition)
             headerComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - headerComponents[i].height
         }
@@ -38,7 +51,7 @@ struct CreditNotePageComposition: DocumentPageComposition {
     func drawCounterpartyComponents(position: CGFloat) -> CGFloat {
         var currentYPosition = position
         for i in 0 ..< counterpartyComponents.count {
-            let currentPosition = NSMakePoint((i % 2 == 0 ? CGFloat(100) :  1/2 * InvoicePageComposition.pdfWidth), currentYPosition)
+            let currentPosition = NSMakePoint((i % 2 == 0 ? CGFloat(100) :  1/2 * CreditNotePageComposition.pdfWidth), currentYPosition)
             counterpartyComponents[i].draw(at: currentPosition)
             if (i % 2 == 1) {
                 currentYPosition = currentPosition.y - counterpartyComponents[i].height
@@ -50,7 +63,7 @@ struct CreditNotePageComposition: DocumentPageComposition {
     func drawItemTableRowComponents(position: CGFloat) -> CGFloat {
         var currentYPosition = position
         for i in 0 ..< itemTableRowComponents.count {
-            let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
+            let currentPosition = NSMakePoint(CreditNotePageComposition.leftMargin, currentYPosition)
             itemTableRowComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - itemTableRowComponents[i].height
         }
@@ -60,7 +73,7 @@ struct CreditNotePageComposition: DocumentPageComposition {
     func drawItemBeforeTableRowComponents(position: CGFloat) -> CGFloat {
         var currentYPosition = position
         for i in 0 ..< itemBeforeTableRowComponents.count {
-            let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
+            let currentPosition = NSMakePoint(CreditNotePageComposition.leftMargin, currentYPosition)
             itemBeforeTableRowComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - itemBeforeTableRowComponents[i].height
         }
@@ -70,18 +83,18 @@ struct CreditNotePageComposition: DocumentPageComposition {
     func drawSummaryComponents(position: CGFloat)  {
         var currentYPosition = position
         for i in 0 ..< summaryComponents.count {
-            let currentPosition = NSMakePoint(InvoicePageComposition.leftMargin, currentYPosition)
+            let currentPosition = NSMakePoint(CreditNotePageComposition.leftMargin, currentYPosition)
             summaryComponents[i].draw(at: currentPosition)
             currentYPosition = currentPosition.y - summaryComponents[i].height
         }
     }
     
     func bound() -> NSRect {
-        return NSMakeRect(0, 0, InvoicePageComposition.pdfWidth, InvoicePageComposition.pdfHeight)
+        return NSMakeRect(0, 0, CreditNotePageComposition.pdfWidth, CreditNotePageComposition.pdfHeight)
     }
 }
 
-func anInvoicePageComposition() -> CreditNotePageCompositionBuilder {
+func aCreditNotePageComposition() -> CreditNotePageCompositionBuilder {
     return CreditNotePageCompositionBuilder()
 }
 
@@ -130,7 +143,7 @@ class CreditNotePageCompositionBuilder {
     }
     
     func componentsHeight() -> CGFloat {
-        let headerHeight = self.headerComponents.map({c in c.height}).reduce(InvoicePageComposition.pdfHeight - InvoicePageComposition.headerYPosition, +)
+        let headerHeight = self.headerComponents.map({c in c.height}).reduce(CreditNotePageComposition.pdfHeight - CreditNotePageComposition.headerYPosition, +)
         let counterPartyHeight = self.counterpartyComponents.first.map({c in c.height})!
         let itemsTableHeight = self.itemTableRowComponents.map({c in c.height}).reduce(0, +)
         let itemsBeforeTableHeight = self.itemBeforeTableRowComponents.map({c in c.height}).reduce(0, +)
@@ -139,7 +152,7 @@ class CreditNotePageCompositionBuilder {
     }
     
     fileprivate func canFit(height: CGFloat) -> Bool {
-        return InvoicePageComposition.pdfHeight - InvoicePageComposition.marginBottom - componentsHeight() - height > 0
+        return CreditNotePageComposition.pdfHeight - CreditNotePageComposition.marginBottom - componentsHeight() - height > 0
     }
     
     func canFit(pageComponent: PageComponent) -> Bool {

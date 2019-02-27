@@ -25,10 +25,11 @@ class CreditNotePageDistribution: DocumentPageDistribution {
     
     func distributeDocumentOverPageCompositions() -> [DocumentPageComposition] {
         self.initNewPageWithMinimumComposition(copyTemplate)
+        distributeItemBeforeTableRow()
+        distributeItemsSummaryBefore()
+        
         distributeItemTableRow()
         distributeVatBreakdown()
-        distributeItemBeforeTableRow()
-        distributeVatBreakdownBefore()
         distributePaymentSummary()
         pagesWithTableData.append(currentPageComposition!)
         addPageNumbering()
@@ -39,18 +40,19 @@ extension CreditNotePageDistribution {
     
     fileprivate func distributeVatBreakdown() {
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: creditNote.propertiesForDisplay)
+        let creditNoteDifferenceItemsSummaryLayout = CreditNoteItemsSummaryComponent(summaryData: creditNote.creditNoteDifferencesPropertiesForDisplay(on: self.invoice))
+
         let vatBreakdownTableData = getVatBreakdownComponent()
-        appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(items: [itemsSummaryLayout, vatBreakdownTableData])
+        appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(items: [itemsSummaryLayout, creditNoteDifferenceItemsSummaryLayout, vatBreakdownTableData])
     }
     
-    fileprivate func distributeVatBreakdownBefore() {
+    fileprivate func distributeItemsSummaryBefore() {
         let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay)
-        let vatBreakdownTableData = getVatBreakdownBeforeComponent()
-        appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdownBefore(items: [itemsSummaryLayout, vatBreakdownTableData])
+        appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdownBefore(items: [itemsSummaryLayout])
     }
     
     fileprivate func distributePaymentSummary() {
-        let paymentSummary = PaymentSummaryComponent(content: creditNote.printedPaymentSummary)
+        let paymentSummary = PaymentSummaryComponent(content: creditNote.printedPaymentSummary(on: invoice))
         appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: paymentSummary)
         appendIfFitsOtherwiseCreateNewPageCompositionPaymentSummary(item: NotesComponent(content: creditNote.reason))
     }
@@ -74,8 +76,8 @@ extension CreditNotePageDistribution {
     }
     
     func initNewPageWithMinimumComposition(_ copyTemplate: CopyTemplate) {
-        self.currentPageComposition = anInvoicePageComposition()
-            .withHeaderComponent(HeaderComponent(content: creditNote.printedHeader))
+        self.currentPageComposition = aCreditNotePageComposition()
+            .withHeaderComponent(HeaderComponent(content: creditNote.printedHeader + "\n" + invoice.creditedNoteHeader))
             .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: creditNote.printedDates))
             .withCounterpartyComponent(SellerComponent(content: creditNote.seller.printedSeller))
@@ -84,17 +86,8 @@ extension CreditNotePageDistribution {
     
     private func getVatBreakdownComponent() -> VatBreakdownComponent {
         var breakdownTableData: [[String]] = []
-        for breakdownIndex in 0 ..< self.creditNote.vatBreakdown.entries.count {
-            let breakdown = self.creditNote.vatBreakdown.entries[breakdownIndex]
-            breakdownTableData.append(breakdown.propertiesForDisplay)
-        }
-        return VatBreakdownComponent(breakdownTableData: breakdownTableData)
-    }
-    
-    private func getVatBreakdownBeforeComponent() -> VatBreakdownComponent {
-        var breakdownTableData: [[String]] = []
-        for breakdownIndex in 0 ..< self.invoice.vatBreakdown.entries.count {
-            let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
+        for breakdownIndex in 0 ..< self.creditNote.differenceVatBreakdown(on: invoice).entries.count {
+            let breakdown = self.creditNote.differenceVatBreakdown(on: invoice).entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
         return VatBreakdownComponent(breakdownTableData: breakdownTableData)

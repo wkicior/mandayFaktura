@@ -39,7 +39,7 @@ struct Invoice: Document {
     
     var vatBreakdown: VatBreakdown {
         get {
-            return VatBreakdown(invoiceItems: self.items)
+            return VatBreakdown.fromInvoiceItems(invoiceItems: self.items)
         }
     }
 }
