@@ -32,7 +32,10 @@ class KeyedArchiverCreditNoteRepository: CreditNoteRepository {
         return getCreditNotes().first(where: {c in c.invoiceNumber == invoiceNumber})
     }
     
-  
+    func getLastCreditNote() -> CreditNote? {
+        return creditNotesCoding.last.map({ic in ic.creditNote})
+    }
+
     private var creditNotesCoding: [CreditNoteCoding] {
         get {
             if let data = UserDefaults.standard.object(forKey: key) as? NSData {

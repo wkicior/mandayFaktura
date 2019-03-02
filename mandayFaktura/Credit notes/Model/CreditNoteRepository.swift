@@ -21,6 +21,11 @@ protocol CreditNoteRepository {
     func findBy(invoiceNumber: String) -> CreditNote?
     
     func findBy(creditNoteNumber: String) -> CreditNote?
+    
+    /**
+     Returns last registered credit note
+     */
+    func getLastCreditNote() -> CreditNote?
 }
 
 

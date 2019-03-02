@@ -22,8 +22,7 @@ extension Date {
 class InvoiceNumbering {
     let invoiceRepository: InvoiceRepository
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository
-    var numberingTemplateFactory = NumberingTemplateFactory()
-    var settings: InvoiceNumberingSettings
+    var settings: DocumentNumberingSettings
     var numberingCoder: NumberingCoder
     
     init (invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance,
@@ -32,7 +31,7 @@ class InvoiceNumbering {
         self.invoiceNumberingSettingsRepository = invoiceNumberingSettingsRepository
         self.settings = self.invoiceNumberingSettingsRepository.getInvoiceNumberingSettings() ??
             InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year)], resetOnYearChange: true)
-        self.numberingCoder = numberingTemplateFactory.getInstance(settings: settings)
+        self.numberingCoder = NumberingSegmentCoder(delimeter: settings.separator, segmentTypes: settings.segments.map({s in s.type}))
     }
     
     public func verifyInvoiceWithNumberDoesNotExist(invoiceNumber: String) throws {

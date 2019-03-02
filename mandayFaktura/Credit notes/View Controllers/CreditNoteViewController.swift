@@ -22,10 +22,10 @@ class CreditNoteViewController: NSViewController {
     let buyerAutoSavingController = BuyerAutoSavingController()
     let invoiceFacade = InvoiceFacade()
     let counterpartyFacade = CounterpartyFacade()
+    let creditNoteNumberingFacade = CreditNoteNumberingFacade()
     
     var invoice: Invoice?
     
-    @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var previewButton: NSButton!
     @IBOutlet weak var notesTextField: NSTextField!
@@ -45,9 +45,11 @@ class CreditNoteViewController: NSViewController {
                                                object: nil, queue: nil) {
                                                 (notification) in self.checkSaveButtonEnabled()}
         
-        self.creditNoteNumber.stringValue = invoice!.number + "/K"
+        //self.creditNoteNumber.stringValue = invoice!.number + "/K"
         self.notesTextField.stringValue = invoice!.notes
         self.previewButton.isEnabled = true
+        self.creditNoteNumber.stringValue = creditNoteNumberingFacade.getNextCreditNoteNumber()
+
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {

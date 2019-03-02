@@ -14,12 +14,6 @@ protocol NumberingCoder {
     func encodeNumber(segments: [NumberingSegmentValue]) -> String
 }
 
-class NumberingTemplateFactory {
-    func getInstance(settings: InvoiceNumberingSettings) -> NumberingCoder {
-        return NumberingSegmentCoder(delimeter: settings.separator, segmentTypes: settings.segments.map({s in s.type}))
-    }
-}
-
 class NumberingSegmentCoder: NumberingCoder {
     let pattern: String
     let segmentTypes: [NumberingSegmentType]
