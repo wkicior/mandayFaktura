@@ -56,7 +56,7 @@ internal extension Invoice {
     var printedPaymentSummary: String {
         let summary =
         """
-        Do zapłaty \(totalGrossValue.formatAmount()) PLN
+        Do zapłaty: \(totalGrossValue.formatAmount()) PLN
         słownie: \(totalGrossValue.spelledOut) PLN
         forma płatności: \(paymentFormLabel)
         termin płatności: \(DateFormatting.getDateString(paymentDueDate))

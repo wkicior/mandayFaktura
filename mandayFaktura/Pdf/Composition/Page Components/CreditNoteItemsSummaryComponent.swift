@@ -29,6 +29,6 @@ class CreditNoteItemsSummaryComponent : AbstractComponent, PageComponent {
         let width = self.getColumnWidth(column: column + shift)
         drawBorder(xLeft, yBottom, height, width)
         let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, height - 2 * AbstractComponent.gridPadding)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
 }
