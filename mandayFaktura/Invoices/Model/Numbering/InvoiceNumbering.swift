@@ -26,12 +26,19 @@ class InvoiceNumbering {
     var settings: InvoiceNumberingSettings
     var numberingCoder: NumberingCoder
     
-    init (invoiceRepository: InvoiceRepository, invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository) {
+    init (invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance,
+          invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance) {
         self.invoiceRepository = invoiceRepository
         self.invoiceNumberingSettingsRepository = invoiceNumberingSettingsRepository
         self.settings = self.invoiceNumberingSettingsRepository.getInvoiceNumberingSettings() ??
             InvoiceNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year)], resetOnYearChange: true)
         self.numberingCoder = numberingTemplateFactory.getInstance(settings: settings)
+    }
+    
+    public func verifyInvoiceWithNumberDoesNotExist(invoiceNumber: String) throws {
+        if (invoiceRepository.findBy(invoiceNumber: invoiceNumber) != nil) {
+            throw InvoiceExistsError.invoiceNumber(number: invoiceNumber)
+        }
     }
 
     var nextInvoiceNumber: String {

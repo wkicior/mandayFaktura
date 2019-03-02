@@ -14,11 +14,13 @@ protocol CreditNoteRepository {
     /**
      Adds new credit note to the repository
      */
-    func addCreditNote(_ creditNote: CreditNote) throws
+    func addCreditNote(_ creditNote: CreditNote)
     
     func deleteCreditNote(_ creditNote: CreditNote)
     
     func findBy(invoiceNumber: String) -> CreditNote?
+    
+    func findBy(creditNoteNumber: String) -> CreditNote?
 }
 
 

@@ -10,7 +10,6 @@ import Foundation
 
 class InvoiceNumberingFacade {
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository = InvoiceNumberingSettingsRepositoryFactory.instance
-    let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
     
     func getInvoiceNumberingSettings() -> InvoiceNumberingSettings? {
         return invoiceNumberingSettingsRepository.getInvoiceNumberingSettings()
@@ -21,7 +20,7 @@ class InvoiceNumberingFacade {
     }
     
     func getNextInvoiceNumber() -> String {
-        let invoiceNumbering: InvoiceNumbering = InvoiceNumbering(invoiceRepository: invoiceRepository, invoiceNumberingSettingsRepository: invoiceNumberingSettingsRepository)
+        let invoiceNumbering: InvoiceNumbering = InvoiceNumbering()
         return invoiceNumbering.nextInvoiceNumber
     }
 }

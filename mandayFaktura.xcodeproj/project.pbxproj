@@ -184,6 +184,8 @@
 		D3956A9322246ED5004144A1 /* CreditNotePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A8E222333D5004144A1 /* CreditNotePageComposition.swift */; };
 		D3956A952225CAD0004144A1 /* CreditNoteItemsSummaryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A942225CAD0004144A1 /* CreditNoteItemsSummaryComponent.swift */; };
 		D3956A962225CB1F004144A1 /* CreditNoteItemsSummaryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A942225CAD0004144A1 /* CreditNoteItemsSummaryComponent.swift */; };
+		D3956A99222AF787004144A1 /* CreditNoteNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */; };
+		D3956A9A222AF787004144A1 /* CreditNoteNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
@@ -379,6 +381,7 @@
 		D3956A8E222333D5004144A1 /* CreditNotePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePageComposition.swift; sourceTree = "<group>"; };
 		D3956A9022233416004144A1 /* DocumentPageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPageComposition.swift; sourceTree = "<group>"; };
 		D3956A942225CAD0004144A1 /* CreditNoteItemsSummaryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteItemsSummaryComponent.swift; sourceTree = "<group>"; };
+		D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumbering.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
@@ -978,10 +981,19 @@
 		D389972F2219B726004CC30C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3956A97222AF765004144A1 /* Numbering */,
 				D38997302219B733004CC30C /* CreditNote.swift */,
 				D3F0A5172221865800CC0E08 /* CreditNoteRepository.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D3956A97222AF765004144A1 /* Numbering */ = {
+			isa = PBXGroup;
+			children = (
+				D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */,
+			);
+			path = Numbering;
 			sourceTree = "<group>";
 		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {
@@ -1369,6 +1381,7 @@
 				D34339F821A48D6100C583D2 /* Counterparty.swift in Sources */,
 				D3F0A5372222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
 				D34339F921A48D6100C583D2 /* BuyersCatalogueViewController.swift in Sources */,
+				D3956A9A222AF787004144A1 /* CreditNoteNumbering.swift in Sources */,
 				D34339FA21A48D6100C583D2 /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74604220B677B0057540E /* PageComponent.swift in Sources */,
 				D38997352219E240004CC30C /* BuyerViewController.swift in Sources */,
@@ -1495,6 +1508,7 @@
 				D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
 				D3F0A5362222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
+				D3956A99222AF787004144A1 /* CreditNoteNumbering.swift in Sources */,
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74603220B677B0057540E /* PageComponent.swift in Sources */,

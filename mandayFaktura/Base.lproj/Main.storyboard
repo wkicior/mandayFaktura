@@ -2280,7 +2280,7 @@ DQ
                             <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A14-zx-FZb">
                                 <rect key="frame" x="10" y="44" width="990" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Uwagi" drawsBackground="YES" allowsEditingTextAttributes="YES" id="zqo-Hc-a0C">
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Przyczyna korekty/Uwagi" drawsBackground="YES" allowsEditingTextAttributes="YES" id="zqo-Hc-a0C">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

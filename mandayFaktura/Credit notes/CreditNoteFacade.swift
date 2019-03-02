@@ -10,8 +10,13 @@ import Foundation
 
 class CreditNoteFacade {
     let creditNoteRepository: CreditNoteRepository = CreditNoteRepositoryFactory.instance
+    let invoiceNumbering: InvoiceNumbering = InvoiceNumbering()
+    let creditNoteNumbering: CreditNoteNumbering = CreditNoteNumbering()
+    
     func saveCreditNote(_ creditNote: CreditNote) throws {
-        try creditNoteRepository.addCreditNote(creditNote)
+        try creditNoteNumbering.verifyCreditNoteWithNumberDoesNotExist(creditNoteNumber: creditNote.number)
+        try invoiceNumbering.verifyInvoiceWithNumberDoesNotExist(invoiceNumber: creditNote.number)
+        creditNoteRepository.addCreditNote(creditNote)
     }
     
     func getCreditNotes() -> [CreditNote] {

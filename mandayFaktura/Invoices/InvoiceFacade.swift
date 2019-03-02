@@ -10,6 +10,8 @@ import Foundation
 
 class InvoiceFacade {
     let invoiceRepository: InvoiceRepository = InvoiceRepositoryFactory.instance
+    let invoiceNumbering: InvoiceNumbering = InvoiceNumbering()
+    let creditNoteNumbering: CreditNoteNumbering = CreditNoteNumbering()
     
     func getInvoices() -> [Invoice] {
         return invoiceRepository.getInvoices()
@@ -24,10 +26,14 @@ class InvoiceFacade {
     }
     
     func addInvoice(_ invoice: Invoice) throws {
-        try invoiceRepository.addInvoice(invoice)
+        try invoiceNumbering.verifyInvoiceWithNumberDoesNotExist(invoiceNumber: invoice.number)
+        try creditNoteNumbering.verifyCreditNoteWithNumberDoesNotExist(creditNoteNumber: invoice.number)
+        invoiceRepository.addInvoice(invoice)
     }
     
     func editInvoice(old: Invoice, new: Invoice) throws {
-        try invoiceRepository.editInvoice(old: old, new: new)
+        try invoiceNumbering.verifyInvoiceWithNumberDoesNotExist(invoiceNumber: new.number)
+        try creditNoteNumbering.verifyCreditNoteWithNumberDoesNotExist(creditNoteNumber: new.number)
+        invoiceRepository.editInvoice(old: old, new: new)
     }
 }

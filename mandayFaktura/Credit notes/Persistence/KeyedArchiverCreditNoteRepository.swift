@@ -15,11 +15,12 @@ class KeyedArchiverCreditNoteRepository: CreditNoteRepository {
         return creditNotesCoding.map{cnc in cnc.creditNote}
     }
     
-    func addCreditNote(_ creditNote: CreditNote) throws {
-        if (getCreditNotes().first(where: {i in i.number == creditNote.number}) != nil) {
-            throw CreditNoteExistsError.creditNoteNumber(number: creditNote.number)
-        }
+    func addCreditNote(_ creditNote: CreditNote) {
         creditNotesCoding.append(CreditNoteCoding(creditNote))
+    }
+    
+    func findBy(creditNoteNumber: String) -> CreditNote? {
+        return getCreditNotes().first(where: {i in i.number == creditNoteNumber})
     }
     
     func deleteCreditNote(_ creditNote: CreditNote) {

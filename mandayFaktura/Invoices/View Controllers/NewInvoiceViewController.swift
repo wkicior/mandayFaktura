@@ -53,6 +53,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         } catch InvoiceExistsError.invoiceNumber(let number)  {
             WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje",
                 text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+        } catch CreditNoteExistsError.creditNoteNumber(let number)  {
+            WarningAlert(warning: "\(number) - faktura korygująca o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
         } catch {
             //
         }

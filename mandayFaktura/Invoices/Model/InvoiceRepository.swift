@@ -26,7 +26,7 @@ protocol InvoiceRepository {
     /**
     Adds new invoice to the repository
     */
-    func addInvoice(_ invoice: Invoice) throws
+    func addInvoice(_ invoice: Invoice)
     
     /**
     Deletes the invoice
@@ -41,7 +41,9 @@ protocol InvoiceRepository {
     /**
     Edits (replaces) old invoice with the new one
     */
-    func editInvoice(old: Invoice, new: Invoice) throws
+    func editInvoice(old: Invoice, new: Invoice)
+    
+    func findBy(invoiceNumber: String) -> Invoice?
 }
 
 /**
