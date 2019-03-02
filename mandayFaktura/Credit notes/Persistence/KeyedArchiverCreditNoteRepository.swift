@@ -27,6 +27,10 @@ class KeyedArchiverCreditNoteRepository: CreditNoteRepository {
         creditNotesCoding.remove(at: index!)
     }
     
+    func findBy(invoiceNumber: String) -> CreditNote? {
+        return getCreditNotes().first(where: {c in c.invoiceNumber == invoiceNumber})
+    }
+    
   
     private var creditNotesCoding: [CreditNoteCoding] {
         get {

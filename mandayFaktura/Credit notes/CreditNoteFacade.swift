@@ -21,4 +21,8 @@ class CreditNoteFacade {
     func delete(_ creditNote: CreditNote) {
         creditNoteRepository.deleteCreditNote(creditNote)
     }
+    
+    func creditNoteForInvoice(invoiceNumber: String) -> CreditNote? {
+        return creditNoteRepository.findBy(invoiceNumber: invoiceNumber)
+    }
 }

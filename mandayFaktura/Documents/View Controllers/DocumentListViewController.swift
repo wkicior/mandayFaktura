@@ -53,10 +53,10 @@ class DocumentListViewController: NSViewController {
         }
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_REMOVE_NOTIFICATION,
                                                object: nil, queue: nil) {
-                                                (notification) in self.deleteDocument()}
+                                                (notification) in self.deleteDocumentIfHasNoCreditNote()}
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION,
                                                object: nil, queue: nil) {
-                                                (notification) in self.editInvoice()}
+                                                (notification) in self.editInvoiceIfHasNoCreditNote()}
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.CREDIT_NOTE_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.correctInvoice()}
@@ -80,9 +80,23 @@ class DocumentListViewController: NSViewController {
         return (self.documentListTableViewDelegate?.getSelectedDocument(index: invoiceHistoryTableView.selectedRow))!
     }
     
+    func deleteDocumentIfHasNoCreditNote() {
+        let index = self.invoiceHistoryTableView.selectedRow
+        let document = documentListTableViewDelegate?.getSelectedDocument(index: index)
+        if let creditNote = creditNoteFacade!.creditNoteForInvoice(invoiceNumber: document!.number) {
+            let alert = NSAlert()
+            alert.messageText = "Usunięcie dokumentu!"
+            alert.informativeText = "Dokument ma przypisaną fakturę korygującą \(creditNote.number) i nie może zostać usunięty"
+            alert.alertStyle = .critical
+            alert.runModal()
+        } else {
+            deleteDocument()
+        }
+    }
+    
     func deleteDocument() {
         let alert = NSAlert()
-        alert.messageText = "Usunięcie Dokumentu!"
+        alert.messageText = "Usunięcie dokumentu!"
         alert.informativeText = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?"
         alert.alertStyle = .warning
         alert.addButton(withTitle: "Usuń")
@@ -98,6 +112,20 @@ class DocumentListViewController: NSViewController {
             self.invoiceHistoryTableView.reloadData()
         } else if modalResponse == NSApplication.ModalResponse.alertThirdButtonReturn {
            return
+        }
+    }
+    
+    func editInvoiceIfHasNoCreditNote() {
+        let index = self.invoiceHistoryTableView.selectedRow
+        let invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
+        if let creditNote = creditNoteFacade!.creditNoteForInvoice(invoiceNumber: invoice!.number) {
+            let alert = NSAlert()
+            alert.messageText = "Edycja faktury!"
+            alert.informativeText = "Faktura ma przypisaną fakturę korygującą \(creditNote.number) i nie może już być edytowana"
+            alert.alertStyle = .critical
+            alert.runModal()
+        } else {
+            editInvoice()
         }
     }
     

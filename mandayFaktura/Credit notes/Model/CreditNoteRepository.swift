@@ -17,6 +17,8 @@ protocol CreditNoteRepository {
     func addCreditNote(_ creditNote: CreditNote) throws
     
     func deleteCreditNote(_ creditNote: CreditNote)
+    
+    func findBy(invoiceNumber: String) -> CreditNote?
 }
 
 
