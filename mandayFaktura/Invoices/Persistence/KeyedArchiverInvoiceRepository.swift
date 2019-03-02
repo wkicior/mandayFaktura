@@ -14,8 +14,12 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
         return invoicesCoding.map{ic in ic.invoice}
     }
     
+    public func findBy(invoiceNumber: String) -> Invoice? {
+        return getInvoices().first(where: {i in i.number == invoiceNumber})
+    }
+    
     func addInvoice(_ invoice: Invoice) throws {
-        if (getInvoices().first(where: {i in i.number == invoice.number}) != nil) {
+        if (findBy(invoiceNumber: invoice.number) != nil) {
             throw InvoiceExistsError.invoiceNumber(number: invoice.number)
         }
         invoicesCoding.append(InvoiceCoding(invoice))
@@ -34,7 +38,10 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
         return invoicesCoding.last.map({ic in ic.invoice})
     }
     
-    func editInvoice(old: Invoice, new: Invoice) {
+    func editInvoice(old: Invoice, new: Invoice) throws {
+        if (findBy(invoiceNumber: new.number) != nil) {
+            throw InvoiceExistsError.invoiceNumber(number: new.number)
+        }
         let index = invoicesCoding.index(where: {ic in ic.invoice.number == old.number})
         invoicesCoding[index!] = InvoiceCoding(new)
     }

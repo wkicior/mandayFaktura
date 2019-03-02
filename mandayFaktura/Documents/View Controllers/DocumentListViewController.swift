@@ -145,7 +145,17 @@ class DocumentListViewController: NSViewController {
     }
     
     func correctInvoice() {
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier("creditNoteSegue"), sender: nil)
+        let index = self.invoiceHistoryTableView.selectedRow
+        let invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
+        if let creditNote = creditNoteFacade!.creditNoteForInvoice(invoiceNumber: invoice!.number) {
+            let alert = NSAlert()
+            alert.messageText = "Korekta faktury!"
+            alert.informativeText = "Faktura ma przypisaną fakturę korygującą \(creditNote.number)"
+            alert.alertStyle = .critical
+            alert.runModal()
+        } else {
+            performSegue(withIdentifier: NSStoryboardSegue.Identifier("creditNoteSegue"), sender: nil)
+        }
     }
     
     func printInvoice() {

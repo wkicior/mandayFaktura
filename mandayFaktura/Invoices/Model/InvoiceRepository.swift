@@ -41,7 +41,7 @@ protocol InvoiceRepository {
     /**
     Edits (replaces) old invoice with the new one
     */
-    func editInvoice(old: Invoice, new: Invoice)
+    func editInvoice(old: Invoice, new: Invoice) throws
 }
 
 /**

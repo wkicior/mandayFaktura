@@ -27,7 +27,7 @@ class InvoiceFacade {
         try invoiceRepository.addInvoice(invoice)
     }
     
-    func editInvoice(old: Invoice, new: Invoice) {
-        invoiceRepository.editInvoice(old: old, new: new)
+    func editInvoice(old: Invoice, new: Invoice) throws {
+        try invoiceRepository.editInvoice(old: old, new: new)
     }
 }
