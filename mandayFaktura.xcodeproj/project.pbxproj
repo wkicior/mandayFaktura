@@ -535,16 +535,6 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		D3254EB3205C293800CC889C /* Numbering */ = {
-			isa = PBXGroup;
-			children = (
-				D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */,
-				D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */,
-				D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */,
-			);
-			path = Numbering;
-			sourceTree = "<group>";
-		};
 		D3254EB4205C295800CC889C /* Numbering */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +677,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D3956AA5222DC401004144A1 /* Numbering */,
 				D3F0A5282221A01C00CC0E08 /* Documents */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
 				D389972A2215FE92004CC30C /* Credit notes */,
@@ -746,7 +737,6 @@
 		D34D0F13201DD9E6000D1EC6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3254EB3205C293800CC889C /* Numbering */,
 				D34D0F09201CE8B2000D1EC6 /* Invoice.swift */,
 				D34D0F16201DDA88000D1EC6 /* InvoiceRepository.swift */,
 				D370A7F620261A8500FFB262 /* PaymentForm.swift */,
@@ -767,7 +757,6 @@
 		D34D0F15201DDA0D000D1EC6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D3D82325206041F50031C2D1 /* Numbering */,
 				D3781B8A20B9CBC100CA420E /* InvoiceItemTagAnimation.swift */,
 				D34D0F18201DEF6B000D1EC6 /* NewInvoiceViewController.swift */,
 				D3B7C95C2087B92D00432176 /* AbstractInvoiceViewController.swift */,
@@ -989,30 +978,60 @@
 		D389972F2219B726004CC30C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3956A97222AF765004144A1 /* Numbering */,
 				D38997302219B733004CC30C /* CreditNote.swift */,
 				D3F0A5172221865800CC0E08 /* CreditNoteRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D3956A97222AF765004144A1 /* Numbering */ = {
+		D3956AA5222DC401004144A1 /* Numbering */ = {
 			isa = PBXGroup;
 			children = (
-				D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */,
-				D3956A9F222B238A004144A1 /* CreditNoteNumberingSettings.swift */,
+				D3956AA7222DC450004144A1 /* Model */,
+				D3956AA6222DC415004144A1 /* View Controllers */,
 			);
 			path = Numbering;
 			sourceTree = "<group>";
 		};
-		D3956A9B222B1F0D004144A1 /* Numbering */ = {
+		D3956AA6222DC415004144A1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */,
+				D3D82326206042960031C2D1 /* OrderingDragSource.swift */,
+				D3D82328206043080031C2D1 /* DragOrderingDestination.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3956AA7222DC450004144A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				D3254EA92059852200CC889C /* NumberingSegmentCoder.swift */,
 				D3254EB5205C298900CC889C /* NumberingSegments.swift */,
 				D3956A9C222B232D004144A1 /* DocumentNumberingSettings.swift */,
+				D3956AA9222DC487004144A1 /* Credit Notes */,
+				D3956AA8222DC45B004144A1 /* Invoices */,
 			);
-			path = Numbering;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D3956AA8222DC45B004144A1 /* Invoices */ = {
+			isa = PBXGroup;
+			children = (
+				D3254EB1205C28B900CC889C /* InvoiceNumberingSettings.swift */,
+				D3254EA520563B6B00CC889C /* InvoiceNumbering.swift */,
+				D3254EAF205C288200CC889C /* InvoiceNumberingSettingsRepository.swift */,
+			);
+			path = Invoices;
+			sourceTree = "<group>";
+		};
+		D3956AA9222DC487004144A1 /* Credit Notes */ = {
+			isa = PBXGroup;
+			children = (
+				D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */,
+				D3956A9F222B238A004144A1 /* CreditNoteNumberingSettings.swift */,
+			);
+			path = "Credit Notes";
 			sourceTree = "<group>";
 		};
 		D395D834202CEABA00D129B6 /* Persistence */ = {
@@ -1021,16 +1040,6 @@
 				D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */,
 			);
 			path = Persistence;
-			sourceTree = "<group>";
-		};
-		D3D82325206041F50031C2D1 /* Numbering */ = {
-			isa = PBXGroup;
-			children = (
-				D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */,
-				D3D82326206042960031C2D1 /* OrderingDragSource.swift */,
-				D3D82328206043080031C2D1 /* DragOrderingDestination.swift */,
-			);
-			path = Numbering;
 			sourceTree = "<group>";
 		};
 		D3E312C320A0DC4B00C84CEE /* View Controllers */ = {
@@ -1096,7 +1105,6 @@
 		D3F0A52B2221A36500CC0E08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3956A9B222B1F0D004144A1 /* Numbering */,
 				D3F0A52C2221A37700CC0E08 /* Document.swift */,
 			);
 			path = Model;
