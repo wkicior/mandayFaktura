@@ -83,22 +83,12 @@ extension InvoiceNumberingSettingsViewController: DestinationViewDelegate {
     func defaultValue(type: NumberingSegmentType) throws -> String {
         switch (type) {
         case .fixedPart:
-            try validateFixedPart()
+            try NumberingSegmentType.validateFixedPart(value: self.fixedPartTextField.stringValue)
             return self.fixedPartTextField.stringValue
         case .year:
             return String(Date().year)
         case .incrementingNumber:
             return "1"
-        }
-    }
-
-    func validateFixedPart() throws {
-        let value = self.fixedPartTextField.stringValue
-        let regex = NumberingSegmentType.fixedPart.regex
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", regex)
-        if !emailTest.evaluate(with: value) {
-              throw InputValidationError.invalidNumber(fieldName: "Własny ciąg znaków")
         }
     }
 }

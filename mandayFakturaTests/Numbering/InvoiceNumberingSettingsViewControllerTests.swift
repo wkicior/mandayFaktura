@@ -10,14 +10,10 @@ import Foundation
 import XCTest
 @testable import mandayFaktura
 
-class InvoiceNumberingSettingsViewControllerTests: XCTestCase {
+class NumberingSegmentTypeTests: XCTestCase {
     func testValidateFixedPart_will_throw_validation_exception_on_empty_field() {
-        let controller = InvoiceNumberingSettingsViewController()
-        let textField = NSTextField(labelWithString: "")
-        controller.fixedPartTextField = textField
-
         do {
-            try controller.validateFixedPart()
+            try NumberingSegmentType.validateFixedPart(value: "")
         } catch InputValidationError.invalidNumber( _) {
            return
         } catch {
@@ -27,12 +23,8 @@ class InvoiceNumberingSettingsViewControllerTests: XCTestCase {
     }
     
     func testValidateFixedPart_will_throw_validation_exception_on_not_valid_value() {
-        let controller = InvoiceNumberingSettingsViewController()
-        let textField = NSTextField(labelWithString: "ab?123")
-        controller.fixedPartTextField = textField
-        
         do {
-            try controller.validateFixedPart()
+            try NumberingSegmentType.validateFixedPart(value: "ab?123")
         } catch InputValidationError.invalidNumber( _) {
             return
         } catch {
@@ -42,9 +34,6 @@ class InvoiceNumberingSettingsViewControllerTests: XCTestCase {
     }
     
     func testValidateFixedPart_will_pass_on_numbers_and_letters() {
-        let controller = InvoiceNumberingSettingsViewController()
-        let textField = NSTextField(labelWithString: "aB01")
-        controller.fixedPartTextField = textField
-        try! controller.validateFixedPart()
+        try! NumberingSegmentType.validateFixedPart(value: "aB01")
     }
 }

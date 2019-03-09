@@ -25,6 +25,15 @@ enum NumberingSegmentType: String {
            
         }
     }
+    
+    static func validateFixedPart(value: String) throws {
+        let regex = NumberingSegmentType.fixedPart.regex
+        
+        let fixedPartTest = NSPredicate(format:"SELF MATCHES %@", regex)
+        if !fixedPartTest.evaluate(with: value) {
+            throw InputValidationError.invalidNumber(fieldName: "Własny ciąg znaków")
+        }
+    }
 }
 
 // NumberingSegment - definition. May contain fixed value
@@ -39,7 +48,7 @@ struct NumberingSegment {
     }
 }
 
-// Numbering Segment Valur - must already contain fixed or calculated value
+// Numbering Segment Value - must already contain fixed or calculated value
 struct NumberingSegmentValue {
     let type: NumberingSegmentType
     let value: String

@@ -8,18 +8,7 @@
 
 import Foundation
 
-extension Date {
-    var year: Int {
-        get {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy"
-            let year = dateFormatter.string(from: Date())
-            return Int(year)!
-        }
-    }
-}
-
-class InvoiceNumbering {
+class InvoiceNumbering: DocumentNumbering {
     let invoiceRepository: InvoiceRepository
     let invoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository
     var settings: DocumentNumberingSettings
@@ -47,26 +36,8 @@ class InvoiceNumbering {
         }
     }
     
-    private func buildSegmentValue(from: NumberingSegment) -> NumberingSegmentValue {
-        switch from.type {
-        case .fixedPart:
-            return NumberingSegmentValue(type: from.type, value: from.fixedValue ?? "")
-        case .year:
-            return NumberingSegmentValue(type: from.type, value: String(Date().year))
-        case .incrementingNumber:
-            var numberingSegments = [NumberingSegmentValue(type: from.type, value: "0")]
-            if let previousNumber = invoiceRepository.getLastInvoice()?.number {
-                numberingSegments = numberingCoder.decodeNumber(invoiceNumber: previousNumber) ?? numberingSegments
-            }
-            let oldIncrementingNumber: Int = Int(numberingSegments.first(where: {s in s.type == .incrementingNumber})!.value)!
-            let reset = resetOnYearChange(numberingSegments)
-            return NumberingSegmentValue(type: from.type, value: String(reset ? 1 : oldIncrementingNumber + 1))
-        }
+    func getPreviousDocumentNumber() -> String? {
+        return self.invoiceRepository.getLastInvoice()?.number
     }
-    
-    fileprivate func resetOnYearChange(_ numberingSegments: [NumberingSegmentValue]) -> Bool {
-        return settings.resetOnYearChange
-            && settings.hasSegment(type: .year)
-            && (numberingSegments.first(where: {s in s.type == .year})?.value != String(Date().year))
-    }
+
 }
