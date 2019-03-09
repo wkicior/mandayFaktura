@@ -73,6 +73,7 @@ class DocumentListViewController: NSViewController {
         VatRateRepositoryFactory.register(repository: KeyArchiverVatRateRepository())
         InvoiceSettingsRepositoryFactory.register(repository: KeyedArchiverInvoiceSettingsRepository())
         CreditNoteRepositoryFactory.register(repository: KeyedArchiverCreditNoteRepository())
+        CreditNoteNumberingSettingsRepositoryFactory.register(repository: KeyedArchiverCreditNoteNumberingSettingsRepository())
     }
     
    

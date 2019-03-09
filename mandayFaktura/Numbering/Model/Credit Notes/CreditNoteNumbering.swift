@@ -11,14 +11,14 @@ import Foundation
 class CreditNoteNumbering: DocumentNumbering {
     var settings: DocumentNumberingSettings
     var numberingCoder: NumberingCoder
+    private let creditNoteNumberingSettingsRepository = CreditNoteNumberingSettingsRepositoryFactory.instance
     private let creditNoteRepository: CreditNoteRepository
     let previousNumber: String?
     
     init(creditNoteRepository: CreditNoteRepository = CreditNoteRepositoryFactory.instance) {
         self.creditNoteRepository = creditNoteRepository
         self.previousNumber = self.creditNoteRepository.getLastCreditNote()?.number
-        //TODO: get it from setting repository
-        self.settings = CreditNoteNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year), NumberingSegment(type: .fixedPart, value: "K")], resetOnYearChange: true)
+        self.settings = self.creditNoteNumberingSettingsRepository.getCreditNoteNumberingSettings() ?? CreditNoteNumberingSettings(separator: "/", segments: [NumberingSegment(type: .incrementingNumber), NumberingSegment(type: .year), NumberingSegment(type: .fixedPart, value: "K")], resetOnYearChange: true)
         self.numberingCoder = NumberingSegmentCoder(delimeter: settings.separator, segmentTypes: settings.segments.map({s in s.type}))
     }
     

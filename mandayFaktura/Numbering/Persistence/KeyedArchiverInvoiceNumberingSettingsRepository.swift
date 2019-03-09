@@ -8,51 +8,6 @@
 
 import Foundation
 
-@objc(NumberingSegmentCoding) private class NumberingSegmentCoding: NSObject, NSCoding {
-    let numberingSegment: NumberingSegment
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(self.numberingSegment.type.rawValue, forKey: "type")
-        coder.encode(self.numberingSegment.fixedValue, forKey: "fixedValue")
-    }
-    
-    required convenience init?(coder decoder: NSCoder) {
-        guard let fixedValue = decoder.decodeObject(forKey: "fixedValue") as? String?
-            else { return nil }
-        let type = NumberingSegmentType(rawValue: (decoder.decodeObject(forKey: "type") as? String)!)!
-        self.init(NumberingSegment(type: type, value: fixedValue))
-    }
-    
-    init(_ numberingSegment: NumberingSegment) {
-        self.numberingSegment = numberingSegment
-    }
-}
-
-@objc(InvoiceNumberingSettingsCoding) private class InvoiceNumberingSettingsCoding: NSObject, NSCoding {
-    let invoiceNumberingSettings: InvoiceNumberingSettings
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(self.invoiceNumberingSettings.separator, forKey: "separator")
-        coder.encode(self.invoiceNumberingSettings.segments.map{s in NumberingSegmentCoding(s)}, forKey: "segments")
-        coder.encode(self.invoiceNumberingSettings.resetOnYearChange, forKey: "resetOnYearChange")
-    }
-    
-    required convenience init?(coder decoder: NSCoder) {
-        guard let separator = decoder.decodeObject(forKey: "separator") as? String,
-            let segmentsCoding = decoder.decodeObject(forKey: "segments") as? [NumberingSegmentCoding]
-            else { return nil }
-        let segments = segmentsCoding.map({c in c.numberingSegment})
-        let resetOnYearChange = decoder.decodeBool(forKey: "resetOnYearChange") as Bool
-        
-        self.init(InvoiceNumberingSettings(separator: separator, segments: segments, resetOnYearChange: resetOnYearChange))
-    }
-    
-    init(_ invoiceNumberingSettings: InvoiceNumberingSettings) {
-        self.invoiceNumberingSettings = invoiceNumberingSettings
-    }
-}
-
-
 class KeyedArchiverInvoiceNumberingSettingsRepository: InvoiceNumberingSettingsRepository {
     private let key = "invoiceNumberingSettings" + AppDelegate.keyedArchiverProfile
     

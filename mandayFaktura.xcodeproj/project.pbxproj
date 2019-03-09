@@ -195,6 +195,20 @@
 		D3956AAE2233DB92004144A1 /* DocumentNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */; };
 		D3956AAF2233DB92004144A1 /* DocumentNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
+		D3B6F5E62234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */; };
+		D3B6F5E72234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */; };
+		D3B6F5E9223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */; };
+		D3B6F5EA223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */; };
+		D3B6F5EC223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5EB223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift */; };
+		D3B6F5ED223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5EB223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift */; };
+		D3B6F5F02234077100D05266 /* NumberingSegmentCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5EF2234077100D05266 /* NumberingSegmentCoding.swift */; };
+		D3B6F5F12234077100D05266 /* NumberingSegmentCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5EF2234077100D05266 /* NumberingSegmentCoding.swift */; };
+		D3B6F5F322341C6200D05266 /* InvoiceNumberingSettingsCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5F222341C6200D05266 /* InvoiceNumberingSettingsCoding.swift */; };
+		D3B6F5F422341C6200D05266 /* InvoiceNumberingSettingsCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5F222341C6200D05266 /* InvoiceNumberingSettingsCoding.swift */; };
+		D3B6F5F622341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5F522341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift */; };
+		D3B6F5F722341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5F522341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift */; };
+		D3B6F5F92234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5F82234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift */; };
+		D3B6F5FA2234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5F82234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift */; };
 		D3B7C955207BF2C400432176 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3B7C954207BF2C400432176 /* Settings.plist */; };
 		D3B7C957207BF75E00432176 /* NewBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C956207BF75E00432176 /* NewBuyerController.swift */; };
 		D3B7C959207FDD3400432176 /* EditBuyerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7C958207FDD3400432176 /* EditBuyerController.swift */; };
@@ -395,6 +409,13 @@
 		D3956AA2222B2501004144A1 /* CreditNoteNumberingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingFacade.swift; sourceTree = "<group>"; };
 		D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentNumbering.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
+		D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsViewController.swift; sourceTree = "<group>"; };
+		D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentNumberingSettingsViewController.swift; sourceTree = "<group>"; };
+		D3B6F5EB223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsRepository.swift; sourceTree = "<group>"; };
+		D3B6F5EF2234077100D05266 /* NumberingSegmentCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberingSegmentCoding.swift; sourceTree = "<group>"; };
+		D3B6F5F222341C6200D05266 /* InvoiceNumberingSettingsCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceNumberingSettingsCoding.swift; sourceTree = "<group>"; };
+		D3B6F5F522341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsCoding.swift; sourceTree = "<group>"; };
+		D3B6F5F82234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCreditNoteNumberingSettingsRepository.swift; sourceTree = "<group>"; };
 		D3B7C954207BF2C400432176 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		D3B7C956207BF75E00432176 /* NewBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyerController.swift; sourceTree = "<group>"; };
 		D3B7C958207FDD3400432176 /* EditBuyerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBuyerController.swift; sourceTree = "<group>"; };
@@ -707,7 +728,6 @@
 				D34D0F13201DD9E6000D1EC6 /* Model */,
 				D34D0F14201DD9F9000D1EC6 /* Persistence */,
 				D34D0F15201DDA0D000D1EC6 /* View Controllers */,
-				D3781B8620B492B700CA420E /* InvoiceNumberingFacade.swift */,
 				D3781B8820B496E100CA420E /* InvoiceFacade.swift */,
 			);
 			path = Invoices;
@@ -727,7 +747,6 @@
 			isa = PBXGroup;
 			children = (
 				D37560BC20388C8800F507AD /* KeyedArchiverInvoiceRepository.swift */,
-				D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */,
 				D3F0A51E222187F700CC0E08 /* InvoiceCoding.swift */,
 			);
 			path = Persistence;
@@ -939,7 +958,6 @@
 				D389972F2219B726004CC30C /* Model */,
 				D389972B2215FEB3004CC30C /* View Controllers */,
 				D389972C2219B6FF004CC30C /* CreditNoteFacade.swift */,
-				D3956AA2222B2501004144A1 /* CreditNoteNumberingFacade.swift */,
 			);
 			path = "Credit notes";
 			sourceTree = "<group>";
@@ -964,6 +982,9 @@
 		D3956AA5222DC401004144A1 /* Numbering */ = {
 			isa = PBXGroup;
 			children = (
+				D3956AA2222B2501004144A1 /* CreditNoteNumberingFacade.swift */,
+				D3781B8620B492B700CA420E /* InvoiceNumberingFacade.swift */,
+				D3B6F5EE2234072A00D05266 /* Persistence */,
 				D3956AA7222DC450004144A1 /* Model */,
 				D3956AA6222DC415004144A1 /* View Controllers */,
 			);
@@ -974,8 +995,10 @@
 			isa = PBXGroup;
 			children = (
 				D3254EAD205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift */,
+				D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */,
 				D3D82326206042960031C2D1 /* OrderingDragSource.swift */,
 				D3D82328206043080031C2D1 /* DragOrderingDestination.swift */,
+				D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1008,6 +1031,7 @@
 			children = (
 				D3956A98222AF787004144A1 /* CreditNoteNumbering.swift */,
 				D3956A9F222B238A004144A1 /* CreditNoteNumberingSettings.swift */,
+				D3B6F5EB223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift */,
 			);
 			path = "Credit Notes";
 			sourceTree = "<group>";
@@ -1026,6 +1050,18 @@
 			isa = PBXGroup;
 			children = (
 				D37560A9203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D3B6F5EE2234072A00D05266 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D3254EB7205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift */,
+				D3B6F5EF2234077100D05266 /* NumberingSegmentCoding.swift */,
+				D3B6F5F222341C6200D05266 /* InvoiceNumberingSettingsCoding.swift */,
+				D3B6F5F522341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift */,
+				D3B6F5F82234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -1318,6 +1354,7 @@
 				D34339C221A48D6100C583D2 /* UserAbortError.swift in Sources */,
 				D34339C321A48D6100C583D2 /* DocumentListViewController.swift in Sources */,
 				D34339C421A48D6100C583D2 /* AbstractBuyerController.swift in Sources */,
+				D3B6F5ED223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift in Sources */,
 				D34339C521A48D6100C583D2 /* DateFormatting.swift in Sources */,
 				D3F745E022078F800057540E /* SellerComponent.swift in Sources */,
 				D3F745E3220792F70057540E /* BuyerComponent.swift in Sources */,
@@ -1339,6 +1376,7 @@
 				D34339CD21A48D6100C583D2 /* BuyerAutoSave.swift in Sources */,
 				D34339CE21A48D6100C583D2 /* InputValidationError.swift in Sources */,
 				D34339CF21A48D6100C583D2 /* InvoiceRepository.swift in Sources */,
+				D3B6F5E72234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */,
 				D3F745E6220795260057540E /* ItemTableRowComponent.swift in Sources */,
 				D34339D121A48D6100C583D2 /* DocumentListTableViewDelegate.swift in Sources */,
 				D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */,
@@ -1346,6 +1384,7 @@
 				D3F745D0220775800057540E /* HeaderComponent.swift in Sources */,
 				D34339D321A48D6100C583D2 /* InvoiceExistsError.swift in Sources */,
 				D3F745EF2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
+				D3B6F5F722341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift in Sources */,
 				D38997292215E972004CC30C /* CreditNoteViewController.swift in Sources */,
 				D34339D421A48D6100C583D2 /* InvoiceSettingsCoding.swift in Sources */,
 				D3F0A510221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */,
@@ -1372,6 +1411,7 @@
 				D3F745D422077CBD0057540E /* CopyLabelComponent.swift in Sources */,
 				D34339E521A48D6100C583D2 /* VatRate.swift in Sources */,
 				D34339E621A48D6100C583D2 /* Invoice.swift in Sources */,
+				D3B6F5F12234077100D05266 /* NumberingSegmentCoding.swift in Sources */,
 				D34339E721A48D6100C583D2 /* NSColorExtension.swift in Sources */,
 				D3F745EC2208B08F0057540E /* VatBreakdownComponent.swift in Sources */,
 				D34339E821A48D6100C583D2 /* InvoiceDocumentSettingsViewController.swift in Sources */,
@@ -1390,6 +1430,7 @@
 				D34339F221A48D6100C583D2 /* FontFormatting.swift in Sources */,
 				D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */,
 				D38997322219B733004CC30C /* CreditNote.swift in Sources */,
+				D3B6F5FA2234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */,
 				D3F745F22208B7230057540E /* NotesComponent.swift in Sources */,
 				D34339F321A48D6100C583D2 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D34339F421A48D6100C583D2 /* PaymentDateFrom.swift in Sources */,
@@ -1404,6 +1445,7 @@
 				D34339FA21A48D6100C583D2 /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74604220B677B0057540E /* PageComponent.swift in Sources */,
 				D38997352219E240004CC30C /* BuyerViewController.swift in Sources */,
+				D3B6F5EA223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */,
 				D34339FB21A48D6100C583D2 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D34339FC21A48D6100C583D2 /* InvoiceItemDefinitionFacade.swift in Sources */,
 				D3956AAF2233DB92004144A1 /* DocumentNumbering.swift in Sources */,
@@ -1417,6 +1459,7 @@
 				D3433A0321A48D6100C583D2 /* AppDelegate.swift in Sources */,
 				D3433A0421A48D6100C583D2 /* AbstractInvoiceViewController.swift in Sources */,
 				D3433A0521A48D6100C583D2 /* InvoiceSettingsFacade.swift in Sources */,
+				D3B6F5F422341C6200D05266 /* InvoiceNumberingSettingsCoding.swift in Sources */,
 				D3433A0621A48D6100C583D2 /* DocumentPdfPage.swift in Sources */,
 				D3433A0721A48D6100C583D2 /* VatRateCoding.swift in Sources */,
 				D3433A0821A48D6100C583D2 /* InvoiceNumberingSettingsViewController.swift in Sources */,
@@ -1449,6 +1492,7 @@
 				D330BFD620417AB9003CCC5B /* UserAbortError.swift in Sources */,
 				D34D0EC1201A7CBC000D1EC6 /* DocumentListViewController.swift in Sources */,
 				D3B7C95B207FE2C400432176 /* AbstractBuyerController.swift in Sources */,
+				D3B6F5EC223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift in Sources */,
 				D370A80C2027A60600FFB262 /* DateFormatting.swift in Sources */,
 				D3F745DF22078F800057540E /* SellerComponent.swift in Sources */,
 				D3F745E2220792F70057540E /* BuyerComponent.swift in Sources */,
@@ -1470,6 +1514,7 @@
 				D330BFCD203CB825003CCC5B /* BuyerAutoSave.swift in Sources */,
 				D37560B9203601DF00F507AD /* InputValidationError.swift in Sources */,
 				D34D0F17201DDA88000D1EC6 /* InvoiceRepository.swift in Sources */,
+				D3B6F5E62234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */,
 				D3F745E5220795260057540E /* ItemTableRowComponent.swift in Sources */,
 				D34D0F11201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
@@ -1477,6 +1522,7 @@
 				D3F745CF220775800057540E /* HeaderComponent.swift in Sources */,
 				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
 				D3F745EE2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
+				D3B6F5F622341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift in Sources */,
 				D38997282215E972004CC30C /* CreditNoteViewController.swift in Sources */,
 				D32ED32B215F9D8900BDC6BE /* InvoiceSettingsCoding.swift in Sources */,
 				D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */,
@@ -1503,6 +1549,7 @@
 				D3F745D322077CBD0057540E /* CopyLabelComponent.swift in Sources */,
 				D3B7C9612090F96700432176 /* VatRate.swift in Sources */,
 				D34D0F0A201CE8B2000D1EC6 /* Invoice.swift in Sources */,
+				D3B6F5F02234077100D05266 /* NumberingSegmentCoding.swift in Sources */,
 				D37560BB20377D7800F507AD /* NSColorExtension.swift in Sources */,
 				D3F745EB2208B08F0057540E /* VatBreakdownComponent.swift in Sources */,
 				D32ED31D2159789A00BDC6BE /* InvoiceDocumentSettingsViewController.swift in Sources */,
@@ -1521,6 +1568,7 @@
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */,
+				D3B6F5F92234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */,
 				D38997312219B733004CC30C /* CreditNote.swift in Sources */,
 				D3F745F12208B7230057540E /* NotesComponent.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
@@ -1535,6 +1583,7 @@
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74603220B677B0057540E /* PageComponent.swift in Sources */,
+				D3B6F5E9223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */,
 				D38997342219E240004CC30C /* BuyerViewController.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D3956AAE2233DB92004144A1 /* DocumentNumbering.swift in Sources */,
@@ -1548,6 +1597,7 @@
 				D34D0EBF201A7CBC000D1EC6 /* AppDelegate.swift in Sources */,
 				D3B7C95D2087B92D00432176 /* AbstractInvoiceViewController.swift in Sources */,
 				D32ED31F215AA63300BDC6BE /* InvoiceSettingsFacade.swift in Sources */,
+				D3B6F5F322341C6200D05266 /* InvoiceNumberingSettingsCoding.swift in Sources */,
 				D34D0F2420210311000D1EC6 /* DocumentPdfPage.swift in Sources */,
 				D3B7C96320924ADB00432176 /* VatRateCoding.swift in Sources */,
 				D3254EAE205C1F9500CC889C /* InvoiceNumberingSettingsViewController.swift in Sources */,
