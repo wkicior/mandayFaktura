@@ -44,6 +44,12 @@ struct Invoice: Document {
     }
 }
 
+extension Invoice {
+    func sameInvoiceNumberAs(invoice: Invoice) -> Bool {
+        return number == invoice.number
+    }
+}
+
 func anInvoice() -> InvoiceBuilder {
     return InvoiceBuilder()
 }

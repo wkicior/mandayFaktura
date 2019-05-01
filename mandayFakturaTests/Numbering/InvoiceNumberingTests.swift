@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 @testable import mandayFaktura
 
-class MockInvoiceRepository: InvoiceRepository {
+fileprivate class MockInvoiceRepository: InvoiceRepository {
     func findBy(invoiceNumber: String) -> Invoice? {
         return self.invoices[0]
     }

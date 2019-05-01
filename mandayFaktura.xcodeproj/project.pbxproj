@@ -253,6 +253,7 @@
 		D3F0A53A2222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A5382222E9DB00CC0E08 /* CreditNotePrintingExtension.swift */; };
 		D3F0A53C222327E100CC0E08 /* DocumentPageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A53B222327E100CC0E08 /* DocumentPageDistribution.swift */; };
 		D3F0A53D222327E100CC0E08 /* DocumentPageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A53B222327E100CC0E08 /* DocumentPageDistribution.swift */; };
+		D3F3EA47227997E700996B9B /* InvoiceFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F3EA46227997E700996B9B /* InvoiceFacadeTests.swift */; };
 		D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
 		D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
 		D3F745CF220775800057540E /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CE220775800057540E /* HeaderComponent.swift */; };
@@ -446,6 +447,7 @@
 		D3F0A5352222E8B300CC0E08 /* CreditNotePageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePageDistribution.swift; sourceTree = "<group>"; };
 		D3F0A5382222E9DB00CC0E08 /* CreditNotePrintingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePrintingExtension.swift; sourceTree = "<group>"; };
 		D3F0A53B222327E100CC0E08 /* DocumentPageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPageDistribution.swift; sourceTree = "<group>"; };
+		D3F3EA46227997E700996B9B /* InvoiceFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceFacadeTests.swift; sourceTree = "<group>"; };
 		D3F745CB22075ED00057540E /* InvoicePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageComposition.swift; sourceTree = "<group>"; };
 		D3F745CE220775800057540E /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
 		D3F745D222077CBD0057540E /* CopyLabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabelComponent.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 			children = (
 				D37560B32034C24100F507AD /* Conversions */,
 				D370A7F12023AB1000FFB262 /* Model */,
+				D3F3EA46227997E700996B9B /* InvoiceFacadeTests.swift */,
 			);
 			path = Invoices;
 			sourceTree = "<group>";
@@ -1618,6 +1621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3781B8120B0562200CA420E /* VatRateFacadeTests.swift in Sources */,
+				D3F3EA47227997E700996B9B /* InvoiceFacadeTests.swift in Sources */,
 				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
