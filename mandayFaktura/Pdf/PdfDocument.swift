@@ -42,7 +42,7 @@ extension PdfDocument {
     
     func getDocument(copyTemplate: CopyTemplate) -> PDFDocument {
         let doc = PDFDocument()
-        for (index, element) in self.getDocumentPages().enumerated() {
+        for (index, element) in getDocumentPagesForCopy(copyTemplate).enumerated() {
             doc.insert(element, at: index)
         }
         return doc
