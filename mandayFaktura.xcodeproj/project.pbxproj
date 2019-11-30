@@ -1283,10 +1283,11 @@
 			};
 			buildConfigurationList = D34D0EB6201A7CBC000D1EC6 /* Build configuration list for PBXProject "mandayFaktura" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = en;
+			developmentRegion = pl;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				pl,
 				Base,
 			);
 			mainGroup = D34D0EB2201A7CBC000D1EC6;
