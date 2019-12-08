@@ -19,9 +19,9 @@ class PageNumberingComponent: AbstractComponent, PageComponent {
     
     func draw(at: NSPoint) {
         let yBottom = at.y - height
-        let width = InvoicePageComposition.pdfWidth
+        let width = InvoicePageComposition.pdfWidth / 4 - InvoicePageComposition.rightMargin
         let rect = NSMakeRect(at.x, yBottom, width, height)
         markBackgroundIfDebug(at.x,  yBottom, width, height)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesRight)
     }
 }

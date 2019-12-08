@@ -26,13 +26,15 @@ struct InvoicePageComposition: DocumentPageComposition {
     let itemTableRowComponents: [PageComponent]
     let summaryComponents: [PageComponent]
     let pageNumberingComponent: PageComponent?
+    let mandayFakturaCreditComponent: PageComponent?
     
     func draw() {
         var currentYPosition = drawHeaderComponents()
         currentYPosition = drawCounterpartyComponents(position: currentYPosition)
         currentYPosition = drawItemTableRowComponents(position: currentYPosition)
         drawSummaryComponents(position: currentYPosition)
-        pageNumberingComponent?.draw(at: NSPoint(x: 0, y: InvoicePageComposition.marginBottom))
+        pageNumberingComponent?.draw(at: NSPoint(x: InvoicePageComposition.pdfWidth * 0.75, y: InvoicePageComposition.marginBottom))
+        mandayFakturaCreditComponent?.draw(at: NSPoint(x: 0 + InvoicePageComposition.leftMargin, y: InvoicePageComposition.marginBottom))
     }
     
     func drawHeaderComponents() -> CGFloat {
@@ -91,6 +93,7 @@ class InvoicePageCompositionBuilder {
     var itemTableRowComponents: [PageComponent] = []
     var summaryComponents: [PageComponent] = []
     var pageNumberingComponent: PageComponent?
+    var mandayFakturaCreditComponent: PageComponent?
     
     @discardableResult
     func withHeaderComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
@@ -122,6 +125,13 @@ class InvoicePageCompositionBuilder {
         return self
     }
     
+    
+    @discardableResult
+    func withMandayFakturaCreditComponent(_ pageComponent: PageComponent) -> InvoicePageCompositionBuilder {
+        self.mandayFakturaCreditComponent = pageComponent
+        return self
+    }
+    
     func componentsHeight() -> CGFloat {
         let headerHeight = self.headerComponents.map({c in c.height}).reduce(InvoicePageComposition.pdfHeight - InvoicePageComposition.headerYPosition, +)
         let counterPartyHeight = self.counterpartyComponents.first.map({c in c.height})!
@@ -148,7 +158,8 @@ class InvoicePageCompositionBuilder {
             counterpartyComponents: counterpartyComponents,
             itemTableRowComponents: itemTableRowComponents,
             summaryComponents: summaryComponents,
-            pageNumberingComponent: pageNumberingComponent
+            pageNumberingComponent: pageNumberingComponent,
+            mandayFakturaCreditComponent: mandayFakturaCreditComponent
         )
     }
 }

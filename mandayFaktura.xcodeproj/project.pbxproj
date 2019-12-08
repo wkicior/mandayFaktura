@@ -195,6 +195,8 @@
 		D3956AAE2233DB92004144A1 /* DocumentNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */; };
 		D3956AAF2233DB92004144A1 /* DocumentNumbering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */; };
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
+		D3AB3F05239C2EF40036E463 /* MandayFakturaCreditComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */; };
+		D3AB3F06239C2EF40036E463 /* MandayFakturaCreditComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */; };
 		D3B6F5E62234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */; };
 		D3B6F5E72234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */; };
 		D3B6F5E9223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */; };
@@ -410,6 +412,7 @@
 		D3956AA2222B2501004144A1 /* CreditNoteNumberingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingFacade.swift; sourceTree = "<group>"; };
 		D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentNumbering.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
+		D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandayFakturaCreditComponent.swift; sourceTree = "<group>"; };
 		D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsViewController.swift; sourceTree = "<group>"; };
 		D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentNumberingSettingsViewController.swift; sourceTree = "<group>"; };
 		D3B6F5EB223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsRepository.swift; sourceTree = "<group>"; };
@@ -1172,6 +1175,7 @@
 				D3F74602220B677B0057540E /* PageComponent.swift */,
 				D3F7460A220EF5C80057540E /* PageNumberingComponent.swift */,
 				D3956A942225CAD0004144A1 /* CreditNoteItemsSummaryComponent.swift */,
+				D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */,
 			);
 			path = "Page Components";
 			sourceTree = "<group>";
@@ -1444,6 +1448,7 @@
 				D34339F721A48D6100C583D2 /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34339F821A48D6100C583D2 /* Counterparty.swift in Sources */,
 				D3F0A5372222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
+				D3AB3F06239C2EF40036E463 /* MandayFakturaCreditComponent.swift in Sources */,
 				D34339F921A48D6100C583D2 /* BuyersCatalogueViewController.swift in Sources */,
 				D3956A9A222AF787004144A1 /* CreditNoteNumbering.swift in Sources */,
 				D34339FA21A48D6100C583D2 /* KeyedArchiverCounterpartyRepository.swift in Sources */,
@@ -1582,6 +1587,7 @@
 				D3F0A5392222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */,
 				D3254EB8205C5E0600CC889C /* KeyedArchiverInvoiceNumberingSettingsRepository.swift in Sources */,
 				D34D0F2820225AAB000D1EC6 /* Counterparty.swift in Sources */,
+				D3AB3F05239C2EF40036E463 /* MandayFakturaCreditComponent.swift in Sources */,
 				D3F0A5362222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
 				D3956A99222AF787004144A1 /* CreditNoteNumbering.swift in Sources */,
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,

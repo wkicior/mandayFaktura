@@ -26,6 +26,7 @@ class InvoicePageDistribution: DocumentPageDistribution {
         distributePaymentSummary()
         pagesWithTableData.append(currentPageComposition!)
         addPageNumbering()
+        addMandayFakturaCredit()
         return pagesWithTableData.map({page in page.build()})
     }
 }
@@ -111,6 +112,11 @@ extension InvoicePageDistribution {
             (0 ..< pagesWithTableData.count)
                 .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
         }
+    }
+    
+    func addMandayFakturaCredit() {
+        (0 ..< pagesWithTableData.count)
+            .forEach({page in pagesWithTableData[page].withMandayFakturaCreditComponent(MandayFakturaCreditComponent())})
     }
 }
 
