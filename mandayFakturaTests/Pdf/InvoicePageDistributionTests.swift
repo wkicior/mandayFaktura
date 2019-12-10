@@ -17,7 +17,7 @@ class InvoicePageDistributionTests: XCTestCase {
     func testDistributionOverPageCompositions_should_return_one_page_component_containing_minimal_invoice_with_no_items() {
         //given
         let invoice: Invoice = aMinimumInvoice().build()
-        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
+        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice, invoiceSettings: InvoiceSettings())
         
         //when
         let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions() as! [InvoicePageComposition]
@@ -39,7 +39,7 @@ class InvoicePageDistributionTests: XCTestCase {
             .withItems([anInvoiceItem().build()])
             .withNotes("Knight who say Ni")
             .build()
-        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
+        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice, invoiceSettings: InvoiceSettings())
         
         //when
         let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions() as! [InvoicePageComposition]
@@ -58,7 +58,7 @@ class InvoicePageDistributionTests: XCTestCase {
             .withItems((0 ..< 27).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
-        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
+        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice, invoiceSettings: InvoiceSettings())
         
         //when
         let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions() as! [InvoicePageComposition]
@@ -84,7 +84,7 @@ class InvoicePageDistributionTests: XCTestCase {
             .withItems((0 ..< 26).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
-        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
+        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice, invoiceSettings: InvoiceSettings())
         
         //when
         let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions() as! [InvoicePageComposition]
@@ -106,7 +106,7 @@ class InvoicePageDistributionTests: XCTestCase {
             .withItems((0 ..< 19).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
-        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
+        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice, invoiceSettings: InvoiceSettings())
         
         //when
         let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions() as! [InvoicePageComposition]
@@ -128,7 +128,7 @@ class InvoicePageDistributionTests: XCTestCase {
             .withItems((0 ..< 20).map({i in anInvoiceItem().withName("a").build()}))
             .withNotes("Knight who say Ni")
             .build()
-        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice)
+        let distribution: InvoicePageDistribution = InvoicePageDistribution(copyTemplate: .original, invoice: invoice, invoiceSettings: InvoiceSettings())
         
         //when
         let pageComponents: [InvoicePageComposition] = distribution.distributeDocumentOverPageCompositions() as! [InvoicePageComposition]

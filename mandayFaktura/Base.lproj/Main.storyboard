@@ -415,7 +415,7 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="nameCellId" width="455" minWidth="40" maxWidth="1600" id="HPa-As-6g5">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa firmy">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1306,7 +1306,7 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="nameCellId" width="208.5" minWidth="40" maxWidth="1000" id="rTe-EN-GSM">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1342,7 +1342,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="aliasCellId" width="178.5" minWidth="40" maxWidth="1000" id="yz9-oJ-PKA">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Alias">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1378,7 +1378,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitOfMeasureCellId" width="55" minWidth="40" maxWidth="1000" id="cqW-xK-zmH">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="J. m.">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1413,7 +1413,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitNetPriceCellId" width="87.5" minWidth="40" maxWidth="1000" id="SA5-ev-h6E">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Cena netto">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1449,7 +1449,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="vatValueCellId" width="54.5" minWidth="40" maxWidth="1000" id="HET-Jt-d9P">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="VAT">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1628,7 +1628,7 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="numberCellId" width="120.5" minWidth="40" maxWidth="1000" id="h1N-BL-dyO">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Numer">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1661,7 +1661,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="issueDateCellId" width="184.98115098163726" minWidth="40" maxWidth="1000" id="77o-zN-UfW">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Data wystawienia">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1694,7 +1694,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="buyerNameCellId" width="235" minWidth="40" maxWidth="1000" id="5yr-PR-86m">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa firmy">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1727,7 +1727,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="grossValueCellId" width="105.5" minWidth="40" maxWidth="1000" id="Y9x-rc-wfG">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Kwota brutto">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1981,7 +1981,7 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="vatRateCellId" width="284.5" minWidth="40" maxWidth="1000" id="9II-l9-zdB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Stawki VAT">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2017,7 +2017,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="defaultRateCellId" width="137.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="QDv-ew-8VB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Domyślne">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -2242,6 +2242,14 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9z-za-qKE">
+                                <rect key="frame" x="18" y="56" width="289" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Informacje o mandayFaktura na dokumencie" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="lxb-NW-Ra7">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MTT-rb-BIh" secondAttribute="bottom" constant="10" id="5mN-l5-pO6"/>
@@ -2254,6 +2262,7 @@ DQ
                     <connections>
                         <outlet property="defaultNotestTextField" destination="kIO-bH-ywc" id="u95-hD-YY9"/>
                         <outlet property="helpText" destination="QUX-Ps-18x" id="jYc-nd-xEa"/>
+                        <outlet property="mandayFakturaCredit" destination="t9z-za-qKE" id="9bt-1W-dWa"/>
                         <outlet property="paymentDateDays" destination="0vF-Ar-Rfa" id="7EK-R5-s6q"/>
                         <outlet property="paymentDateFrom" destination="OJ4-Ut-XR7" id="Ex3-Hd-sgO"/>
                     </connections>
@@ -2530,7 +2539,7 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="nameCellId" width="371" minWidth="40" maxWidth="1000" id="Gan-4F-Z33">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2570,7 +2579,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="amountCellId" width="102" minWidth="40" maxWidth="1000" id="7SJ-CV-ArS">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Ilość">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2610,7 +2619,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitOfMeasureCellId" width="55" minWidth="40" maxWidth="1000" id="JO4-Dw-oj2">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="J. m.">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2645,7 +2654,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitNetPriceCellId" width="102" minWidth="40" maxWidth="1000" headerToolTip="" id="zme-ue-UQ6">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Cena netto">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2685,7 +2694,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="vatValueCellId" width="60" minWidth="40" maxWidth="1000" id="U9F-9h-LqE">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="VAT">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2712,7 +2721,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="netValueCellId" width="100" minWidth="40" maxWidth="1000" id="a2d-Dx-qd3">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Wartość netto">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2752,7 +2761,7 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="grossValueCellId" width="100" minWidth="40" maxWidth="1000" id="fYs-uW-51R">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Wartość brutto">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>

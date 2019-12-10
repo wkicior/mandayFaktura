@@ -12,11 +12,13 @@ class InvoiceSettings {
     var paymentDateDays = 0
     var paymentDateFrom = PaymentDateFrom.createDate
     var defaultNotes = ""
+    var mandayFakturaCreditEnabled = true
     
-    init(paymentDateDays: Int, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate, defaultNotes: String = "") {
+    init(paymentDateDays: Int = 0, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate, defaultNotes: String = "", mandayFakturaCreditEnabled: Bool = true) {
         self.paymentDateDays = paymentDateDays
         self.paymentDateFrom = paymentDateFrom
         self.defaultNotes = defaultNotes
+        self.mandayFakturaCreditEnabled = mandayFakturaCreditEnabled
     }
     
     func getDueDate(issueDate: Date, sellDate: Date) -> Date {

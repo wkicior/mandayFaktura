@@ -11,12 +11,15 @@ import Quartz
 
 class CreditNotePdfDocument: PdfDocument {
     let document: Document
+    let invoiceSettings: InvoiceSettings
+
     
-    init(creditNote: CreditNote) {
+    init(creditNote: CreditNote, invoiceSettings: InvoiceSettings) {
         self.document = creditNote
+        self.invoiceSettings = invoiceSettings
     }
     
     func getDocumentPageDistribution(_ copy: CopyTemplate) -> DocumentPageDistribution {
-        return CreditNotePageDistribution(copyTemplate: copy, creditNote: self.document as! CreditNote)
+        return CreditNotePageDistribution(copyTemplate: copy, creditNote: self.document as! CreditNote, invoiceSettings: invoiceSettings)
     }
 }

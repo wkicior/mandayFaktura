@@ -28,6 +28,7 @@ struct CreditNotePageComposition: DocumentPageComposition {
     let itemBeforeTableRowComponents: [PageComponent]
     let summaryComponents: [PageComponent]
     let pageNumberingComponent: PageComponent?
+    let mandayFakturaCreditComponent: PageComponent?
     
     func draw() {
         var currentYPosition = drawHeaderComponents()
@@ -35,7 +36,8 @@ struct CreditNotePageComposition: DocumentPageComposition {
         currentYPosition = drawItemBeforeTableRowComponents(position: currentYPosition)
         currentYPosition = drawItemTableRowComponents(position: currentYPosition)
         drawSummaryComponents(position: currentYPosition)
-        pageNumberingComponent?.draw(at: NSPoint(x: 0, y: CreditNotePageComposition.marginBottom))
+        pageNumberingComponent?.draw(at: NSPoint(x: CreditNotePageComposition.pdfWidth * 0.75, y: CreditNotePageComposition.marginBottom))
+        mandayFakturaCreditComponent?.draw(at: NSPoint(x: 0 + CreditNotePageComposition.leftMargin, y: CreditNotePageComposition.marginBottom))
     }
     
     func drawHeaderComponents() -> CGFloat {
@@ -105,6 +107,8 @@ class CreditNotePageCompositionBuilder {
     var itemBeforeTableRowComponents: [PageComponent] = []
     var summaryComponents: [PageComponent] = []
     var pageNumberingComponent: PageComponent?
+    var mandayFakturaCreditComponent: PageComponent?
+
     
     @discardableResult
     func withHeaderComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
@@ -142,6 +146,12 @@ class CreditNotePageCompositionBuilder {
         return self
     }
     
+    @discardableResult
+    func withMandayFakturaCreditComponent(_ pageComponent: PageComponent) -> CreditNotePageCompositionBuilder {
+        self.mandayFakturaCreditComponent = pageComponent
+        return self
+    }
+    
     func componentsHeight() -> CGFloat {
         let headerHeight = self.headerComponents.map({c in c.height}).reduce(CreditNotePageComposition.pdfHeight - CreditNotePageComposition.headerYPosition, +)
         let counterPartyHeight = self.counterpartyComponents.first.map({c in c.height})!
@@ -170,7 +180,8 @@ class CreditNotePageCompositionBuilder {
             itemTableRowComponents: itemTableRowComponents,
             itemBeforeTableRowComponents: itemBeforeTableRowComponents,
             summaryComponents: summaryComponents,
-            pageNumberingComponent: pageNumberingComponent
+            pageNumberingComponent: pageNumberingComponent,
+            mandayFakturaCreditComponent: mandayFakturaCreditComponent
         )
     }
 }

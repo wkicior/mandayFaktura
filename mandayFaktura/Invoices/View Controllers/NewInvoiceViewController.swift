@@ -14,7 +14,6 @@ struct NewInvoiceViewControllerConstants {
 
 class NewInvoiceViewController: AbstractInvoiceViewController {
     let invoiceNumberingFacade = InvoiceNumberingFacade()
-    let invoiceSettingsFacade = InvoiceSettingsFacade()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +62,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as! PdfViewController
-            let pdfDocument = InvoicePdfDocument(invoice: invoice)
+            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
+            let pdfDocument = InvoicePdfDocument(invoice: invoice, invoiceSettings: invoiceSettings ?? InvoiceSettings())
             vc.pdfDocument = pdfDocument
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController

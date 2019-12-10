@@ -23,6 +23,7 @@ class DocumentListViewController: NSViewController {
     var documentListTableViewDelegate: DocumentListTableViewDelegate?
     var invoiceFacade: InvoiceFacade?
     var creditNoteFacade: CreditNoteFacade?
+    var invoiceSettingsFacade: InvoiceSettingsFacade?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class DocumentListViewController: NSViewController {
         
         self.invoiceFacade = InvoiceFacade()
         self.creditNoteFacade = CreditNoteFacade()
+        self.invoiceSettingsFacade = InvoiceSettingsFacade()
         documentListTableViewDelegate = DocumentListTableViewDelegate(invoiceFacade: self.invoiceFacade!, creditNoteFacade: self.creditNoteFacade!)
         invoiceHistoryTableView.delegate = documentListTableViewDelegate
         invoiceHistoryTableView.dataSource = documentListTableViewDelegate
@@ -173,10 +175,11 @@ class DocumentListViewController: NSViewController {
     
     private func getPdfDocument() -> PdfDocument? {
         let document: Document = getSelectedDocument()
+        let invoiceSettings: InvoiceSettings = self.invoiceSettingsFacade?.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         if document is Invoice {
-            return InvoicePdfDocument(invoice: document as! Invoice)
+            return InvoicePdfDocument(invoice: document as! Invoice, invoiceSettings: invoiceSettings)
         } else if document is CreditNote {
-            return CreditNotePdfDocument(creditNote: document as! CreditNote)
+            return CreditNotePdfDocument(creditNote: document as! CreditNote, invoiceSettings: invoiceSettings)
         }
         return nil
     }

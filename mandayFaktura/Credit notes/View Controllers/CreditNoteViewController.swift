@@ -23,6 +23,7 @@ class CreditNoteViewController: NSViewController {
     let invoiceFacade = InvoiceFacade()
     let counterpartyFacade = CounterpartyFacade()
     let creditNoteNumberingFacade = CreditNoteNumberingFacade()
+    let invoiceSettingsFacade = InvoiceSettingsFacade()
     
     var invoice: Invoice?
     
@@ -44,8 +45,6 @@ class CreditNoteViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ItemsTableViewControllerConstants.ITEM_CHANGED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.checkSaveButtonEnabled()}
-        
-        //self.creditNoteNumber.stringValue = invoice!.number + "/K"
         self.notesTextField.stringValue = invoice!.notes
         self.previewButton.isEnabled = true
         self.creditNoteNumber.stringValue = creditNoteNumberingFacade.getNextCreditNoteNumber()
@@ -72,7 +71,8 @@ class CreditNoteViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is PdfViewController {
             let vc = segue.destinationController as? PdfViewController
-            vc?.pdfDocument = CreditNotePdfDocument(creditNote: creditNote)
+            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
+            vc?.pdfDocument = CreditNotePdfDocument(creditNote: creditNote, invoiceSettings: invoiceSettings ?? InvoiceSettings(paymentDateDays: 14))
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
             self.buyerViewController!.buyer = invoice!.buyer

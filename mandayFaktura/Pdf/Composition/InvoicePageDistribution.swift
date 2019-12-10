@@ -13,10 +13,12 @@ class InvoicePageDistribution: DocumentPageDistribution {
     var pagesWithTableData: [InvoicePageCompositionBuilder] = []
     var currentPageComposition: InvoicePageCompositionBuilder?
     let invoice: Invoice
+    let invoiceSettings: InvoiceSettings
     
-    init (copyTemplate: CopyTemplate, invoice: Invoice) {
+    init (copyTemplate: CopyTemplate, invoice: Invoice, invoiceSettings: InvoiceSettings) {
         self.invoice = invoice
         self.copyTemplate = copyTemplate
+        self.invoiceSettings = invoiceSettings
     }
 
     func distributeDocumentOverPageCompositions() -> [DocumentPageComposition] {
@@ -26,7 +28,9 @@ class InvoicePageDistribution: DocumentPageDistribution {
         distributePaymentSummary()
         pagesWithTableData.append(currentPageComposition!)
         addPageNumbering()
-        addMandayFakturaCredit()
+        if (invoiceSettings.mandayFakturaCreditEnabled) {
+            addMandayFakturaCredit()
+        }
         return pagesWithTableData.map({page in page.build()})
     }
 }

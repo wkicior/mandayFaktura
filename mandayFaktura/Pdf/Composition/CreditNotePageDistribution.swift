@@ -16,11 +16,13 @@ class CreditNotePageDistribution: DocumentPageDistribution {
     
     let creditNote: CreditNote
     let invoice: Invoice
+    let invoiceSettings: InvoiceSettings
    
-    init (copyTemplate: CopyTemplate, creditNote: CreditNote) {
+    init (copyTemplate: CopyTemplate, creditNote: CreditNote, invoiceSettings: InvoiceSettings) {
         self.creditNote = creditNote
         self.copyTemplate = copyTemplate
         self.invoice = self.invoiceFacade.getInvoice(number: self.creditNote.invoiceNumber)
+        self.invoiceSettings = invoiceSettings
     }
     
     func distributeDocumentOverPageCompositions() -> [DocumentPageComposition] {
@@ -33,6 +35,9 @@ class CreditNotePageDistribution: DocumentPageDistribution {
         distributePaymentSummary()
         pagesWithTableData.append(currentPageComposition!)
         addPageNumbering()
+        if (invoiceSettings.mandayFakturaCreditEnabled) {
+            addMandayFakturaCredit()
+        }
         return pagesWithTableData.map({page in page.build()})
     }
 }
@@ -155,5 +160,10 @@ extension CreditNotePageDistribution {
             (0 ..< pagesWithTableData.count)
                 .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
         }
+    }
+    
+    func addMandayFakturaCredit() {
+        (0 ..< pagesWithTableData.count)
+            .forEach({page in pagesWithTableData[page].withMandayFakturaCreditComponent(MandayFakturaCreditComponent())})
     }
 }

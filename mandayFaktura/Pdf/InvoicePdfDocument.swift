@@ -11,12 +11,14 @@ import Quartz
 
 class InvoicePdfDocument: PdfDocument{
     let document: Document
+    let invoiceSettings: InvoiceSettings
     
-    init(invoice: Invoice) {
+    init(invoice: Invoice, invoiceSettings: InvoiceSettings) {
         self.document = invoice
+        self.invoiceSettings = invoiceSettings
     }
     
     func getDocumentPageDistribution(_ copy: CopyTemplate) -> DocumentPageDistribution {
-        return InvoicePageDistribution(copyTemplate: copy, invoice: self.document as! Invoice)
+        return InvoicePageDistribution(copyTemplate: copy, invoice: self.document as! Invoice, invoiceSettings: self.invoiceSettings)
     }
 }
