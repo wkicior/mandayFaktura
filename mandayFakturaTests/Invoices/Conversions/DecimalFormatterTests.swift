@@ -26,16 +26,16 @@ class DecimalFormatterTests: XCTestCase {
     
     func test_formatAmount_on_item_net_value_calculation_for_small_fraction_amount_with_rounding_half() {
         let item = anInvoiceItem().withAmount(Decimal(0.0000001)).withUnitNetPrice(Decimal(12340059870)).build()
-        XCTAssertEqual("1 234,01", item.netValue.formatAmount(), "Net values must be equal") //nbsp (option+space)
+        XCTAssertEqual("1234,01", item.netValue.formatAmount(), "Net values must be equal") //nbsp (option+space)
     }
     
     func test_formatAmount_on_item_net_value_calculation_for_small_fraction_amount_with_rounding_down() {
         let item = anInvoiceItem().withAmount(Decimal(0.0000001)).withUnitNetPrice(Decimal(12340049870)).build()
-        XCTAssertEqual("1 234,00", item.netValue.formatAmount(), "Net values must be equal") //nbsp (option+space)
+        XCTAssertEqual("1234,00", item.netValue.formatAmount(), "Net values must be equal") //nbsp (option+space)
     }
     
     func test_formatDecimal_int_number() {
-        XCTAssertEqual("2 323", Decimal(2323).formatDecimal())
+        XCTAssertEqual("2323", Decimal(2323).formatDecimal())
     }
     
     func test_formatDecimal_decimal_number() {

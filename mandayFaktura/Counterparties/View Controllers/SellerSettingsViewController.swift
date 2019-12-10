@@ -24,6 +24,7 @@ class SellerSettingsViewController: NSViewController {
         fillFieldsFromSeller(seller)
     }
     
+   
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         let counterparty = buildSellerFromFields()
         counterpartyFacade.saveSeller(seller: counterparty)

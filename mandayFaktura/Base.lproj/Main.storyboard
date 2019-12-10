@@ -108,6 +108,9 @@
 DQ
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="saveButtonClicked:" target="ONU-i2-fbc" id="vJQ-Ef-Q06"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zE4-xG-VA7">
                                 <rect key="frame" x="289" y="3" width="78" height="32"/>
@@ -115,6 +118,9 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" target="ONU-i2-fbc" id="Ejb-hp-gF9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -3551,7 +3557,7 @@ AAAAAABnAAAAAAAAAAAAAAAAAAA73A
         <segue reference="YuM-Kf-ezH"/>
         <segue reference="cO2-sR-xaW"/>
         <segue reference="ar3-AU-xhM"/>
-        <segue reference="2fz-Zu-mfT"/>
+        <segue reference="o5h-iw-LOf"/>
         <segue reference="S1B-Rf-RhN"/>
         <segue reference="yaH-hv-UcY"/>
         <segue reference="cPw-Au-6Bj"/>
