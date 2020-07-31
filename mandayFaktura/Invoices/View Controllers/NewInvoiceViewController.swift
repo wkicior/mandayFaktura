@@ -14,9 +14,10 @@ struct NewInvoiceViewControllerConstants {
 
 class NewInvoiceViewController: AbstractInvoiceViewController {
     let invoiceNumberingFacade = InvoiceNumberingFacade()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveButton.isEnabled = false
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         notesTextField.stringValue = invoiceSettings.defaultNotes
         //checkPreviewButtonEnabled()
@@ -37,6 +38,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 .withPaymentForm(self.paymentDetailsViewController!.paymentForm!)
                 .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
+                .withReverseCharge(self.reverseChargeButton.state == .on)
                 .build()
         }
     }

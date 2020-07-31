@@ -9,7 +9,7 @@
 import Foundation
 
 class PaymentSummaryComponent : AbstractComponent, PageComponent {
-    private static let notesHeight = CGFloat(80.0)
+    private static let notesHeight = CGFloat(100.0)
     private static let lineHeight = CGFloat(10.0)
     let height = (CGFloat(5) * (AbstractComponent.defaultRowHeight + 2 * AbstractComponent.gridPadding))
     
@@ -21,9 +21,9 @@ class PaymentSummaryComponent : AbstractComponent, PageComponent {
     
     func draw(at: NSPoint) {
         let yBottom = at.y - height
-        let xLeft = at.x + CGFloat(100)
+        let xLeft = at.x + CGFloat(35)
         drawPaymentSummaryHorizontalLine(at: at)
-        let width = 1/3 * InvoicePageComposition.pdfWidth
+        let width = 1/2.3 * InvoicePageComposition.pdfWidth
         markBackgroundIfDebug(xLeft, yBottom, width, height)
         markBackgroundIfDebug(xLeft, yBottom, width, PaymentSummaryComponent.notesHeight)
         let rect = NSMakeRect(xLeft, yBottom, width, PaymentSummaryComponent.notesHeight)

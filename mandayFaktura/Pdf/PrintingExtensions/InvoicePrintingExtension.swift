@@ -54,13 +54,16 @@ internal extension Invoice {
     }
     
     var printedPaymentSummary: String {
-        let summary =
+        var summary =
         """
         Do zapłaty: \(totalGrossValue.formatAmount()) PLN
         słownie: \(totalGrossValue.spelledOut) PLN
         forma płatności: \(paymentFormLabel)
         termin płatności: \(DateFormatting.getDateString(paymentDueDate))
         """
+        if (self.reverseCharge) {
+            summary += "\nRozliczenie podatku: odwrotne obciążenie"
+        }
         return summary
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <plugIn identifier="com.apple.pdfkit.ibplugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <plugIn identifier="com.apple.pdfkit.ibplugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField identifier="Nazwa firmy sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KSd-Fi-VXt">
-                                <rect key="frame" x="10" y="268" width="430" height="22"/>
+                                <rect key="frame" x="10" y="269" width="430" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nazwa firmy" drawsBackground="YES" id="PDM-Bn-GaX">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -54,7 +54,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="Ulica, numer domu i mieszkania sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N8E-hm-EID">
-                                <rect key="frame" x="10" y="236" width="430" height="22"/>
+                                <rect key="frame" x="10" y="238" width="430" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Ulica 0/0" drawsBackground="YES" id="gpf-Se-SrU">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -62,7 +62,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="Kod pocztowy sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xyz-Sz-0I1">
-                                <rect key="frame" x="10" y="204" width="83" height="22"/>
+                                <rect key="frame" x="10" y="207" width="83" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="83" id="ICQ-c5-gIw"/>
                                 </constraints>
@@ -73,7 +73,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="Miasto sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pcd-am-mMi">
-                                <rect key="frame" x="103" y="204" width="337" height="22"/>
+                                <rect key="frame" x="103" y="207" width="337" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="wfo-Uh-e5Y">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -81,7 +81,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="NIP sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wzJ-Un-dL6">
-                                <rect key="frame" x="10" y="172" width="108" height="22"/>
+                                <rect key="frame" x="10" y="176" width="108" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="108" id="v1k-p8-ooe"/>
                                 </constraints>
@@ -92,7 +92,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField identifier="Numer konta bankowego sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kl9-fu-xy9">
-                                <rect key="frame" x="10" y="140" width="430" height="22"/>
+                                <rect key="frame" x="10" y="145" width="430" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nr konta" drawsBackground="YES" id="cvb-0R-h3V">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -168,7 +168,7 @@ DQ
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="IHI-3W-Dul" customClass="IncrementNumberSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="10" y="188" width="130" height="61"/>
+                                <rect key="frame" x="10" y="192" width="130" height="61"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NoK-bQ-1az">
                                         <rect key="frame" x="18" y="18" width="100" height="23"/>
@@ -199,7 +199,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fsv-aR-aY0">
-                                <rect key="frame" x="8" y="340" width="68" height="17"/>
+                                <rect key="frame" x="8" y="341" width="68" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Separator:" id="cBF-dG-0ur">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -207,7 +207,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Znak oddzielający poszczególne pola numeru faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-ER-QwB">
-                                <rect key="frame" x="82" y="335" width="96" height="22"/>
+                                <rect key="frame" x="82" y="336" width="96" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="97E-o8-OTA"/>
                                 </constraints>
@@ -221,7 +221,7 @@ DQ
                                 </connections>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Xr-t7J" customClass="YearSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="319" y="188" width="119" height="61"/>
+                                <rect key="frame" x="319" y="192" width="119" height="61"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v3j-iX-PVx">
                                         <rect key="frame" x="37" y="22" width="37" height="17"/>
@@ -258,10 +258,10 @@ DQ
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="VOW-3T-fYL" customClass="FixedPartSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="150" y="188" width="159" height="61"/>
+                                <rect key="frame" x="150" y="192" width="159" height="61"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jIL-Bg-P1y">
-                                        <rect key="frame" x="5" y="20" width="149" height="22"/>
+                                        <rect key="frame" x="5" y="21" width="149" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Własny ciąg znaków" drawsBackground="YES" id="FHB-th-d1E">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -277,7 +277,7 @@ DQ
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ij3-Vp-Lb8" customClass="DragOrderingDestination" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="10" y="96" width="428" height="77"/>
+                                <rect key="frame" x="10" y="100" width="428" height="77"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RCB-4g-0Ao" userLabel="TemplateNumber">
                                         <rect key="frame" x="10" y="20" width="408" height="37"/>
@@ -307,7 +307,7 @@ DQ
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EL9-WQ-95b">
-                                <rect key="frame" x="378" y="53" width="60" height="36"/>
+                                <rect key="frame" x="378" y="57" width="60" height="36"/>
                                 <buttonCell key="cell" type="smallSquare" title="Wyczyść" bezelStyle="smallSquare" image="NSTrashEmpty" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r8F-Fi-Kme">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -421,7 +421,6 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="nameCellId" width="455" minWidth="40" maxWidth="1600" id="HPa-As-6g5">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa firmy">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -680,7 +679,7 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ia9-EC-hOS">
-                                <rect key="frame" x="8" y="243" width="96" height="17"/>
+                                <rect key="frame" x="8" y="244" width="96" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dane nabywcy:" id="hLQ-Kl-5iP">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -688,7 +687,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Nazwa firmy nabywcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CFI-dA-Wb9">
-                                <rect key="frame" x="112" y="238" width="358" height="22"/>
+                                <rect key="frame" x="112" y="239" width="358" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Nazwa firmy" drawsBackground="YES" id="LXj-4d-hIk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -696,7 +695,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Ulica, numer domu i mieszkania nabywcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="72C-iu-YOK">
-                                <rect key="frame" x="112" y="206" width="358" height="22"/>
+                                <rect key="frame" x="112" y="208" width="358" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Ulica 0/0" drawsBackground="YES" id="4Jm-dx-y4w">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -704,7 +703,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Kod pocztowy nabywcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Spo-Nd-mKm">
-                                <rect key="frame" x="112" y="174" width="83" height="22"/>
+                                <rect key="frame" x="112" y="177" width="83" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="83" id="vXZ-Mr-qgD"/>
                                 </constraints>
@@ -715,7 +714,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Miasto nabywcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gdj-AE-KTe">
-                                <rect key="frame" x="204" y="174" width="266" height="22"/>
+                                <rect key="frame" x="204" y="177" width="266" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="mWO-yg-z9z">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -746,7 +745,7 @@ DQ
                                 </connections>
                             </button>
                             <textField toolTip="NIP nabywcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="51f-Z4-w2e">
-                                <rect key="frame" x="112" y="142" width="108" height="22"/>
+                                <rect key="frame" x="112" y="146" width="108" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="000-000-00-00" drawsBackground="YES" id="pv1-q4-K1L">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1139,14 +1138,14 @@ DQ
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VOZ-eV-MbK">
-                                <rect key="frame" x="8" y="591" width="95" height="17"/>
+                                <rect key="frame" x="8" y="592" width="95" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Numer faktury:" id="g3y-6U-V1P">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField toolTip="Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach." verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-EB-vYN">
+                            <textField toolTip="Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach." verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-EB-vYN">
                                 <rect key="frame" x="109" y="589" width="141" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="Fts-zG-H1A"/>
@@ -1182,8 +1181,8 @@ DQ
                                     <segue destination="xVm-3h-MS1" kind="modal" id="mvy-hV-L5q"/>
                                 </connections>
                             </button>
-                            <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8nf-Ia-yZO">
-                                <rect key="frame" x="10" y="39" width="934" height="78"/>
+                            <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nf-Ia-yZO">
+                                <rect key="frame" x="10" y="39" width="750" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="FSH-bA-D7T"/>
                                 </constraints>
@@ -1193,7 +1192,7 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <containerView autoresizesSubviews="NO" placeholderIntrinsicWidth="512" placeholderIntrinsicHeight="107" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-6G-O1e" userLabel="BuyerView">
+                            <containerView autoresizesSubviews="NO" ambiguous="YES" placeholderIntrinsicWidth="512" placeholderIntrinsicHeight="107" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-6G-O1e" userLabel="BuyerView">
                                 <rect key="frame" x="10" y="476" width="512" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="Yv6-am-I98"/>
@@ -1203,7 +1202,7 @@ DQ
                                     <segue destination="2Wo-L9-0o2" kind="embed" id="aLx-64-csJ"/>
                                 </connections>
                             </containerView>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="cgl-ru-6Mj">
+                            <containerView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgl-ru-6Mj">
                                 <rect key="frame" x="10" y="125" width="940" height="343"/>
                                 <connections>
                                     <segue destination="rXT-Ax-ruS" kind="embed" id="EAM-E1-2Ks"/>
@@ -1218,7 +1217,7 @@ DQ
                                     <segue destination="Fqo-ol-DLC" kind="embed" id="b7W-sT-mer"/>
                                 </connections>
                             </containerView>
-                            <containerView autoresizesSubviews="NO" placeholderIntrinsicWidth="410" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-r4-MFy" userLabel="Payment Details View Controller">
+                            <containerView autoresizesSubviews="NO" ambiguous="YES" placeholderIntrinsicWidth="410" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-r4-MFy" userLabel="Payment Details View Controller">
                                 <rect key="frame" x="540" y="478" width="410" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="410" id="I7N-sy-mj0"/>
@@ -1227,21 +1226,30 @@ DQ
                                     <segue destination="2gN-yO-eCA" kind="embed" id="8r7-xr-IPP"/>
                                 </connections>
                             </containerView>
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pw-z6-xk4">
+                                <rect key="frame" x="766" y="98" width="151" height="18"/>
+                                <buttonCell key="cell" type="check" title="Odwrotne obciążenie" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Mez-YO-bK9">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="leading" secondItem="VOZ-eV-MbK" secondAttribute="trailing" constant="8" id="2Uq-XA-j2a"/>
                             <constraint firstAttribute="bottom" secondItem="1gg-h9-i9W" secondAttribute="bottom" constant="10" id="353-8n-AWp"/>
                             <constraint firstItem="Wpb-r4-MFy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H4E-6G-O1e" secondAttribute="trailing" constant="-40" id="65C-4f-tOL"/>
+                            <constraint firstItem="9pw-z6-xk4" firstAttribute="leading" secondItem="8nf-Ia-yZO" secondAttribute="trailing" constant="8" id="74q-w8-REf"/>
                             <constraint firstItem="H4E-6G-O1e" firstAttribute="top" secondItem="2Zb-EB-vYN" secondAttribute="bottom" constant="6" id="75g-UE-9aQ"/>
                             <constraint firstItem="Wpb-r4-MFy" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="108" id="7Lb-R0-gqn"/>
                             <constraint firstAttribute="trailing" secondItem="Wpb-r4-MFy" secondAttribute="trailing" constant="10" id="AnA-uf-XKq"/>
                             <constraint firstAttribute="trailing" secondItem="tFk-Ud-4oi" secondAttribute="trailing" constant="10" id="Bda-QR-gH6"/>
                             <constraint firstItem="cgl-ru-6Mj" firstAttribute="leading" secondItem="8nf-Ia-yZO" secondAttribute="leading" id="F3w-aN-Pgs"/>
+                            <constraint firstItem="9pw-z6-xk4" firstAttribute="leading" secondItem="8nf-Ia-yZO" secondAttribute="trailing" constant="8" id="Ndy-33-7IT"/>
                             <constraint firstItem="cgl-ru-6Mj" firstAttribute="top" secondItem="Wpb-r4-MFy" secondAttribute="bottom" constant="10" id="ReA-qw-T0a"/>
-                            <constraint firstAttribute="trailing" secondItem="8nf-Ia-yZO" secondAttribute="trailing" constant="16" id="T4A-03-7yx"/>
                             <constraint firstItem="VOZ-eV-MbK" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="10" id="VQn-OR-lnH"/>
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="top" secondItem="tbo-lw-l1z" secondAttribute="top" constant="7" id="Wkl-Bf-s5D"/>
                             <constraint firstItem="Wpb-r4-MFy" firstAttribute="top" secondItem="tFk-Ud-4oi" secondAttribute="bottom" constant="8" id="a9m-Ht-zNS"/>
+                            <constraint firstAttribute="trailing" secondItem="9pw-z6-xk4" secondAttribute="trailing" constant="10" id="exZ-N2-umQ"/>
                             <constraint firstItem="gWk-za-B4i" firstAttribute="top" secondItem="8nf-Ia-yZO" secondAttribute="bottom" constant="8" symbolic="YES" id="fjr-vE-jeC"/>
                             <constraint firstItem="cgl-ru-6Mj" firstAttribute="leading" secondItem="tbo-lw-l1z" secondAttribute="leading" constant="10" id="gz9-l6-bF5"/>
                             <constraint firstItem="8nf-Ia-yZO" firstAttribute="top" secondItem="cgl-ru-6Mj" secondAttribute="bottom" constant="8" id="kBN-oq-tAI"/>
@@ -1260,6 +1268,7 @@ DQ
                         <outlet property="notesTextField" destination="8nf-Ia-yZO" id="2pc-rB-D7h"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="previewButton" destination="gWk-za-B4i" id="bLm-HA-G9y"/>
+                        <outlet property="reverseChargeButton" destination="9pw-z6-xk4" id="udx-aj-zEm"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
                     </connections>
                 </viewController>
@@ -1312,7 +1321,6 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="nameCellId" width="208.5" minWidth="40" maxWidth="1000" id="rTe-EN-GSM">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1348,7 +1356,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="aliasCellId" width="178.5" minWidth="40" maxWidth="1000" id="yz9-oJ-PKA">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Alias">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1360,7 +1367,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tu5-7u-OCz">
-                                                            <rect key="frame" x="212.5" y="1" width="178" height="40"/>
+                                                            <rect key="frame" x="213" y="1" width="178" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjM-gb-6f8">
@@ -1384,7 +1391,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitOfMeasureCellId" width="55" minWidth="40" maxWidth="1000" id="cqW-xK-zmH">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="J. m.">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1419,7 +1425,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitNetPriceCellId" width="87.5" minWidth="40" maxWidth="1000" id="SA5-ev-h6E">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Cena netto">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1455,7 +1460,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="vatValueCellId" width="54.5" minWidth="40" maxWidth="1000" id="HET-Jt-d9P">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="VAT">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1467,7 +1471,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <popUpButton id="TVc-5d-Gsk" customClass="VatRatePopUpButton" customModule="mandayFaktura" customModuleProvider="target">
-                                                            <rect key="frame" x="542.5" y="1" width="54" height="25"/>
+                                                            <rect key="frame" x="543" y="1" width="54" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <popUpButtonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="right" lineBreakMode="truncatingTail" borderStyle="bezel" inset="2" id="SgE-SO-NR4">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1634,7 +1638,6 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="numberCellId" width="120.5" minWidth="40" maxWidth="1000" id="h1N-BL-dyO">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Numer">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1667,7 +1670,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="issueDateCellId" width="184.98115098163726" minWidth="40" maxWidth="1000" id="77o-zN-UfW">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Data wystawienia">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1679,7 +1681,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tW4-jT-itO">
-                                                            <rect key="frame" x="124.5" y="1" width="185" height="17"/>
+                                                            <rect key="frame" x="125" y="1" width="185" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7g-D1-ABt">
@@ -1700,7 +1702,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="buyerNameCellId" width="235" minWidth="40" maxWidth="1000" id="5yr-PR-86m">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa firmy">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1712,7 +1713,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xGW-Bu-cYZ">
-                                                            <rect key="frame" x="312.5" y="1" width="235" height="17"/>
+                                                            <rect key="frame" x="313" y="1" width="235" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7x-C1-Ae8">
@@ -1733,7 +1734,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="grossValueCellId" width="105.5" minWidth="40" maxWidth="1000" id="Y9x-rc-wfG">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Kwota brutto">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1745,7 +1745,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="nml-Nc-Xga">
-                                                            <rect key="frame" x="550.5" y="1" width="105" height="17"/>
+                                                            <rect key="frame" x="551" y="1" width="105" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjY-hu-jB8">
@@ -1808,7 +1808,7 @@ DQ
         <!--Window Controller-->
         <scene sceneID="LpN-fk-fK6">
             <objects>
-                <windowController storyboardIdentifier="newInvoiceVC" id="ZHC-J7-4SU" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="editInvoiceVC" id="ZHC-J7-4SU" sceneMemberID="viewController">
                     <window key="window" title="Edycja faktury" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="eKh-fi-RBK">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -1832,11 +1832,11 @@ DQ
             <objects>
                 <viewController title="Edycja faktury" id="Pk8-xk-tGP" customClass="EditInvoiceViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pkW-rZ-iAw">
-                        <rect key="frame" x="0.0" y="0.0" width="962" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="960" height="618"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0ge-Ca-dMh">
-                                <rect key="frame" x="8" y="591" width="95" height="17"/>
+                                <rect key="frame" x="8" y="592" width="95" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Numer faktury:" id="78Q-ep-MZO">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1844,7 +1844,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-6p-UXt">
-                                <rect key="frame" x="109" y="589" width="141" height="22"/>
+                                <rect key="frame" x="109" y="590" width="141" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="5Bm-4M-kNy"/>
                                 </constraints>
@@ -1855,8 +1855,8 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button identifier="Zapisuje fakturę" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YnY-Of-fZk">
-                                <rect key="frame" x="877" y="1" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G6N-5g-vh5">
+                                <rect key="frame" x="875" y="1" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G6N-5g-vh5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
@@ -1880,7 +1880,7 @@ DQ
                                 </connections>
                             </button>
                             <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZg-AQ-svB">
-                                <rect key="frame" x="10" y="44" width="934" height="78"/>
+                                <rect key="frame" x="10" y="44" width="759" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="UI8-If-xcf"/>
                                 </constraints>
@@ -1891,7 +1891,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="yCb-Lz-SRg" userLabel="Buyer View">
-                                <rect key="frame" x="10" y="476" width="512" height="107"/>
+                                <rect key="frame" x="10" y="477" width="512" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="512" id="kGS-0j-JrE"/>
                                     <constraint firstAttribute="height" constant="107" id="ynk-IN-6Su"/>
@@ -1901,13 +1901,13 @@ DQ
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="IBR-Nd-qYr">
-                                <rect key="frame" x="10" y="136" width="942" height="329"/>
+                                <rect key="frame" x="10" y="136" width="940" height="330"/>
                                 <connections>
                                     <segue destination="rXT-Ax-ruS" kind="embed" id="Zcr-aY-8e1"/>
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="k5h-Nd-fWv" userLabel="Invoice Dates View">
-                                <rect key="frame" x="692" y="516" width="260" height="92"/>
+                                <rect key="frame" x="690" y="516" width="260" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="ZHv-vY-Fcd"/>
                                 </constraints>
@@ -1916,7 +1916,7 @@ DQ
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="2j9-He-WHt" userLabel="Payment Details View Controller">
-                                <rect key="frame" x="542" y="476" width="410" height="32"/>
+                                <rect key="frame" x="540" y="477" width="410" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="410" id="p4W-Ew-RvX"/>
                                 </constraints>
@@ -1924,8 +1924,16 @@ DQ
                                     <segue destination="2gN-yO-eCA" kind="embed" id="luC-Kk-8jv"/>
                                 </connections>
                             </containerView>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-lr-cqD">
+                                <rect key="frame" x="775" y="106" width="151" height="18"/>
+                                <buttonCell key="cell" type="check" title="Odwrotne obciążenie" bezelStyle="regularSquare" imagePosition="left" inset="2" id="qGy-2h-eDf">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fDv-lr-cqD" secondAttribute="trailing" constant="36" id="2dE-nY-eRa"/>
                             <constraint firstItem="IBR-Nd-qYr" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="2yi-FQ-nj9"/>
                             <constraint firstItem="0ge-Ca-dMh" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="492-QL-6kJ"/>
                             <constraint firstAttribute="bottom" secondItem="LBS-47-5gd" secondAttribute="bottom" constant="8" id="A7H-t9-92E"/>
@@ -1936,7 +1944,6 @@ DQ
                             <constraint firstAttribute="trailing" secondItem="YnY-Of-fZk" secondAttribute="trailing" constant="10" id="Lkb-Od-9kR"/>
                             <constraint firstAttribute="trailing" secondItem="IBR-Nd-qYr" secondAttribute="trailing" constant="10" id="MqC-ZX-00e"/>
                             <constraint firstItem="vZg-AQ-svB" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="PLd-HP-WTt"/>
-                            <constraint firstAttribute="trailing" secondItem="vZg-AQ-svB" secondAttribute="trailing" constant="18" id="PWb-Tl-Jb4"/>
                             <constraint firstItem="IBR-Nd-qYr" firstAttribute="top" secondItem="2j9-He-WHt" secondAttribute="bottom" constant="11" id="V1S-rM-R0D"/>
                             <constraint firstItem="yCb-Lz-SRg" firstAttribute="top" secondItem="hIb-6p-UXt" secondAttribute="bottom" constant="6" id="Xxe-vO-aYz"/>
                             <constraint firstItem="hIb-6p-UXt" firstAttribute="top" secondItem="pkW-rZ-iAw" secondAttribute="top" constant="7" id="Ych-Zu-XHE"/>
@@ -1945,6 +1952,7 @@ DQ
                             <constraint firstItem="yCb-Lz-SRg" firstAttribute="leading" secondItem="pkW-rZ-iAw" secondAttribute="leading" constant="10" id="cxM-uK-iAC"/>
                             <constraint firstItem="YnY-Of-fZk" firstAttribute="leading" secondItem="LBS-47-5gd" secondAttribute="trailing" constant="7" id="dmL-d6-y3s"/>
                             <constraint firstItem="vZg-AQ-svB" firstAttribute="top" secondItem="IBR-Nd-qYr" secondAttribute="bottom" constant="14" id="fJU-U0-JJa"/>
+                            <constraint firstItem="fDv-lr-cqD" firstAttribute="leading" secondItem="vZg-AQ-svB" secondAttribute="trailing" constant="8" id="fkq-aQ-4d5"/>
                             <constraint firstAttribute="trailing" secondItem="2j9-He-WHt" secondAttribute="trailing" constant="10" id="g8K-Id-X7f"/>
                             <constraint firstAttribute="trailing" secondItem="k5h-Nd-fWv" secondAttribute="trailing" constant="10" id="hNJ-tM-9HZ"/>
                             <constraint firstItem="YnY-Of-fZk" firstAttribute="top" secondItem="vZg-AQ-svB" secondAttribute="bottom" constant="15" id="iuJ-mn-YvX"/>
@@ -1957,6 +1965,7 @@ DQ
                         <outlet property="notesTextField" destination="vZg-AQ-svB" id="jZc-di-CYY"/>
                         <outlet property="numberTextField" destination="hIb-6p-UXt" id="24k-C3-vWN"/>
                         <outlet property="previewButton" destination="LBS-47-5gd" id="h1J-QY-o9S"/>
+                        <outlet property="reverseChargeButton" destination="fDv-lr-cqD" id="Lth-Rm-1PT"/>
                         <outlet property="saveButton" destination="YnY-Of-fZk" id="Jbw-jd-fcT"/>
                     </connections>
                 </viewController>
@@ -1987,7 +1996,6 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="vatRateCellId" width="284.5" minWidth="40" maxWidth="1000" id="9II-l9-zdB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Stawki VAT">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2023,7 +2031,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="defaultRateCellId" width="137.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="QDv-ew-8VB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Domyślne">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -2035,7 +2042,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tya-HV-so7">
-                                                            <rect key="frame" x="288.5" y="1" width="137" height="17"/>
+                                                            <rect key="frame" x="289" y="1" width="137" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-Md-Ob1">
@@ -2526,18 +2533,18 @@ DQ
         <scene sceneID="tzo-MP-HbJ">
             <objects>
                 <viewController id="rXT-Ax-ruS" customClass="ItemsTableViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="XSR-XQ-aHc">
-                        <rect key="frame" x="0.0" y="0.0" width="998" height="352"/>
+                    <view key="view" misplaced="YES" id="XSR-XQ-aHc">
+                        <rect key="frame" x="0.0" y="0.0" width="998" height="329"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="515-Gh-q6D">
-                                <rect key="frame" x="0.0" y="28" width="998" height="324"/>
+                                <rect key="frame" x="0.0" y="28" width="998" height="229"/>
                                 <clipView key="contentView" id="za3-co-qHH">
-                                    <rect key="frame" x="1" y="0.0" width="996" height="323"/>
+                                    <rect key="frame" x="1" y="0.0" width="996" height="228"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="48" headerView="Y3f-VO-oMP" viewBased="YES" id="K7l-SJ-g6u">
-                                            <rect key="frame" x="0.0" y="0.0" width="996" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="996" height="205"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2545,7 +2552,6 @@ DQ
                                             <tableColumns>
                                                 <tableColumn identifier="nameCellId" width="371" minWidth="40" maxWidth="1000" id="Gan-4F-Z33">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Nazwa">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2561,7 +2567,7 @@ DQ
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="dRr-L3-5fQ">
-                                                                    <rect key="frame" x="2" y="23" width="367" height="17"/>
+                                                                    <rect key="frame" x="2" y="24" width="367" height="16"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" placeholderString="Nazwa towaru lub usługi" drawsBackground="YES" id="Qer-3u-kN0">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2585,7 +2591,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="amountCellId" width="102" minWidth="40" maxWidth="1000" id="7SJ-CV-ArS">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Ilość">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2601,7 +2606,7 @@ DQ
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Rlo-7M-0au">
-                                                                    <rect key="frame" x="0.0" y="12" width="102" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="12" width="102" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="bXf-yG-hkj">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2625,7 +2630,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitOfMeasureCellId" width="55" minWidth="40" maxWidth="1000" id="JO4-Dw-oj2">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="J. m.">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2660,7 +2664,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="unitNetPriceCellId" width="102" minWidth="40" maxWidth="1000" headerToolTip="" id="zme-ue-UQ6">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Cena netto">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2700,7 +2703,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="vatValueCellId" width="60" minWidth="40" maxWidth="1000" id="U9F-9h-LqE">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="VAT">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2727,7 +2729,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="netValueCellId" width="100" minWidth="40" maxWidth="1000" id="a2d-Dx-qd3">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Wartość netto">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2743,7 +2744,7 @@ DQ
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-rH-0s0">
-                                                                    <rect key="frame" x="0.0" y="23" width="100" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="24" width="100" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" id="heG-bs-siu">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2767,7 +2768,6 @@ DQ
                                                 </tableColumn>
                                                 <tableColumn identifier="grossValueCellId" width="100" minWidth="40" maxWidth="1000" id="fYs-uW-51R">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Wartość brutto">
-                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -2783,7 +2783,7 @@ DQ
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fkE-l5-Ede">
-                                                                    <rect key="frame" x="0.0" y="23" width="100" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="24" width="100" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" id="M3n-rg-3pI">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -3090,7 +3090,7 @@ DQ
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="31d-F5-rM4" customClass="IncrementNumberSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="10" y="188" width="130" height="61"/>
+                                <rect key="frame" x="10" y="192" width="130" height="61"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYP-2K-53w">
                                         <rect key="frame" x="18" y="18" width="100" height="23"/>
@@ -3121,7 +3121,7 @@ DQ
                                 </connections>
                             </button>
                             <textField toolTip="Znak oddzielający poszczególne pola numeru faktury" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-RZ-IeG">
-                                <rect key="frame" x="82" y="335" width="96" height="22"/>
+                                <rect key="frame" x="82" y="336" width="96" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="dRI-A6-8UR"/>
                                 </constraints>
@@ -3135,7 +3135,7 @@ DQ
                                 </connections>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="WoF-eQ-lUL" customClass="YearSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="319" y="188" width="119" height="61"/>
+                                <rect key="frame" x="319" y="192" width="119" height="61"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9u-HE-spp">
                                         <rect key="frame" x="37" y="22" width="37" height="17"/>
@@ -3172,10 +3172,10 @@ DQ
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ibn-GH-XNy" customClass="FixedPartSourceView" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="150" y="188" width="159" height="61"/>
+                                <rect key="frame" x="150" y="192" width="159" height="61"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GrB-3y-vC7">
-                                        <rect key="frame" x="5" y="20" width="149" height="22"/>
+                                        <rect key="frame" x="5" y="21" width="149" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Własny ciąg znaków" drawsBackground="YES" id="tTb-h0-w9p">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -3191,7 +3191,7 @@ DQ
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="iEU-TU-hLt" customClass="DragOrderingDestination" customModule="mandayFaktura" customModuleProvider="target">
-                                <rect key="frame" x="10" y="96" width="428" height="77"/>
+                                <rect key="frame" x="10" y="100" width="428" height="77"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJD-ri-DC6" userLabel="TemplateNumber">
                                         <rect key="frame" x="10" y="20" width="408" height="37"/>
@@ -3221,7 +3221,7 @@ DQ
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R93-4o-btx">
-                                <rect key="frame" x="378" y="53" width="60" height="36"/>
+                                <rect key="frame" x="378" y="57" width="60" height="36"/>
                                 <buttonCell key="cell" type="smallSquare" title="Wyczyść" bezelStyle="smallSquare" image="NSTrashEmpty" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8gy-GJ-woU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -3231,7 +3231,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-xt-hBd">
-                                <rect key="frame" x="8" y="340" width="68" height="17"/>
+                                <rect key="frame" x="8" y="341" width="68" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Separator:" id="sYr-89-e4y">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -3278,6 +3278,19 @@ DQ
             <point key="canvasLocation" x="1983" y="-1127"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="luC-Kk-8jv"/>
+        <segue reference="wQo-ST-eOV"/>
+        <segue reference="Zcr-aY-8e1"/>
+        <segue reference="l92-wc-pcR"/>
+        <segue reference="ar3-AU-xhM"/>
+        <segue reference="o5h-iw-LOf"/>
+        <segue reference="pNf-8A-Ove"/>
+        <segue reference="yaH-hv-UcY"/>
+        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="iWA-in-tWC"/>
+        <segue reference="lUp-1X-7iT"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
@@ -3551,17 +3564,4 @@ AAAAAABnAAAAAAAAAAAAAAAAAAA73A
 </mutableData>
         </image>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Fck-UU-eCt"/>
-        <segue reference="Z5X-n5-XMy"/>
-        <segue reference="YuM-Kf-ezH"/>
-        <segue reference="cO2-sR-xaW"/>
-        <segue reference="ar3-AU-xhM"/>
-        <segue reference="o5h-iw-LOf"/>
-        <segue reference="S1B-Rf-RhN"/>
-        <segue reference="yaH-hv-UcY"/>
-        <segue reference="cPw-Au-6Bj"/>
-        <segue reference="iWA-in-tWC"/>
-        <segue reference="lUp-1X-7iT"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,7 @@ import Foundation
         coder.encode(self.invoice.paymentForm.rawValue, forKey: "paymentForm")
         coder.encode(self.invoice.paymentDueDate, forKey: "paymentDueDate")
         coder.encode(self.invoice.notes, forKey: "notes")
+        coder.encode(self.invoice.reverseCharge, forKey: "reverseCharge")
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -35,6 +36,7 @@ import Foundation
         let notes = decoder.decodeObject(forKey: "notes") as? String
         let items = itemsCoding.map({c in c.invoiceItem})
         let paymentForm = PaymentForm(rawValue: decoder.decodeInteger(forKey: "paymentForm"))!
+        let reverseCharge = decoder.decodeBool(forKey: "reverseCharge")
         
         self.init(anInvoice()
             .withIssueDate(issueDate)
@@ -46,6 +48,7 @@ import Foundation
             .withPaymentForm(paymentForm)
             .withPaymentDueDate(paymentDueDate)
             .withNotes(notes ?? "")
+            .withReverseCharge(reverseCharge)
             .build())
     }
     

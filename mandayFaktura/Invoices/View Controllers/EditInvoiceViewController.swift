@@ -19,9 +19,11 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
     var invoice: Invoice?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveButton.isEnabled = true
+        self.previewButton.isEnabled = true
         self.numberTextField.stringValue = invoice!.number
         self.notesTextField.stringValue = invoice!.notes
-        self.previewButton.isEnabled = true
+        self.reverseChargeButton.state = invoice!.reverseCharge ? .on : .off
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
@@ -78,6 +80,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
                 .withPaymentForm(self.paymentDetailsViewController!.paymentForm!)
                 .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
+                .withReverseCharge(self.reverseChargeButton.state == .on)
                 .build()
             
         }

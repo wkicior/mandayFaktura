@@ -22,10 +22,10 @@ class AbstractInvoiceViewController: NSViewController {
     @IBOutlet weak var saveButton: NSButton!
     @IBOutlet weak var previewButton: NSButton!
     @IBOutlet weak var notesTextField: NSTextField!
+    @IBOutlet weak var reverseChargeButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.saveButton.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
         NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,

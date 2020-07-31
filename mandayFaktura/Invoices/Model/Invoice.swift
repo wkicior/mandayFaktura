@@ -18,6 +18,7 @@ struct Invoice: Document {
     let paymentForm: PaymentForm
     let paymentDueDate: Date
     let notes: String
+    let reverseCharge: Bool
     
     var totalNetValue: Decimal {
         get {
@@ -64,6 +65,7 @@ class InvoiceBuilder {
     private var paymentForm: PaymentForm = .transfer
     private var paymentDueDate = Date()
     private var notes = ""
+    private var reverseCharge = false
     
     func withIssueDate(_ issueDate: Date) -> InvoiceBuilder {
         self.issueDate = issueDate
@@ -109,6 +111,11 @@ class InvoiceBuilder {
         self.notes = notes
         return self
     }
+    
+    func withReverseCharge(_ reverseCharge: Bool) -> InvoiceBuilder {
+        self.reverseCharge = reverseCharge
+        return self
+    }
 
     
     func build() -> Invoice {
@@ -120,7 +127,8 @@ class InvoiceBuilder {
                        items: items,
                        paymentForm: paymentForm,
                        paymentDueDate: paymentDueDate,
-                       notes: notes
+                       notes: notes,
+                       reverseCharge: reverseCharge
         )
     }
 }
