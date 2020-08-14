@@ -9,27 +9,27 @@
 import Foundation
 
 extension Counterparty {
-    var printedSeller: String {
+    func printedSeller(_ isInternational: Bool) -> String {
         let seller =
         """
-        Sprzedawca:
+        \("Sprzedawca".appendI10n("Seller", isInternational)):
         \(name)
         \(streetAndNumber)
-        \(postalCode) \(city)
-        NIP: \(taxCode)
-        Nr konta: \(accountNumber)
+        \(postalCode) \(city) \(country)
+        \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
+        \("Nr konta".appendI10n("IBAN", isInternational)): \(accountNumber)
         """
         return seller
     }
     
-    var printedBuyer: String {
+    func printedBuyer(_ isInternational: Bool) -> String {
         let buyer =
         """
-        Nabywca:
+        \("Nabywca".appendI10n("Buyer", isInternational)):
         \(name)
         \(streetAndNumber)
-        \(postalCode) \(city)
-        NIP: \(taxCode)
+        \(postalCode) \(city) \(country)
+         \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
         \(additionalInfo)
         """
         return buyer

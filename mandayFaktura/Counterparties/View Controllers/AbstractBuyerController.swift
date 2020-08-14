@@ -23,6 +23,8 @@ class AbstractBuyerController: NSViewController {
     @IBOutlet weak var cityTextField: NSTextField!
     @IBOutlet weak var taxCodeTextField: NSTextField!
     @IBOutlet weak var additionalInfoTextField: NSTextField!
+    @IBOutlet weak var countryTextField: NSTextField!
+
 
     @IBAction func onCancelButtonClickedAction(_ sender: Any) {
         view.window?.close()
@@ -48,6 +50,7 @@ class AbstractBuyerController: NSViewController {
             .withPostalCode(postalCodeTextField.stringValue)
             .withTaxCode(taxCodeTextField.stringValue)
             .withAdditionalInfo(additionalInfoTextField.stringValue)
+            .withCountry(countryTextField.stringValue)
             .build()
     }
 }

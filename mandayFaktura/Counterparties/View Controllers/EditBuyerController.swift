@@ -24,6 +24,7 @@ class EditBuyerController: AbstractBuyerController {
         self.cityTextField.stringValue = buyer!.city
         self.taxCodeTextField.stringValue = buyer!.taxCode
         self.additionalInfoTextField.stringValue = buyer!.additionalInfo
+        self.countryTextField.stringValue = buyer!.country
     }
     
     @IBAction func onSaveButtonClickedAction(_ sender: Any) {

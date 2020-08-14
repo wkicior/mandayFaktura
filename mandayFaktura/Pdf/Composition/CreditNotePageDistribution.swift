@@ -63,18 +63,18 @@ extension CreditNotePageDistribution {
     }
     
     fileprivate func distributeItemTableRow() {
-        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames, label: "Po korekcie:"))
+        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: self.creditNote.itemColumnNames, label: "Po korekcie:"))
         for itemCounter in 0 ..< self.creditNote.items.count {
-            let properties = [(itemCounter + 1).description] + self.creditNote.items[itemCounter].propertiesForDisplay
+            let properties = [(itemCounter + 1).description] + self.creditNote.items[itemCounter].propertiesForDisplay(isI10n: false)
             let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, withBackground: itemCounter % 2 != 0)
             appendIfFitsOtherwiseCreateNewPageComposition(item: itemTableComponent)
         }
     }
     
     fileprivate func distributeItemBeforeTableRow() {
-        currentPageComposition!.withItemBeforeTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames, label: "Przed korektą:"))
+        currentPageComposition!.withItemBeforeTableRowComponent(ItemTableHeaderComponent(headerData: self.creditNote.itemColumnNames, label: "Przed korektą:"))
         for itemCounter in 0 ..< invoice.items.count {
-            let properties = [(itemCounter + 1).description] + invoice.items[itemCounter].propertiesForDisplay
+            let properties = [(itemCounter + 1).description] + invoice.items[itemCounter].propertiesForDisplay(isI10n: self.invoice.isInternational())
             let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, withBackground: itemCounter % 2 != 0)
             appendIfFitsOtherwiseCreateNewPageCompositionItemBefore(item: itemTableComponent)
         }
@@ -85,8 +85,8 @@ extension CreditNotePageDistribution {
             .withHeaderComponent(HeaderComponent(content: creditNote.printedHeader + "\n" + invoice.creditedNoteHeader))
             .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: creditNote.printedDates))
-            .withCounterpartyComponent(SellerComponent(content: creditNote.seller.printedSeller))
-            .withCounterpartyComponent(BuyerComponent(content: creditNote.buyer.printedBuyer))
+            .withCounterpartyComponent(SellerComponent(content: creditNote.printedSeller))
+            .withCounterpartyComponent(BuyerComponent(content: creditNote.printedBuyer))
     }
     
     private func getVatBreakdownComponent() -> VatBreakdownComponent {
@@ -107,7 +107,7 @@ extension CreditNotePageDistribution {
         } else {
             self.pagesWithTableData.append(currentPageComposition!)
             self.initNewPageWithMinimumComposition(copyTemplate)
-            currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
+            currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: self.creditNote.itemColumnNames))
             currentPageComposition!.withItemTableRowComponent(item)
         }
     }
@@ -118,7 +118,7 @@ extension CreditNotePageDistribution {
         } else {
             self.pagesWithTableData.append(currentPageComposition!)
             self.initNewPageWithMinimumComposition(copyTemplate)
-            currentPageComposition!.withItemBeforeTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
+            currentPageComposition!.withItemBeforeTableRowComponent(ItemTableHeaderComponent(headerData: self.creditNote.itemColumnNames))
             currentPageComposition!.withItemBeforeTableRowComponent(item)
         }
     }

@@ -31,4 +31,14 @@ internal extension Decimal {
             return  "\(spelledOutInt) \(self.fractionalPart.description)/100"
         }
     }
+    
+    var spelledOutEn: String {
+        get {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.locale = Locale(identifier: "en_EN")
+            numberFormatter.numberStyle = NumberFormatter.Style.spellOut
+            let spelledOutInt = numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
+            return  "\(spelledOutInt) \(self.fractionalPart.description)/100"
+        }
+    }
 }

@@ -25,6 +25,7 @@ class BuyerViewController : NSViewController {
     @IBOutlet weak var cityTextField: NSTextField!
     @IBOutlet weak var taxCodeTextField: NSTextField!
     @IBOutlet weak var additionalInfoTextField: NSTextField!
+    @IBOutlet weak var countryTextField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class BuyerViewController : NSViewController {
         self.taxCodeTextField.stringValue = buyer?.taxCode ?? ""
         self.cityTextField.stringValue = buyer?.city ?? ""
         self.additionalInfoTextField.stringValue = buyer?.additionalInfo ?? ""
+        self.countryTextField.stringValue = buyer?.country ?? ""
     }
     
     @IBAction func onSelectBuyer(_ sender: NSPopUpButton) {
@@ -52,6 +54,7 @@ class BuyerViewController : NSViewController {
         self.postalCodeTextField.stringValue = buyer.postalCode
         self.taxCodeTextField.stringValue = buyer.taxCode
         self.additionalInfoTextField.stringValue = buyer.additionalInfo
+        self.countryTextField.stringValue = buyer.country
     }
     
     func getBuyer() -> Counterparty {
@@ -62,6 +65,7 @@ class BuyerViewController : NSViewController {
             .withPostalCode(postalCodeTextField.stringValue)
             .withTaxCode(taxCodeTextField.stringValue)
             .withAdditionalInfo(additionalInfoTextField.stringValue)
+            .withCountry(countryTextField.stringValue)
             .build()
     }
     

@@ -8,9 +8,7 @@
 
 import Foundation
 
-internal extension Invoice {
-    static let summaryColumnNames = ["Wartość Netto", "Kwota VAT", "Wartość Brutto"]
-    
+internal extension Invoice {    
     var propertiesForDisplay: [String] {
         get {
             return [self.totalNetValue.formatAmount(), "*", self.totalVatValue.formatAmount(), self.totalGrossValue.formatAmount()]
@@ -20,18 +18,16 @@ internal extension Invoice {
     var paymentFormLabel: String {
         switch self.paymentForm {
         case .cash:
-            return "gotówka"
+            return self.appendI10n("gotówka", "cash")
         case .transfer:
-            return "przelew"
+            return self.appendI10n("przelew", "transfer")
         }
     }
     
     var printedHeader: String {
         let header =
         """
-        Faktura VAT
-        Nr: \(number)
-
+        \(appendI10n("Faktura VAT nr " + number, "Invoice no. " + number))
         """
         return header
     }
@@ -47,8 +43,8 @@ internal extension Invoice {
     var printedDates: String {
         let header =
         """
-        Data wystawienia: \(DateFormatting.getDateString(issueDate))
-        Data sprzedaży: \(DateFormatting.getDateString(sellingDate))
+        \(appendI10n("Data wystawienia", "Date of issue")):  \(DateFormatting.getDateString(issueDate))
+        \(appendI10n("Data sprzedaży", "Date of sale")): \(DateFormatting.getDateString(sellingDate))
         """
         return header
     }
@@ -56,14 +52,35 @@ internal extension Invoice {
     var printedPaymentSummary: String {
         var summary =
         """
-        Do zapłaty: \(totalGrossValue.formatAmount()) PLN
+        \(appendI10n("Do zapłaty", "Total due")): \(totalGrossValue.formatAmount()) PLN
         słownie: \(totalGrossValue.spelledOut) PLN
-        forma płatności: \(paymentFormLabel)
-        termin płatności: \(DateFormatting.getDateString(paymentDueDate))
+        \(forI10nOnly("in words: " + totalGrossValue.spelledOutEn + " PLN"))
+        \(appendI10n("forma płatności", "payment form")): \(paymentFormLabel)
+        \(appendI10n("termin płatności", "due date")): \(DateFormatting.getDateString(paymentDueDate))
         """
         if (self.reverseCharge) {
-            summary += "\nRozliczenie podatku: odwrotne obciążenie"
+            summary += appendI10n("\nRozliczenie podatku: odwrotne obciążenie", "Tax to be accounted: reverse charge")
         }
         return summary
+    }
+    
+    var printedSeller: String {
+        self.seller.printedSeller(self.isInternational())
+    }
+    
+    var printedBuyer: String {
+        self.seller.printedBuyer(self.isInternational())
+    }
+    
+    func appendI10n(_ pl: String, _ en: String) -> String {
+        return pl.appendI10n(en, self.isInternational())
+    }
+       
+    func forI10nOnly(_ en: String) -> String {
+        return self.isInternational() ? en : ""
+    }
+    
+    var itemColumnNames: [String] {
+        return InvoiceItem.itemColumnNames(isI10n: self.isInternational())
     }
 }

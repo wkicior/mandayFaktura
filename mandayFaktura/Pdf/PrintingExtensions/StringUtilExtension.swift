@@ -9,7 +9,11 @@
 import Foundation
 
 public extension String {
-    public func linesCount() -> Int {
+    func linesCount() -> Int {
         return self.split(separator: "\u{2028}").count
+    }
+    
+    func appendI10n(_ en: String, _ isInternational: Bool) -> String {
+         return self + (isInternational ? " / " + en : "")
     }
 }

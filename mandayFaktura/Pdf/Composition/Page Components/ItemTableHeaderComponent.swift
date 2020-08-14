@@ -10,8 +10,6 @@ import Foundation
 
 class ItemTableHeaderComponent : AbstractComponent, PageComponent {
     static let paddingTop = CGFloat(41)
-    let height = AbstractComponent.defaultRowHeight * 2 + AbstractComponent.gridPadding * 2 + ItemTableHeaderComponent.paddingTop
-    
     let headerData: [String]
     let label: String?
     private var position: NSPoint = NSMakePoint(0, 0)
@@ -41,4 +39,12 @@ class ItemTableHeaderComponent : AbstractComponent, PageComponent {
         let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, cellHeight - 2 * AbstractComponent.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
     }
+    
+    
+    var height: CGFloat {
+        // dumb way to calculate whether display on 2 or on 3 rows depending on sensitive last column. TODO: could be improved to be more generic and less error prone
+        let rowsNum = CGFloat(self.headerData[self.headerData.count - 1].count > 15 ? 3 : 2)
+        return AbstractComponent.defaultRowHeight * rowsNum + AbstractComponent.gridPadding * 2 + ItemTableHeaderComponent.paddingTop
+    }
+    
 }

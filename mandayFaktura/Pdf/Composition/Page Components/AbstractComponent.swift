@@ -19,7 +19,7 @@ class AbstractComponent {
     
     let itemsTableWidth =  CGFloat(728)
     
-    let itemColumnsWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.1), CGFloat(0.05), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
+    let itemColumnsWidths = [CGFloat(0.05), CGFloat(0.3), CGFloat(0.08), CGFloat(0.07), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1), CGFloat(0.1)]
 
     static let defaultRowHeight = CGFloat(14)
     static let gridPadding = CGFloat(5)

@@ -43,6 +43,10 @@ struct Invoice: Document {
             return VatBreakdown.fromInvoiceItems(invoiceItems: self.items)
         }
     }
+    
+    func isInternational() -> Bool {
+        return self.seller.country != self.buyer.country
+    }
 }
 
 extension Invoice {
@@ -116,7 +120,6 @@ class InvoiceBuilder {
         self.reverseCharge = reverseCharge
         return self
     }
-
     
     func build() -> Invoice {
         return Invoice(issueDate: issueDate,

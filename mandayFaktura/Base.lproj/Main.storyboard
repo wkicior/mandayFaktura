@@ -72,8 +72,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField identifier="Miasto sprzedawcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pcd-am-mMi">
-                                <rect key="frame" x="103" y="207" width="337" height="21"/>
+                            <textField identifier="Miasto sprzedawcy" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pcd-am-mMi">
+                                <rect key="frame" x="103" y="207" width="189" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="wfo-Uh-e5Y">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -122,6 +122,15 @@ DQ
                                     <action selector="cancelButtonClicked:" target="ONU-i2-fbc" id="Ejb-hp-gF9"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2RA-5w-YgF">
+                                <rect key="frame" x="300" y="207" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Kraj" drawsBackground="YES" id="Bcg-vS-4Wc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="N8E-hm-EID" secondAttribute="trailing" constant="10" id="0nu-nS-cAl"/>
@@ -149,6 +158,7 @@ DQ
                     <connections>
                         <outlet property="accountNumberTextField" destination="Kl9-fu-xy9" id="3Ut-dH-Xkp"/>
                         <outlet property="cityTextCode" destination="Pcd-am-mMi" id="EfD-5W-CaB"/>
+                        <outlet property="countryTextField" destination="2RA-5w-YgF" id="Xmy-Zo-kon"/>
                         <outlet property="nameTextField" destination="KSd-Fi-VXt" id="qHq-6L-9Bp"/>
                         <outlet property="postalCodeTextField" destination="Xyz-Sz-0I1" id="wT0-ww-G3d"/>
                         <outlet property="streetAndNumberTextField" destination="N8E-hm-EID" id="qSH-yF-gVp"/>
@@ -580,7 +590,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField identifier="Miasto nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gQ-w3-4WF">
-                                <rect key="frame" x="217" y="170" width="256" height="22"/>
+                                <rect key="frame" x="217" y="170" width="147" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="hn8-yI-Za8">
                                     <font key="font" metaFont="system"/>
@@ -631,11 +641,21 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEM-l3-rb2">
+                                <rect key="frame" x="372" y="171" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Kraj" drawsBackground="YES" id="Aq6-E5-a89">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="additionalInfoTextField" destination="1vJ-tb-aOI" id="mwU-pa-MgR"/>
                         <outlet property="cityTextField" destination="8gQ-w3-4WF" id="AMM-nM-z4p"/>
+                        <outlet property="countryTextField" destination="iEM-l3-rb2" id="iYx-aR-9jP"/>
                         <outlet property="nameTextField" destination="nfK-sZ-S5Q" id="1n1-VX-Gng"/>
                         <outlet property="postalCodeTextField" destination="WfT-ff-JIW" id="nNQ-tT-PNd"/>
                         <outlet property="saveButton" destination="hpw-n0-xqE" id="lT2-HQ-FvG"/>
@@ -713,8 +733,8 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField toolTip="Miasto nabywcy" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gdj-AE-KTe">
-                                <rect key="frame" x="204" y="177" width="266" height="21"/>
+                            <textField toolTip="Miasto nabywcy" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gdj-AE-KTe">
+                                <rect key="frame" x="204" y="177" width="138" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="mWO-yg-z9z">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -761,6 +781,15 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qsh-cA-s4D">
+                                <rect key="frame" x="350" y="177" width="120" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Kraj" drawsBackground="YES" id="Ve6-eV-ocN">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eWG-pc-45C" secondAttribute="trailing" constant="10" id="8ef-bK-I17"/>
@@ -788,6 +817,7 @@ DQ
                     <connections>
                         <outlet property="additionalInfoTextField" destination="Bp9-YZ-WWf" id="86K-eR-Rb4"/>
                         <outlet property="cityTextField" destination="gdj-AE-KTe" id="sbv-0D-EQt"/>
+                        <outlet property="countryTextField" destination="Qsh-cA-s4D" id="i4V-0G-Z6e"/>
                         <outlet property="nameTextField" destination="CFI-dA-Wb9" id="VhV-da-LOc"/>
                         <outlet property="postalCodeTextField" destination="Spo-Nd-mKm" id="1rM-RC-mCe"/>
                         <outlet property="saveButton" destination="eWG-pc-45C" id="Yyi-2n-elU"/>
@@ -2459,7 +2489,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField toolTip="Miasto nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hT-Pw-flQ">
-                                <rect key="frame" x="184" y="33" width="262" height="22"/>
+                                <rect key="frame" x="184" y="33" width="154" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Miasto" drawsBackground="YES" id="1Nw-0b-stx">
                                     <font key="font" metaFont="system"/>
@@ -2508,6 +2538,15 @@ DQ
                                     <action selector="onSelectBuyer:" target="2Wo-L9-0o2" id="41O-nE-WBM"/>
                                 </connections>
                             </popUpButton>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-SK-vsI">
+                                <rect key="frame" x="346" y="33" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Kraj" drawsBackground="YES" id="0Fn-3p-RmV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="sJ8-C5-SHu" firstAttribute="leading" secondItem="Gvq-CF-2lL" secondAttribute="trailing" constant="1" id="A5o-qW-BaH"/>
@@ -2519,6 +2558,7 @@ DQ
                         <outlet property="additionalInfoTextField" destination="VKR-Ls-MCj" id="SgL-1Q-sha"/>
                         <outlet property="buyerNameTextField" destination="sJ8-C5-SHu" id="C4k-ku-Obf"/>
                         <outlet property="cityTextField" destination="6hT-Pw-flQ" id="ocP-Wi-Gms"/>
+                        <outlet property="countryTextField" destination="1cE-SK-vsI" id="6z9-s3-GfU"/>
                         <outlet property="postalCodeTextField" destination="pSb-Kd-8wj" id="8DY-OZ-jGy"/>
                         <outlet property="streetAndNumberTextField" destination="Uu1-eY-Zza" id="ZVn-0t-CGW"/>
                         <outlet property="taxCodeTextField" destination="vOg-Jd-m0M" id="vsD-tG-SY2"/>

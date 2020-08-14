@@ -19,6 +19,7 @@ import Foundation
         coder.encode(self.counterparty.taxCode, forKey: "taxCode")
         coder.encode(self.counterparty.accountNumber, forKey: "accountNumber")
         coder.encode(self.counterparty.additionalInfo, forKey: "additionalInfo")
+        coder.encode(self.counterparty.country, forKey: "country")
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -30,6 +31,8 @@ import Foundation
             let accountNumber = decoder.decodeObject(forKey: "accountNumber") as? String
         else { return nil }
         let additionalInfo = decoder.decodeObject(forKey: "additionalInfo") as? String
+        let country = decoder.decodeObject(forKey: "country") as? String
+
         self.init(CounterpartyBuilder()
             .withName(name)
             .withStreetAndNumber(streetAndNumber)
@@ -38,6 +41,7 @@ import Foundation
             .withTaxCode(taxCode)
             .withAccountNumber(accountNumber)
             .withAdditionalInfo(additionalInfo ?? "")
+            .withCountry(country ?? "")
             .build())
     }
     

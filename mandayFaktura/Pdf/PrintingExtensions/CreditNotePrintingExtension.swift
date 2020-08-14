@@ -8,9 +8,7 @@
 
 import Foundation
 
-internal extension CreditNote {
-    static let summaryColumnNames = ["Wartość Netto", "Kwota VAT", "Wartość Brutto"]
-    
+internal extension CreditNote {    
     var propertiesForDisplay: [String] {
         get {
             return [self.totalNetValue.formatAmount(), "*", self.totalVatValue.formatAmount(), self.totalGrossValue.formatAmount()]
@@ -58,5 +56,17 @@ internal extension CreditNote {
         termin płatności: \(DateFormatting.getDateString(paymentDueDate))
         """
         return summary
+    }
+    
+    var printedSeller: String {
+       self.seller.printedSeller(false)
+    }
+       
+    var printedBuyer: String {
+       self.seller.printedBuyer(false)
+    }
+    
+    var itemColumnNames: [String] {
+        return InvoiceItem.itemColumnNames(isI10n: false)
     }
 }

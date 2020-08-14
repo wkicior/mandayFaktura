@@ -41,8 +41,8 @@ extension InvoicePageDistribution {
             .withHeaderComponent(HeaderComponent(content: invoice.printedHeader))
             .withHeaderComponent(CopyLabelComponent(content: copyTemplate.rawValue))
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
-            .withCounterpartyComponent(SellerComponent(content: invoice.seller.printedSeller))
-            .withCounterpartyComponent(BuyerComponent(content: invoice.buyer.printedBuyer))
+            .withCounterpartyComponent(SellerComponent(content: invoice.printedSeller))
+            .withCounterpartyComponent(BuyerComponent(content: invoice.printedBuyer))
     }
    
     fileprivate func distributeVatBreakdown() {
@@ -58,9 +58,9 @@ extension InvoicePageDistribution {
     }
     
     fileprivate func distributeItemTableRow() {
-        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
+        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: self.invoice.itemColumnNames))
         for itemCounter in 0 ..< self.invoice.items.count {
-            let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay
+            let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay(isI10n: self.invoice.isInternational()) //TODO move this to invoice
             let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, withBackground: itemCounter % 2 != 0)
             appendIfFitsOtherwiseCreateNewPageComposition(item: itemTableComponent)
         }
@@ -84,7 +84,7 @@ extension InvoicePageDistribution {
         } else {
             self.pagesWithTableData.append(currentPageComposition!)
             self.initNewPageWithMinimumComposition(copyTemplate)
-            currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: InvoiceItem.itemColumnNames))
+            currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: self.invoice.itemColumnNames))
             currentPageComposition!.withItemTableRowComponent(item)
         }
     }
