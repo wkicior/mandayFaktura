@@ -9,11 +9,12 @@
 import Foundation
 
 class ItemsSummaryComponent : AbstractComponent, PageComponent {
-    let height = defaultRowHeight + 2 * AbstractComponent.gridPadding
     var position: NSPoint = NSPoint(x: 0, y: 0)
     let summaryData: [String]
-    init(summaryData: [String]) {
-        self.summaryData = ["Razem:"] + summaryData
+    let rowsCount: Int
+    init(summaryData: [String], isI10n: Bool) {
+        self.summaryData = ["Razem:".appendI10n("Total:", isI10n)] + summaryData
+        self.rowsCount = isI10n ? 2 : 1
         super.init(debug: InvoicePageComposition.debug)
     }
     
@@ -31,5 +32,9 @@ class ItemsSummaryComponent : AbstractComponent, PageComponent {
         drawBorder(xLeft, yBottom, height, width)
         let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, height - 2 * AbstractComponent.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+    }
+    
+    var height: CGFloat {
+        return CGFloat(self.rowsCount) * (AbstractComponent.defaultRowHeight + 2 * AbstractComponent.gridPadding)
     }
 }

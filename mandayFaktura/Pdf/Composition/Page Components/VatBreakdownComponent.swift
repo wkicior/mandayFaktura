@@ -13,17 +13,19 @@ class VatBreakdownComponent : AbstractComponent, PageComponent {
     private static let rowHeight = AbstractComponent.defaultRowHeight + AbstractComponent.gridPadding * 2
     private let breakdownLabel: String
     let breakdownTableData: [[String]]
+    let minRowsCount: Int
     var position: NSPoint = NSPoint(x: 0, y: 0)
     
-    init(breakdownTableData: [[String]]) {
-        self.breakdownLabel = "W tym:"
+    init(breakdownTableData: [[String]], isI10n: Bool) {
+        self.breakdownLabel = "W tym:".appendI10n("Including:", isI10n)
         self.breakdownTableData = breakdownTableData
+        self.minRowsCount = isI10n ? 2 : 1
         super.init(debug: InvoicePageComposition.debug)
     }
     
     var height: CGFloat {
         get {
-            return heightUpTo(first: self.breakdownTableData.count)
+            return heightUpTo(first: max(self.breakdownTableData.count, minRowsCount))
         }
     }
     
@@ -33,34 +35,36 @@ class VatBreakdownComponent : AbstractComponent, PageComponent {
     
     func draw(at: NSPoint) {
         self.position = at
-        drawbreakdownLabelCell(content: breakdownLabel)
+        drawbreakdownLabelCell()
+        let isOneItemWithBiggerMinRowsCount = self.minRowsCount > 1 && breakdownTableData.count == 1
         for i in 0 ..< breakdownTableData.count {
             for j in 0 ..< breakdownTableData[i].count {
-                drawVatBreakdownCell(content: breakdownTableData[i][j], row: i,column: j)
+                drawVatBreakdownCell(content: breakdownTableData[i][j], row: i,column: j, rowsCount: isOneItemWithBiggerMinRowsCount ? 2 : 1)
+                
             }
         }
     }
     
-    private func drawbreakdownLabelCell(content: String) {
+    private func drawbreakdownLabelCell() {
         let shift = 4
         let yBottom = self.position.y - height
         let xLeft = self.position.x + getColumnXOffset(column: shift)
         let width = getColumnWidth(column: shift)
         drawBorder(xLeft, yBottom, height, width)
         let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, height - 2 * AbstractComponent.gridPadding)
-        content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
+        self.breakdownLabel.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     
-    private func drawVatBreakdownCell(content: String, row: Int, column: Int) {
+    private func drawVatBreakdownCell(content: String, row: Int, column: Int, rowsCount: Int) {
         let shift = 5
-        let yBottom = self.position.y - heightUpTo(first: row + 1)
+        let yBottom = self.position.y - heightUpTo(first: row + 1) * CGFloat(rowsCount)
         let xLeft = self.position.x + getColumnXOffset(column: column + shift)
         let width = getColumnWidth(column: column + shift)
         if row % 2 == 1{
-            fillCellBackground(x: xLeft, y: yBottom, width:  width, height: VatBreakdownComponent.rowHeight, color: lightCellColor)
+            fillCellBackground(x: xLeft, y: yBottom, width:  width, height: VatBreakdownComponent.rowHeight * CGFloat(rowsCount), color: lightCellColor)
         }
-        drawBorder(xLeft, yBottom, VatBreakdownComponent.rowHeight, width)
-        let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, VatBreakdownComponent.rowHeight - 2 * AbstractComponent.gridPadding)
+        drawBorder(xLeft, yBottom, VatBreakdownComponent.rowHeight * CGFloat(rowsCount), width)
+        let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, VatBreakdownComponent.rowHeight * CGFloat(rowsCount) - 2 * AbstractComponent.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesCenter)
     }
     

@@ -83,4 +83,10 @@ internal extension Invoice {
     var itemColumnNames: [String] {
         return InvoiceItem.itemColumnNames(isI10n: self.isInternational())
     }
+    
+    var invoiceItemsPropertiesForDisplay: [[String]] {
+        return self.items.enumerated().map {
+            [($0 + 1).description] + $1.propertiesForDisplay(isI10n: self.isInternational())
+        }
+    }
 }

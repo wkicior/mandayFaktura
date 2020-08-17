@@ -46,7 +46,7 @@ extension InvoicePageDistribution {
     }
    
     fileprivate func distributeVatBreakdown() {
-        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay)
+        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay, isI10n: invoice.isInternational())
         let vatBreakdownTableData = getVatBreakdownComponent()
         appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(items: [itemsSummaryLayout, vatBreakdownTableData])
     }
@@ -58,12 +58,10 @@ extension InvoicePageDistribution {
     }
     
     fileprivate func distributeItemTableRow() {
-        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: self.invoice.itemColumnNames))
-        for itemCounter in 0 ..< self.invoice.items.count {
-            let properties = [(itemCounter + 1).description] + self.invoice.items[itemCounter].propertiesForDisplay(isI10n: self.invoice.isInternational()) //TODO move this to invoice
-            let itemTableComponent: ItemTableRowComponent = ItemTableRowComponent(tableData: properties, withBackground: itemCounter % 2 != 0)
-            appendIfFitsOtherwiseCreateNewPageComposition(item: itemTableComponent)
-        }
+        currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData:self.invoice.itemColumnNames))
+        self.invoice.invoiceItemsPropertiesForDisplay.enumerated()
+            .map({ ItemTableRowComponent(tableData: $1, withBackground: $0 % 2 != 0)})
+            .forEach { appendIfFitsOtherwiseCreateNewPageComposition(item: $0) }
     }
     
     private func getVatBreakdownComponent() -> VatBreakdownComponent {
@@ -72,7 +70,7 @@ extension InvoicePageDistribution {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return VatBreakdownComponent(breakdownTableData: breakdownTableData)
+        return VatBreakdownComponent(breakdownTableData: breakdownTableData, isI10n: self.invoice.isInternational())
     }
 }
 

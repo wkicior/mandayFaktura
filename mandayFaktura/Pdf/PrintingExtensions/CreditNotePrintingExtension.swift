@@ -69,4 +69,10 @@ internal extension CreditNote {
     var itemColumnNames: [String] {
         return InvoiceItem.itemColumnNames(isI10n: false)
     }
+    
+    var invoiceItemsPropertiesForDisplay: [[String]] {
+        return self.items.enumerated().map {
+            [($0 + 1).description] + $1.propertiesForDisplay(isI10n: false)
+        }
+    }
 }
