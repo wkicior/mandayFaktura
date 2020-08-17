@@ -29,7 +29,7 @@ extension Counterparty {
         \(name)
         \(streetAndNumber)
         \(postalCode) \(city) \(country)
-         \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
+        \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
         \(additionalInfo)
         """
         return buyer
