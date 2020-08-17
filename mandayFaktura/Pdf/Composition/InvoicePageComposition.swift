@@ -18,7 +18,7 @@ struct InvoicePageComposition: DocumentPageComposition {
     static let pdfWidth = CGFloat(768.0)
     
     static let headerYPosition = CGFloat(972)
-    static let headerXPosition = 1/2 * InvoicePageComposition.pdfWidth + CGFloat(100.0)
+    static let headerXPosition = 1/2 * InvoicePageComposition.pdfWidth// + CGFloat(100.0)
     static let marginBottom = CGFloat(52)
 
     let headerComponents: [PageComponent]

@@ -53,13 +53,18 @@ internal extension Invoice {
         var summary =
         """
         \(appendI10n("Do zapłaty", "Total due")): \(totalGrossValue.formatAmount()) PLN
-        słownie: \(totalGrossValue.spelledOut) PLN
-        \(forI10nOnly("in words: " + totalGrossValue.spelledOutEn + " PLN"))
-        \(appendI10n("forma płatności", "payment form")): \(paymentFormLabel)
-        \(appendI10n("termin płatności", "due date")): \(DateFormatting.getDateString(paymentDueDate))
+        Słownie: \(totalGrossValue.spelledOut) PLN
+        """
+        if (self.isInternational()) {
+            summary += "\n" + forI10nOnly("In words: " + totalGrossValue.spelledOutEn + " PLN")
+        }
+        summary += "\n" +
+        """
+        \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
+        \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
         """
         if (self.reverseCharge) {
-            summary += appendI10n("\nRozliczenie podatku: odwrotne obciążenie", "Tax to be accounted: reverse charge")
+            summary += appendI10n("\nRozliczenie podatku", "Tax to be accounted") + ": " + appendI10n("odwrotne obciążenie", "reverse charge")
         }
         return summary
     }
@@ -69,7 +74,7 @@ internal extension Invoice {
     }
     
     var printedBuyer: String {
-        self.seller.printedBuyer(self.isInternational())
+        self.buyer.printedBuyer(self.isInternational())
     }
     
     func appendI10n(_ pl: String, _ en: String) -> String {

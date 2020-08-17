@@ -23,7 +23,7 @@ class PaymentSummaryComponent : AbstractComponent, PageComponent {
         let yBottom = at.y - height
         let xLeft = at.x + CGFloat(35)
         drawPaymentSummaryHorizontalLine(at: at)
-        let width = 1/2.3 * InvoicePageComposition.pdfWidth
+        let width = 0.9 * InvoicePageComposition.pdfWidth
         markBackgroundIfDebug(xLeft, yBottom, width, height)
         markBackgroundIfDebug(xLeft, yBottom, width, PaymentSummaryComponent.notesHeight)
         let rect = NSMakeRect(xLeft, yBottom, width, PaymentSummaryComponent.notesHeight)

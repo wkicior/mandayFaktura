@@ -19,6 +19,15 @@ extension String {
 
 enum CopyTemplate: String {
     case original = "oryginał", copy = "kopia"
+    
+    func getI10nValue(isI10n: Bool) -> String {
+        switch (self) {
+        case .original:
+            return self.rawValue.appendI10n("original", isI10n)
+        case .copy:
+            return self.rawValue.appendI10n("copy", isI10n)
+        }
+    }
 }
 
 protocol PdfDocument {
