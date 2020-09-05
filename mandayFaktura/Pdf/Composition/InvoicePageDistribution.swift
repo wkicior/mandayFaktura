@@ -38,7 +38,7 @@ class InvoicePageDistribution: DocumentPageDistribution {
 extension InvoicePageDistribution {
     func initNewPageWithMinimumComposition(_ copyTemplate: CopyTemplate) {
         self.currentPageComposition = anInvoicePageComposition()
-            .withHeaderComponent(HeaderComponent(content: invoice.printedHeader))
+            .withHeaderComponent(InvoiceHeaderComponent(content: invoice.printedHeader))
             .withHeaderComponent(CopyLabelComponent(content: copyTemplate.getI10nValue(isI10n: self.invoice.isInternational())))
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: invoice.printedDates))
             .withCounterpartyComponent(SellerComponent(content: invoice.printedSeller))
@@ -112,7 +112,7 @@ extension InvoicePageDistribution {
     func addPageNumbering() {
         if (pagesWithTableData.count > 1) {
             (0 ..< pagesWithTableData.count)
-                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count))})
+                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count, isI10n: self.invoice.isInternational()))})
         }
     }
     

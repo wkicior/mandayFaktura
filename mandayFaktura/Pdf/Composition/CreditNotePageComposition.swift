@@ -18,7 +18,7 @@ struct CreditNotePageComposition: DocumentPageComposition {
     static let pdfWidth = CGFloat(768.0)
     
     static let headerYPosition = CGFloat(972)
-    static let headerXPosition = 1/2 * CreditNotePageComposition.pdfWidth + CGFloat(70.0)
+    static let headerXPosition = leftMargin
     static let marginBottom = CGFloat(52)
 
     

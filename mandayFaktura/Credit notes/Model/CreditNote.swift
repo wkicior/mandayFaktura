@@ -59,6 +59,10 @@ struct CreditNote: Document {
     func differenceVatBreakdown(on: Invoice) -> VatBreakdown {
         return vatBreakdown - on.vatBreakdown
     }
+    
+    func isInternational() -> Bool {
+        return self.seller.country != self.buyer.country
+    }
 }
 
 
@@ -88,7 +92,6 @@ class CreditNoteBuilder {
         return self
     }
    
-    
     func withSellingDate(_ sellingDate: Date) -> CreditNoteBuilder {
         self.sellingDate = sellingDate
         return self
@@ -128,7 +131,6 @@ class CreditNoteBuilder {
         self.invoiceNumber = invoiceNumber
         return self
     }
-    
     
     func build() -> CreditNote {
         return CreditNote(issueDate: issueDate,

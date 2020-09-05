@@ -9,7 +9,7 @@
 import Foundation
 import AppKit
 
-class HeaderComponent :  AbstractComponent, PageComponent {
+class InvoiceHeaderComponent :  AbstractComponent, PageComponent {
     var height: CGFloat {
         get {
             return CGFloat(42.0)

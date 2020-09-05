@@ -227,6 +227,8 @@
 		D3E312CA20A4DCFF00C84CEE /* VatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */; };
 		D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */; };
 		D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */; };
+		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
+		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
 		D3F0A510221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
 		D3F0A512221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */; };
@@ -258,8 +260,8 @@
 		D3F3EA47227997E700996B9B /* InvoiceFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F3EA46227997E700996B9B /* InvoiceFacadeTests.swift */; };
 		D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
 		D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CB22075ED00057540E /* InvoicePageComposition.swift */; };
-		D3F745CF220775800057540E /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CE220775800057540E /* HeaderComponent.swift */; };
-		D3F745D0220775800057540E /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CE220775800057540E /* HeaderComponent.swift */; };
+		D3F745CF220775800057540E /* InvoiceHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CE220775800057540E /* InvoiceHeaderComponent.swift */; };
+		D3F745D0220775800057540E /* InvoiceHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745CE220775800057540E /* InvoiceHeaderComponent.swift */; };
 		D3F745D322077CBD0057540E /* CopyLabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D222077CBD0057540E /* CopyLabelComponent.swift */; };
 		D3F745D422077CBD0057540E /* CopyLabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D222077CBD0057540E /* CopyLabelComponent.swift */; };
 		D3F745D622077F500057540E /* HeaderInvoiceDatesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F745D522077F500057540E /* HeaderInvoiceDatesComponent.swift */; };
@@ -436,6 +438,7 @@
 		D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatSettingsViewController.swift; sourceTree = "<group>"; };
 		D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatesTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverVatRateRepository.swift; sourceTree = "<group>"; };
+		D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
 		D3F0A514221DF8DC00CC0E08 /* PaymentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsViewController.swift; sourceTree = "<group>"; };
@@ -452,7 +455,7 @@
 		D3F0A53B222327E100CC0E08 /* DocumentPageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPageDistribution.swift; sourceTree = "<group>"; };
 		D3F3EA46227997E700996B9B /* InvoiceFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceFacadeTests.swift; sourceTree = "<group>"; };
 		D3F745CB22075ED00057540E /* InvoicePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePageComposition.swift; sourceTree = "<group>"; };
-		D3F745CE220775800057540E /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
+		D3F745CE220775800057540E /* InvoiceHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F745D222077CBD0057540E /* CopyLabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLabelComponent.swift; sourceTree = "<group>"; };
 		D3F745D522077F500057540E /* HeaderInvoiceDatesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInvoiceDatesComponent.swift; sourceTree = "<group>"; };
 		D3F745D8220785B70057540E /* AbstractComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractComponent.swift; sourceTree = "<group>"; };
@@ -1146,10 +1149,10 @@
 				D3F745F6220A32950057540E /* Page Components */,
 				D3F0A53B222327E100CC0E08 /* DocumentPageDistribution.swift */,
 				D3F0A5352222E8B300CC0E08 /* CreditNotePageDistribution.swift */,
+				D3956A8E222333D5004144A1 /* CreditNotePageComposition.swift */,
 				D3F74605220E1E560057540E /* InvoicePageDistribution.swift */,
 				D3F745CB22075ED00057540E /* InvoicePageComposition.swift */,
 				D3956A9022233416004144A1 /* DocumentPageComposition.swift */,
-				D3956A8E222333D5004144A1 /* CreditNotePageComposition.swift */,
 				D370A80B2027A60600FFB262 /* DateFormatting.swift */,
 				D370A7FC202757AF00FFB262 /* FontFormatting.swift */,
 				D34D0F2320210311000D1EC6 /* DocumentPdfPage.swift */,
@@ -1170,7 +1173,8 @@
 				D3F745D8220785B70057540E /* AbstractComponent.swift */,
 				D3F745D522077F500057540E /* HeaderInvoiceDatesComponent.swift */,
 				D3F745D222077CBD0057540E /* CopyLabelComponent.swift */,
-				D3F745CE220775800057540E /* HeaderComponent.swift */,
+				D3F745CE220775800057540E /* InvoiceHeaderComponent.swift */,
+				D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */,
 				D3F745FF220A38C00057540E /* ItemTableHeaderComponent.swift */,
 				D3F74602220B677B0057540E /* PageComponent.swift */,
 				D3F7460A220EF5C80057540E /* PageNumberingComponent.swift */,
@@ -1389,7 +1393,7 @@
 				D34339D121A48D6100C583D2 /* DocumentListTableViewDelegate.swift in Sources */,
 				D34339D221A48D6100C583D2 /* DragOrderingDestination.swift in Sources */,
 				D3F0A513221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */,
-				D3F745D0220775800057540E /* HeaderComponent.swift in Sources */,
+				D3F745D0220775800057540E /* InvoiceHeaderComponent.swift in Sources */,
 				D34339D321A48D6100C583D2 /* InvoiceExistsError.swift in Sources */,
 				D3F745EF2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
 				D3B6F5F722341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift in Sources */,
@@ -1442,6 +1446,7 @@
 				D3F745F22208B7230057540E /* NotesComponent.swift in Sources */,
 				D34339F321A48D6100C583D2 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
 				D34339F421A48D6100C583D2 /* PaymentDateFrom.swift in Sources */,
+				D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */,
 				D34339F521A48D6100C583D2 /* ItemDefinitionRepository.swift in Sources */,
 				D34339F621A48D6100C583D2 /* EditBuyerController.swift in Sources */,
 				D3F0A53A2222E9DB00CC0E08 /* CreditNotePrintingExtension.swift in Sources */,
@@ -1528,7 +1533,7 @@
 				D34D0F11201D3AA3000D1EC6 /* DocumentListTableViewDelegate.swift in Sources */,
 				D3D82329206043080031C2D1 /* DragOrderingDestination.swift in Sources */,
 				D3F0A512221DD6F100CC0E08 /* InvoiceDatesViewController.swift in Sources */,
-				D3F745CF220775800057540E /* HeaderComponent.swift in Sources */,
+				D3F745CF220775800057540E /* InvoiceHeaderComponent.swift in Sources */,
 				D324860820697C5E00BB79F6 /* InvoiceExistsError.swift in Sources */,
 				D3F745EE2208B4450057540E /* PaymentSummaryComponent.swift in Sources */,
 				D3B6F5F622341D0B00D05266 /* CreditNoteNumberingSettingsCoding.swift in Sources */,
@@ -1581,6 +1586,7 @@
 				D38997312219B733004CC30C /* CreditNote.swift in Sources */,
 				D3F745F12208B7230057540E /* NotesComponent.swift in Sources */,
 				D3052F4D20434E910064DF10 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
+				D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */,
 				D32ED328215AC0B600BDC6BE /* PaymentDateFrom.swift in Sources */,
 				D3052F51204B1B570064DF10 /* ItemDefinitionRepository.swift in Sources */,
 				D3B7C959207FDD3400432176 /* EditBuyerController.swift in Sources */,

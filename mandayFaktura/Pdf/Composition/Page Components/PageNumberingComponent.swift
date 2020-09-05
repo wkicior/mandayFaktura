@@ -12,8 +12,9 @@ class PageNumberingComponent: AbstractComponent, PageComponent {
     let height = AbstractComponent.defaultRowHeight
     let content: String
     
-    init(page: Int, of: Int) {
-        self.content = "Strona " + String(page) + " z " + String(of)
+    init(page: Int, of: Int, isI10n: Bool) {
+        self.content = ("Strona " + String(page) + " z " + String(of))
+            .appendI10n("Page " + String(page) + " of " + String(of), isI10n)
         super.init(debug: InvoicePageComposition.debug)
     }
     

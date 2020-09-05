@@ -9,11 +9,12 @@
 import Foundation
 
 class CreditNoteItemsSummaryComponent : AbstractComponent, PageComponent {
-    let height = defaultRowHeight + 2 * AbstractComponent.gridPadding
     var position: NSPoint = NSPoint(x: 0, y: 0)
     let summaryData: [String]
-    init(summaryData: [String]) {
-        self.summaryData = ["Korekta:"] + summaryData
+    let rowsCount: Int
+    init(summaryData: [String], isI10n: Bool) {
+        self.summaryData = ["Korekta:".appendI10n("Change:", isI10n)] + summaryData
+        self.rowsCount = isI10n ? 2 : 1
         super.init(debug: InvoicePageComposition.debug)
     }
     
@@ -30,5 +31,9 @@ class CreditNoteItemsSummaryComponent : AbstractComponent, PageComponent {
         drawBorder(xLeft, yBottom, height, width)
         let rect = NSMakeRect(xLeft, yBottom + AbstractComponent.gridPadding, width, height - 2 * AbstractComponent.gridPadding)
         content.draw(in: rect, withAttributes: self.fontFormatting.fontAttributesBoldCenter)
+    }
+    
+    var height: CGFloat {
+        return CGFloat(self.rowsCount) * (AbstractComponent.defaultRowHeight + 2 * AbstractComponent.gridPadding)
     }
 }

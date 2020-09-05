@@ -35,7 +35,7 @@ internal extension Invoice {
     var creditedNoteHeader: String {
         let header =
         """
-        do faktury \(number) z dnia \(DateFormatting.getDateString(issueDate))
+        \(appendI10n("do faktury " + number + " z dnia " + DateFormatting.getDateString(issueDate), "issued to invoice no. " + number + " of " + DateFormatting.getDateString(issueDate)))
         """
         return header
     }
@@ -43,8 +43,8 @@ internal extension Invoice {
     var printedDates: String {
         let header =
         """
-        \(appendI10n("Data wystawienia", "Date of issue")):  \(DateFormatting.getDateString(issueDate))
-        \(appendI10n("Data sprzedaży", "Date of sale")): \(DateFormatting.getDateString(sellingDate))
+        \("Data wystawienia".appendI10n("Date of issue", self.isInternational())):  \(DateFormatting.getDateString(issueDate))
+        \("Data sprzedaży".appendI10n("Date of sale", self.isInternational())): \(DateFormatting.getDateString(sellingDate))
         """
         return header
     }
