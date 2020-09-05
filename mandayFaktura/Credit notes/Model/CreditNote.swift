@@ -19,6 +19,7 @@ struct CreditNote: Document {
     let paymentDueDate: Date
     let reason: String
     let invoiceNumber: String
+    let reverseCharge: Bool
 
     var totalNetValue: Decimal {
         get {
@@ -61,7 +62,7 @@ struct CreditNote: Document {
     }
     
     func isInternational() -> Bool {
-        return self.seller.country != self.buyer.country
+        return self.seller.country != self.buyer.country && !self.buyer.country.isEmpty
     }
 }
 
@@ -81,6 +82,7 @@ class CreditNoteBuilder {
     private var paymentDueDate = Date()
     private var reason = ""
     private var invoiceNumber: String?
+    private var reverseCharge = false
     
     func withNumber(_ number: String) -> CreditNoteBuilder {
         self.number = number
@@ -132,6 +134,11 @@ class CreditNoteBuilder {
         return self
     }
     
+    func withReverseCharge(_ reverseCharge: Bool) -> CreditNoteBuilder {
+        self.reverseCharge = reverseCharge
+        return self
+    }
+    
     func build() -> CreditNote {
         return CreditNote(issueDate: issueDate,
                        number: number,
@@ -142,7 +149,8 @@ class CreditNoteBuilder {
                        paymentForm: paymentForm,
                        paymentDueDate: paymentDueDate,
                        reason: reason,
-                       invoiceNumber: invoiceNumber!
+                       invoiceNumber: invoiceNumber!,
+                       reverseCharge: reverseCharge
         )
     }
 }

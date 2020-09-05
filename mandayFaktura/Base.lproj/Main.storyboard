@@ -2356,9 +2356,11 @@ DQ
                                     <segue destination="xVm-3h-MS1" kind="modal" id="S1B-Rf-RhN"/>
                                 </connections>
                             </button>
-                            <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A14-zx-FZb">
-                                <rect key="frame" x="10" y="44" width="990" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField toolTip="Dodatkowe uwagi dotyczące faktury" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A14-zx-FZb">
+                                <rect key="frame" x="10" y="44" width="826" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="uJj-rt-hBn"/>
+                                </constraints>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Przyczyna korekty/Uwagi" drawsBackground="YES" allowsEditingTextAttributes="YES" id="zqo-Hc-a0C">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2401,10 +2403,20 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mt-jN-Tck">
+                                <rect key="frame" x="842" y="103" width="151" height="18"/>
+                                <buttonCell key="cell" type="check" title="Odwrotne obciążenie" bezelStyle="regularSquare" imagePosition="left" inset="2" id="2nd-mg-xiF">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Tev-zY-Yj0" firstAttribute="top" secondItem="lVG-Qa-JwV" secondAttribute="top" constant="8" id="GRA-99-GTq"/>
                             <constraint firstItem="0ot-tv-6bf" firstAttribute="leading" secondItem="lVG-Qa-JwV" secondAttribute="leading" constant="10" id="Ncy-2G-gEV"/>
+                            <constraint firstItem="A14-zx-FZb" firstAttribute="leading" secondItem="lVG-Qa-JwV" secondAttribute="leading" constant="10" id="dT7-YJ-dzE"/>
+                            <constraint firstItem="8mt-jN-Tck" firstAttribute="leading" secondItem="A14-zx-FZb" secondAttribute="trailing" constant="8" id="pa9-P3-fTv"/>
+                            <constraint firstAttribute="trailing" secondItem="8mt-jN-Tck" secondAttribute="trailing" constant="27" id="s5U-Op-fml"/>
                             <constraint firstItem="Tev-zY-Yj0" firstAttribute="leading" secondItem="0ot-tv-6bf" secondAttribute="trailing" constant="15" id="w0Y-LV-vKu"/>
                         </constraints>
                     </view>
@@ -2418,6 +2430,7 @@ DQ
                         <outlet property="postalCodeTextField" destination="pSb-Kd-8wj" id="0pC-hN-Bmu"/>
                         <outlet property="previewButton" destination="bpZ-x8-h20" id="CXA-qF-O1N"/>
                         <outlet property="removeItemButton" destination="cle-5p-sRV" id="YsA-pW-TuW"/>
+                        <outlet property="reverseChargeButton" destination="8mt-jN-Tck" id="tE4-Lf-p0m"/>
                         <outlet property="saveButton" destination="eXM-mi-w0a" id="POj-cS-pBw"/>
                         <outlet property="saveItemButton" destination="0oH-9a-kLt" id="PFV-Cc-dwA"/>
                         <outlet property="streetAndNumberTextField" destination="Uu1-eY-Zza" id="LDE-MS-7Tp"/>
@@ -2578,13 +2591,13 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="515-Gh-q6D">
-                                <rect key="frame" x="0.0" y="28" width="998" height="229"/>
+                                <rect key="frame" x="0.0" y="28" width="998" height="85"/>
                                 <clipView key="contentView" id="za3-co-qHH">
-                                    <rect key="frame" x="1" y="0.0" width="996" height="228"/>
+                                    <rect key="frame" x="1" y="0.0" width="996" height="84"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="48" headerView="Y3f-VO-oMP" viewBased="YES" id="K7l-SJ-g6u">
-                                            <rect key="frame" x="0.0" y="0.0" width="996" height="205"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="996" height="65"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -3319,13 +3332,13 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="luC-Kk-8jv"/>
-        <segue reference="wQo-ST-eOV"/>
-        <segue reference="Zcr-aY-8e1"/>
-        <segue reference="l92-wc-pcR"/>
+        <segue reference="Fck-UU-eCt"/>
+        <segue reference="Z5X-n5-XMy"/>
+        <segue reference="YuM-Kf-ezH"/>
+        <segue reference="cO2-sR-xaW"/>
         <segue reference="ar3-AU-xhM"/>
         <segue reference="o5h-iw-LOf"/>
-        <segue reference="pNf-8A-Ove"/>
+        <segue reference="S1B-Rf-RhN"/>
         <segue reference="yaH-hv-UcY"/>
         <segue reference="cPw-Au-6Bj"/>
         <segue reference="iWA-in-tWC"/>

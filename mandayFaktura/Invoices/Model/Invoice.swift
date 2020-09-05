@@ -45,7 +45,7 @@ struct Invoice: Document {
     }
     
     func isInternational() -> Bool {
-        return self.seller.country != self.buyer.country
+        return self.seller.country != self.buyer.country && !self.buyer.country.isEmpty
     }
 }
 

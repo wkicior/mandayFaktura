@@ -61,6 +61,9 @@ internal extension CreditNote {
         \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
         \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
         """
+        if (self.reverseCharge) {
+            summary += appendI10n("\nRozliczenie podatku", "Tax to be accounted") + ": " + appendI10n("odwrotne obciążenie", "reverse charge")
+        }
         return summary
     }
     

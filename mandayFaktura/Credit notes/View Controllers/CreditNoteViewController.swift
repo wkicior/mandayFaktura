@@ -33,10 +33,11 @@ class CreditNoteViewController: NSViewController {
     @IBOutlet weak var invoiceIssueDate: NSDatePicker!
     @IBOutlet weak var creditNoteNumber: NSTextField!
     @IBOutlet weak var creditNoteIssueDate: NSDatePicker!
+    @IBOutlet weak var reverseChargeButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.saveButton.isEnabled = false
+        self.saveButton.isEnabled = true
         NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange(_:)), name:NSControl.textDidChangeNotification, object: nil)
         self.view.wantsLayer = true
         NotificationCenter.default.addObserver(forName: BuyerViewControllerConstants.BUYER_SELECTED_NOTIFICATION,
@@ -48,7 +49,7 @@ class CreditNoteViewController: NSViewController {
         self.notesTextField.stringValue = invoice!.notes
         self.previewButton.isEnabled = true
         self.creditNoteNumber.stringValue = creditNoteNumberingFacade.getNextCreditNoteNumber()
-
+        self.reverseChargeButton.state = invoice!.reverseCharge ? .on : .off
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
@@ -104,6 +105,7 @@ class CreditNoteViewController: NSViewController {
                 .withPaymentForm(self.paymentDetailsViewController!.paymentForm!)
                 .withReason(self.notesTextField.stringValue)
                 .withInvoiceNumber(self.invoice!.number)
+                .withReverseCharge(self.reverseChargeButton.state == .on)
                 .build()
         }
     }
