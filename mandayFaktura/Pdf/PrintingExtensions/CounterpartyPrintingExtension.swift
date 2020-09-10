@@ -17,9 +17,19 @@ extension Counterparty {
         \(streetAndNumber)
         \(postalCode) \(city) \(country)
         \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
-        \("Nr konta".appendI10n("IBAN", isInternational)): \(accountNumber)
         """
         return seller
+    }
+    
+    func printedSellerAccountDetails(_ isInternational: Bool) -> String {
+        var accountDetails =
+        """
+        \("Nr konta".appendI10n("IBAN", isInternational)): \(accountNumber)
+        """
+        if (bicCode != "") {
+            accountDetails += "\nBIC/SWIFT: \(bicCode)"
+        }
+        return accountDetails
     }
     
     func printedBuyer(_ isInternational: Bool) -> String {

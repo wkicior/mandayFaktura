@@ -17,6 +17,7 @@ struct Counterparty {
     let accountNumber: String
     let additionalInfo: String
     let country: String
+    let bicCode: String
 }
 
 extension Counterparty: Equatable {
@@ -29,7 +30,8 @@ extension Counterparty: Equatable {
             lhs.taxCode == rhs.taxCode &&
             lhs.accountNumber == rhs.accountNumber &&
             lhs.additionalInfo == rhs.additionalInfo &&
-            lhs.country == rhs.country
+            lhs.country == rhs.country &&
+            lhs.bicCode == rhs.bicCode
     }
 }
 
@@ -42,6 +44,7 @@ class CounterpartyBuilder {
     var accountNumber: String?
     var additionalInfo: String?
     var country: String?
+    var bicCode: String?
     
     func withName(_ name: String) -> CounterpartyBuilder {
         self.name = name;
@@ -83,6 +86,11 @@ class CounterpartyBuilder {
         return self
     }
     
+    func withBicCode(_ bicCode: String) -> CounterpartyBuilder {
+           self.bicCode = bicCode
+           return self
+       }
+    
     func build() -> Counterparty {
         return Counterparty(name: name ?? "",
                             streetAndNumber: streetAndNumber ?? "",
@@ -91,7 +99,8 @@ class CounterpartyBuilder {
                             taxCode: taxCode ?? "",
                             accountNumber: accountNumber ?? "",
                             additionalInfo: additionalInfo ?? "",
-                            country: country ?? "")
+                            country: country ?? "",
+                            bicCode: bicCode ?? "")
     }
 }
 

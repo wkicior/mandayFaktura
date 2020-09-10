@@ -50,7 +50,11 @@ internal extension Invoice {
     }
     
     var printedPaymentSummary: String {
-        var summary =
+        var summary = ""
+        if (self.reverseCharge) {
+            summary += appendI10n("Rozliczenie podatku", "Tax to be accounted") + ": " + appendI10n("odwrotne obciążenie", "reverse charge") + "\n"
+        }
+        summary +=
         """
         \(appendI10n("Do zapłaty", "Total due")): \(totalGrossValue.formatAmount()) PLN
         Słownie: \(totalGrossValue.spelledOut) PLN
@@ -62,10 +66,9 @@ internal extension Invoice {
         """
         \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
         \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
+        \(seller.printedSellerAccountDetails(self.isInternational()))
         """
-        if (self.reverseCharge) {
-            summary += appendI10n("\nRozliczenie podatku", "Tax to be accounted") + ": " + appendI10n("odwrotne obciążenie", "reverse charge")
-        }
+        
         return summary
     }
     

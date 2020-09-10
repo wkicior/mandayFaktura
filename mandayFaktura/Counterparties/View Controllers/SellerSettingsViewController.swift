@@ -17,7 +17,7 @@ class SellerSettingsViewController: NSViewController {
     @IBOutlet weak var cityTextCode: NSTextField!
     @IBOutlet weak var taxCodeTextField: NSTextField!
     @IBOutlet weak var accountNumberTextField: NSTextField!
-    
+    @IBOutlet weak var bicCodeTextField: NSTextField!
     @IBOutlet weak var countryTextField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,7 @@ class SellerSettingsViewController: NSViewController {
         taxCodeTextField.stringValue = seller?.taxCode ?? ""
         accountNumberTextField.stringValue = seller?.accountNumber ?? ""
         countryTextField.stringValue = seller?.country ?? ""
+        bicCodeTextField.stringValue = seller?.bicCode ?? ""
     }
     
     fileprivate func buildSellerFromFields() -> Counterparty {
@@ -55,6 +56,7 @@ class SellerSettingsViewController: NSViewController {
             .withAccountNumber(accountNumberTextField.stringValue)
             .withStreetAndNumber(streetAndNumberTextField.stringValue)
             .withCountry(countryTextField.stringValue)
+            .withBicCode(bicCodeTextField.stringValue)
             .build()
     }
 }

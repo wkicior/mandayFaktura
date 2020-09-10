@@ -131,6 +131,15 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3me-1c-NLW">
+                                <rect key="frame" x="10" y="114" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="BIC/SWIFT" drawsBackground="YES" id="Jeb-92-tZh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="N8E-hm-EID" secondAttribute="trailing" constant="10" id="0nu-nS-cAl"/>
@@ -157,6 +166,7 @@ DQ
                     </view>
                     <connections>
                         <outlet property="accountNumberTextField" destination="Kl9-fu-xy9" id="3Ut-dH-Xkp"/>
+                        <outlet property="bicCodeTextField" destination="3me-1c-NLW" id="pna-q7-0iL"/>
                         <outlet property="cityTextCode" destination="Pcd-am-mMi" id="EfD-5W-CaB"/>
                         <outlet property="countryTextField" destination="2RA-5w-YgF" id="Xmy-Zo-kon"/>
                         <outlet property="nameTextField" destination="KSd-Fi-VXt" id="qHq-6L-9Bp"/>
@@ -2591,9 +2601,9 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="515-Gh-q6D">
-                                <rect key="frame" x="0.0" y="28" width="998" height="85"/>
+                                <rect key="frame" x="0.0" y="28" width="998" height="37"/>
                                 <clipView key="contentView" id="za3-co-qHH">
-                                    <rect key="frame" x="1" y="0.0" width="996" height="84"/>
+                                    <rect key="frame" x="1" y="0.0" width="996" height="36"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="48" headerView="Y3f-VO-oMP" viewBased="YES" id="K7l-SJ-g6u">

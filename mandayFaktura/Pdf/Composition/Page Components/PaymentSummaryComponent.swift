@@ -9,9 +9,9 @@
 import Foundation
 
 class PaymentSummaryComponent : AbstractComponent, PageComponent {
-    private static let notesHeight = CGFloat(100.0)
+    private static let notesHeight = CGFloat(120.0)
     private static let lineHeight = CGFloat(10.0)
-    let height = (CGFloat(5) * (AbstractComponent.defaultRowHeight + 2 * AbstractComponent.gridPadding))
+    let height = (CGFloat(6) * (AbstractComponent.defaultRowHeight + 2 * AbstractComponent.gridPadding))
     
     let content: String
     init(content: String) {
