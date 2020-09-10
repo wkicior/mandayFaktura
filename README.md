@@ -10,7 +10,7 @@ Invoicing MacOS application dedicated for small business and self employed.
 The application is optimized for polish market.
 
 ## Download and installation
-You may download the binary from [0.1.6 release](https://github.com/wkicior/mandayFaktura/releases/download/release%2F0.1.6/mandayFaktura.app.zip).
+You may download the binary from [0.1.7 release](https://github.com/wkicior/mandayFaktura/releases/download/release%2F0.1.7/mandayFaktura.app.zip).
 Application needs your consent in Your Mac/Settings/Security and Privacy
 
 ## Functionalities
@@ -23,8 +23,9 @@ The development is still ongoing, therefore the application provides some basic 
 - management of counterparties
 - deleting saved invoices
 - invoice numbering management and automatic generation
-- VAT rates management
+- VAT rates management (including reverse charge option)
 - issuing credit notes (early support)
+- English invoice translation if seller and buyer countries differ
 
 ## Features currently not supported
 - Other documents like ProForma
@@ -53,8 +54,9 @@ Aplikacja jest nadal w fazie implemementacji, obecnie następujące funkcjonalno
 - zarządzanie kontrahentami
 - usuwanie faktur
 - zarządzanie automatyczną numeracją faktur
-- zarządzanie stawkami VAT
+- zarządzanie stawkami VAT (w tym odwrotne obciążenie)
 - faktury korygujące (wczesne wsparcie)
+- Tłumaczenie dokumentów w języku angielskim gdy kraj kupującego różni się od kraju sprzedawcy
 
 ## Nie jeszcze wspierane funkcjonalności
 - Inne dokumenty takie jak: ProForma
