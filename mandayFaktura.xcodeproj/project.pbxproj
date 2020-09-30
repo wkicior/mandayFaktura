@@ -1693,7 +1693,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "dev-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MARKETING_VERSION = "0.1.8-SNAPSHOT";
+				MARKETING_VERSION = "0.1.9-SNAPSHOT";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1709,7 +1709,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "dev-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MARKETING_VERSION = "0.1.8-SNAPSHOT";
+				MARKETING_VERSION = "0.1.9-SNAPSHOT";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1835,7 +1835,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = mandayFaktura/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MARKETING_VERSION = 0.1.8;
+				MARKETING_VERSION = 0.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1851,7 +1851,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = mandayFaktura/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MARKETING_VERSION = 0.1.8;
+				MARKETING_VERSION = 0.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
