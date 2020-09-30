@@ -57,13 +57,13 @@ internal extension Invoice {
         summary +=
         """
         \(appendI10n("Do zapłaty", "Total due")): \(totalGrossValue.formatAmount()) PLN
-        Słownie: \(totalGrossValue.spelledOut) PLN
         """
         if (self.isInternational()) {
             summary += "\n" + forI10nOnly("In words: " + totalGrossValue.spelledOutEn + " PLN")
         }
         summary += "\n" +
         """
+        Słownie: \(totalGrossValue.spelledOut) PLN
         \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
         \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
         \(seller.printedSellerAccountDetails(self.isInternational()))

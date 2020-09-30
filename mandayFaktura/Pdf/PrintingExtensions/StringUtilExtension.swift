@@ -14,6 +14,6 @@ public extension String {
     }
     
     func appendI10n(_ en: String, _ isInternational: Bool) -> String {
-         return self + (isInternational ? " / " + en : "")
+         return (isInternational ?  en + " | " : "") + self
     }
 }

@@ -55,13 +55,13 @@ internal extension CreditNote {
         summary +=
         """
         \(payOrReturn): \(abs(self.differenceGrossValue(on: on)).formatAmount()) PLN
-        słownie: \(abs(self.differenceGrossValue(on: on)).spelledOut) PLN
         """
         if (self.isInternational()) {
-              summary += "\n" + forI10nOnly("In words: " + totalGrossValue.spelledOutEn + " PLN")
+              summary += "\n" + forI10nOnly("In words: " + self.differenceGrossValue(on: on).spelledOutEn + " PLN")
         }
         summary += "\n" +
         """
+        słownie: \(abs(self.differenceGrossValue(on: on)).spelledOut) PLN
         \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
         \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
         \(self.seller.printedSellerAccountDetails(isInternational()))
