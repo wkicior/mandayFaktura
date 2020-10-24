@@ -17,6 +17,7 @@ class AbstractInvoiceViewController: NSViewController {
     let invoiceFacade = InvoiceFacade()
     let counterpartyFacade = CounterpartyFacade()
     let invoiceSettingsFacade = InvoiceSettingsFacade()
+    let reverseChargeWarning = ReverseChargeWarning()
    
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var saveButton: NSButton!

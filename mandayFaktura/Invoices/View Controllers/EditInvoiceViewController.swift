@@ -29,6 +29,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
     @IBAction func saveButtonClicked(_ sender: NSButton) {
         do {
             try buyerAutoSavingController.saveIfNewBuyer(buyer: newInvoice.buyer)
+            try reverseChargeWarning.checkIfReverseChargeShouldBeApplied(invoice: newInvoice)
             try invoiceFacade.editInvoice(old: invoice!, new: newInvoice)
             NotificationCenter.default.post(name: EditInvoiceViewControllerConstants.INVOICE_EDITED_NOTIFICATION, object: invoice)
             view.window?.close()

@@ -77,6 +77,55 @@ class InvoiceTests: XCTestCase {
         XCTAssertEqual(Decimal(string: "6.06"), invoice.totalGrossValue, "Gross values must be equal")
     }
     
+    func testMightMissReverseChargeReturnsTrueIfIsInternationalAndOneInvoiceItemIsVAT0AndReverseChargeIsNotSet() {
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
+        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRate(VatRate(string: "N/P")).build()
+        let invoice = anInvoice()
+            .withItems([item1, item2])
+            .withSeller(CounterpartyBuilder().withCountry("Poland").build())
+            .withBuyer(CounterpartyBuilder().withCountry("Denmark").build())
+            .build()
+        let classifiesForReverseCharge = invoice.mightMissReverseCharge()
+        XCTAssertTrue(classifiesForReverseCharge)
+    }
+    
+    func testMightMissReverseChargeReturnsFalseIfReverseChargeIsSet() {
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
+        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRate(VatRate(string: "N/P")).build()
+        let invoice = anInvoice()
+            .withItems([item1, item2])
+            .withReverseCharge(true)
+            .withSeller(CounterpartyBuilder().withCountry("Poland").build())
+            .withBuyer(CounterpartyBuilder().withCountry("Denmark").build())
+            .build()
+        let classifiesForReverseCharge = invoice.mightMissReverseCharge()
+        XCTAssertFalse(classifiesForReverseCharge)
+    }
+    
+    func testMightMissReverseChargeReturnsFalseIfInvoiceIsNotInternational() {
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
+        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRate(VatRate(string: "N/P")).build()
+        let invoice = anInvoice()
+            .withItems([item1, item2])
+            .withSeller(CounterpartyBuilder().withCountry("Polska").build())
+            .withBuyer(CounterpartyBuilder().withCountry("Polska").build())
+            .build()
+        let classifiesForReverseCharge = invoice.mightMissReverseCharge()
+        XCTAssertFalse(classifiesForReverseCharge)
+    }
+    
+    func testMightMissReverseChargeReturnsFalseIfInvoiceItemsAreNot0VAy() {
+           let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(2).withVatRate(VatRate(value: 0.01)).build()
+        let item2 = anInvoiceItem().withAmount(2).withUnitNetPrice(2).withVatRate(VatRate(value: 0.02)).build()
+           let invoice = anInvoice()
+               .withItems([item1, item2])
+               .withSeller(CounterpartyBuilder().withCountry("Poland").build())
+               .withBuyer(CounterpartyBuilder().withCountry("Denmark").build())
+               .build()
+           let classifiesForReverseCharge = invoice.mightMissReverseCharge()
+           XCTAssertFalse(classifiesForReverseCharge)
+       }
+    
     func aCounterparty() -> Counterparty {
         return CounterpartyBuilder()
             .build()

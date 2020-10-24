@@ -178,6 +178,8 @@
 		D38997322219B733004CC30C /* CreditNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997302219B733004CC30C /* CreditNote.swift */; };
 		D38997342219E240004CC30C /* BuyerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997332219E240004CC30C /* BuyerViewController.swift */; };
 		D38997352219E240004CC30C /* BuyerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38997332219E240004CC30C /* BuyerViewController.swift */; };
+		D38F3DB025447107000875E4 /* ReverseChargeWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F3DAF25447107000875E4 /* ReverseChargeWarning.swift */; };
+		D38F3DB125447107000875E4 /* ReverseChargeWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F3DAF25447107000875E4 /* ReverseChargeWarning.swift */; };
 		D3956A8F222333D5004144A1 /* CreditNotePageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A8E222333D5004144A1 /* CreditNotePageComposition.swift */; };
 		D3956A9122233416004144A1 /* DocumentPageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A9022233416004144A1 /* DocumentPageComposition.swift */; };
 		D3956A9222246EBB004144A1 /* DocumentPageComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3956A9022233416004144A1 /* DocumentPageComposition.swift */; };
@@ -405,6 +407,7 @@
 		D389972C2219B6FF004CC30C /* CreditNoteFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteFacade.swift; sourceTree = "<group>"; };
 		D38997302219B733004CC30C /* CreditNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNote.swift; sourceTree = "<group>"; };
 		D38997332219E240004CC30C /* BuyerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerViewController.swift; sourceTree = "<group>"; };
+		D38F3DAF25447107000875E4 /* ReverseChargeWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseChargeWarning.swift; sourceTree = "<group>"; };
 		D3956A8E222333D5004144A1 /* CreditNotePageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNotePageComposition.swift; sourceTree = "<group>"; };
 		D3956A9022233416004144A1 /* DocumentPageComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPageComposition.swift; sourceTree = "<group>"; };
 		D3956A942225CAD0004144A1 /* CreditNoteItemsSummaryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteItemsSummaryComponent.swift; sourceTree = "<group>"; };
@@ -769,6 +772,7 @@
 				D3B7C95E2087B98900432176 /* EditInvoiceViewController.swift */,
 				D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */,
 				D3F0A514221DF8DC00CC0E08 /* PaymentDetailsViewController.swift */,
+				D38F3DAF25447107000875E4 /* ReverseChargeWarning.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1428,6 +1432,7 @@
 				D3F745EC2208B08F0057540E /* VatBreakdownComponent.swift in Sources */,
 				D34339E821A48D6100C583D2 /* InvoiceDocumentSettingsViewController.swift in Sources */,
 				D34339E921A48D6100C583D2 /* NewInvoiceViewController.swift in Sources */,
+				D38F3DB125447107000875E4 /* ReverseChargeWarning.swift in Sources */,
 				D34339EA21A48D6100C583D2 /* InvoiceSettings.swift in Sources */,
 				D34339EB21A48D6100C583D2 /* InvoiceSettingsRepository.swift in Sources */,
 				D3956A9E222B232D004144A1 /* DocumentNumberingSettings.swift in Sources */,
@@ -1568,6 +1573,7 @@
 				D3F745EB2208B08F0057540E /* VatBreakdownComponent.swift in Sources */,
 				D32ED31D2159789A00BDC6BE /* InvoiceDocumentSettingsViewController.swift in Sources */,
 				D34D0F19201DEF6B000D1EC6 /* NewInvoiceViewController.swift in Sources */,
+				D38F3DB025447107000875E4 /* ReverseChargeWarning.swift in Sources */,
 				D32ED324215ABF9400BDC6BE /* InvoiceSettings.swift in Sources */,
 				D32ED326215ABFB200BDC6BE /* InvoiceSettingsRepository.swift in Sources */,
 				D3956A9D222B232D004144A1 /* DocumentNumberingSettings.swift in Sources */,

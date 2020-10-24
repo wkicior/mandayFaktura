@@ -47,6 +47,14 @@ struct Invoice: Document {
     func isInternational() -> Bool {
         return self.seller.country != self.buyer.country && !self.buyer.country.isEmpty
     }
+    
+    func mightMissReverseCharge() -> Bool {
+        return self.isInternational() && !self.reverseCharge && self.hasInvoiceItemsWith0VAT()
+    }
+    
+    private func hasInvoiceItemsWith0VAT() -> Bool {
+        self.items.map{i in i.vatValue}.filter{v in v == 0}.count > 0
+    }
 }
 
 extension Invoice {

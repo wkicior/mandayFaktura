@@ -30,7 +30,5 @@ class BuyerAutoSavingController {
                 buyerAutoSave.update(buyer: buyer)
             }
         }
-        
-       
     }
 }
