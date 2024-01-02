@@ -24,7 +24,7 @@ class KeyedArchiverCreditNoteRepository: CreditNoteRepository {
     }
     
     func deleteCreditNote(_ creditNote: CreditNote) {
-        let index = creditNotesCoding.index(where: {ic in ic.creditNote.number == creditNote.number})
+        let index = creditNotesCoding.firstIndex(where: {ic in ic.creditNote.number == creditNote.number})
         creditNotesCoding.remove(at: index!)
     }
     

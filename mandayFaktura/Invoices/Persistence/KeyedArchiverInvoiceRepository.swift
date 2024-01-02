@@ -27,7 +27,7 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
     }
     
     func delete(_ invoice: Invoice) {
-        let index = invoicesCoding.index(where: {ic in ic.invoice.number == invoice.number})
+        let index = invoicesCoding.firstIndex(where: {ic in ic.invoice.number == invoice.number})
         invoicesCoding.remove(at: index!)
     }
     
@@ -36,7 +36,7 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
     }
     
     func editInvoice(old: Invoice, new: Invoice) {
-        let index = invoicesCoding.index(where: {ic in ic.invoice.number == old.number})
+        let index = invoicesCoding.firstIndex(where: {ic in ic.invoice.number == old.number})
         invoicesCoding[index!] = InvoiceCoding(new)
     }
     

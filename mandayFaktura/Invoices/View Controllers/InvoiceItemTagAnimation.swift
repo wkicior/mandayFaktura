@@ -59,7 +59,7 @@ class InvoiceItemTagAnimation {
     }
     
     func stopAnimation() {
-        let index = self.layer.sublayers?.index{a in self.animationLayer.isEqual(a)}
+        let index = self.layer.sublayers?.firstIndex{a in self.animationLayer.isEqual(a)}
         self.layer.sublayers?.remove(at: index!)
         self.targetButton.shadow = nil
     }

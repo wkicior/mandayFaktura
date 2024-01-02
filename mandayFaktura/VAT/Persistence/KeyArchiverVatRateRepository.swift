@@ -33,7 +33,7 @@ class KeyArchiverVatRateRepository: VatRateRepository {
     }
     
     func delete(_ vatRate: VatRate) {
-        if let index = vatRatesCoding.index(where: {v in v.vatRate.literal == vatRate.literal}) {
+        if let index = vatRatesCoding.firstIndex(where: {v in v.vatRate.literal == vatRate.literal}) {
             vatRatesCoding.remove(at: index)
         }
     }

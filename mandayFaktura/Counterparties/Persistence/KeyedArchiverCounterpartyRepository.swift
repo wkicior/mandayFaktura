@@ -60,7 +60,7 @@ The implementation of CounterpartyRepository using NSKeyedArchiver storage
 class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
     func replaceBuyer(_ buyer: Counterparty, with: Counterparty) {
         let newBuyer = CounterpartyCoding(with)
-        let index = buyersCoding.index(where: {c in c.counterparty.name == buyer.name && c.counterparty.taxCode == buyer.taxCode})
+        let index = buyersCoding.firstIndex(where: {c in c.counterparty.name == buyer.name && c.counterparty.taxCode == buyer.taxCode})
         buyersCoding[index!] = newBuyer
     }
     
@@ -87,7 +87,7 @@ class KeyedArchiverCounterpartyRepository: CounterpartyRepository {
     }
     
     func update(buyer: Counterparty) {
-        let index = buyersCoding.index(where: {bc in bc.counterparty.name == buyer.name})
+        let index = buyersCoding.firstIndex(where: {bc in bc.counterparty.name == buyer.name})
         buyersCoding[index!] = CounterpartyCoding(buyer)
     }
     
