@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1295,7 +1295,7 @@
 				};
 			};
 			buildConfigurationList = D34D0EB6201A7CBC000D1EC6 /* Build configuration list for PBXProject "mandayFaktura" */;
-			compatibilityVersion = "Xcode 11.4";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = pl;
 			hasScannedForEncodings = 0;
 			knownRegions = (
