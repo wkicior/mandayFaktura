@@ -229,6 +229,14 @@
 		D3E312CA20A4DCFF00C84CEE /* VatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */; };
 		D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */; };
 		D3E312CE20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */; };
+		D3E7DBC52B4606C6003146D5 /* DYXML in Frameworks */ = {isa = PBXBuildFile; productRef = D3E7DBC42B4606C6003146D5 /* DYXML */; };
+		D3E7DBC82B460739003146D5 /* ksef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBC72B460739003146D5 /* ksef.swift */; };
+		D3E7DBC92B460739003146D5 /* ksef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBC72B460739003146D5 /* ksef.swift */; };
+		D3E7DBCA2B460739003146D5 /* ksef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBC72B460739003146D5 /* ksef.swift */; };
+		D3E7DBCB2B460739003146D5 /* ksef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBC72B460739003146D5 /* ksef.swift */; };
+		D3E7DBCE2B46093B003146D5 /* DYXML in Frameworks */ = {isa = PBXBuildFile; productRef = D3E7DBCD2B46093B003146D5 /* DYXML */; };
+		D3E7DBD02B460998003146D5 /* DYXML in Frameworks */ = {isa = PBXBuildFile; productRef = D3E7DBCF2B460998003146D5 /* DYXML */; };
+		D3E7DBD22B4609AE003146D5 /* DYXML in Frameworks */ = {isa = PBXBuildFile; productRef = D3E7DBD12B4609AE003146D5 /* DYXML */; };
 		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
@@ -441,6 +449,7 @@
 		D3E312C920A4DCFF00C84CEE /* VatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatSettingsViewController.swift; sourceTree = "<group>"; };
 		D3E312CB20A4DF6B00C84CEE /* VatRatesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VatRatesTableViewDelegate.swift; sourceTree = "<group>"; };
 		D3E312CD20A83E0300C84CEE /* KeyArchiverVatRateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyArchiverVatRateRepository.swift; sourceTree = "<group>"; };
+		D3E7DBC72B460739003146D5 /* ksef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ksef.swift; sourceTree = "<group>"; };
 		D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
@@ -482,6 +491,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E7DBCE2B46093B003146D5 /* DYXML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +499,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E7DBC52B4606C6003146D5 /* DYXML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +507,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E7DBD22B4609AE003146D5 /* DYXML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +515,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E7DBD02B460998003146D5 /* DYXML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +683,7 @@
 				D34D0EDB201A7CBC000D1EC6 /* mandayFakturaUITests */,
 				D34D0EBC201A7CBC000D1EC6 /* Products */,
 				D3433A1721A48D6100C583D2 /* dev-Info.plist */,
+				D3E7DBCC2B46093B003146D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -687,6 +701,7 @@
 		D34D0EBD201A7CBC000D1EC6 /* mandayFaktura */ = {
 			isa = PBXGroup;
 			children = (
+				D3E7DBC62B46070A003146D5 /* XML */,
 				D3956AA5222DC401004144A1 /* Numbering */,
 				D3F0A5282221A01C00CC0E08 /* Documents */,
 				D34D0F08201CE888000D1EC6 /* Invoices */,
@@ -1096,6 +1111,21 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		D3E7DBC62B46070A003146D5 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				D3E7DBC72B460739003146D5 /* ksef.swift */,
+			);
+			path = XML;
+			sourceTree = "<group>";
+		};
+		D3E7DBCC2B46093B003146D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3F0A51A222187C800CC0E08 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -1204,6 +1234,9 @@
 			dependencies = (
 			);
 			name = "mandayFaktura DEV";
+			packageProductDependencies = (
+				D3E7DBCD2B46093B003146D5 /* DYXML */,
+			);
 			productName = mandayFaktura;
 			productReference = D3433A1621A48D6100C583D2 /* mandayFaktura DEV.app */;
 			productType = "com.apple.product-type.application";
@@ -1221,6 +1254,9 @@
 			dependencies = (
 			);
 			name = mandayFaktura;
+			packageProductDependencies = (
+				D3E7DBC42B4606C6003146D5 /* DYXML */,
+			);
 			productName = mandayFaktura;
 			productReference = D34D0EBB201A7CBC000D1EC6 /* mandayFaktura.app */;
 			productType = "com.apple.product-type.application";
@@ -1239,6 +1275,9 @@
 				D34D0ECF201A7CBC000D1EC6 /* PBXTargetDependency */,
 			);
 			name = mandayFakturaTests;
+			packageProductDependencies = (
+				D3E7DBD12B4609AE003146D5 /* DYXML */,
+			);
 			productName = mandayFakturaTests;
 			productReference = D34D0ECD201A7CBC000D1EC6 /* mandayFakturaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1257,6 +1296,9 @@
 				D34D0EDA201A7CBC000D1EC6 /* PBXTargetDependency */,
 			);
 			name = mandayFakturaUITests;
+			packageProductDependencies = (
+				D3E7DBCF2B460998003146D5 /* DYXML */,
+			);
 			productName = mandayFakturaUITests;
 			productReference = D34D0ED8201A7CBC000D1EC6 /* mandayFakturaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -1304,6 +1346,9 @@
 				Base,
 			);
 			mainGroup = D34D0EB2201A7CBC000D1EC6;
+			packageReferences = (
+				D3E7DBC32B4606C6003146D5 /* XCRemoteSwiftPackageReference "DYXML" */,
+			);
 			productRefGroup = D34D0EBC201A7CBC000D1EC6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1445,6 +1490,7 @@
 				D34339EF21A48D6100C583D2 /* VatRatesTableViewDelegate.swift in Sources */,
 				D34339F021A48D6100C583D2 /* ItemsCatalogueController.swift in Sources */,
 				D34339F121A48D6100C583D2 /* InvoiceNumbering.swift in Sources */,
+				D3E7DBCB2B460739003146D5 /* ksef.swift in Sources */,
 				D34339F221A48D6100C583D2 /* FontFormatting.swift in Sources */,
 				D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */,
 				D38997322219B733004CC30C /* CreditNote.swift in Sources */,
@@ -1586,6 +1632,7 @@
 				D3F0A53C222327E100CC0E08 /* DocumentPageDistribution.swift in Sources */,
 				D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */,
 				D3052F4B2043411B0064DF10 /* ItemsCatalogueController.swift in Sources */,
+				D3E7DBC82B460739003146D5 /* ksef.swift in Sources */,
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */,
@@ -1642,6 +1689,7 @@
 			files = (
 				D3781B8120B0562200CA420E /* VatRateFacadeTests.swift in Sources */,
 				D3F3EA47227997E700996B9B /* InvoiceFacadeTests.swift in Sources */,
+				D3E7DBC92B460739003146D5 /* ksef.swift in Sources */,
 				D37560B52034C25600F507AD /* DecimalFormatterTests.swift in Sources */,
 				D370A7F32023AB2C00FFB262 /* InvoiceItemTests.swift in Sources */,
 				D370A7FB202711C800FFB262 /* VatBreakdownTests.swift in Sources */,
@@ -1660,6 +1708,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E7DBCA2B460739003146D5 /* ksef.swift in Sources */,
 				D34D0EDD201A7CBC000D1EC6 /* mandayFakturaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2007,6 +2056,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3E7DBC32B4606C6003146D5 /* XCRemoteSwiftPackageReference "DYXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davidy4ng/DYXML.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3E7DBC42B4606C6003146D5 /* DYXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E7DBC32B4606C6003146D5 /* XCRemoteSwiftPackageReference "DYXML" */;
+			productName = DYXML;
+		};
+		D3E7DBCD2B46093B003146D5 /* DYXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E7DBC32B4606C6003146D5 /* XCRemoteSwiftPackageReference "DYXML" */;
+			productName = DYXML;
+		};
+		D3E7DBCF2B460998003146D5 /* DYXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E7DBC32B4606C6003146D5 /* XCRemoteSwiftPackageReference "DYXML" */;
+			productName = DYXML;
+		};
+		D3E7DBD12B4609AE003146D5 /* DYXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E7DBC32B4606C6003146D5 /* XCRemoteSwiftPackageReference "DYXML" */;
+			productName = DYXML;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D34D0EB3201A7CBC000D1EC6 /* Project object */;
 }
