@@ -35,6 +35,14 @@ extension Counterparty: Equatable {
     }
 }
 
+extension Counterparty {
+    var nip: String {
+        get {
+            return taxCode.deletingPrefix("PL")
+        }
+    }
+}
+
 class CounterpartyBuilder {
     var name:String?
     var streetAndNumber: String?

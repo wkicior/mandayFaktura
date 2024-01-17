@@ -16,6 +16,14 @@ extension Decimal {
         return formatter.string(from: self as NSDecimalNumber)!.trimmingCharacters(in: .whitespaces)
     }
     
+    func formatAmountDot() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.decimalSeparator = "."
+        formatter.maximumFractionDigits = 2
+        return formatter.string(from: self as NSDecimalNumber)!.trimmingCharacters(in: .whitespaces)
+    }
+    
     func formatDecimal() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

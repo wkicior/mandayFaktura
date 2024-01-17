@@ -35,7 +35,7 @@ internal extension Invoice {
     var creditedNoteHeader: String {
         let header =
         """
-        \(appendI10n("do faktury " + number + " z dnia " + DateFormatting.getDateString(issueDate), "issued to invoice no. " + number + " of " + DateFormatting.getDateString(issueDate)))
+        \(appendI10n("do faktury " + number + " z dnia " + issueDate.toDateDotString(), "issued to invoice no. " + number + " of " + issueDate.toDateDotString()))
         """
         return header
     }
@@ -43,8 +43,8 @@ internal extension Invoice {
     var printedDates: String {
         let header =
         """
-        \("Data wystawienia".appendI10n("Date of issue", self.isInternational())):  \(DateFormatting.getDateString(issueDate))
-        \("Data sprzedaży".appendI10n("Date of sale", self.isInternational())): \(DateFormatting.getDateString(sellingDate))
+        \("Data wystawienia".appendI10n("Date of issue", self.isInternational())):  \(issueDate.toDateDotString())
+        \("Data sprzedaży".appendI10n("Date of sale", self.isInternational())): \(sellingDate.toDateDotString())
         """
         return header
     }
@@ -65,7 +65,7 @@ internal extension Invoice {
         """
         Słownie: \(totalGrossValue.spelledOut) PLN
         \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
-        \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
+        \(appendI10n("Termin płatności", "Due date")): \(paymentDueDate.toDateDotString())
         \(seller.printedSellerAccountDetails(self.isInternational()))
         """
         

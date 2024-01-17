@@ -32,8 +32,8 @@ internal extension CreditNote {
     var printedDates: String {
            let header =
            """
-           \("Data wystawienia".appendI10n("Date of issue", self.isInternational())):  \(DateFormatting.getDateString(issueDate))
-           \("Data sprzedaży".appendI10n("Date of sale", self.isInternational())): \(DateFormatting.getDateString(sellingDate))
+           \("Data wystawienia".appendI10n("Date of issue", self.isInternational())):  \(issueDate.toDateDotString())
+           \("Data sprzedaży".appendI10n("Date of sale", self.isInternational())): \(sellingDate.toDateDotString())
            """
            return header
        }
@@ -63,7 +63,7 @@ internal extension CreditNote {
         """
         słownie: \(abs(self.differenceGrossValue(on: on)).spelledOut) PLN
         \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
-        \(appendI10n("Termin płatności", "Due date")): \(DateFormatting.getDateString(paymentDueDate))
+        \(appendI10n("Termin płatności", "Due date")): \(paymentDueDate.toDateDotString())
         \(self.seller.printedSellerAccountDetails(isInternational()))
         """
        
