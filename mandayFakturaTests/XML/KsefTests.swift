@@ -112,7 +112,7 @@ class KsefTests: XCTestCase {
 </Faktura>
 
 """
-         let ksefXml = KsefXml(anInvoice()
+        let ksefXml = KsefXml(invoice: anInvoice()
             .withIssueDate(issueDate)
             .withItems([])
             .withNumber("1/A/2024")
@@ -128,7 +128,7 @@ class KsefTests: XCTestCase {
                 .withCountry("Polska")
                 .withPostalCode("11-234")
                 .withCity("Adamczycha")
-                .withAccountNumber("PL91068552731823476708578737")
+                .withAccountNumber("PL 9106 8552 7318 2347 6708 5787 37")
                 .build())
             .withBuyer(aCounterparty()
                 .withName("ACME Company ApS")

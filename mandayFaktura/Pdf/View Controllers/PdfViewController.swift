@@ -13,6 +13,7 @@ class PdfViewController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
     var pdfDocument: PdfDocument?
+    var ksefXml: KsefXml?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,12 @@ class PdfViewController: NSViewController {
     }
     
     @IBAction func onExportButtonClicked(_ sender: NSButton) {
-        let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
-        self.pdfDocument!.save(dir: homeDirURL)
+        do {
+            let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
+            self.pdfDocument!.save(dir: homeDirURL)
+            try self.ksefXml!.save(dir: homeDirURL)
+        } catch let error as Error{
+            WarningAlert(warning: "Nie udalo sie zapisac pdf", text: error.localizedDescription).runModal()
+        }
     }
 }

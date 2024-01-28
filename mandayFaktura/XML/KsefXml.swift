@@ -11,14 +11,19 @@ import DYXML
 
 class KsefXml {
     let invoice: Invoice
-    init(_ invoice: Invoice) {
+    init(invoice: Invoice) {
         self.invoice = invoice
     }
     
     enum KsefXmlError: Error {
-            case invalidSellerCountry
-            case invalidBuyerCountry
-        }
+        case invalidSellerCountry
+        case invalidBuyerCountry
+    }
+    
+    func save(dir: URL) throws {
+        let fileUrl = dir.appendingPathComponent("Downloads/\(self.invoice.number.encodeToFilename)-ksef-alpha.xml")
+        try document().toString(withIndentation: 2).write(to: fileUrl, atomically: true, encoding: String.Encoding.utf8)
+    }
     
     func document() throws -> any XML {
         guard let sellerCountryCode = GovCountryCodes.getCodeByName(countryName: self.invoice.seller.country) else {
@@ -113,7 +118,7 @@ class KsefXml {
                         node("FormaPlatnosci", value: "\(invoice.paymentForm.toKsefCode())")
                         if (invoice.paymentForm == .transfer) {
                             node("RachunekBankowy") {
-                                node("NrRB", value: invoice.seller.accountNumber)
+                                node("NrRB", value: invoice.seller.accountNumber.filter{!$0.isWhitespace})
                             }
                         }
                     }

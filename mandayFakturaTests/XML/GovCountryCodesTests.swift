@@ -13,8 +13,12 @@ import XCTest
 
 class GovCountryCodesTests: XCTestCase {
     
-    func testGetCountryCodeByName() {
+    func testGetCountryCodeByNamePL() {
         XCTAssertEqual("PL", GovCountryCodes.getCodeByName(countryName: "pOlskA")!, "County code must match")
+    }
+    
+    func testGetCountryCodeByNameEN() {
+        XCTAssertEqual("PL", GovCountryCodes.getCodeByName(countryName: "pOlAnD")!, "County code must match")
     }
     
     func testGetCountryCodeByNameNotExisting() {
