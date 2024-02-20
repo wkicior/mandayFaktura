@@ -26,10 +26,24 @@ struct Invoice: Document {
         }
     }
     
+    func totalNetValue(forVatRates: [VatRate]) -> Decimal {
+        return items
+            .filter({s in forVatRates.contains(s.vatRate)})
+            .map{i in i.netValue}
+            .reduce(0, +)
+    }
+    
     var totalVatValue: Decimal {
         get {
             return items.map{i in i.vatValue}.reduce(0, +)
         }
+    }
+    
+    func totalVatValue(forVatRates: [VatRate]) -> Decimal {
+        return items
+            .filter({s in forVatRates.contains(s.vatRate)})
+            .map{i in i.vatValue}
+            .reduce(0, +)
     }
     
     var totalGrossValue: Decimal {

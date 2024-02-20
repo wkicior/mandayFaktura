@@ -7,7 +7,7 @@
 
 ## EN
 Invoicing MacOS application dedicated for small business and self employed.
-The application is optimized for polish market.
+The application is optimized for Polish market.
 
 ## Download and installation
 You may download the binary from [0.1.9 release](https://github.com/wkicior/mandayFaktura/releases/download/release%2F0.1.9/mandayFaktura.app.zip).

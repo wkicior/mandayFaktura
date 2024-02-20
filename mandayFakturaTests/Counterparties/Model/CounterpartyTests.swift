@@ -22,4 +22,24 @@ class CounterpartyTests: XCTestCase {
         let counterparty = aCounterparty().withTaxCode("123456789").build()
         XCTAssertEqual("123456789", counterparty.nip, "NIP must match")
     }
+    
+    func testCountryAssumingPolandForDefinedCountry() {
+        let counterparty = aCounterparty().withCountry("Denmark").build()
+        XCTAssertEqual("Denmark", counterparty.countryOrAssumePoland)
+    }
+    
+    func testCountryAssumingPolandForNoCountry() {
+        let counterparty = aCounterparty().build()
+        XCTAssertEqual("Polska", counterparty.countryOrAssumePoland)
+    }
+    
+    func testCountryAssumingPolandForEmptyCountry() {
+        let counterparty = aCounterparty().withCountry(" ").build()
+        XCTAssertEqual("Polska", counterparty.countryOrAssumePoland)
+    }
+    
+    func testCountryAssumingPolandForPoland() {
+        let counterparty = aCounterparty().withCountry("Polska").build()
+        XCTAssertEqual("Polska", counterparty.countryOrAssumePoland)
+    }
 }

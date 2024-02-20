@@ -41,6 +41,12 @@ extension Counterparty {
             return taxCode.deletingPrefix("PL")
         }
     }
+    
+    var countryOrAssumePoland: String {
+        get {
+            return country.isBlank ? "Polska" : country
+        }
+    }
 }
 
 class CounterpartyBuilder {

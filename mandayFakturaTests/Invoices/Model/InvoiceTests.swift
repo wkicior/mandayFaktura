@@ -36,6 +36,23 @@ class InvoiceTests: XCTestCase {
         XCTAssertEqual(Decimal(6), invoice.totalNetValue, "Net values must be equal")
     }
     
+    func testTotalNetValue_forVatRates() {
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(100).withVatRate(VatRate(string: "23%")).build()
+        let item2 = anInvoiceItem().withAmount(1).withUnitNetPrice(200).build()
+        let item3 = anInvoiceItem().withAmount(1).withUnitNetPrice(300).withVatRate(VatRate(string: "23%")).build()
+        let item4 = anInvoiceItem().withAmount(1).withUnitNetPrice(400).withVatRate(VatRate(string: "22%")).build()
+        let item5 = anInvoiceItem().withAmount(1).withUnitNetPrice(500).withVatRate(VatRate(string: "NP")).build()
+        let invoice = anInvoice()
+            .withSeller(aCounterparty())
+            .withBuyer(aCounterparty())
+            .withItems([item1, item2, item3, item4, item5])
+            .build()
+        
+        XCTAssertEqual(400, invoice.totalNetValue(forVatRates: [VatRate(string: "23%")]))
+        XCTAssertEqual(800, invoice.totalNetValue(forVatRates: [VatRate(string: "23%"), VatRate(string: "22%")]))
+        XCTAssertEqual(500, invoice.totalNetValue(forVatRates: [VatRate(string: "NP")]))
+    }
+    
     func testTotalVatValue_for_empty_list() {
         let invoice = anInvoice()
             .withItems([])
@@ -55,6 +72,23 @@ class InvoiceTests: XCTestCase {
             .withBuyer(aCounterparty())
             .build()
         XCTAssertEqual(Decimal(string: "0.06"), invoice.totalVatValue, "Vat values must be equal")
+    }
+    
+    func testTotalVatValue_forVatRates() {
+        let item1 = anInvoiceItem().withAmount(1).withUnitNetPrice(100).withVatRate(VatRate(string: "23%")).build()
+        let item2 = anInvoiceItem().withAmount(1).withUnitNetPrice(200).build()
+        let item3 = anInvoiceItem().withAmount(1).withUnitNetPrice(300).withVatRate(VatRate(string: "23%")).build()
+        let item4 = anInvoiceItem().withAmount(1).withUnitNetPrice(400).withVatRate(VatRate(string: "22%")).build()
+        let item5 = anInvoiceItem().withAmount(1).withUnitNetPrice(500).withVatRate(VatRate(string: "NP")).build()
+        let invoice = anInvoice()
+            .withSeller(aCounterparty())
+            .withBuyer(aCounterparty())
+            .withItems([item1, item2, item3, item4, item5])
+            .build()
+        
+        XCTAssertEqual(92, invoice.totalVatValue(forVatRates: [VatRate(string: "23%")]))
+        XCTAssertEqual(180, invoice.totalVatValue(forVatRates: [VatRate(string: "23%"), VatRate(string: "22%")]))
+        XCTAssertEqual(0, invoice.totalVatValue(forVatRates: [VatRate(string: "NP")]))
     }
     
     func testTotalGrossValue_for_empty_list() {
