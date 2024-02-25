@@ -177,7 +177,8 @@ class KsefXmlTests: XCTestCase {
     <P_14_1>368.16</P_14_1>
     <P_13_2>160.8</P_13_2>
     <P_14_2>12.86</P_14_2>
-    <P_15>2143.5</P_15>
+    <P_13_6_1>13000</P_13_6_1>
+    <P_15>15143.5</P_15>
     <Adnotacje>
       <P_16>2</P_16>
       <P_17>2</P_17>
@@ -224,6 +225,16 @@ class KsefXmlTests: XCTestCase {
       <P_11>0.99</P_11>
       <P_11Vat>0</P_11Vat>
       <P_12>np</P_12>
+    </FaWiersz>
+    <FaWiersz>
+      <NrWierszaFa>4</NrWierszaFa>
+      <P_7>Towar 4</P_7>
+      <P_8A>szt.</P_8A>
+      <P_8B>1</P_8B>
+      <P_9A>13000</P_9A>
+      <P_11>13000</P_11>
+      <P_11Vat>0</P_11Vat>
+      <P_12>0</P_12>
     </FaWiersz>
     <Platnosc>
       <TerminPlatnosci>
@@ -276,6 +287,12 @@ class KsefXmlTests: XCTestCase {
                         .withUnitOfMeasure(UnitOfMeasure.pieces)
                         .withVatRate(VatRate(string: "NP"))
                         .withUnitNetPrice(0.99).build(),
+                    anInvoiceItem()
+                        .withName("Towar 4")
+                        .withAmount(1)
+                        .withUnitOfMeasure(UnitOfMeasure.pieces)
+                        .withVatRate(VatRate(string: "0%"))
+                        .withUnitNetPrice(13000).build(),
                 ])
                 .build())
         XCTAssertEqual(expected, try ksefXml.document().toString(withIndentation: 2), "KSeF XML file must match")

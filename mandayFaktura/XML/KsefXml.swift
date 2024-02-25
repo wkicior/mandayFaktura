@@ -118,6 +118,10 @@ class KsefXml {
                     node("P_14_3", value: self.invoice.totalVatValue(forVatRates: [
                         VatRate(string: "5%")]).formatAmountDot())
                 }
+                if (self.invoice.totalNetValue(forVatRates: [VatRate(string: "0%")]) > 0 ) {
+                    node("P_13_6_1", value: self.invoice.totalNetValue(forVatRates: [
+                        VatRate(string: "0%")]).formatAmountDot())
+                }
             }
             node("P_15", value: self.invoice.totalGrossValue.formatAmountDot())
             renderAnnotations()

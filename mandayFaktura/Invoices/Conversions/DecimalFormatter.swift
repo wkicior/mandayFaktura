@@ -21,6 +21,7 @@ extension Decimal {
         formatter.numberStyle = .decimal
         formatter.decimalSeparator = "."
         formatter.maximumFractionDigits = 2
+        formatter.groupingSeparator = ""
         return formatter.string(from: self as NSDecimalNumber)!.trimmingCharacters(in: .whitespaces)
     }
     

@@ -38,6 +38,10 @@ class DecimalFormatterTests: XCTestCase {
         XCTAssertEqual("1", Decimal(1).formatAmountDot())
     }
     
+    func test_formatAmountDot_big_int_number() {
+        XCTAssertEqual("13000", Decimal(13000).formatAmountDot())
+    }
+    
     func test_formatAmountDOt_decimal_number_two_fraction_digits() {
         XCTAssertEqual("1.23", Decimal(1.23).formatAmountDot())
     }
