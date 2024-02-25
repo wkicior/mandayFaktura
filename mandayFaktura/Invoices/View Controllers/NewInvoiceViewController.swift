@@ -63,8 +63,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is PdfViewController {
-            let vc = segue.destinationController as! PdfViewController
+        if segue.destinationController is ViewInvoiceController {
+            let vc = segue.destinationController as! ViewInvoiceController
             let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
             let pdfDocument = InvoicePdfDocument(invoice: invoice, invoiceSettings: invoiceSettings ?? InvoiceSettings())
             vc.pdfDocument = pdfDocument

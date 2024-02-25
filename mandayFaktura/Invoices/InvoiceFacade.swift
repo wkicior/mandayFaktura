@@ -23,6 +23,7 @@ class InvoiceFacade {
     
     func getInvoices() -> [Invoice] {
         return invoiceRepository.getInvoices()
+    
     }
     
     func getInvoice(number: String) -> Invoice {

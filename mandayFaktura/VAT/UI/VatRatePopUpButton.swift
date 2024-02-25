@@ -18,6 +18,6 @@ class VatRatePopUpButton: NSPopUpButton {
         super.init(coder: coder)
         let vatRates = vatRateFacade.getVatRates()
         vatRates.map({vr in vr.literal}).forEach({vr in self.addItem(withTitle: vr)})
-        self.itemArray.forEach({item in item.tag = vatRates.index(where : {vr in vr.literal == item.title})!})
+        self.itemArray.forEach({item in item.tag = vatRates.firstIndex(where : {vr in vr.literal == item.title})!})
     }
 }

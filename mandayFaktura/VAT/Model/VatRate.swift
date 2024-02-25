@@ -48,15 +48,3 @@ struct VatRate: Hashable  {
         return lhs.value == rhs.value && lhs.literal == rhs.literal
     }
 }
-
-extension VatRate{
-    
-    /*static func == (lhs: VatRate, rhs: VatRate) -> Bool {
-        return lhs.value == rhs.value && lhs.literal == rhs.literal
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(value)
-        hasher.combine(literal)
-    }*/
-}

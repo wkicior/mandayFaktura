@@ -184,6 +184,14 @@ class DocumentListViewController: NSViewController {
         return nil
     }
     
+    private func getKsefXml() -> KsefXml? {
+        let document: Document = getSelectedDocument()
+        if document is Invoice {
+            return KsefXml(invoice: document as! Invoice)
+        }
+        return nil
+    }
+    
     @IBAction func onInvoiceHistoryTableViewClicked(_ sender: NSTableView) {
         let document: Document? = sender.selectedRow != -1 ? getSelectedDocument() : nil
         let invoiceDataDict:[String: Any] = [ViewControllerConstants.INVOICE_NOTIFICATION_KEY: document as Any]
@@ -196,10 +204,10 @@ class DocumentListViewController: NSViewController {
     
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is PdfViewController {
-            let vc = segue.destinationController as? PdfViewController
-            let pdfDocument = getPdfDocument()!
-            vc?.pdfDocument = pdfDocument
+        if segue.destinationController is ViewInvoiceController {
+            let vc = segue.destinationController as? ViewInvoiceController
+            vc?.pdfDocument = getPdfDocument()!
+            vc?.ksefXml = getKsefXml()!
         } else if segue.destinationController is EditInvoiceViewController {
             let vc = segue.destinationController as? EditInvoiceViewController
             let index = self.invoiceHistoryTableView.selectedRow

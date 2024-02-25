@@ -35,6 +35,20 @@ extension Counterparty: Equatable {
     }
 }
 
+extension Counterparty {
+    var nip: String {
+        get {
+            return taxCode.deletingPrefix("PL")
+        }
+    }
+    
+    var countryOrAssumePoland: String {
+        get {
+            return country.isBlank ? "Polska" : country
+        }
+    }
+}
+
 class CounterpartyBuilder {
     var name:String?
     var streetAndNumber: String?

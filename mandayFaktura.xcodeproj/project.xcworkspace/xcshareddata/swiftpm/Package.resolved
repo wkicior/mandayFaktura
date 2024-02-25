@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "dyxml",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davidy4ng/DYXML.git",
+      "state" : {
+        "revision" : "83ec3050d742da9225fefa58c3bfd0ce83b5bba0",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

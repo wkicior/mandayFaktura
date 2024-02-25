@@ -23,7 +23,7 @@ extension UnitOfMeasure {
     static let ordering: [UnitOfMeasure] = [.hour, .kg, .km, .service, .pieces]
     var tag: Int {
         get {
-            return UnitOfMeasure.ordering.index(of: self)!
+            return UnitOfMeasure.ordering.firstIndex(of: self)!
         }
     }
     
@@ -78,7 +78,7 @@ class ItemsTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDelega
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            if let index = (self.vatRateFacade.getVatRates().index {vr in vr.literal == item.vatRate.literal}) {
+            if let index = (self.vatRateFacade.getVatRates().firstIndex {vr in vr.literal == item.vatRate.literal}) {
                 cell.selectItem(at: index)
             } else {
                 // exceptionally add vat rate which does not exist in settings anymore

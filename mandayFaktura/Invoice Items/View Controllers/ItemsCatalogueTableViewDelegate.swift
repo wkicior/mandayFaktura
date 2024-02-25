@@ -61,7 +61,7 @@ class ItemsCatalogueTableViewDelegate: NSObject, NSTableViewDataSource, NSTableV
         } else if tableColumn == tableView.tableColumns[4] {
             cellIdentifier = CellIdentifiers.vatValueCell
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as! VatRatePopUpButton
-            if let index = self.vatRateFacade.getVatRates().index(of: item.vatRate) {
+            if let index = self.vatRateFacade.getVatRates().firstIndex(of: item.vatRate) {
                  cell.selectItem(at: index)
             } else {
                 // exceptionally add vat rate which does not exist in settings anymore

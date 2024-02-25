@@ -34,12 +34,12 @@ class VatRateFacade {
     func setDefault(isDefault: Bool, vatRate: VatRate) {
         var vatRates = vatRateRepository.getVatRates()
         if (isDefault) {
-            if let currentDefaultIndex = vatRates.index(where: {v in v.isDefault}) {
+            if let currentDefaultIndex = vatRates.firstIndex(where: {v in v.isDefault}) {
                 let currentDefault = vatRates[currentDefaultIndex]
                 vatRates[currentDefaultIndex] = VatRate(value: currentDefault.value, literal: currentDefault.literal)
             }
         }
-        let index = vatRates.index(where: {v in v.literal == vatRate.literal} )
+        let index = vatRates.firstIndex(where: {v in v.literal == vatRate.literal} )
         vatRates[index!] = VatRate(value: vatRate.value, literal: vatRate.literal, isDefault: isDefault)
         self.vatRateRepository.saveVatRates(vatRates: vatRates)
     }
