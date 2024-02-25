@@ -9,7 +9,7 @@
 import Cocoa
 import Quartz
 
-class PdfViewController: NSViewController {
+class ViewInvoiceController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
     var pdfDocument: PdfDocument?
@@ -25,13 +25,21 @@ class PdfViewController: NSViewController {
         pdfPrintOperation.runModal(on: self)
     }
     
-    @IBAction func onExportButtonClicked(_ sender: NSButton) {
+    @IBAction func onPdfExportButtonClicked(_ sender: NSButton) {
         do {
             let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             self.pdfDocument!.save(dir: homeDirURL)
+        } catch let error as Error{
+            WarningAlert(warning: "Nie udalo sie zapisac PDF", text: error.localizedDescription).runModal()
+        }
+    }
+    
+    @IBAction func onXmlExportButtonClicked(_ sender: NSButton) {
+        do {
+            let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             try self.ksefXml!.save(dir: homeDirURL)
         } catch let error as Error{
-            WarningAlert(warning: "Nie udalo sie zapisac pdf", text: error.localizedDescription).runModal()
+            WarningAlert(warning: "Nie udalo sie zapisac XML", text: error.localizedDescription).runModal()
         }
     }
 }

@@ -1604,7 +1604,7 @@ DQ
         <!--Podgląd-->
         <scene sceneID="nFV-gN-acI">
             <objects>
-                <viewController title="Podgląd" id="xVm-3h-MS1" customClass="PdfViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Podgląd" id="xVm-3h-MS1" customClass="ViewInvoiceController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="UXu-OU-yTn">
                         <rect key="frame" x="0.0" y="0.0" width="900" height="650"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1613,13 +1613,13 @@ DQ
                                 <rect key="frame" x="0.0" y="49" width="900" height="601"/>
                             </pdfView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-lR-0u3">
-                                <rect key="frame" x="3" y="3" width="139" height="32"/>
-                                <buttonCell key="cell" type="push" title="Eksportuj do PDF" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vgd-M5-4TG">
+                                <rect key="frame" x="3" y="3" width="143" height="32"/>
+                                <buttonCell key="cell" type="push" title="Eksportuj do PDF " bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vgd-M5-4TG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="onExportButtonClicked:" target="xVm-3h-MS1" id="dQZ-fl-7PC"/>
+                                    <action selector="onPdfExportButtonClicked:" target="xVm-3h-MS1" id="oKb-2Q-aQ4"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rBA-vh-agR">
@@ -1632,6 +1632,17 @@ DQ
                                 </buttonCell>
                                 <connections>
                                     <action selector="onPrintButtonClicked:" target="xVm-3h-MS1" id="S8r-nE-oHl"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8wZ-cA-Eml">
+                                <rect key="frame" x="144" y="2" width="203" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Eksportuj KSeF XML (alpha)" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jow-12-gca">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onXmlExportButtonClicked:" target="xVm-3h-MS1" id="yjR-hc-JU0"/>
                                 </connections>
                             </button>
                         </subviews>

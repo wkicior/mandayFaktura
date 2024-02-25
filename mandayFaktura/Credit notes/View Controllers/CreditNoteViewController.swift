@@ -70,8 +70,8 @@ class CreditNoteViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is PdfViewController {
-            let vc = segue.destinationController as? PdfViewController
+        if segue.destinationController is ViewInvoiceController {
+            let vc = segue.destinationController as? ViewInvoiceController
             let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
             vc?.pdfDocument = CreditNotePdfDocument(creditNote: creditNote, invoiceSettings: invoiceSettings ?? InvoiceSettings(paymentDateDays: 14))
         } else if segue.destinationController is BuyerViewController {

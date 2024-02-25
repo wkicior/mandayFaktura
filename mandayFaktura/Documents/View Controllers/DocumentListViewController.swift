@@ -204,8 +204,8 @@ class DocumentListViewController: NSViewController {
     
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is PdfViewController {
-            let vc = segue.destinationController as? PdfViewController
+        if segue.destinationController is ViewInvoiceController {
+            let vc = segue.destinationController as? ViewInvoiceController
             vc?.pdfDocument = getPdfDocument()!
             vc?.ksefXml = getKsefXml()!
         } else if segue.destinationController is EditInvoiceViewController {
