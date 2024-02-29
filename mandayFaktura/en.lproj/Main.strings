@@ -1,0 +1,858 @@
+
+/* Class = "NSTextFieldCell"; placeholderString = "Kraj"; ObjectID = "0Fn-3p-RmV"; */
+"0Fn-3p-RmV.placeholderString" = "Country";
+
+/* Class = "NSMenuItem"; title = "usł."; ObjectID = "0MX-3E-eYM"; */
+"0MX-3E-eYM.title" = "svc.";
+
+/* Class = "NSDatePicker"; ibShadowedToolTip = "Data wystawienia faktury"; ObjectID = "0gc-Ae-zOy"; */
+"0gc-Ae-zOy.ibShadowedToolTip" = "Issue date";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Dodaje zaznaczony towar lub usługę do katalogu"; ObjectID = "0oH-9a-kLt"; */
+"0oH-9a-kLt.ibShadowedToolTip" = "Adds selected item to catalogue";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "0tV-hd-K6Z"; */
+"0tV-hd-K6Z.title" = "Save";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Miasto"; ObjectID = "1Nw-0b-stx"; */
+"1Nw-0b-stx.placeholderString" = "City";
+
+/* Class = "NSTabViewController"; title = "Ustawienia"; ObjectID = "1Qp-5H-TcE"; */
+"1Qp-5H-TcE.title" = "Settings";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "1UL-75-rPt"; */
+"1UL-75-rPt.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "mandayFaktura"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "mandayFaktura";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Zapis faktury"; ObjectID = "1gg-h9-i9W"; */
+"1gg-h9-i9W.ibShadowedToolTip" = "Save invoice";
+
+/* Class = "NSTextFieldCell"; title = "Sposób płatności:"; ObjectID = "1s1-cK-LPF"; */
+"1s1-cK-LPF.title" = "Payment method:";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Dodatkowe informacje np. REGON"; ObjectID = "1vJ-tb-aOI"; */
+"1vJ-tb-aOI.ibShadowedToolTip" = "Additional informations";
+
+/* Class = "NSButtonCell"; ibShadowedToolTip = "Podgląd wydruku faktury (PDF)"; ObjectID = "1xi-CP-sAu"; */
+"1xi-CP-sAu.ibShadowedToolTip" = "Print preview (PDF)";
+
+/* Class = "NSButtonCell"; title = "Podgląd"; ObjectID = "1xi-CP-sAu"; */
+"1xi-CP-sAu.title" = "Preview";
+
+/* Class = "NSTextFieldCell"; title = "Przeciągnij sekcje oznaczome szarym kolorem na błękitne pole numeracji aby utworzyć własny format. Użyj przycisku 'Wyczyść' celem utworzenia nowego formatu."; ObjectID = "22g-nF-aww"; */
+"22g-nF-aww.title" = "Drag the sections marked in gray onto the blue numbering field to create your own format. Use the ‘Clear’ button to create a new format.";
+
+/* Class = "NSButtonCell"; title = "Anuluj"; ObjectID = "26z-T5-FNV"; */
+"26z-T5-FNV.title" = "Cancel";
+
+/* Class = "NSTabViewItem"; label = "Numeracja faktur"; ObjectID = "2AG-N6-WPM"; */
+"2AG-N6-WPM.label" = "Invoice numbering";
+
+/* Class = "NSMenuItem"; title = "Przelew"; ObjectID = "2OT-Go-qw4"; */
+"2OT-Go-qw4.title" = "Transfer";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach."; ObjectID = "2Zb-EB-vYN"; */
+"2Zb-EB-vYN.ibShadowedToolTip" = "The number of invoices may be managed automatically by an app. It's structure can be defined in the settings.";
+
+/* Class = "NSButtonCell"; title = "Odwrotne obciążenie"; ObjectID = "2nd-mg-xiF"; */
+"2nd-mg-xiF.title" = "Reverse charge";
+
+/* Class = "NSMenuItem"; title = "Usuń"; ObjectID = "3Ww-3p-vUu"; */
+"3Ww-3p-vUu.title" = "Delete";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Ulica 0/0"; ObjectID = "3bV-mo-xFK"; */
+"3bV-mo-xFK.placeholderString" = "Street 0/0";
+
+/* Class = "NSViewController"; title = "Katalog usług i produktów"; ObjectID = "463-Th-NCJ"; */
+"463-Th-NCJ.title" = "Products and services catalogue";
+
+/* Class = "NSMenu"; title = "Transformacje"; ObjectID = "4Jk-WK-s7q"; */
+"4Jk-WK-s7q.title" = "Transformations";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Ulica 0/0"; ObjectID = "4Jm-dx-y4w"; */
+"4Jm-dx-y4w.placeholderString" = "Street 0/0";
+
+/* Class = "NSButtonCell"; title = "Anuluj"; ObjectID = "4rq-Wo-9j0"; */
+"4rq-Wo-9j0.title" = "Cancel";
+
+/* Class = "NSMenuItem"; title = "Wyjdź z mandayFaktura"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Exit mandayFaktura";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "NIP nabywcy"; ObjectID = "51f-Z4-w2e"; */
+"51f-Z4-w2e.ibShadowedToolTip" = "Buyers tax code";
+
+/* Class = "NSMenuItem"; title = "Katalog usług i towarów..."; ObjectID = "5jG-eT-cGH"; */
+"5jG-eT-cGH.title" = "Services and products catalogue...";
+
+/* Class = "NSMenuItem"; title = "O mandayFaktura"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About mandayFaktura";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nazwa firmy"; ObjectID = "5yr-PR-86m"; */
+"5yr-PR-86m.headerCell.title" = "Company name";
+
+/* Class = "NSMenuItem"; title = "Edycja"; ObjectID = "6ca-HP-AIQ"; */
+"6ca-HP-AIQ.title" = "Edit";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Miasto nabywcy"; ObjectID = "6hT-Pw-flQ"; */
+"6hT-Pw-flQ.ibShadowedToolTip" = "Buyer's city";
+
+/* Class = "NSMenuItem"; title = "Małe litery"; ObjectID = "6xe-ty-1pL"; */
+"6xe-ty-1pL.title" = "Lowercase";
+
+/* Class = "NSTextFieldCell"; placeholderString = "00-000"; ObjectID = "6yn-Ye-uRq"; */
+"6yn-Ye-uRq.placeholderString" = "00-000";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Ulica, numer domu i mieszkania nabywcy"; ObjectID = "72C-iu-YOK"; */
+"72C-iu-YOK.ibShadowedToolTip" = "Buyer's address";
+
+/* Class = "NSTableColumn"; headerCell.title = "Data wystawienia"; ObjectID = "77o-zN-UfW"; */
+"77o-zN-UfW.headerCell.title" = "Issue date";
+
+/* Class = "NSTextFieldCell"; title = "Numer faktury:"; ObjectID = "78Q-ep-MZO"; */
+"78Q-ep-MZO.title" = "Invoice number:";
+
+/* Class = "NSButtonCell"; title = "Drukuj..."; ObjectID = "7GG-bU-fxb"; */
+"7GG-bU-fxb.title" = "Print...";
+
+/* Class = "NSTextFieldCell"; title = "Data wystawienia:"; ObjectID = "7Q9-pF-007"; */
+"7Q9-pF-007.title" = "Issue date:";
+
+/* Class = "NSTableColumn"; headerCell.title = "Ilość"; ObjectID = "7SJ-CV-ArS"; */
+"7SJ-CV-ArS.headerCell.title" = "Amount";
+
+/* Class = "NSTabViewItem"; label = "Numeracja"; ObjectID = "7ae-fp-UvH"; */
+"7ae-fp-UvH.label" = "Numbering";
+
+/* Class = "NSMenuItem"; title = ".godz"; ObjectID = "7d0-Kb-ZGo"; */
+"7d0-Kb-ZGo.title" = ".hours";
+
+/* Class = "NSButtonCell"; title = "Anuluj"; ObjectID = "888-4p-BON"; */
+"888-4p-BON.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8At-96-WhI"; */
+"8At-96-WhI.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Rok"; ObjectID = "8gh-8p-NT7"; */
+"8gh-8p-NT7.title" = "Year";
+
+/* Class = "NSButtonCell"; title = "Wyczyść"; ObjectID = "8gy-GJ-woU"; */
+"8gy-GJ-woU.title" = "Clear";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Dodatkowe informacje"; ObjectID = "8jT-Td-p4Y"; */
+"8jT-Td-p4Y.placeholderString" = "Additional information";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Dodatkowe uwagi dotyczące faktury"; ObjectID = "8nf-Ia-yZO"; */
+"8nf-Ia-yZO.ibShadowedToolTip" = "Additional remarks";
+
+/* Class = "NSTableColumn"; headerCell.title = "Stawki VAT"; ObjectID = "9II-l9-zdB"; */
+"9II-l9-zdB.headerCell.title" = "VAT rates";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Dodatkowe uwagi dotyczące faktury"; ObjectID = "A14-zx-FZb"; */
+"A14-zx-FZb.ibShadowedToolTip" = "Additional remarks";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "AX3-88-jfB"; */
+"AX3-88-jfB.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSButtonCell"; title = "Podgląd"; ObjectID = "AZZ-Xf-Gjw"; */
+"AZZ-Xf-Gjw.title" = "Preview";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Kraj"; ObjectID = "Aq6-E5-a89"; */
+"Aq6-E5-a89.placeholderString" = "Country";
+
+/* Class = "NSMenu"; title = "Mowa"; ObjectID = "ArV-YG-KtP"; */
+"ArV-YG-KtP.title" = "Speech";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "B9g-Ah-JZV"; */
+"B9g-Ah-JZV.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenuItem"; title = "Ustawienia…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Settings…";
+
+/* Class = "NSTextFieldCell"; title = "Data płatności:"; ObjectID = "BaX-NI-GtG"; */
+"BaX-NI-GtG.title" = "Payment date:";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Kraj"; ObjectID = "Bcg-vS-4Wc"; */
+"Bcg-vS-4Wc.placeholderString" = "Country";
+
+/* Class = "NSMenuItem"; title = "kg"; ObjectID = "Bet-K1-FKO"; */
+"Bet-K1-FKO.title" = "kg";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Dodatkowe informacje np. REGON"; ObjectID = "Bp9-YZ-WWf"; */
+"Bp9-YZ-WWf.ibShadowedToolTip" = "Additional information";
+
+/* Class = "NSMenuItem"; title = "od daty sprzedaży"; ObjectID = "C2U-v2-Kse"; */
+"C2U-v2-Kse.title" = "since selling date";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Nazwa firmy nabywcy"; ObjectID = "CFI-dA-Wb9"; */
+"CFI-dA-Wb9.ibShadowedToolTip" = "Buyer's company name";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "DBj-R8-vOz"; */
+"DBj-R8-vOz.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Zamknij"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Close";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "DeF-UK-A2u"; */
+"DeF-UK-A2u.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Tytuł"; ObjectID = "EpG-hq-Xg2"; */
+"EpG-hq-Xg2.title" = "Title";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "EtI-1P-FbY"; */
+"EtI-1P-FbY.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenu"; title = "Pomoc"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Help";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Własny ciąg znaków"; ObjectID = "FHB-th-d1E"; */
+"FHB-th-d1E.placeholderString" = "Custom characters";
+
+/* Class = "NSMenuItem"; title = "Pomoc mandayFaktura"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Help";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "FiN-Yw-iIz"; */
+"FiN-Yw-iIz.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Numer faktury korygującej:"; ObjectID = "FtI-Sa-fAj"; */
+"FtI-Sa-fAj.title" = "Credit note number:";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "G6N-5g-vh5"; */
+"G6N-5g-vh5.title" = "Save";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "GHL-i6-6VX"; */
+"GHL-i6-6VX.title" = "Save";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nazwa"; ObjectID = "Gan-4F-Z33"; */
+"Gan-4F-Z33.headerCell.title" = "Name";
+
+/* Class = "NSTextFieldCell"; title = "dni"; ObjectID = "GgW-FM-whc"; */
+"GgW-FM-whc.title" = "days";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Dodaje nowy towar lub uslugę"; ObjectID = "GhL-Dq-tZX"; */
+"GhL-Dq-tZX.ibShadowedToolTip" = "Adds new product or service";
+
+/* Class = "NSMenuItem"; title = "WIelkie litery"; ObjectID = "GjM-mE-IFV"; */
+"GjM-mE-IFV.title" = "Uppercase";
+
+/* Class = "NSTableColumn"; headerCell.title = "VAT"; ObjectID = "HET-Jt-d9P"; */
+"HET-Jt-d9P.headerCell.title" = "VAT";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nazwa firmy"; ObjectID = "HPa-As-6g5"; */
+"HPa-As-6g5.headerCell.title" = "Company name";
+
+/* Class = "NSMenuItem"; title = "od daty wystawienia (na formularzu)"; ObjectID = "HjX-x9-nlF"; */
+"HjX-x9-nlF.title" = "since issue date (on the form)";
+
+/* Class = "NSWindow"; title = "mandayFaktura"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "mandayFaktura";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Ib4-09-Kgb"; */
+"Ib4-09-Kgb.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "J. m."; ObjectID = "JO4-Dw-oj2"; */
+"JO4-Dw-oj2.headerCell.title" = "UoM";
+
+/* Class = "NSTextFieldCell"; placeholderString = "BIC/SWIFT"; ObjectID = "Jeb-92-tZh"; */
+"Jeb-92-tZh.placeholderString" = "BIC/SWIFT";
+
+/* Class = "NSTextFieldCell"; placeholderString = "000-000-00-00"; ObjectID = "K6O-4z-rXl"; */
+"K6O-4z-rXl.placeholderString" = "000-000-00-00";
+
+/* Class = "NSMenuItem"; title = "Pokaż wszystkie"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show all";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "L5t-Fs-nkG"; */
+"L5t-Fs-nkG.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Umieść wszystko na wierzchu"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Put everything on front";
+
+/* Class = "NSMenuItem"; title = ".godz"; ObjectID = "LLG-l2-ddW"; */
+"LLG-l2-ddW.title" = "hours";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nazwa firmy"; ObjectID = "LXj-4d-hIk"; */
+"LXj-4d-hIk.placeholderString" = "Company name";
+
+/* Class = "NSTextFieldCell"; title = "Data sprzedaży:"; ObjectID = "LYb-aQ-Qhy"; */
+"LYb-aQ-Qhy.title" = "Selling date:";
+
+/* Class = "NSMenuItem"; title = "Kopiuj"; ObjectID = "Las-aG-JSs"; */
+"Las-aG-JSs.title" = "Copy";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "M3n-rg-3pI"; */
+"M3n-rg-3pI.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Termin:"; ObjectID = "Mbj-aL-Oib"; */
+"Mbj-aL-Oib.title" = "Due date:";
+
+/* Class = "NSButtonCell"; title = "Odwrotne obciążenie"; ObjectID = "Mez-YO-bK9"; */
+"Mez-YO-bK9.title" = "Reverse charge";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "Mhi-MR-gQ1"; */
+"Mhi-MR-gQ1.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenuItem"; title = "Edycja..."; ObjectID = "NE7-Mf-tLH"; */
+"NE7-Mf-tLH.title" = "Edit...";
+
+/* Class = "NSMenuItem"; title = "szt."; ObjectID = "NJA-au-3xl"; */
+"NJA-au-3xl.title" = "units";
+
+/* Class = "NSMenuItem"; title = "Minimalizuj"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSTabViewItem"; label = "Numeracja korekt"; ObjectID = "OaA-Kr-lfR"; */
+"OaA-Kr-lfR.label" = "Credit notes numeration";
+
+/* Class = "NSMenuItem"; title = "Schowaj mandayFaktura"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide mandayFaktura";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nazwa firmy"; ObjectID = "PDM-Bn-GaX"; */
+"PDM-Bn-GaX.placeholderString" = "Company name";
+
+/* Class = "NSViewController"; title = "Edycja faktury"; ObjectID = "Pk8-xk-tGP"; */
+"Pk8-xk-tGP.title" = "Invoice edit";
+
+/* Class = "NSTableColumn"; headerCell.title = "Domyślne"; ObjectID = "QDv-ew-8VB"; */
+"QDv-ew-8VB.headerCell.title" = "Default";
+
+/* Class = "NSButtonCell"; title = "Ustaw 'kolejny numer' na '1' po zmianie roku"; ObjectID = "QQf-sO-e0d"; */
+"QQf-sO-e0d.title" = "Set 'next number' to '1' after year change";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nazwa towaru lub usługi"; ObjectID = "Qer-3u-kN0"; */
+"Qer-3u-kN0.placeholderString" = "Name of product or service";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Qer-3u-kN0"; */
+"Qer-3u-kN0.title" = "Table View Cell";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "RDw-BU-c0f"; */
+"RDw-BU-c0f.alternateTitle" = "Add product or service";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Stawka VAT"; ObjectID = "RQh-u0-Sg1"; */
+"RQh-u0-Sg1.placeholderString" = "VAT rate";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "RQh-u0-Sg1"; */
+"RQh-u0-Sg1.title" = "Table View Cell";
+
+/* Class = "NSViewController"; title = "Dokument"; ObjectID = "RUf-8q-9Iu"; */
+"RUf-8q-9Iu.title" = "Document";
+
+/* Class = "NSMenuItem"; ibExternalAccessibilityDescription = "some desc"; ObjectID = "Rkq-eA-ldu"; */
+"Rkq-eA-ldu.ibExternalAccessibilityDescription" = "some desc";
+
+/* Class = "NSMenuItem"; ibExternalAccessibilityHelp = "some help"; ObjectID = "Rkq-eA-ldu"; */
+"Rkq-eA-ldu.ibExternalAccessibilityHelp" = "some help";
+
+/* Class = "NSMenuItem"; title = "od daty utworzenia"; ObjectID = "Rkq-eA-ldu"; */
+"Rkq-eA-ldu.title" = "since issue date";
+
+/* Class = "NSTableColumn"; headerCell.title = "Cena netto"; ObjectID = "SA5-ev-h6E"; */
+"SA5-ev-h6E.headerCell.title" = "net price";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Kod pocztowy nabywcy"; ObjectID = "Spo-Nd-mKm"; */
+"Spo-Nd-mKm.ibShadowedToolTip" = "Buyer's zip code";
+
+/* Class = "NSMenu"; title = "Edycja"; ObjectID = "T1L-Ea-9uZ"; */
+"T1L-Ea-9uZ.title" = "Edit";
+
+/* Class = "NSDatePicker"; ibShadowedToolTip = "Data sprzedaży towaru lub uslugi"; ObjectID = "T6b-fk-Zeh"; */
+"T6b-fk-Zeh.ibShadowedToolTip" = "Selling date of product or service";
+
+/* Class = "NSMenuItem"; title = "usł."; ObjectID = "T9t-2m-1J6"; */
+"T9t-2m-1J6.title" = "svc.";
+
+/* Class = "NSTextFieldCell"; placeholderString = "01/A/2018"; ObjectID = "TRN-MG-pUp"; */
+"TRN-MG-pUp.placeholderString" = "01/A/2018";
+
+/* Class = "NSMenu"; title = "Okno"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Window";
+
+/* Class = "NSTextFieldCell"; title = "Kolejny numer"; ObjectID = "Te6-sh-weN"; */
+"Te6-sh-weN.title" = "Next number";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Nazwa firmy nabywcy"; ObjectID = "Tev-zY-Yj0"; */
+"Tev-zY-Yj0.ibShadowedToolTip" = "Buyer's company name";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Tpf-vU-arW"; */
+"Tpf-vU-arW.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "VAT"; ObjectID = "U9F-9h-LqE"; */
+"U9F-9h-LqE.headerCell.title" = "VAT";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Dodatkowe informacje"; ObjectID = "UJO-0D-70h"; */
+"UJO-0D-70h.placeholderString" = "Additional information";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Ulica, numer domu i mieszkania nabywcy"; ObjectID = "Uu1-eY-Zza"; */
+"Uu1-eY-Zza.ibShadowedToolTip" = "Buyer;s address";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Dodatkowe informacje np. REGON"; ObjectID = "VKR-Ls-MCj"; */
+"VKR-Ls-MCj.ibShadowedToolTip" = "Additional information";
+
+/* Class = "NSTextFieldCell"; placeholderString = "000-000-00-00"; ObjectID = "VWm-oV-MOf"; */
+"VWm-oV-MOf.placeholderString" = "000-000-00-00";
+
+/* Class = "NSTextFieldCell"; title = "Kolejny numer"; ObjectID = "VYd-vO-CJ2"; */
+"VYd-vO-CJ2.title" = "Next number";
+
+/* Class = "NSMenuItem"; title = "Schowaj Inne"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Kraj"; ObjectID = "Ve6-eV-ocN"; */
+"Ve6-eV-ocN.placeholderString" = "Country";
+
+/* Class = "NSMenuItem"; title = "Cofnij"; ObjectID = "VqM-xz-aqM"; */
+"VqM-xz-aqM.title" = "Undo";
+
+/* Class = "NSMenuItem"; title = "Katalog nabywców..."; ObjectID = "W7P-pA-tCN"; */
+"W7P-pA-tCN.title" = "Buyers catalogue...";
+
+/* Class = "NSMenuItem"; title = "Nowa..."; ObjectID = "Was-JA-tGl"; */
+"Was-JA-tGl.title" = "New...";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Alias towaru lub usługi"; ObjectID = "XSV-th-NYq"; */
+"XSV-th-NYq.placeholderString" = "Alias of product or service";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "XSV-th-NYq"; */
+"XSV-th-NYq.title" = "Table View Cell";
+
+/* Class = "NSMenuItem"; title = "szt."; ObjectID = "Xc0-cE-0SR"; */
+"Xc0-cE-0SR.title" = "units";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Pozwala na wybranie nabywcy z listy"; ObjectID = "Xrx-8b-s0x"; */
+"Xrx-8b-s0x.ibShadowedToolTip" = "Allows for buyers selection from the list";
+
+/* Class = "NSButtonCell"; title = "Podgląd"; ObjectID = "Y2G-3U-7SR"; */
+"Y2G-3U-7SR.title" = "Preview";
+
+/* Class = "NSTableColumn"; headerCell.title = "Kwota brutto"; ObjectID = "Y9x-rc-wfG"; */
+"Y9x-rc-wfG.headerCell.title" = "Gross amount";
+
+/* Class = "NSMenuItem"; title = "Gotówka"; ObjectID = "YXp-uq-9Ps"; */
+"YXp-uq-9Ps.title" = "Cash";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "YYv-ui-ekx"; */
+"YYv-ui-ekx.title" = "Window";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "YkP-GR-qn1"; */
+"YkP-GR-qn1.title" = "Save";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Z2J-dx-CvH"; */
+"Z2J-dx-CvH.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Dane nabywcy:"; ObjectID = "Z6s-zr-3TI"; */
+"Z6s-zr-3TI.title" = "Buyer's:";
+
+/* Class = "NSMenuItem"; title = "km"; ObjectID = "ZIi-Ar-w7R"; */
+"ZIi-Ar-w7R.title" = "km";
+
+/* Class = "NSTableColumn"; headerCell.title = "Wartość netto"; ObjectID = "a2d-Dx-qd3"; */
+"a2d-Dx-qd3.headerCell.title" = "Net value";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "aDL-Az-E3a"; */
+"aDL-Az-E3a.title" = "Table View Cell";
+
+/* Class = "NSMenuItem"; title = "Drukuj..."; ObjectID = "aTl-1u-JFS"; */
+"aTl-1u-JFS.title" = "Print...";
+
+/* Class = "NSMenuItem"; title = "Okno"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Usuń"; ObjectID = "aVI-U8-sU1"; */
+"aVI-U8-sU1.title" = "Delete";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "b1W-hj-Ckb"; */
+"b1W-hj-Ckb.title" = "Save";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Uwagi"; ObjectID = "bFr-ar-ghT"; */
+"bFr-ar-ghT.placeholderString" = "Remarks";
+
+/* Class = "NSTextFieldCell"; title = "Rok"; ObjectID = "bIX-dU-3V0"; */
+"bIX-dU-3V0.title" = "Year";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nr korekty"; ObjectID = "bXP-pp-ML5"; */
+"bXP-pp-ML5.placeholderString" = "Credit note number";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "bXf-yG-hkj"; */
+"bXf-yG-hkj.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "bgf-kq-fBT"; */
+"bgf-kq-fBT.title" = "Save";
+
+/* Class = "NSMenu"; title = "Plik"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "File";
+
+/* Class = "NSTextFieldCell"; title = "Separator:"; ObjectID = "cBF-dG-0ur"; */
+"cBF-dG-0ur.title" = "Seperator:";
+
+/* Class = "NSTabViewItem"; label = "Dane firmy"; ObjectID = "cJA-bK-apM"; */
+"cJA-bK-apM.label" = "Company";
+
+/* Class = "NSTextFieldCell"; title = "Wybrana opcja spowoduje nadpisanie daty płatności po zmianie pola, którego dotyczy"; ObjectID = "cVc-rc-veO"; */
+"cVc-rc-veO.title" = "Selected option will cause overwriting payment date after changing related field";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Usuwa zaznaczony towar lub usługę z listy"; ObjectID = "cle-5p-sRV"; */
+"cle-5p-sRV.ibShadowedToolTip" = "Deletes selected product or service from the list";
+
+/* Class = "NSTableColumn"; headerCell.title = "J. m."; ObjectID = "cqW-xK-zmH"; */
+"cqW-xK-zmH.headerCell.title" = "UoM";
+
+/* Class = "NSMenuItem"; title = "kg"; ObjectID = "cul-B9-LNh"; */
+"cul-B9-LNh.title" = "kg";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nr konta"; ObjectID = "cvb-0R-h3V"; */
+"cvb-0R-h3V.placeholderString" = "Account number";
+
+/* Class = "NSMenuItem"; title = "Plik"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Ulica 0/0"; ObjectID = "dUt-Mz-SA3"; */
+"dUt-Mz-SA3.placeholderString" = "Street 0/0";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "dhB-XE-PHK"; */
+"dhB-XE-PHK.title" = "Text Cell";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Znak oddzielający poszczególne pola numeru faktury"; ObjectID = "dxg-RZ-IeG"; */
+"dxg-RZ-IeG.ibShadowedToolTip" = "Invoice number separator character";
+
+/* Class = "NSDatePicker"; ibShadowedToolTip = "Termin płatności"; ObjectID = "e9b-ZG-Xlk"; */
+"e9b-ZG-Xlk.ibShadowedToolTip" = "Payment due date";
+
+/* Class = "NSWindow"; title = "Edycja faktury"; ObjectID = "eKh-fi-RBK"; */
+"eKh-fi-RBK.title" = "Invoice edit";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Otwiera okno z katalogiem usług i towarów"; ObjectID = "eU7-aR-xbm"; */
+"eU7-aR-xbm.ibShadowedToolTip" = "Opens product and services catalogue window";
+
+/* Class = "NSWindow"; title = "Korekta faktury"; ObjectID = "eag-1Q-Vga"; */
+"eag-1Q-Vga.title" = "Credit note";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "miary"; ObjectID = "efO-Cd-k79"; */
+"efO-Cd-k79.ibShadowedToolTip" = "measures";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "egr-Fj-LR4"; */
+"egr-Fj-LR4.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "epc-bE-pud"; */
+"epc-bE-pud.alternateTitle" = "Add new product or service";
+
+/* Class = "NSTableColumn"; headerCell.title = "Wartość brutto"; ObjectID = "fYs-uW-51R"; */
+"fYs-uW-51R.headerCell.title" = "Gross value";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "fs8-v9-Br8"; */
+"fs8-v9-Br8.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "fvd-c7-tvM"; */
+"fvd-c7-tvM.title" = "Save";
+
+/* Class = "NSTextFieldCell"; title = "Numer faktury:"; ObjectID = "g3y-6U-V1P"; */
+"g3y-6U-V1P.title" = "Invoice number:";
+
+/* Class = "NSTextFieldCell"; placeholderString = "00-000"; ObjectID = "g60-NV-9hw"; */
+"g60-NV-9hw.placeholderString" = "00-000";
+
+/* Class = "NSMenuItem"; title = "Przywróć"; ObjectID = "gH7-hH-oXL"; */
+"gH7-hH-oXL.title" = "Revert";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Podgląd faktury (PDF)"; ObjectID = "gWk-za-B4i"; */
+"gWk-za-B4i.ibShadowedToolTip" = "Invoice preview (PDF)";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Miasto nabywcy"; ObjectID = "gdj-AE-KTe"; */
+"gdj-AE-KTe.ibShadowedToolTip" = "Buyer's city";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "gm0-7H-swb"; */
+"gm0-7H-swb.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Ulica 0/0"; ObjectID = "gpf-Se-SrU"; */
+"gpf-Se-SrU.placeholderString" = "Street 0/0";
+
+/* Class = "NSTableColumn"; headerCell.title = "Numer"; ObjectID = "h1N-BL-dyO"; */
+"h1N-BL-dyO.headerCell.title" = "Number";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "h2Z-Re-OvL"; */
+"h2Z-Re-OvL.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Mowa"; ObjectID = "hGO-8M-umO"; */
+"hGO-8M-umO.title" = "Speech";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Numer faktury może być zarządzany przez aplikację automatycznie. Jego struktura może być zdefiniowana w preferencjach."; ObjectID = "hIb-6p-UXt"; */
+"hIb-6p-UXt.ibShadowedToolTip" = "The number of invoices may be managed automatically by an app. It's structure can be defined in the settings.";
+
+/* Class = "NSTextFieldCell"; title = "Dane nabywcy:"; ObjectID = "hLQ-Kl-5iP"; */
+"hLQ-Kl-5iP.title" = "Buyer's:";
+
+/* Class = "NSMenuItem"; title = "Historia faktur"; ObjectID = "hXz-u0-mXm"; */
+"hXz-u0-mXm.title" = "Invoice history";
+
+/* Class = "NSTabViewItem"; label = "Dokument"; ObjectID = "haE-qU-sJy"; */
+"haE-qU-sJy.label" = "Document";
+
+/* Class = "NSViewController"; title = "Nowa faktura"; ObjectID = "haF-wG-vwp"; */
+"haF-wG-vwp.title" = "New invoice";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "haS-Qa-1zz"; */
+"haS-Qa-1zz.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenuItem"; title = "Przestań mówić"; ObjectID = "hdl-bi-HHc"; */
+"hdl-bi-HHc.title" = "Stop talking";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "heG-bs-siu"; */
+"heG-bs-siu.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Miasto"; ObjectID = "hn8-yI-Za8"; */
+"hn8-yI-Za8.placeholderString" = "City";
+
+/* Class = "NSButtonCell"; title = "Anuluj"; ObjectID = "jGj-6Z-OBR"; */
+"jGj-6Z-OBR.title" = "Cancel";
+
+/* Class = "NSMenuItem"; title = "Transformacje"; ObjectID = "jLg-5s-Ka2"; */
+"jLg-5s-Ka2.title" = "Transformations";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "jVW-Zn-lU7"; */
+"jVW-Zn-lU7.title" = "Table View Cell";
+
+/* Class = "NSViewController"; title = "Edycja nabywcy"; ObjectID = "jZ8-TV-xZJ"; */
+"jZ8-TV-xZJ.title" = "Buyer's edit";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "jha-Sv-kh9"; */
+"jha-Sv-kh9.alternateTitle" = "Add product or service";
+
+/* Class = "NSButtonCell"; title = "Eksportuj KSeF XML (alpha)"; ObjectID = "jow-12-gca"; */
+"jow-12-gca.title" = "Export to KSeF XML (alpha)";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "kXN-6H-7ip"; */
+"kXN-6H-7ip.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Anuluj"; ObjectID = "km5-ey-hEg"; */
+"km5-ey-hEg.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; placeholderString = "00-000"; ObjectID = "l3p-iO-8nl"; */
+"l3p-iO-8nl.placeholderString" = "00-000";
+
+/* Class = "NSTextFieldCell"; placeholderString = "000-000-00-00"; ObjectID = "lGE-5T-KbU"; */
+"lGE-5T-KbU.placeholderString" = "000-000-00-00";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "lIz-TY-kkH"; */
+"lIz-TY-kkH.title" = "Item 1";
+
+/* Class = "NSButtonCell"; title = "Informacje o mandayFaktura na dokumencie"; ObjectID = "lxb-NW-Ra7"; */
+"lxb-NW-Ra7.title" = "Information about mandayFaktura on documents";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "m1o-XU-R5R"; */
+"m1o-XU-R5R.alternateTitle" = "Add product or service";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "mBL-PK-ILz"; */
+"mBL-PK-ILz.title" = "Text Cell";
+
+/* Class = "NSTabViewItem"; label = "Stawki VAT"; ObjectID = "mGw-VY-vaY"; */
+"mGw-VY-vaY.label" = "VAT rates";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Miasto"; ObjectID = "mWO-yg-z9z"; */
+"mWO-yg-z9z.placeholderString" = "City";
+
+/* Class = "NSViewController"; title = "Dodaj nabywcę"; ObjectID = "n9k-5a-UWE"; */
+"n9k-5a-UWE.title" = "Add buyer";
+
+/* Class = "NSTextFieldCell"; placeholderString = "00-000"; ObjectID = "nU0-ZI-36o"; */
+"nU0-ZI-36o.placeholderString" = "00-000";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "nc5-sw-XpX"; */
+"nc5-sw-XpX.title" = "Save";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nazwa firmy"; ObjectID = "oF8-sf-QPd"; */
+"oF8-sf-QPd.placeholderString" = "Company name";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "oYh-8r-NCQ"; */
+"oYh-8r-NCQ.alternateTitle" = "Add product or service";
+
+/* Class = "NSViewController"; title = "Stawki VAT"; ObjectID = "oyF-0z-qfU"; */
+"oyF-0z-qfU.title" = "VAT rates";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nazwa towaru lub usługi"; ObjectID = "pLJ-Nb-fsr"; */
+"pLJ-Nb-fsr.placeholderString" = "Name of product or service";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "pLJ-Nb-fsr"; */
+"pLJ-Nb-fsr.title" = "Table View Cell";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Znak oddzielający poszczególne pola numeru faktury"; ObjectID = "pOg-ER-QwB"; */
+"pOg-ER-QwB.ibShadowedToolTip" = "Invoice number separator character";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Kod pocztowy nabywcy"; ObjectID = "pSb-Kd-8wj"; */
+"pSb-Kd-8wj.ibShadowedToolTip" = "Buyer's zip code";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Uwagi"; ObjectID = "pmP-Ry-Ebo"; */
+"pmP-Ry-Ebo.placeholderString" = "Remarks";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "pqR-gj-Sah"; */
+"pqR-gj-Sah.alternateTitle" = "Add product or service";
+
+/* Class = "NSTextFieldCell"; placeholderString = "000-000-00-00"; ObjectID = "pv1-q4-K1L"; */
+"pv1-q4-K1L.placeholderString" = "000-000-00-00";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Usuwa zaznaczony towar lub usługę z listy"; ObjectID = "q4d-k6-IsF"; */
+"q4d-k6-IsF.ibShadowedToolTip" = "Deletes selected product or service from the list";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "q8u-ry-OcC"; */
+"q8u-ry-OcC.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Odwrotne obciążenie"; ObjectID = "qGy-2h-eDf"; */
+"qGy-2h-eDf.title" = "Reverse charge";
+
+/* Class = "NSMenuItem"; title = "Ustawienia strony"; ObjectID = "qIS-W8-SiK"; */
+"qIS-W8-SiK.title" = "Page settings";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Dodatkowe informacje"; ObjectID = "qUP-40-IUh"; */
+"qUP-40-IUh.placeholderString" = "Additional information";
+
+/* Class = "NSWindow"; title = "Katalog nabywców"; ObjectID = "qeb-hI-I95"; */
+"qeb-hI-I95.title" = "Buyers catalogue";
+
+/* Class = "NSWindow"; title = "Katalog usług i produktów"; ObjectID = "qsD-cU-Z5K"; */
+"qsD-cU-Z5K.title" = "Products and services catalogue";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Dodaje nowy towar lub usługę do listy"; ObjectID = "quA-M6-NgU"; */
+"quA-M6-NgU.ibShadowedToolTip" = "Add new product or service to the list";
+
+/* Class = "NSTextFieldCell"; title = "Przeciągnij sekcje oznaczome szarym kolorem na błękitne pole numeracji aby utworzyć własny format. Użyj przycisku 'Wyczyść' celem utworzenia nowego formatu."; ObjectID = "r5n-Wc-BeJ"; */
+"r5n-Wc-BeJ.title" = "Drag the sections marked in gray onto the blue numbering field to create your own format. Use the ‘Clear’ button to create a new format.";
+
+/* Class = "NSButtonCell"; title = "Wyczyść"; ObjectID = "r8F-Fi-Kme"; */
+"r8F-Fi-Kme.title" = "Clear";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nazwa"; ObjectID = "rTe-EN-GSM"; */
+"rTe-EN-GSM.headerCell.title" = "Name";
+
+/* Class = "NSWindow"; title = "Ustawienia"; ObjectID = "ra0-RU-SXS"; */
+"ra0-RU-SXS.title" = "Settings";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "sHr-du-92b"; */
+"sHr-du-92b.title" = "Text Cell";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Nazwa firmy nabywcy"; ObjectID = "sJ8-C5-SHu"; */
+"sJ8-C5-SHu.ibShadowedToolTip" = "Buyer's company name";
+
+/* Class = "NSWindow"; title = "Nowa faktura"; ObjectID = "sUU-zj-djB"; */
+"sUU-zj-djB.title" = "New invoice";
+
+/* Class = "NSTextFieldCell"; title = "Separator:"; ObjectID = "sYr-89-e4y"; */
+"sYr-89-e4y.title" = "Seperator:";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "t5T-xg-wI9"; */
+"t5T-xg-wI9.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenuItem"; title = "Wklej"; ObjectID = "tFk-Uu-Dcy"; */
+"tFk-Uu-Dcy.title" = "Paste";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "tPs-th-QHk"; */
+"tPs-th-QHk.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "tTG-bf-qdE"; */
+"tTG-bf-qdE.title" = "Save";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Własny ciąg znaków"; ObjectID = "tTb-h0-w9p"; */
+"tTb-h0-w9p.placeholderString" = "Custom character string";
+
+/* Class = "NSMenu"; title = "mandayFaktura"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "mandayFaktura";
+
+/* Class = "NSButtonCell"; title = "Anuluj"; ObjectID = "uTd-p0-Oc6"; */
+"uTd-p0-Oc6.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Dane nabywcy:"; ObjectID = "uj8-in-aaP"; */
+"uj8-in-aaP.title" = "Buyers:";
+
+/* Class = "NSButtonCell"; title = "Ustaw 'kolejny numer' na '1' po zmianie roku"; ObjectID = "ukx-cg-2Fu"; */
+"ukx-cg-2Fu.title" = "Set 'next number' to '1' after year change";
+
+/* Class = "NSMenuItem"; title = "Wytnij"; ObjectID = "uv1-V5-bFI"; */
+"uv1-V5-bFI.title" = "Cut";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "vIm-Gh-0mC"; */
+"vIm-Gh-0mC.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "01/A/2018"; ObjectID = "vLK-ho-kjH"; */
+"vLK-ho-kjH.placeholderString" = "01/A/2018";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "NIP nabywcy"; ObjectID = "vOg-Jd-m0M"; */
+"vOg-Jd-m0M.ibShadowedToolTip" = "Buyer's tax number";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Dodatkowe uwagi dotyczące faktury"; ObjectID = "vZg-AQ-svB"; */
+"vZg-AQ-svB.ibShadowedToolTip" = "Additional remarks";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "veP-5Q-1FO"; */
+"veP-5Q-1FO.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "Eksportuj do PDF "; ObjectID = "vgd-M5-4TG"; */
+"vgd-M5-4TG.title" = "Export to PDF";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "vvx-Bv-8fE"; */
+"vvx-Bv-8fE.alternateTitle" = "Add product or service";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "w1M-JV-So1"; */
+"w1M-JV-So1.title" = "Table View Cell";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Cena netto towaru lub usługi"; ObjectID = "wWz-7e-DbU"; */
+"wWz-7e-DbU.ibShadowedToolTip" = "Net price of product or service";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Domyślne uwagi"; ObjectID = "wd2-z1-hWa"; */
+"wd2-z1-hWa.placeholderString" = "Default remarks";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Miasto"; ObjectID = "wfo-Uh-e5Y"; */
+"wfo-Uh-e5Y.placeholderString" = "City";
+
+/* Class = "NSButtonCell"; alternateTitle = "Dodaj towar lub usługę"; ObjectID = "wm1-19-nEh"; */
+"wm1-19-nEh.alternateTitle" = "Add product or service";
+
+/* Class = "NSMenuItem"; title = "Pomoc"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "x9U-T1-vhJ"; */
+"x9U-T1-vhJ.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "0"; ObjectID = "xEu-LV-5Cg"; */
+"xEu-LV-5Cg.title" = "0";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Stawka VAT"; ObjectID = "xOe-rV-s4f"; */
+"xOe-rV-s4f.placeholderString" = "VAT rate";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "xOe-rV-s4f"; */
+"xOe-rV-s4f.title" = "Text Cell";
+
+/* Class = "NSViewController"; title = "Podgląd"; ObjectID = "xVm-3h-MS1"; */
+"xVm-3h-MS1.title" = "Preview";
+
+/* Class = "NSMenuItem"; title = "km"; ObjectID = "xWh-qK-k7u"; */
+"xWh-qK-k7u.title" = "km";
+
+/* Class = "NSViewController"; title = "Korekta faktury"; ObjectID = "xel-JP-j4e"; */
+"xel-JP-j4e.title" = "Credit note";
+
+/* Class = "NSMenuItem"; title = "Zacznij mówić"; ObjectID = "xmM-9a-R4F"; */
+"xmM-9a-R4F.title" = "Start talking";
+
+/* Class = "NSWindow"; title = "Dodaj nabywcę"; ObjectID = "yJW-b8-Uw5"; */
+"yJW-b8-Uw5.title" = "Add buyer";
+
+/* Class = "NSTableColumn"; headerCell.title = "Alias"; ObjectID = "yz9-oJ-PKA"; */
+"yz9-oJ-PKA.headerCell.title" = "Alias";
+
+/* Class = "NSMenuItem"; title = "Korekta..."; ObjectID = "zQa-dQ-WqJ"; */
+"zQa-dQ-WqJ.title" = "Credit note...";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Nazwa firmy"; ObjectID = "zUl-cf-rHF"; */
+"zUl-cf-rHF.placeholderString" = "Company name";
+
+/* Class = "NSTableColumn"; headerCell.title = "Cena netto"; ObjectID = "zme-ue-UQ6"; */
+"zme-ue-UQ6.headerCell.title" = "Net value";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Przyczyna korekty/Uwagi"; ObjectID = "zqo-Hc-a0C"; */
+"zqo-Hc-a0C.placeholderString" = "Credit note reason/remarks";
+
+/* Class = "NSButtonCell"; title = "Zapisz"; ObjectID = "zuy-Lh-CmR"; */
+"zuy-Lh-CmR.title" = "Save";

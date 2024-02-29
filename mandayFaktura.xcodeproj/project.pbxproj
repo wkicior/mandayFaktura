@@ -250,6 +250,8 @@
 		D3E7DBFB2B6ED228003146D5 /* KsefVatRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBFA2B6ED228003146D5 /* KsefVatRate.swift */; };
 		D3E7DBFD2B6ED254003146D5 /* KsefVatRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBFC2B6ED254003146D5 /* KsefVatRateTests.swift */; };
 		D3E7DBFE2B756F28003146D5 /* KsefVatRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBFA2B6ED228003146D5 /* KsefVatRate.swift */; };
+		D3E7DC062B8E8DEF003146D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3E7DC092B8E8DEF003146D5 /* Localizable.strings */; };
+		D3E7DC072B8E8DEF003146D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3E7DC092B8E8DEF003146D5 /* Localizable.strings */; };
 		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
@@ -473,6 +475,10 @@
 		D3E7DBF72B69998D003146D5 /* StringContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringContent.swift; sourceTree = "<group>"; };
 		D3E7DBFA2B6ED228003146D5 /* KsefVatRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefVatRate.swift; sourceTree = "<group>"; };
 		D3E7DBFC2B6ED254003146D5 /* KsefVatRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefVatRateTests.swift; sourceTree = "<group>"; };
+		D3E7DC082B8E8DEF003146D5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D3E7DC0A2B8E8DFA003146D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D3E7DC0C2B8FC940003146D5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
+		D3E7DC0E2B8FC956003146D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
@@ -738,6 +744,7 @@
 				D37560B6203601B100F507AD /* Application */,
 				D34D0EBE201A7CBC000D1EC6 /* AppDelegate.swift */,
 				D34D0EC2201A7CBC000D1EC6 /* Assets.xcassets */,
+				D3E7DC092B8E8DEF003146D5 /* Localizable.strings */,
 				D34D0EC4201A7CBC000D1EC6 /* Main.storyboard */,
 				D34D0EC7201A7CBC000D1EC6 /* Info.plist */,
 				D34D0EC8201A7CBC000D1EC6 /* mandayFaktura.entitlements */,
@@ -1440,6 +1447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3433A1021A48D6100C583D2 /* Assets.xcassets in Resources */,
+				D3E7DC072B8E8DEF003146D5 /* Localizable.strings in Resources */,
 				D3433A1121A48D6100C583D2 /* Main.storyboard in Resources */,
 				D3433A1221A48D6100C583D2 /* Settings.plist in Resources */,
 			);
@@ -1450,6 +1458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34D0EC3201A7CBC000D1EC6 /* Assets.xcassets in Resources */,
+				D3E7DC062B8E8DEF003146D5 /* Localizable.strings in Resources */,
 				D34D0EC6201A7CBC000D1EC6 /* Main.storyboard in Resources */,
 				D3B7C955207BF2C400432176 /* Settings.plist in Resources */,
 			);
@@ -1819,8 +1828,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				D34D0EC5201A7CBC000D1EC6 /* Base */,
+				D3E7DC0C2B8FC940003146D5 /* pl */,
+				D3E7DC0E2B8FC956003146D5 /* en */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D3E7DC092B8E8DEF003146D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3E7DC082B8E8DEF003146D5 /* pl */,
+				D3E7DC0A2B8E8DFA003146D5 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  mandayFaktura
+
+  Created by Wojciech Kicior on 27/02/2024.
+  Copyright © 2024 Wojciech Kicior. All rights reserved.
+*/
+"EXPORT_TO_PDF" = "Eksport do PDF";
