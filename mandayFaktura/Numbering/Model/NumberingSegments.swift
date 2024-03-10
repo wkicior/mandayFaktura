@@ -31,7 +31,11 @@ enum NumberingSegmentType: String {
         
         let fixedPartTest = NSPredicate(format:"SELF MATCHES %@", regex)
         if !fixedPartTest.evaluate(with: value) {
-            throw InputValidationError.invalidNumber(fieldName: "Własny ciąg znaków")
+            if #available(macOS 12, *) {
+                throw InputValidationError.invalidNumber(fieldName: String(localized: "CUSTOM_CHARACTERS", defaultValue: "Custom characters"))
+            } else {
+                throw InputValidationError.invalidNumber(fieldName: "Własny ciąg znaków")
+            }
         }
     }
 }

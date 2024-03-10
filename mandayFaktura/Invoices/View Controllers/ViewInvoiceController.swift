@@ -29,8 +29,12 @@ class ViewInvoiceController: NSViewController {
         do {
             let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             self.pdfDocument!.save(dir: homeDirURL)
-        } catch let error as Error{
-            WarningAlert(warning: "Nie udalo sie zapisac PDF", text: error.localizedDescription).runModal()
+        } catch let error as Error {
+            if #available(macOS 12, *) {
+                WarningAlert(warning: String(localized: "COULD_NOT_SAVE_PDF", defaultValue: "Could not save to PDF"), text: error.localizedDescription).runModal()
+            } else {
+                WarningAlert(warning: "Nie udalo sie zapisac PDF", text: error.localizedDescription).runModal()
+            }
         }
     }
     
@@ -39,7 +43,11 @@ class ViewInvoiceController: NSViewController {
             let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             try self.ksefXml!.save(dir: homeDirURL)
         } catch let error as Error{
-            WarningAlert(warning: "Nie udalo sie zapisac XML", text: error.localizedDescription).runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: String(localized: "COULD_NOT_SAVE_XML", defaultValue: "Could not save to XML"), text: error.localizedDescription).runModal()
+            } else {
+                WarningAlert(warning: "Nie udalo sie zapisac XML", text: error.localizedDescription).runModal()
+            }
         }
     }
 }
