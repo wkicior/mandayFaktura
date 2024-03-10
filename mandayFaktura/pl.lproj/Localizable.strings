@@ -5,4 +5,36 @@
   Created by Wojciech Kicior on 27/02/2024.
   Copyright © 2024 Wojciech Kicior. All rights reserved.
 */
-"EXPORT_TO_PDF" = "Eksport do PDF";
+"COULD_NOT_SAVE_PDF" = "Nie udalo sie zapisac PDF";
+"COULD_NOT_SAVE_XML" = "Nie udalo sie zapisac XML";
+"CUSTOM_CHARACTERS" = "Własny ciąg znaków";
+"WRONG_STRING_FORMAT" = "błędny format ciągu znaków";
+"CONTENT_DIGIT_OR_LETTER" = "Zawartość pola musi być cyfrą lub literą.";
+"DOCUMENT_REMOVAL" = "Usunięcie dokumentu!";
+"DOCUMENT_HAS_CREDIT_NOTE" = "Dokument ma przypisaną fakturę korygującą";
+"DOCUMENT_COULD_NOT_BE_REMOVED" = "i nie może zostać usunięty";
+"IRRETRIEVABLY_DELETED" = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?";
+"DELETE" = "Usuń";
+"CANCEL" = "Anuluj";
+"DOCUMENT_COULD_NOT_BE_EDITED" = "i nie może zostać edytowany";
+"INVOICE_EDIT" = "Edycja faktury!";
+"CONFIRM_INVOICE_EDIT" = "Dane faktury mogą zostać nadpisane. Czy na pewno chcesz edytować fakturę?";
+"EDIT" = "Edytuj";
+"CREDIT_NOTE_CREATION" = "Korekta faktury!";
+"INVOICE_EXISTS" = "faktura o tym numerze juź istnieje";
+"CHANGE_NUMBER" = "Zmień numer nowej faktury lub edytuj fakturę o numerze";
+"CREDIT_NOTE_EXISTS" = "faktura korygująca o tym numerze juź istnieje";
+"APPLY_REVERSE_CHARGE" = "Czy zastosować odwrotne obciążenie?";
+"POTENTIAL_REVERSE_CHARGE_ATTEMPT" = "Próba zapisu międzynarodowej faktury z zerową stawką VAT.";
+"YES_GO_TO_EDIT" = "Tak, wróć do edycji";
+"NO_CONTINUE_SAVING" = "Nie, zapisz w obecnej formie";
+"WRONG_FORMAT" = "błędny format liczby";
+"MUST_BE_DECIMAL" = "Zawartość pola musi być liczbą dziesiętną np. 1,23";
+"COMPANY_EXISTS" = "W historii istnieje już firma o nazwie";
+"COUNTERPARTIES_ARE_DIFFERENT" = "Dane podmiotów różnią się.";
+"CANCEL_INVOICE_SAVING" = "Wstrzymaj zapis faktury";
+"DO_NOT_OVERWRITE" = "Nie nadpisuj";
+"OVERWRITE_COMPANY_DATA" = "Nadpisz dane firmy";
+"BUYER_REMOVAL" = "Usunięcie nabywcy!";
+"BUYER_REMOVAL_CONFIRMATION" = "Czy na pewno chcesz usunąć nabywcę z katalogu?";
+"DO_NOT_DELETE" = "Nie usuwaj";

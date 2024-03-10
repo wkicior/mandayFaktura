@@ -44,7 +44,12 @@ extension DocumentNumberingSettingsViewController: DestinationViewDelegate {
             showSampleDocumentNumber()
             setResetNumberOnYearChangeCheckboxAvailability()
         } catch InputValidationError.invalidNumber(let fieldName) {
-            WarningAlert(warning: "\(fieldName) - błędny format ciągu znaków", text: "Zawartość pola musi być cyfrą lub literą.").runModal()
+            
+            if #available(macOS 12, *) {
+                WarningAlert(warning: "\(fieldName) - \(String(localized: "WRONG_STRING_FORMAT", defaultValue: "Wrong string format"))", text: String(localized: "CONTENT_DIGIT_OR_LETTER", defaultValue: "The content must be either a digit or a letter.")).runModal()
+            } else {
+                WarningAlert(warning: "\(fieldName) - błędny format ciągu znaków", text: "Zawartość pola musi być cyfrą lub literą.").runModal()
+            }
         } catch {
             //
         }

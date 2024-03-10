@@ -36,9 +36,20 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         } catch is UserAbortError {
             //
         } catch InvoiceExistsError.invoiceNumber(let number)  {
-            WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: "\(number) - \(String(localized: "INVOICE_EXISTS", defaultValue: "the invoice with this number already exists"))",
+                    text: "\(String(localized: "CHANGE_NUMBER", defaultValue: "Change new invoice number or edit invoice no")) \(number)").runModal()
+            } else {
+                WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje",
+                    text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            }
         } catch CreditNoteExistsError.creditNoteNumber(let number)  {
-            WarningAlert(warning: "\(number) - faktura korygująca o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: "\(number) - \(String(localized: "CREDIT_NOTE_EXISTS", defaultValue: "the credit note with this number already exists"))",
+                    text: "\(String(localized: "CHANGE_NUMBER", defaultValue: "Change new invoice number or edit invoice no")) \(number)").runModal()
+            } else {
+                WarningAlert(warning: "\(number) - faktura korygująca o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            }
         } catch {
             //
         }

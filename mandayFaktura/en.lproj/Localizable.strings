@@ -5,4 +5,43 @@
   Created by Wojciech Kicior on 27/02/2024.
   Copyright © 2024 Wojciech Kicior. All rights reserved.
 */
-"EXPORT_TO_PDF" = "Export to PDF";
+"COULD_NOT_SAVE_PDF" = "Could not save to PDF";
+"COULD_NOT_SAVE_XML" = "Could not save to XML";
+"CUSTOM_CHARACTERS" = "Custom characters";
+"WRONG_STRING_FORMAT" = "wrong string format";
+"CONTENT_DIGIT_OR_LETTER" = "The content must be either a digit or a letter.";
+"DOCUMENT_REMOVAL" = "Document removal!";
+"DOCUMENT_HAS_CREDIT_NOTE" = "The document has the credit note assigned";
+"DOCUMENT_COULD_NOT_BE_REMOVED" = "and therefore could not be removed";
+"IRRETRIEVABLY_DELETED" = "The invoice will be irretrievably deleted. Are you sure you want to delete the invoice?";
+"DELETE" = "Delete";
+"CANCEL" = "Cancel";
+"DOCUMENT_COULD_NOT_BE_EDITED" = "and therefore could not be removed";
+"INVOICE_EDIT" = "Editing invoice!";
+"CONFIRM_INVOICE_EDIT" = "Invoice data will be overwriten. Are you sure you want to continue?";
+"EDIT" = "Edit";
+"CREDIT_NOTE_CREATION" = "Credit note creation!";
+"INVOICE_EXISTS" = "the invoice with this number already exists";
+"CHANGE_NUMBER" = "Change new invoice number or edit invoice no";
+"CREDIT_NOTE_EXISTS" = "the credit note with this number already exists";
+"APPLY_REVERSE_CHARGE" = "Should reverse charge be applied?";
+"POTENTIAL_REVERSE_CHARGE_ATTEMPT" = "Attempting to save international invoice with no VAT rate.";
+"YES_GO_TO_EDIT" = "Yes, go back to editing";
+"NO_CONTINUE_SAVING" = "No, continue saving";
+"WRONG_FORMAT" = "wrong decimal format";
+"MUST_BE_DECIMAL" = "content must be a decimal for example: 1,23";
+"COMPANY_EXISTS" = "Company already exists with a name";
+"COUNTERPARTIES_ARE_DIFFERENT" = "Counterparties data is different";
+"CANCEL_INVOICE_SAVING" = "Cancel invoice saving";
+"DO_NOT_OVERWRITE" = "Do not overwrite";
+"OVERWRITE_COMPANY_DATA" = "Overwrite company data";
+"BUYER_REMOVAL" = "Buyer removal!";
+"BUYER_REMOVAL_CONFIRMATION" = "Are you sure you want to remove the buyer from catalogue?";
+"DO_NOT_DELETE" = "Do not delete";
+
+
+
+
+
+
+

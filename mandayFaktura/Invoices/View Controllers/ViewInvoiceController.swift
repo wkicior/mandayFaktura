@@ -12,17 +12,11 @@ import Quartz
 class ViewInvoiceController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
-    @IBOutlet weak var exportPdfButton: NSButtonCell!
     var pdfDocument: PdfDocument?
     var ksefXml: KsefXml?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(macOS 12, *) {
-            self.exportPdfButton.title = String(localized: "EXPORT_TO_PDF", defaultValue: "Eksportuj do PDF")
-        } else {
-            self.exportPdfButton.title = "Eksportuj do PDF"
-        }
         pdfView.document = pdfDocument!.getDocument()
     }
     
@@ -36,7 +30,11 @@ class ViewInvoiceController: NSViewController {
             let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             self.pdfDocument!.save(dir: homeDirURL)
         } catch let error as Error {
-            WarningAlert(warning: "Nie udalo sie zapisac PDF", text: error.localizedDescription).runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: String(localized: "COULD_NOT_SAVE_PDF", defaultValue: "Could not save to PDF"), text: error.localizedDescription).runModal()
+            } else {
+                WarningAlert(warning: "Nie udalo sie zapisac PDF", text: error.localizedDescription).runModal()
+            }
         }
     }
     
@@ -45,7 +43,11 @@ class ViewInvoiceController: NSViewController {
             let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             try self.ksefXml!.save(dir: homeDirURL)
         } catch let error as Error{
-            WarningAlert(warning: "Nie udalo sie zapisac XML", text: error.localizedDescription).runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: String(localized: "COULD_NOT_SAVE_XML", defaultValue: "Could not save to XML"), text: error.localizedDescription).runModal()
+            } else {
+                WarningAlert(warning: "Nie udalo sie zapisac XML", text: error.localizedDescription).runModal()
+            }
         }
     }
 }

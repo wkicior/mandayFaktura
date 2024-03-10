@@ -60,11 +60,18 @@ class BuyersCatalogueViewController: NSViewController {
     private var deleteAlert: NSAlert {
         get{
             let alert = NSAlert()
-            alert.messageText = "Usunięcie nabywcy!"
-            alert.informativeText = "Czy na pewno chcesz usunąć nabywcę z katalogu?"
+            if #available(macOS 12, *) {
+                alert.messageText = String(localized: "BUYER_REMOVAL", defaultValue: "Buyer removal!")
+                alert.informativeText = String(localized: "BUYER_REMOVAL_CONFIRMATION", defaultValue: "Are you sure you want to remove the buyer from catalogue?")
+                alert.addButton(withTitle: String(localized: "DELETE", defaultValue: "Delete"))
+                alert.addButton(withTitle: String(localized: "DO_NOT_DELETE", defaultValue: "Do not delete"))
+            } else {
+                alert.messageText = "Usunięcie nabywcy!"
+                alert.informativeText = "Czy na pewno chcesz usunąć nabywcę z katalogu?"
+                alert.addButton(withTitle: "Usuń")
+                alert.addButton(withTitle: "Nie usuwaj")
+            }
             alert.alertStyle = .warning
-            alert.addButton(withTitle: "Usuń")
-            alert.addButton(withTitle: "Nie usuwaj")
             return alert
         }
     }

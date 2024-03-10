@@ -140,7 +140,11 @@ class ItemsTableViewController : NSViewController {
         do {
             try fun(on)
         } catch InputValidationError.invalidNumber(let fieldName) {
-            WarningAlert(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23").runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: "\(fieldName) - \(String(localized: "WRONG_FORMAT", defaultValue: "wrong decimal format"))", text: String(localized: "MUST_BE_DECIMAL", defaultValue: "content must be a decimal for example: 1,23")).runModal()
+            } else {
+                WarningAlert(warning: "\(fieldName) - błędny format liczby", text: "Zawartość pola musi być liczbą dziesiętną np. 1,23").runModal()
+            }
         } catch {
             //
         }
