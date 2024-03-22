@@ -16,4 +16,6 @@ protocol Document {
     var totalGrossValue: Decimal  { get }
     var totalNetValue: Decimal  { get }
     var totalVatValue: Decimal { get }
+    var primaryLanguage: Language { get }
+    var secondaryLanguage: Language? { get }
 }

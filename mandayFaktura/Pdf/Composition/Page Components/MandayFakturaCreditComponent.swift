@@ -14,10 +14,14 @@ class MandayFakturaCreditComponent: AbstractComponent, PageComponent {
     let imgSize = CGFloat(32)
     let imgName = "AppIcon"
     let imgMargin = CGFloat(2)
-    var isI10n: Bool
+    let isI10n: Bool
+    let primaryLanguage: Language
+    let secondaryLanguage: Language?
     
-    init(isI10n: Bool) {
+    init(isI10n: Bool, primaryLanguage: Language, secondaryLanguage: Language? = nil) {
         self.isI10n = isI10n
+        self.primaryLanguage = primaryLanguage
+        self.secondaryLanguage = secondaryLanguage
         super.init(debug: InvoicePageComposition.debug)
     }
     
@@ -33,6 +37,9 @@ class MandayFakturaCreditComponent: AbstractComponent, PageComponent {
     }
     
     var content: String {
-        return "Dokument wygenerowany w aplikacji mandayFaktura".appendI10n("This document has been generated with mandayFaktura", self.isI10n) + "\nhttps://github.com/wkicior/mandayFaktura"
+        return "PDF_BY_MANDAY_FAKTURA".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: "Dokument wygenerowany w aplikacji mandayFaktura".appendI10n("This document has been generated with mandayFaktura", self.isI10n)) + "\nhttps://github.com/wkicior/mandayFaktura"
+        
     }
+    
+    
 }

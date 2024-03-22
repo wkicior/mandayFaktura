@@ -38,3 +38,4 @@
 "BUYER_REMOVAL" = "Usunięcie nabywcy!";
 "BUYER_REMOVAL_CONFIRMATION" = "Czy na pewno chcesz usunąć nabywcę z katalogu?";
 "DO_NOT_DELETE" = "Nie usuwaj";
+"PDF_BY_MANDAY_FAKTURA" = "Dokument wygenerowany w aplikacji mandayFaktura";

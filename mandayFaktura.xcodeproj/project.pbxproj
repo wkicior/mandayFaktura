@@ -252,6 +252,8 @@
 		D3E7DBFE2B756F28003146D5 /* KsefVatRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DBFA2B6ED228003146D5 /* KsefVatRate.swift */; };
 		D3E7DC062B8E8DEF003146D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3E7DC092B8E8DEF003146D5 /* Localizable.strings */; };
 		D3E7DC072B8E8DEF003146D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3E7DC092B8E8DEF003146D5 /* Localizable.strings */; };
+		D3E7DC122BA0E801003146D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC112BA0E801003146D5 /* Language.swift */; };
+		D3E7DC132BA0EE82003146D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC112BA0E801003146D5 /* Language.swift */; };
 		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
@@ -479,6 +481,7 @@
 		D3E7DC0A2B8E8DFA003146D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3E7DC0C2B8FC940003146D5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		D3E7DC0E2B8FC956003146D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D3E7DC112BA0E801003146D5 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
@@ -1254,6 +1257,7 @@
 			isa = PBXGroup;
 			children = (
 				D3F0A52C2221A37700CC0E08 /* Document.swift */,
+				D3E7DC112BA0E801003146D5 /* Language.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1572,6 +1576,7 @@
 				D34339ED21A48D6100C583D2 /* InvoiceFacade.swift in Sources */,
 				D34339EE21A48D6100C583D2 /* InvoiceNumberingFacade.swift in Sources */,
 				D3E7DBF22B4B4533003146D5 /* GovCountryCodes.swift in Sources */,
+				D3E7DC132BA0EE82003146D5 /* Language.swift in Sources */,
 				D3F0A53D222327E100CC0E08 /* DocumentPageDistribution.swift in Sources */,
 				D34339EF21A48D6100C583D2 /* VatRatesTableViewDelegate.swift in Sources */,
 				D34339F021A48D6100C583D2 /* ItemsCatalogueController.swift in Sources */,
@@ -1719,6 +1724,7 @@
 				D3781B8920B496E100CA420E /* InvoiceFacade.swift in Sources */,
 				D3781B8720B492B700CA420E /* InvoiceNumberingFacade.swift in Sources */,
 				D3E7DBEF2B4AD1FE003146D5 /* GovCountryCodes.swift in Sources */,
+				D3E7DC122BA0E801003146D5 /* Language.swift in Sources */,
 				D3956A9122233416004144A1 /* DocumentPageComposition.swift in Sources */,
 				D3F0A53C222327E100CC0E08 /* DocumentPageDistribution.swift in Sources */,
 				D3E312CC20A4DF6C00C84CEE /* VatRatesTableViewDelegate.swift in Sources */,

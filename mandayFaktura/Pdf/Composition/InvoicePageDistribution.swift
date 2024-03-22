@@ -118,7 +118,7 @@ extension InvoicePageDistribution {
     
     func addMandayFakturaCredit() {
         (0 ..< pagesWithTableData.count)
-            .forEach({page in pagesWithTableData[page].withMandayFakturaCreditComponent(MandayFakturaCreditComponent(isI10n: self.invoice.isInternational()))})
+            .forEach({page in pagesWithTableData[page].withMandayFakturaCreditComponent(MandayFakturaCreditComponent(isI10n: self.invoice.isInternational(), primaryLanguage: self.invoice.primaryLanguage, secondaryLanguage: self.invoice.secondaryLanguage))})
     }
 }
 

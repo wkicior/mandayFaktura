@@ -66,6 +66,23 @@ struct CreditNote: Document {
     }
 }
 
+extension CreditNote {
+    var primaryLanguage: Language {
+        get {
+            return .PL
+        }
+    }
+    
+    var secondaryLanguage: Language? {
+        get {
+            if (self.isInternational()) {
+                return nil
+            }
+            return .EN
+        }
+    }
+}
+
 
 func aCreditNote() -> CreditNoteBuilder {
     return CreditNoteBuilder()

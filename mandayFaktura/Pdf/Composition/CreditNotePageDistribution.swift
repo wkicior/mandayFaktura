@@ -162,6 +162,6 @@ extension CreditNotePageDistribution {
     
     func addMandayFakturaCredit() {
         (0 ..< pagesWithTableData.count)
-            .forEach({page in pagesWithTableData[page].withMandayFakturaCreditComponent(MandayFakturaCreditComponent(isI10n: self.creditNote.isInternational()))})
+            .forEach({page in pagesWithTableData[page].withMandayFakturaCreditComponent(MandayFakturaCreditComponent(isI10n: self.creditNote.isInternational(), primaryLanguage: self.creditNote.primaryLanguage))})
     }
 }

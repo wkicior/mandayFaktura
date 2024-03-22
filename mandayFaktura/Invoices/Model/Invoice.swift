@@ -19,6 +19,8 @@ struct Invoice: Document {
     let paymentDueDate: Date
     let notes: String
     let reverseCharge: Bool
+    let primaryLanguage: Language
+    let secondaryLanguage: Language?
     
     var totalNetValue: Decimal {
         get {
@@ -71,6 +73,7 @@ struct Invoice: Document {
     }
 }
 
+
 extension Invoice {
     func sameInvoiceNumberAs(invoice: Invoice) -> Bool {
         return number == invoice.number
@@ -92,6 +95,8 @@ class InvoiceBuilder {
     private var paymentDueDate = Date()
     private var notes = ""
     private var reverseCharge = false
+    private var primaryLanguage: Language = Language.PL
+    private var secondaryLanguage: Language? = nil
     
     func withIssueDate(_ issueDate: Date) -> InvoiceBuilder {
         self.issueDate = issueDate
@@ -143,6 +148,16 @@ class InvoiceBuilder {
         return self
     }
     
+    func withPrimaryLanguage(_ primaryLanguage: Language) -> InvoiceBuilder {
+        self.primaryLanguage = primaryLanguage
+        return self
+    }
+    
+    func withSecondaryLanguage(_ secondaryLanguage: Language?) -> InvoiceBuilder {
+        self.secondaryLanguage = secondaryLanguage
+        return self
+    }
+    
     func build() -> Invoice {
         return Invoice(issueDate: issueDate,
                        number: number,
@@ -153,7 +168,9 @@ class InvoiceBuilder {
                        paymentForm: paymentForm,
                        paymentDueDate: paymentDueDate,
                        notes: notes,
-                       reverseCharge: reverseCharge
+                       reverseCharge: reverseCharge,
+                       primaryLanguage: primaryLanguage,
+                       secondaryLanguage: secondaryLanguage
         )
     }
 }
