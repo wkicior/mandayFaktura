@@ -16,6 +16,9 @@ import Foundation
         coder.encode(self.invoiceSettings.paymentDateFrom.rawValue, forKey: "paymentDateFrom")
         coder.encode(self.invoiceSettings.defaultNotes, forKey: "defaultNotes")
         coder.encode(self.invoiceSettings.mandayFakturaCreditEnabled, forKey: "mandayFakturaCreditEnabled")
+        coder.encode(self.invoiceSettings.primaryDefaultLanguage.rawValue, forKey: "primaryDefaultLanguage")
+        coder.encode(self.invoiceSettings.secondaryDefaultLanguage?.rawValue ?? nil, forKey: "secondaryDefaultLanguage")
+
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -23,7 +26,18 @@ import Foundation
         let paymentDateFrom = PaymentDateFrom(rawValue: (decoder.decodeInteger(forKey: "paymentDateFrom")))!
         let defaultNotes = decoder.decodeObject(forKey: "defaultNotes") as? String
         let mandayFakturaCreditEnabled = decoder.decodeBool(forKey: "mandayFakturaCreditEnabled")
-        self.init(InvoiceSettings(paymentDateDays: paymentDateDays, paymentDateFrom: paymentDateFrom, defaultNotes: defaultNotes ?? "", mandayFakturaCreditEnabled: mandayFakturaCreditEnabled))
+        var primaryLanguageCode = decoder.decodeObject(forKey: "primaryDefaultLanguage") as? String
+        var secondaryLanguageCode = decoder.decodeObject(forKey: "secondaryDefaultLanguage") as? String
+        
+        if (primaryLanguageCode == nil) {
+            primaryLanguageCode = Language.PL.rawValue
+        }
+        
+        self.init(InvoiceSettings(paymentDateDays: paymentDateDays, paymentDateFrom: paymentDateFrom,
+                                  defaultNotes: defaultNotes ?? "",
+                                  mandayFakturaCreditEnabled: mandayFakturaCreditEnabled,
+                                  primaryDefaultLanguage: Language(rawValue: primaryLanguageCode!)!,
+                                  secondaryDefaultLanguage: secondaryLanguageCode.map({Language(rawValue: $0)!}) ?? nil))
     }
     
     init(_ invoiceSettings: InvoiceSettings) {

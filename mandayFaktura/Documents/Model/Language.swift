@@ -18,7 +18,40 @@ enum Language: String {
             case .EN:
                 return "en"
             }
+        }
+    }
+    
+    var locale: Locale {
+        get {
+            switch self {
+            case .PL:
+                return Locale(identifier: "pl_PL")
+            case .EN:
+                return Locale(identifier: "en_EN")
+            }
            
+        }
+    }
+    
+    static func ofIndex(_ index: Int) -> Language? {
+        switch index {
+        case 0:
+            return .PL
+        case 1:
+            return .EN
+        default:
+            return nil
+        }
+    }
+    
+    var index: Int {
+        get {
+            switch self {
+            case .PL:
+                return 0
+            case .EN:
+                return 1
+            }
         }
     }
 }

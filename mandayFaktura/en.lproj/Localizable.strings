@@ -39,6 +39,45 @@
 "BUYER_REMOVAL_CONFIRMATION" = "Are you sure you want to remove the buyer from catalogue?";
 "DO_NOT_DELETE" = "Do not delete";
 "PDF_BY_MANDAY_FAKTURA" = "This document has been generated with mandayFaktura";
+"PDF_INCLUDING" = "Including:";
+"PDF_TOTAL" = "Total:";
+"PDF_PAGE" = "Page";
+"PDF_OF" = "of";
+"PDF_CREDIT_NOTE_CHANGE" = "Change";
+"CREDIT_NOTE_AFTER" = "After";
+"CREDIT_NOTE_BEFORE" = "Before";
+"PDF_INVOICE_CASH" = "cash";
+"PDF_INVOICE_TRANSFER" = "transfer";
+"PDF_INVOICE_NO" = "Invoice no.";
+"PDF_ISSUED_TO_INVOICE_NO" = "issued to invoice no.";
+"PDF_OF_DAY" = "of";
+"PDF_ISSUE_DATE" = "Date of issue";
+"PDF_SALE_DATE" = "Date of sale";
+"PDF_TAX_ACCOUNTED" = "Tax to be accounted";
+"PDF_REVERSE_CHARGE" = "reverse charge";
+"PDF_TOTAL_DUE" = "Total due";
+"PDF_IN_WORDS" = "In words";
+"PDF_PAYMENT_FORM" = "Payment form";
+"PDF_PAYMENT_DUE_DATE" = "Due date";
+"PDF_ITEM_NO" = "No.";
+"PDF_ITEM_NAME" = "Name";
+"PDF_ITEM_QUANTITY" = "Quantity";
+"PDF_ITEM_UOM" = "UM";
+"PDF_ITEM_NET_PRICE" = "Net price";
+"PDF_ITEM_NET_WORTH" = "Net worth";
+"PDF_ITEM_NET_VAT" = "VAT %";
+"PDF_ITEM_VAT_AMOUNT" = "VAT amount";
+"PDF_ITEM_GROSS_WORTH" = "Gross worth";
+"PDF_HR" = "hr";
+"PDF_PCS" = "pcs";
+"PDF_SVC" = "svc.";
+"PDF_SELLER" = "Seller";
+"PDF_TAX_ID" = "Tax ID";
+"PDF_IBAN" = "IBAN";
+"PDF_BUYER" = "Buyer";
+"PDF_CREDIT_NO_NUMBER" = "Credit note no";
+"PDF_TOTAL_DUE" = "Total due";
+"PDF_TOTAL_RETURN" = "Do zwrotu";
 
 
 

@@ -117,6 +117,8 @@ class CreditNoteViewController: NSViewController {
                 .withReason(self.notesTextField.stringValue)
                 .withInvoiceNumber(self.invoice!.number)
                 .withReverseCharge(self.reverseChargeButton.state == .on)
+                .withPrimaryLanguage(invoice!.primaryLanguage)
+                .withSecondaryLanguage(invoice!.secondaryLanguage)
                 .build()
         }
     }

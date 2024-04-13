@@ -12,9 +12,9 @@ class ItemsSummaryComponent : AbstractComponent, PageComponent {
     var position: NSPoint = NSPoint(x: 0, y: 0)
     let summaryData: [String]
     let rowsCount: Int
-    init(summaryData: [String], isI10n: Bool) {
-        self.summaryData = ["Razem:".appendI10n("Total:", isI10n)] + summaryData
-        self.rowsCount = isI10n ? 2 : 1
+    init(summaryData: [String], isI10n: Bool, primaryLanguage: Language, secondaryLanguage: Language?) {
+        self.summaryData = ["PDF_TOTAL".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Razem:".appendI10n("Total:", isI10n))] + summaryData
+        self.rowsCount = isI10n || secondaryLanguage != nil ? 2 : 1
         super.init(debug: InvoicePageComposition.debug)
     }
     

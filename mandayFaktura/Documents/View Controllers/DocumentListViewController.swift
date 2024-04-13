@@ -239,7 +239,7 @@ class DocumentListViewController: NSViewController {
         if segue.destinationController is ViewInvoiceController {
             let vc = segue.destinationController as? ViewInvoiceController
             vc?.pdfDocument = getPdfDocument()!
-            vc?.ksefXml = getKsefXml()!
+            vc?.ksefXml = getKsefXml()
         } else if segue.destinationController is EditInvoiceViewController {
             let vc = segue.destinationController as? EditInvoiceViewController
             let index = self.invoiceHistoryTableView.selectedRow

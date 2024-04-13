@@ -23,7 +23,7 @@ import Foundation
         coder.encode(self.invoice.notes, forKey: "notes")
         coder.encode(self.invoice.reverseCharge, forKey: "reverseCharge")
         coder.encode(self.invoice.primaryLanguage.rawValue, forKey: "primaryLanguage")
-        coder.encode(self.invoice.secondaryLanguage?.boundleCode ?? nil, forKey: "secondaryLanguage")
+        coder.encode(self.invoice.secondaryLanguage?.rawValue ?? nil, forKey: "secondaryLanguage")
 
     }
     

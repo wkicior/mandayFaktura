@@ -17,6 +17,7 @@ struct EditInvoiceViewControllerConstants {
 class EditInvoiceViewController: AbstractInvoiceViewController {
     
     var invoice: Invoice?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveButton.isEnabled = true
@@ -24,6 +25,8 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         self.numberTextField.stringValue = invoice!.number
         self.notesTextField.stringValue = invoice!.notes
         self.reverseChargeButton.state = invoice!.reverseCharge ? .on : .off
+        self.primaryLanguagePopUpButton.selectItem(withTag: invoice!.primaryLanguage.index)
+        self.secondLanguagePopUpButton.selectItem(withTag: invoice!.secondaryLanguage?.index ?? -1)
     }
     
     @IBAction func saveButtonClicked(_ sender: NSButton) {
@@ -82,6 +85,8 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? invoice!.seller
             let buyer = self.buyerViewController?.getBuyer()
+            let primaryLanguage = Language.ofIndex(self.primaryLanguagePopUpButton.selectedItem?.tag ?? 0)!
+            let secondaryLanguage = Language.ofIndex(self.secondLanguagePopUpButton.selectedItem?.tag ?? 0)
             return InvoiceBuilder()
                 .withIssueDate(invoiceDatesViewController!.issueDate)
                 .withNumber(numberTextField.stringValue)
@@ -93,6 +98,8 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
                 .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
                 .withReverseCharge(self.reverseChargeButton.state == .on)
+                .withPrimaryLanguage(primaryLanguage)
+                .withSecondaryLanguage(secondaryLanguage)
                 .build()
             
         }

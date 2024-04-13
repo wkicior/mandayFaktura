@@ -38,4 +38,16 @@ public extension String {
             return defaultContent
         }
     }
+    
+    internal func i18n(language: Language, defaultContent : String) -> String {
+        if #available(macOS 12, *) {
+            guard let primaryBundlePath = Bundle.main.path(forResource: language.boundleCode, ofType: "lproj"), let primaryBundle = Bundle(path: primaryBundlePath)
+            else {
+                return defaultContent
+            }
+            return String(localized: String.LocalizationValue(self), bundle: primaryBundle)
+        } else {
+            return defaultContent
+        }
+    }
 }

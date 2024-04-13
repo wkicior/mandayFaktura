@@ -20,14 +20,17 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         self.saveButton.isEnabled = false
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         notesTextField.stringValue = invoiceSettings.defaultNotes
-        //checkPreviewButtonEnabled()
         self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
+        self.primaryLanguagePopUpButton.selectItem(withTag: invoiceSettings.primaryDefaultLanguage.index)
+        self.secondLanguagePopUpButton.selectItem(withTag: invoiceSettings.secondaryDefaultLanguage?.index ?? -1)
     }
     
     var invoice: Invoice {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? defaultSeller()
             let buyer = self.buyerViewController?.getBuyer()
+            let primaryLanguage = Language.ofIndex(self.primaryLanguagePopUpButton.selectedItem?.tag ?? Language.PL.index)!
+            let secondaryLanguage = Language.ofIndex(self.secondLanguagePopUpButton.selectedItem?.tag ?? Language.PL.index)
             return InvoiceBuilder()
                 .withIssueDate(self.invoiceDatesViewController!.issueDate)
                 .withNumber(numberTextField.stringValue)
@@ -39,6 +42,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
                 .withReverseCharge(self.reverseChargeButton.state == .on)
+                .withPrimaryLanguage(primaryLanguage)
+                .withSecondaryLanguage(secondaryLanguage)
                 .build()
         }
     }

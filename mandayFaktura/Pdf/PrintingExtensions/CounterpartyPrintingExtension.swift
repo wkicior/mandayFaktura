@@ -9,22 +9,25 @@
 import Foundation
 
 extension Counterparty {
-    func printedSeller(_ isInternational: Bool) -> String {
+    func printedSeller(primaryLanguage: Language, secondaryLanguage: Language?, _ isInternational: Bool) -> String {
+        let header = "PDF_SELLER".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Sprzedawca".appendI10n("Seller", isInternational))
+        let taxCodeLabel = "PDF_TAX_ID".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "NIP".appendI10n("Tax ID", isInternational))
         let seller =
         """
-        \("Sprzedawca".appendI10n("Seller", isInternational)):
+        \(header):
         \(name)
         \(streetAndNumber)
         \(postalCode) \(city) \(country)
-        \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
+        \(taxCodeLabel): \(taxCode)
         """
         return seller
     }
     
-    func printedSellerAccountDetails(_ isInternational: Bool) -> String {
+    func printedSellerAccountDetails(primaryLanguage: Language, secondaryLanguage: Language?, _ isInternational: Bool) -> String {
+        let ibanLabel = "PDF_IBAN".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Nr konta".appendI10n("IBAN", isInternational))
         var accountDetails =
         """
-        \("Nr konta".appendI10n("IBAN", isInternational)): \(accountNumber)
+        \(ibanLabel): \(accountNumber)
         """
         if (bicCode != "") {
             accountDetails += "\nBIC/SWIFT: \(bicCode)"
@@ -32,14 +35,16 @@ extension Counterparty {
         return accountDetails
     }
     
-    func printedBuyer(_ isInternational: Bool) -> String {
+    func printedBuyer(primaryLanguage: Language, secondaryLanguage: Language?, _ isInternational: Bool) -> String {
+        let header = "PDF_BUYER".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Nabywca".appendI10n("Buyer", isInternational))
+        let taxCodeLabel = "PDF_TAX_ID".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "NIP".appendI10n("Tax ID", isInternational))
         let buyer =
         """
-        \("Nabywca".appendI10n("Buyer", isInternational)):
+        \(header):
         \(name)
         \(streetAndNumber)
         \(postalCode) \(city) \(country)
-        \("NIP".appendI10n("Tax ID", isInternational)): \(taxCode)
+        \(taxCodeLabel): \(taxCode)
         \(additionalInfo)
         """
         return buyer

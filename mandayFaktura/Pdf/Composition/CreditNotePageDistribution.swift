@@ -44,15 +44,15 @@ class CreditNotePageDistribution: DocumentPageDistribution {
 extension CreditNotePageDistribution {
     
     fileprivate func distributeVatBreakdown() {
-        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: creditNote.propertiesForDisplay, isI10n: self.creditNote.isInternational())
-        let creditNoteDifferenceItemsSummaryLayout = CreditNoteItemsSummaryComponent(summaryData: creditNote.creditNoteDifferencesPropertiesForDisplay(on: self.invoice), isI10n: creditNote.isInternational())
+        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: creditNote.propertiesForDisplay, isI10n: self.creditNote.isInternational(), primaryLanguage: creditNote.primaryLanguage, secondaryLanguage: creditNote.secondaryLanguage)
+        let creditNoteDifferenceItemsSummaryLayout = CreditNoteItemsSummaryComponent(summaryData: creditNote.creditNoteDifferencesPropertiesForDisplay(on: self.invoice), isI10n: creditNote.isInternational(), primaryLanguage: creditNote.primaryLanguage, secondaryLanguage: creditNote.secondaryLanguage)
 
         let vatBreakdownTableData = getVatBreakdownComponent()
         appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(items: [itemsSummaryLayout, creditNoteDifferenceItemsSummaryLayout, vatBreakdownTableData])
     }
     
     fileprivate func distributeItemsSummaryBefore() {
-        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay, isI10n: self.creditNote.isInternational())
+        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay, isI10n: self.creditNote.isInternational(), primaryLanguage: invoice.primaryLanguage, secondaryLanguage: invoice.secondaryLanguage)
         appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdownBefore(items: [itemsSummaryLayout])
     }
     
@@ -63,7 +63,7 @@ extension CreditNotePageDistribution {
     }
     
     fileprivate func distributeItemTableRow() {
-        let label = "Po korekcie".appendI10n("After", self.creditNote.isInternational()) + ":"
+        let label = "CREDIT_NOTE_AFTER".i18n(primaryLanguage: self.creditNote.primaryLanguage, secondaryLanguage: self.creditNote.secondaryLanguage, defaultContent: "Po korekcie".appendI10n("After", self.creditNote.isInternational())) + ":"
         currentPageComposition!.withItemTableRowComponent(ItemTableHeaderComponent(headerData: self.creditNote.itemColumnNames, label: label))
         self.creditNote.invoiceItemsPropertiesForDisplay.enumerated()
             .map({ ItemTableRowComponent(tableData: $1, withBackground: $0 % 2 != 0)})
@@ -71,7 +71,7 @@ extension CreditNotePageDistribution {
     }
     
     fileprivate func distributeItemBeforeTableRow() {
-        let label = "Przed korektą".appendI10n("Before", self.creditNote.isInternational()) + ":"
+        let label = "CREDIT_NOTE_BEFORE".i18n(primaryLanguage: self.creditNote.primaryLanguage, secondaryLanguage: self.creditNote.secondaryLanguage, defaultContent: "Przed korektą".appendI10n("Before", self.creditNote.isInternational())) + ":"
         currentPageComposition!.withItemBeforeTableRowComponent(ItemTableHeaderComponent(headerData: self.creditNote.itemColumnNames, label: label))
         self.invoice.invoiceItemsPropertiesForDisplay.enumerated()
             .map({ ItemTableRowComponent(tableData: $1, withBackground: $0 % 2 != 0)})
@@ -93,7 +93,7 @@ extension CreditNotePageDistribution {
             let breakdown = self.creditNote.differenceVatBreakdown(on: invoice).entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return VatBreakdownComponent(breakdownTableData: breakdownTableData, isI10n: self.creditNote.isInternational())
+        return VatBreakdownComponent(breakdownTableData: breakdownTableData, isI10n: self.creditNote.isInternational(), primaryLanguage: self.creditNote.primaryLanguage, secondaryLanguage: self.creditNote.secondaryLanguage)
     }
 }
 
@@ -156,7 +156,7 @@ extension CreditNotePageDistribution {
     func addPageNumbering() {
         if (pagesWithTableData.count > 1) {
             (0 ..< pagesWithTableData.count)
-                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count, isI10n: self.creditNote.isInternational()))})
+                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count, isI10n: self.creditNote.isInternational(), primaryLanguage: self.creditNote.primaryLanguage, secondaryLanguage: self.creditNote.secondaryLanguage))})
         }
     }
     

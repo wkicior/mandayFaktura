@@ -23,68 +23,73 @@ internal extension CreditNote {
     var paymentFormLabel: String {
         switch self.paymentForm {
         case .cash:
-            return "gotówka".appendI10n("cash", self.isInternational())
+            return "PDF_INVOICE_CASH".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: self.appendI10n("gotówka", "cash"))
         case .transfer:
-            return "przelew".appendI10n("transfer", self.isInternational())
+            return "PDF_INVOICE_TRANSFER".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: self.appendI10n("przelew", "transfer"))
         }
     }
     
     var printedDates: String {
-           let header =
-           """
-           \("Data wystawienia".appendI10n("Date of issue", self.isInternational())):  \(issueDate.toDateDotString())
-           \("Data sprzedaży".appendI10n("Date of sale", self.isInternational())): \(sellingDate.toDateDotString())
-           """
-           return header
-       }
-    
-    var printedHeader: String {
+        let issueDateHeader = "PDF_ISSUE_DATE".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Data wystawienia".appendI10n("Date of issue", self.isInternational()))
+        let saleDateHeader = "PDF_SALE_DATE".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Data sprzedaży".appendI10n("Date of sale", self.isInternational()))
         let header =
         """
-        \("Faktura korygująca nr".appendI10n("Credit note no", self.isInternational())) : \(number)
+        \(issueDateHeader):  \(issueDate.toDateDotString())
+        \(saleDateHeader): \(sellingDate.toDateDotString())
+        """
+        return header
+   }
+    
+    var printedHeader: String {
+        let headerLabel = "PDF_CREDIT_NO_NUMBER".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: "Faktura korygująca nr".appendI10n("Credit note no", self.isInternational()))
+        let header =
+        """
+        \(headerLabel): \(number)
         """
         return header
     }
     
     func printedPaymentSummary(on: Invoice) -> String {
-        let payOrReturn = self.differenceGrossValue(on: on) >= 0 ? "Do zapłaty".appendI10n("Total due", self.isInternational()) : "Do zwrotu".appendI10n("Total return", self.isInternational())
+        let payOrReturn = self.differenceGrossValue(on: on) >= 0 ? "PDF_TOTAL_DUE".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: "Do zapłaty".appendI10n("Total due", self.isInternational()))  : "PDF_TOTAL_RETURN".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: "Do zwrotu".appendI10n("Total return", self.isInternational()))
         var summary = ""
         if (self.reverseCharge) {
-           summary += appendI10n("Rozliczenie podatku", "Tax to be accounted") + ": " + appendI10n("odwrotne obciążenie", "reverse charge") + "\n"
+            summary += "PDF_TAX_ACCOUNTED".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("Rozliczenie podatku", "Tax to be accounted")) + ": " + "PDF_REVERSE_CHARGE".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("odwrotne obciążenie", "reverse charge")) + "\n"
         }
         summary +=
         """
         \(payOrReturn): \(abs(self.differenceGrossValue(on: on)).formatAmount()) PLN
         """
-        if (self.isInternational()) {
-              summary += "\n" + forI10nOnly("In words: " + self.differenceGrossValue(on: on).spelledOutEn + " PLN")
+        summary += "\n" + "PDF_IN_WORDS".i18n(language: primaryLanguage, defaultContent: "In words") + ": " + totalGrossValue.spelledOut(language: primaryLanguage) + " PLN"
+        if (secondaryLanguage != nil) {
+            summary += "\n" + "PDF_IN_WORDS".i18n(language: secondaryLanguage!, defaultContent: "Słownie") + ": " + totalGrossValue.spelledOut(language: secondaryLanguage!) + " PLN"
         }
+        let paymentForm = "PDF_PAYMENT_FORM".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("Forma płatności", "Payment form"))
+        let paymentDue = "PDF_PAYMENT_DUE_DATE".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("Termin płatności", "Due date"))
         summary += "\n" +
         """
-        słownie: \(abs(self.differenceGrossValue(on: on)).spelledOut) PLN
-        \(appendI10n("Forma płatności", "Payment form")): \(paymentFormLabel)
-        \(appendI10n("Termin płatności", "Due date")): \(paymentDueDate.toDateDotString())
-        \(self.seller.printedSellerAccountDetails(isInternational()))
+        \(paymentForm): \(paymentFormLabel)
+        \(paymentDue): \(paymentDueDate.toDateDotString())
+        \(self.seller.printedSellerAccountDetails(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, isInternational()))
         """
        
         return summary
     }
     
     var printedSeller: String {
-        self.seller.printedSeller(self.isInternational())
+        self.seller.printedSeller(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, self.isInternational())
     }
        
     var printedBuyer: String {
-        self.seller.printedBuyer(self.isInternational())
+        self.seller.printedBuyer(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, self.isInternational())
     }
     
     var itemColumnNames: [String] {
-        return InvoiceItem.itemColumnNames(isI10n: self.isInternational())
+        return InvoiceItem.itemColumnNames(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, isI10n: self.isInternational())
     }
     
     var invoiceItemsPropertiesForDisplay: [[String]] {
         return self.items.enumerated().map {
-            [($0 + 1).description] + $1.propertiesForDisplay(isI10n: self.isInternational())
+            [($0 + 1).description] + $1.propertiesForDisplay(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, isI10n: self.isInternational())
         }
     }
     

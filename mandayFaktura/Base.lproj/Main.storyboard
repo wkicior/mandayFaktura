@@ -1273,6 +1273,53 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PWe-OY-rKU">
+                                <rect key="frame" x="772" y="71" width="87" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Język główny" id="dob-Ag-klB">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nIg-9f-sPu">
+                                <rect key="frame" x="772" y="44" width="75" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Język drugi" id="my5-BW-Wju">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WC2-Qx-6Gy">
+                                <rect key="frame" x="876" y="64" width="78" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="PL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="9zf-xk-VEH" id="uJh-tB-GpU">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="qE1-uW-3Iy">
+                                        <items>
+                                            <menuItem title="PL" state="on" id="9zf-xk-VEH"/>
+                                            <menuItem title="EN" tag="1" id="MEb-YG-ASw"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Qh-Sn-D2J">
+                                <rect key="frame" x="876" y="38" width="78" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="aKG-rU-16M" id="FRS-IJ-5Ku">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="dHC-nG-4t1">
+                                        <items>
+                                            <menuItem title="-" state="on" tag="-1" id="aKG-rU-16M"/>
+                                            <menuItem title="PL" id="n7F-Km-HYR"/>
+                                            <menuItem title="EN" tag="1" id="ROX-fs-BiL"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="2Zb-EB-vYN" firstAttribute="leading" secondItem="VOZ-eV-MbK" secondAttribute="trailing" constant="8" id="2Uq-XA-j2a"/>
@@ -1308,8 +1355,10 @@ DQ
                         <outlet property="notesTextField" destination="8nf-Ia-yZO" id="2pc-rB-D7h"/>
                         <outlet property="numberTextField" destination="2Zb-EB-vYN" id="hK8-26-ghx"/>
                         <outlet property="previewButton" destination="gWk-za-B4i" id="bLm-HA-G9y"/>
+                        <outlet property="primaryLanguagePopUpButton" destination="WC2-Qx-6Gy" id="wDa-gE-p10"/>
                         <outlet property="reverseChargeButton" destination="9pw-z6-xk4" id="udx-aj-zEm"/>
                         <outlet property="saveButton" destination="1gg-h9-i9W" id="PM1-Xy-nsw"/>
+                        <outlet property="secondLanguagePopUpButton" destination="5Qh-Sn-D2J" id="e1U-iD-fzn"/>
                     </connections>
                 </viewController>
                 <customObject id="aob-7G-XRH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1983,6 +2032,53 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7i-P6-tgS">
+                                <rect key="frame" x="772" y="82" width="87" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Język główny" id="UnK-q9-mdw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyq-fC-awg">
+                                <rect key="frame" x="772" y="55" width="75" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Język drugi" id="qe8-6H-vjt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHc-Hb-XsQ">
+                                <rect key="frame" x="876" y="75" width="78" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="PL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="KJL-n8-mp9" id="cnO-H2-bca">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Th7-FQ-5vl">
+                                        <items>
+                                            <menuItem title="PL" state="on" id="KJL-n8-mp9"/>
+                                            <menuItem title="EN" tag="1" id="CPj-a7-Gc2"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JoG-AK-6So">
+                                <rect key="frame" x="876" y="49" width="78" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="FzQ-Jv-nfG" id="2ne-YQ-nhh">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="8vP-Mp-kP5">
+                                        <items>
+                                            <menuItem title="-" state="on" tag="-1" id="FzQ-Jv-nfG"/>
+                                            <menuItem title="PL" id="bWK-Qh-hiB"/>
+                                            <menuItem title="EN" tag="1" id="qcZ-IA-cuI"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fDv-lr-cqD" secondAttribute="trailing" constant="36" id="2dE-nY-eRa"/>
@@ -2017,8 +2113,10 @@ DQ
                         <outlet property="notesTextField" destination="vZg-AQ-svB" id="jZc-di-CYY"/>
                         <outlet property="numberTextField" destination="hIb-6p-UXt" id="24k-C3-vWN"/>
                         <outlet property="previewButton" destination="LBS-47-5gd" id="h1J-QY-o9S"/>
+                        <outlet property="primaryLanguagePopUpButton" destination="gHc-Hb-XsQ" id="Fo5-ue-QgY"/>
                         <outlet property="reverseChargeButton" destination="fDv-lr-cqD" id="Lth-Rm-1PT"/>
                         <outlet property="saveButton" destination="YnY-Of-fZk" id="Jbw-jd-fcT"/>
+                        <outlet property="secondLanguagePopUpButton" destination="JoG-AK-6So" id="IT6-s8-GyY"/>
                     </connections>
                 </viewController>
                 <customObject id="ZOJ-Ft-keB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -2286,7 +2384,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUX-Ps-18x">
-                                <rect key="frame" x="12" y="191" width="430" height="63"/>
+                                <rect key="frame" x="12" y="222" width="430" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Wybrana opcja spowoduje nadpisanie daty płatności po zmianie pola, którego dotyczy" id="cVc-rc-veO">
                                     <font key="font" metaFont="system"/>
@@ -2295,7 +2393,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8Me-HC-4l7">
-                                <rect key="frame" x="20" y="187" width="418" height="5"/>
+                                <rect key="frame" x="14" y="211" width="422" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIO-bH-ywc">
@@ -2315,6 +2413,53 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nm0-i6-fnN">
+                                <rect key="frame" x="12" y="194" width="145" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Domyślny język główny" id="QuN-LF-yeS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bI-B9-e5J">
+                                <rect key="frame" x="287" y="194" width="75" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Język drugi" id="cLt-KP-16R">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ka1-GO-Juk">
+                                <rect key="frame" x="160" y="186" width="78" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="PL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ry0-Ue-OiU" id="8te-8g-VIg">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="P1F-9T-Gof">
+                                        <items>
+                                            <menuItem title="PL" state="on" id="ry0-Ue-OiU"/>
+                                            <menuItem title="EN" tag="1" id="MtA-fQ-u3v"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYY-7d-uSw">
+                                <rect key="frame" x="368" y="186" width="78" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="3Dp-Vl-ATR" id="zTc-fP-pMo">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="vqZ-Mp-ktD">
+                                        <items>
+                                            <menuItem title="-" state="on" tag="-1" id="3Dp-Vl-ATR"/>
+                                            <menuItem title="PL" id="kbc-Y6-Iu1"/>
+                                            <menuItem title="EN" tag="1" id="mpq-Fg-3ul"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MTT-rb-BIh" secondAttribute="bottom" constant="10" id="5mN-l5-pO6"/>
@@ -2326,6 +2471,8 @@ DQ
                     </view>
                     <connections>
                         <outlet property="defaultNotestTextField" destination="kIO-bH-ywc" id="u95-hD-YY9"/>
+                        <outlet property="defaultPrimaryLanguagePopUpButton" destination="Ka1-GO-Juk" id="SkJ-wL-NjN"/>
+                        <outlet property="defaultSecondLanguagePopUpButton" destination="cYY-7d-uSw" id="kNU-UL-bb0"/>
                         <outlet property="helpText" destination="QUX-Ps-18x" id="jYc-nd-xEa"/>
                         <outlet property="mandayFakturaCredit" destination="t9z-za-qKE" id="9bt-1W-dWa"/>
                         <outlet property="paymentDateDays" destination="0vF-Ar-Rfa" id="7EK-R5-s6q"/>
@@ -2333,7 +2480,7 @@ DQ
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1388" y="-359"/>
+            <point key="canvasLocation" x="1388" y="-359.5"/>
         </scene>
         <!--Korekta faktury-->
         <scene sceneID="0eo-LG-8Hr">
@@ -2559,7 +2706,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <popUpButton toolTip="Pozwala na wybranie nabywcy z listy" ambiguous="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xrx-8b-s0x">
-                                <rect key="frame" x="451" y="81" width="56" height="27"/>
+                                <rect key="frame" x="451" y="80" width="56" height="29"/>
                                 <popUpButtonCell key="cell" type="squareTextured" title="Item 1" bezelStyle="texturedSquare" image="popUpButtonCell:Tsj-1f-mlH:image" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="lIz-TY-kkH" id="Tsj-1f-mlH">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -2613,13 +2760,13 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="515-Gh-q6D">
-                                <rect key="frame" x="0.0" y="26" width="993" height="231"/>
+                                <rect key="frame" x="0.0" y="26" width="993" height="183"/>
                                 <clipView key="contentView" id="za3-co-qHH">
-                                    <rect key="frame" x="1" y="1" width="991" height="229"/>
+                                    <rect key="frame" x="1" y="1" width="991" height="181"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="48" headerView="Y3f-VO-oMP" viewBased="YES" id="K7l-SJ-g6u">
-                                            <rect key="frame" x="0.0" y="0.0" width="991" height="206"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="991" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -3354,13 +3501,13 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fck-UU-eCt"/>
-        <segue reference="Z5X-n5-XMy"/>
-        <segue reference="YuM-Kf-ezH"/>
-        <segue reference="cO2-sR-xaW"/>
+        <segue reference="8r7-xr-IPP"/>
+        <segue reference="b7W-sT-mer"/>
+        <segue reference="EAM-E1-2Ks"/>
+        <segue reference="aLx-64-csJ"/>
         <segue reference="ar3-AU-xhM"/>
         <segue reference="o5h-iw-LOf"/>
-        <segue reference="S1B-Rf-RhN"/>
+        <segue reference="mvy-hV-L5q"/>
         <segue reference="yaH-hv-UcY"/>
         <segue reference="cPw-Au-6Bj"/>
         <segue reference="iWA-in-tWC"/>

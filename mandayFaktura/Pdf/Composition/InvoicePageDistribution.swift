@@ -46,7 +46,7 @@ extension InvoicePageDistribution {
     }
    
     fileprivate func distributeVatBreakdown() {
-        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay, isI10n: invoice.isInternational())
+        let itemsSummaryLayout = ItemsSummaryComponent(summaryData: invoice.propertiesForDisplay, isI10n: invoice.isInternational(), primaryLanguage: invoice.primaryLanguage, secondaryLanguage: invoice.secondaryLanguage)
         let vatBreakdownTableData = getVatBreakdownComponent()
         appendIfFitsOtherwiseCreateNewPageCompositionVatBreakdown(items: [itemsSummaryLayout, vatBreakdownTableData])
     }
@@ -70,7 +70,7 @@ extension InvoicePageDistribution {
             let breakdown = self.invoice.vatBreakdown.entries[breakdownIndex]
             breakdownTableData.append(breakdown.propertiesForDisplay)
         }
-        return VatBreakdownComponent(breakdownTableData: breakdownTableData, isI10n: self.invoice.isInternational())
+        return VatBreakdownComponent(breakdownTableData: breakdownTableData, isI10n: self.invoice.isInternational(), primaryLanguage: self.invoice.primaryLanguage, secondaryLanguage: self.invoice.secondaryLanguage)
     }
 }
 
@@ -112,7 +112,7 @@ extension InvoicePageDistribution {
     func addPageNumbering() {
         if (pagesWithTableData.count > 1) {
             (0 ..< pagesWithTableData.count)
-                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count, isI10n: self.invoice.isInternational()))})
+                .forEach({page in pagesWithTableData[page].withPageNumberingComponent(PageNumberingComponent(page: page + 1, of: pagesWithTableData.count, isI10n: self.invoice.isInternational(), primaryLanguage: self.invoice.primaryLanguage, secondaryLanguage: self.invoice.secondaryLanguage))})
         }
     }
     
