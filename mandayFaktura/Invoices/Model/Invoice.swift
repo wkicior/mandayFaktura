@@ -21,6 +21,7 @@ struct Invoice: Document {
     let reverseCharge: Bool
     let primaryLanguage: Language
     let secondaryLanguage: Language?
+    let ksefNumber: String?
     
     var totalNetValue: Decimal {
         get {
@@ -68,6 +69,12 @@ struct Invoice: Document {
         return self.isInternational() && !self.reverseCharge && self.hasInvoiceItemsWith0VAT()
     }
     
+    var hasKsefNumber: Bool {
+        get {
+            return self.ksefNumber != nil && !self.ksefNumber!.isBlank
+        }
+    }
+    
     private func hasInvoiceItemsWith0VAT() -> Bool {
         self.items.map{i in i.vatValue}.filter{v in v == 0}.count > 0
     }
@@ -97,6 +104,7 @@ class InvoiceBuilder {
     private var reverseCharge = false
     private var primaryLanguage: Language = Language.PL
     private var secondaryLanguage: Language? = nil
+    private var ksefNumber: String? = nil
     
     func withIssueDate(_ issueDate: Date) -> InvoiceBuilder {
         self.issueDate = issueDate
@@ -158,6 +166,11 @@ class InvoiceBuilder {
         return self
     }
     
+    func withKsefNumber(_ ksefNumber: String?) -> InvoiceBuilder {
+        self.ksefNumber = ksefNumber
+        return self
+    }
+    
     func build() -> Invoice {
         return Invoice(issueDate: issueDate,
                        number: number,
@@ -170,7 +183,8 @@ class InvoiceBuilder {
                        notes: notes,
                        reverseCharge: reverseCharge,
                        primaryLanguage: primaryLanguage,
-                       secondaryLanguage: secondaryLanguage
+                       secondaryLanguage: secondaryLanguage,
+                       ksefNumber: ksefNumber
         )
     }
 }

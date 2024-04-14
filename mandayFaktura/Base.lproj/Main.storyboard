@@ -2712,7 +2712,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <popUpButton toolTip="Pozwala na wybranie nabywcy z listy" ambiguous="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xrx-8b-s0x">
-                                <rect key="frame" x="451" y="80" width="56" height="29"/>
+                                <rect key="frame" x="451" y="79" width="56" height="31"/>
                                 <popUpButtonCell key="cell" type="squareTextured" title="Item 1" bezelStyle="texturedSquare" image="popUpButtonCell:Tsj-1f-mlH:image" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="lIz-TY-kkH" id="Tsj-1f-mlH">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -2766,13 +2766,13 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="515-Gh-q6D">
-                                <rect key="frame" x="0.0" y="26" width="993" height="183"/>
+                                <rect key="frame" x="0.0" y="26" width="993" height="135"/>
                                 <clipView key="contentView" id="za3-co-qHH">
-                                    <rect key="frame" x="1" y="1" width="991" height="181"/>
+                                    <rect key="frame" x="1" y="1" width="991" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="48" headerView="Y3f-VO-oMP" viewBased="YES" id="K7l-SJ-g6u">
-                                            <rect key="frame" x="0.0" y="0.0" width="991" height="158"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="991" height="110"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -3511,9 +3511,9 @@ DQ
         <segue reference="wQo-ST-eOV"/>
         <segue reference="Zcr-aY-8e1"/>
         <segue reference="l92-wc-pcR"/>
-        <segue reference="ar3-AU-xhM"/>
-        <segue reference="o5h-iw-LOf"/>
-        <segue reference="pNf-8A-Ove"/>
+        <segue reference="cg6-KF-gGH"/>
+        <segue reference="2fz-Zu-mfT"/>
+        <segue reference="0VC-n4-z2H"/>
         <segue reference="yaH-hv-UcY"/>
         <segue reference="cPw-Au-6Bj"/>
         <segue reference="iWA-in-tWC"/>
