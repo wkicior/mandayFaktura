@@ -20,12 +20,12 @@ extension String {
 enum CopyTemplate: String {
     case original = "oryginał", copy = "kopia"
     
-    func getI10nValue(isI10n: Bool) -> String {
+    func getI10nValue(primaryLanguage: Language, secondaryLanguage: Language?, isI10n: Bool) -> String {
         switch (self) {
         case .original:
-            return self.rawValue.appendI10n("original", isI10n)
+            return "PDF_ORIGINAL".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: self.rawValue.appendI10n("original", isI10n))
         case .copy:
-            return self.rawValue.appendI10n("copy", isI10n)
+            return "PDF_COPY".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: self.rawValue.appendI10n("copy", isI10n))
         }
     }
 }

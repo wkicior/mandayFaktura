@@ -77,8 +77,9 @@
 "PDF_BUYER" = "Buyer";
 "PDF_CREDIT_NO_NUMBER" = "Credit note no";
 "PDF_TOTAL_DUE" = "Total due";
-"PDF_TOTAL_RETURN" = "Do zwrotu";
-
+"PDF_TOTAL_RETURN" = "Total return";
+"PDF_ORIGINAL" = "original";
+"PDF_COPY" = "copy";
 
 
 

@@ -78,3 +78,5 @@
 "PDF_CREDIT_NO_NUMBER" = "Faktura korygująca nr";
 "PDF_TOTAL_DUE" = "Do zapłaty";
 "PDF_TOTAL_RETURN" = "Do zwrotu";
+"PDF_ORIGINAL" = "oryginał";
+"PDF_COPY" = "kopia";

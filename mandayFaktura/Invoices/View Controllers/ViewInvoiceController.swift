@@ -12,12 +12,16 @@ import Quartz
 class ViewInvoiceController: NSViewController {
 
     @IBOutlet weak var pdfView: PDFView!
+    @IBOutlet weak var ksefXmlButton: NSButton!
     var pdfDocument: PdfDocument?
     var ksefXml: KsefXml?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pdfView.document = pdfDocument!.getDocument()
+        if (ksefXml == nil) {
+            ksefXmlButton.isEnabled = false
+        }
     }
     
     @IBAction func onPrintButtonClicked(_ sender: NSButton) {

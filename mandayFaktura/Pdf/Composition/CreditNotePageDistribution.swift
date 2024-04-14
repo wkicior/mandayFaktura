@@ -81,7 +81,7 @@ extension CreditNotePageDistribution {
     func initNewPageWithMinimumComposition(_ copyTemplate: CopyTemplate) {
         self.currentPageComposition = aCreditNotePageComposition()
             .withHeaderComponent(CreditNoteHeaderComponent(content: creditNote.printedHeader + "\n" + invoice.creditedNoteHeader))
-            .withHeaderComponent(CopyLabelComponent(content: copyTemplate.getI10nValue(isI10n: self.creditNote.isInternational())))
+            .withHeaderComponent(CopyLabelComponent(content: copyTemplate.getI10nValue(primaryLanguage: self.creditNote.primaryLanguage, secondaryLanguage: self.creditNote.secondaryLanguage, isI10n: self.creditNote.isInternational())))
             .withHeaderComponent(HeaderInvoiceDatesComponent(content: creditNote.printedDates))
             .withCounterpartyComponent(SellerComponent(content: creditNote.printedSeller))
             .withCounterpartyComponent(BuyerComponent(content: creditNote.printedBuyer))

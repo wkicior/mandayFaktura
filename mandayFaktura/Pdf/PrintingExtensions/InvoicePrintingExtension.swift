@@ -25,7 +25,9 @@ internal extension Invoice {
     }
     
     var printedHeader: String {
-        return "PDF_INVOICE_NO".i18n(primaryLanguage: self.primaryLanguage, secondaryLanguage: self.secondaryLanguage, defaultContent: appendI10n("Faktura VAT nr" , "Invoice no.")) + " " + number
+        let secondLanguageContent: String = "PDF_INVOICE_NO".i18n(language: secondaryLanguage ?? primaryLanguage, defaultContent: "Faktura VAT nr") + " " + number
+        let primaryLanguageContent: String = "PDF_INVOICE_NO".i18n(language: primaryLanguage, defaultContent: "Invoice no.") + " " + number
+        return secondLanguageContent.appendI10n(primaryLanguageContent, secondaryLanguage != nil)
     }
     
     var creditedNoteHeader: String {
