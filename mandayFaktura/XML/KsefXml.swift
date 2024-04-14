@@ -163,7 +163,7 @@ class KsefXml {
         return node("FaWiersz") {
             node("NrWierszaFa", value: "\(index + 1)")
             node("P_7", value: item.name)
-            node("P_8A", value: item.unitOfMeasureLabel(isI10n: false))
+            node("P_8A", value: item.unitOfMeasureLabel(primaryLanguage: .PL, secondaryLanguage: nil, isI10n: false))
             node("P_8B", value: "\(item.amount)")
             node("P_9A", value: item.unitNetPrice.formatAmountDot())
             node("P_11", value: item.netValue.formatAmountDot())

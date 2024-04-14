@@ -13,12 +13,16 @@ class InvoiceSettings {
     var paymentDateFrom = PaymentDateFrom.createDate
     var defaultNotes = ""
     var mandayFakturaCreditEnabled = true
+    var primaryDefaultLanguage: Language = .PL
+    var secondaryDefaultLanguage: Language?
     
-    init(paymentDateDays: Int = 0, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate, defaultNotes: String = "", mandayFakturaCreditEnabled: Bool = true) {
+    init(paymentDateDays: Int = 0, paymentDateFrom: PaymentDateFrom = PaymentDateFrom.createDate, defaultNotes: String = "", mandayFakturaCreditEnabled: Bool = true, primaryDefaultLanguage: Language = .PL, secondaryDefaultLanguage: Language? = nil) {
         self.paymentDateDays = paymentDateDays
         self.paymentDateFrom = paymentDateFrom
         self.defaultNotes = defaultNotes
         self.mandayFakturaCreditEnabled = mandayFakturaCreditEnabled
+        self.primaryDefaultLanguage = primaryDefaultLanguage
+        self.secondaryDefaultLanguage = secondaryDefaultLanguage
     }
     
     func getDueDate(issueDate: Date, sellDate: Date) -> Date {

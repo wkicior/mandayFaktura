@@ -12,9 +12,10 @@ class PageNumberingComponent: AbstractComponent, PageComponent {
     let height = AbstractComponent.defaultRowHeight
     let content: String
     
-    init(page: Int, of: Int, isI10n: Bool) {
-        self.content = ("Strona " + String(page) + " z " + String(of))
-            .appendI10n("Page " + String(page) + " of " + String(of), isI10n)
+    init(page: Int, of: Int, isI10n: Bool, primaryLanguage: Language, secondaryLanguage: Language?) {
+        let secondLanguageContent: String = "PDF_PAGE".i18n(language: secondaryLanguage ?? primaryLanguage, defaultContent: "Strona") + " " + String(page) + " " + "PDF_OF".i18n(language: secondaryLanguage ?? primaryLanguage, defaultContent: "z") + " " + String(of)
+        let primaryLanguageContent: String = "PDF_PAGE".i18n(language: primaryLanguage, defaultContent: "Page") + " " + String(page) + " " + "PDF_OF".i18n(language: primaryLanguage, defaultContent: "of") + " " + String(of)
+        self.content = secondLanguageContent.appendI10n(primaryLanguageContent, secondaryLanguage != nil)
         super.init(debug: InvoicePageComposition.debug)
     }
     

@@ -16,10 +16,10 @@ class VatBreakdownComponent : AbstractComponent, PageComponent {
     let minRowsCount: Int
     var position: NSPoint = NSPoint(x: 0, y: 0)
     
-    init(breakdownTableData: [[String]], isI10n: Bool) {
-        self.breakdownLabel = "W tym:".appendI10n("Including:", isI10n)
+    init(breakdownTableData: [[String]], isI10n: Bool, primaryLanguage: Language, secondaryLanguage: Language?) {
+        self.breakdownLabel = "PDF_INCLUDING".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "W tym:".appendI10n("Including:", isI10n))
         self.breakdownTableData = breakdownTableData
-        self.minRowsCount = isI10n ? 2 : 1
+        self.minRowsCount = isI10n || secondaryLanguage != nil ? 2 : 1
         super.init(debug: InvoicePageComposition.debug)
     }
     

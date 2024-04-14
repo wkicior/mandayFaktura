@@ -78,7 +78,5 @@ class VatRatesTableViewDelegate: NSObject, NSTableViewDataSource, NSTableViewDel
     func setVatRates(_ vatRates: [VatRate]) {
         self.vatRates = vatRates
         self.vatRatesTableView.reloadData()
-    }
-    
-   
+    }   
 }

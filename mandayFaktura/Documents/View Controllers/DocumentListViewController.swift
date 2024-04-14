@@ -88,8 +88,13 @@ class DocumentListViewController: NSViewController {
         let document = documentListTableViewDelegate?.getSelectedDocument(index: index)
         if let creditNote = creditNoteFacade!.creditNoteForInvoice(invoiceNumber: document!.number) {
             let alert = NSAlert()
-            alert.messageText = "Usunięcie dokumentu!"
-            alert.informativeText = "Dokument ma przypisaną fakturę korygującą \(creditNote.number) i nie może zostać usunięty"
+            if #available(macOS 12, *) {
+                alert.messageText = String(localized: "DOCUMENT_REMOVAL", defaultValue: "Document removal!")
+                alert.informativeText = "\(String(localized: "DOCUMENT_HAS_CREDIT_NOTE", defaultValue: "The document has the credit note assigned")) \(creditNote.number) \(String(localized: "DOCUMENT_COULD_NOT_BE_REMOVED", defaultValue: "and therefore could not be removed"))"
+            } else {
+                alert.messageText = "Usunięcie dokumentu!"
+                alert.informativeText = "Dokument ma przypisaną fakturę korygującą \(creditNote.number) i nie może zostać usunięty"
+            }
             alert.alertStyle = .critical
             alert.runModal()
         } else {
@@ -99,11 +104,18 @@ class DocumentListViewController: NSViewController {
     
     func deleteDocument() {
         let alert = NSAlert()
-        alert.messageText = "Usunięcie dokumentu!"
-        alert.informativeText = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?"
+        if #available(macOS 12, *) {
+            alert.messageText = String(localized: "DOCUMENT_REMOVAL", defaultValue: "Document removal!")
+            alert.informativeText = String(localized: "IRRETRIEVABLY_DELETED", defaultValue: "The invoice will be irretrievably deleted. Are you sure you want to delete the invoice?")
+            alert.addButton(withTitle: String(localized: "DELETE", defaultValue: "Delete"))
+            alert.addButton(withTitle: String(localized: "CANCEL", defaultValue: "Anuluj"))
+        } else {
+            alert.messageText = "Usunięcie dokumentu!"
+            alert.informativeText = "Dane faktury zostaną utracone bezpowrotnie. Czy na pewno chcesz usunąć fakturę?"
+            alert.addButton(withTitle: "Usuń")
+            alert.addButton(withTitle: "Anuluj")
+        }
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "Usuń")
-        alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
             let document = getSelectedDocument()
@@ -123,8 +135,13 @@ class DocumentListViewController: NSViewController {
         let invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
         if let creditNote = creditNoteFacade!.creditNoteForInvoice(invoiceNumber: invoice!.number) {
             let alert = NSAlert()
-            alert.messageText = "Edycja faktury!"
-            alert.informativeText = "Faktura ma przypisaną fakturę korygującą \(creditNote.number) i nie może już być edytowana"
+            if #available(macOS 12, *) {
+                alert.messageText = String(localized: "INVOICE_EDIT", defaultValue: "Editing invoice!")
+                alert.informativeText = "\(String(localized: "DOCUMENT_HAS_CREDIT_NOTE", defaultValue: "The document has the credit note assigned")) \(creditNote.number) \(String(localized: "DOCUMENT_COULD_NOT_BE_EDITED", defaultValue: "and therefore could not be edited"))"
+            } else {
+                alert.messageText = "Edycja faktury!"
+                alert.informativeText = "Faktura ma przypisaną fakturę korygującą \(creditNote.number) i nie może już być edytowana"
+            }
             alert.alertStyle = .critical
             alert.runModal()
         } else {
@@ -134,11 +151,19 @@ class DocumentListViewController: NSViewController {
     
     func editInvoice() {
         let alert = NSAlert()
-        alert.messageText = "Edycja faktury!"
-        alert.informativeText = "Dane faktury mogą zostać nadpisane. Czy na pewno chcesz edytować fakturę?"
+        if #available(macOS 12, *) {
+            alert.messageText = String(localized: "INVOICE_EDIT", defaultValue: "Editing invoice!")
+            alert.informativeText = String(localized: "CONFIRM_INVOICE_EDIT", defaultValue: "Invoice data will be overwriten. Are you sure you want to continue?")
+            alert.addButton(withTitle: String(localized: "EDIT", defaultValue: "Edit"))
+            alert.addButton(withTitle: String(localized: "CANCEL", defaultValue: "Anuluj"))
+
+        } else {
+            alert.messageText = "Edycja faktury!"
+            alert.informativeText = "Dane faktury mogą zostać nadpisane. Czy na pewno chcesz edytować fakturę?"
+            alert.addButton(withTitle: "Edytuj")
+            alert.addButton(withTitle: "Anuluj")
+        }
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "Edytuj")
-        alert.addButton(withTitle: "Anuluj")
         let modalResponse = alert.runModal()
         if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
             performSegue(withIdentifier: NSStoryboardSegue.Identifier("editInvoiceSegue"), sender: nil)
@@ -152,8 +177,15 @@ class DocumentListViewController: NSViewController {
         let invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
         if let creditNote = creditNoteFacade!.creditNoteForInvoice(invoiceNumber: invoice!.number) {
             let alert = NSAlert()
-            alert.messageText = "Korekta faktury!"
-            alert.informativeText = "Faktura ma przypisaną fakturę korygującą \(creditNote.number)"
+            if #available(macOS 12, *) {
+                alert.messageText = String(localized: "CREDIT_NOTE_CREATION", defaultValue: "Credit note creation!")
+                alert.informativeText = "\(String(localized: "DOCUMENT_HAS_CREDIT_NOTE", defaultValue: "The document has the credit note assigned")) \(creditNote.number)"
+
+            } else {
+                alert.messageText = "Korekta faktury!"
+                alert.informativeText = "Faktura ma przypisaną fakturę korygującą \(creditNote.number)"
+            }
+           
             alert.alertStyle = .critical
             alert.runModal()
         } else {
@@ -207,7 +239,7 @@ class DocumentListViewController: NSViewController {
         if segue.destinationController is ViewInvoiceController {
             let vc = segue.destinationController as? ViewInvoiceController
             vc?.pdfDocument = getPdfDocument()!
-            vc?.ksefXml = getKsefXml()!
+            vc?.ksefXml = getKsefXml()
         } else if segue.destinationController is EditInvoiceViewController {
             let vc = segue.destinationController as? EditInvoiceViewController
             let index = self.invoiceHistoryTableView.selectedRow

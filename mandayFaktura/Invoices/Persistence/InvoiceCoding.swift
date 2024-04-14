@@ -22,6 +22,9 @@ import Foundation
         coder.encode(self.invoice.paymentDueDate, forKey: "paymentDueDate")
         coder.encode(self.invoice.notes, forKey: "notes")
         coder.encode(self.invoice.reverseCharge, forKey: "reverseCharge")
+        coder.encode(self.invoice.primaryLanguage.rawValue, forKey: "primaryLanguage")
+        coder.encode(self.invoice.secondaryLanguage?.rawValue ?? nil, forKey: "secondaryLanguage")
+
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -37,6 +40,16 @@ import Foundation
         let items = itemsCoding.map({c in c.invoiceItem})
         let paymentForm = PaymentForm(rawValue: decoder.decodeInteger(forKey: "paymentForm"))!
         let reverseCharge = decoder.decodeBool(forKey: "reverseCharge")
+        var primaryLanguageCode = decoder.decodeObject(forKey: "primaryLanguage") as? String
+        var secondaryLanguageCode = decoder.decodeObject(forKey: "secondaryLanguage") as? String
+        
+        if (primaryLanguageCode == nil && seller.country != buyer.country && !buyer.country.isEmpty) {
+            primaryLanguageCode = Language.EN.rawValue
+            secondaryLanguageCode = Language.PL.rawValue
+        } else if (primaryLanguageCode == nil) {
+            primaryLanguageCode = Language.PL.rawValue
+        }
+
         
         self.init(anInvoice()
             .withIssueDate(issueDate)
@@ -49,6 +62,8 @@ import Foundation
             .withPaymentDueDate(paymentDueDate)
             .withNotes(notes ?? "")
             .withReverseCharge(reverseCharge)
+            .withPrimaryLanguage(Language(rawValue: primaryLanguageCode!)!)
+            .withSecondaryLanguage(secondaryLanguageCode.map({Language(rawValue: $0)!}) ?? nil)
             .build())
     }
     

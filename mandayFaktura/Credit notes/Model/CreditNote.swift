@@ -20,6 +20,8 @@ struct CreditNote: Document {
     let reason: String
     let invoiceNumber: String
     let reverseCharge: Bool
+    let primaryLanguage: Language
+    let secondaryLanguage: Language?
 
     var totalNetValue: Decimal {
         get {
@@ -66,7 +68,6 @@ struct CreditNote: Document {
     }
 }
 
-
 func aCreditNote() -> CreditNoteBuilder {
     return CreditNoteBuilder()
 }
@@ -83,6 +84,8 @@ class CreditNoteBuilder {
     private var reason = ""
     private var invoiceNumber: String?
     private var reverseCharge = false
+    private var primaryLanguage: Language = Language.PL
+    private var secondaryLanguage: Language? = nil
     
     func withNumber(_ number: String) -> CreditNoteBuilder {
         self.number = number
@@ -139,7 +142,17 @@ class CreditNoteBuilder {
         return self
     }
     
-    func build() -> CreditNote {
+    func withPrimaryLanguage(_ primaryLanguage: Language) -> CreditNoteBuilder {
+       self.primaryLanguage = primaryLanguage
+       return self
+   }
+   
+   func withSecondaryLanguage(_ secondaryLanguage: Language?) -> CreditNoteBuilder {
+       self.secondaryLanguage = secondaryLanguage
+       return self
+   }
+
+   func build() -> CreditNote {
         return CreditNote(issueDate: issueDate,
                        number: number,
                        sellingDate: sellingDate,
@@ -150,7 +163,9 @@ class CreditNoteBuilder {
                        paymentDueDate: paymentDueDate,
                        reason: reason,
                        invoiceNumber: invoiceNumber!,
-                       reverseCharge: reverseCharge
+                       reverseCharge: reverseCharge,
+                       primaryLanguage: primaryLanguage,
+                       secondaryLanguage: secondaryLanguage
         )
     }
 }

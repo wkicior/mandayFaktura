@@ -24,6 +24,8 @@ class AbstractInvoiceViewController: NSViewController {
     @IBOutlet weak var previewButton: NSButton!
     @IBOutlet weak var notesTextField: NSTextField!
     @IBOutlet weak var reverseChargeButton: NSButton!
+    @IBOutlet weak var primaryLanguagePopUpButton: NSPopUpButton!
+    @IBOutlet weak var secondLanguagePopUpButton: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

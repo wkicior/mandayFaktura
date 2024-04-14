@@ -20,14 +20,17 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         self.saveButton.isEnabled = false
         let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
         notesTextField.stringValue = invoiceSettings.defaultNotes
-        //checkPreviewButtonEnabled()
         self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
+        self.primaryLanguagePopUpButton.selectItem(withTag: invoiceSettings.primaryDefaultLanguage.index)
+        self.secondLanguagePopUpButton.selectItem(withTag: invoiceSettings.secondaryDefaultLanguage?.index ?? -1)
     }
     
     var invoice: Invoice {
         get {
             let seller = self.counterpartyFacade.getSeller() ?? defaultSeller()
             let buyer = self.buyerViewController?.getBuyer()
+            let primaryLanguage = Language.ofIndex(self.primaryLanguagePopUpButton.selectedItem?.tag ?? Language.PL.index)!
+            let secondaryLanguage = Language.ofIndex(self.secondLanguagePopUpButton.selectedItem?.tag ?? Language.PL.index)
             return InvoiceBuilder()
                 .withIssueDate(self.invoiceDatesViewController!.issueDate)
                 .withNumber(numberTextField.stringValue)
@@ -39,6 +42,8 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 .withPaymentDueDate(self.paymentDetailsViewController!.dueDate)
                 .withNotes(self.notesTextField.stringValue)
                 .withReverseCharge(self.reverseChargeButton.state == .on)
+                .withPrimaryLanguage(primaryLanguage)
+                .withSecondaryLanguage(secondaryLanguage)
                 .build()
         }
     }
@@ -53,10 +58,20 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
         } catch is UserAbortError {
             //
         } catch InvoiceExistsError.invoiceNumber(let number)  {
-            WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje",
-                text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: "\(number) - \(String(localized: "INVOICE_EXISTS", defaultValue: "the invoice with this number already exists"))",
+                    text: "\(String(localized: "CHANGE_NUMBER", defaultValue: "Change new invoice number or edit invoice no")) \(number)").runModal()
+            } else {
+                WarningAlert(warning: "\(number) - faktura o tym numerze juź istnieje",
+                    text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            }           
         } catch CreditNoteExistsError.creditNoteNumber(let number)  {
-            WarningAlert(warning: "\(number) - faktura korygująca o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            if #available(macOS 12, *) {
+                WarningAlert(warning: "\(number) - \(String(localized: "CREDIT_NOTE_EXISTS", defaultValue: "the credit note with this number already exists"))",
+                    text: "\(String(localized: "CHANGE_NUMBER", defaultValue: "Change new invoice number or edit invoice no")) \(number)").runModal()
+            } else {
+                WarningAlert(warning: "\(number) - faktura korygująca o tym numerze juź istnieje", text: "Zmień numer nowej faktury lub edytuj fakturę o numerze \(number)").runModal()
+            }
         } catch {
             //
         }
