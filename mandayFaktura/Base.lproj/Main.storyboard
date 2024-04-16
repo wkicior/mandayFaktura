@@ -903,6 +903,11 @@ DQ
                                                 <action selector="onEditInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="dxn-bs-h9o"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Numer Ksef.." enabled="NO" keyEquivalent="x" id="MPw-sS-oUR" userLabel="Numer KSef">
+                                            <connections>
+                                                <action selector="onKsefNumberMenuItemClicked:" target="Voe-Tx-rLC" id="TK4-rF-F4P"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Korekta..." enabled="NO" keyEquivalent="c" id="zQa-dQ-WqJ" userLabel="Korekta">
                                             <connections>
                                                 <action selector="onCorrectInvoiceMenuItemClicked:" target="Voe-Tx-rLC" id="z6X-82-Yd4"/>
@@ -1080,6 +1085,7 @@ DQ
                     <connections>
                         <outlet property="correctInvoiceMenuItem" destination="zQa-dQ-WqJ" id="WjV-dG-Seo"/>
                         <outlet property="editInvoiceMenuItem" destination="NE7-Mf-tLH" id="Mk5-hw-rvU"/>
+                        <outlet property="ksefNumberMenuItem" destination="MPw-sS-oUR" id="EdK-IT-lXX"/>
                         <outlet property="menu" destination="bib-Uj-vzu" id="1kv-bH-Ghf"/>
                         <outlet property="printInvoiceMenuItem" destination="aTl-1u-JFS" id="y05-KD-gi2"/>
                         <outlet property="removeInvoiceMenuItem" destination="3Ww-3p-vUu" id="DNA-Bb-TiK"/>
@@ -1367,6 +1373,55 @@ DQ
                 <customObject id="aob-7G-XRH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963" y="1040"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="rpS-9V-Oc9">
+            <objects>
+                <windowController id="klZ-Bw-Bpq" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="aGP-ZU-ci1">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="311" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <view key="contentView" id="tcF-tr-IWE">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="klZ-Bw-Bpq" id="SCL-hq-qCl"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="0OP-dT-3Oo" kind="relationship" relationship="window.shadowedContentViewController" id="KqZ-9Y-LSq"/>
+                    </connections>
+                </windowController>
+                <customObject id="pu7-AM-3ow" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1017" y="1557"/>
+        </scene>
+        <!--Ksef Number View Controller-->
+        <scene sceneID="flF-OV-oxz">
+            <objects>
+                <viewController id="0OP-dT-3Oo" customClass="KsefNumberViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Psm-Bb-K7e">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-hc-IQE">
+                                <rect key="frame" x="178" y="159" width="35" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Hello" id="d51-gl-y5k">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="OZ4-wp-D5n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310" y="1526"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="rF1-BB-TUh">
@@ -1904,6 +1959,7 @@ DQ
                         <segue destination="xVm-3h-MS1" kind="show" identifier="showPdfViewSegue" id="0VC-n4-z2H"/>
                         <segue destination="Pk8-xk-tGP" kind="modal" identifier="editInvoiceSegue" id="2fz-Zu-mfT"/>
                         <segue destination="xel-JP-j4e" kind="modal" identifier="creditNoteSegue" id="cg6-KF-gGH"/>
+                        <segue destination="klZ-Bw-Bpq" kind="modal" identifier="ksefNumberSegue" id="yU7-9n-tTB"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -3514,8 +3570,8 @@ DQ
         <segue reference="cg6-KF-gGH"/>
         <segue reference="2fz-Zu-mfT"/>
         <segue reference="0VC-n4-z2H"/>
-        <segue reference="yaH-hv-UcY"/>
-        <segue reference="cPw-Au-6Bj"/>
+        <segue reference="7xi-xw-zjF"/>
+        <segue reference="ALL-qi-P1w"/>
         <segue reference="iWA-in-tWC"/>
         <segue reference="lUp-1X-7iT"/>
     </inferredMetricsTieBreakers>

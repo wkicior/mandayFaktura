@@ -14,6 +14,8 @@ struct ViewControllerConstants {
     static let INVOICE_TO_EDIT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToEdit")
     static let INVOICE_TO_PRINT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToPrint")
     static let CREDIT_NOTE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToCorrect")
+    static let KSEF_NUMBER_NOTIFICATION = Notification.Name(rawValue: "KsefNumber")
+
 
     static let INVOICE_NOTIFICATION_KEY = "invoice"
 }
@@ -65,6 +67,9 @@ class DocumentListViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_PRINT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.printInvoice()}
+        NotificationCenter.default.addObserver(forName: ViewControllerConstants.KSEF_NUMBER_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in self.ksefNumberEdit()}
     }
     
     func initializeRepositories() {
@@ -197,6 +202,10 @@ class DocumentListViewController: NSViewController {
         let pdfDocument = getPdfDocument()!
         let pdfPrintOperation = PdfDocumentPrintOperation(document: pdfDocument.getDocument())
         pdfPrintOperation.runModal(on: self)
+    }
+    
+    func ksefNumberEdit() {
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier("ksefNumberSegue"), sender: nil)
     }
 
     override var representedObject: Any? {

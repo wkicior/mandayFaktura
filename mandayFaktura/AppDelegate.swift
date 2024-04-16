@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var editInvoiceMenuItem: NSMenuItem!
     @IBOutlet weak var printInvoiceMenuItem: NSMenuItem!
     @IBOutlet weak var correctInvoiceMenuItem: NSMenuItem!
+    @IBOutlet weak var ksefNumberMenuItem: NSMenuItem!
     
     @IBAction func onRemoveInvoiceMenuItemClicked(_ sender: NSMenuItem) {
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_REMOVE_NOTIFICATION, object: nil)
@@ -34,6 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_EDIT_NOTIFICATION, object: nil)
     }
     
+    @IBAction func onKsefNumberMenuItemClicked(_ sender: Any) {
+        NotificationCenter.default.post(name: ViewControllerConstants.KSEF_NUMBER_NOTIFICATION, object: nil)
+    }
+    
     @IBAction func onPrintInvoiceMenuItemClicked(_ sender: NSMenuItem) {
         NotificationCenter.default.post(name: ViewControllerConstants.INVOICE_TO_PRINT_NOTIFICATION, object: nil)
     }
@@ -43,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.removeInvoiceMenuItem.isEnabled = false
         self.correctInvoiceMenuItem.isEnabled = false
         self.printInvoiceMenuItem.isEnabled = false
+        self.ksefNumberMenuItem.isEnabled = false
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_SELECTED_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.setInvoiceMenuItemAvailability(notification: notification)
@@ -58,11 +64,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.correctInvoiceMenuItem.isEnabled = true
             self.editInvoiceMenuItem.isEnabled = true
             self.printInvoiceMenuItem.isEnabled = true
+            self.ksefNumberMenuItem.isEnabled = true
         } else if creditNote != nil {
             self.removeInvoiceMenuItem.isEnabled = true
             self.correctInvoiceMenuItem.isEnabled = false
             self.editInvoiceMenuItem.isEnabled = false
             self.printInvoiceMenuItem.isEnabled = true
+            self.ksefNumberMenuItem.isEnabled = true
         } else {
             self.removeInvoiceMenuItem.isEnabled = false
             self.correctInvoiceMenuItem.isEnabled = false
