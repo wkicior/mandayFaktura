@@ -255,6 +255,7 @@
 		D3E7DC122BA0E801003146D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC112BA0E801003146D5 /* Language.swift */; };
 		D3E7DC132BA0EE82003146D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC112BA0E801003146D5 /* Language.swift */; };
 		D3E7DC162BCC6CF7003146D5 /* KsefNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC152BCC6CF7003146D5 /* KsefNumberViewController.swift */; };
+		D3E7DC172BCF14FA003146D5 /* KsefNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC152BCC6CF7003146D5 /* KsefNumberViewController.swift */; };
 		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
@@ -1596,6 +1597,7 @@
 				D34339F221A48D6100C583D2 /* FontFormatting.swift in Sources */,
 				D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */,
 				D38997322219B733004CC30C /* CreditNote.swift in Sources */,
+				D3E7DC172BCF14FA003146D5 /* KsefNumberViewController.swift in Sources */,
 				D3B6F5FA2234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */,
 				D3F745F22208B7230057540E /* NotesComponent.swift in Sources */,
 				D34339F321A48D6100C583D2 /* ItemsCatalogueTableViewDelegate.swift in Sources */,

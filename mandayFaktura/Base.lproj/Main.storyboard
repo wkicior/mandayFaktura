@@ -1374,54 +1374,46 @@ DQ
             </objects>
             <point key="canvasLocation" x="963" y="1040"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="rpS-9V-Oc9">
+        <!--Edycja numeru KSeF-->
+        <scene sceneID="h4t-7y-dAb">
             <objects>
-                <windowController id="klZ-Bw-Bpq" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="aGP-ZU-ci1">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="311" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
-                        <view key="contentView" id="tcF-tr-IWE">
-                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </view>
-                        <connections>
-                            <outlet property="delegate" destination="klZ-Bw-Bpq" id="SCL-hq-qCl"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="0OP-dT-3Oo" kind="relationship" relationship="window.shadowedContentViewController" id="KqZ-9Y-LSq"/>
-                    </connections>
-                </windowController>
-                <customObject id="pu7-AM-3ow" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1017" y="1557"/>
-        </scene>
-        <!--Ksef Number View Controller-->
-        <scene sceneID="flF-OV-oxz">
-            <objects>
-                <viewController id="0OP-dT-3Oo" customClass="KsefNumberViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Psm-Bb-K7e">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController title="Edycja numeru KSeF" id="17n-8L-JPJ" customClass="KsefNumberViewController" customModule="mandayFaktura" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="C8R-d2-DVG">
+                        <rect key="frame" x="0.0" y="0.0" width="391" height="89"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-hc-IQE">
-                                <rect key="frame" x="178" y="159" width="35" height="16"/>
+                            <textField toolTip="Nazwa firmy nabywcy" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hQO-bh-MOg">
+                                <rect key="frame" x="20" y="48" width="358" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Hello" id="d51-gl-y5k">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Numer KSeF" drawsBackground="YES" id="nx6-87-tLZ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-pg-IDf">
+                                <rect key="frame" x="310" y="13" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Zapisz" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Eq-ax-laX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveButtonClicked:" target="17n-8L-JPJ" id="uss-Nm-cAs"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="ksefNumberTextField" destination="hQO-bh-MOg" id="v7M-ms-GrV"/>
+                    </connections>
                 </viewController>
-                <customObject id="OZ4-wp-D5n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="O0Y-sD-9pP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-310" y="1526"/>
+            <point key="canvasLocation" x="-700" y="1196"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="rF1-BB-TUh">
@@ -1959,7 +1951,7 @@ DQ
                         <segue destination="xVm-3h-MS1" kind="show" identifier="showPdfViewSegue" id="0VC-n4-z2H"/>
                         <segue destination="Pk8-xk-tGP" kind="modal" identifier="editInvoiceSegue" id="2fz-Zu-mfT"/>
                         <segue destination="xel-JP-j4e" kind="modal" identifier="creditNoteSegue" id="cg6-KF-gGH"/>
-                        <segue destination="klZ-Bw-Bpq" kind="modal" identifier="ksefNumberSegue" id="yU7-9n-tTB"/>
+                        <segue destination="17n-8L-JPJ" kind="modal" identifier="ksefNumberSegue" id="mWA-uw-tS4"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -3563,17 +3555,17 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="luC-Kk-8jv"/>
-        <segue reference="wQo-ST-eOV"/>
-        <segue reference="Zcr-aY-8e1"/>
-        <segue reference="l92-wc-pcR"/>
+        <segue reference="8r7-xr-IPP"/>
+        <segue reference="b7W-sT-mer"/>
+        <segue reference="EAM-E1-2Ks"/>
+        <segue reference="aLx-64-csJ"/>
         <segue reference="cg6-KF-gGH"/>
         <segue reference="2fz-Zu-mfT"/>
         <segue reference="0VC-n4-z2H"/>
-        <segue reference="7xi-xw-zjF"/>
+        <segue reference="VWJ-bc-Zac"/>
         <segue reference="ALL-qi-P1w"/>
         <segue reference="iWA-in-tWC"/>
-        <segue reference="lUp-1X-7iT"/>
+        <segue reference="lJP-li-Rqb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>

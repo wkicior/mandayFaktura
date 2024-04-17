@@ -18,5 +18,5 @@ protocol Document {
     var totalVatValue: Decimal { get }
     var primaryLanguage: Language { get }
     var secondaryLanguage: Language? { get }
-    var ksefNumber: String? { get }
+    var ksefNumber: String? { get set }
 }

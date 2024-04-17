@@ -21,7 +21,7 @@ struct Invoice: Document {
     let reverseCharge: Bool
     let primaryLanguage: Language
     let secondaryLanguage: Language?
-    let ksefNumber: String?
+    var ksefNumber: String?
     
     var totalNetValue: Decimal {
         get {

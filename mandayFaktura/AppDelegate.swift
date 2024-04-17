@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func onKsefNumberMenuItemClicked(_ sender: Any) {
-        NotificationCenter.default.post(name: ViewControllerConstants.KSEF_NUMBER_NOTIFICATION, object: nil)
+        NotificationCenter.default.post(name: ViewControllerConstants.KSEF_NUMBER_TO_EDIT_NOTIFICATION, object: nil)
     }
     
     @IBAction func onPrintInvoiceMenuItemClicked(_ sender: NSMenuItem) {

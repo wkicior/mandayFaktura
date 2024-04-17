@@ -14,7 +14,7 @@ struct ViewControllerConstants {
     static let INVOICE_TO_EDIT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToEdit")
     static let INVOICE_TO_PRINT_NOTIFICATION = Notification.Name(rawValue: "InvoiceToPrint")
     static let CREDIT_NOTE_NOTIFICATION = Notification.Name(rawValue: "InvoiceToCorrect")
-    static let KSEF_NUMBER_NOTIFICATION = Notification.Name(rawValue: "KsefNumber")
+    static let KSEF_NUMBER_TO_EDIT_NOTIFICATION = Notification.Name(rawValue: "KsefNumberToEdit")
 
 
     static let INVOICE_NOTIFICATION_KEY = "invoice"
@@ -67,9 +67,14 @@ class DocumentListViewController: NSViewController {
         NotificationCenter.default.addObserver(forName: ViewControllerConstants.INVOICE_TO_PRINT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.printInvoice()}
-        NotificationCenter.default.addObserver(forName: ViewControllerConstants.KSEF_NUMBER_NOTIFICATION,
+        NotificationCenter.default.addObserver(forName: ViewControllerConstants.KSEF_NUMBER_TO_EDIT_NOTIFICATION,
                                                object: nil, queue: nil) {
                                                 (notification) in self.ksefNumberEdit()}
+        
+        NotificationCenter.default.addObserver(forName: KsefNumberViewControllerConstants.KSEF_NUMBER_EDITED_NOTIFICATION,
+                                               object: nil, queue: nil) {
+                                                (notification) in
+                                                self.invoiceHistoryTableView.reloadData()}
     }
     
     func initializeRepositories() {
@@ -255,6 +260,10 @@ class DocumentListViewController: NSViewController {
             vc?.invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
         } else if segue.destinationController is CreditNoteViewController {
             let vc = segue.destinationController as? CreditNoteViewController
+            let index = self.invoiceHistoryTableView.selectedRow
+            vc?.invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
+        } else if segue.destinationController is KsefNumberViewController {
+            let vc = segue.destinationController as? KsefNumberViewController
             let index = self.invoiceHistoryTableView.selectedRow
             vc?.invoice = documentListTableViewDelegate?.getSelectedDocument(index: index) as? Invoice
         }
