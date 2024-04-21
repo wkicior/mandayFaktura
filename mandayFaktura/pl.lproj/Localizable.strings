@@ -80,3 +80,6 @@
 "PDF_TOTAL_RETURN" = "Do zwrotu";
 "PDF_ORIGINAL" = "oryginał";
 "PDF_COPY" = "kopia";
+"ERROR" = "Błąd";
+"WRONG_KSEF_NUMBER" = "Niepoprawny numer KSeF";
+"SAVING_KSEF_ERROR" = "Nie udało się zapisać numeru KSeF";

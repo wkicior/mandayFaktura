@@ -24,7 +24,7 @@ import Foundation
         coder.encode(self.invoice.reverseCharge, forKey: "reverseCharge")
         coder.encode(self.invoice.primaryLanguage.rawValue, forKey: "primaryLanguage")
         coder.encode(self.invoice.secondaryLanguage?.rawValue ?? nil, forKey: "secondaryLanguage")
-        coder.encode(self.invoice.ksefNumber, forKey: "ksefNumber")
+        coder.encode(self.invoice.ksefNumber?.stringValue, forKey: "ksefNumber")
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -49,7 +49,8 @@ import Foundation
         } else if (primaryLanguageCode == nil) {
             primaryLanguageCode = Language.PL.rawValue
         }
-        let ksefNumber = decoder.decodeObject(forKey: "ksefNumber") as? String
+        let ksefNumberString = decoder.decodeObject(forKey: "ksefNumber") as? String
+        let ksefNumber: KsefNumber? =  ksefNumberString.flatMap { try? KsefNumber($0) }
 
         self.init(anInvoice()
             .withIssueDate(issueDate)
@@ -64,7 +65,7 @@ import Foundation
             .withReverseCharge(reverseCharge)
             .withPrimaryLanguage(Language(rawValue: primaryLanguageCode!)!)
             .withSecondaryLanguage(secondaryLanguageCode.map({Language(rawValue: $0)!}) ?? nil)
-            .withKsefNumber(ksefNumber)
+            .withKsefNumber(ksefNumber ?? nil)
             .build())
     }
     

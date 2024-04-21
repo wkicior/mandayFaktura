@@ -22,7 +22,7 @@ struct CreditNote: Document {
     let reverseCharge: Bool
     let primaryLanguage: Language
     let secondaryLanguage: Language?
-    var ksefNumber: String?
+    var ksefNumber: KsefNumber?
 
     var totalNetValue: Decimal {
         get {
@@ -70,7 +70,7 @@ struct CreditNote: Document {
     
     var hasKsefNumber: Bool {
         get {
-            return self.ksefNumber != nil && !self.ksefNumber!.isBlank
+            return self.ksefNumber != nil
         }
     }
 }
@@ -93,7 +93,7 @@ class CreditNoteBuilder {
     private var reverseCharge = false
     private var primaryLanguage: Language = Language.PL
     private var secondaryLanguage: Language? = nil
-    private var ksefNumber: String? = nil
+    private var ksefNumber: KsefNumber? = nil
     
     func withNumber(_ number: String) -> CreditNoteBuilder {
         self.number = number
@@ -160,7 +160,7 @@ class CreditNoteBuilder {
        return self
    }
     
-   func withKsefNumber(_ ksefNumber: String?) -> CreditNoteBuilder {
+   func withKsefNumber(_ ksefNumber: KsefNumber?) -> CreditNoteBuilder {
        self.ksefNumber = ksefNumber
        return self
    }
