@@ -25,6 +25,7 @@ import Foundation
         coder.encode(self.creditNote.reverseCharge, forKey: "reverseCharge")
         coder.encode(self.creditNote.primaryLanguage.rawValue, forKey: "primaryLanguage")
         coder.encode(self.creditNote.secondaryLanguage?.rawValue ?? nil, forKey: "secondaryLanguage")
+        coder.encode(self.creditNote.ksefNumber?.stringValue, forKey: "ksefNumber")
     }
     
     required convenience init?(coder decoder: NSCoder) {
@@ -52,6 +53,8 @@ import Foundation
                } else if (primaryLanguageCode == nil) {
                    primaryLanguageCode = Language.PL.rawValue
                }
+        let ksefNumberString = decoder.decodeObject(forKey: "ksefNumber") as? String
+        let ksefNumber: KsefNumber? =  ksefNumberString.flatMap { try? KsefNumber($0) }
         
         self.init(aCreditNote()
             .withIssueDate(issueDate)
@@ -67,6 +70,7 @@ import Foundation
             .withReverseCharge(reverseCharge)
             .withPrimaryLanguage(Language(rawValue: primaryLanguageCode!)!)
             .withSecondaryLanguage(secondaryLanguageCode.map({Language(rawValue: $0)!}) ?? nil)
+            .withKsefNumber(ksefNumber ?? nil)
             .build())
     }
     

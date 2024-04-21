@@ -80,6 +80,9 @@
 "PDF_TOTAL_RETURN" = "Total return";
 "PDF_ORIGINAL" = "original";
 "PDF_COPY" = "copy";
+"ERROR" = "Error";
+"WRONG_KSEF_NUMBER" = "Incorrect KSeF number";
+"SAVING_KSEF_ERROR" = "Error on saving KSeF number";
 
 
 

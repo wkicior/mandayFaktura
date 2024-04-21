@@ -254,6 +254,13 @@
 		D3E7DC072B8E8DEF003146D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3E7DC092B8E8DEF003146D5 /* Localizable.strings */; };
 		D3E7DC122BA0E801003146D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC112BA0E801003146D5 /* Language.swift */; };
 		D3E7DC132BA0EE82003146D5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC112BA0E801003146D5 /* Language.swift */; };
+		D3E7DC162BCC6CF7003146D5 /* KsefNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC152BCC6CF7003146D5 /* KsefNumberViewController.swift */; };
+		D3E7DC172BCF14FA003146D5 /* KsefNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC152BCC6CF7003146D5 /* KsefNumberViewController.swift */; };
+		D3E7DC192BD06BB5003146D5 /* KsefNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC182BD06BB5003146D5 /* KsefNumber.swift */; };
+		D3E7DC1A2BD3DB2B003146D5 /* KsefNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC182BD06BB5003146D5 /* KsefNumber.swift */; };
+		D3E7DC1E2BD5227E003146D5 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC1D2BD5227E003146D5 /* Regex.swift */; };
+		D3E7DC1F2BD52282003146D5 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC1D2BD5227E003146D5 /* Regex.swift */; };
+		D3E7DC222BD522D9003146D5 /* KsefNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC212BD522D9003146D5 /* KsefNumberTests.swift */; };
 		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
@@ -482,6 +489,10 @@
 		D3E7DC0C2B8FC940003146D5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		D3E7DC0E2B8FC956003146D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D3E7DC112BA0E801003146D5 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		D3E7DC152BCC6CF7003146D5 /* KsefNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefNumberViewController.swift; sourceTree = "<group>"; };
+		D3E7DC182BD06BB5003146D5 /* KsefNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefNumber.swift; sourceTree = "<group>"; };
+		D3E7DC1D2BD5227E003146D5 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		D3E7DC212BD522D9003146D5 /* KsefNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefNumberTests.swift; sourceTree = "<group>"; };
 		D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
@@ -759,6 +770,7 @@
 		D34D0ED0201A7CBC000D1EC6 /* mandayFakturaTests */ = {
 			isa = PBXGroup;
 			children = (
+				D3E7DC1B2BD52250003146D5 /* Documents */,
 				D3E7DBE42B4AC3AC003146D5 /* Application */,
 				D3E7DBD32B460C06003146D5 /* XML */,
 				D3956AB02233E88A004144A1 /* Numbering */,
@@ -1153,6 +1165,7 @@
 		D3E7DBC62B46070A003146D5 /* XML */ = {
 			isa = PBXGroup;
 			children = (
+				D3E7DC142BCC6CC1003146D5 /* View Controllers */,
 				D3E7DBF32B587E2A003146D5 /* KsefPaymentForm.swift */,
 				D3E7DBC72B460739003146D5 /* KsefXml.swift */,
 				D3E7DBEE2B4AD1FE003146D5 /* GovCountryCodes.swift */,
@@ -1207,8 +1220,33 @@
 			children = (
 				D3E7DBE92B4ACB0D003146D5 /* StringPrefixing.swift */,
 				D3E7DBF72B69998D003146D5 /* StringContent.swift */,
+				D3E7DC1D2BD5227E003146D5 /* Regex.swift */,
 			);
 			path = String;
+			sourceTree = "<group>";
+		};
+		D3E7DC142BCC6CC1003146D5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3E7DC152BCC6CF7003146D5 /* KsefNumberViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3E7DC1B2BD52250003146D5 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				D3E7DC1C2BD5225C003146D5 /* Model */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		D3E7DC1C2BD5225C003146D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D3E7DC212BD522D9003146D5 /* KsefNumberTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D3F0A51A222187C800CC0E08 /* Persistence */ = {
@@ -1258,6 +1296,7 @@
 			children = (
 				D3F0A52C2221A37700CC0E08 /* Document.swift */,
 				D3E7DC112BA0E801003146D5 /* Language.swift */,
+				D3E7DC182BD06BB5003146D5 /* KsefNumber.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1516,6 +1555,7 @@
 				D34339CA21A48D6100C583D2 /* ItemDefinitionCoding.swift in Sources */,
 				D3F745E92208A9430057540E /* ItemsSummaryComponent.swift in Sources */,
 				D3F0A5192221865800CC0E08 /* CreditNoteRepository.swift in Sources */,
+				D3E7DC1A2BD3DB2B003146D5 /* KsefNumber.swift in Sources */,
 				D3956AA1222B238A004144A1 /* CreditNoteNumberingSettings.swift in Sources */,
 				D389972E2219B6FF004CC30C /* CreditNoteFacade.swift in Sources */,
 				D34339CB21A48D6100C583D2 /* ItemDefinition.swift in Sources */,
@@ -1585,6 +1625,7 @@
 				D34339F221A48D6100C583D2 /* FontFormatting.swift in Sources */,
 				D3F745CD22075ED00057540E /* InvoicePageComposition.swift in Sources */,
 				D38997322219B733004CC30C /* CreditNote.swift in Sources */,
+				D3E7DC172BCF14FA003146D5 /* KsefNumberViewController.swift in Sources */,
 				D3B6F5FA2234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */,
 				D3F745F22208B7230057540E /* NotesComponent.swift in Sources */,
 				D34339F321A48D6100C583D2 /* ItemsCatalogueTableViewDelegate.swift in Sources */,
@@ -1600,6 +1641,7 @@
 				D34339F921A48D6100C583D2 /* BuyersCatalogueViewController.swift in Sources */,
 				D3956A9A222AF787004144A1 /* CreditNoteNumbering.swift in Sources */,
 				D34339FA21A48D6100C583D2 /* KeyedArchiverCounterpartyRepository.swift in Sources */,
+				D3E7DC1F2BD52282003146D5 /* Regex.swift in Sources */,
 				D3F74604220B677B0057540E /* PageComponent.swift in Sources */,
 				D38997352219E240004CC30C /* BuyerViewController.swift in Sources */,
 				D3B6F5EA223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */,
@@ -1664,6 +1706,7 @@
 				D3F745E82208A9430057540E /* ItemsSummaryComponent.swift in Sources */,
 				D3F0A5182221865800CC0E08 /* CreditNoteRepository.swift in Sources */,
 				D389972D2219B6FF004CC30C /* CreditNoteFacade.swift in Sources */,
+				D3E7DC192BD06BB5003146D5 /* KsefNumber.swift in Sources */,
 				D3956AA0222B238A004144A1 /* CreditNoteNumberingSettings.swift in Sources */,
 				D3956A8F222333D5004144A1 /* CreditNotePageComposition.swift in Sources */,
 				D3052F4F20434F140064DF10 /* ItemDefinition.swift in Sources */,
@@ -1733,6 +1776,7 @@
 				D3254EA620563B6B00CC889C /* InvoiceNumbering.swift in Sources */,
 				D370A7FD202757AF00FFB262 /* FontFormatting.swift in Sources */,
 				D3F745CC22075ED00057540E /* InvoicePageComposition.swift in Sources */,
+				D3E7DC162BCC6CF7003146D5 /* KsefNumberViewController.swift in Sources */,
 				D3B6F5F92234399200D05266 /* KeyedArchiverCreditNoteNumberingSettingsRepository.swift in Sources */,
 				D38997312219B733004CC30C /* CreditNote.swift in Sources */,
 				D3F745F12208B7230057540E /* NotesComponent.swift in Sources */,
@@ -1748,6 +1792,7 @@
 				D3F0A5362222E8B300CC0E08 /* CreditNotePageDistribution.swift in Sources */,
 				D3956A99222AF787004144A1 /* CreditNoteNumbering.swift in Sources */,
 				D324860A2075621500BB79F6 /* BuyersCatalogueViewController.swift in Sources */,
+				D3E7DC1E2BD5227E003146D5 /* Regex.swift in Sources */,
 				D37560AA203383BA00F507AD /* KeyedArchiverCounterpartyRepository.swift in Sources */,
 				D3F74603220B677B0057540E /* PageComponent.swift in Sources */,
 				D3B6F5E9223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */,
@@ -1802,6 +1847,7 @@
 				D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */,
 				D3248605206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift in Sources */,
 				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
+				D3E7DC222BD522D9003146D5 /* KsefNumberTests.swift in Sources */,
 				D3254EAC205B0F4D00CC889C /* NumberingSegmentCoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1864,7 +1910,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = "0.2.0-SNAPSHOT";
+				MARKETING_VERSION = "0.2.1-SNAPSHOT";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1883,7 +1929,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = "0.2.0-SNAPSHOT";
+				MARKETING_VERSION = "0.2.1-SNAPSHOT";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -2015,7 +2061,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2034,7 +2080,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.wkicior.mandayFaktura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -22,6 +22,7 @@ struct CreditNote: Document {
     let reverseCharge: Bool
     let primaryLanguage: Language
     let secondaryLanguage: Language?
+    var ksefNumber: KsefNumber?
 
     var totalNetValue: Decimal {
         get {
@@ -66,6 +67,12 @@ struct CreditNote: Document {
     func isInternational() -> Bool {
         return self.seller.country != self.buyer.country && !self.buyer.country.isEmpty
     }
+    
+    var hasKsefNumber: Bool {
+        get {
+            return self.ksefNumber != nil
+        }
+    }
 }
 
 func aCreditNote() -> CreditNoteBuilder {
@@ -86,6 +93,7 @@ class CreditNoteBuilder {
     private var reverseCharge = false
     private var primaryLanguage: Language = Language.PL
     private var secondaryLanguage: Language? = nil
+    private var ksefNumber: KsefNumber? = nil
     
     func withNumber(_ number: String) -> CreditNoteBuilder {
         self.number = number
@@ -151,6 +159,11 @@ class CreditNoteBuilder {
        self.secondaryLanguage = secondaryLanguage
        return self
    }
+    
+   func withKsefNumber(_ ksefNumber: KsefNumber?) -> CreditNoteBuilder {
+       self.ksefNumber = ksefNumber
+       return self
+   }
 
    func build() -> CreditNote {
         return CreditNote(issueDate: issueDate,
@@ -165,7 +178,9 @@ class CreditNoteBuilder {
                        invoiceNumber: invoiceNumber!,
                        reverseCharge: reverseCharge,
                        primaryLanguage: primaryLanguage,
-                       secondaryLanguage: secondaryLanguage
+                       secondaryLanguage: secondaryLanguage,
+                       ksefNumber: ksefNumber
+                          
         )
     }
 }

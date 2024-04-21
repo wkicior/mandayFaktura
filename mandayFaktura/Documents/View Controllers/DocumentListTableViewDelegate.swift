@@ -14,6 +14,7 @@ fileprivate enum CellIdentifiers {
     static let issueDateCell = "issueDateCellId"
     static let buyerName = "buyerNameCellId"
     static let grossValueCell = "grossValueCellId"
+    static let ksefCell = "ksefCellId"
 }
 
 /**
@@ -57,6 +58,9 @@ class DocumentListTableViewDelegate : NSObject, NSTableViewDataSource, NSTableVi
         } else if tableColumn == tableView.tableColumns[3] {
             text = item.totalGrossValue.formatAmount()
             cellIdentifier = CellIdentifiers.grossValueCell
+        } else if tableColumn == tableView.tableColumns[4] {
+            text = item.hasKsefNumber ? "✓" : ""
+            cellIdentifier = CellIdentifiers.ksefCell
         }
 
         if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
