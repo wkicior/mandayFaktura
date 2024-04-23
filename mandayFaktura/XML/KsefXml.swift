@@ -92,7 +92,7 @@ class KsefXml {
     
     fileprivate func renderInvoiceCore() -> XML {
         return node("Fa") {
-            node("KodWaluty", value: "PLN")
+            node("KodWaluty", value: self.invoice.currency.rawValue)
             node("P_1", value: self.invoice.issueDate.toDateBigEndianDashString())
             node("P_2", value: self.invoice.number)
             node("P_6", value: self.invoice.sellingDate.toDateBigEndianDashString())

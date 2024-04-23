@@ -261,6 +261,9 @@
 		D3E7DC1E2BD5227E003146D5 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC1D2BD5227E003146D5 /* Regex.swift */; };
 		D3E7DC1F2BD52282003146D5 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC1D2BD5227E003146D5 /* Regex.swift */; };
 		D3E7DC222BD522D9003146D5 /* KsefNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC212BD522D9003146D5 /* KsefNumberTests.swift */; };
+		D3E7DC242BD52F53003146D5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC232BD52F53003146D5 /* Currency.swift */; };
+		D3E7DC252BD530BA003146D5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC232BD52F53003146D5 /* Currency.swift */; };
+		D3E7DC272BD53184003146D5 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E7DC262BD53184003146D5 /* CurrencyTests.swift */; };
 		D3EEB3112501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3EEB3122501693F00BEE2DC /* CreditNoteHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */; };
 		D3F0A50F221C8A1200CC0E08 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */; };
@@ -493,6 +496,8 @@
 		D3E7DC182BD06BB5003146D5 /* KsefNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefNumber.swift; sourceTree = "<group>"; };
 		D3E7DC1D2BD5227E003146D5 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		D3E7DC212BD522D9003146D5 /* KsefNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KsefNumberTests.swift; sourceTree = "<group>"; };
+		D3E7DC232BD52F53003146D5 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		D3E7DC262BD53184003146D5 /* CurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTests.swift; sourceTree = "<group>"; };
 		D3EEB3102501693F00BEE2DC /* CreditNoteHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteHeaderComponent.swift; sourceTree = "<group>"; };
 		D3F0A50E221C8A1200CC0E08 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		D3F0A511221DD6F100CC0E08 /* InvoiceDatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDatesViewController.swift; sourceTree = "<group>"; };
@@ -1245,6 +1250,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E7DC212BD522D9003146D5 /* KsefNumberTests.swift */,
+				D3E7DC262BD53184003146D5 /* CurrencyTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1297,6 +1303,7 @@
 				D3F0A52C2221A37700CC0E08 /* Document.swift */,
 				D3E7DC112BA0E801003146D5 /* Language.swift */,
 				D3E7DC182BD06BB5003146D5 /* KsefNumber.swift */,
+				D3E7DC232BD52F53003146D5 /* Currency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1649,6 +1656,7 @@
 				D34339FB21A48D6100C583D2 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D34339FC21A48D6100C583D2 /* InvoiceItemDefinitionFacade.swift in Sources */,
 				D3956AAF2233DB92004144A1 /* DocumentNumbering.swift in Sources */,
+				D3E7DC252BD530BA003146D5 /* Currency.swift in Sources */,
 				D34339FD21A48D6100C583D2 /* PdfDocumentPrintOperation.swift in Sources */,
 				D34339FE21A48D6100C583D2 /* KeyedArchiverInvoiceSettingsRepository.swift in Sources */,
 				D3956A9322246ED5004144A1 /* CreditNotePageComposition.swift in Sources */,
@@ -1800,6 +1808,7 @@
 				D38997342219E240004CC30C /* BuyerViewController.swift in Sources */,
 				D3052F5A205085DB0064DF10 /* KeyArchiverItemDefinitionRepository.swift in Sources */,
 				D3956AAE2233DB92004144A1 /* DocumentNumbering.swift in Sources */,
+				D3E7DC242BD52F53003146D5 /* Currency.swift in Sources */,
 				D3781B8320B3484100CA420E /* InvoiceItemDefinitionFacade.swift in Sources */,
 				D34339B821A1DF1400C583D2 /* PdfDocumentPrintOperation.swift in Sources */,
 				D32ED32D215FA36800BDC6BE /* KeyedArchiverInvoiceSettingsRepository.swift in Sources */,
@@ -1846,6 +1855,7 @@
 				D3E7DBE72B4AC3CA003146D5 /* DateTimeFormattingTests.swift in Sources */,
 				D330BFD1203CB869003CCC5B /* BuyerAutoSaveTests.swift in Sources */,
 				D3248605206813BE00BB79F6 /* InvoiceNumberingSettingsViewControllerTests.swift in Sources */,
+				D3E7DC272BD53184003146D5 /* CurrencyTests.swift in Sources */,
 				D370A7F5202614C100FFB262 /* InvoiceTests.swift in Sources */,
 				D3E7DC222BD522D9003146D5 /* KsefNumberTests.swift in Sources */,
 				D3254EAC205B0F4D00CC889C /* NumberingSegmentCoderTests.swift in Sources */,

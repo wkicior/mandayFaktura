@@ -20,4 +20,5 @@ protocol Document {
     var secondaryLanguage: Language? { get }
     var ksefNumber: KsefNumber? { get set }
     var hasKsefNumber: Bool { get }
+    var currency: Currency { get }
 }

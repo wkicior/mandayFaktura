@@ -55,11 +55,11 @@ internal extension Invoice {
         let totalDue = "PDF_TOTAL_DUE".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("Do zapłaty", "Total due"))
         summary +=
         """
-        \(totalDue): \(totalGrossValue.formatAmount()) PLN
+        \(totalDue): \(totalGrossValue.formatAmount()) \(self.currency)
         """
-        summary += "\n" + "PDF_IN_WORDS".i18n(language: primaryLanguage, defaultContent: "In words") + ": " + totalGrossValue.spelledOut(language: primaryLanguage) + " PLN"
+        summary += "\n" + "PDF_IN_WORDS".i18n(language: primaryLanguage, defaultContent: "In words") + ": " + totalGrossValue.spelledOut(language: primaryLanguage) + " " + self.currency.rawValue
         if (secondaryLanguage != nil) {
-            summary += "\n" + "PDF_IN_WORDS".i18n(language: secondaryLanguage!, defaultContent: "Słownie") + ": " + totalGrossValue.spelledOut(language: secondaryLanguage!) + " PLN"
+            summary += "\n" + "PDF_IN_WORDS".i18n(language: secondaryLanguage!, defaultContent: "Słownie") + ": " + totalGrossValue.spelledOut(language: secondaryLanguage!) + " " + self.currency.rawValue
         }
         let paymentForm = "PDF_PAYMENT_FORM".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("Forma płatności", "Payment form"))
         let paymentDue = "PDF_PAYMENT_DUE_DATE".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: appendI10n("Termin płatności", "Due date"))
