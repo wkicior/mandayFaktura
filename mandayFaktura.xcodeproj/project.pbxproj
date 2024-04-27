@@ -197,6 +197,8 @@
 		D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */; };
 		D3AB3F05239C2EF40036E463 /* MandayFakturaCreditComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */; };
 		D3AB3F06239C2EF40036E463 /* MandayFakturaCreditComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */; };
+		D3B26E5C2BDC34F5006469C5 /* CurrencyPopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26E5B2BDC34F5006469C5 /* CurrencyPopUpButton.swift */; };
+		D3B26E5D2BDC34F5006469C5 /* CurrencyPopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26E5B2BDC34F5006469C5 /* CurrencyPopUpButton.swift */; };
 		D3B6F5E62234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */; };
 		D3B6F5E72234002600D05266 /* CreditNoteNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */; };
 		D3B6F5E9223402FC00D05266 /* DocumentNumberingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */; };
@@ -452,6 +454,7 @@
 		D3956AAD2233DB92004144A1 /* DocumentNumbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentNumbering.swift; sourceTree = "<group>"; };
 		D395D832202CEA5E00D129B6 /* CounterpartyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartyRepository.swift; sourceTree = "<group>"; };
 		D3AB3F04239C2EF40036E463 /* MandayFakturaCreditComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandayFakturaCreditComponent.swift; sourceTree = "<group>"; };
+		D3B26E5B2BDC34F5006469C5 /* CurrencyPopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPopUpButton.swift; sourceTree = "<group>"; };
 		D3B6F5E52234002600D05266 /* CreditNoteNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsViewController.swift; sourceTree = "<group>"; };
 		D3B6F5E8223402FC00D05266 /* DocumentNumberingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentNumberingSettingsViewController.swift; sourceTree = "<group>"; };
 		D3B6F5EB223406C900D05266 /* CreditNoteNumberingSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditNoteNumberingSettingsRepository.swift; sourceTree = "<group>"; };
@@ -1138,6 +1141,14 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		D3B26E5A2BDC34E0006469C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D3B26E5B2BDC34F5006469C5 /* CurrencyPopUpButton.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		D3B6F5EE2234072A00D05266 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,6 +1286,7 @@
 		D3F0A5282221A01C00CC0E08 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				D3B26E5A2BDC34E0006469C5 /* UI */,
 				D3F0A52B2221A36500CC0E08 /* Model */,
 				D3F0A5292221A02C00CC0E08 /* View Controllers */,
 			);
@@ -1540,6 +1552,7 @@
 				D34339BD21A48D6100C583D2 /* NumberingSegments.swift in Sources */,
 				D34339BE21A48D6100C583D2 /* InvoiceNumberingSettingsRepository.swift in Sources */,
 				D32E361C21EB7D830092EE5C /* StringUtilExtension.swift in Sources */,
+				D3B26E5D2BDC34F5006469C5 /* CurrencyPopUpButton.swift in Sources */,
 				D34339BF21A48D6100C583D2 /* CounterpartyRepository.swift in Sources */,
 				D34339C021A48D6100C583D2 /* VatRateFacade.swift in Sources */,
 				D3F0A51D222187E200CC0E08 /* KeyedArchiverCreditNoteRepository.swift in Sources */,
@@ -1692,6 +1705,7 @@
 				D3254EB6205C298900CC889C /* NumberingSegments.swift in Sources */,
 				D3254EB0205C288200CC889C /* InvoiceNumberingSettingsRepository.swift in Sources */,
 				D32E361B21EB6DED0092EE5C /* StringUtilExtension.swift in Sources */,
+				D3B26E5C2BDC34F5006469C5 /* CurrencyPopUpButton.swift in Sources */,
 				D395D833202CEA5E00D129B6 /* CounterpartyRepository.swift in Sources */,
 				D3781B7F20B055D400CA420E /* VatRateFacade.swift in Sources */,
 				D3F0A51C222187E200CC0E08 /* KeyedArchiverCreditNoteRepository.swift in Sources */,

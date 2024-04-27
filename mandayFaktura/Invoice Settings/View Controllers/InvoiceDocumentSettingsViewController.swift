@@ -17,6 +17,7 @@ class InvoiceDocumentSettingsViewController: NSViewController {
     @IBOutlet weak var mandayFakturaCredit: NSButton!
     @IBOutlet weak var defaultPrimaryLanguagePopUpButton: NSPopUpButton!
     @IBOutlet weak var defaultSecondLanguagePopUpButton: NSPopUpButton!
+    @IBOutlet weak var defaultCurrencyPopUpButton: NSPopUpButton!
     
     let invoiceSettingsFacade = InvoiceSettingsFacade()
     
@@ -40,6 +41,7 @@ class InvoiceDocumentSettingsViewController: NSViewController {
             : NSControl.StateValue.off
         self.defaultPrimaryLanguagePopUpButton.selectItem(withTag: invoiceSettings?.primaryDefaultLanguage.index ?? Language.PL.index)
         self.defaultSecondLanguagePopUpButton.selectItem(withTag: invoiceSettings?.secondaryDefaultLanguage?.index ?? -1)
+        self.defaultCurrencyPopUpButton.selectItem(withTag: invoiceSettings?.defaultCurrency.index ?? Currency.PLN.index)
         setHelpTextVisibility()
     }
     @IBAction func onSave(_ sender: NSButton) {
@@ -47,10 +49,13 @@ class InvoiceDocumentSettingsViewController: NSViewController {
         let paymentDateFrom = PaymentDateFrom(rawValue: self.paymentDateFrom.selectedItem?.tag ?? 0)!
         let primaryLanguage = Language.ofIndex(self.defaultPrimaryLanguagePopUpButton.selectedItem?.tag ?? Language.PL.index)!
         let secondaryLanguage = Language.ofIndex(self.defaultSecondLanguagePopUpButton.selectedItem?.tag ?? Language.PL.index)
+        let defaultCurrency = Currency.ofIndex(self.defaultCurrencyPopUpButton.selectedItem?.tag ?? Currency.PLN.index)!
         let invoiceSettings = InvoiceSettings(paymentDateDays: paymentDateDays, paymentDateFrom: paymentDateFrom, defaultNotes: defaultNotestTextField.stringValue,
             mandayFakturaCreditEnabled: self.mandayFakturaCredit.state == NSControl.StateValue.on,
             primaryDefaultLanguage: primaryLanguage,
-            secondaryDefaultLanguage: secondaryLanguage)
+            secondaryDefaultLanguage: secondaryLanguage,
+            defaultCurrency: defaultCurrency
+        )
 
         invoiceSettingsFacade.save(invoiceSettings)
         view.window?.close()

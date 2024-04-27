@@ -16,8 +16,8 @@ class AbstractInvoiceViewController: NSViewController {
     let buyerAutoSavingController = BuyerAutoSavingController()
     let invoiceFacade = InvoiceFacade()
     let counterpartyFacade = CounterpartyFacade()
-    let invoiceSettingsFacade = InvoiceSettingsFacade()
     let reverseChargeWarning = ReverseChargeWarning()
+    let invoiceSettings: InvoiceSettings = InvoiceSettingsFacade().getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
    
     @IBOutlet weak var numberTextField: NSTextField!
     @IBOutlet weak var saveButton: NSButton!
@@ -26,6 +26,7 @@ class AbstractInvoiceViewController: NSViewController {
     @IBOutlet weak var reverseChargeButton: NSButton!
     @IBOutlet weak var primaryLanguagePopUpButton: NSPopUpButton!
     @IBOutlet weak var secondLanguagePopUpButton: NSPopUpButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

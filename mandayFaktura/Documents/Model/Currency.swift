@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Currency: String {
+enum Currency: String, CaseIterable {
         case AED,
         AFN,
         ALL,
@@ -171,4 +171,14 @@ enum Currency: String {
         ZAR,
         ZMW,
         ZWD
+    
+    var index: Int {
+        get {
+            return Currency.allCases.firstIndex(where : {currency in currency == self})!
+        }
+    }
+    
+    static func ofIndex(_ index: Int) -> Currency? {
+        return Currency.allCases[index]
+    }
 }

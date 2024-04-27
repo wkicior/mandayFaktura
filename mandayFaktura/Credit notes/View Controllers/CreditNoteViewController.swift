@@ -23,8 +23,8 @@ class CreditNoteViewController: NSViewController {
     let invoiceFacade = InvoiceFacade()
     let counterpartyFacade = CounterpartyFacade()
     let creditNoteNumberingFacade = CreditNoteNumberingFacade()
-    let invoiceSettingsFacade = InvoiceSettingsFacade()
-    
+    let invoiceSettings: InvoiceSettings = InvoiceSettingsFacade().getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
+
     var invoice: Invoice?
     
     @IBOutlet weak var saveButton: NSButton!
@@ -83,8 +83,7 @@ class CreditNoteViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is ViewInvoiceController {
             let vc = segue.destinationController as? ViewInvoiceController
-            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
-            vc?.pdfDocument = CreditNotePdfDocument(creditNote: creditNote, invoiceSettings: invoiceSettings ?? InvoiceSettings(paymentDateDays: 14))
+            vc?.pdfDocument = CreditNotePdfDocument(creditNote: creditNote, invoiceSettings: self.invoiceSettings)
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
             self.buyerViewController!.buyer = invoice!.buyer
@@ -119,6 +118,7 @@ class CreditNoteViewController: NSViewController {
                 .withReverseCharge(self.reverseChargeButton.state == .on)
                 .withPrimaryLanguage(invoice!.primaryLanguage)
                 .withSecondaryLanguage(invoice!.secondaryLanguage)
+                .withCurrency(self.invoiceSettings.defaultCurrency)
                 .build()
         }
     }
