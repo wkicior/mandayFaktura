@@ -18,6 +18,7 @@ import Foundation
         coder.encode(self.invoiceSettings.mandayFakturaCreditEnabled, forKey: "mandayFakturaCreditEnabled")
         coder.encode(self.invoiceSettings.primaryDefaultLanguage.rawValue, forKey: "primaryDefaultLanguage")
         coder.encode(self.invoiceSettings.secondaryDefaultLanguage?.rawValue ?? nil, forKey: "secondaryDefaultLanguage")
+        coder.encode(self.invoiceSettings.defaultCurrency.rawValue, forKey: "defaultCurrency")
 
     }
     
@@ -28,6 +29,10 @@ import Foundation
         let mandayFakturaCreditEnabled = decoder.decodeBool(forKey: "mandayFakturaCreditEnabled")
         var primaryLanguageCode = decoder.decodeObject(forKey: "primaryDefaultLanguage") as? String
         var secondaryLanguageCode = decoder.decodeObject(forKey: "secondaryDefaultLanguage") as? String
+        let defaultCurrencyCode = decoder.decodeObject(forKey: "defaultCurrency") as? String
+
+        let defaultCurrency = defaultCurrencyCode.flatMap() { Currency(rawValue: $0) } ?? Currency.PLN
+
         
         if (primaryLanguageCode == nil) {
             primaryLanguageCode = Language.PL.rawValue
@@ -37,7 +42,8 @@ import Foundation
                                   defaultNotes: defaultNotes ?? "",
                                   mandayFakturaCreditEnabled: mandayFakturaCreditEnabled,
                                   primaryDefaultLanguage: Language(rawValue: primaryLanguageCode!)!,
-                                  secondaryDefaultLanguage: secondaryLanguageCode.map({Language(rawValue: $0)!}) ?? nil))
+                                  secondaryDefaultLanguage: secondaryLanguageCode.map({Language(rawValue: $0)!}) ?? nil,
+                                  defaultCurrency: defaultCurrency))
     }
     
     init(_ invoiceSettings: InvoiceSettings) {

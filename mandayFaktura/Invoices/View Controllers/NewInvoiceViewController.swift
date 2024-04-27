@@ -18,11 +18,10 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveButton.isEnabled = false
-        let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
-        notesTextField.stringValue = invoiceSettings.defaultNotes
+        notesTextField.stringValue = self.invoiceSettings.defaultNotes
         self.numberTextField.stringValue = invoiceNumberingFacade.getNextInvoiceNumber()
-        self.primaryLanguagePopUpButton.selectItem(withTag: invoiceSettings.primaryDefaultLanguage.index)
-        self.secondLanguagePopUpButton.selectItem(withTag: invoiceSettings.secondaryDefaultLanguage?.index ?? -1)
+        self.primaryLanguagePopUpButton.selectItem(withTag: self.invoiceSettings.primaryDefaultLanguage.index)
+        self.secondLanguagePopUpButton.selectItem(withTag: self.invoiceSettings.secondaryDefaultLanguage?.index ?? -1)
     }
     
     var invoice: Invoice {
@@ -44,6 +43,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
                 .withReverseCharge(self.reverseChargeButton.state == .on)
                 .withPrimaryLanguage(primaryLanguage)
                 .withSecondaryLanguage(secondaryLanguage)
+                .withCurrency(self.invoiceSettings.defaultCurrency)
                 .build()
         }
     }
@@ -80,8 +80,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is ViewInvoiceController {
             let vc = segue.destinationController as! ViewInvoiceController
-            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
-            let pdfDocument = InvoicePdfDocument(invoice: invoice, invoiceSettings: invoiceSettings ?? InvoiceSettings())
+            let pdfDocument = InvoicePdfDocument(invoice: invoice, invoiceSettings: self.invoiceSettings)
             vc.pdfDocument = pdfDocument
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
@@ -91,8 +90,7 @@ class NewInvoiceViewController: AbstractInvoiceViewController {
             self.invoiceDatesViewController = segue.destinationController as? InvoiceDatesViewController
         } else if segue.destinationController is PaymentDetailsViewController {
             self.paymentDetailsViewController = segue.destinationController as? PaymentDetailsViewController
-            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings() ?? InvoiceSettings(paymentDateDays: 14)
-            self.paymentDetailsViewController!.dueDate = invoiceSettings.getDueDate(issueDate: Date(), sellDate: Date())
+            self.paymentDetailsViewController!.dueDate = self.invoiceSettings.getDueDate(issueDate: Date(), sellDate: Date())
         }
     }
     

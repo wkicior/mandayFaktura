@@ -61,8 +61,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is ViewInvoiceController {
             let vc = segue.destinationController as? ViewInvoiceController
-            let invoiceSettings = self.invoiceSettingsFacade.getInvoiceSettings()
-            let pdfDocument = InvoicePdfDocument(invoice: newInvoice, invoiceSettings: invoiceSettings ?? InvoiceSettings())
+            let pdfDocument = InvoicePdfDocument(invoice: newInvoice, invoiceSettings: self.invoiceSettings)
             vc!.pdfDocument = pdfDocument
         } else if segue.destinationController is BuyerViewController {
             self.buyerViewController = segue.destinationController as? BuyerViewController
@@ -100,6 +99,7 @@ class EditInvoiceViewController: AbstractInvoiceViewController {
                 .withReverseCharge(self.reverseChargeButton.state == .on)
                 .withPrimaryLanguage(primaryLanguage)
                 .withSecondaryLanguage(secondaryLanguage)
+                .withCurrency(self.invoiceSettings.defaultCurrency)
                 .build()
             
         }

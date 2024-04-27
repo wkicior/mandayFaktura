@@ -22,6 +22,7 @@ struct Invoice: Document {
     let primaryLanguage: Language
     let secondaryLanguage: Language?
     var ksefNumber: KsefNumber?
+    var currency: Currency
     
     var totalNetValue: Decimal {
         get {
@@ -105,6 +106,7 @@ class InvoiceBuilder {
     private var primaryLanguage: Language = Language.PL
     private var secondaryLanguage: Language? = nil
     private var ksefNumber: KsefNumber? = nil
+    private var currency: Currency = Currency.PLN
     
     func withIssueDate(_ issueDate: Date) -> InvoiceBuilder {
         self.issueDate = issueDate
@@ -171,6 +173,11 @@ class InvoiceBuilder {
         return self
     }
     
+    func withCurrency(_ currency: Currency) -> InvoiceBuilder {
+           self.currency = currency
+           return self
+       }
+    
     func build() -> Invoice {
         return Invoice(issueDate: issueDate,
                        number: number,
@@ -184,7 +191,8 @@ class InvoiceBuilder {
                        reverseCharge: reverseCharge,
                        primaryLanguage: primaryLanguage,
                        secondaryLanguage: secondaryLanguage,
-                       ksefNumber: ksefNumber
+                       ksefNumber: ksefNumber,
+                       currency: currency
         )
     }
 }
