@@ -22,11 +22,14 @@ internal extension Decimal {
         }
     }
     
-    func spelledOut(language: Language) -> String {
+    func spelledOutCurrency(language: Language, currency: Currency) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = language.locale
         numberFormatter.numberStyle = NumberFormatter.Style.spellOut
         let spelledOutInt = numberFormatter.string(from: NSNumber(integerLiteral: self.int))!
-        return  "\(spelledOutInt) \(self.fractionalPart.description)/100"
+        let spelledoutCents = numberFormatter.string(from: NSNumber(integerLiteral: self.fractionalPart.int))!
+        let unknownCentsPart = self.fractionalPart > 0 ? " \(spelledoutCents) \(currency.rawValue)/100" : ""
+        let centsPart = currency.centsKey != nil ? " \(spelledoutCents) \(currency.centsKey!)" : unknownCentsPart
+        return  "\(spelledOutInt) \(currency.rawValue)\(centsPart)"
     }
 }
