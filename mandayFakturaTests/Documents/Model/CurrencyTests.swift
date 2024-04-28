@@ -27,7 +27,7 @@ class CurrencyTests: XCTestCase {
         XCTAssertEqual(0, currency.index, "Currency index must match")
     }
     
-    func testIndexPLN() {
+    func testIndexPln() {
         let currency = Currency.PLN
         XCTAssertEqual(112, currency.index, "Currency index must match")
     }
@@ -37,8 +37,23 @@ class CurrencyTests: XCTestCase {
         XCTAssertEqual(Currency.AED, currency, "Currency index must match")
     }
     
-    func testOfIndexPLN() {
+    func testOfIndexPln() {
         let currency = Currency.ofIndex(112)
         XCTAssertEqual(Currency.PLN, currency, "Currency index must match")
+    }
+    
+    func testPlnCents() {
+        let currency = Currency.PLN
+        XCTAssertEqual("gr", currency.centsKey, "Currency cents key must match")
+    }
+    
+    func testEurCents() {
+        let currency = Currency.EUR
+        XCTAssertEqual("c", currency.centsKey, "Currency cents key must match")
+    }
+    
+    func testUnknownCents() {
+        let currency = Currency.AED
+        XCTAssertNil(currency.centsKey, "Currency cents is unknown")
     }
 }

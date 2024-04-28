@@ -126,7 +126,7 @@ enum Currency: String, CaseIterable {
         QAR,
         RON,
         RSD,
-        RUB,
+        // RUB, boycott
         RWF,
         SAR,
         SBD,
@@ -175,6 +175,44 @@ enum Currency: String, CaseIterable {
     var index: Int {
         get {
             return Currency.allCases.firstIndex(where : {currency in currency == self})!
+        }
+    }
+    
+    var centsKey: String? {
+        get {
+            switch self {
+            case .ARS,
+                 .BRL,
+                 .CAD,
+                 .KYD,
+                 .CLP,
+                 .COP,
+                 .HKD,
+                 .IDR,
+                 .MXN,
+                 .NZD,
+                 .ZAR,
+                 .TWD,
+                 .USD,
+                 .EUR,
+                 .CHF,
+                 .AUD:
+                return "c"
+            case .PLN:
+                return "gr"
+            case .GBP:
+                return "p"
+            case .JPY:
+                return "s"
+            case .CZK:
+                return "h"
+            case .CNY:
+                return "f"
+            case .UAH:
+                return "k"
+            default:
+                return nil
+            }
         }
     }
     
