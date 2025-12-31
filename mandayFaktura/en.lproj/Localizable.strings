@@ -7,6 +7,7 @@
 */
 "COULD_NOT_SAVE_PDF" = "Could not save to PDF";
 "COULD_NOT_SAVE_XML" = "Could not save to XML";
+"COULD_NOT_SAVE_XML_VAT_RATE" = "Could not save to XML. Unsupported VAT rate. Valid values are: '23%', '22%', '8%', '7%', '5%', '4%', '3%', 'O KR', '0 WDT', '0 EX', 'zw', 'oo', 'np I', 'np II'";
 "CUSTOM_CHARACTERS" = "Custom characters";
 "WRONG_STRING_FORMAT" = "wrong string format";
 "CONTENT_DIGIT_OR_LETTER" = "The content must be either a digit or a letter.";

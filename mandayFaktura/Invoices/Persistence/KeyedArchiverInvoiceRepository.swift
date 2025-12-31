@@ -43,6 +43,8 @@ class KeyedArchiverInvoiceRepository: InvoiceRepository {
     private var invoicesCoding: [InvoiceCoding] {
         get {
             if let data = UserDefaults.standard.object(forKey: key) as? NSData {
+                print(data)
+                    print(NSHomeDirectory())
                 return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [InvoiceCoding]
             }
             return []
