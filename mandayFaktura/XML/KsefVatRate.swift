@@ -10,18 +10,23 @@ import Foundation
 
 extension VatRate {
     func toKsefCode() throws -> String {
-        let result =  self.literal.replacingOccurrences(of: "%", with: "").lowercased()
+        let result =  self.literal.replacingOccurrences(of: "%", with: "")
         if (result.isBlank
-            || !result.isNumeric
+            || result.elementsEqual("0")
+            || !result.isNumeric            
+            && !result.elementsEqual("0 WDT")
+            && !result.elementsEqual("0 KR")
+            && !result.elementsEqual("0 EX")
             && !result.elementsEqual("oo")
             && !result.elementsEqual("zw")
-            && !result.elementsEqual("np")) {
+            && !result.elementsEqual("np I")
+            && !result.elementsEqual("np II")) {
             throw VatRateError.unrecognizedVatRate
         }
         return result
     }
     
-    enum VatRateError: Error {
+    public enum VatRateError: Error {
         case unrecognizedVatRate
     }
 }

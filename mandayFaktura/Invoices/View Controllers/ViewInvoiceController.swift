@@ -46,7 +46,13 @@ class ViewInvoiceController: NSViewController {
         do {
             let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
             try self.ksefXml!.save(dir: homeDirURL)
-        } catch let error as Error{
+        } catch let error as VatRate.VatRateError {
+            if #available(macOS 12, *) {
+                WarningAlert(warning: String(localized: "COULD_NOT_SAVE_XML_VAT_RATE", defaultValue: "Could not save to XML. Unsupported VAT rate. Valid values are: '23%', '22%', '8%', '7%', '5%', '4%', '3%', 'O KR', '0 WDT', '0 EX', 'zw', 'oo', 'np I', 'np II'"), text: error.localizedDescription).runModal()
+            } else {
+                WarningAlert(warning: "Nie udalo sie zapisac XML. Nieobsługiwana wartość VAT. Prawidłowe wartosci to: '23%', '22%', '8%', '7%', '5%', '4%', '3%', 'O KR', '0 WDT', '0 EX', 'zw', 'oo', 'np I', 'np II'", text: error.localizedDescription).runModal()
+            }
+        } catch let error as Error {
             if #available(macOS 12, *) {
                 WarningAlert(warning: String(localized: "COULD_NOT_SAVE_XML", defaultValue: "Could not save to XML"), text: error.localizedDescription).runModal()
             } else {

@@ -7,6 +7,7 @@
 */
 "COULD_NOT_SAVE_PDF" = "Nie udalo sie zapisac PDF";
 "COULD_NOT_SAVE_XML" = "Nie udalo sie zapisac XML";
+"COULD_NOT_SAVE_XML_VAT_RATE" = "Nie udalo sie zapisac XML. Nieobsługiwana wartość VAT. Prawidłowe wartosci to: '23%', '22%', '8%', '7%', '5%', '4%', '3%', 'O KR', '0 WDT', '0 EX', 'zw', 'oo', 'np I', 'np II'";
 "CUSTOM_CHARACTERS" = "Własny ciąg znaków";
 "WRONG_STRING_FORMAT" = "błędny format ciągu znaków";
 "CONTENT_DIGIT_OR_LETTER" = "Zawartość pola musi być cyfrą lub literą.";

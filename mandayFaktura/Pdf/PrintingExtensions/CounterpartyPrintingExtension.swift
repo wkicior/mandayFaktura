@@ -38,15 +38,16 @@ extension Counterparty {
     func printedBuyer(primaryLanguage: Language, secondaryLanguage: Language?, _ isInternational: Bool) -> String {
         let header = "PDF_BUYER".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "Nabywca".appendI10n("Buyer", isInternational))
         let taxCodeLabel = "PDF_TAX_ID".i18n(primaryLanguage: primaryLanguage, secondaryLanguage: secondaryLanguage, defaultContent: "NIP".appendI10n("Tax ID", isInternational))
+        let taxCodeLine = taxCode.isBlank ? "" : "\(taxCodeLabel): \(taxCode)"
         let buyer =
         """
         \(header):
         \(name)
         \(streetAndNumber)
         \(postalCode) \(city) \(country)
-        \(taxCodeLabel): \(taxCode)
-        \(additionalInfo)
         """
         return buyer
+            .appending(taxCode.isBlank ? "" : "\n\(taxCodeLabel): \(taxCode)")
+            .appending("\n\(additionalInfo)")
     }
 }

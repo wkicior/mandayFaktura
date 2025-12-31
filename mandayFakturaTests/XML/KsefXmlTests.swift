@@ -15,16 +15,16 @@ class KsefXmlTests: XCTestCase {
     func testKsefXmlPl() {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions.insert(.withFractionalSeconds)
-        let issueDate = formatter.date(from: "2024-01-02T21:42:22.000+01:00")!
-        let sellingDate = formatter.date(from: "2024-01-01T21:42:22.000+01:00")!
-        let paymentDueDate = formatter.date(from: "2024-02-16T12:32:22.0000+01:00")!
+        let issueDate = formatter.date(from: "2026-01-02T21:42:22.000+01:00")!
+        let sellingDate = formatter.date(from: "2026-01-01T21:42:22.000+01:00")!
+        let paymentDueDate = formatter.date(from: "2026-02-16T12:32:22.0000+01:00")!
         let expectedTmp = """
 <?xml version="1.0" encoding="UTF-8"?>
-<Faktura xmlns="http://crd.gov.pl/wzor/2023/06/29/12648/">
+<Faktura xmlns="http://crd.gov.pl/wzor/2025/06/25/13775/">
   <Naglowek>
-    <KodFormularza kodSystemowy="FA (2)" wersjaSchemy="1-0E">FA</KodFormularza>
-    <WariantFormularza>2</WariantFormularza>
-    <DataWytworzeniaFa>2024-01-02T21:42:22.000+01:00</DataWytworzeniaFa>
+    <KodFormularza kodSystemowy="FA (3)" wersjaSchemy="1-0E">FA</KodFormularza>
+    <WariantFormularza>3</WariantFormularza>
+    <DataWytworzeniaFa>2026-01-02T21:42:22.000+01:00</DataWytworzeniaFa>
     <SystemInfo>mandayFaktura</SystemInfo>
   </Naglowek>
   <Podmiot1>
@@ -48,12 +48,14 @@ class KsefXmlTests: XCTestCase {
       <AdresL1>Mirkowska 69</AdresL1>
       <AdresL2>81-537 Gdynia</AdresL2>
     </Adres>
+    <JST>2</JST>
+    <GV>2</GV>
   </Podmiot2>
   <Fa>
     <KodWaluty>PLN</KodWaluty>
-    <P_1>2024-01-02</P_1>
-    <P_2>1/A/2024</P_2>
-    <P_6>2024-01-01</P_6>
+    <P_1>2026-01-02</P_1>
+    <P_2>1/A/2026</P_2>
+    <P_6>2026-01-01</P_6>
     <P_13_1>100.15</P_13_1>
     <P_14_1>23.03</P_14_1>
     <P_15>123.18</P_15>
@@ -90,7 +92,7 @@ class KsefXmlTests: XCTestCase {
     </FaWiersz>
     <Platnosc>
       <TerminPlatnosci>
-        <Termin>2024-02-16</Termin>
+        <Termin>2026-02-16</Termin>
       </TerminPlatnosci>
       <FormaPlatnosci>6</FormaPlatnosci>
       <RachunekBankowy>
@@ -104,7 +106,7 @@ class KsefXmlTests: XCTestCase {
         let ksefXml = KsefXml(invoice: anInvoice()
             .withIssueDate(issueDate)
             .withItems([])
-            .withNumber("1/A/2024")
+            .withNumber("1/A/2026")
             .withSellingDate(sellingDate)
             .withNotes("Wystawił: Jan Kowalski")
             .withPaymentDueDate(paymentDueDate)
@@ -134,16 +136,16 @@ class KsefXmlTests: XCTestCase {
     func testKsefXmlPlOtherVatRatesAndOtherFields() {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions.insert(.withFractionalSeconds)
-        let issueDate = formatter.date(from: "2024-02-10T21:29:22.000+01:00")!
-        let sellingDate = formatter.date(from: "2024-02-10T21:42:22.000+01:00")!
-        let paymentDueDate = formatter.date(from: "2024-03-26T12:32:22.0000+01:00")!
+        let issueDate = formatter.date(from: "2026-02-10T21:29:22.000+01:00")!
+        let sellingDate = formatter.date(from: "2026-02-10T21:42:22.000+01:00")!
+        let paymentDueDate = formatter.date(from: "2026-03-26T12:32:22.0000+01:00")!
         let expected = """
 <?xml version="1.0" encoding="UTF-8"?>
-<Faktura xmlns="http://crd.gov.pl/wzor/2023/06/29/12648/">
+<Faktura xmlns="http://crd.gov.pl/wzor/2025/06/25/13775/">
   <Naglowek>
-    <KodFormularza kodSystemowy="FA (2)" wersjaSchemy="1-0E">FA</KodFormularza>
-    <WariantFormularza>2</WariantFormularza>
-    <DataWytworzeniaFa>2024-02-10T21:29:22.000+01:00</DataWytworzeniaFa>
+    <KodFormularza kodSystemowy="FA (3)" wersjaSchemy="1-0E">FA</KodFormularza>
+    <WariantFormularza>3</WariantFormularza>
+    <DataWytworzeniaFa>2026-02-10T21:29:22.000+01:00</DataWytworzeniaFa>
     <SystemInfo>mandayFaktura</SystemInfo>
   </Naglowek>
   <Podmiot1>
@@ -167,12 +169,14 @@ class KsefXmlTests: XCTestCase {
       <AdresL1>Januszowska 69</AdresL1>
       <AdresL2>81-537 Gdynia</AdresL2>
     </Adres>
+    <JST>2</JST>
+    <GV>2</GV>
   </Podmiot2>
   <Fa>
     <KodWaluty>PLN</KodWaluty>
-    <P_1>2024-02-10</P_1>
-    <P_2>1/A/2024</P_2>
-    <P_6>2024-02-10</P_6>
+    <P_1>2026-02-10</P_1>
+    <P_2>1/A/2026</P_2>
+    <P_6>2026-02-10</P_6>
     <P_13_1>1600.69</P_13_1>
     <P_14_1>368.16</P_14_1>
     <P_13_2>160.8</P_13_2>
@@ -224,7 +228,7 @@ class KsefXmlTests: XCTestCase {
       <P_9A>0.99</P_9A>
       <P_11>0.99</P_11>
       <P_11Vat>0</P_11Vat>
-      <P_12>np</P_12>
+      <P_12>np I</P_12>
     </FaWiersz>
     <FaWiersz>
       <NrWierszaFa>4</NrWierszaFa>
@@ -234,11 +238,11 @@ class KsefXmlTests: XCTestCase {
       <P_9A>13000</P_9A>
       <P_11>13000</P_11>
       <P_11Vat>0</P_11Vat>
-      <P_12>0</P_12>
+      <P_12>0 KR</P_12>
     </FaWiersz>
     <Platnosc>
       <TerminPlatnosci>
-        <Termin>2024-03-26</Termin>
+        <Termin>2026-03-26</Termin>
       </TerminPlatnosci>
       <FormaPlatnosci>1</FormaPlatnosci>
     </Platnosc>
@@ -249,7 +253,7 @@ class KsefXmlTests: XCTestCase {
         let ksefXml = KsefXml(invoice: anInvoice()
             .withIssueDate(issueDate)
             .withItems([])
-            .withNumber("1/A/2024")
+            .withNumber("1/A/2026")
             .withSellingDate(sellingDate)
             .withPaymentDueDate(paymentDueDate)
             .withPaymentForm(PaymentForm.cash)
@@ -285,13 +289,13 @@ class KsefXmlTests: XCTestCase {
                         .withName("Towar 3")
                         .withAmount(1)
                         .withUnitOfMeasure(UnitOfMeasure.pieces)
-                        .withVatRate(VatRate(string: "NP"))
+                        .withVatRate(VatRate(string: "np I"))
                         .withUnitNetPrice(0.99).build(),
                     anInvoiceItem()
                         .withName("Towar 4")
                         .withAmount(1)
                         .withUnitOfMeasure(UnitOfMeasure.pieces)
-                        .withVatRate(VatRate(string: "0%"))
+                        .withVatRate(VatRate(string: "0 KR"))
                         .withUnitNetPrice(13000).build(),
                 ])
                 .build())
@@ -301,17 +305,17 @@ class KsefXmlTests: XCTestCase {
     func testKsefXmlEu() {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions.insert(.withFractionalSeconds)
-        let issueDate = formatter.date(from: "2024-01-02T21:42:22.000+01:00")!
-        let sellingDate = formatter.date(from: "2024-01-01T21:42:22.000+01:00")!
-        let paymentDueDate = formatter.date(from: "2024-02-16T12:32:22.0000+01:00")!
+        let issueDate = formatter.date(from: "2026-01-02T21:42:22.000+01:00")!
+        let sellingDate = formatter.date(from: "2026-01-01T21:42:22.000+01:00")!
+        let paymentDueDate = formatter.date(from: "2026-02-16T12:32:22.0000+01:00")!
 
         let expectedTmp = """
 <?xml version="1.0" encoding="UTF-8"?>
-<Faktura xmlns="http://crd.gov.pl/wzor/2023/06/29/12648/">
+<Faktura xmlns="http://crd.gov.pl/wzor/2025/06/25/13775/">
   <Naglowek>
-    <KodFormularza kodSystemowy="FA (2)" wersjaSchemy="1-0E">FA</KodFormularza>
-    <WariantFormularza>2</WariantFormularza>
-    <DataWytworzeniaFa>2024-01-02T21:42:22.000+01:00</DataWytworzeniaFa>
+    <KodFormularza kodSystemowy="FA (3)" wersjaSchemy="1-0E">FA</KodFormularza>
+    <WariantFormularza>3</WariantFormularza>
+    <DataWytworzeniaFa>2026-01-02T21:42:22.000+01:00</DataWytworzeniaFa>
     <SystemInfo>mandayFaktura</SystemInfo>
   </Naglowek>
   <Podmiot1>
@@ -337,12 +341,14 @@ class KsefXmlTests: XCTestCase {
       <AdresL1>Oesterballevej 15</AdresL1>
       <AdresL2>7000 MIddelfart</AdresL2>
     </Adres>
+    <JST>2</JST>
+    <GV>2</GV>
   </Podmiot2>
   <Fa>
     <KodWaluty>PLN</KodWaluty>
-    <P_1>2024-01-02</P_1>
-    <P_2>1/A/2024</P_2>
-    <P_6>2024-01-01</P_6>
+    <P_1>2026-01-02</P_1>
+    <P_2>1/A/2026</P_2>
+    <P_6>2026-01-01</P_6>
     <P_13_8>300.02</P_13_8>
     <P_13_10>300.02</P_13_10>
     <P_15>300.02</P_15>
@@ -380,7 +386,7 @@ Wystawił: Jan Kowalski</Wartosc>
     </FaWiersz>
     <Platnosc>
       <TerminPlatnosci>
-        <Termin>2024-02-16</Termin>
+        <Termin>2026-02-16</Termin>
       </TerminPlatnosci>
       <FormaPlatnosci>6</FormaPlatnosci>
       <RachunekBankowy>
@@ -394,7 +400,7 @@ Wystawił: Jan Kowalski</Wartosc>
         let ksefXml = KsefXml(invoice: anInvoice()
             .withIssueDate(issueDate)
             .withItems([])
-            .withNumber("1/A/2024")
+            .withNumber("1/A/2026")
             .withSellingDate(sellingDate)
             .withNotes("Wystawił: Jan Kowalski")
             .withReverseCharge(true)

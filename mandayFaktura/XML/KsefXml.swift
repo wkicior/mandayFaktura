@@ -32,10 +32,13 @@ class KsefXml {
         guard let buyerCountryCode = GovCountryCodes.getCodeByName(countryName: self.invoice.buyer.countryOrAssumePoland) else {
             throw KsefXmlError.invalidBuyerCountry
         }
+        if !invoice.reverseCharge {
+            try self.invoice.items.forEach { try $0.vatRate.toKsefCode() } //validate
+        }
        
         return DYXML.document {
             node("Faktura", attributes: [
-                ("xmlns", "http://crd.gov.pl/wzor/2023/06/29/12648/"),
+                ("xmlns", "http://crd.gov.pl/wzor/2025/06/25/13775/"),
             ]) {
                 renderHeader()
                 renderSeller(sellerCountryCode: sellerCountryCode)
@@ -47,8 +50,8 @@ class KsefXml {
     
     fileprivate func renderHeader() -> XML {
         return node("Naglowek") {
-            node("KodFormularza", attributes: [("kodSystemowy", "FA (2)"), ("wersjaSchemy", "1-0E")], value: "FA")
-            node("WariantFormularza", value: "2")
+            node("KodFormularza", attributes: [("kodSystemowy", "FA (3)"), ("wersjaSchemy", "1-0E")], value: "FA")
+            node("WariantFormularza", value: "3")
             node("DataWytworzeniaFa", value: self.invoice.issueDate.toIsoString())
             node("SystemInfo", value: "mandayFaktura")
         }
@@ -87,6 +90,8 @@ class KsefXml {
                 node("AdresL1", value: self.invoice.buyer.streetAndNumber)
                 node("AdresL2", value: "\(self.invoice.buyer.postalCode) \(self.invoice.buyer.city)")
             }
+            node("JST", value: "2")
+            node("GV", value: "2")
         }
     }
     
@@ -118,9 +123,9 @@ class KsefXml {
                     node("P_14_3", value: self.invoice.totalVatValue(forVatRates: [
                         VatRate(string: "5%")]).formatAmountDot())
                 }
-                if (self.invoice.totalNetValue(forVatRates: [VatRate(string: "0%")]) > 0 ) {
+                if (self.invoice.totalNetValue(forVatRates: [VatRate(string: "0 KR")]) > 0 ) {
                     node("P_13_6_1", value: self.invoice.totalNetValue(forVatRates: [
-                        VatRate(string: "0%")]).formatAmountDot())
+                        VatRate(string: "0 KR")]).formatAmountDot())
                 }
             }
             node("P_15", value: self.invoice.totalGrossValue.formatAmountDot())
