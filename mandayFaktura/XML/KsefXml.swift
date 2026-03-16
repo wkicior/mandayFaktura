@@ -102,8 +102,7 @@ class KsefXml {
             node("P_2", value: self.invoice.number)
             node("P_6", value: self.invoice.sellingDate.toDateBigEndianDashString())
             if (invoice.reverseCharge) {
-                node("P_13_8", value: self.invoice.totalNetValue.formatAmountDot())
-                node("P_13_10", value: self.invoice.totalNetValue.formatAmountDot())
+                node("P_13_9", value: self.invoice.totalNetValue.formatAmountDot())
             } else {
                 if (self.invoice.totalNetValue(forVatRates: [VatRate(string: "23%"), VatRate(string: "22%")]) > 0) {
                     node("P_13_1", value: self.invoice.totalNetValue(forVatRates: [
@@ -174,7 +173,7 @@ class KsefXml {
             node("P_11", value: item.netValue.formatAmountDot())
             node("P_11Vat", value: item.vatValue.formatAmountDot())
             if invoice.reverseCharge {
-                node("P_12", value: "oo")
+                node("P_12", value: "np II")
             } else {
                 node("P_12", value: try! item.vatRate.toKsefCode())
             }
