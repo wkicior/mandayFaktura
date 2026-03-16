@@ -349,8 +349,7 @@ class KsefXmlTests: XCTestCase {
     <P_1>2026-01-02</P_1>
     <P_2>1/A/2026</P_2>
     <P_6>2026-01-01</P_6>
-    <P_13_8>300.02</P_13_8>
-    <P_13_10>300.02</P_13_10>
+    <P_13_9>300.02</P_13_9>
     <P_15>300.02</P_15>
     <Adnotacje>
       <P_16>2</P_16>
@@ -382,7 +381,7 @@ Wystawił: Jan Kowalski</Wartosc>
       <P_9A>150.01</P_9A>
       <P_11>300.02</P_11>
       <P_11Vat>0</P_11Vat>
-      <P_12>oo</P_12>
+      <P_12>np II</P_12>
     </FaWiersz>
     <Platnosc>
       <TerminPlatnosci>
